@@ -12,7 +12,7 @@ const Dashboard = () => {
         <button
           type="button"
           onClick={() => navigate('/add-project')}
-          className="btn-primary border text-white px-5 py-3 font-normal text-base cursor-pointer text-center transition duration-500  hover:bg-orange-300 hover:border-none  mr-4"
+          className="btn-primary border text-white px-5 py-3 font-normal text-base cursor-pointer text-center transition duration-500  hover:bg-green-300 hover:border-none  mr-4"
         >
           Add Post
         </button>
@@ -20,7 +20,7 @@ const Dashboard = () => {
         <button
           type="button"
           onClick={() => navigate('/add-project')}
-          className="btn-primary border text-white px-5 py-3 font-normal text-base cursor-pointer text-center transition duration-500  hover:bg-orange-300 hover:border-none  mr-4"
+          className="btn-primary border text-white px-5 py-3 font-normal text-base cursor-pointer text-center transition duration-500  hover:bg-green-300 hover:border-none  mr-4"
         >
           Add Project
         </button>

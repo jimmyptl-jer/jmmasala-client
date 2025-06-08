@@ -10,7 +10,7 @@ const CategorySection = () => {
     <div>
       <h2 className="text-2xl font-bold mb-3">Category</h2>
       <div className="flex flex-col gap-3">
-        <label className="text-orange-300 text-sm flex-1">
+        <label className="text-green-300 text-sm flex-1">
           Category
           <input
             type="text"

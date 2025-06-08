@@ -1,32 +1,33 @@
 /** @type {import('tailwindcss').Config} */
-import flowbite from "flowbite/plugin";
-
 export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
+    "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}", // if using flowbite-react plugin
   ],
   theme: {
     extend: {
+      colors: {
+        limePrimary: '#88B04B',    // Fresh olive lime green
+        limeSecondary: '#A2C523',  // Bright lime green for highlights
+        earthBrown: '#6B4C3B',     // Warm earthy brown accent
+        softBeige: '#F6F1E7',      // Soft neutral background
+        darkSlate: '#2D2D2D',      // Dark text color for readability
+      },
       fontFamily: {
-        heading: ["Rozha One", "serif"],
-        body: ["Open Sans", "sans-serif"],
+        heading: ['Rozha One', 'serif'],
+        body: ['Open Sans', 'sans-serif'],
       },
       letterSpacing: {
-        wider: "0.05em",
-        widest: "0.15em",
+        wider: '0.05em',
+        widest: '0.15em',
       },
       lineHeight: {
-        relaxed: "1.75",
-      },
-      colors: {
-        spiceRed: "#A52A2A", // Chili Powder
-        turmeric: "#FFD700", // Turmeric
-        cardamom: "#D4A017", // Cardamom Gold
-        pepperBlack: "#2F2F2F", // Black Pepper
+        relaxed: '1.75',
       },
     },
   },
-  plugins: [flowbite],
+  plugins: [
+    require('flowbite/plugin'), // optional, only if you use flowbite-react
+  ],
 };

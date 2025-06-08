@@ -48,7 +48,7 @@ const ContactSection = () => {
       {/* Right Side - Contact Form */}
       <div className="flex-1 bg-white shadow-xl p-8 rounded-xl max-w-lg text-black">
         <div className="flex items-center gap-4">
-          <div className="bg-orange-100 p-4 rounded-full">
+          <div className="bg-green-100 p-4 rounded-full">
             <Rocket size={32} className="text-spiceRed" />
           </div>
           <div>

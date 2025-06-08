@@ -33,14 +33,14 @@ const PostGrid = () => {
         {posts.map((post) => (
           <div
             key={post._id}
-            className="flex flex-col border-l-4 border border-slate-700 transition duration-300 transform hover:scale-105 hover:border-orange-300 hover:text-white shadow-md p-4"
+            className="flex flex-col border-l-4 border border-slate-700 transition duration-300 transform hover:scale-105 hover:border-green-300 hover:text-white shadow-md p-4"
           >
             <img
               src={post.imageUrl}
               alt={post.title}
               className="w-full h-40 object-cover mb-4 rounded-md"
             />
-            <h2 className="text-xl text-orange-300 mb-2">{post.title}</h2>
+            <h2 className="text-xl text-green-300 mb-2">{post.title}</h2>
             <p className="text-gray-300 mb-4">{post.description}</p>
             <div className="flex justify-between">
               <Link

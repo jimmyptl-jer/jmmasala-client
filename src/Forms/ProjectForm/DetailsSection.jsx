@@ -10,7 +10,7 @@ const DetailsSection = () => {
     <div className="flex flex-col gap-4">
       <h1 className="text-3xl font-bold mb-3">Add Project</h1>
       {/* Title Input */}
-      <label className="text-orange-300 text-sm flex-1">
+      <label className="text-green-300 text-sm flex-1">
         Title
         <input
           type="text"
@@ -23,7 +23,7 @@ const DetailsSection = () => {
       </label>
 
       {/* Description Textarea */}
-      <label className="text-orange-300 text-sm flex-1">
+      <label className="text-green-300 text-sm flex-1">
         Description
         <textarea
           rows={10}
@@ -36,7 +36,7 @@ const DetailsSection = () => {
       </label>
 
       {/* Video Link Input */}
-      <label className="text-orange-300 text-sm  flex-1">
+      <label className="text-green-300 text-sm  flex-1">
         Video Link
         <input
           type="text"
@@ -46,7 +46,7 @@ const DetailsSection = () => {
       </label>
 
       {/* Blog Link Input */}
-      <label className="text-orange-300 text-sm flex-1">
+      <label className="text-green-300 text-sm flex-1">
         Blog Link
         <input
           type="text"
