@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 222, 47%, 11%;
+  --foreground: 0, 0%, 100%;
+  --primary: 142, 76%, 36%;
+  --primary-foreground: 0, 0%, 100%;
+  --secondary: 34, 89%, 47%;
+  --secondary-foreground: 0, 0%, 100%;
+  --muted: 0, 0%, 60%;
+  --muted-foreground: 0, 0%, 90%;
+  --card: 214, 11%, 24%;
+  --card-foreground: 0, 0%, 100%;
+  --border: 0, 0%, 80%;
+  --input: 0, 0%, 100%;
+  --ring: 184, 100%, 40%;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-delay {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Floating Animation for elements */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+  opacity: 0.75; /* Slightly improved opacity for better visibility */
+}
+
+/* Floating Animation with Delay for staggered effects */
+.animate-float-delay {
+  animation: float-delay 6s ease-in-out infinite;
+  opacity: 0.75;
+}
+
+/* Consistent Typography */
+body {
+  line-height: 1.5;
+  background-color: hsl(var(--background)); /* Using custom background color */
+  color: hsl(var(--foreground)); /* Using custom foreground color */
+}
+
+/* Link Styling */
+a {
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+  color: hsl(var(--primary-foreground)); /* Hover effect for links */
+}
+
+/* Additional Component-level Styles */
+.section {
+  padding: 4rem; /* Defined spacing from Tailwind config */
+}
+
+.card {
+  background-color: hsl(var(--card));
+  padding: 2rem; /* Spacing from Tailwind config */
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Defined box-shadow from Tailwind config */
+}
+
+/* Button Hover Effects */
+button:hover {
+  background-color: hsl(var(--primary));
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out;
+}
