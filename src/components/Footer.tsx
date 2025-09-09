@@ -1,15 +1,37 @@
 import { Mail, MapPin, Phone } from 'lucide-react';
+
+import JMLogo from "../assets/JmMasala.png";
+import { Link } from "react-router-dom";
+
+
 const Footer = () => {
   return (
     <>
-    {/* Footer */}
+      {/* Footer */}
       <footer className="bg-gray-800 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <span className="text-3xl">🌶️</span>
-                <span className="text-2xl font-bold text-amber-400">JM Masala</span>
+              {/* Logo */}
+              <div className="flex items-center space-x-3">
+                <div >
+                  <img
+                    src={JMLogo} // The image will now be passed as a prop
+                    alt={`JM Masala profile`}
+                    className="w-20 W-20 rounded-full object-cover mr-4"
+                  />
+                </div>
+                <Link
+                  to="/"
+                  className="tracking-wide hover:text-amber-700 transition-colors"
+                >
+                  <div>
+                    <div className="text-2xl font-bold text-amber-900">JM Masala</div>
+                    <div className="text-sm text-gray-600 font-normal">
+                      Indian Spice Exporter
+                    </div>
+                  </div>
+                </Link>
               </div>
               <p className="text-gray-300 mb-4">
                 Premium Indian spices exporter from Unjha, Gujarat.
