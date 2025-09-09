@@ -50,16 +50,16 @@ const InfoSection = () => {
   return (
     <section
       id="services"
-      className="py-20 bg-gradient-to-br from-amber-900 via-amber-800 to-amber-700"
+      className="py-20 text-amber-900"
       aria-label="JM Masala Core Services - Indian Spice Export Company"
     >
       <div className="container mx-auto px-4">
         {/* Header */}
         <header className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Our Core Services in <span className="text-amber-400">Spice Exports</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-900">
+            Our Core Services in Spice Exports
           </h2>
-          <p className="text-xl text-amber-100 max-w-3xl mx-auto">
+          <p className="text-xl text-amber-500 max-w-3xl mx-auto">
             JM Masala is a trusted <strong>Indian spice exporter from Unjha, Gujarat</strong>.
             We specialize in cumin, fennel, fenugreek, and psyllium seeds — delivering
             premium-quality spices with purity, trust, and global reach.
@@ -71,7 +71,7 @@ const InfoSection = () => {
           {services.map((service, index) => (
             <article
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 group"
+              className="rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 group"
               aria-label={service.title}
             >
               <div className="text-amber-600 mb-6 group-hover:text-amber-500 transition-colors duration-300">
@@ -96,25 +96,27 @@ const InfoSection = () => {
           ))}
         </div>
 
-        {/* Stats Section */}
-        <aside className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+        <aside className="bg-white/10 backdrop-blur-sm rounded-2xl p-8" aria-labelledby="stats-heading">
           <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-white mb-2">
+            <h3 id="stats-heading" className="text-4xl font-bold  mb-2">
               Why Choose JM Masala - Trusted Spice Exporter
             </h3>
-            <p className="text-amber-100">Generations of trust, certified quality, and worldwide exports</p>
+            <p className="text-amber-700">
+              Generations of trust, certified quality, and worldwide exports
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div role="list" className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-amber-400 mb-3 flex justify-center">{stat.icon}</div>
-                <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
-                <div className="text-amber-200 text-sm">{stat.label}</div>
+              <div key={index} role="listitem" className="text-center">
+                <div className="text-amber-700 mb-3 flex justify-center">{stat.icon}</div>
+                <div className="text-3xl font-bold mb-2">{stat.value}</div>
+                <div className="text-amber-700 text-sm">{stat.label}</div>
               </div>
             ))}
           </div>
         </aside>
+
 
         {/* CTA */}
         <div className="text-center mt-12">
