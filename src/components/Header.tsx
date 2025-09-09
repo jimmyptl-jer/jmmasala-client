@@ -56,7 +56,7 @@ const Header = () => {
               <img
                 src={JMLogo} // The image will now be passed as a prop
                 alt={`JM Masala profile`}
-                className="w-16 h-16 rounded-full object-cover mr-4"
+                className="w-20 W-20 rounded-full object-cover mr-4"
               />
             </div>
             <Link
