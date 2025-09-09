@@ -2,55 +2,70 @@ import { Award, Globe, TrendingUp, Users } from 'lucide-react';
 
 const AboutUs = () => {
   return (
-    <section id="about" className="py-20 bg-white">
+    <section
+      id="about"
+      className="py-20 bg-white"
+      aria-labelledby="about-heading"
+    >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div>
-            <div className="inline-block bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <span className="inline-block bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               About JM Masala
-            </div>
+            </span>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-amber-900 mb-6">
-              Generations in Spice Trading
+            <h2
+              id="about-heading"
+              className="text-4xl md:text-5xl font-bold text-amber-900 mb-6"
+            >
+              Leading Indian Spice Exporter from Unjha
             </h2>
 
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              JM Masala carries forward a proud family legacy in the spice trade,
-              rooted in <strong>Unjha, Gujarat</strong> — Asia’s largest spice mandi.
-              For generations, our family has been sourcing and trading cumin, coriander, fennel,
-              fenugreek, and psyllium, combining traditional expertise with modern export practices.
+            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+              <strong>JM Masala</strong> carries forward a proud family legacy in
+              the spice trade, rooted in <strong>Unjha, Gujarat</strong> —
+              Asia’s largest spice mandi and hub for
+              <strong> cumin, coriander, fennel, fenugreek,</strong> and{' '}
+              <strong>psyllium exports</strong>. For generations, our family has
+              combined traditional expertise with modern export practices.
             </p>
 
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              With direct access to local farmers and proximity to <strong>Mundra & Kandla ports</strong>,
-              we ensure the finest quality, competitive pricing, and fast global delivery —
-              making us a trusted partner for spice importers worldwide.
+            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+              With direct farmer partnerships and proximity to{' '}
+              <strong>Mundra & Kandla ports</strong>, we deliver the finest
+              quality spices at competitive prices with fast, reliable global
+              shipping. This makes us a trusted partner for{' '}
+              <strong>spice importers and distributors worldwide</strong>.
             </p>
 
             {/* Achievements */}
             <div className="grid grid-cols-2 gap-6 mb-8">
               <div className="text-center p-4 bg-amber-50 rounded-lg">
                 <div className="text-3xl font-bold text-amber-600 mb-2">10+</div>
-                <div className="text-gray-600">Years Export Experience</div>
+                <p className="text-gray-700">Years Export Experience</p>
               </div>
               <div className="text-center p-4 bg-amber-50 rounded-lg">
                 <div className="text-3xl font-bold text-amber-600 mb-2">25+</div>
-                <div className="text-gray-600">Countries Served</div>
+                <p className="text-gray-700">Countries Served</p>
               </div>
             </div>
 
-            <button className="bg-amber-600 text-white px-8 py-3 rounded-lg hover:bg-amber-700 transition-colors duration-300 font-semibold">
+            <a
+              href="#process"
+              className="bg-amber-600 text-white px-8 py-3 rounded-lg hover:bg-amber-700 transition-colors duration-300 font-semibold inline-block"
+            >
               Discover Our Story
-            </button>
+            </a>
           </div>
 
           {/* Right Content */}
           <div className="relative">
             <img
               src="https://images.pexels.com/photos/4198022/pexels-photo-4198022.jpeg"
-              alt="Indian spices export"
+              alt="Premium Indian spices exporter from Unjha - cumin, fennel, coriander"
               className="rounded-2xl shadow-2xl w-full h-96 object-cover"
+              loading="lazy"
             />
 
             {/* Floating Cards */}
@@ -61,7 +76,7 @@ const AboutUs = () => {
                 </div>
                 <div>
                   <div className="font-bold text-gray-800">Certified Quality</div>
-                  <div className="text-sm text-gray-600">APEDA | FSSAI | SGS</div>
+                  <p className="text-sm text-gray-600">APEDA | FSSAI | SGS</p>
                 </div>
               </div>
             </div>
@@ -73,7 +88,7 @@ const AboutUs = () => {
                 </div>
                 <div>
                   <div className="font-bold text-gray-800">Global Presence</div>
-                  <div className="text-sm text-gray-600">UAE | USA | Europe</div>
+                  <p className="text-sm text-gray-600">UAE | USA | Europe</p>
                 </div>
               </div>
             </div>
@@ -82,35 +97,42 @@ const AboutUs = () => {
 
         {/* Values Section */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center p-8 bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl">
+          <article className="text-center p-8 bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl">
             <div className="bg-amber-600 text-white p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
               <Users className="w-8 h-8" />
             </div>
-            <h3 className="text-xl font-bold text-amber-900 mb-3">Farmer Partnerships</h3>
-            <p className="text-gray-600">
-              Working directly with Indian farmers ensures authenticity, freshness, and fair trade.
+            <h3 className="text-xl font-bold text-amber-900 mb-3">
+              Farmer Partnerships
+            </h3>
+            <p className="text-gray-700">
+              We work directly with Indian farmers to ensure authenticity,
+              freshness, and fair trade practices in spice sourcing.
             </p>
-          </div>
+          </article>
 
-          <div className="text-center p-8 bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl">
+          <article className="text-center p-8 bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl">
             <div className="bg-amber-600 text-white p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
               <Globe className="w-8 h-8" />
             </div>
             <h3 className="text-xl font-bold text-amber-900 mb-3">Global Reach</h3>
-            <p className="text-gray-600">
-              Delivering spices to more than 25 countries with efficient port logistics.
+            <p className="text-gray-700">
+              Delivering spices to more than 25 countries with efficient port
+              logistics and international trade compliance.
             </p>
-          </div>
+          </article>
 
-          <div className="text-center p-8 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl">
+          <article className="text-center p-8 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl">
             <div className="bg-green-600 text-white p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
               <TrendingUp className="w-8 h-8" />
             </div>
-            <h3 className="text-xl font-bold text-green-900 mb-3">Quality & Growth</h3>
-            <p className="text-gray-600">
-              Committed to delivering superior spices that fuel growth for our partners.
+            <h3 className="text-xl font-bold text-green-900 mb-3">
+              Quality & Growth
+            </h3>
+            <p className="text-gray-700">
+              Committed to delivering premium-quality spices that fuel business
+              growth for our partners worldwide.
             </p>
-          </div>
+          </article>
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { FiClock, FiGlobe, FiMail, FiMenu, FiPhone, FiX } from "react-icons/fi";
+import JMLogo from "../assets/JmMasala.png";
+import { FiClock, FiMail, FiMenu, FiPhone, FiX } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
@@ -51,8 +52,12 @@ const Header = () => {
 
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="bg-amber-600 p-2 rounded-lg">
-              <FiGlobe className="w-8 h-8 text-white" />
+            <div >
+              <img
+                src={JMLogo} // The image will now be passed as a prop
+                alt={`JM Masala profile`}
+                className="w-16 h-16 rounded-full object-cover mr-4"
+              />
             </div>
             <Link
               to="/"
@@ -74,11 +79,10 @@ const Header = () => {
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className={`nav-link ${
-                      path === link.path
-                        ? "text-amber-700 font-bold"
-                        : "hover:text-amber-600"
-                    } transition-colors duration-300`}
+                    className={`nav-link ${path === link.path
+                      ? "text-amber-700 font-bold"
+                      : "hover:text-amber-600"
+                      } transition-colors duration-300`}
                     onClick={closeMenu}
                   >
                     {link.label}
@@ -94,9 +98,8 @@ const Header = () => {
 
         {/* Mobile Menu */}
         <div
-          className={`mobile-menu md:hidden fixed top-0 left-0 w-full h-full bg-white z-30 transition-transform duration-300 ${
-            isMenuOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
+          className={`mobile-menu md:hidden fixed top-0 left-0 w-full h-full bg-white z-30 transition-transform duration-300 ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
+            }`}
           aria-hidden={!isMenuOpen}
         >
           <div className="flex justify-end p-4">
@@ -113,11 +116,10 @@ const Header = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`nav-link ${
-                  path === link.path
-                    ? "text-amber-700 font-bold"
-                    : "hover:text-amber-600"
-                } transition-colors duration-300`}
+                className={`nav-link ${path === link.path
+                  ? "text-amber-700 font-bold"
+                  : "hover:text-amber-600"
+                  } transition-colors duration-300`}
                 onClick={closeMenu}
               >
                 {link.label}
@@ -132,9 +134,6 @@ const Header = () => {
           </nav>
         </div>
       </header>
-
-      {/* Spacer */}
-      <div className="spacer h-16 md:h-20"></div>
     </>
   );
 };

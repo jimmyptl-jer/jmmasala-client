@@ -11,8 +11,8 @@ export default {
         mono: ["Fira Code", "monospace"],
       },
       fontSize: {
-        xl: "1.25rem",  // Large text for headings
-        "2xl": "1.5rem", // Bigger heading size
+        xl: "1.25rem",
+        "2xl": "1.5rem",
       },
       spacing: {
         section: "4rem",
@@ -27,8 +27,8 @@ export default {
         "2xl": "1536px",
       },
       boxShadow: {
-        soft: "0 4px 12px rgba(0, 0, 0, 0.1)",
-        card: "0 6px 16px rgba(0, 0, 0, 0.15)",
+        soft: "0 4px 12px rgba(0, 0, 0, 0.05)",   // lighter shadows
+        card: "0 6px 20px rgba(0, 0, 0, 0.08)",
       },
       borderRadius: {
         lg: "12px",
@@ -43,27 +43,27 @@ export default {
         },
       },
       colors: {
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground), 100%)",
+        white: "#FFFFFF", // clean background
+        parchment: {
+          50: "#FAFAF9",  // almost white (background section blocks)
+          100: "#F5F3EF", // creamy parchment
         },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground), 100%)",
+        amber: {
+          500: "#D97706", // spice amber
         },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+        green: {
+          400: "#4ADE80", // cilantro green
         },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+        curry: {
+          700: "#A16207", // richer curry accent
         },
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
+        cardamom: {
+          600: "#374151", // softer cardamom gray
+        },
+        text: {
+          primary: "#1F2937",   // near-black for headings
+          secondary: "#4B5563", // gray for body text
+        },
       },
     },
   },
