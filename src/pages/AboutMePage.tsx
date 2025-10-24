@@ -14,6 +14,7 @@ import {
   Users
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import MainHeaderImage from "../assets/aboutpage.png";
 
 const AboutUs = () => {
   const [isVisible, setIsVisible] = useState({
@@ -129,7 +130,7 @@ const AboutUs = () => {
       <section className="relative h-96 md:h-[500px] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40 z-10"></div>
         <img
-          src="https://images.pexels.com/photos/4198015/pexels-photo-4198015.jpeg"
+          src={MainHeaderImage}
           alt="Spice Market Heritage"
           className="w-full h-full object-cover"
         />
