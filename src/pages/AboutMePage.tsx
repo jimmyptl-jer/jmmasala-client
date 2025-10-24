@@ -15,6 +15,8 @@ import {
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import MainHeaderImage from "../assets/aboutpage.png";
+import aboutImage2 from "../assets/aboutpage-2.png";
+
 
 const AboutUs = () => {
   const [isVisible, setIsVisible] = useState({
@@ -226,7 +228,7 @@ const AboutUs = () => {
                 </div>
                 <div>
                   <img
-                    src="https://images.pexels.com/photos/4198015/pexels-photo-4198015.jpeg"
+                    src={aboutImage2}
                     alt="Traditional Spice Trading"
                     className="rounded-xl shadow-2xl"
                   />
