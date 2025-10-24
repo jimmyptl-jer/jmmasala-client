@@ -38,7 +38,7 @@ const ContactUsPage: React.FC = () => {
       icon: <MapPin className="w-6 h-6" />,
       title: "Our Location",
       details: [
-        "Near APMC Market Yard",
+        "A-18, APMC Market Yard",
         "Unjha, Mehsana District",
         "Gujarat – 384170, India"
       ],
@@ -57,7 +57,7 @@ const ContactUsPage: React.FC = () => {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Address",
       details: [
-        "jmmasala@outlook.in"
+        "info@jmmasalaexports.com"
       ],
       color: "from-amber-600 to-yellow-500"
     },
@@ -316,11 +316,10 @@ const ContactUsPage: React.FC = () => {
                   <button
                     onClick={handleSubmit}
                     disabled={isLoading}
-                    className={`w-full py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 ${
-                      isLoading
-                        ? 'bg-gray-400 cursor-not-allowed'
-                        : 'bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white shadow-lg hover:shadow-xl'
-                    }`}
+                    className={`w-full py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 ${isLoading
+                      ? 'bg-gray-400 cursor-not-allowed'
+                      : 'bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white shadow-lg hover:shadow-xl'
+                      }`}
                   >
                     {isLoading ? (
                       <div className="flex items-center justify-center space-x-2">
@@ -437,7 +436,7 @@ const ContactUsPage: React.FC = () => {
             </a>
 
             <a
-              href="mailto:jmmasala@outlook.in"
+              href="mailto:info@jmmasalaexports.com"
               className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-amber-600 transition-all duration-300 flex items-center space-x-2"
             >
               <Mail className="w-5 h-5" />

@@ -6,9 +6,7 @@ const FeatureCard = () => {
     const link = document.createElement('a');
     link.href = '/JMMasalaProducts.pdf';
     link.download = 'JMMasalaProducts.pdf';
-    document.body.appendChild(link);
     link.click();
-    document.body.removeChild(link);
   }
 
   const features = [

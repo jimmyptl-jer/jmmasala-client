@@ -165,11 +165,10 @@ const JMMasalaProducts: React.FC = () => {
               <button
                 key={product.id}
                 onClick={() => setSelectedProduct(index)}
-                className={`flex items-center space-x-2 px-4 py-2 rounded-full font-medium transition-all duration-300 ${
-                  selectedProduct === index
-                    ? 'bg-amber-500 text-white shadow-lg transform scale-105'
-                    : 'bg-amber-100 text-amber-700 hover:bg-amber-200'
-                }`}
+                className={`flex items-center space-x-2 px-4 py-2 rounded-full font-medium transition-all duration-300 ${selectedProduct === index
+                  ? 'bg-amber-500 text-white shadow-lg transform scale-105'
+                  : 'bg-amber-100 text-amber-700 hover:bg-amber-200'
+                  }`}
               >
                 <span className="text-lg">{product.icon}</span>
                 <span>{product.name}</span>
@@ -299,11 +298,10 @@ const JMMasalaProducts: React.FC = () => {
               <button
                 key={grade.region}
                 onClick={() => setSelectedGrade(grade.region)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                  selectedGrade === grade.region
-                    ? 'bg-amber-500 text-white shadow-lg'
-                    : 'bg-amber-100 text-amber-700 hover:bg-amber-200'
-                }`}
+                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${selectedGrade === grade.region
+                  ? 'bg-amber-500 text-white shadow-lg'
+                  : 'bg-amber-100 text-amber-700 hover:bg-amber-200'
+                  }`}
               >
                 {grade.region} Quality
               </button>
@@ -391,24 +389,30 @@ const JMMasalaProducts: React.FC = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-12 text-center">
-          <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-amber-200">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">Ready to Source Premium Spices?</h3>
-            <p className="text-gray-600 text-lg mb-6">
+        <div className="mt-12 text-center bg-amber-500 text-white rounded-3xl p-12 shadow-xl flex flex-col items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              className="bg-white text-amber-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/JMMasalaProducts.pdf';
+                link.download = 'JM-Masala-Catalog.pdf';
+                link.click();
+              }}
+            >
+              Get Product Catalog
+            </button>
+
+            <button
+              className="bg-white text-amber-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+              onClick={() => (window.location.href = '/get-quote')}
+            >
               Contact us for detailed specifications, pricing, and custom requirements
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
-                Request Quote
-              </button>
-              <button className="border-2 border-amber-500 text-amber-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-amber-50 transition-all duration-300">
-                Download Catalog
-              </button>
-            </div>
+            </button>
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

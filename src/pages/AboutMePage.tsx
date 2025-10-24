@@ -171,9 +171,8 @@ const AboutUs = () => {
       </section>
 
       {/* Story Tabs Section */}
-      <section id="story" className={`py-20 bg-gradient-to-b from-gray-50 to-white transition-all duration-1000 ${
-        isVisible.story ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}>
+      <section id="story" className={`py-20 bg-gradient-to-b from-gray-50 to-white transition-all duration-1000 ${isVisible.story ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -194,11 +193,10 @@ const AboutUs = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
-                  activeTab === tab.id
-                    ? 'bg-amber-600 text-white shadow-lg'
-                    : 'bg-white text-gray-700 hover:bg-amber-50 shadow-md'
-                }`}
+                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${activeTab === tab.id
+                  ? 'bg-amber-600 text-white shadow-lg'
+                  : 'bg-white text-gray-700 hover:bg-amber-50 shadow-md'
+                  }`}
               >
                 {tab.label}
               </button>
@@ -309,9 +307,8 @@ const AboutUs = () => {
       </section>
 
       {/* Timeline Section */}
-      <section id="timeline" className={`py-20 bg-white transition-all duration-1000 ${
-        isVisible.timeline ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}>
+      <section id="timeline" className={`py-20 bg-white transition-all duration-1000 ${isVisible.timeline ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -350,9 +347,8 @@ const AboutUs = () => {
       </section>
 
       {/* Values Section */}
-      <section id="values" className={`py-20 bg-gradient-to-b from-amber-50 to-white transition-all duration-1000 ${
-        isVisible.values ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}>
+      <section id="values" className={`py-20 bg-gradient-to-b from-amber-50 to-white transition-all duration-1000 ${isVisible.values ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -385,9 +381,8 @@ const AboutUs = () => {
       </section>
 
       {/* Certifications Section */}
-      <section id="certifications" className={`py-20 bg-gray-900 text-white transition-all duration-1000 ${
-        isVisible.certifications ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}>
+      <section id="certifications" className={`py-20 bg-gray-900 text-white transition-all duration-1000 ${isVisible.certifications ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -420,9 +415,8 @@ const AboutUs = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section id="mission" className={`py-20 bg-white transition-all duration-1000 ${
-        isVisible.mission ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}>
+      <section id="mission" className={`py-20 bg-white transition-all duration-1000 ${isVisible.mission ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-16">
             <div className="text-center">
@@ -463,10 +457,22 @@ const AboutUs = () => {
             and every spice tells a story of excellence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-amber-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
+            <button
+              className="bg-white text-amber-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/JMMasalaProducts.pdf';
+                link.download = 'JM-Masala-Catalog.pdf';
+                link.click();
+              }}
+            >
               Get Product Catalog
             </button>
-            <button className="border-2 border-white hover:bg-white hover:text-amber-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300">
+
+            <button
+              className="border-2 border-white hover:bg-white hover:text-amber-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300"
+              onClick={() => (window.location.href = '/get-quote')}
+            >
               Contact Our Team
             </button>
           </div>

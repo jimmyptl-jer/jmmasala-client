@@ -27,13 +27,13 @@ const ContactSection = () => {
     {
       icon: <Phone className="w-6 h-6" aria-hidden="true" />,
       title: "Phone",
-      details: ["+91 98765 43210", "+91 91234 56789"],
+      details: ["+91 98245 10478", "+91 91067 66041"],
       schema: "telephone"
     },
     {
       icon: <Mail className="w-6 h-6" aria-hidden="true" />,
       title: "Email",
-      details: ["info@jmmassala.com", "support@jmmassala.com"],
+      details: ["info@jmmasalexports.com", "support@jmmasalexports.com"],
       schema: "email"
     },
     {
@@ -65,8 +65,8 @@ const ContactSection = () => {
             "addressRegion": "Gujarat",
             "addressCountry": "India"
           },
-          "telephone": ["+91 98765 43210", "+91 91234 56789"],
-          "email": ["info@jmmassala.com", "support@jmmassala.com"],
+          "telephone": ["+91 98245 10478", "+91 91067 66041"],
+          "email": ["info@jmmasalexports.com", "support@jmmasalexports.com"],
           "openingHours": "Mo-Sa 09:00-19:00",
           "contactPoint": {
             "@type": "ContactPoint",

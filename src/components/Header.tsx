@@ -16,7 +16,6 @@ const Header = () => {
     { path: "/about", label: "About Us" },
     { path: "/products", label: "Products" },
     { path: "/contact", label: "Contact" },
-    { path: "/get-quote", label: "Get Quote" },
   ];
 
   const NavLinks = ({ isMobile = false }: { isMobile?: boolean }) => (
