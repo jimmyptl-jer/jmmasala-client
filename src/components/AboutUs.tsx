@@ -1,4 +1,5 @@
 import { Award, Globe, TrendingUp, Users } from 'lucide-react';
+import MainHeaderImage from "../assets/mainpageimage.png";
 
 const AboutUs = () => {
   return (
@@ -62,7 +63,7 @@ const AboutUs = () => {
           {/* Right Content */}
           <div className="relative">
             <img
-              src="https://images.pexels.com/photos/4198022/pexels-photo-4198022.jpeg"
+              src={MainHeaderImage}
               alt="Premium Indian spices exporter from Unjha - cumin, fennel, coriander"
               className="rounded-2xl shadow-2xl w-full h-96 object-cover"
               loading="lazy"
