@@ -42,19 +42,19 @@ const Footer = () => {
           "name": "JM Masala",
           "alternateName": "JM Masala Indian Spice Exporter",
           "description": "Premium Indian spices exporter from Unjha, Gujarat. Specializing in cumin, fennel, fenugreek, turmeric, red chili, and psyllium export worldwide.",
-          "url": "https://jmmasala.com",
-          "logo": "https://jmmasala.com/assets/JmMasala.png",
+          "url": "https://jmmasalaexports.com",
+          "logo": "https://jmmasalaexports.com/assets/JmMasala.png",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Near APMC Market Yard",
+            "streetAddress": "A-18, APMC Market Yard",
             "addressLocality": "Unjha",
             "addressRegion": "Gujarat",
-            "postalCode": "384170",
+            "postalCode": "384370",
             "addressCountry": "IN"
           },
           "telephone": "+91 91067 66041",
-          "email": "jmmasala@outlook.in",
-          "foundingDate": "1998",
+          "email": "info@jmmasalaexports.com",
+          "foundingDate": "1999",
           "sameAs": [
             "https://www.facebook.com/jmmasala",
             "https://www.linkedin.com/company/jm-masala",
@@ -90,7 +90,7 @@ const Footer = () => {
                       JM Masala
                     </h3>
                     <p className="text-gray-300 text-sm font-medium">
-                      Premium Indian Spice Exporter Since 1998
+                      Premium Indian Spice Exporter Since 1999
                     </p>
                   </div>
                 </div>
@@ -122,7 +122,7 @@ const Footer = () => {
                     <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" />
                   </a>
                   <a
-                    href="https://jmmasala.com"
+                    href="https://jmmasalaexports.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group w-10 h-10 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center hover:from-orange-600 hover:to-amber-600 transition-all duration-300 hover:scale-110 hover:shadow-lg"
@@ -186,8 +186,8 @@ const Footer = () => {
                     <MapPin className="w-5 h-5 text-orange-400 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
                     <div className="text-gray-300 text-sm leading-relaxed">
                       <strong>JM Masala Pvt. Ltd.</strong><br />
-                      Near APMC Market Yard<br />
-                      Unjha, Gujarat – 384170<br />
+                      A-18, APMC Market Yard<br />
+                      Unjha, Gujarat – 384370<br />
                       India
                     </div>
                   </div>
@@ -197,16 +197,16 @@ const Footer = () => {
                       href="tel:+919106766041"
                       className="text-gray-300 text-sm hover:text-orange-400 transition-colors"
                     >
-                      +91 91067 66041
+                      +91 98245 10478 / +91 91067 66041
                     </a>
                   </div>
                   <div className="flex items-center space-x-3 group">
                     <Mail className="w-5 h-5 text-orange-400 flex-shrink-0 group-hover:scale-110 transition-transform" />
                     <a
-                      href="mailto:jmmasala@outlook.in"
+                      href="mailto:info@jmmasalaexports.com"
                       className="text-gray-300 text-sm hover:text-orange-400 transition-colors"
                     >
-                      jmmasala@outlook.in
+                      info@jmmasalaexports.com
                     </a>
                   </div>
                 </address>

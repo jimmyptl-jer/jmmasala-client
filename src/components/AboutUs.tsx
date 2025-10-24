@@ -52,7 +52,7 @@ const AboutUs = () => {
             </div>
 
             <a
-              href="#process"
+              href="/about"
               className="bg-amber-600 text-white px-8 py-3 rounded-lg hover:bg-amber-700 transition-colors duration-300 font-semibold inline-block"
             >
               Discover Our Story

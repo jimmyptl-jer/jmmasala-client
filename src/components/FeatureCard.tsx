@@ -1,6 +1,16 @@
 import { Award, Globe, Package, Shield, TrendingUp, Users } from 'lucide-react';
 
 const FeatureCard = () => {
+
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/JMMasalaProducts.pdf';
+    link.download = 'JMMasalaProducts.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
   const features = [
     {
       icon: <Shield className="w-10 h-10" aria-hidden="true" />,
@@ -98,10 +108,10 @@ const FeatureCard = () => {
             deliver quality and consistency to your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-amber-500 text-amber-900 px-8 py-3 rounded-lg hover:bg-amber-400 transition-colors duration-300 font-semibold">
+            <button className="bg-amber-500 text-amber-900 px-8 py-3 rounded-lg hover:bg-amber-400 transition-colors duration-300 font-semibold" onClick={() => window.location.href = '/get-quote'}>
               Request a Quote
             </button>
-            <button className="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-amber-700 transition-colors duration-300 font-semibold">
+            <button className="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-amber-700 transition-colors duration-300 font-semibold" onClick={handleDownload}>
               Download Product Catalog
             </button>
           </div>

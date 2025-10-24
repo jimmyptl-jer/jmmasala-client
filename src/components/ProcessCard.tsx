@@ -85,7 +85,8 @@ const ProcessCards = () => {
         </ol>
 
         <div className="text-center mt-12">
-          <button className="bg-amber-600 text-white px-8 py-4 rounded-lg hover:bg-green-700 transition-colors duration-300 font-semibold text-lg shadow-md">
+          <button className="bg-amber-600 text-white px-8 py-4 rounded-lg hover:bg-green-700 transition-colors duration-300 font-semibold text-lg shadow-md"
+            onClick={() => window.location.href = '/get-quote'}>
             Start Your Spice Order Today
           </button>
         </div>

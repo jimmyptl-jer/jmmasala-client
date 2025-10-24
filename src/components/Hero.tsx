@@ -54,7 +54,7 @@ const Hero = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <a
-              href="#quote"
+              href="/get-quote"
               className="bg-amber-600 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center group hover:bg-amber-700 transition-all duration-300 focus:ring-2 focus:ring-amber-300 focus:outline-none"
               role="button"
               aria-label="Request a quote for premium Indian spices"
@@ -66,7 +66,7 @@ const Hero = () => {
               />
             </a>
             <a
-              href="#products"
+              href="/products"
               className="border-2 border-amber-600 text-amber-900 px-8 py-4 rounded-lg font-semibold text-lg text-center hover:bg-amber-600 hover:text-white transition-all duration-300 focus:ring-2 focus:ring-amber-300 focus:outline-none"
               role="button"
               aria-label="Browse our spice product catalog"

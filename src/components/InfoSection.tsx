@@ -120,7 +120,8 @@ const InfoSection = () => {
 
         {/* CTA */}
         <div className="text-center mt-12">
-          <button className="bg-amber-500 text-amber-900 px-8 py-4 rounded-lg hover:bg-amber-400 transition-colors duration-300 font-semibold text-lg">
+          <button className="bg-amber-500 text-amber-900 px-8 py-4 rounded-lg hover:bg-amber-400 transition-colors duration-300 font-semibold text-lg"
+            onClick={() => window.location.href = '/get-quote'}>
             Request a Quote for Indian Spice Exports
           </button>
         </div>

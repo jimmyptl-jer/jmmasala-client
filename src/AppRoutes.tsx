@@ -5,6 +5,9 @@ import AboutUs from './pages/AboutMePage';
 import ContactUsPage from './pages/ContactPage';
 import Home from './pages/HomePage';
 import JMMasalaProducts from './pages/ProductPage';
+import QuotePage from './pages/QuotePage';
+
+//Admin Imports
 
 function App() {
   return (
@@ -17,8 +20,11 @@ function App() {
           <Route path="/products" element={<JMMasalaProducts />} />
           <Route path="/process" element={<Home />} />
           <Route path="/contact" element={<ContactUsPage />} />
+          <Route path="/get-quote" element={<QuotePage />} />
+
+          <Route path="*" element={<Home />} />
         </Routes>
-        <Footer/>
+        <Footer />
       </div>
     </>
   );
