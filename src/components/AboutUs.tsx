@@ -65,7 +65,7 @@ const AboutUs = () => {
             <img
               src={MainHeaderImage}
               alt="Premium Indian spices exporter from Unjha - cumin, fennel, coriander"
-              className="rounded-2xl shadow-2xl w-full h-96 object-cover"
+              className="rounded-2xl shadow-2xl w-full h-full object-fill"
               loading="lazy"
             />
 
