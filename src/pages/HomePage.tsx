@@ -47,16 +47,19 @@ const HomePage = () => {
             <p className="jm-tagline text-[18px] text-[var(--color-accent)]">
               Premium Indian Spices — From the Heart of Unjha
             </p>
-            <h1 className="jm-heading-1 max-w-xl text-white lg:text-[52px]">
+            <h1 className="max-w-xl text-white lg:text-[52px]">
               Complete Indian Spice Portfolio from Unjha
             </h1>
             <p className="max-w-xl text-[16px] text-[rgba(255,255,255,0.88)] sm:text-[18px]">
-              A single export partner for cumin, fennel, coriander, chilli, turmeric,
-              fenugreek, psyllium and more — HACCP and ISO 22000 aligned, APEDA and Spice
-              Board registered.
+              A single export partner for cumin, fennel, coriander, chilli,
+              turmeric, fenugreek, psyllium and more — HACCP and ISO 22000
+              aligned, APEDA and Spice Board registered.
             </p>
             <div className="mt-4 flex flex-wrap gap-4">
-              <a href="/JMMasalaProducts.pdf" className="jm-btn jm-btn--secondary">
+              <a
+                href="/JMMasalaProducts.pdf"
+                className="jm-btn jm-btn--secondary"
+              >
                 Download Product Catalogue
               </a>
               <Link
@@ -154,7 +157,9 @@ const HomePage = () => {
       <section className="jm-section jm-section--white">
         <div className="jm-container">
           <p className="jm-section-label">Certifications</p>
-          <h2 className="jm-section-heading">Export &amp; Quality Certifications</h2>
+          <h2 className="jm-section-heading">
+            Export &amp; Quality Certifications
+          </h2>
           <div className="jm-section-underline" />
           <div className="jm-cert-badges mt-6">
             {[
