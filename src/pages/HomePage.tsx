@@ -3,9 +3,6 @@ import { CheckCircle2 } from "lucide-react";
 import Seo from "@/components/Seo";
 import { PRODUCTS, SITE_URL, TRUST_BADGES } from "@/data/siteData";
 
-const northProducts = PRODUCTS.filter((product) => product.category === "north");
-const southProducts = PRODUCTS.filter((product) => product.category === "south");
-
 const HomePage = () => {
   return (
     <>
@@ -51,12 +48,12 @@ const HomePage = () => {
               Premium Indian Spices — From the Heart of Unjha
             </p>
             <h1 className="jm-heading-1 max-w-xl text-white lg:text-[52px]">
-              India&apos;s Complete Spice Sourcing Partner
+              Complete Indian Spice Portfolio from Unjha
             </h1>
             <p className="max-w-xl text-[16px] text-[rgba(255,255,255,0.88)] sm:text-[18px]">
-              North and South Indian spices from a single export partner. Cumin, fennel,
-              coriander, chilli, turmeric, fenugreek, psyllium and more — HACCP and ISO
-              22000 aligned, APEDA and Spice Board registered.
+              A single export partner for cumin, fennel, coriander, chilli, turmeric,
+              fenugreek, psyllium and more — HACCP and ISO 22000 aligned, APEDA and Spice
+              Board registered.
             </p>
             <div className="mt-4 flex flex-wrap gap-4">
               <a href="/JMMasalaProducts.pdf" className="jm-btn jm-btn--secondary">
@@ -95,54 +92,31 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14">
-        <h2 className="font-serif text-3xl font-bold text-stone-900">
-          Our Complete Spice Portfolio
-        </h2>
-        <div className="mt-8 grid gap-8 lg:grid-cols-2">
-          <div className="rounded-2xl border border-stone-200 bg-white p-6">
-            <h3 className="text-xl font-semibold text-stone-900">
-              North Indian Spices - Sourced from Unjha, Gujarat
-            </h3>
-            <div className="mt-5 grid gap-4">
-              {northProducts.map((product) => (
-                <article
-                  key={product.slug}
-                  className="rounded-xl border border-stone-200 p-4"
+      <section className="jm-section jm-section--white">
+        <div className="jm-container">
+          <p className="jm-section-label">Product Portfolio</p>
+          <h2 className="jm-section-heading">Our Complete Spice Portfolio</h2>
+          <div className="jm-section-underline" />
+          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {PRODUCTS.slice(0, 6).map((product) => (
+              <article
+                key={product.slug}
+                className="rounded-xl border border-[var(--color-bg-beige)] bg-white p-5 shadow-[0_2px_12px_rgba(92,46,14,0.06)]"
+              >
+                <h3 className="jm-heading-4 text-[var(--color-text-dark)]">
+                  {product.name}
+                </h3>
+                <p className="mt-2 text-sm text-[var(--color-text-medium)]">
+                  {product.shortDescription}
+                </p>
+                <Link
+                  to={`/${product.slug}`}
+                  className="mt-3 inline-flex text-sm font-semibold text-[var(--color-secondary)] hover:text-[var(--color-primary)]"
                 >
-                  <h4 className="font-semibold text-stone-900">{product.name}</h4>
-                  <p className="mt-1 text-sm text-stone-600">{product.shortDescription}</p>
-                  <Link
-                    to={`/${product.slug}`}
-                    className="mt-3 inline-block text-sm font-semibold text-amber-700 hover:text-amber-800"
-                  >
-                    View Specifications
-                  </Link>
-                </article>
-              ))}
-            </div>
-          </div>
-          <div className="rounded-2xl border border-stone-200 bg-white p-6">
-            <h3 className="text-xl font-semibold text-stone-900">
-              South Indian Spices - East India Partnership
-            </h3>
-            <div className="mt-5 grid gap-4">
-              {southProducts.map((product) => (
-                <article
-                  key={product.slug}
-                  className="rounded-xl border border-stone-200 p-4"
-                >
-                  <h4 className="font-semibold text-stone-900">{product.name}</h4>
-                  <p className="mt-1 text-sm text-stone-600">{product.shortDescription}</p>
-                  <Link
-                    to={`/${product.slug}`}
-                    className="mt-3 inline-block text-sm font-semibold text-amber-700 hover:text-amber-800"
-                  >
-                    View Specifications
-                  </Link>
-                </article>
-              ))}
-            </div>
+                  View Specifications
+                </Link>
+              </article>
+            ))}
           </div>
         </div>
       </section>
