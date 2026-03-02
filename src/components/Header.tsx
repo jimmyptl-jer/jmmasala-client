@@ -38,7 +38,9 @@ const Header = () => {
       return;
     }
 
-    const matched = productLookup.find((product) => product.token.includes(term));
+    const matched = productLookup.find((product) =>
+      product.token.includes(term),
+    );
     if (matched) {
       navigate(`/${matched.slug}`);
       setMenuOpen(false);
@@ -51,12 +53,15 @@ const Header = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b border-[var(--color-bg-beige)] bg-white/95 backdrop-blur transition-shadow ${
-        scrolled ? "shadow-[0_2px_20px_rgba(92,46,14,0.08)]" : ""
+      className={`sticky top-0 z-50 border-b border-[var(--color-bg-beige)] bg-white/95 backdrop-blur transition-shadow "
       }`}
     >
       <div className="jm-container flex items-center justify-between gap-4 py-3 lg:py-4">
-        <Link to="/" className="flex items-center gap-3" aria-label="JM Masala home">
+        <Link
+          to="/"
+          className="flex items-center gap-3"
+          aria-label="JM Masala home"
+        >
           <img
             src={logo}
             alt="JM Masala logo"
@@ -117,7 +122,7 @@ const Header = () => {
 
         <button
           type="button"
-        className="rounded-md border border-[var(--color-bg-beige)] p-2 text-[var(--color-primary)] lg:hidden"
+          className="rounded-md border border-[var(--color-bg-beige)] p-2 text-[var(--color-primary)] lg:hidden"
           onClick={() => setMenuOpen((open) => !open)}
           aria-expanded={menuOpen}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
