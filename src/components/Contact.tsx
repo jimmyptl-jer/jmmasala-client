@@ -79,47 +79,68 @@ const ContactSection = () => {
       <section
         id="contact"
         aria-labelledby="contact-heading"
-        className="py-20 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 relative overflow-hidden"
+        className="jm-section jm-section--cream relative overflow-hidden"
       >
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 left-0 w-72 h-72 bg-orange-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-          <div className="absolute bottom-0 right-0 w-72 h-72 bg-amber-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-2000"></div>
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -left-10 -top-10 h-40 w-40 rounded-full bg-[var(--color-accent)] opacity-[0.05] blur-2xl" />
+          <div className="absolute -right-10 -bottom-10 h-40 w-40 rounded-full bg-[var(--color-primary)] opacity-[0.05] blur-2xl" />
         </div>
 
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="jm-container relative z-10">
           {/* Section Header */}
-          <header className="text-center mb-16">
-            <h2 id="contact-heading" className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              Contact <span className="text-orange-600">JM Masala</span> - Premium Spice Exporters
+          <header className="mb-16 text-center">
+            <p className="jm-section-label">Contact</p>
+            <h2
+              id="contact-heading"
+              className="jm-section-heading mb-4 text-[var(--color-text-dark)]"
+            >
+              Contact JM Masala – Premium Spice Exporters
             </h2>
-            <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+            <div className="jm-section-underline" />
+            <p className="jm-section-subtext max-w-4xl">
               Connect with India's trusted spice exporters. Get premium quality cumin, fennel, fenugreek, turmeric,
               red chili, and psyllium for your business needs worldwide.
             </p>
           </header>
 
           {/* Grid: Contact Info + Form */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 lg:grid-cols-2">
             {/* Contact Information */}
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-8">Get In Touch With Us</h3>
+              <h3 className="mb-8 text-2xl font-bold text-[var(--color-text-dark)]">
+                Get In Touch With Us
+              </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                 {contactInfo.map((info, index) => (
-                  <article key={index} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-orange-100">
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 text-white mb-4 shadow-md">
+                  <article
+                    key={index}
+                    className="rounded-2xl border border-[var(--color-bg-beige)] bg-white p-6 shadow-[0_4px_20px_rgba(92,46,14,0.08)] transition-all duration-300 hover:shadow-[0_8px_32px_rgba(92,46,14,0.16)]"
+                  >
+                    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-primary)] text-white shadow-md">
                       {info.icon}
                     </div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-3">{info.title}</h4>
+                    <h4 className="mb-3 text-lg font-semibold text-[var(--color-text-dark)]">
+                      {info.title}
+                    </h4>
                     <div className="space-y-1">
                       {info.details.map((detail, i) => (
-                        <p key={i} className="text-gray-600 text-sm" itemProp={info.schema}>
+                        <p
+                          key={i}
+                          className="text-sm text-[var(--color-text-medium)]"
+                          itemProp={info.schema}
+                        >
                           {info.schema === 'telephone' ? (
-                            <a href={`tel:${detail}`} className="hover:text-orange-600 transition-colors">
+                            <a
+                              href={`tel:${detail}`}
+                              className="transition-colors hover:text-[var(--color-secondary)]"
+                            >
                               {detail}
                             </a>
                           ) : info.schema === 'email' ? (
-                            <a href={`mailto:${detail}`} className="hover:text-orange-600 transition-colors">
+                            <a
+                              href={`mailto:${detail}`}
+                              className="transition-colors hover:text-[var(--color-secondary)]"
+                            >
                               {detail}
                             </a>
                           ) : (
@@ -133,7 +154,7 @@ const ContactSection = () => {
               </div>
 
               {/* Why Choose Us */}
-              <div className="bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl p-6 text-white">
+              <div className="rounded-2xl bg-[var(--color-primary)] p-6 text-white">
                 <h4 className="text-xl font-bold mb-3">Why Choose JM Masala?</h4>
                 <ul className="space-y-2 text-sm">
                   <li>✓ 25+ years of spice export experience</li>
@@ -145,20 +166,34 @@ const ContactSection = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-orange-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Request Quote & Information</h3>
+            <div className="rounded-[12px] border border-[var(--color-bg-beige)] bg-white p-8 shadow-[0_4px_24px_rgba(92,46,14,0.08)]">
+              <h3 className="mb-6 text-2xl font-bold text-[var(--color-text-dark)]">
+                Request Quote &amp; Information
+              </h3>
 
               {submitted && (
-                <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6 flex items-center space-x-3" role="status" aria-live="polite">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
-                  <span className="text-green-800">Thank you! Your inquiry has been sent successfully. We'll respond within 24 hours.</span>
+                <div
+                  className="mb-6 flex items-center space-x-3 rounded-lg border border-green-200 bg-green-50 p-4"
+                  role="status"
+                  aria-live="polite"
+                >
+                  <CheckCircle className="h-5 w-5 text-green-600" />
+                  <span className="text-sm text-green-800">
+                    Thank you! Your inquiry has been sent successfully. We&apos;ll respond
+                    within 24 hours.
+                  </span>
                 </div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-6" itemScope itemType="https://schema.org/ContactForm">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-2">Full Name *</label>
+                    <label
+                      htmlFor="name"
+                      className="mb-2 block text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-primary)]"
+                    >
+                      Full Name *
+                    </label>
                     <input
                       id="name"
                       type="text"
@@ -167,11 +202,16 @@ const ContactSection = () => {
                       onChange={handleChange}
                       required
                       placeholder="Enter your full name"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-200 hover:border-gray-400"
+                      className="w-full rounded-[4px] border border-[var(--color-bg-beige)] px-4 py-3 text-[15px] text-[var(--color-text-dark)] placeholder:text-[#A0856A] transition-all duration-200 hover:border-[var(--color-secondary)] focus:outline-none focus:border-[var(--color-accent)] focus:ring-2 focus:ring-amber-200"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">Email Address *</label>
+                    <label
+                      htmlFor="email"
+                      className="mb-2 block text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-primary)]"
+                    >
+                      Email Address *
+                    </label>
                     <input
                       id="email"
                       type="email"
@@ -180,14 +220,19 @@ const ContactSection = () => {
                       onChange={handleChange}
                       required
                       placeholder="your@company.com"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-200 hover:border-gray-400"
+                      className="w-full rounded-[4px] border border-[var(--color-bg-beige)] px-4 py-3 text-[15px] text-[var(--color-text-dark)] placeholder:text-[#A0856A] transition-all duration-200 hover:border-[var(--color-secondary)] focus:outline-none focus:border-[var(--color-accent)] focus:ring-2 focus:ring-amber-200"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-900 mb-2">Company Name</label>
+                    <label
+                      htmlFor="company"
+                      className="mb-2 block text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-primary)]"
+                    >
+                      Company Name
+                    </label>
                     <input
                       id="company"
                       type="text"
@@ -195,11 +240,16 @@ const ContactSection = () => {
                       value={formData.company}
                       onChange={handleChange}
                       placeholder="Your company name"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-200 hover:border-gray-400"
+                      className="w-full rounded-[4px] border border-[var(--color-bg-beige)] px-4 py-3 text-[15px] text-[var(--color-text-dark)] placeholder:text-[#A0856A] transition-all duration-200 hover:border-[var(--color-secondary)] focus:outline-none focus:border-[var(--color-accent)] focus:ring-2 focus:ring-amber-200"
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-900 mb-2">Phone Number</label>
+                    <label
+                      htmlFor="phone"
+                      className="mb-2 block text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-primary)]"
+                    >
+                      Phone Number
+                    </label>
                     <input
                       id="phone"
                       type="tel"
@@ -207,19 +257,24 @@ const ContactSection = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+91 98765 43210"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-200 hover:border-gray-400"
+                      className="w-full rounded-[4px] border border-[var(--color-bg-beige)] px-4 py-3 text-[15px] text-[var(--color-text-dark)] placeholder:text-[#A0856A] transition-all duration-200 hover:border-[var(--color-secondary)] focus:outline-none focus:border-[var(--color-accent)] focus:ring-2 focus:ring-amber-200"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="product" className="block text-sm font-medium text-gray-900 mb-2">Spice Product Interest</label>
+                  <label
+                    htmlFor="product"
+                    className="mb-2 block text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-primary)]"
+                  >
+                    Spice Product Interest
+                  </label>
                   <select
                     id="product"
                     name="product"
                     value={formData.product}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-200 hover:border-gray-400 text-amber-950"
+                    className="w-full rounded-[4px] border border-[var(--color-bg-beige)] px-4 py-3 text-[15px] text-[var(--color-text-dark)] transition-all duration-200 hover:border-[var(--color-secondary)] focus:outline-none focus:border-[var(--color-accent)] focus:ring-2 focus:ring-amber-200"
                   >
                     <option value="">Select spice product</option>
                     <option value="cumin">Cumin Seeds (Jeera)</option>
@@ -234,7 +289,12 @@ const ContactSection = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-2">Your Requirements *</label>
+                  <label
+                    htmlFor="message"
+                    className="mb-2 block text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-primary)]"
+                  >
+                    Your Requirements *
+                  </label>
                   <textarea
                     id="message"
                     name="message"
@@ -243,16 +303,13 @@ const ContactSection = () => {
                     required
                     rows={5}
                     placeholder="Please describe your spice requirements, quantity needed, target market, and any specific quality certifications required..."
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-200 hover:border-gray-400 resize-none"
+                    className="w-full resize-none rounded-[4px] border border-[var(--color-bg-beige)] px-4 py-3 text-[15px] text-[var(--color-text-dark)] placeholder:text-[#A0856A] transition-all duration-200 hover:border-[var(--color-secondary)] focus:outline-none focus:border-[var(--color-accent)] focus:ring-2 focus:ring-amber-200"
                   ></textarea>
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-4 px-6 rounded-lg hover:from-orange-600 hover:to-amber-600 transition-all duration-300 font-semibold flex items-center justify-center group shadow-lg hover:shadow-xl"
-                >
-                  <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
-                  Send Inquiry & Get Quote
+                <button type="submit" className="w-full jm-btn jm-btn--primary">
+                  <Send className="mr-2 h-5 w-5" />
+                  Send Inquiry &amp; Get Quote
                 </button>
               </form>
             </div>
@@ -260,17 +317,17 @@ const ContactSection = () => {
 
           {/* Bottom CTA */}
           <div className="mt-16 text-center">
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-orange-100 max-w-3xl mx-auto">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            <div className="mx-auto max-w-3xl rounded-2xl border border-[var(--color-bg-beige)] bg-white p-8 shadow-[0_4px_24px_rgba(92,46,14,0.08)]">
+              <h3 className="mb-4 text-2xl font-bold text-[var(--color-text-dark)]">
                 Need Urgent Spice Quotation?
               </h3>
-              <p className="text-gray-700 mb-6 leading-relaxed">
+              <p className="mb-6 leading-relaxed text-[var(--color-text-medium)]">
                 For immediate assistance with bulk orders, custom packaging, or urgent shipments,
                 our spice export specialists are available for priority support.
               </p>
               <a
                 href="tel:+919824510478"
-                className="inline-block bg-gradient-to-r from-orange-500 to-amber-500 text-white px-8 py-3 rounded-lg hover:from-orange-600 hover:to-amber-600 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl"
+                className="jm-btn jm-btn--secondary inline-block"
               >
                 Call Now: +91 98245 10478
               </a>

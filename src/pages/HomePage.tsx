@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { CheckCircle2 } from "lucide-react";
 import Seo from "@/components/Seo";
 import { PRODUCTS, SITE_URL, TRUST_BADGES } from "@/data/siteData";
 
@@ -29,50 +30,68 @@ const HomePage = () => {
         }}
       />
 
-      <section className="relative overflow-hidden bg-stone-900 text-white">
+      {/* Hero */}
+      <section className="relative overflow-hidden text-white">
         <img
-          src="https://images.unsplash.com/photo-1532336414038-cf19250c5757?auto=format&fit=crop&w=1800&q=70"
+          src="https://images.unsplash.com/photo-1532336414038-cf19250c5757?auto=format&fit=crop&w=1800&q=80"
           alt="Spice bowls and dried whole spices arranged for export"
-          className="absolute inset-0 h-full w-full object-cover opacity-40"
+          className="absolute inset-0 h-full w-full object-cover"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-stone-900/90 via-stone-900/70 to-stone-800/70" />
-        <div className="relative mx-auto max-w-7xl px-4 py-24 sm:py-32">
-          <h1 className="max-w-4xl font-serif text-4xl font-bold leading-tight sm:text-5xl">
-            India&apos;s Complete Spice Sourcing Partner - From Unjha to Your Market
-          </h1>
-          <p className="mt-5 max-w-4xl text-base text-stone-100 sm:text-lg">
-            North Indian Spices from Unjha, Gujarat + South Indian Spices from East
-            India Partnership. Cumin to Cardamom. Turmeric to Psyllium. HACCP
-            Certified. APEDA Registered. LC Basis.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="/JMMasalaProducts.pdf"
-              className="rounded-full bg-amber-500 px-6 py-3 text-sm font-semibold text-stone-900 hover:bg-amber-400"
-            >
-              Download Product Catalogue
-            </a>
-            <Link
-              to="/contact?intent=quote#inquiry-form"
-              className="rounded-full border border-white px-6 py-3 text-sm font-semibold hover:bg-white hover:text-stone-900"
-            >
-              Request a Quote
-            </Link>
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(44,26,14,0.85), rgba(92,46,14,0.6))",
+          }}
+        />
+        <div className="relative jm-container flex min-h-[70vh] flex-col justify-center py-16 sm:py-20 lg:min-h-[100vh] lg:py-0">
+          <div className="max-w-2xl space-y-6">
+            <p className="jm-tagline text-[18px] text-[var(--color-accent)]">
+              Premium Indian Spices — From the Heart of Unjha
+            </p>
+            <h1 className="jm-heading-1 max-w-xl text-white lg:text-[52px]">
+              India&apos;s Complete Spice Sourcing Partner
+            </h1>
+            <p className="max-w-xl text-[16px] text-[rgba(255,255,255,0.88)] sm:text-[18px]">
+              North and South Indian spices from a single export partner. Cumin, fennel,
+              coriander, chilli, turmeric, fenugreek, psyllium and more — HACCP and ISO
+              22000 aligned, APEDA and Spice Board registered.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-4">
+              <a href="/JMMasalaProducts.pdf" className="jm-btn jm-btn--secondary">
+                Download Product Catalogue
+              </a>
+              <Link
+                to="/contact?intent=quote#inquiry-form"
+                className="jm-btn jm-btn--ghost border-2 border-white"
+              >
+                Request a Quote
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="border-y border-amber-200 bg-amber-50">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-2 px-4 py-4 md:grid-cols-6">
-          {TRUST_BADGES.map((badge) => (
-            <div
-              key={badge}
-              className="rounded-md border border-amber-200 bg-white px-3 py-2 text-center text-xs font-semibold text-stone-700"
-            >
-              {badge}
-            </div>
-          ))}
+      {/* Trust bar */}
+      <section className="jm-trust-bar">
+        <div className="jm-container">
+          <div className="jm-trust-bar__list">
+            {TRUST_BADGES.map((badge, index) => (
+              <div key={badge} className="flex items-center gap-3">
+                <div className="jm-trust-bar__item">
+                  <CheckCircle2
+                    className="h-4 w-4 text-[var(--color-accent)]"
+                    aria-hidden="true"
+                  />
+                  <span>{badge}</span>
+                </div>
+                {index < TRUST_BADGES.length - 1 && (
+                  <div className="jm-trust-bar__divider" aria-hidden="true" />
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -128,10 +147,12 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="bg-stone-100 py-14">
-        <div className="mx-auto max-w-7xl px-4">
-          <h2 className="font-serif text-3xl font-bold text-stone-900">Why JM Masala</h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+      <section className="jm-section jm-section--cream">
+        <div className="jm-container">
+          <p className="jm-section-label">Why Choose Us</p>
+          <h2 className="jm-section-heading">Why JM Masala</h2>
+          <div className="jm-section-underline" />
+          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
             {[
               "Complete Portfolio from One Source",
               "Dual Sourcing Network",
@@ -141,7 +162,7 @@ const HomePage = () => {
             ].map((point) => (
               <div
                 key={point}
-                className="rounded-xl border border-stone-200 bg-white p-4 text-sm font-semibold text-stone-700"
+                className="rounded-xl border border-[var(--color-bg-beige)] bg-white p-4 text-sm font-semibold text-[var(--color-text-medium)] shadow-[0_2px_12px_rgba(92,46,14,0.06)]"
               >
                 {point}
               </div>
@@ -150,42 +171,43 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="border-y border-stone-200 bg-white py-8">
-        <div className="mx-auto max-w-7xl px-4 text-center text-sm font-semibold text-stone-800 sm:text-base">
+      <section className="border-y border-[var(--color-bg-beige)] bg-white py-8">
+        <div className="jm-container text-center text-sm font-semibold text-[var(--color-text-dark)] sm:text-base">
           12+ Products | 4+ Export Markets | HACCP Certified | Unjha Gujarat
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14">
-        <h2 className="font-serif text-3xl font-bold text-stone-900">Certifications</h2>
-        <div className="mt-5 flex flex-wrap gap-3">
-          {[
-            "HACCP",
-            "ISO 22000",
-            "APEDA",
-            "Spice Board RCMC",
-            "FSSAI",
-            "IEC",
-            "MSME",
-          ].map((item) => (
-            <span
-              key={item}
-              className="rounded-full border border-amber-200 bg-amber-50 px-4 py-2 text-sm font-semibold text-amber-800"
-            >
-              {item}
-            </span>
-          ))}
+      <section className="jm-section jm-section--white">
+        <div className="jm-container">
+          <p className="jm-section-label">Certifications</p>
+          <h2 className="jm-section-heading">Export &amp; Quality Certifications</h2>
+          <div className="jm-section-underline" />
+          <div className="jm-cert-badges mt-6">
+            {[
+              "HACCP Certified",
+              "ISO 22000",
+              "APEDA Registered",
+              "Spice Board RCMC",
+              "FSSAI Licensed",
+              "IEC Registered",
+            ].map((item) => (
+              <div key={item} className="jm-cert-badge">
+                <div className="jm-cert-badge__title">{item}</div>
+                <div>Documentation shared with each export shipment.</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="bg-amber-600 py-14 text-white">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="font-serif text-3xl font-bold">
+      <section className="jm-section jm-section--primary">
+        <div className="jm-container text-center">
+          <h2 className="jm-heading-2 text-white">
             Ready to Source Premium Indian Spices?
           </h2>
           <Link
             to="/contact?intent=quote"
-            className="mt-6 inline-block rounded-full bg-white px-6 py-3 text-sm font-semibold text-amber-700 hover:bg-stone-100"
+            className="jm-btn jm-btn--secondary mt-6"
           >
             Send Us Your Requirement
           </Link>

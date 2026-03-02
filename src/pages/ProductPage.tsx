@@ -52,58 +52,70 @@ const ProductsPage = () => {
         imageUrl={PRODUCTS[0]?.imageUrl}
       />
 
-      <section className="mx-auto max-w-7xl px-4 py-12">
-        <h1 className="font-serif text-4xl font-bold text-stone-900">
-          Complete Indian Spice Portfolio - Export Grade. HACCP Certified.
-        </h1>
+      <section className="jm-section jm-section--white">
+        <div className="jm-container">
+          <p className="jm-section-label">Product Portfolio</p>
+          <h1 className="jm-section-heading">
+            Complete Indian Spice Portfolio – Export Grade
+          </h1>
 
-        <div className="mt-8 flex flex-wrap gap-3">
-          {(Object.keys(FILTER_LABELS) as FilterKey[]).map((filter) => (
-            <button
-              key={filter}
-              type="button"
-              onClick={() => setActiveFilter(filter)}
-              className={`rounded-full border px-4 py-2 text-sm font-semibold ${
-                activeFilter === filter
-                  ? "border-amber-700 bg-amber-700 text-white"
-                  : "border-stone-300 bg-white text-stone-700 hover:border-amber-500 hover:text-amber-700"
-              }`}
-            >
-              {FILTER_LABELS[filter]}
-            </button>
-          ))}
-        </div>
+          <div className="mt-6 flex flex-wrap gap-3">
+            {(Object.keys(FILTER_LABELS) as FilterKey[]).map((filter) => (
+              <button
+                key={filter}
+                type="button"
+                onClick={() => setActiveFilter(filter)}
+                className={`rounded-full border px-4 py-2 text-xs font-semibold tracking-[0.14em] uppercase ${
+                  activeFilter === filter
+                    ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-white"
+                    : "border-[var(--color-bg-beige)] bg-white text-[var(--color-text-dark)] hover:border-[var(--color-secondary)] hover:text-[var(--color-secondary)]"
+                }`}
+              >
+                {FILTER_LABELS[filter]}
+              </button>
+            ))}
+          </div>
 
-        {query && (
-          <p className="mt-4 text-sm text-stone-600">
-            Search results for: <strong>{query}</strong>
-          </p>
-        )}
+          {query && (
+            <p className="mt-4 text-sm text-[var(--color-text-medium)]">
+              Search results for: <strong>{query}</strong>
+            </p>
+          )}
 
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {visibleProducts.map((product) => (
-            <article
-              key={product.slug}
-              className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm"
-            >
-              <img
-                src={product.imageUrl}
-                alt={`${product.name} export-grade product sample`}
-                className="h-48 w-full object-cover"
-                loading="lazy"
-              />
-              <div className="p-5">
-                <h2 className="text-lg font-semibold text-stone-900">{product.name}</h2>
-                <p className="mt-1 text-sm text-stone-600">{product.keySpec}</p>
-                <Link
-                  to={`/${product.slug}`}
-                  className="mt-4 inline-block rounded-full bg-amber-600 px-4 py-2 text-xs font-semibold text-white hover:bg-amber-700"
-                >
-                  View Full Specifications
-                </Link>
-              </div>
-            </article>
-          ))}
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {visibleProducts.map((product) => {
+              const categoryLabel =
+                product.category === "north"
+                  ? "North Indian"
+                  : product.category === "south"
+                    ? "South Indian"
+                    : "Powders & Blends";
+
+              return (
+                <article key={product.slug} className="jm-product-card">
+                  <div className="relative jm-product-card__image">
+                    <span className="jm-product-card__badge">{categoryLabel}</span>
+                    <img
+                      src={product.imageUrl}
+                      alt={`${product.name} export-grade product sample`}
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="jm-product-card__body">
+                    <h2 className="jm-product-card__name">{product.name}</h2>
+                    <p className="jm-product-card__description">{product.shortDescription}</p>
+                    <span className="jm-product-card__chip">{product.keySpec}</span>
+                    <Link
+                      to={`/${product.slug}`}
+                      className="mt-4 inline-flex w-full justify-center jm-btn jm-btn--outline text-[13px]"
+                    >
+                      View Specifications
+                    </Link>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </section>
     </>

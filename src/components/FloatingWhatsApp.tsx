@@ -11,11 +11,10 @@ const FloatingWhatsApp = () => {
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 rounded-full bg-green-600 px-4 py-3 text-sm font-semibold text-white shadow-xl transition hover:bg-green-700"
+      className="jm-whatsapp-float"
       aria-label="Chat on WhatsApp"
     >
-      <MessageCircle className="h-5 w-5" />
-      WhatsApp
+      <MessageCircle className="h-7 w-7" />
     </a>
   );
 };

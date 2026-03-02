@@ -7,7 +7,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        sans: ["Lato", "system-ui", "sans-serif"],
+        serif: ["Playfair Display", "serif"],
+        accent: ["Cormorant Garamond", "serif"],
         mono: ["Fira Code", "monospace"],
       },
       fontSize: {
@@ -27,13 +29,13 @@ export default {
         "2xl": "1536px",
       },
       boxShadow: {
-        soft: "0 4px 12px rgba(0, 0, 0, 0.05)",   // lighter shadows
-        card: "0 6px 20px rgba(0, 0, 0, 0.08)",
+        soft: "0 2px 12px rgba(92, 46, 14, 0.06)",
+        card: "0 4px 24px rgba(92, 46, 14, 0.10)",
       },
       borderRadius: {
         lg: "12px",
-        md: "10px",
-        sm: "8px",
+        md: "8px",
+        sm: "4px",
       },
       container: {
         center: true,
@@ -43,26 +45,19 @@ export default {
         },
       },
       colors: {
-        white: "#FFFFFF", // clean background
-        parchment: {
-          50: "#FAFAF9",  // almost white (background section blocks)
-          100: "#F5F3EF", // creamy parchment
+        white: "#FFFFFF",
+        brand: {
+          primary: "#5C2E0E",
+          secondary: "#8B3A0F",
+          accent: "#C8960C",
+          cream: "#F5EDD6",
+          beige: "#EDE0C4",
+          textDark: "#2C1A0E",
+          textMedium: "#5C3D1E",
+          footer: "#2C1A0E",
         },
-        amber: {
-          500: "#D97706", // spice amber
-        },
-        green: {
-          400: "#4ADE80", // cilantro green
-        },
-        curry: {
-          700: "#A16207", // richer curry accent
-        },
-        cardamom: {
-          600: "#374151", // softer cardamom gray
-        },
-        text: {
-          primary: "#1F2937",   // near-black for headings
-          secondary: "#4B5563", // gray for body text
+        success: {
+          DEFAULT: "#2E7D32",
         },
       },
     },

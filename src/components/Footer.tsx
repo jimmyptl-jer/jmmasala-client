@@ -1,42 +1,73 @@
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { COMPANY, NAV_LINKS, TRUST_BADGES } from "@/data/siteData";
+import logo from "@/assets/JmMasala.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-stone-900 text-stone-100">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:grid-cols-3">
+    <footer className="bg-[var(--color-footer-bg)] text-white">
+      <div className="h-[3px] w-full bg-[var(--color-accent)]" />
+      <div className="jm-container grid gap-10 py-12 md:grid-cols-3">
         <section>
-          <h2 className="font-serif text-2xl font-bold">JM Masala Exports</h2>
-          <p className="mt-4 flex items-start gap-2 text-sm text-stone-300">
-            <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
+          <div className="flex items-center gap-3">
+            <img
+              src={logo}
+              alt="JM Masala logo"
+              className="h-10 w-auto md:h-12"
+              loading="lazy"
+            />
+            <div>
+              <h2 className="text-sm font-semibold tracking-[0.2em] text-[var(--color-accent)]">
+                JM MASALA
+              </h2>
+              <p className="text-xs tracking-[0.18em] text-[rgba(255,255,255,0.7)] uppercase">
+                Premium Indian Spices
+              </p>
+            </div>
+          </div>
+          <p className="mt-4 font-[var(--font-accent)] text-[16px] italic text-[rgba(255,255,255,0.7)]">
+            Quality. Purity. Compliance. On-time Delivery.
+          </p>
+          <p className="mt-4 flex items-start gap-2 text-sm text-[rgba(255,255,255,0.8)]">
+            <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-accent)]" />
             {COMPANY.addressLine}
           </p>
-          <p className="mt-2 flex items-center gap-2 text-sm text-stone-300">
-            <Phone className="h-4 w-4 text-amber-400" />
+          <p className="mt-2 flex items-center gap-2 text-sm text-[rgba(255,255,255,0.8)]">
+            <Phone className="h-4 w-4 text-[var(--color-accent)]" />
             {COMPANY.phones.join(" | ")}
           </p>
-          <p className="mt-2 flex items-center gap-2 text-sm text-stone-300">
-            <Mail className="h-4 w-4 text-amber-400" />
-            <a href={`mailto:${COMPANY.email}`} className="hover:text-white">
+          <p className="mt-2 flex items-center gap-2 text-sm text-[rgba(255,255,255,0.8)]">
+            <Mail className="h-4 w-4 text-[var(--color-accent)]" />
+            <a
+              href={`mailto:${COMPANY.email}`}
+              className="transition-colors hover:text-white"
+            >
               {COMPANY.email}
             </a>
           </p>
-          <p className="mt-2 text-sm text-stone-300">{COMPANY.website}</p>
+          <p className="mt-2 text-sm text-[rgba(255,255,255,0.75)]">{COMPANY.website}</p>
         </section>
 
         <section>
-          <h3 className="text-lg font-semibold text-amber-300">Quick Links</h3>
+          <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
+            Quick Links
+          </h3>
           <ul className="mt-4 space-y-2 text-sm">
             {NAV_LINKS.map((item) => (
               <li key={item.path}>
-                <Link to={item.path} className="text-stone-300 hover:text-white">
+                <Link
+                  to={item.path}
+                  className="text-[rgba(255,255,255,0.75)] transition-all duration-150 hover:text-white hover:pl-1"
+                >
                   {item.label}
                 </Link>
               </li>
             ))}
             <li>
-              <Link to="/blog" className="text-stone-300 hover:text-white">
+              <Link
+                to="/blog"
+                className="text-[rgba(255,255,255,0.75)] transition-all duration-150 hover:text-white hover:pl-1"
+              >
                 Blog
               </Link>
             </li>
@@ -44,14 +75,16 @@ const Footer = () => {
         </section>
 
         <section>
-          <h3 className="text-lg font-semibold text-amber-300">Connect</h3>
+          <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
+            Connect
+          </h3>
           <div className="mt-4 flex gap-3">
             <a
               href="https://www.instagram.com"
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
-              className="rounded-full border border-stone-700 p-2 text-stone-200 hover:border-amber-300 hover:text-amber-300"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(255,255,255,0.08)] text-white transition-colors hover:bg-[var(--color-accent)]"
             >
               <Instagram className="h-4 w-4" />
             </a>
@@ -60,7 +93,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
               aria-label="Facebook"
-              className="rounded-full border border-stone-700 p-2 text-stone-200 hover:border-amber-300 hover:text-amber-300"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(255,255,255,0.08)] text-white transition-colors hover:bg-[var(--color-accent)]"
             >
               <Facebook className="h-4 w-4" />
             </a>
@@ -69,28 +102,26 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
-              className="rounded-full border border-stone-700 p-2 text-stone-200 hover:border-amber-300 hover:text-amber-300"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(255,255,255,0.08)] text-white transition-colors hover:bg-[var(--color-accent)]"
             >
               <Linkedin className="h-4 w-4" />
             </a>
           </div>
-          <h4 className="mt-6 text-sm font-semibold uppercase tracking-wide text-stone-200">
+          <h4 className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-[rgba(255,255,255,0.7)]">
             Certifications
           </h4>
-          <div className="mt-3 flex flex-wrap gap-2">
+          <div className="mt-3 jm-cert-badges">
             {TRUST_BADGES.map((badge) => (
-              <span
-                key={badge}
-                className="rounded-full border border-stone-700 bg-stone-800 px-3 py-1 text-xs text-stone-200"
-              >
-                {badge}
-              </span>
+              <div key={badge} className="jm-cert-badge">
+                <div className="jm-cert-badge__title">{badge}</div>
+                <div>Export-grade food safety documentation available.</div>
+              </div>
             ))}
           </div>
         </section>
       </div>
-      <div className="border-t border-stone-800 py-3 text-center text-xs text-stone-400">
-        {new Date().getFullYear()} JM Masala Exports. All rights reserved.
+      <div className="border-t border-[rgba(255,255,255,0.1)] bg-[rgba(0,0,0,0.2)] py-3 text-center text-xs text-[rgba(255,255,255,0.5)]">
+        © {new Date().getFullYear()} JM Masala Products. All Rights Reserved.
       </div>
     </footer>
   );
