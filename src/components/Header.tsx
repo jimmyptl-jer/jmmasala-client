@@ -1,5 +1,5 @@
 import { Menu, Search, X } from "lucide-react";
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { NAV_LINKS, PRODUCTS } from "@/data/siteData";
 import logo from "@/assets/JmMasala.png";
@@ -18,9 +18,24 @@ const Header = () => {
     [],
   );
 
+  useEffect(() => {
+    if (typeof document === "undefined") {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [menuOpen]);
+
   const onSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const term = searchTerm.trim().toLowerCase();
+    setMenuOpen(false);
+
     if (!term) {
       navigate("/products");
       return;
@@ -40,10 +55,7 @@ const Header = () => {
   };
 
   return (
-    <header
-      className={`sticky top-0 z-50 border-b border-[var(--color-bg-beige)] bg-white/95 backdrop-blur transition-shadow "
-      }`}
-    >
+    <header className="sticky top-0 z-50 relative border-b border-[var(--color-bg-beige)] bg-white/95 backdrop-blur transition-shadow">
       <div className="jm-container flex items-center justify-between gap-4 py-3 lg:py-4">
         <Link
           to="/"
@@ -120,7 +132,7 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <div className="fixed inset-x-0 top-16 bottom-0 border-t border-[var(--color-bg-beige)] bg-[var(--color-bg-cream)] px-5 py-6 lg:hidden">
+        <div className="absolute inset-x-0 top-full max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-[var(--color-bg-beige)] bg-[var(--color-bg-cream)] px-5 py-6 pb-8 shadow-[0_14px_30px_rgba(44,26,14,0.12)] lg:hidden">
           <form onSubmit={onSearchSubmit} className="relative mb-5">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--color-text-medium)]" />
             <input
