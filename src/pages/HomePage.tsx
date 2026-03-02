@@ -1,7 +1,60 @@
 import { Link } from "react-router-dom";
 import { CheckCircle2 } from "lucide-react";
 import Seo from "@/components/Seo";
-import { PRODUCTS, SITE_URL, TRUST_BADGES } from "@/data/siteData";
+import {
+  DOCUMENTATION_PACKAGE,
+  PRODUCTS,
+  SITE_URL,
+  TRUST_BADGES,
+} from "@/data/siteData";
+
+const SOURCING_HIGHLIGHTS = [
+  {
+    title: "Origin-Centered Procurement",
+    description:
+      "Core spices like cumin, coriander, fennel, fenugreek, psyllium, and sesame are sourced through our Unjha mandi network and farmer channels for stable quality.",
+  },
+  {
+    title: "Pan-India Product Coverage",
+    description:
+      "For products such as red chilli, turmeric, black pepper, cardamom, and curry leaf, we use selected sourcing partners in South and coastal India.",
+  },
+  {
+    title: "Single Quality Gate",
+    description:
+      "Every lot follows a unified process before dispatch: cleaning, grading, moisture checks, and pre-shipment documentation review.",
+  },
+];
+
+const PACKING_OPTIONS = [
+  {
+    title: "Retail Packs",
+    description:
+      "100g, 250g, 500g, and 1kg consumer packs for domestic and private-label programs.",
+  },
+  {
+    title: "Bulk Export Packs",
+    description:
+      "25kg and 50kg export bags with food-grade liner, with pack style aligned to buyer market and product type.",
+  },
+  {
+    title: "Private Label Support",
+    description:
+      "Brand label printing, batch coding, and buyer-specific SKU preparation for distributor and retail chains.",
+  },
+  {
+    title: "Dispatch Readiness",
+    description:
+      "Container-wise lot segregation, shipping marks, and handling guidance to reduce transit and compliance issues.",
+  },
+];
+
+const BUYER_SUPPORT_ITEMS = [
+  "Pre-shipment sample and specification alignment",
+  "Lot-wise testing support with COA sharing",
+  "MOQ and packing flexibility by product",
+  "Commercial support for quote, contract, and shipment planning",
+];
 
 const HomePage = () => {
   return (
@@ -148,33 +201,120 @@ const HomePage = () => {
         </div>
       </section>
 
+      <section className="jm-section jm-section--white">
+        <div className="jm-container">
+          <p className="jm-section-label">Sourcing Process</p>
+          <h2 className="jm-section-heading">How We Source Your Products</h2>
+          <div className="jm-section-underline" />
+          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {SOURCING_HIGHLIGHTS.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-xl border border-[var(--color-bg-beige)] bg-white p-5 shadow-[0_2px_12px_rgba(92,46,14,0.06)]"
+              >
+                <h3 className="jm-heading-4 text-[var(--color-text-dark)]">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm text-[var(--color-text-medium)]">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="jm-section jm-section--cream">
+        <div className="jm-container">
+          <p className="jm-section-label">Packing & Dispatch</p>
+          <h2 className="jm-section-heading">Packing Formats We Provide</h2>
+          <div className="jm-section-underline" />
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {PACKING_OPTIONS.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-xl border border-[var(--color-bg-beige)] bg-white p-5 shadow-[0_2px_12px_rgba(92,46,14,0.06)]"
+              >
+                <h3 className="jm-heading-4 text-[var(--color-text-dark)]">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm text-[var(--color-text-medium)]">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-8 rounded-xl border border-[var(--color-bg-beige)] bg-white p-5 shadow-[0_2px_12px_rgba(92,46,14,0.06)]">
+            <h3 className="jm-heading-4 text-[var(--color-text-dark)]">
+              Buyer Assistance Beyond Certifications
+            </h3>
+            <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+              {BUYER_SUPPORT_ITEMS.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-2 text-sm text-[var(--color-text-medium)]"
+                >
+                  <CheckCircle2
+                    className="mt-0.5 h-4 w-4 text-[var(--color-accent)]"
+                    aria-hidden="true"
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <section className="border-y border-[var(--color-bg-beige)] bg-white py-8">
         <div className="jm-container text-center text-sm font-semibold text-[var(--color-text-dark)] sm:text-base">
-          12+ Products | 4+ Export Markets | HACCP Certified | Unjha Gujarat
+          12+ Products | Pan-India Sourcing | Retail to Bulk Packing | Export
+          Documentation Support
         </div>
       </section>
 
       <section className="jm-section jm-section--white">
         <div className="jm-container">
-          <p className="jm-section-label">Certifications</p>
+          <p className="jm-section-label">Compliance</p>
           <h2 className="jm-section-heading">
-            Export &amp; Quality Certifications
+            Certifications &amp; Shipment Documentation
           </h2>
           <div className="jm-section-underline" />
-          <div className="jm-cert-badges mt-6">
-            {[
-              "HACCP Certified",
-              "ISO 22000",
-              "APEDA Registered",
-              "Spice Board RCMC",
-              "FSSAI Licensed",
-              "IEC Registered",
-            ].map((item) => (
-              <div key={item} className="jm-cert-badge">
-                <div className="jm-cert-badge__title">{item}</div>
-                <div>Documentation shared with each export shipment.</div>
-              </div>
-            ))}
+          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+            <div className="jm-cert-badges">
+              {[
+                "HACCP Certified",
+                "ISO 22000",
+                "APEDA Registered",
+                "Spice Board RCMC",
+                "FSSAI Licensed",
+                "IEC Registered",
+              ].map((item) => (
+                <div key={item} className="jm-cert-badge">
+                  <div className="jm-cert-badge__title">{item}</div>
+                  <div>Documentation shared with each export shipment.</div>
+                </div>
+              ))}
+            </div>
+            <article className="rounded-xl border border-[var(--color-bg-beige)] bg-[var(--color-bg-cream)] p-5">
+              <h3 className="jm-heading-4 text-[var(--color-text-dark)]">
+                Export Document Set
+              </h3>
+              <ul className="mt-4 grid gap-3">
+                {DOCUMENTATION_PACKAGE.map((doc) => (
+                  <li
+                    key={doc}
+                    className="flex items-start gap-2 text-sm text-[var(--color-text-medium)]"
+                  >
+                    <CheckCircle2
+                      className="mt-0.5 h-4 w-4 text-[var(--color-accent)]"
+                      aria-hidden="true"
+                    />
+                    <span>{doc}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
           </div>
         </div>
       </section>
