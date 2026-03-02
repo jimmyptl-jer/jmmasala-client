@@ -8,7 +8,6 @@ import {
   Layers,
   Truck,
   FileText,
-  Star,
   ChevronRight,
 } from "lucide-react";
 import Seo from "@/components/Seo";
@@ -174,33 +173,6 @@ const EXPORT_REGIONS = [
     region: "Oceania & Others",
     countries: ["Australia", "New Zealand", "Sri Lanka", "Bangladesh"],
     color: "#E8860E",
-  },
-];
-
-const TESTIMONIALS = [
-  {
-    name: "Ahmed Al-Rashidi",
-    company: "Gulf Spice Trading, UAE",
-    rating: 5,
-    text: "JM Masala has been our primary cumin and coriander supplier for 4 years. Consistent quality, reliable documentation, and they always meet our container timelines. Highly recommended for serious importers.",
-  },
-  {
-    name: "Priya Nair",
-    company: "Spiceworld Distributors, UK",
-    rating: 5,
-    text: "Their private label program is exceptional. We launched our own brand within 3 months with their support — labels, packing, documentation, everything handled professionally.",
-  },
-  {
-    name: "Marcus Weber",
-    company: "NaturalFood GmbH, Germany",
-    rating: 5,
-    text: "HACCP and ISO certifications are genuine, not just on paper. Their COA quality and lot-wise testing reports are detailed and pass our European food safety audits without any issues.",
-  },
-  {
-    name: "Li Wei",
-    company: "Hua Xin Foods, Malaysia",
-    rating: 5,
-    text: "We source turmeric, chilli, and black pepper from them. The grading is always consistent and their communication is prompt. A trustworthy long-term partner from Unjha.",
   },
 ];
 
@@ -878,38 +850,6 @@ const HomePage = () => {
                       </span>
                     ))}
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── TESTIMONIALS ── */}
-        <section className="jm2-section jm2-section--cream">
-          <div className="jm2-container">
-            <p className="jm2-label">Client Reviews</p>
-            <h2 className="jm2-heading">What Our Buyers Say</h2>
-            <div className="jm2-divider" />
-            <p className="jm2-sub">
-              Trusted by importers and distributors across the globe for over
-              two decades.
-            </p>
-            <div className="jm2-testimonials">
-              {TESTIMONIALS.map((t) => (
-                <div key={t.name} className="jm2-testimonial">
-                  <div className="jm2-stars">
-                    {Array.from({ length: t.rating }).map((_, i) => (
-                      <Star
-                        key={i}
-                        className="jm2-star"
-                        fill="#E8860E"
-                        strokeWidth={0}
-                      />
-                    ))}
-                  </div>
-                  <p className="jm2-testimonial__text">{t.text}</p>
-                  <div className="jm2-testimonial__author">{t.name}</div>
-                  <div className="jm2-testimonial__company">{t.company}</div>
                 </div>
               ))}
             </div>
