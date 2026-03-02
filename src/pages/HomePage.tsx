@@ -628,25 +628,6 @@ const HomePage = () => {
                 </a>
               </div>
             </div>
-            <div className="jm2-hero__right">
-              <div className="jm2-hero__spice-grid">
-                {[
-                  "🟤 Cumin Seeds",
-                  "🟡 Turmeric",
-                  "🌶️ Red Chilli",
-                  "🟢 Fennel Seeds",
-                  "⚫ Black Pepper",
-                  "💚 Cardamom",
-                  "🟠 Coriander",
-                  "🌿 Fenugreek",
-                ].map((s) => (
-                  <div key={s} className="jm2-spice-pill">
-                    <span>{s.split(" ")[0]}</span>
-                    <span>{s.split(" ").slice(1).join(" ")}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
 
