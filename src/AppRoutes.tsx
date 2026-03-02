@@ -1,33 +1,70 @@
-import { Route, Routes } from 'react-router-dom';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import AboutUs from './pages/AboutMePage';
-import ContactUsPage from './pages/ContactPage';
-import Home from './pages/HomePage';
-import JMMasalaProducts from './pages/ProductPage';
-import QuotePage from './pages/QuotePage';
+import { Navigate, Outlet, Route, Routes } from "react-router-dom";
+import AnalyticsTracker from "@/components/AnalyticsTracker";
+import BackToTopButton from "@/components/BackToTopButton";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import { PRODUCTS } from "@/data/siteData";
+import AboutPage from "@/pages/AboutMePage";
+import BlogPage from "@/pages/BlogPage";
+import BlogPostPage from "@/pages/BlogPostPage";
+import ContactPage from "@/pages/ContactPage";
+import DomesticSupplyPage from "@/pages/DomesticSupplyPage";
+import HomePage from "@/pages/HomePage";
+import NotFoundPage from "@/pages/NotFoundPage";
+import ProductDetailPage from "@/pages/ProductDetailPage";
+import ProductsPage from "@/pages/ProductPage";
+import QualityCertificationsPage from "@/pages/QualityCertificationsPage";
+import SourcingNetworkPage from "@/pages/SourcingNetworkPage";
 
-//Admin Imports
-
-function App() {
+const SiteLayout = () => {
   return (
-    <>
-      <div className="min-h-screen bg-white">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/products" element={<JMMasalaProducts />} />
-          <Route path="/process" element={<Home />} />
-          <Route path="/contact" element={<ContactUsPage />} />
-          <Route path="/get-quote" element={<QuotePage />} />
-
-          <Route path="*" element={<Home />} />
-        </Routes>
-        <Footer />
-      </div>
-    </>
+    <div className="min-h-screen bg-stone-50 text-stone-900">
+      <AnalyticsTracker />
+      <Header />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
+      <BackToTopButton />
+      <FloatingWhatsApp />
+      <CookieConsentBanner />
+    </div>
   );
-}
+};
 
-export default App;
+const AppRoutes = () => {
+  return (
+    <Routes>
+      <Route element={<SiteLayout />}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/about-jm-masala" element={<AboutPage />} />
+        <Route path="/quality-certifications" element={<QualityCertificationsPage />} />
+        <Route path="/sourcing-network" element={<SourcingNetworkPage />} />
+        <Route path="/domestic-supply-india" element={<DomesticSupplyPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/get-quote" element={<Navigate to="/contact?intent=quote" replace />} />
+        <Route path="/about" element={<Navigate to="/about-jm-masala" replace />} />
+        <Route path="/process" element={<Navigate to="/sourcing-network" replace />} />
+
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
+
+        {PRODUCTS.map((product) => (
+          <Route
+            key={product.slug}
+            path={`/${product.slug}`}
+            element={<ProductDetailPage />}
+          />
+        ))}
+
+        <Route path="/404" element={<NotFoundPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+    </Routes>
+  );
+};
+
+export default AppRoutes;

@@ -1,132 +1,144 @@
-import { useState } from "react";
-import JMLogo from "../assets/JmMasala.png";
-import { FiClock, FiMail, FiMenu, FiPhone, FiX } from "react-icons/fi";
-import { Link, useLocation } from "react-router-dom";
+import { Menu, Search, X } from "lucide-react";
+import { FormEvent, useMemo, useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NAV_LINKS, PRODUCTS } from "@/data/siteData";
 
 const Header = () => {
-  const location = useLocation();
-  const path = location?.pathname || "/";
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
-  const closeMenu = () => setIsMenuOpen(false);
-
-  const navLinks = [
-    { path: "/", label: "Home" },
-    { path: "/about", label: "About Us" },
-    { path: "/products", label: "Products" },
-    { path: "/contact", label: "Contact" },
-  ];
-
-  const NavLinks = ({ isMobile = false }: { isMobile?: boolean }) => (
-    <ul
-      className={`flex ${isMobile ? "flex-col items-center gap-6" : "gap-6"} text-lg text-gray-700`}
-    >
-      {navLinks.map((link) => (
-        <li key={link.path}>
-          <Link
-            to={link.path}
-            aria-current={path === link.path ? "page" : undefined}
-            className={`nav-link ${path === link.path
-              ? "text-amber-700 font-bold"
-              : "hover:text-amber-600"
-              } transition-colors duration-300`}
-            onClick={closeMenu}
-          >
-            {link.label}
-          </Link>
-        </li>
-      ))}
-    </ul>
+  const productLookup = useMemo(
+    () =>
+      PRODUCTS.map((product) => ({
+        slug: product.slug,
+        token: `${product.name} ${product.botanicalName}`.toLowerCase(),
+      })),
+    [],
   );
 
+  const onSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const term = searchTerm.trim().toLowerCase();
+    if (!term) {
+      navigate("/products");
+      return;
+    }
+
+    const matched = productLookup.find((product) => product.token.includes(term));
+    if (matched) {
+      navigate(`/${matched.slug}`);
+      setMenuOpen(false);
+      return;
+    }
+
+    navigate(`/products?search=${encodeURIComponent(searchTerm)}`);
+    setMenuOpen(false);
+  };
+
   return (
-    <header>
-      {/* Contact Bar */}
-      <div className="bg-amber-900 py-2 text-sm text-white">
-        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-2 px-4">
-          <div className="flex items-center gap-2">
-            <FiPhone className="text-amber-400" />
-            <span>+91 98245 10478 / +91 91067 66041</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <FiClock className="text-amber-400" />
-            <span>Mon - Sat 9:00 AM to 7:00 PM (IST)</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <FiMail className="text-amber-400" />
-            <span>info@jmmasalaexports.com</span>
-          </div>
-        </div>
-      </div>
+    <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/95 backdrop-blur">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
+        <Link to="/" className="flex items-center gap-3">
+          <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-amber-700 font-serif text-lg font-bold text-white">
+            JM
+          </span>
+          <span>
+            <span className="block font-serif text-xl font-bold text-stone-900">JM Masala</span>
+            <span className="block text-xs tracking-wide text-stone-500">
+              Export Grade Indian Spices
+            </span>
+          </span>
+        </Link>
 
-      {/* Navigation Bar */}
-      <div className="relative flex items-center justify-between px-4 py-4 md:px-8 shadow-lg bg-white">
-        {/* Mobile Menu Button */}
+        <div className="hidden flex-1 items-center justify-end gap-6 lg:flex">
+          <form onSubmit={onSearchSubmit} className="relative w-full max-w-xs">
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-500" />
+            <input
+              value={searchTerm}
+              onChange={(event) => setSearchTerm(event.target.value)}
+              placeholder="Search products"
+              className="w-full rounded-full border border-stone-300 py-2 pl-9 pr-3 text-sm outline-none ring-amber-400 focus:ring-2"
+              aria-label="Search products"
+            />
+          </form>
+
+          <nav aria-label="Main navigation">
+            <ul className="flex items-center gap-4 text-sm font-medium">
+              {NAV_LINKS.map((item) => (
+                <li key={item.path}>
+                  <NavLink
+                    to={item.path}
+                    className={({ isActive }) =>
+                      isActive ? "text-amber-700" : "text-stone-700 hover:text-amber-700"
+                    }
+                  >
+                    {item.label}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <Link
+            to="/contact?intent=quote"
+            className="rounded-full bg-green-600 px-4 py-2 text-sm font-semibold text-white hover:bg-green-700"
+          >
+            Request a Quote
+          </Link>
+        </div>
+
         <button
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="md:hidden z-20 text-amber-700 hover:text-amber-900 transition"
-          onClick={toggleMenu}
+          type="button"
+          className="rounded-md border border-stone-300 p-2 lg:hidden"
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-expanded={menuOpen}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
         >
-          {isMenuOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
+          {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
-
-        {/* Logo */}
-        <div className="flex items-center space-x-3">
-          <img
-            src={JMLogo}
-            alt="JM Masala logo"
-            className="w-20 rounded-full object-cover mr-2"
-          />
-          <Link to="/" className="tracking-wide hover:text-amber-700 transition-colors">
-            <div>
-              <div className="text-2xl font-bold text-amber-900">JM Masala</div>
-              <div className="text-sm text-gray-600 font-normal">
-                Indian Spice Exporter
-              </div>
-            </div>
-          </Link>
-        </div>
-
-        {/* Desktop Menu */}
-        <nav role="navigation" className="hidden md:flex items-center space-x-8">
-          <NavLinks />
-          <Link
-            to="/get-quote"
-            className="bg-amber-600 text-white px-6 py-2 rounded-lg hover:bg-amber-700 transition-colors"
-          >
-            Get Quote
-          </Link>
-        </nav>
       </div>
 
-      {/* Mobile Menu */}
-      <div
-        className={`fixed top-0 left-0 w-full h-full bg-white z-30 transition-transform duration-300 ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
-        aria-hidden={!isMenuOpen}
-      >
-        <div className="flex justify-end p-4">
-          <button
-            aria-label="Close menu"
-            onClick={closeMenu}
-            className="text-amber-700 hover:text-amber-900 transition"
-          >
-            <FiX className="w-6 h-6" />
-          </button>
-        </div>
-        <nav role="navigation" className="pt-8">
-          <NavLinks isMobile />
+      {menuOpen && (
+        <div className="border-t border-stone-200 bg-white px-4 py-4 lg:hidden">
+          <form onSubmit={onSearchSubmit} className="relative mb-4">
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-500" />
+            <input
+              value={searchTerm}
+              onChange={(event) => setSearchTerm(event.target.value)}
+              placeholder="Search products"
+              className="w-full rounded-md border border-stone-300 py-2 pl-9 pr-3 text-sm outline-none ring-amber-400 focus:ring-2"
+              aria-label="Search products"
+            />
+          </form>
+
+          <nav aria-label="Mobile navigation">
+            <ul className="space-y-3 text-sm font-medium">
+              {NAV_LINKS.map((item) => (
+                <li key={item.path}>
+                  <NavLink
+                    to={item.path}
+                    onClick={() => setMenuOpen(false)}
+                    className={({ isActive }) =>
+                      isActive ? "text-amber-700" : "text-stone-700 hover:text-amber-700"
+                    }
+                  >
+                    {item.label}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
           <Link
-            to="/get-quote"
-            className="mt-6 block text-center bg-amber-600 text-white px-6 py-2 rounded-lg hover:bg-amber-700 transition-colors mx-auto w-40"
+            to="/contact?intent=quote"
+            className="mt-4 inline-block rounded-full bg-green-600 px-4 py-2 text-sm font-semibold text-white hover:bg-green-700"
+            onClick={() => setMenuOpen(false)}
           >
-            Get Quote
+            Request a Quote
           </Link>
-        </nav>
-      </div>
-
-
+        </div>
+      )}
     </header>
   );
 };
