@@ -1,5 +1,6 @@
 import Seo from "@/components/Seo";
 import teamImage from "@/assets/team.png";
+import jmMasalaLogo from "@/assets/JmMasala.png";
 
 const styles = `
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Lato:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500&display=swap');
@@ -402,7 +403,7 @@ const AboutPage = () => {
             <div className="ab-heritage-grid">
               <div className="ab-heritage-img-wrap">
                 <img
-                  src="https://images.pexels.com/photos/4198938/pexels-photo-4198938.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src={jmMasalaLogo}
                   alt="Cumin seeds — the heart of JM Masala's heritage"
                 />
                 <div className="ab-heritage-img-badge">
