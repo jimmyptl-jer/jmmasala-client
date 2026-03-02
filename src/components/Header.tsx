@@ -1,5 +1,5 @@
 import { Menu, Search, X } from "lucide-react";
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { NAV_LINKS, PRODUCTS } from "@/data/siteData";
 import logo from "@/assets/JmMasala.png";
@@ -8,18 +8,6 @@ const Header = () => {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 8);
-    };
-
-    onScroll();
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const productLookup = useMemo(
     () =>

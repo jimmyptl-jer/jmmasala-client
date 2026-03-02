@@ -12,12 +12,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import Seo from "@/components/Seo";
-import {
-  DOCUMENTATION_PACKAGE,
-  PRODUCTS,
-  SITE_URL,
-  TRUST_BADGES,
-} from "@/data/siteData";
+import { DOCUMENTATION_PACKAGE, PRODUCTS, SITE_URL } from "@/data/siteData";
 
 import bannerImage from "@/assets/homepage.png";
 /* ─────────────────────────── DATA ─────────────────────────── */
