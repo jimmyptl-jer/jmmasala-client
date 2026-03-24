@@ -889,6 +889,47 @@
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .oil-spec-table {
+    min-width: 0;
+  }
+
+  .oil-spec-table thead {
+    display: none;
+  }
+
+  .oil-spec-table,
+  .oil-spec-table tbody,
+  .oil-spec-table tr,
+  .oil-spec-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .oil-spec-table tbody tr {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.14);
+  }
+
+  .oil-spec-table tbody td {
+    padding: 10px 18px;
+  }
+
+  .oil-spec-table tbody td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 4px;
+    font-family: "Cinzel", serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--oil-accent, #c9a84c);
+  }
+
+  .oil-spec-footnote {
+    flex-direction: column;
+    gap: 8px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -903,11 +944,26 @@
   }
 
   .oil-bottle-card__name {
-    font-size: 36px;
+    font-size: 30px;
+    line-height: 1.02;
   }
 
-  .oil-spec-table thead th,
+  .oil-section-label {
+    letter-spacing: 3px;
+    gap: 10px;
+  }
+
+  .oil-bottle-card__meta {
+    font-size: 15px;
+  }
+
+  .oil-bottle-card__badge {
+    font-size: 7px;
+    letter-spacing: 1.4px;
+    padding: 5px 10px;
+  }
+
   .oil-spec-table tbody td {
-    padding: 16px 18px;
+    padding: 10px 14px;
   }
 }

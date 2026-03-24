@@ -256,6 +256,33 @@ const HomePage = () => {
           .jm2-hero__content { grid-template-columns: 1fr; gap: 2rem; }
           .jm2-hero__right { display: none; }
         }
+        @media (max-width: 640px) {
+          .jm2-hero {
+            min-height: auto;
+          }
+          .jm2-hero__content {
+            padding: 6.5rem 1rem 3.5rem;
+          }
+          .jm2-hero__eyebrow {
+            font-size: 0.68rem;
+            letter-spacing: 0.06em;
+            padding: 0.3rem 0.75rem;
+          }
+          .jm2-hero__sub {
+            font-size: 0.95rem;
+            margin-bottom: 1.75rem;
+          }
+          .jm2-hero__actions {
+            flex-direction: column;
+            align-items: stretch;
+          }
+          .jm2-btn-primary,
+          .jm2-btn-outline {
+            width: 100%;
+            justify-content: center;
+            padding: 0.8rem 1rem;
+          }
+        }
         .jm2-hero__eyebrow {
           display: inline-flex; align-items: center; gap: 0.5rem;
           background: rgba(201,168,76,0.18); border: 1px solid rgba(201,168,76,0.38);
@@ -326,6 +353,15 @@ const HomePage = () => {
         .jm2-section {
           padding: 5rem 2rem;
         }
+        @media (max-width: 640px) {
+          .jm2-section {
+            padding: 3.5rem 1rem;
+          }
+          .jm2-sub {
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+          }
+        }
         .jm2-section--cream { background: var(--spice-cream); }
         .jm2-section--beige { background: var(--spice-beige); }
         .jm2-section--white { background: var(--spice-warm-white); }
@@ -388,6 +424,20 @@ const HomePage = () => {
         }
         .jm2-about__meta {
           display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;
+        }
+        @media (max-width: 640px) {
+          .jm2-about__img {
+            height: 320px;
+          }
+          .jm2-about__badge {
+            left: 1rem;
+            right: 1rem;
+            bottom: 1rem;
+            text-align: center;
+          }
+          .jm2-about__meta {
+            grid-template-columns: 1fr;
+          }
         }
         .jm2-about__meta-item {
           background: var(--spice-beige); padding: 1rem 1.25rem; border-radius: 0.75rem;
@@ -508,6 +558,14 @@ const HomePage = () => {
           font-family: var(--font-display); font-size: 4.5rem; font-weight: 700;
           color: var(--spice-gold); line-height: 1;
         }
+        @media (max-width: 640px) {
+          .jm2-export-hero {
+            margin-bottom: 2rem;
+          }
+          .jm2-export-hero__num {
+            font-size: 3.25rem;
+          }
+        }
 
         /* Testimonials */
         .jm2-testimonials {
@@ -536,6 +594,7 @@ const HomePage = () => {
           display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
         }
         @media (max-width: 640px) { .jm2-certs { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 480px) { .jm2-certs { grid-template-columns: 1fr; } }
         .jm2-cert {
           background: var(--spice-beige); padding: 1.25rem;
           border-radius: 0.75rem; text-align: center;
@@ -560,6 +619,25 @@ const HomePage = () => {
         }
         .jm2-cta__sub { color: rgba(255,255,255,0.75); font-size: 1rem; margin-bottom: 2rem; line-height: 1.7; }
         .jm2-cta__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        @media (max-width: 640px) {
+          .jm2-cta__actions {
+            flex-direction: column;
+            align-items: stretch;
+          }
+        }
+
+        .jm2-certification-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 3rem;
+          align-items: start;
+        }
+        @media (max-width: 900px) {
+          .jm2-certification-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+          }
+        }
       `}</style>
 
       <div className="jm2-root">
@@ -866,14 +944,7 @@ const HomePage = () => {
               Every shipment is backed by genuine certifications and a complete
               export document set.
             </p>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: "3rem",
-                alignItems: "start",
-              }}
-            >
+            <div className="jm2-certification-grid">
               <div>
                 <h3
                   style={{

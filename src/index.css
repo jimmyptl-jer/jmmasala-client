@@ -122,17 +122,30 @@ body,
   min-height: 100%;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
   background-color: var(--brand-cream);
   color: var(--brand-charcoal);
   line-height: 1.7;
+  overflow-x: hidden;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+img,
+svg,
+video,
+canvas,
+iframe {
+  max-width: 100%;
 }
 
 input,
@@ -402,6 +415,8 @@ h4,
 
 .jm-page-shell {
   background: var(--brand-cream);
+  width: 100%;
+  overflow-x: clip;
 }
 
 .jm-surface-card {
@@ -628,6 +643,7 @@ h4,
 .jm-spec-table table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 100%;
 }
 
 .jm-spec-table tr:nth-child(odd) {
@@ -665,6 +681,7 @@ h4,
 .jm-grade-table table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 640px;
 }
 
 .jm-grade-table thead {
@@ -815,10 +832,90 @@ h4,
 }
 
 @media (max-width: 767px) {
+  .text-brand {
+    font-size: 78px;
+    letter-spacing: -4px;
+  }
+
+  .text-hero {
+    font-size: 42px;
+    letter-spacing: 2px;
+  }
+
+  .text-heading-1 {
+    font-size: 24px;
+    letter-spacing: 4px;
+  }
+
+  .text-heading-2 {
+    font-size: 16px;
+    letter-spacing: 3px;
+  }
+
+  .text-tagline {
+    font-size: 22px;
+  }
+
+  .text-product-name {
+    font-size: 36px;
+  }
+
+  .jm-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .jm-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .jm-section-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+  }
+
+  .jm-section-heading {
+    font-size: 28px;
+  }
+
+  .jm-section-subtext,
+  .jm-body {
+    font-size: 15px;
+  }
+
+  .jm-btn {
+    padding: 12px 18px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  .jm-spec-table,
+  .jm-grade-table {
+    overflow-x: auto;
+  }
+
+  .jm-spec-table th,
+  .jm-spec-table td,
+  .jm-grade-table th,
+  .jm-grade-table td {
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+
+  .jm-cert-badges {
+    gap: 10px;
+  }
+
+  .jm-cert-badge {
+    width: 100%;
+    padding: 14px 16px;
+  }
+
   .jm-whatsapp-float {
-    right: 24px;
-    bottom: 24px;
-    width: 60px;
-    height: 60px;
+    right: 18px;
+    bottom: 88px;
+    width: 54px;
+    height: 54px;
   }
 }

@@ -7,15 +7,15 @@ const Footer = () => {
   return (
     <footer className="bg-[var(--brand-deep-green)] text-[var(--brand-cream)]">
       <div className="h-[3px] w-full bg-[var(--brand-gold)]" />
-      <div className="jm-container grid gap-10 py-12 md:grid-cols-3">
+      <div className="jm-container grid gap-10 py-10 md:grid-cols-3 md:py-12">
         <section>
           <div className="flex items-center gap-3">
-            <img src={logo} alt="JM Masala logo" className="h-10 w-auto md:h-12" loading="lazy" />
+            <img src={logo} alt="JM Masala logo" className="h-9 w-auto md:h-12" loading="lazy" />
             <div>
-              <h2 className="text-sm font-semibold tracking-[0.2em] text-[var(--brand-gold)]">
+              <h2 className="text-xs font-semibold tracking-[0.16em] text-[var(--brand-gold)] sm:text-sm sm:tracking-[0.2em]">
                 JM MASALA
               </h2>
-              <p className="text-xs uppercase tracking-[0.18em] text-[rgba(255,255,255,0.7)]">
+              <p className="text-[10px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.7)] sm:text-xs sm:tracking-[0.18em]">
                 Premium Indian Spices
               </p>
             </div>
@@ -24,21 +24,21 @@ const Footer = () => {
           <p className="mt-4 font-[var(--font-accent)] text-[16px] italic text-[rgba(250,246,238,0.72)]">
             Quality. Purity. Compliance. On-time Delivery.
           </p>
-          <p className="mt-4 flex items-start gap-2 text-sm text-[rgba(250,246,238,0.82)]">
+          <p className="mt-4 flex items-start gap-2 text-sm leading-6 text-[rgba(250,246,238,0.82)]">
             <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-gold)]" />
             {COMPANY.addressLine}
           </p>
-          <p className="mt-2 flex items-center gap-2 text-sm text-[rgba(250,246,238,0.82)]">
-            <Phone className="h-4 w-4 text-[var(--brand-gold)]" />
-            {COMPANY.phones.join(" | ")}
+          <p className="mt-2 flex items-start gap-2 text-sm leading-6 text-[rgba(250,246,238,0.82)]">
+            <Phone className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-gold)]" />
+            <span className="break-words">{COMPANY.phones.join(" | ")}</span>
           </p>
-          <p className="mt-2 flex items-center gap-2 text-sm text-[rgba(250,246,238,0.82)]">
-            <Mail className="h-4 w-4 text-[var(--brand-gold)]" />
-            <a href={`mailto:${COMPANY.email}`} className="transition-colors hover:text-white">
+          <p className="mt-2 flex items-start gap-2 text-sm leading-6 text-[rgba(250,246,238,0.82)]">
+            <Mail className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-gold)]" />
+            <a href={`mailto:${COMPANY.email}`} className="break-all transition-colors hover:text-white">
               {COMPANY.email}
             </a>
           </p>
-          <p className="mt-2 text-sm text-[rgba(255,255,255,0.75)]">{COMPANY.website}</p>
+          <p className="mt-2 break-all text-sm text-[rgba(255,255,255,0.75)]">{COMPANY.website}</p>
         </section>
 
         <section>
@@ -71,7 +71,7 @@ const Footer = () => {
           <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-gold)]">
             Connect
           </h3>
-          <div className="mt-4 flex gap-3">
+          <div className="mt-4 flex flex-wrap gap-3">
             <a
               href="https://www.instagram.com"
               target="_blank"

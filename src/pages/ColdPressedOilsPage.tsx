@@ -98,7 +98,6 @@ const bottleFormats = [
     cap: "Natural wood",
     label: "Premium wrap, gold band",
     channel: "Gifting | Sampling | Travel",
-    priceRange: "₹120–280",
   },
   {
     sku: "Classic",
@@ -107,7 +106,6 @@ const bottleFormats = [
     cap: "Natural wood",
     label: "Premium wrap, product accent",
     channel: "Health stores | Direct | Online D2C",
-    priceRange: "₹220–450",
   },
   {
     sku: "Hero",
@@ -116,7 +114,6 @@ const bottleFormats = [
     cap: "Natural wood",
     label: "Premium wrap, product accent",
     channel: "Flagship | All channels",
-    priceRange: "₹380–750",
   },
   {
     sku: "Grand",
@@ -125,7 +122,6 @@ const bottleFormats = [
     cap: "Black matte",
     label: "Dark label, gold type",
     channel: "Restaurants | Bulk buyers",
-    priceRange: "₹900–1,500",
   },
   {
     sku: "Bulk",
@@ -134,7 +130,6 @@ const bottleFormats = [
     cap: "Black matte + pour spout",
     label: "Minimal front panel",
     channel: "B2B | Wholesale | Manufacturers",
-    priceRange: "₹3,500–6,000",
   },
 ];
 
@@ -333,24 +328,16 @@ const ColdPressedOilsPage = () => {
                     <th>Bottle</th>
                     <th>Cap</th>
                     <th>Use Case</th>
-                    <th>Price Range</th>
-                  </tr>
+                    </tr>
                 </thead>
                 <tbody>
                   {bottleFormats.map((item) => (
                     <tr key={item.sku}>
-                      <td className="oil-spec-table__sku">{item.sku}</td>
-                      <td className="oil-spec-table__value font-semibold">
-                        {item.volume}
-                      </td>
-                      <td className="oil-spec-table__value">
-                        {item.bottleType}
-                      </td>
-                      <td className="oil-spec-table__value">{item.cap}</td>
-                      <td className="oil-spec-table__value">{item.channel}</td>
-                      <td className="oil-spec-table__value text-[var(--brand-gold)]">
-                        {item.priceRange}
-                      </td>
+                      <td className="oil-spec-table__sku" data-label="Format">{item.sku}</td>
+                      <td className="oil-spec-table__value font-semibold" data-label="Volume">{item.volume}</td>
+                      <td className="oil-spec-table__value" data-label="Bottle">{item.bottleType}</td>
+                      <td className="oil-spec-table__value" data-label="Cap">{item.cap}</td>
+                      <td className="oil-spec-table__value" data-label="Use Case">{item.channel}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -508,3 +495,4 @@ const ColdPressedOilsPage = () => {
 };
 
 export default ColdPressedOilsPage;
+
