@@ -1,0 +1,913 @@
+/* ─────────────────────────────────────────────────────────────── */
+/* PRODUCT DETAIL HERO SECTION */
+/* ─────────────────────────────────────────────────────────────── */
+
+.product-detail-hero {
+  padding: 80px 50px;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-detail-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.product-detail-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hero-monogram {
+  font-family: "Cinzel", serif;
+  font-size: 48px;
+  letter-spacing: 8px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.hero-product-name {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 2px;
+}
+
+.hero-botanical {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 18px;
+  opacity: 0.7;
+  letter-spacing: 1px;
+}
+
+.hero-origin {
+  font-family: "Cinzel", serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.hero-tagline {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0.5;
+  margin-top: 10px;
+}
+
+.hero-color-palette {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.palette-preview {
+  display: flex;
+  gap: 12px;
+}
+
+.color-box {
+  flex: 1;
+  padding: 24px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  min-height: 140px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.color-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 60%
+  );
+}
+
+.color-label {
+  font-family: "Cinzel", serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  position: relative;
+  z-index: 2;
+  color: inherit;
+  mix-blend-mode: screen;
+}
+
+.color-value {
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 2;
+  color: inherit;
+  font-weight: 600;
+  mix-blend-mode: screen;
+}
+
+.swatch-row {
+  display: flex;
+  gap: 8px;
+  height: 60px;
+}
+
+.swatch {
+  flex: 1;
+  border-radius: 4px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.swatch:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/* PRODUCT PALETTE SECTION STYLING */
+/* ─────────────────────────────────────────────────────────────── */
+
+.palette-section {
+  padding: 70px 50px;
+  background: #0c160c;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.07);
+}
+
+.palette-section-label {
+  font-family: "Cinzel", serif;
+  font-size: 9px;
+  letter-spacing: 5px;
+  color: #c9a84c;
+  text-transform: uppercase;
+  margin-bottom: 56px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.palette-label-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(201, 168, 76, 0.3), transparent);
+}
+
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.palette-card {
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+}
+
+.palette-card:hover {
+  transform: translateY(-8px);
+}
+
+.palette-card-header {
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.palette-card-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    transparent 60%
+  );
+}
+
+.palette-monogram {
+  font-family: "Cinzel", serif;
+  font-size: 28px;
+  letter-spacing: 4px;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+}
+
+.palette-product-name {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-top: 6px;
+  opacity: 0.6;
+  position: relative;
+  z-index: 2;
+}
+
+.palette-swatches {
+  display: flex;
+  height: 44px;
+}
+
+.palette-swatch {
+  flex: 1;
+  transition: opacity 0.3s ease;
+}
+
+.palette-swatch:hover {
+  opacity: 0.8;
+}
+
+.palette-body {
+  padding: 20px 18px;
+}
+
+.palette-name {
+  font-family: "Cinzel", serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.palette-hex-row {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+
+.palette-hex {
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 10px;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.palette-hex-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.palette-hex-val {
+  opacity: 0.5;
+}
+
+.palette-hex-use {
+  opacity: 0.35;
+  font-style: italic;
+  margin-left: auto;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 11px;
+}
+
+.palette-tagline {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.6;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 12px;
+  opacity: 0.4;
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/* DESIGN SYSTEM RULES SECTION */
+/* ─────────────────────────────────────────────────────────────── */
+
+.design-rules-section {
+  padding: 70px 50px;
+  background: #0c160c;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.07);
+}
+
+.design-rules-label {
+  font-family: "Cinzel", serif;
+  font-size: 9px;
+  letter-spacing: 5px;
+  color: #c9a84c;
+  text-transform: uppercase;
+  margin-bottom: 56px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.design-rules-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(201, 168, 76, 0.3), transparent);
+}
+
+.design-rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2px;
+}
+
+.design-rule-card {
+  padding: 36px 28px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(201, 168, 76, 0.08);
+  transition: all 0.3s ease;
+}
+
+.design-rule-card:hover {
+  background: rgba(201, 168, 76, 0.05);
+  border-color: rgba(201, 168, 76, 0.2);
+}
+
+.rule-number {
+  font-family: "Cinzel", serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #c9a84c;
+  margin-bottom: 14px;
+  opacity: 0.6;
+}
+
+.rule-title {
+  font-family: "Cinzel", serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #faf6ee;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.rule-description {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/* RESPONSIVE ADJUSTMENTS */
+/* ─────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .product-detail-hero {
+    padding: 50px 30px;
+  }
+
+  .product-detail-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-monogram {
+    font-size: 36px;
+    letter-spacing: 6px;
+  }
+
+  .hero-product-name {
+    font-size: 40px;
+  }
+
+  .hero-botanical {
+    font-size: 16px;
+  }
+
+  .palette-preview {
+    gap: 10px;
+  }
+
+  .color-box {
+    min-height: 120px;
+    padding: 16px;
+  }
+
+  .swatch-row {
+    height: 50px;
+  }
+
+  .palette-section {
+    padding: 50px 30px;
+  }
+
+  .palette-section-label {
+    font-size: 8px;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+  }
+
+  .palette-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .palette-monogram {
+    font-size: 24px;
+  }
+
+  .palette-product-name {
+    font-size: 10px;
+  }
+
+  .palette-name {
+    font-size: 10px;
+  }
+
+  .design-rules-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .design-rule-card {
+    padding: 24px 20px;
+  }
+
+  .rule-title {
+    font-size: 10px;
+  }
+
+  .rule-description {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-detail-hero {
+    padding: 40px 20px;
+  }
+
+  .hero-monogram {
+    font-size: 28px;
+    letter-spacing: 4px;
+  }
+
+  .hero-product-name {
+    font-size: 28px;
+  }
+
+  .hero-botanical {
+    font-size: 14px;
+  }
+
+  .hero-tagline {
+    font-size: 14px;
+  }
+
+  .color-box {
+    min-height: 100px;
+    padding: 12px;
+  }
+
+  .color-label {
+    font-size: 9px;
+  }
+
+  .color-value {
+    font-size: 11px;
+  }
+
+  .swatch-row {
+    height: 40px;
+    gap: 6px;
+  }
+
+  .palette-section {
+    padding: 40px 20px;
+  }
+
+  .palette-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .palette-card-header {
+    height: 120px;
+  }
+
+  .palette-body {
+    padding: 16px 14px;
+  }
+
+  .palette-name {
+    font-size: 9px;
+  }
+
+  .palette-hex {
+    font-size: 9px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/* ACCESSIBILITY */
+/* ─────────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .palette-card,
+  .design-rule-card {
+    transition: none;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .palette-section,
+  .design-rules-section {
+    background: #f9f7f2;
+  }
+
+  .palette-section-label,
+  .design-rules-label {
+    color: #8b7355;
+  }
+
+  .palette-label-line,
+  .design-rules-line {
+    background: linear-gradient(to right, rgba(139, 115, 85, 0.2), transparent);
+  }
+}
+
+/* Oil label and packaging system */
+.oil-design-shell {
+  background: var(--brand-cream, #faf6ee);
+  color: var(--brand-charcoal, #2a2a2a);
+}
+
+.oil-label-section,
+.oil-spec-section {
+  padding: 80px 50px;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+  background: var(--brand-warm-white, #fdfbf7);
+}
+
+.oil-section-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 48px;
+  font-family: "Cinzel", serif;
+  font-size: 10px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--oil-accent, #c9a84c);
+}
+
+.oil-section-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(201, 168, 76, 0.45), transparent);
+}
+
+.oil-label-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.oil-bottle-card {
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid rgba(201, 168, 76, 0.14);
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow:
+    0 28px 60px rgba(0, 0, 0, 0.32),
+    0 8px 20px rgba(0, 0, 0, 0.18);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.oil-bottle-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(201, 168, 76, 0.35);
+  box-shadow:
+    0 40px 86px rgba(0, 0, 0, 0.4),
+    0 12px 28px rgba(0, 0, 0, 0.24);
+}
+
+.oil-bottle-card__label {
+  min-height: 450px;
+  padding: 44px 34px 40px;
+  position: relative;
+}
+
+.oil-bottle-card__label::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 55%
+  );
+  pointer-events: none;
+}
+
+.oil-bottle-card__band {
+  height: 4px;
+}
+
+.oil-bottle-card__brand {
+  font-family: "Cinzel", serif;
+  font-size: 28px;
+  letter-spacing: 10px;
+  margin-bottom: 6px;
+}
+
+.oil-bottle-card__origin {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 11px;
+  font-style: italic;
+  letter-spacing: 2px;
+  opacity: 0.45;
+}
+
+.oil-bottle-card__divider {
+  height: 1px;
+  margin: 26px 0 28px;
+  opacity: 0.14;
+  background: currentColor;
+}
+
+.oil-bottle-card__name {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 54px;
+  line-height: 0.95;
+  font-weight: 300;
+  margin-bottom: 16px;
+  word-spacing: 0.1em;
+}
+
+.oil-bottle-card__meta {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  font-style: italic;
+  opacity: 0.42;
+  margin-bottom: 22px;
+}
+
+.oil-bottle-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 8px;
+  margin-top: 18px;
+  margin-bottom: 24px;
+  row-gap: 12px;
+}
+
+.oil-bottle-card__badge {
+  padding: 6px 14px;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  font-family: "Cinzel", serif;
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.55;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.oil-bottle-card__volume {
+  margin-top: 2px;
+  margin-bottom: 12px;
+  font-family: "Cinzel", serif;
+  font-size: 12px;
+  letter-spacing: 4px;
+  opacity: 0.45;
+  line-height: 1.8;
+}
+
+.oil-bottle-card__batch {
+  margin-top: 10px;
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  opacity: 0.44;
+  line-height: 1.5;
+}
+
+.oil-bottle-card__footer {
+  display: flex;
+  justify-content: flex-start;
+  gap: 18px;
+  padding: 22px 34px 24px;
+  background: rgba(0, 0, 0, 0.12);
+  border-top: 1px solid rgba(201, 168, 76, 0.12);
+}
+
+.oil-bottle-card__sku {
+  font-family: "Cinzel", serif;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--oil-accent, #c9a84c);
+}
+
+.oil-bottle-card__price {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  font-style: italic;
+  color: rgba(250, 246, 238, 0.72);
+}
+
+.oil-bottle-card--cream {
+  background: var(--oil-label, #faf6ee);
+  color: var(--oil-dark, #1a2e1a);
+}
+
+.oil-bottle-card--deep {
+  background: var(--oil-dark, #1a2e1a);
+  color: var(--brand-gold-light, #e2c97e);
+}
+
+.oil-bottle-card--sage {
+  background: #395133;
+  color: var(--oil-label, #faf6ee);
+}
+
+.oil-bottle-card--cream .oil-bottle-card__footer,
+.oil-bottle-card--deep .oil-bottle-card__footer,
+.oil-bottle-card--sage .oil-bottle-card__footer {
+  background: rgba(15, 26, 15, 0.92);
+}
+
+.oil-bottle-card--cream .oil-bottle-card__price,
+.oil-bottle-card--deep .oil-bottle-card__price,
+.oil-bottle-card--sage .oil-bottle-card__price {
+  color: rgba(250, 246, 238, 0.74);
+}
+
+.oil-spec-table-wrap {
+  overflow-x: auto;
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  background: var(--oil-dark, #1a2e1a);
+  border-radius: 8px;
+}
+
+.oil-spec-table {
+  width: 100%;
+  min-width: 980px;
+  border-collapse: collapse;
+}
+
+.oil-spec-table thead th {
+  padding: 20px 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+  text-align: left;
+  vertical-align: top;
+  font-family: "Cinzel", serif;
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--oil-accent, #c9a84c);
+}
+
+.oil-spec-table tbody tr {
+  border-bottom: 1px solid rgba(201, 168, 76, 0.09);
+}
+
+.oil-spec-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.oil-spec-table tbody td {
+  padding: 22px 24px;
+  vertical-align: top;
+  color: rgba(250, 246, 238, 0.82);
+}
+
+.oil-spec-table__sku {
+  font-family: "Cinzel", serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--oil-accent, #c9a84c);
+}
+
+.oil-spec-table__value {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+.oil-spec-table__subtle {
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 12px;
+  line-height: 1.7;
+  color: rgba(250, 246, 238, 0.58);
+}
+
+.oil-spec-table__price {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 24px;
+  color: var(--oil-accent, #c9a84c);
+  white-space: nowrap;
+}
+
+.oil-spec-footnote {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 24px;
+  font-family: "Cinzel", serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(42, 42, 42, 0.55);
+}
+
+@media (max-width: 960px) {
+  .oil-label-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .oil-bottle-card__name {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 768px) {
+  .oil-label-section,
+  .oil-spec-section {
+    padding: 56px 30px;
+  }
+
+  .oil-section-label {
+    margin-bottom: 32px;
+    font-size: 8px;
+    letter-spacing: 4px;
+  }
+
+  .oil-bottle-card__label {
+    min-height: auto;
+    padding: 34px 24px 28px;
+  }
+
+  .oil-bottle-card__footer {
+    padding: 18px 24px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .oil-label-section,
+  .oil-spec-section {
+    padding: 44px 20px;
+  }
+
+  .oil-bottle-card__brand {
+    font-size: 24px;
+    letter-spacing: 8px;
+  }
+
+  .oil-bottle-card__name {
+    font-size: 36px;
+  }
+
+  .oil-spec-table thead th,
+  .oil-spec-table tbody td {
+    padding: 16px 18px;
+  }
+}

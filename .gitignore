@@ -23,6 +23,10 @@ dist-ssr
 *.sln
 *.sw?
 
+<<<<<<< HEAD
 
 # Contentlayer
 .contentlayer
+=======
+.env
+>>>>>>> master
