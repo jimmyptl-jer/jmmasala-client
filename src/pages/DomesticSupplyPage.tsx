@@ -1,5 +1,5 @@
 import { FormEvent, useState } from "react";
-import Seo from "@/Components/Seo";
+import Seo from "@/components/Seo";
 
 type Language = "en" | "hi";
 

@@ -1,6 +1,6 @@
 import { FormEvent, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import Seo from "@/Components/Seo";
+import Seo from "@/components/Seo";
 import { COMPANY, PRODUCTS, SITE_URL } from "@/data/siteData";
 
 type ContactFormState = {

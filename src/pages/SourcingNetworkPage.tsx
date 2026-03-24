@@ -1,4 +1,4 @@
-import Seo from "@/Components/Seo";
+import Seo from "@/components/Seo";
 
 // ─── Inline styles to avoid Tailwind purge issues with dynamic classes ──────
 const styles = `

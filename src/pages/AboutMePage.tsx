@@ -1,4 +1,4 @@
-import Seo from "@/Components/Seo";
+import Seo from "@/components/Seo";
 import teamImage from "@/assets/team.png";
 import jmMasalaLogo from "@/assets/JmMasala.png";
 
