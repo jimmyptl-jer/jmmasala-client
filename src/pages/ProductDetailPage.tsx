@@ -1,6 +1,7 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import Seo from "@/components/Seo";
 import {
+  BLOG_POSTS,
   PRODUCTS_BY_SLUG,
   PRODUCT_TECHNICAL_DETAILS,
   buildProductInquiryMessage,
@@ -35,6 +36,121 @@ const TITLE_BY_SLUG: Record<string, string> = {
     "Cardamom Exporter India | Premium Size-Graded Lots | JM Masala",
   "curry-leaf-exporter-india":
     "Curry Leaf Exporter India | Fresh and Dehydrated Supply | JM Masala",
+};
+
+const PRODUCT_APPLICATIONS: Record<string, string[]> = {
+  "cumin-seeds-exporter-india": [
+    "Whole spice packs for importers and wholesalers",
+    "Seasoning blends, masala manufacturing, and food service supply",
+    "Market-specific export grades for Europe, USA, Gulf, and Singapore buyers",
+  ],
+  "coriander-seeds-exporter-india": [
+    "Whole seed supply for spice processors and import distributors",
+    "Food manufacturing and seasoning applications",
+    "Grade-specific coriander lots for export packing",
+  ],
+  "fennel-seeds-exporter-india": [
+    "Retail, wholesale, and mouth-freshener applications",
+    "Buyer-specific bold and small fennel requirements",
+    "Export supply for aroma-led and visual-uniformity-focused markets",
+  ],
+  "fenugreek-seeds-exporter-india": [
+    "Spice blends, food processing, and nutraceutical use",
+    "Commercial and premium export grades",
+    "Bulk shipments for importers and ingredient buyers",
+  ],
+  "psyllium-husk-exporter-india": [
+    "Nutraceutical and wellness ingredient supply",
+    "Fiber-focused food and pharma-related applications",
+    "Mesh and swell-volume aligned export lots",
+  ],
+  "psyllium-seeds-exporter-india": [
+    "Whole seed supply for further processing",
+    "Ingredient trade and fiber-category sourcing",
+    "Bulk export packing for industrial buyers",
+  ],
+  "sesame-seeds-exporter-india": [
+    "Bakery, tahini, and ingredient manufacturing",
+    "Natural and hulled sesame export requirements",
+    "Bulk sesame supply with buyer-specific quality control",
+  ],
+  "red-chilli-exporter-india": [
+    "Whole, stemless, and processing-oriented supply",
+    "ASTA and SHU aligned export discussions",
+    "Food manufacturing and trading-buyer shipments",
+  ],
+  "turmeric-exporter-india": [
+    "Finger, bulb, and powder turmeric export supply",
+    "Curcumin-focused buyer requirements",
+    "Ingredient, retail, and processing applications",
+  ],
+  "black-pepper-exporter-india": [
+    "MG1 FAQ and trade-grade export lots",
+    "Food service, seasoning, and wholesale requirements",
+    "Bulk pepper sourcing for importers and distributors",
+  ],
+  "cardamom-exporter-india": [
+    "Premium size-graded green cardamom lots",
+    "Retail and food-service aligned buying",
+    "Aroma-focused export supply for premium buyers",
+  ],
+  "curry-leaf-exporter-india": [
+    "Fresh, dehydrated, and powder format discussions",
+    "Food manufacturing and seasoning buyers",
+    "Application-led sourcing for export markets",
+  ],
+};
+
+const PRODUCT_RELATED_BLOGS: Record<string, string[]> = {
+  "cumin-seeds-exporter-india": [
+    "cumin-seeds-quality-grades-europe-usa-gulf-singapore",
+    "why-unjha-gujarat-is-worlds-cumin-capital",
+    "complete-guide-importing-spices-from-india",
+  ],
+  "coriander-seeds-exporter-india": [
+    "complete-guide-importing-spices-from-india",
+    "haccp-certification-spice-processing-buyers-guide",
+  ],
+  "fennel-seeds-exporter-india": [
+    "complete-guide-importing-spices-from-india",
+    "haccp-certification-spice-processing-buyers-guide",
+  ],
+  "fenugreek-seeds-exporter-india": [
+    "complete-guide-importing-spices-from-india",
+    "haccp-certification-spice-processing-buyers-guide",
+  ],
+  "psyllium-husk-exporter-india": [
+    "psyllium-husk-vs-psyllium-seeds-explained",
+    "complete-guide-importing-spices-from-india",
+  ],
+  "psyllium-seeds-exporter-india": [
+    "psyllium-husk-vs-psyllium-seeds-explained",
+    "complete-guide-importing-spices-from-india",
+  ],
+  "sesame-seeds-exporter-india": [
+    "complete-guide-importing-spices-from-india",
+    "haccp-certification-spice-processing-buyers-guide",
+  ],
+  "red-chilli-exporter-india": [
+    "complete-guide-importing-spices-from-india",
+    "haccp-certification-spice-processing-buyers-guide",
+  ],
+  "turmeric-exporter-india": [
+    "complete-guide-importing-spices-from-india",
+    "haccp-certification-spice-processing-buyers-guide",
+  ],
+  "black-pepper-exporter-india": [
+    "complete-guide-importing-spices-from-india",
+    "haccp-certification-spice-processing-buyers-guide",
+  ],
+  "cardamom-exporter-india": [
+    "complete-guide-importing-spices-from-india",
+    "haccp-certification-spice-processing-buyers-guide",
+  ],
+  "curry-leaf-exporter-india": [
+    "complete-guide-importing-spices-from-india",
+    "haccp-certification-spice-processing-buyers-guide",
+  ],
 };
 
 const renderSpecTable = (title: string, rows: TechnicalSpec[]) => (
@@ -85,6 +201,15 @@ const ProductDetailPage = () => {
       Boolean(related),
     )
     .slice(0, 3);
+  const applicationHighlights =
+    PRODUCT_APPLICATIONS[product.slug] ?? [
+      "Bulk supply for importers and wholesale buyers",
+      "Buyer-specific export packing and documentation support",
+      "Product grades aligned to destination-market requirements",
+    ];
+  const relatedInsights = (PRODUCT_RELATED_BLOGS[product.slug] ?? [])
+    .map((blogSlug) => BLOG_POSTS.find((post) => post.slug === blogSlug))
+    .filter((post): post is NonNullable<typeof post> => Boolean(post));
 
   const title =
     TITLE_BY_SLUG[product.slug] ??
@@ -161,6 +286,17 @@ const ProductDetailPage = () => {
       value: spec.value,
     })),
   };
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    url: canonicalUrl,
+    description: product.description,
+    about: {
+      "@type": "Product",
+      name: product.name,
+    },
+  };
 
   const specSheetUrl = "/JMMasalaProducts.pdf";
   const quoteUrl = buildWhatsAppUrl(buildProductInquiryMessage(product.name));
@@ -182,11 +318,14 @@ const ProductDetailPage = () => {
           `${product.name} manufacturer India`,
           `${product.name} specifications`,
           `${product.name} bulk supplier`,
+          `${product.botanicalName} supplier`,
+          `${product.origin} ${product.name} exporter`,
           "Indian spice exporter",
           "JM Masala exports",
         ]}
         schema={[
           productSchema,
+          pageSchema,
           breadcrumbSchema,
           faqSchema,
         ]}
@@ -324,6 +463,46 @@ const ProductDetailPage = () => {
 
               <section className="mt-8 jm-surface-card p-5">
                 <h2 className="text-tagline not-italic text-[24px] text-[var(--brand-charcoal)]">
+                  Why Buyers Source {product.name} from JM Masala
+                </h2>
+                <div className="mt-3 space-y-4 text-sm leading-7 text-[var(--brand-forest)]">
+                  <p>
+                    {product.name} is sourced with export-focused attention to
+                    origin, specification alignment, and shipment readiness. For
+                    importers comparing Indian suppliers, the product decision is
+                    rarely only about price. It also depends on how clearly the
+                    exporter handles quality parameters, packing, and destination-market
+                    expectations.
+                  </p>
+                  <p>
+                    With sourcing rooted in {product.origin}, JM Masala supports
+                    buyers who need {product.keySpec.toLowerCase()} together with
+                    responsive communication and product-specific export support.
+                  </p>
+                  <ul className="space-y-2 pl-5">
+                    {applicationHighlights.map((item) => (
+                      <li key={item} className="list-disc">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </section>
+
+              <section className="mt-8 jm-surface-card p-5">
+                <h2 className="text-tagline not-italic text-[24px] text-[var(--brand-charcoal)]">
+                  What Buyers Usually Confirm Before Shipment
+                </h2>
+                <ul className="mt-3 space-y-2 text-sm text-[var(--brand-forest)]">
+                  <li>Final purity, moisture, and grade commitment in the contract</li>
+                  <li>Lot-wise test support, packing format, and shipment markings</li>
+                  <li>Destination-market documents required for customs and buyer approval</li>
+                  <li>Lead time, loading plan, and communication during dispatch</li>
+                </ul>
+              </section>
+
+              <section className="mt-8 jm-surface-card p-5">
+                <h2 className="text-tagline not-italic text-[24px] text-[var(--brand-charcoal)]">
                   Buyer FAQs
                 </h2>
                 <div className="mt-4 space-y-4 text-[var(--brand-forest)]">
@@ -337,6 +516,35 @@ const ProductDetailPage = () => {
                   ))}
                 </div>
               </section>
+
+              {relatedInsights.length > 0 && (
+                <section className="mt-8 jm-surface-card p-5">
+                  <h2 className="text-tagline not-italic text-[24px] text-[var(--brand-charcoal)]">
+                    Related Insights
+                  </h2>
+                  <div className="mt-4 space-y-3">
+                    {relatedInsights.map((post) => (
+                      <div
+                        key={post.slug}
+                        className="rounded-lg border border-[var(--brand-gold-pale)] px-4 py-3"
+                      >
+                        <h3 className="text-base font-semibold text-[var(--brand-charcoal)]">
+                          {post.title}
+                        </h3>
+                        <p className="mt-1 text-sm text-[var(--brand-forest)]">
+                          {post.excerpt}
+                        </p>
+                        <Link
+                          to={`/blog/${post.slug}`}
+                          className="mt-3 inline-flex jm-btn jm-btn--outline text-[13px]"
+                        >
+                          Read Buyer Guide
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
             </article>
 
             <aside className="space-y-6">

@@ -11,7 +11,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import Seo from "@/components/Seo";
-import { DOCUMENTATION_PACKAGE, PRODUCTS, SITE_URL } from "@/data/siteData";
+import { BLOG_POSTS, DOCUMENTATION_PACKAGE, PRODUCTS, SITE_URL } from "@/data/siteData";
 
 import bannerImage from "@/assets/homepage.png";
 /* ─────────────────────────── DATA ─────────────────────────── */
@@ -185,6 +185,29 @@ const ABOUT_HIGHLIGHTS = [
 
 /* ─────────────────────────── COMPONENT ─────────────────────────── */
 
+const HOME_FAQS = [
+  {
+    question: "Why choose an Indian spice exporter from Unjha, Gujarat?",
+    answer:
+      "Unjha is one of India's strongest spice trade hubs. Working with an exporter rooted there helps buyers source closer to origin, compare lots faster, and move with more confidence on grade and specification.",
+  },
+  {
+    question: "Can JM Masala handle bulk export packing and private label supply?",
+    answer:
+      "Yes. JM Masala supports bulk export packing, retail formats, private label requirements, and export documentation aligned to buyer and destination-market needs.",
+  },
+  {
+    question: "Which products are most searched and exported by JM Masala?",
+    answer:
+      "The strongest demand usually centers on cumin seeds, coriander seeds, fennel, psyllium husk, sesame, turmeric, red chilli, black pepper, and cardamom.",
+  },
+  {
+    question: "Do you provide specifications, COA support, and export documents?",
+    answer:
+      "Yes. Buyers can review specifications on product pages and contact JM Masala for lot-wise details, packing options, certificate support, and export document coordination.",
+  },
+];
+
 const HomePage = () => {
   return (
     <>
@@ -230,6 +253,31 @@ const HomePage = () => {
               target: `${SITE_URL}/products?search={search_term_string}`,
               "query-input": "required name=search_term_string",
             },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "OfferCatalog",
+            name: "JM Masala Export Spice Portfolio",
+            itemListElement: PRODUCTS.slice(0, 10).map((product) => ({
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Product",
+                name: product.name,
+                url: `${SITE_URL}/${product.slug}`,
+              },
+            })),
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: HOME_FAQS.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer,
+              },
+            })),
           },
         ]}
       />
@@ -627,6 +675,76 @@ const HomePage = () => {
         }
         .jm2-cert__name { font-weight: 700; font-size: 0.85rem; color: var(--spice-dark); }
         .jm2-cert__sub { font-size: 0.75rem; color: var(--brand-forest); margin-top: 0.2rem; }
+
+        /* FAQ / buyer intent */
+        .jm2-faq-grid {
+          display: grid;
+          grid-template-columns: 1.15fr 0.85fr;
+          gap: 1.5rem;
+        }
+        @media (max-width: 900px) {
+          .jm2-faq-grid { grid-template-columns: 1fr; }
+        }
+        .jm2-faq-list {
+          display: grid;
+          gap: 1rem;
+        }
+        .jm2-faq-card {
+          background: #fff;
+          border: 1px solid var(--spice-beige);
+          border-radius: 1rem;
+          padding: 1.4rem 1.5rem;
+          box-shadow: 0 2px 12px rgba(44,26,14,0.05);
+        }
+        .jm2-faq-card__q {
+          font-family: var(--font-display);
+          font-size: 1.1rem;
+          color: var(--spice-dark);
+          margin-bottom: 0.55rem;
+        }
+        .jm2-faq-card__a {
+          font-size: 0.92rem;
+          line-height: 1.75;
+          color: var(--brand-forest);
+        }
+        .jm2-resource-panel {
+          background: var(--spice-beige);
+          border-radius: 1rem;
+          padding: 1.75rem;
+        }
+        .jm2-resource-panel__title {
+          font-family: var(--font-display);
+          font-size: 1.2rem;
+          color: var(--spice-dark);
+          margin-bottom: 0.75rem;
+        }
+        .jm2-resource-panel__text {
+          font-size: 0.92rem;
+          line-height: 1.75;
+          color: var(--wood-dark);
+          margin-bottom: 1rem;
+        }
+        .jm2-resource-links {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.55rem;
+        }
+        .jm2-resource-link {
+          display: inline-flex;
+          align-items: center;
+          padding: 0.45rem 0.8rem;
+          border-radius: 999px;
+          background: rgba(255,255,255,0.72);
+          border: 1px solid rgba(201,168,76,0.3);
+          color: var(--spice-dark);
+          text-decoration: none;
+          font-size: 0.82rem;
+          font-weight: 600;
+        }
+        .jm2-resource-link:hover {
+          color: var(--brand-deep-green);
+          border-color: var(--brand-gold);
+        }
 
         /* CTA */
         .jm2-cta {
@@ -1061,6 +1179,61 @@ const HomePage = () => {
         </section>
 
         {/* ── CTA ── */}
+        <section className="jm2-section jm2-section--cream">
+          <div className="jm2-container">
+            <p className="jm2-label">Buyer Questions</p>
+            <h2 className="jm2-heading">Why Buyers Search for JM Masala</h2>
+            <div className="jm2-divider" />
+            <p className="jm2-sub">
+              Broad searches like Indian spice exporter, cumin exporter India,
+              psyllium supplier, and private label spice exporter usually rank
+              sites that explain both products and supply capability clearly.
+            </p>
+
+            <div className="jm2-faq-grid">
+              <div className="jm2-faq-list">
+                {HOME_FAQS.map((faq) => (
+                  <article key={faq.question} className="jm2-faq-card">
+                    <h3 className="jm2-faq-card__q">{faq.question}</h3>
+                    <p className="jm2-faq-card__a">{faq.answer}</p>
+                  </article>
+                ))}
+              </div>
+
+              <aside className="jm2-resource-panel">
+                <h3 className="jm2-resource-panel__title">
+                  Popular Product &amp; Buyer Resource Pages
+                </h3>
+                <p className="jm2-resource-panel__text">
+                  These internal pages help search engines and buyers move directly
+                  to the products and export topics most often compared during
+                  supplier selection.
+                </p>
+                <div className="jm2-resource-links">
+                  {PRODUCTS.slice(0, 8).map((product) => (
+                    <Link
+                      key={product.slug}
+                      to={`/${product.slug}`}
+                      className="jm2-resource-link"
+                    >
+                      {product.name}
+                    </Link>
+                  ))}
+                  {BLOG_POSTS.slice(0, 4).map((post) => (
+                    <Link
+                      key={post.slug}
+                      to={`/blog/${post.slug}`}
+                      className="jm2-resource-link"
+                    >
+                      {post.title}
+                    </Link>
+                  ))}
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+
         <section className="jm2-cta">
           <div className="jm2-cta__inner">
             <p className="jm2-label" style={{ color: "var(--brand-gold-light)" }}>
