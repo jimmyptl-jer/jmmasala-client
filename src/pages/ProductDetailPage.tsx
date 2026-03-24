@@ -3,6 +3,8 @@ import Seo from "@/components/Seo";
 import {
   PRODUCTS_BY_SLUG,
   PRODUCT_TECHNICAL_DETAILS,
+  buildProductInquiryMessage,
+  buildWhatsAppUrl,
   type ExportDetail,
   type TechnicalSpec,
 } from "@/data/siteData";
@@ -89,7 +91,7 @@ const ProductDetailPage = () => {
     `${product.name} Exporter India | HACCP Certified | JM Masala`;
 
   const specSheetUrl = "/JMMasalaProducts.pdf";
-  const quoteUrl = `/contact?product=${encodeURIComponent(product.name)}#inquiry-form`;
+  const quoteUrl = buildWhatsAppUrl(buildProductInquiryMessage(product.name));
 
   return (
     <>
@@ -300,12 +302,14 @@ const ProductDetailPage = () => {
                 >
                   Download Product Specification Sheet
                 </a>
-                <Link
-                  to={quoteUrl}
+                <a
+                  href={quoteUrl}
+                  target="_blank"
+                  rel="noreferrer"
                   className="jm-btn jm-btn--outline text-[13px]"
                 >
                   Request Quote for This Product
-                </Link>
+                </a>
               </div>
             </aside>
           </div>

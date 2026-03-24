@@ -1,4 +1,5 @@
 import Seo from "@/components/Seo";
+import { buildWhatsAppUrl } from "@/data/siteData";
 
 // ─── Inline styles to avoid Tailwind purge issues with dynamic classes ──────
 const styles = `
@@ -843,7 +844,9 @@ const SourcingNetworkPage = () => {
                 Send Your Requirement
               </a>
               <a
-                href={`https://wa.me/919106766041?text=Hi%20JM%20Masala%2C%20I%20am%20interested%20in%20your%20sourcing%20capabilities.%20Can%20we%20discuss%20my%20requirement%3F`}
+                href={buildWhatsAppUrl(
+                  "Hi JM Masala, I am interested in your sourcing capabilities. Can we discuss my requirement?",
+                )}
                 className="sn-cta-btn-outline"
                 target="_blank"
                 rel="noopener noreferrer"

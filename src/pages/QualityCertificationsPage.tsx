@@ -1,5 +1,5 @@
 import Seo from "@/components/Seo";
-import { DOCUMENTATION_PACKAGE } from "@/data/siteData";
+import { COMPANY, DOCUMENTATION_PACKAGE } from "@/data/siteData";
 
 const certifications = [
   {
@@ -151,7 +151,7 @@ const QualityCertificationsPage = () => {
           <p className="jm-soft-panel mt-8 p-4 text-sm font-semibold text-[var(--brand-charcoal)]">
             All certifications are available for download on request. Contact us at
             {" "}
-            jmmasala@outlook.in.
+            {COMPANY.email}.
           </p>
         </div>
       </section>

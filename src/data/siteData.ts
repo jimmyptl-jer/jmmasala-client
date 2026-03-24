@@ -16,7 +16,7 @@ export const SITE_URL = "https://jmmasalaexports.com";
 export const COMPANY = {
   name: "JM Masala",
   legalName: "JM Masala Exports",
-  email: "jmmasala@outlook.in",
+  email: "jmmasalaexports@gmail.com",
   website: "jmmasalaexports.com",
   phones: ["+91 91067 66041", "+91 98245 10478"],
   addressLine:
@@ -25,6 +25,17 @@ export const COMPANY = {
   whatsappMessage:
     "Hi JM Masala, I am interested in your spices. Can you share specifications and pricing?",
 };
+
+export const buildWhatsAppUrl = (message: string) =>
+  `https://wa.me/${COMPANY.whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+export const buildGeneralInquiryMessage = (topic = "your products") =>
+  `Hi JM Masala, I am interested in ${topic}. Please share specifications, packing options, MOQ, and pricing.`;
+
+export const buildProductInquiryMessage = (
+  productName: string,
+  note = "Please share specifications, packing options, MOQ, and pricing.",
+) => `Hi JM Masala, I am interested in ${productName}. ${note}`;
 
 export const NAV_LINKS = [
   { label: "Home", path: "/" },

@@ -1,7 +1,13 @@
 import { FormEvent, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import Seo from "@/components/Seo";
-import { COMPANY, PRODUCTS, SITE_URL } from "@/data/siteData";
+import {
+  COMPANY,
+  PRODUCTS,
+  SITE_URL,
+  buildGeneralInquiryMessage,
+  buildWhatsAppUrl,
+} from "@/data/siteData";
 
 type ContactFormState = {
   fullName: string;
@@ -37,12 +43,19 @@ const ContactPage = () => {
   });
 
   const whatsappLink = useMemo(
-    () =>
-      `https://wa.me/${COMPANY.whatsappNumber}?text=${encodeURIComponent(
-        COMPANY.whatsappMessage,
-      )}`,
+    () => buildWhatsAppUrl(COMPANY.whatsappMessage),
     [],
   );
+
+  const productWhatsappLink = useMemo(() => {
+    if (!prefilledProduct) {
+      return buildWhatsAppUrl(buildGeneralInquiryMessage());
+    }
+
+    return buildWhatsAppUrl(
+      `Hi JM Masala, I am interested in ${prefilledProduct}. Please share specifications, MOQ, packing options, and pricing.`,
+    );
+  }, [prefilledProduct]);
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -78,7 +91,7 @@ const ContactPage = () => {
     ].join("\n");
 
     window.open(
-      `https://wa.me/${COMPANY.whatsappNumber}?text=${encodeURIComponent(waMessage)}`,
+      buildWhatsAppUrl(waMessage),
       "_blank",
       "noopener,noreferrer",
     );
@@ -115,7 +128,7 @@ const ContactPage = () => {
           <p className="jm-section-label">Contact</p>
           <h1 className="jm-section-heading">Contact JM Masala</h1>
           <p className="jm-section-subtext ml-0 max-w-2xl">
-            We respond to all inquiries within 2 hours during 7 AM to 8 PM IST.
+            Contact us directly on WhatsApp for the fastest response, or send us an email.
           </p>
 
           <div className="mt-8 grid gap-8 lg:grid-cols-[1.1fr,0.9fr]">
@@ -124,8 +137,19 @@ const ContactPage = () => {
 
               {submitted && (
                 <p className="mt-4 rounded-md bg-[rgba(74,103,65,0.12)] p-3 text-sm text-[var(--brand-forest)]">
-                  Inquiry submitted. Email and WhatsApp notification flows have been triggered.
+                  Your inquiry has been opened in WhatsApp and email draft view.
                 </p>
+              )}
+
+              {prefilledProduct && (
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <a href={productWhatsappLink} target="_blank" rel="noreferrer" className="jm-btn jm-btn--primary">
+                    WhatsApp About {prefilledProduct}
+                  </a>
+                  <a href={`mailto:${COMPANY.email}`} className="jm-btn jm-btn--outline">
+                    Email Us Directly
+                  </a>
+                </div>
               )}
 
               <form id="inquiry-form" className="mt-5 grid gap-4 md:grid-cols-2" onSubmit={onSubmit}>
@@ -217,7 +241,7 @@ const ContactPage = () => {
                 />
 
                 <button type="submit" className="jm-btn jm-btn--primary md:col-span-2">
-                  Send Inquiry
+                  Send on WhatsApp
                 </button>
               </form>
             </section>
@@ -241,6 +265,9 @@ const ContactPage = () => {
                 </div>
                 <a href={whatsappLink} className="mt-5 inline-flex jm-btn jm-btn--secondary">
                   WhatsApp Direct Chat
+                </a>
+                <a href={`mailto:${COMPANY.email}`} className="mt-3 inline-flex jm-btn jm-btn--outline">
+                  Send Email
                 </a>
               </section>
 

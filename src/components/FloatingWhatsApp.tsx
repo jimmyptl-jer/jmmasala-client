@@ -1,10 +1,8 @@
 import { MessageCircle } from "lucide-react";
-import { COMPANY } from "@/data/siteData";
+import { COMPANY, buildWhatsAppUrl } from "@/data/siteData";
 
 const FloatingWhatsApp = () => {
-  const href = `https://wa.me/${COMPANY.whatsappNumber}?text=${encodeURIComponent(
-    COMPANY.whatsappMessage,
-  )}`;
+  const href = buildWhatsAppUrl(COMPANY.whatsappMessage);
 
   return (
     <a

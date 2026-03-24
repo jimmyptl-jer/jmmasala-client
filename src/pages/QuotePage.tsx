@@ -1,3 +1,5 @@
+import { COMPANY } from "@/data/siteData";
+
 const QuotePage = () => {
   return (
     <section className="jm-section">
@@ -60,8 +62,8 @@ const QuotePage = () => {
           <div className="mt-10 text-center text-sm text-[var(--brand-forest)]">
             <p>
               Prefer direct contact? Email us at{" "}
-              <a href="mailto:info@jmmasalaexports.com" className="font-semibold text-[var(--brand-gold)] underline">
-                info@jmmasalaexports.com
+              <a href={`mailto:${COMPANY.email}`} className="font-semibold text-[var(--brand-gold)] underline">
+                {COMPANY.email}
               </a>
             </p>
           </div>

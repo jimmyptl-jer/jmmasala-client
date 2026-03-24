@@ -198,7 +198,7 @@ const HomePage = () => {
           "@type": "Organization",
           name: "JM Masala Exports",
           url: SITE_URL,
-          email: "jmmasala@outlook.in",
+          email: "jmmasalaexports@gmail.com",
           logo: `${SITE_URL}/favicon.svg`,
           contactPoint: {
             "@type": "ContactPoint",

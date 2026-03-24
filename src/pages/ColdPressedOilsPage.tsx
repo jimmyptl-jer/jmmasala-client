@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
-import { SITE_URL } from "@/data/siteData";
+import {
+  COMPANY,
+  SITE_URL,
+  buildGeneralInquiryMessage,
+  buildProductInquiryMessage,
+  buildWhatsAppUrl,
+} from "@/data/siteData";
 import "@/styles/product-palette.css";
 
 const oilProducts = [
@@ -134,6 +140,10 @@ const bottleFormats = [
 ];
 
 const ColdPressedOilsPage = () => {
+  const generalOrderLink = buildWhatsAppUrl(
+    buildGeneralInquiryMessage("your cold pressed oils"),
+  );
+
   return (
     <>
       <Seo
@@ -170,15 +180,17 @@ const ColdPressedOilsPage = () => {
               No additives. Just seeds and tradition.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to="/contact?intent=quote#inquiry-form"
+              <a
+                href={generalOrderLink}
+                target="_blank"
+                rel="noreferrer"
                 className="jm-btn jm-btn--primary"
               >
                 Order Now
-              </Link>
-              <Link to="/contact" className="jm-btn jm-btn--ghost">
+              </a>
+              <a href={`mailto:${COMPANY.email}`} className="jm-btn jm-btn--ghost">
                 Bulk & B2B Inquiry
-              </Link>
+              </a>
             </div>
           </div>
         </section>
@@ -304,6 +316,19 @@ const ColdPressedOilsPage = () => {
                   </div>
                   <div className="oil-bottle-card__footer">
                     <div className="oil-bottle-card__sku">{oil.name}</div>
+                    <a
+                      href={buildWhatsAppUrl(
+                        buildProductInquiryMessage(
+                          oil.name,
+                          `I want to place an order for ${oil.name}. Please share available sizes (${oil.volume}), MOQ, and pricing.`,
+                        ),
+                      )}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="jm-btn jm-btn--primary"
+                    >
+                      Place Order
+                    </a>
                   </div>
                 </article>
               ))}
@@ -395,7 +420,7 @@ const ColdPressedOilsPage = () => {
               </ul>
               <div className="mt-6">
                 <Link
-                  to="/contact?intent=quote#inquiry-form"
+                  to="/contact?product=Cold Pressed Oils#inquiry-form"
                   className="jm-btn jm-btn--secondary"
                 >
                   Start an Inquiry
@@ -477,15 +502,17 @@ const ColdPressedOilsPage = () => {
               for bulk and B2B quantities.
             </p>
             <div className="mt-8 flex justify-center gap-3 flex-wrap">
-              <Link
-                to="/contact?intent=quote#inquiry-form"
+              <a
+                href={generalOrderLink}
+                target="_blank"
+                rel="noreferrer"
                 className="jm-btn jm-btn--primary"
               >
                 Place an Order
-              </Link>
-              <Link to="/contact" className="jm-btn jm-btn--ghost">
-                Contact Us
-              </Link>
+              </a>
+              <a href={`mailto:${COMPANY.email}`} className="jm-btn jm-btn--ghost">
+                Email Us
+              </a>
             </div>
           </div>
         </section>

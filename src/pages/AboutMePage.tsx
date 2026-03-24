@@ -1,4 +1,5 @@
 import Seo from "@/components/Seo";
+import { buildWhatsAppUrl } from "@/data/siteData";
 import teamImage from "@/assets/team.png";
 import jmMasalaLogo from "@/assets/JmMasala.png";
 
@@ -582,7 +583,9 @@ const AboutPage = () => {
               Send Your Requirement
             </a>
             <a
-              href="https://wa.me/919106766041?text=Hi%20JM%20Masala%2C%20I%20read%20about%20your%20company%20and%20would%20like%20to%20discuss%20a%20sourcing%20requirement."
+              href={buildWhatsAppUrl(
+                "Hi JM Masala, I read about your company and would like to discuss a sourcing requirement.",
+              )}
               target="_blank"
               rel="noopener noreferrer"
               className="ab-cta-btn-outline"
