@@ -1,4 +1,4 @@
-import Seo from "@/components/Seo";
+import Seo from "@/Components/Seo";
 import { DOCUMENTATION_PACKAGE } from "@/data/siteData";
 
 const certifications = [

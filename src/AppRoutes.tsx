@@ -1,23 +1,23 @@
 import { Navigate, Outlet, Route, Routes } from "react-router-dom";
-import AnalyticsTracker from "@/components/AnalyticsTracker";
-import BackToTopButton from "@/components/BackToTopButton";
-import CookieConsentBanner from "@/components/CookieConsentBanner";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import AnalyticsTracker from "@/Components/AnalyticsTracker";
+import BackToTopButton from "@/Components/BackToTopButton";
+import CookieConsentBanner from "@/Components/CookieConsentBanner";
+import FloatingWhatsApp from "@/Components/FloatingWhatsApp";
+import Footer from "@/Components/Footer";
+import Header from "@/Components/Header";
 import { PRODUCTS } from "@/data/siteData";
-import AboutPage from "@/pages/AboutMePage";
-import BlogPage from "@/pages/BlogPage";
-import BlogPostPage from "@/pages/BlogPostPage";
-import ColdPressedOilsPage from "@/pages/ColdPressedOilsPage";
-import ContactPage from "@/pages/ContactPage";
-import DomesticSupplyPage from "@/pages/DomesticSupplyPage";
-import HomePage from "@/pages/HomePage";
-import NotFoundPage from "@/pages/NotFoundPage";
-import ProductDetailPage from "@/pages/ProductDetailPage";
-import ProductsPage from "@/pages/ProductPage";
-import QualityCertificationsPage from "@/pages/QualityCertificationsPage";
-import SourcingNetworkPage from "@/pages/SourcingNetworkPage";
+import AboutPage from "@/Pages/AboutMePage";
+import BlogPage from "@/Pages/BlogPage";
+import BlogPostPage from "@/Pages/BlogPostPage";
+import ColdPressedOilsPage from "@/Pages/ColdPressedOilsPage";
+import ContactPage from "@/Pages/ContactPage";
+import DomesticSupplyPage from "@/Pages/DomesticSupplyPage";
+import HomePage from "@/Pages/HomePage";
+import NotFoundPage from "@/Pages/NotFoundPage";
+import ProductDetailPage from "@/Pages/ProductDetailPage";
+import ProductsPage from "@/Pages/ProductPage";
+import QualityCertificationsPage from "@/Pages/QualityCertificationsPage";
+import SourcingNetworkPage from "@/Pages/SourcingNetworkPage";
 
 const SiteLayout = () => {
   return (

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Seo from "@/components/Seo";
+import Seo from "@/Components/Seo";
 import { SITE_URL } from "@/data/siteData";
 import "@/styles/product-palette.css";
 

@@ -1,5 +1,5 @@
 import { Link, Navigate, useParams } from "react-router-dom";
-import Seo from "@/components/Seo";
+import Seo from "@/Components/Seo";
 import { PRODUCTS_BY_SLUG } from "@/data/siteData";
 import "@/styles/product-palette.css";
 

@@ -1,11 +1,10 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { NAV_LINKS } from "@/data/siteData";
 import logo from "@/assets/JmMasala.png";
 
 const Header = () => {
-  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 import { Navigate, useParams } from "react-router-dom";
-import Seo from "@/components/Seo";
+import Seo from "@/Components/Seo";
 import { BLOG_POSTS } from "@/data/siteData";
 
 const BlogPostPage = () => {

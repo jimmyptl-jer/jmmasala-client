@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import Seo from "@/components/Seo";
+import Seo from "@/Components/Seo";
 import { PRODUCTS } from "@/data/siteData";
 
 const ProductsPage = () => {
