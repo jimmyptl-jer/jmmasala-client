@@ -11,29 +11,31 @@ const BlogPage = () => {
         path="/blog"
       />
 
-      <section className="mx-auto max-w-7xl px-4 py-12">
-        <h1 className="font-serif text-4xl font-bold text-stone-900">Blog</h1>
+      <section className="jm-section">
+        <div className="jm-container">
+          <p className="jm-section-label">Insights</p>
+          <h1 className="jm-section-heading">JM Masala Blog</h1>
 
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {BLOG_POSTS.map((post) => (
-            <article key={post.slug} className="rounded-2xl border border-stone-200 bg-white p-5">
-              <p className="text-xs font-semibold uppercase tracking-wide text-amber-700">
-                {new Date(post.date).toLocaleDateString("en-IN", {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })}
-              </p>
-              <h2 className="mt-2 text-lg font-semibold text-stone-900">{post.title}</h2>
-              <p className="mt-2 text-sm text-stone-600">{post.excerpt}</p>
-              <Link
-                to={`/blog/${post.slug}`}
-                className="mt-4 inline-block rounded-full bg-amber-600 px-4 py-2 text-xs font-semibold text-white hover:bg-amber-700"
-              >
-                Read More
-              </Link>
-            </article>
-          ))}
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {BLOG_POSTS.map((post) => (
+              <article key={post.slug} className="jm-surface-card p-6">
+                <p className="text-label text-[var(--brand-gold)]">
+                  {new Date(post.date).toLocaleDateString("en-IN", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </p>
+                <h2 className="mt-3 text-[28px] leading-tight text-[var(--brand-charcoal)] text-tagline not-italic">
+                  {post.title}
+                </h2>
+                <p className="mt-3 text-body text-[var(--brand-forest)]">{post.excerpt}</p>
+                <Link to={`/blog/${post.slug}`} className="mt-5 inline-flex jm-btn jm-btn--outline text-[13px]">
+                  Read More
+                </Link>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </>

@@ -147,32 +147,32 @@ const EXPORT_REGIONS = [
   {
     region: "Middle East",
     countries: ["UAE", "Saudi Arabia", "Kuwait", "Qatar", "Bahrain", "Oman"],
-    color: "#C84B11",
+    color: "var(--brand-gold)",
   },
   {
     region: "Southeast Asia",
     countries: ["Malaysia", "Singapore", "Indonesia", "Vietnam", "Thailand"],
-    color: "#8B2E00",
+    color: "var(--wood-mid)",
   },
   {
     region: "Europe",
     countries: ["UK", "Germany", "Netherlands", "France", "Spain", "Poland"],
-    color: "#D4680A",
+    color: "var(--cumin-accent)",
   },
   {
     region: "Americas",
     countries: ["USA", "Canada", "Brazil", "Mexico"],
-    color: "#A0522D",
+    color: "var(--wood-light)",
   },
   {
     region: "Africa",
     countries: ["South Africa", "Kenya", "Nigeria", "Tanzania"],
-    color: "#6B3A1F",
+    color: "var(--brand-sage)",
   },
   {
     region: "Oceania & Others",
     countries: ["Australia", "New Zealand", "Sri Lanka", "Bangladesh"],
-    color: "#E8860E",
+    color: "var(--brand-gold-light)",
   },
 ];
 
@@ -210,21 +210,19 @@ const HomePage = () => {
       />
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
-
         .jm2-root {
-          font-family: 'DM Sans', sans-serif;
-          color: #2C1A0E;
-          --spice-dark: #2C1A0E;
-          --spice-brown: #5C2E0E;
-          --spice-amber: #C84B11;
-          --spice-gold: #E8860E;
-          --spice-cream: #FAF6F0;
-          --spice-beige: #F0E6D8;
-          --spice-warm-white: #FFFDF9;
+          font-family: var(--font-body);
+          color: var(--brand-charcoal);
+          --spice-dark: var(--brand-charcoal);
+          --spice-brown: var(--wood-dark);
+          --spice-amber: var(--brand-gold);
+          --spice-gold: var(--brand-gold-light);
+          --spice-cream: var(--brand-cream);
+          --spice-beige: var(--brand-gold-pale);
+          --spice-warm-white: var(--brand-warm-white);
         }
 
-        .jm2-display { font-family: 'Playfair Display', serif; }
+        .jm2-display { font-family: var(--font-display); }
 
         /* Hero */
         .jm2-hero {
@@ -241,7 +239,7 @@ const HomePage = () => {
         }
         .jm2-hero__overlay {
           position: absolute; inset: 0;
-          background: linear-gradient(135deg, rgba(44,26,14,0.92) 0%, rgba(92,46,14,0.75) 60%, rgba(200,75,17,0.3) 100%);
+          background: linear-gradient(135deg, rgba(26,46,26,0.94) 0%, rgba(45,74,45,0.8) 58%, rgba(201,168,76,0.24) 100%);
         }
         .jm2-hero__content {
           position: relative;
@@ -260,32 +258,32 @@ const HomePage = () => {
         }
         .jm2-hero__eyebrow {
           display: inline-flex; align-items: center; gap: 0.5rem;
-          background: rgba(232,134,14,0.2); border: 1px solid rgba(232,134,14,0.4);
-          color: #E8860E; padding: 0.35rem 1rem; border-radius: 2rem;
+          background: rgba(201,168,76,0.18); border: 1px solid rgba(201,168,76,0.38);
+          color: var(--brand-gold-light); padding: 0.35rem 1rem; border-radius: 2rem;
           font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
           margin-bottom: 1.5rem;
         }
         .jm2-hero__h1 {
-          font-family: 'Playfair Display', serif;
+          font-family: var(--font-display);
           font-size: clamp(2.4rem, 5vw, 3.8rem);
           color: #fff; line-height: 1.15;
           margin-bottom: 1.5rem;
         }
-        .jm2-hero__h1 em { color: #E8860E; font-style: italic; }
+        .jm2-hero__h1 em { color: var(--brand-gold-light); font-style: italic; }
         .jm2-hero__sub {
           font-size: 1.05rem; color: rgba(255,255,255,0.85);
           line-height: 1.7; margin-bottom: 2.5rem; max-width: 480px;
         }
         .jm2-hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
         .jm2-btn-primary {
-          background: linear-gradient(135deg, #C84B11, #E8860E);
-          color: #fff; padding: 0.85rem 2rem; border-radius: 0.5rem;
+          background: linear-gradient(135deg, var(--brand-gold), var(--brand-gold-light));
+          color: var(--brand-deep-green); padding: 0.85rem 2rem; border-radius: 0.5rem;
           font-weight: 600; font-size: 0.95rem; text-decoration: none;
           display: inline-flex; align-items: center; gap: 0.5rem;
           transition: transform 0.2s, box-shadow 0.2s;
-          box-shadow: 0 4px 20px rgba(200,75,17,0.35);
+          box-shadow: 0 4px 20px rgba(201,168,76,0.32);
         }
-        .jm2-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,75,17,0.45); }
+        .jm2-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,76,0.42); }
         .jm2-btn-outline {
           border: 2px solid rgba(255,255,255,0.5); color: #fff;
           padding: 0.85rem 2rem; border-radius: 0.5rem;
@@ -322,7 +320,7 @@ const HomePage = () => {
           display: flex; align-items: center; gap: 0.5rem;
           color: rgba(255,255,255,0.9); font-size: 0.82rem; font-weight: 500;
         }
-        .jm2-trust__dot { width: 5px; height: 5px; border-radius: 50%; background: #E8860E; }
+        .jm2-trust__dot { width: 5px; height: 5px; border-radius: 50%; background: var(--brand-gold); }
 
         /* Section shared */
         .jm2-section {
@@ -339,18 +337,18 @@ const HomePage = () => {
           margin-bottom: 0.75rem;
         }
         .jm2-heading {
-          font-family: 'Playfair Display', serif;
+          font-family: var(--font-display);
           font-size: clamp(1.8rem, 3.5vw, 2.6rem);
           color: var(--spice-dark); line-height: 1.2;
           margin-bottom: 0.75rem;
         }
         .jm2-heading--white { color: #fff; }
         .jm2-sub {
-          font-size: 1rem; color: #6B4226; line-height: 1.7;
+          font-size: 1rem; color: var(--brand-forest); line-height: 1.7;
           max-width: 600px; margin-bottom: 3rem;
         }
         .jm2-divider {
-          width: 3rem; height: 3px; background: linear-gradient(90deg, #C84B11, #E8860E);
+          width: 3rem; height: 3px; background: linear-gradient(90deg, var(--brand-gold), var(--brand-gold-light));
           border-radius: 2px; margin-bottom: 1rem;
         }
 
@@ -365,12 +363,12 @@ const HomePage = () => {
           padding: 2.5rem 1.5rem; text-align: center;
         }
         .jm2-stat__value {
-          font-family: 'Playfair Display', serif;
+          font-family: var(--font-display);
           font-size: 2.8rem; font-weight: 700;
           color: var(--spice-amber); line-height: 1;
           margin-bottom: 0.4rem;
         }
-        .jm2-stat__label { font-size: 0.85rem; color: #6B4226; font-weight: 500; }
+        .jm2-stat__label { font-size: 0.85rem; color: var(--brand-forest); font-weight: 500; }
 
         /* About */
         .jm2-about {
@@ -384,9 +382,9 @@ const HomePage = () => {
         .jm2-about__img { width: 100%; height: 420px; object-fit: cover; }
         .jm2-about__badge {
           position: absolute; bottom: 1.5rem; left: 1.5rem;
-          background: linear-gradient(135deg, #C84B11, #E8860E);
-          color: #fff; padding: 0.75rem 1.25rem; border-radius: 0.75rem;
-          font-weight: 700; font-size: 0.9rem; font-family: 'Playfair Display', serif;
+          background: linear-gradient(135deg, var(--brand-gold), var(--brand-gold-light));
+          color: var(--brand-deep-green); padding: 0.75rem 1.25rem; border-radius: 0.75rem;
+          font-weight: 700; font-size: 0.9rem; font-family: var(--font-display);
         }
         .jm2-about__meta {
           display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;
@@ -414,8 +412,8 @@ const HomePage = () => {
         .jm2-product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(44,26,14,0.12); }
         .jm2-product-card__img { width: 100%; height: 180px; object-fit: cover; }
         .jm2-product-card__body { padding: 1.25rem; }
-        .jm2-product-card__name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; color: var(--spice-dark); margin-bottom: 0.4rem; }
-        .jm2-product-card__desc { font-size: 0.85rem; color: #6B4226; line-height: 1.6; margin-bottom: 1rem; }
+        .jm2-product-card__name { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--spice-dark); margin-bottom: 0.4rem; }
+        .jm2-product-card__desc { font-size: 0.85rem; color: var(--brand-forest); line-height: 1.6; margin-bottom: 1rem; }
         .jm2-product-card__link {
           font-size: 0.85rem; font-weight: 700; color: var(--spice-amber);
           display: inline-flex; align-items: center; gap: 0.3rem; text-decoration: none;
@@ -436,17 +434,17 @@ const HomePage = () => {
           box-shadow: 0 2px 12px rgba(44,26,14,0.05);
         }
         .jm2-process-step__num {
-          font-family: 'Playfair Display', serif;
+          font-family: var(--font-display);
           font-size: 3rem; font-weight: 700;
           color: var(--spice-beige); line-height: 1;
           margin-bottom: 0.5rem;
         }
         .jm2-process-step__emoji { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
-        .jm2-process-step__title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; color: var(--spice-dark); margin-bottom: 0.5rem; }
-        .jm2-process-step__desc { font-size: 0.85rem; color: #6B4226; line-height: 1.7; }
+        .jm2-process-step__title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--spice-dark); margin-bottom: 0.5rem; }
+        .jm2-process-step__desc { font-size: 0.85rem; color: var(--brand-forest); line-height: 1.7; }
         .jm2-process-step__bar {
           position: absolute; top: 0; left: 0; right: 0; height: 3px;
-          background: linear-gradient(90deg, #C84B11, #E8860E);
+          background: linear-gradient(90deg, var(--brand-gold), var(--brand-gold-light));
           border-radius: 1rem 1rem 0 0;
         }
 
@@ -465,15 +463,15 @@ const HomePage = () => {
         .jm2-service-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(44,26,14,0.1); }
         .jm2-service-card__icon {
           width: 3rem; height: 3rem; border-radius: 0.75rem;
-          background: linear-gradient(135deg, #C84B11, #E8860E);
+          background: linear-gradient(135deg, var(--brand-gold), var(--brand-gold-light));
           display: flex; align-items: center; justify-content: center;
-          color: #fff; margin-bottom: 1.25rem;
+          color: var(--brand-deep-green); margin-bottom: 1.25rem;
         }
-        .jm2-service-card__title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; color: var(--spice-dark); margin-bottom: 0.6rem; }
-        .jm2-service-card__desc { font-size: 0.85rem; color: #6B4226; line-height: 1.7; margin-bottom: 1.25rem; }
+        .jm2-service-card__title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--spice-dark); margin-bottom: 0.6rem; }
+        .jm2-service-card__desc { font-size: 0.85rem; color: var(--brand-forest); line-height: 1.7; margin-bottom: 1.25rem; }
         .jm2-service-card__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem; }
         .jm2-service-card__list li {
-          font-size: 0.8rem; color: #5C2E0E; font-weight: 500;
+          font-size: 0.8rem; color: var(--wood-dark); font-weight: 500;
           display: flex; align-items: center; gap: 0.5rem;
         }
         .jm2-service-card__list li::before {
@@ -493,7 +491,7 @@ const HomePage = () => {
           backdrop-filter: blur(4px);
         }
         .jm2-region-card__name {
-          font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600;
+          font-family: var(--font-display); font-size: 1.1rem; font-weight: 600;
           color: #fff; margin-bottom: 0.75rem;
           display: flex; align-items: center; gap: 0.5rem;
         }
@@ -507,7 +505,7 @@ const HomePage = () => {
           text-align: center; margin-bottom: 3rem;
         }
         .jm2-export-hero__num {
-          font-family: 'Playfair Display', serif; font-size: 4.5rem; font-weight: 700;
+          font-family: var(--font-display); font-size: 4.5rem; font-weight: 700;
           color: var(--spice-gold); line-height: 1;
         }
 
@@ -523,13 +521,13 @@ const HomePage = () => {
           position: relative;
         }
         .jm2-testimonial::before {
-          content: '"'; font-family: 'Playfair Display', serif; font-size: 5rem;
+          content: '"'; font-family: var(--font-display); font-size: 5rem;
           color: var(--spice-beige); position: absolute; top: 0.5rem; right: 1.5rem;
           line-height: 1;
         }
         .jm2-stars { display: flex; gap: 0.2rem; margin-bottom: 1rem; }
-        .jm2-star { color: #E8860E; font-size: 1rem; }
-        .jm2-testimonial__text { font-size: 0.9rem; color: #4A2C15; line-height: 1.8; margin-bottom: 1.5rem; font-style: italic; }
+        .jm2-star { color: var(--brand-gold); font-size: 1rem; }
+        .jm2-testimonial__text { font-size: 0.9rem; color: var(--wood-dark); line-height: 1.8; margin-bottom: 1.5rem; font-style: italic; }
         .jm2-testimonial__author { font-weight: 700; font-size: 0.9rem; color: var(--spice-dark); }
         .jm2-testimonial__company { font-size: 0.8rem; color: var(--spice-amber); font-weight: 500; margin-top: 0.1rem; }
 
@@ -544,20 +542,20 @@ const HomePage = () => {
           border: 1px solid rgba(200,75,17,0.15);
         }
         .jm2-cert__name { font-weight: 700; font-size: 0.85rem; color: var(--spice-dark); }
-        .jm2-cert__sub { font-size: 0.75rem; color: #6B4226; margin-top: 0.2rem; }
+        .jm2-cert__sub { font-size: 0.75rem; color: var(--brand-forest); margin-top: 0.2rem; }
 
         /* CTA */
         .jm2-cta {
-          background: linear-gradient(135deg, #2C1A0E 0%, #5C2E0E 50%, #8B2E00 100%);
+          background: linear-gradient(135deg, #10170f 0%, var(--brand-deep-green) 55%, var(--wood-dark) 100%);
           padding: 5rem 2rem; text-align: center; position: relative; overflow: hidden;
         }
         .jm2-cta::before {
           content: ''; position: absolute; inset: 0;
-          background: radial-gradient(circle at 60% 40%, rgba(232,134,14,0.15) 0%, transparent 60%);
+          background: radial-gradient(circle at 60% 40%, rgba(201,168,76,0.15) 0%, transparent 60%);
         }
         .jm2-cta__inner { position: relative; max-width: 600px; margin: 0 auto; }
         .jm2-cta__heading {
-          font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem);
+          font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.5rem);
           color: #fff; margin-bottom: 1rem; line-height: 1.3;
         }
         .jm2-cta__sub { color: rgba(255,255,255,0.75); font-size: 1rem; margin-bottom: 2rem; line-height: 1.7; }
@@ -617,7 +615,7 @@ const HomePage = () => {
                 <div className="jm2-trust__item">
                   <CheckCircle2
                     className="h-3.5 w-3.5"
-                    style={{ color: "#E8860E" }}
+                    style={{ color: "var(--brand-gold)" }}
                   />
                   <span>{b}</span>
                 </div>
@@ -658,7 +656,7 @@ const HomePage = () => {
                 <p
                   style={{
                     fontSize: "0.95rem",
-                    color: "#4A2C15",
+                    color: "var(--wood-dark)",
                     lineHeight: 1.8,
                     marginBottom: "1rem",
                   }}
@@ -671,7 +669,7 @@ const HomePage = () => {
                 <p
                   style={{
                     fontSize: "0.95rem",
-                    color: "#4A2C15",
+                    color: "var(--wood-dark)",
                     lineHeight: 1.8,
                     marginBottom: "1.5rem",
                   }}
@@ -804,7 +802,7 @@ const HomePage = () => {
           className="jm2-section"
           style={{
             background:
-              "linear-gradient(135deg, #1A0E06 0%, #2C1A0E 50%, #3D1F0A 100%)",
+              "linear-gradient(135deg, #10170f 0%, var(--brand-deep-green) 55%, var(--wood-dark) 100%)",
           }}
         >
           <div className="jm2-container">
@@ -879,7 +877,7 @@ const HomePage = () => {
               <div>
                 <h3
                   style={{
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "var(--font-display)",
                     fontSize: "1.15rem",
                     color: "var(--spice-dark)",
                     marginBottom: "1rem",
@@ -918,7 +916,7 @@ const HomePage = () => {
               >
                 <h3
                   style={{
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "var(--font-display)",
                     fontSize: "1.15rem",
                     color: "var(--spice-dark)",
                     marginBottom: "1.25rem",
@@ -945,14 +943,14 @@ const HomePage = () => {
                         alignItems: "flex-start",
                         gap: "0.6rem",
                         fontSize: "0.875rem",
-                        color: "#4A2C15",
+                        color: "var(--wood-dark)",
                       }}
                     >
                       <CheckCircle2
                         style={{
                           width: "1rem",
                           height: "1rem",
-                          color: "#C84B11",
+                          color: "var(--brand-gold)",
                           marginTop: "0.1rem",
                           flexShrink: 0,
                         }}
@@ -969,7 +967,7 @@ const HomePage = () => {
         {/* ── CTA ── */}
         <section className="jm2-cta">
           <div className="jm2-cta__inner">
-            <p className="jm2-label" style={{ color: "#E8860E" }}>
+            <p className="jm2-label" style={{ color: "var(--brand-gold-light)" }}>
               Get Started
             </p>
             <h2 className="jm2-cta__heading">

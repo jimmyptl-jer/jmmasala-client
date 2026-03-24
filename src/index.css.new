@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=Didact+Gothic&display=swap");
-@import "./styles/product-palette.css";
 
 @tailwind base;
 @tailwind components;
@@ -8,106 +7,94 @@
 :root {
   color-scheme: light;
 
-  /* JM Brand Main Colors - Updated to match Oil Press Page theme */
-  --brand-deep-green: #1a2e1a; /* Same as --oil-dark */
-  --brand-forest: #2d4a2d;
-  --brand-sage: #4a6741;
-  --brand-moss: #6b8c5e;
+  /* JM Brand Main Colors */
+  --brand-deep-green: #1A2E1A;
+  --brand-forest: #2D4A2D;
+  --brand-sage: #4A6741;
+  --brand-moss: #6B8C5E;
 
-  /* Gold System - Updated to match Oil Press Page */
-  --brand-gold: #c9a84c; /* Same as --oil-accent */
-  --brand-gold-light: #e2c97e; /* Same as --oil-light */
-  --brand-gold-pale: #f5e9c8;
+  /* Gold System */
+  --brand-gold: #C9A84C;
+  --brand-gold-light: #E2C97E;
+  --brand-gold-pale: #F5E9C8;
 
-  /* Neutral Base - Updated to match Oil Press Page */
-  --brand-cream: #faf6ee; /* Same as --oil-label */
-  --brand-warm-white: #fdfbf7;
-  --brand-charcoal: #2a2a2a;
+  /* Neutral Base */
+  --brand-cream: #FAF6EE;
+  --brand-warm-white: #FDFBF7;
+  --brand-charcoal: #2A2A2A;
 
   /* Materials */
-  --wood-dark: #5c3d1e;
-  --wood-mid: #7a5230;
-  --wood-light: #a0713f;
+  --wood-dark: #5C3D1E;
+  --wood-mid: #7A5230;
+  --wood-light: #A0713F;
 
   /* Product Colors - Cumin */
-  --cumin-bg: #1e1208;
-  --cumin-dark: #2d1f0e;
-  --cumin-accent: #c17f3a;
-  --cumin-light: #e2ad6e;
-  --cumin-label: #f5e6d0;
+  --cumin-bg: #1E1208;
+  --cumin-dark: #2D1F0E;
+  --cumin-accent: #C17F3A;
+  --cumin-light: #E2AD6E;
+  --cumin-label: #F5E6D0;
 
   /* Product Colors - Coriander */
-  --coriander-bg: #111a0c;
-  --coriander-dark: #1a2e12;
-  --coriander-accent: #6fa832;
-  --coriander-light: #a8d46a;
-  --coriander-label: #e8f4d0;
+  --coriander-bg: #111A0C;
+  --coriander-dark: #1A2E12;
+  --coriander-accent: #6FA832;
+  --coriander-light: #A8D46A;
+  --coriander-label: #E8F4D0;
 
   /* Product Colors - Turmeric */
-  --turmeric-bg: #1e1400;
-  --turmeric-dark: #2e1e00;
-  --turmeric-accent: #e89b00;
-  --turmeric-light: #f5c84a;
-  --turmeric-label: #fff3c4;
+  --turmeric-bg: #1E1400;
+  --turmeric-dark: #2E1E00;
+  --turmeric-accent: #E89B00;
+  --turmeric-light: #F5C84A;
+  --turmeric-label: #FFF3C4;
 
   /* Product Colors - Red Chilli */
-  --chilli-bg: #1a0404;
-  --chilli-dark: #2e0a0a;
-  --chilli-accent: #cc2222;
-  --chilli-light: #e87070;
-  --chilli-label: #fde8e8;
+  --chilli-bg: #1A0404;
+  --chilli-dark: #2E0A0A;
+  --chilli-accent: #CC2222;
+  --chilli-light: #E87070;
+  --chilli-label: #FDE8E8;
 
   /* Product Colors - Black Pepper */
   --pepper-bg: #101010;
-  --pepper-dark: #1e1e1e;
+  --pepper-dark: #1E1E1E;
   --pepper-mid: #888888;
-  --pepper-accent: #c9a84c;
-  --pepper-label: #ebebeb;
+  --pepper-accent: #C9A84C;
+  --pepper-label: #EBEBEB;
 
   /* Product Colors - Cardamom */
-  --cardamom-bg: #060e12;
-  --cardamom-dark: #0e1e26;
-  --cardamom-accent: #2a7a8c;
-  --cardamom-light: #6ab8c8;
-  --cardamom-label: #d0edf4;
+  --cardamom-bg: #060E12;
+  --cardamom-dark: #0E1E26;
+  --cardamom-accent: #2A7A8C;
+  --cardamom-light: #6AB8C8;
+  --cardamom-label: #D0EDF4;
 
   /* Product Colors - Psyllium */
   --psyllium-bg: #141008;
-  --psyllium-dark: #1e1a0e;
-  --psyllium-accent: #8a7840;
-  --psyllium-light: #c4ae6e;
-  --psyllium-label: #f0e9d0;
+  --psyllium-dark: #1E1A0E;
+  --psyllium-accent: #8A7840;
+  --psyllium-light: #C4AE6E;
+  --psyllium-label: #F0E9D0;
 
   /* Product Colors - Cold Press Oils */
-  --oil-bg: #0f1a0f;
-  --oil-dark: #1a2e1a;
-  --oil-accent: #c9a84c;
-  --oil-light: #e2c97e;
-  --oil-label: #faf6ee;
+  --oil-bg: #0F1A0F;
+  --oil-dark: #1A2E1A;
+  --oil-accent: #C9A84C;
+  --oil-light: #E2C97E;
+  --oil-label: #FAF6EE;
 
   /* Font Families */
-  --font-display: "Cinzel", serif;
-  --font-editorial: "Cormorant Garamond", serif;
-  --font-body: "Didact Gothic", sans-serif;
-  --font-accent: var(--font-editorial);
-
-  /* Backward-compatible aliases used across older page files */
-  --color-primary: var(--brand-deep-green);
-  --color-secondary: var(--brand-gold);
-  --color-accent: var(--brand-gold);
-  --color-bg-cream: var(--brand-cream);
-  --color-bg-beige: var(--brand-gold-pale);
-  --color-white: var(--brand-warm-white);
-  --color-text-dark: var(--brand-charcoal);
-  --color-text-medium: var(--brand-forest);
-  --color-footer-bg: var(--brand-deep-green);
+  --font-display: 'Cinzel', serif;
+  --font-editorial: 'Cormorant Garamond', serif;
+  --font-body: 'Didact Gothic', sans-serif;
 
   --border-radius-sm: 4px;
   --border-radius-md: 8px;
   --border-radius-lg: 12px;
 
   --shadow-sm: 0 2px 12px rgba(26, 46, 26, 0.06);
-  --shadow-md: 0 4px 24px rgba(26, 46, 26, 0.1);
+  --shadow-md: 0 4px 24px rgba(26, 46, 26, 0.10);
   --shadow-lg: 0 8px 40px rgba(26, 46, 26, 0.16);
 
   --transition: all 0.25s ease;
@@ -143,91 +130,25 @@ button {
 }
 
 /* Typography Scale - Display (Cinzel) */
-.text-brand {
-  font-family: var(--font-display);
-  font-size: 140px;
-  letter-spacing: -8px;
-}
-.text-hero {
-  font-family: var(--font-display);
-  font-size: 72px;
-  letter-spacing: 4px;
-}
-.text-heading-1 {
-  font-family: var(--font-display);
-  font-size: 32px;
-  letter-spacing: 8px;
-}
-.text-heading-2 {
-  font-family: var(--font-display);
-  font-size: 20px;
-  letter-spacing: 6px;
-}
-.text-label {
-  font-family: var(--font-display);
-  font-size: 11px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-}
-.text-badge {
-  font-family: var(--font-display);
-  font-size: 7px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-.text-section-tag {
-  font-family: var(--font-display);
-  font-size: 9px;
-  letter-spacing: 5px;
-  color: var(--brand-gold);
-}
+.text-brand { font-family: var(--font-display); font-size: 140px; letter-spacing: -8px; }
+.text-hero { font-family: var(--font-display); font-size: 72px; letter-spacing: 4px; }
+.text-heading-1 { font-family: var(--font-display); font-size: 32px; letter-spacing: 8px; }
+.text-heading-2 { font-family: var(--font-display); font-size: 20px; letter-spacing: 6px; }
+.text-label { font-family: var(--font-display); font-size: 11px; letter-spacing: 4px; text-transform: uppercase; }
+.text-badge { font-family: var(--font-display); font-size: 7px; letter-spacing: 2px; text-transform: uppercase; }
+.text-section-tag { font-family: var(--font-display); font-size: 9px; letter-spacing: 5px; color: var(--brand-gold); }
 
 /* Typography Scale - Editorial (Cormorant Garamond) */
-.text-product-name {
-  font-family: var(--font-editorial);
-  font-size: 52px;
-  font-weight: 300;
-  font-style: italic;
-}
-.text-tagline {
-  font-family: var(--font-editorial);
-  font-size: 28px;
-  font-style: italic;
-}
-.text-subtitle {
-  font-family: var(--font-editorial);
-  font-size: 16px;
-  font-style: italic;
-}
-.text-botanical {
-  font-family: var(--font-editorial);
-  font-size: 11px;
-  font-style: italic;
-  letter-spacing: 1px;
-}
-.text-origin {
-  font-family: var(--font-editorial);
-  font-size: 9px;
-  font-style: italic;
-  letter-spacing: 2px;
-}
+.text-product-name { font-family: var(--font-editorial); font-size: 52px; font-weight: 300; font-style: italic; }
+.text-tagline { font-family: var(--font-editorial); font-size: 28px; font-style: italic; }
+.text-subtitle { font-family: var(--font-editorial); font-size: 16px; font-style: italic; }
+.text-botanical { font-family: var(--font-editorial); font-size: 11px; font-style: italic; letter-spacing: 1px; }
+.text-origin { font-family: var(--font-editorial); font-size: 9px; font-style: italic; letter-spacing: 2px; }
 
 /* Typography Scale - Body (Didact Gothic) */
-.text-body {
-  font-family: var(--font-body);
-  font-size: 13px;
-  line-height: 1.8;
-}
-.text-small {
-  font-family: var(--font-body);
-  font-size: 10px;
-  letter-spacing: 1px;
-}
-.text-micro {
-  font-family: var(--font-body);
-  font-size: 8px;
-  letter-spacing: 2px;
-}
+.text-body { font-family: var(--font-body); font-size: 13px; line-height: 1.8; }
+.text-small { font-family: var(--font-body); font-size: 10px; letter-spacing: 1px; }
+.text-micro { font-family: var(--font-body); font-size: 8px; letter-spacing: 2px; }
 
 /* Legacy class support */
 h1,
@@ -398,72 +319,6 @@ h4,
   color: var(--brand-forest);
   max-width: 560px;
   margin: 16px auto 0;
-}
-
-.jm-page-shell {
-  background: var(--brand-cream);
-}
-
-.jm-surface-card {
-  background-color: var(--brand-warm-white);
-  border: 1px solid var(--brand-gold-pale);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-sm);
-}
-
-.jm-soft-panel {
-  background-color: var(--brand-gold-pale);
-  border: 1px solid rgba(201, 168, 76, 0.35);
-  border-radius: var(--border-radius-lg);
-}
-
-.jm-input {
-  width: 100%;
-  border: 1px solid rgba(107, 140, 94, 0.3);
-  border-radius: var(--border-radius-md);
-  background-color: var(--brand-warm-white);
-  color: var(--brand-charcoal);
-  padding: 12px 14px;
-  transition: var(--transition);
-}
-
-.jm-input::placeholder {
-  color: rgba(42, 42, 42, 0.45);
-}
-
-.jm-input:hover {
-  border-color: rgba(201, 168, 76, 0.7);
-}
-
-.jm-input:focus {
-  outline: none;
-  border-color: var(--brand-gold);
-  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.18);
-}
-
-.jm-form-label {
-  display: block;
-  margin-bottom: 8px;
-  font-family: var(--font-display);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--brand-forest);
-}
-
-.jm-info-list {
-  display: grid;
-  gap: 12px;
-}
-
-.jm-info-item {
-  border-bottom: 1px solid rgba(201, 168, 76, 0.18);
-  padding-bottom: 12px;
-}
-
-.jm-info-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
 }
 
 /* Buttons */
@@ -657,7 +512,7 @@ h4,
 
 /* Multi-market grades table (cumin) */
 .jm-grade-table {
-  border: 1px solid var(--color-bg-beige);
+  border: 1px solid var(--brand-gold-pale);
   border-radius: var(--border-radius-md);
   overflow: hidden;
 }
@@ -668,13 +523,13 @@ h4,
 }
 
 .jm-grade-table thead {
-  background-color: var(--color-bg-cream);
+  background-color: var(--brand-cream);
 }
 
 .jm-grade-table th,
 .jm-grade-table td {
   padding: 12px 16px;
-  font-family: var(--font-secondary);
+  font-family: var(--font-body);
   font-size: 13px;
 }
 
@@ -682,30 +537,31 @@ h4,
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-weight: 600;
+  color: var(--brand-charcoal);
 }
 
 .jm-grade-table__market-europe {
-  color: #1565c0;
+  color: #1565C0;
 }
 
 .jm-grade-table__market-usa {
-  color: #b71c1c;
+  color: #B71C1C;
 }
 
 .jm-grade-table__market-gulf {
-  color: #e65100;
+  color: #E65100;
 }
 
 .jm-grade-table__market-singapore {
-  color: #2e7d32;
+  color: #2E7D32;
 }
 
 .jm-grade-table tbody tr:nth-child(odd) {
-  background-color: var(--color-white);
+  background-color: var(--brand-warm-white);
 }
 
 .jm-grade-table tbody tr:nth-child(even) {
-  background-color: var(--color-bg-cream);
+  background-color: var(--brand-cream);
 }
 
 /* Certification badges */
@@ -716,28 +572,28 @@ h4,
 }
 
 .jm-cert-badge {
-  background-color: var(--color-white);
-  border: 1.5px solid var(--color-accent);
+  background-color: var(--brand-warm-white);
+  border: 1.5px solid var(--brand-gold);
   border-radius: var(--border-radius-md);
   padding: 16px 24px;
-  box-shadow: 0 2px 8px rgba(200, 150, 12, 0.15);
-  font-family: var(--font-secondary);
+  box-shadow: 0 2px 8px rgba(201, 168, 76, 0.15);
+  font-family: var(--font-body);
   font-size: 13px;
-  color: var(--color-text-medium);
+  color: var(--brand-forest);
 }
 
 .jm-cert-badge__title {
   font-weight: 700;
-  color: var(--color-text-dark);
+  color: var(--brand-charcoal);
   margin-bottom: 4px;
 }
 
 /* Trust bar */
 .jm-trust-bar {
-  background-color: var(--color-primary);
+  background-color: var(--brand-deep-green);
   padding-top: 20px;
   padding-bottom: 20px;
-  color: var(--color-white);
+  color: var(--brand-cream);
 }
 
 .jm-trust-bar__list {
@@ -753,7 +609,7 @@ h4,
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-secondary);
+  font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
   white-space: nowrap;
@@ -762,7 +618,7 @@ h4,
 .jm-trust-bar__divider {
   width: 1px;
   height: 18px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(250, 246, 238, 0.2);
 }
 
 /* WhatsApp floating button */
@@ -780,9 +636,7 @@ h4,
   justify-content: center;
   color: #ffffff;
   box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .jm-whatsapp-float:hover {
@@ -821,4 +675,148 @@ h4,
     width: 60px;
     height: 60px;
   }
+}
+
+/* ===============================================
+   LABEL STRUCTURE — All Products
+   =============================================== */
+
+.jm-label {
+  border-radius: 4px;
+  overflow: hidden;
+  font-family: var(--font-editorial);
+  padding: 28px 22px 32px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Top accent band */
+.jm-label::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--product-accent);
+}
+
+.jm-label .brand {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 6px;
+}
+
+.jm-label .origin {
+  font-size: 9px;
+  font-style: italic;
+  letter-spacing: 2px;
+  opacity: 0.35;
+  margin-bottom: 20px;
+}
+
+.jm-label .divider {
+  height: 1px;
+  background: currentColor;
+  opacity: 0.12;
+  margin-bottom: 18px;
+}
+
+.jm-label .name {
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.jm-label .botanical {
+  font-style: italic;
+  font-size: 10px;
+  opacity: 0.35;
+  letter-spacing: 1px;
+}
+
+.jm-label .badges {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.jm-label .badge {
+  font-family: var(--font-display);
+  font-size: 6px;
+  letter-spacing: 1.5px;
+  padding: 3px 7px;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  opacity: 0.4;
+}
+
+.jm-label .volume {
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 3px;
+  opacity: 0.25;
+  margin-top: 16px;
+}
+
+.jm-label .batch {
+  font-family: var(--font-body);
+  font-size: 8px;
+  opacity: 0.2;
+  margin-top: 5px;
+}
+
+/* ===============================================
+   PRODUCT LABEL COLOUR MAPPING
+   =============================================== */
+
+.label-cumin {
+  background: var(--cumin-label);
+  color: var(--cumin-dark);
+  --product-accent: var(--cumin-accent);
+}
+
+.label-coriander {
+  background: var(--coriander-label);
+  color: var(--coriander-dark);
+  --product-accent: var(--coriander-accent);
+}
+
+.label-turmeric {
+  background: var(--turmeric-label);
+  color: var(--turmeric-dark);
+  --product-accent: var(--turmeric-accent);
+}
+
+.label-chilli {
+  background: var(--chilli-label);
+  color: var(--chilli-dark);
+  --product-accent: var(--chilli-accent);
+}
+
+.label-pepper {
+  background: var(--pepper-dark);
+  color: var(--brand-gold-light);
+  --product-accent: var(--brand-gold);
+}
+
+.label-cardamom {
+  background: var(--cardamom-label);
+  color: var(--cardamom-dark);
+  --product-accent: var(--cardamom-accent);
+}
+
+.label-psyllium {
+  background: var(--psyllium-label);
+  color: var(--psyllium-dark);
+  --product-accent: var(--psyllium-accent);
+}
+
+.label-oils {
+  background: var(--oil-dark);
+  color: var(--brand-cream);
+  --product-accent: var(--brand-gold);
 }

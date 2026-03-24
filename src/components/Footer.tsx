@@ -5,43 +5,36 @@ import logo from "@/assets/JmMasala.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-[var(--color-footer-bg)] text-white">
-      <div className="h-[3px] w-full bg-[var(--color-accent)]" />
+    <footer className="bg-[var(--brand-deep-green)] text-[var(--brand-cream)]">
+      <div className="h-[3px] w-full bg-[var(--brand-gold)]" />
       <div className="jm-container grid gap-10 py-12 md:grid-cols-3">
         <section>
           <div className="flex items-center gap-3">
-            <img
-              src={logo}
-              alt="JM Masala logo"
-              className="h-10 w-auto md:h-12"
-              loading="lazy"
-            />
+            <img src={logo} alt="JM Masala logo" className="h-10 w-auto md:h-12" loading="lazy" />
             <div>
-              <h2 className="text-sm font-semibold tracking-[0.2em] text-[var(--color-accent)]">
+              <h2 className="text-sm font-semibold tracking-[0.2em] text-[var(--brand-gold)]">
                 JM MASALA
               </h2>
-              <p className="text-xs tracking-[0.18em] text-[rgba(255,255,255,0.7)] uppercase">
+              <p className="text-xs uppercase tracking-[0.18em] text-[rgba(255,255,255,0.7)]">
                 Premium Indian Spices
               </p>
             </div>
           </div>
-          <p className="mt-4 font-[var(--font-accent)] text-[16px] italic text-[rgba(255,255,255,0.7)]">
+
+          <p className="mt-4 font-[var(--font-accent)] text-[16px] italic text-[rgba(250,246,238,0.72)]">
             Quality. Purity. Compliance. On-time Delivery.
           </p>
-          <p className="mt-4 flex items-start gap-2 text-sm text-[rgba(255,255,255,0.8)]">
-            <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-accent)]" />
+          <p className="mt-4 flex items-start gap-2 text-sm text-[rgba(250,246,238,0.82)]">
+            <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-gold)]" />
             {COMPANY.addressLine}
           </p>
-          <p className="mt-2 flex items-center gap-2 text-sm text-[rgba(255,255,255,0.8)]">
-            <Phone className="h-4 w-4 text-[var(--color-accent)]" />
+          <p className="mt-2 flex items-center gap-2 text-sm text-[rgba(250,246,238,0.82)]">
+            <Phone className="h-4 w-4 text-[var(--brand-gold)]" />
             {COMPANY.phones.join(" | ")}
           </p>
-          <p className="mt-2 flex items-center gap-2 text-sm text-[rgba(255,255,255,0.8)]">
-            <Mail className="h-4 w-4 text-[var(--color-accent)]" />
-            <a
-              href={`mailto:${COMPANY.email}`}
-              className="transition-colors hover:text-white"
-            >
+          <p className="mt-2 flex items-center gap-2 text-sm text-[rgba(250,246,238,0.82)]">
+            <Mail className="h-4 w-4 text-[var(--brand-gold)]" />
+            <a href={`mailto:${COMPANY.email}`} className="transition-colors hover:text-white">
               {COMPANY.email}
             </a>
           </p>
@@ -49,7 +42,7 @@ const Footer = () => {
         </section>
 
         <section>
-          <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
+          <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-gold)]">
             Quick Links
           </h3>
           <ul className="mt-4 space-y-2 text-sm">
@@ -57,7 +50,7 @@ const Footer = () => {
               <li key={item.path}>
                 <Link
                   to={item.path}
-                  className="text-[rgba(255,255,255,0.75)] transition-all duration-150 hover:text-white hover:pl-1"
+                  className="text-[rgba(255,255,255,0.75)] transition-all duration-150 hover:pl-1 hover:text-white"
                 >
                   {item.label}
                 </Link>
@@ -66,7 +59,7 @@ const Footer = () => {
             <li>
               <Link
                 to="/blog"
-                className="text-[rgba(255,255,255,0.75)] transition-all duration-150 hover:text-white hover:pl-1"
+                className="text-[rgba(255,255,255,0.75)] transition-all duration-150 hover:pl-1 hover:text-white"
               >
                 Blog
               </Link>
@@ -75,7 +68,7 @@ const Footer = () => {
         </section>
 
         <section>
-          <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
+          <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-gold)]">
             Connect
           </h3>
           <div className="mt-4 flex gap-3">
@@ -84,7 +77,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(255,255,255,0.08)] text-white transition-colors hover:bg-[var(--color-accent)]"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(255,255,255,0.08)] text-white transition-colors hover:bg-[var(--brand-gold)] hover:text-[var(--brand-deep-green)]"
             >
               <Instagram className="h-4 w-4" />
             </a>
@@ -93,7 +86,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
               aria-label="Facebook"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(255,255,255,0.08)] text-white transition-colors hover:bg-[var(--color-accent)]"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(255,255,255,0.08)] text-white transition-colors hover:bg-[var(--brand-gold)] hover:text-[var(--brand-deep-green)]"
             >
               <Facebook className="h-4 w-4" />
             </a>
@@ -102,11 +95,12 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(255,255,255,0.08)] text-white transition-colors hover:bg-[var(--color-accent)]"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(255,255,255,0.08)] text-white transition-colors hover:bg-[var(--brand-gold)] hover:text-[var(--brand-deep-green)]"
             >
               <Linkedin className="h-4 w-4" />
             </a>
           </div>
+
           <h4 className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-[rgba(255,255,255,0.7)]">
             Certifications
           </h4>
@@ -120,8 +114,9 @@ const Footer = () => {
           </div>
         </section>
       </div>
+
       <div className="border-t border-[rgba(255,255,255,0.1)] bg-[rgba(0,0,0,0.2)] py-3 text-center text-xs text-[rgba(255,255,255,0.5)]">
-        © {new Date().getFullYear()} JM Masala Products. All Rights Reserved.
+        {"\u00A9"} {new Date().getFullYear()} JM Masala Products. All Rights Reserved.
       </div>
     </footer>
   );

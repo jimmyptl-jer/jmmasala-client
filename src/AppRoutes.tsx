@@ -9,6 +9,7 @@ import { PRODUCTS } from "@/data/siteData";
 import AboutPage from "@/pages/AboutMePage";
 import BlogPage from "@/pages/BlogPage";
 import BlogPostPage from "@/pages/BlogPostPage";
+import ColdPressedOilsPage from "@/pages/ColdPressedOilsPage";
 import ContactPage from "@/pages/ContactPage";
 import DomesticSupplyPage from "@/pages/DomesticSupplyPage";
 import HomePage from "@/pages/HomePage";
@@ -20,7 +21,7 @@ import SourcingNetworkPage from "@/pages/SourcingNetworkPage";
 
 const SiteLayout = () => {
   return (
-    <div className="min-h-screen bg-stone-50 text-stone-900">
+    <div className="jm-page-shell min-h-screen text-[var(--brand-charcoal)]">
       <AnalyticsTracker />
       <Header />
       <main>
@@ -40,6 +41,8 @@ const AppRoutes = () => {
       <Route element={<SiteLayout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductsPage />} />
+        <Route path="/cold-pressed-oils" element={<ColdPressedOilsPage />} />
+        <Route path="/oils" element={<Navigate to="/cold-pressed-oils" replace />} />
         <Route path="/about-jm-masala" element={<AboutPage />} />
         <Route path="/quality-certifications" element={<QualityCertificationsPage />} />
         <Route path="/sourcing-network" element={<SourcingNetworkPage />} />

@@ -3,39 +3,37 @@ import teamImage from "@/assets/team.png";
 import jmMasalaLogo from "@/assets/JmMasala.png";
 
 const styles = `
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Lato:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500&display=swap');
-
-  .ab-root { font-family: 'Lato', sans-serif; color: #2C1A0E; background: #F5EDD6; }
+  .ab-root { font-family: var(--font-body); color: var(--brand-charcoal); background: var(--brand-cream); }
 
   /* ── HERO ── */
   .ab-hero {
-    background: linear-gradient(150deg, #1a0e06 0%, #3d1a08 40%, #5C2E0E 100%);
+    background: linear-gradient(150deg, #10170f 0%, var(--brand-deep-green) 45%, var(--wood-dark) 100%);
     padding: 96px 24px 88px; position: relative; overflow: hidden;
   }
   .ab-hero::after {
     content: '';
     position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(to right, transparent, #C8960C, transparent);
+    background: linear-gradient(to right, transparent, var(--brand-gold), transparent);
   }
   .ab-hero-bg-text {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    font-family: 'Playfair Display', serif; font-size: clamp(80px, 14vw, 180px);
+    font-family: var(--font-display); font-size: clamp(80px, 14vw, 180px);
     font-weight: 700; color: rgba(200,150,12,0.04); white-space: nowrap;
     pointer-events: none; user-select: none; letter-spacing: -4px;
   }
   .ab-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
   .ab-hero-label {
     font-size: 11px; font-weight: 700; letter-spacing: 5px; text-transform: uppercase;
-    color: #C8960C; margin-bottom: 24px; display: flex; align-items: center; gap: 14px;
+    color: var(--brand-gold); margin-bottom: 24px; display: flex; align-items: center; gap: 14px;
   }
-  .ab-hero-label::before { content: ''; width: 40px; height: 1px; background: #C8960C; opacity: 0.7; }
+  .ab-hero-label::before { content: ''; width: 40px; height: 1px; background: var(--brand-gold); opacity: 0.7; }
   .ab-hero h1 {
-    font-family: 'Playfair Display', serif; font-size: clamp(38px, 5.5vw, 68px);
+    font-family: var(--font-display); font-size: clamp(38px, 5.5vw, 68px);
     font-weight: 700; color: #fff; line-height: 1.12; margin-bottom: 24px; max-width: 820px;
   }
-  .ab-hero h1 em { font-style: italic; color: #C8960C; }
+  .ab-hero h1 em { font-style: italic; color: var(--brand-gold); }
   .ab-hero-quote {
-    font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic;
+    font-family: var(--font-editorial); font-size: 20px; font-style: italic;
     color: rgba(255,255,255,0.65); max-width: 560px; line-height: 1.7;
     border-left: 2px solid rgba(200,150,12,0.5); padding-left: 20px;
   }
@@ -48,46 +46,46 @@ const styles = `
     font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
     display: flex; align-items: center; gap: 8px;
   }
-  .ab-hero-pill span { color: #C8960C; }
+  .ab-hero-pill span { color: var(--brand-gold); }
 
   /* ── SECTION COMMON ── */
   .ab-wrap { max-width: 1200px; margin: 0 auto; padding: 80px 24px; }
   .ab-wrap-sm { max-width: 1200px; margin: 0 auto; padding: 56px 24px; }
   .ab-label {
     font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase;
-    color: #C8960C; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
+    color: var(--brand-gold); margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
   }
-  .ab-label::before { content: ''; width: 28px; height: 1px; background: #C8960C; }
+  .ab-label::before { content: ''; width: 28px; height: 1px; background: var(--brand-gold); }
   .ab-heading {
-    font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px);
-    font-weight: 700; color: #2C1A0E; line-height: 1.2; margin-bottom: 14px;
+    font-family: var(--font-display); font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700; color: var(--brand-charcoal); line-height: 1.2; margin-bottom: 14px;
   }
-  .ab-sub { font-size: 16px; color: #5C3D1E; line-height: 1.8; max-width: 640px; }
-  .ab-divider { height: 1px; background: linear-gradient(to right, transparent, rgba(200,150,12,0.35), transparent); }
+  .ab-sub { font-size: 16px; color: var(--brand-forest); line-height: 1.8; max-width: 640px; }
+  .ab-divider { height: 1px; background: linear-gradient(to right, transparent, rgba(201,168,76,0.35), transparent); }
 
   /* ── HERITAGE SECTION (two-col) ── */
-  .ab-heritage-bg { background: #fff; }
+  .ab-heritage-bg { background: var(--brand-warm-white); }
   .ab-heritage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
   @media (max-width: 768px) { .ab-heritage-grid { grid-template-columns: 1fr; } }
   .ab-heritage-img-wrap {
     position: relative; border-radius: 16px; overflow: hidden;
-    aspect-ratio: 4/5; background: #2C1A0E;
+    aspect-ratio: 4/5; background: var(--brand-deep-green);
   }
   .ab-heritage-img-wrap img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; }
   .ab-heritage-img-badge {
     position: absolute; bottom: 24px; left: 24px;
-    background: rgba(200,150,12,0.92); padding: 14px 20px; border-radius: 10px;
+    background: rgba(201,168,76,0.92); padding: 14px 20px; border-radius: 10px;
   }
   .ab-heritage-img-badge-num {
-    font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: #2C1A0E;
+    font-family: var(--font-display); font-size: 32px; font-weight: 700; color: var(--brand-deep-green);
   }
-  .ab-heritage-img-badge-label { font-size: 11px; font-weight: 700; color: #2C1A0E; letter-spacing: 1px; text-transform: uppercase; }
+  .ab-heritage-img-badge-label { font-size: 11px; font-weight: 700; color: var(--brand-deep-green); letter-spacing: 1px; text-transform: uppercase; }
   .ab-heritage-body p {
-    font-size: 16px; color: #5C3D1E; line-height: 1.85; margin-bottom: 16px;
+    font-size: 16px; color: var(--brand-forest); line-height: 1.85; margin-bottom: 16px;
   }
   .ab-heritage-pull {
-    font-family: 'Cormorant Garamond', serif; font-size: 22px; font-style: italic;
-    color: #5C2E0E; border-left: 3px solid #C8960C; padding-left: 20px;
+    font-family: var(--font-editorial); font-size: 22px; font-style: italic;
+    color: var(--wood-dark); border-left: 3px solid var(--brand-gold); padding-left: 20px;
     margin: 28px 0; line-height: 1.6;
   }
 

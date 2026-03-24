@@ -29,6 +29,7 @@ export const COMPANY = {
 export const NAV_LINKS = [
   { label: "Home", path: "/" },
   { label: "Products", path: "/products" },
+  { label: "Cold Pressed Oils", path: "/cold-pressed-oils" },
   { label: "About Us", path: "/about-jm-masala" },
   { label: "Sourcing", path: "/sourcing-network" },
   { label: "Quality and Certifications", path: "/quality-certifications" },
@@ -60,6 +61,14 @@ export type QualityGrade = {
   notes: string;
 };
 
+export type ColorPalette = {
+  primary: string;
+  accent: string;
+  pale: string;
+  swatches: string[];
+  tagline: string;
+};
+
 export type ProductData = {
   slug: string;
   name: string;
@@ -73,6 +82,7 @@ export type ProductData = {
   specs: ProductSpec[];
   qualityGrades?: QualityGrade[];
   relatedSlugs: string[];
+  colors?: ColorPalette;
 };
 
 export const PRODUCTS: ProductData[] = [
@@ -88,6 +98,13 @@ export const PRODUCTS: ProductData[] = [
       "Cumin is our flagship export from Unjha, Gujarat. We source directly from trusted mandi channels and farmer groups, then process through Sortex cleaning and lab verification for stable aroma, oil content, and purity across buyer markets.",
     keySpec: "Purity up to 99.5% | Moisture max 8-10%",
     imageUrl: cuminImage,
+    colors: {
+      primary: "#2d1f0e",
+      accent: "#c17f3a",
+      pale: "#f5e6d0",
+      swatches: ["#2d1f0e", "#5c3e1c", "#c17f3a", "#e2ad6e", "#f5e6d0"],
+      tagline: "Warm amber tones of Unjha's finest jeera",
+    },
     specs: [
       { label: "Purity", value: "98% / 99% / 99.5%" },
       { label: "Moisture", value: "Max 8% to 10%" },
@@ -144,6 +161,13 @@ export const PRODUCTS: ProductData[] = [
       "Our coriander seeds are sourced from Gujarat trade networks and selected for aroma, size consistency, and low foreign matter. Processing follows HACCP-compatible cleaning and lot-wise inspection for export reliability.",
     keySpec: "Purity min 98% | Moisture 8-10%",
     imageUrl: corianderSeedsImage,
+    colors: {
+      primary: "#1a2e12",
+      accent: "#6fa832",
+      pale: "#e8f4d0",
+      swatches: ["#1a2e12", "#2e5020", "#6fa832", "#a8d46a", "#e8f4d0"],
+      tagline: "Fresh herb green, earthy and clean",
+    },
     specs: [
       { label: "Purity", value: "Min 98%" },
       { label: "Moisture", value: "Max 10%" },
@@ -170,6 +194,13 @@ export const PRODUCTS: ProductData[] = [
       "Our fennel seeds are selected for color and aroma consistency, then graded to match importer requirements. We provide bold and small fennel variants with quality-tested lots for export buyers.",
     keySpec: "Purity min 99% | Moisture max 8%",
     imageUrl: fennelSeedsImage,
+    colors: {
+      primary: "#1a2210",
+      accent: "#8fa860",
+      pale: "#e5f0d5",
+      swatches: ["#1a2210", "#3a4820", "#8fa860", "#b8d080", "#e5f0d5"],
+      tagline: "Sweet aroma, botanical green harmony",
+    },
     specs: [
       { label: "Purity", value: "Min 99%" },
       { label: "Moisture", value: "Max 8%" },
@@ -196,6 +227,13 @@ export const PRODUCTS: ProductData[] = [
       "Fenugreek seeds are sourced from Gujarat and cleaned for export lots requiring high purity and low contamination. We support commercial and premium grades with buyer-specific packing.",
     keySpec: "Purity 99% | Semi-bold and bold grades",
     imageUrl: fenugreekSeedsImage,
+    colors: {
+      primary: "#2a1f0a",
+      accent: "#d4a048",
+      pale: "#fae8c5",
+      swatches: ["#2a1f0a", "#5c3e1c", "#d4a048", "#e5c485", "#fae8c5"],
+      tagline: "Golden abundance, nutty and precious",
+    },
     specs: [
       { label: "Purity", value: "99%" },
       { label: "Moisture", value: "Max 10%" },
@@ -222,6 +260,13 @@ export const PRODUCTS: ProductData[] = [
       "We supply export-grade psyllium husk with controlled moisture and high swell volume. Processing and packing are handled for pharma, nutraceutical, and food-grade demand with lab-tested batches.",
     keySpec: "Swell volume 25-40 ml/g | Moisture max 12%",
     imageUrl: psylliumHuskImage,
+    colors: {
+      primary: "#1e1a0e",
+      accent: "#8a7840",
+      pale: "#f0e9d0",
+      swatches: ["#1e1a0e", "#3a3018", "#8a7840", "#c4ae6e", "#f0e9d0"],
+      tagline: "Warm wheat tone — pure wellness",
+    },
     specs: [
       { label: "Purity", value: "Min 98%" },
       { label: "Moisture", value: "Max 12%" },
@@ -248,6 +293,13 @@ export const PRODUCTS: ProductData[] = [
       "Psyllium seeds from Gujarat are supplied in export lots after sorting and quality checks. We support bulk buyers using psyllium as a base ingredient in food, feed, and fiber-focused products.",
     keySpec: "Purity min 99% | Moisture max 10-12%",
     imageUrl: psylliumSeedsImage,
+    colors: {
+      primary: "#1a1608",
+      accent: "#9d8950",
+      pale: "#f2eddc",
+      swatches: ["#1a1608", "#3a3010", "#9d8950", "#c9bb80", "#f2eddc"],
+      tagline: "Earthy wellness, golden-brown noble",
+    },
     specs: [
       { label: "Purity", value: "Min 99%" },
       { label: "Moisture", value: "Max 10-12%" },
@@ -274,6 +326,13 @@ export const PRODUCTS: ProductData[] = [
       "Our sesame seeds are procured and processed for bakery, tahini, and spice applications. We offer natural and hulled variants with controlled moisture and customizable quality bands.",
     keySpec: "Natural and hulled variants | Export packed",
     imageUrl: sesameSeedsImage,
+    colors: {
+      primary: "#1a1510",
+      accent: "#b89968",
+      pale: "#f5ede4",
+      swatches: ["#1a1510", "#3a2c1a", "#b89968", "#d4bb8d", "#f5ede4"],
+      tagline: "Subtle elegance, pale and pure",
+    },
     specs: [
       { label: "Purity", value: "98-99.5%" },
       { label: "Moisture", value: "Max 8%" },
@@ -300,6 +359,13 @@ export const PRODUCTS: ProductData[] = [
       "Red chilli is sourced through our East India partnership and standardized to export specifications. Lots are graded by pungency, color value, and cleanliness for food processing and trading buyers.",
     keySpec: "ASTA color and SHU range on request",
     imageUrl: redChilliImage,
+    colors: {
+      primary: "#2e0a0a",
+      accent: "#cc2222",
+      pale: "#fde8e8",
+      swatches: ["#2e0a0a", "#5c1414", "#cc2222", "#e87070", "#fde8e8"],
+      tagline: "Deep crimson, bold and unapologetic",
+    },
     specs: [
       { label: "Type", value: "Whole / stemless / crushed / powder" },
       { label: "Moisture", value: "Max 10-12%" },
@@ -325,6 +391,13 @@ export const PRODUCTS: ProductData[] = [
       "Turmeric is sourced from trusted South India channels and processed for export-grade quality. We support finger and powder requirements with color consistency, moisture control, and curcumin-focused grades.",
     keySpec: "High curcumin grades | Moisture controlled export lots",
     imageUrl: turmericImage,
+    colors: {
+      primary: "#2e1e00",
+      accent: "#e89b00",
+      pale: "#fff3c4",
+      swatches: ["#2e1e00", "#5c3c00", "#e89b00", "#f5c84a", "#fff3c4"],
+      tagline: "Vibrant gold — the colour of healing",
+    },
     specs: [
       { label: "Type", value: "Finger / bulb / powder" },
       { label: "Curcumin", value: "2% to 5%+ by grade" },
@@ -351,6 +424,13 @@ export const PRODUCTS: ProductData[] = [
       "Black pepper is sourced from South India and processed to export-ready standards. We support MG1 FAQ and market-specific grades with moisture and density controls for commercial and premium buyers.",
     keySpec: "MG1 FAQ grade available | Export cleaned lots",
     imageUrl: blackPepperImage,
+    colors: {
+      primary: "#1e1e1e",
+      accent: "#888888",
+      pale: "#ebebeb",
+      swatches: ["#1e1e1e", "#383838", "#888888", "#c9a84c", "#ebebeb"],
+      tagline: "Obsidian black with a gold crown",
+    },
     specs: [
       { label: "Grade", value: "MG1 FAQ / TGSEB / as required" },
       { label: "Moisture", value: "Max 12%" },
@@ -377,6 +457,13 @@ export const PRODUCTS: ProductData[] = [
       "Our cardamom lots are sourced from South India partner channels and graded for size, color, and aroma retention. Supply is managed against seasonality to ensure stable export contracts.",
     keySpec: "Size-graded lots | Strong aroma and green color",
     imageUrl: cardamomImage,
+    colors: {
+      primary: "#0e1e26",
+      accent: "#2a7a8c",
+      pale: "#d0edf4",
+      swatches: ["#0e1e26", "#1a3a48", "#2a7a8c", "#6ab8c8", "#d0edf4"],
+      tagline: "Teal luxury — rare, aromatic, precious",
+    },
     specs: [
       { label: "Grade", value: "5mm / 6mm / 7mm / bold by requirement" },
       { label: "Moisture", value: "As per export grade" },
@@ -403,6 +490,13 @@ export const PRODUCTS: ProductData[] = [
       "Curry leaf is supplied through partner channels in South India for buyers needing fresh or dehydrated formats. We align lot preparation, moisture control, and packing based on destination regulations.",
     keySpec: "Fresh and dehydrated formats available",
     imageUrl: curryLeafImage,
+    colors: {
+      primary: "#0f1a14",
+      accent: "#4a8856",
+      pale: "#d5f0d8",
+      swatches: ["#0f1a14", "#1a3828", "#4a8856", "#7cb380", "#d5f0d8"],
+      tagline: "Vibrant green vitality, tropical aroma",
+    },
     specs: [
       { label: "Format", value: "Fresh / dehydrated / powder on request" },
       { label: "Moisture", value: "As per format and destination" },

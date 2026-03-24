@@ -110,153 +110,150 @@ const ContactPage = () => {
         }}
       />
 
-      <section className="mx-auto max-w-7xl px-4 py-12">
-        <h1 className="font-serif text-4xl font-bold text-stone-900">Contact JM Masala</h1>
-        <p className="mt-3 text-stone-700">
-          We respond to all inquiries within 2 hours during 7AM to 8PM IST
-        </p>
+      <section className="jm-section">
+        <div className="jm-container">
+          <p className="jm-section-label">Contact</p>
+          <h1 className="jm-section-heading">Contact JM Masala</h1>
+          <p className="jm-section-subtext ml-0 max-w-2xl">
+            We respond to all inquiries within 2 hours during 7 AM to 8 PM IST.
+          </p>
 
-        <div className="mt-8 grid gap-8 lg:grid-cols-[1.1fr,0.9fr]">
-          <section className="rounded-2xl border border-stone-200 bg-white p-6">
-            <h2 className="text-2xl font-semibold text-stone-900">Export Inquiry Form</h2>
+          <div className="mt-8 grid gap-8 lg:grid-cols-[1.1fr,0.9fr]">
+            <section className="jm-surface-card p-6 lg:p-8">
+              <h2 className="text-[28px] text-[var(--brand-charcoal)] text-tagline not-italic">Export Inquiry Form</h2>
 
-            {submitted && (
-              <p className="mt-4 rounded-md bg-green-50 p-3 text-sm text-green-700">
-                Inquiry submitted. Email and WhatsApp notification flows have been triggered.
-              </p>
-            )}
+              {submitted && (
+                <p className="mt-4 rounded-md bg-[rgba(74,103,65,0.12)] p-3 text-sm text-[var(--brand-forest)]">
+                  Inquiry submitted. Email and WhatsApp notification flows have been triggered.
+                </p>
+              )}
 
-            <form id="inquiry-form" className="mt-5 grid gap-4 md:grid-cols-2" onSubmit={onSubmit}>
-              <input
-                required
-                value={form.fullName}
-                onChange={(event) => setForm({ ...form, fullName: event.target.value })}
-                placeholder="Full Name"
-                className="rounded-md border border-stone-300 px-3 py-2"
-              />
-              <input
-                required
-                value={form.companyName}
-                onChange={(event) => setForm({ ...form, companyName: event.target.value })}
-                placeholder="Company Name"
-                className="rounded-md border border-stone-300 px-3 py-2"
-              />
-              <input
-                required
-                value={form.country}
-                onChange={(event) => setForm({ ...form, country: event.target.value })}
-                placeholder="Country"
-                className="rounded-md border border-stone-300 px-3 py-2"
-              />
-              <input
-                type="email"
-                required
-                value={form.email}
-                onChange={(event) => setForm({ ...form, email: event.target.value })}
-                placeholder="Email Address"
-                className="rounded-md border border-stone-300 px-3 py-2"
-              />
-              <input
-                required
-                value={form.whatsappNumber}
-                onChange={(event) => setForm({ ...form, whatsappNumber: event.target.value })}
-                placeholder="WhatsApp Number"
-                className="rounded-md border border-stone-300 px-3 py-2"
-              />
-              <select
-                required
-                value={form.productOfInterest}
-                onChange={(event) =>
-                  setForm({ ...form, productOfInterest: event.target.value })
-                }
-                className="rounded-md border border-stone-300 px-3 py-2"
-              >
-                <option value="">Product of Interest</option>
-                {PRODUCTS.map((product) => (
-                  <option key={product.slug} value={product.name}>
-                    {product.name}
-                  </option>
-                ))}
-              </select>
-              <input
-                required
-                value={form.estimatedMonthlyQuantity}
-                onChange={(event) =>
-                  setForm({ ...form, estimatedMonthlyQuantity: event.target.value })
-                }
-                placeholder="Estimated Monthly Quantity"
-                className="rounded-md border border-stone-300 px-3 py-2"
-              />
-              <select
-                required
-                value={form.preferredPaymentTerms}
-                onChange={(event) =>
-                  setForm({ ...form, preferredPaymentTerms: event.target.value })
-                }
-                className="rounded-md border border-stone-300 px-3 py-2"
-              >
-                <option value="">Preferred Payment Terms</option>
-                {paymentTerms.map((term) => (
-                  <option key={term} value={term}>
-                    {term}
-                  </option>
-                ))}
-              </select>
-              <textarea
-                required
-                value={form.message}
-                onChange={(event) => setForm({ ...form, message: event.target.value })}
-                placeholder="Message"
-                rows={5}
-                className="rounded-md border border-stone-300 px-3 py-2 md:col-span-2"
-              />
+              <form id="inquiry-form" className="mt-5 grid gap-4 md:grid-cols-2" onSubmit={onSubmit}>
+                <input
+                  required
+                  value={form.fullName}
+                  onChange={(event) => setForm({ ...form, fullName: event.target.value })}
+                  placeholder="Full Name"
+                  className="jm-input"
+                />
+                <input
+                  required
+                  value={form.companyName}
+                  onChange={(event) => setForm({ ...form, companyName: event.target.value })}
+                  placeholder="Company Name"
+                  className="jm-input"
+                />
+                <input
+                  required
+                  value={form.country}
+                  onChange={(event) => setForm({ ...form, country: event.target.value })}
+                  placeholder="Country"
+                  className="jm-input"
+                />
+                <input
+                  type="email"
+                  required
+                  value={form.email}
+                  onChange={(event) => setForm({ ...form, email: event.target.value })}
+                  placeholder="Email Address"
+                  className="jm-input"
+                />
+                <input
+                  required
+                  value={form.whatsappNumber}
+                  onChange={(event) => setForm({ ...form, whatsappNumber: event.target.value })}
+                  placeholder="WhatsApp Number"
+                  className="jm-input"
+                />
+                <select
+                  required
+                  value={form.productOfInterest}
+                  onChange={(event) => setForm({ ...form, productOfInterest: event.target.value })}
+                  className="jm-input"
+                >
+                  <option value="">Product of Interest</option>
+                  {PRODUCTS.map((product) => (
+                    <option key={product.slug} value={product.name}>
+                      {product.name}
+                    </option>
+                  ))}
+                </select>
+                <input
+                  required
+                  value={form.estimatedMonthlyQuantity}
+                  onChange={(event) => setForm({ ...form, estimatedMonthlyQuantity: event.target.value })}
+                  placeholder="Estimated Monthly Quantity"
+                  className="jm-input"
+                />
+                <select
+                  required
+                  value={form.preferredPaymentTerms}
+                  onChange={(event) => setForm({ ...form, preferredPaymentTerms: event.target.value })}
+                  className="jm-input"
+                >
+                  <option value="">Preferred Payment Terms</option>
+                  {paymentTerms.map((term) => (
+                    <option key={term} value={term}>
+                      {term}
+                    </option>
+                  ))}
+                </select>
+                <textarea
+                  required
+                  value={form.message}
+                  onChange={(event) => setForm({ ...form, message: event.target.value })}
+                  placeholder="Message"
+                  rows={5}
+                  className="jm-input md:col-span-2"
+                />
 
-              <input
-                type="text"
-                value={form.website}
-                onChange={(event) => setForm({ ...form, website: event.target.value })}
-                className="hidden"
-                tabIndex={-1}
-                autoComplete="off"
-              />
+                <input
+                  type="text"
+                  value={form.website}
+                  onChange={(event) => setForm({ ...form, website: event.target.value })}
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
 
-              <button
-                type="submit"
-                className="md:col-span-2 rounded-md bg-amber-600 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-700"
-              >
-                Send Inquiry
-              </button>
-            </form>
-          </section>
+                <button type="submit" className="jm-btn jm-btn--primary md:col-span-2">
+                  Send Inquiry
+                </button>
+              </form>
+            </section>
 
-          <aside className="space-y-6">
-            <section className="rounded-2xl border border-stone-200 bg-white p-6 text-sm text-stone-700">
-              <h2 className="text-xl font-semibold text-stone-900">Direct Contact Details</h2>
-              <p className="mt-3">{COMPANY.phones[0]}</p>
-              <p>{COMPANY.phones[1]}</p>
-              <p className="mt-2">
-                <a href={`mailto:${COMPANY.email}`} className="text-amber-700 hover:text-amber-800">
-                  {COMPANY.email}
+            <aside className="space-y-6">
+              <section className="jm-surface-card p-6 text-sm text-[var(--brand-forest)]">
+                <h2 className="text-[24px] text-[var(--brand-charcoal)] text-tagline not-italic">Direct Contact Details</h2>
+                <div className="jm-info-list mt-4">
+                  <div className="jm-info-item">
+                    <p>{COMPANY.phones[0]}</p>
+                    <p>{COMPANY.phones[1]}</p>
+                  </div>
+                  <div className="jm-info-item">
+                    <a href={`mailto:${COMPANY.email}`} className="text-[var(--brand-gold)] hover:text-[var(--brand-deep-green)]">
+                      {COMPANY.email}
+                    </a>
+                  </div>
+                  <div className="jm-info-item">
+                    <p>{COMPANY.addressLine}</p>
+                  </div>
+                </div>
+                <a href={whatsappLink} className="mt-5 inline-flex jm-btn jm-btn--secondary">
+                  WhatsApp Direct Chat
                 </a>
-              </p>
-              <p className="mt-2">{COMPANY.addressLine}</p>
-              <a
-                href={whatsappLink}
-                className="mt-4 inline-block rounded-full bg-green-600 px-4 py-2 font-semibold text-white hover:bg-green-700"
-              >
-                WhatsApp Direct Chat
-              </a>
-            </section>
+              </section>
 
-            <section className="overflow-hidden rounded-2xl border border-stone-200 bg-white">
-              <iframe
-                title="Unjha office map"
-                src="https://www.google.com/maps?q=Unjha%2C+Gujarat&output=embed"
-                className="h-72 w-full"
-                loading="lazy"
-              />
-            </section>
-          </aside>
+              <section className="jm-surface-card overflow-hidden">
+                <iframe
+                  title="Unjha office map"
+                  src="https://www.google.com/maps?q=Unjha%2C+Gujarat&output=embed"
+                  className="h-72 w-full"
+                  loading="lazy"
+                />
+              </section>
+            </aside>
+          </div>
         </div>
       </section>
     </>
