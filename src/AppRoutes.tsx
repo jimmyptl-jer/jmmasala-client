@@ -5,7 +5,6 @@ import CookieConsentBanner from "@/components/CookieConsentBanner";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import { PRODUCTS } from "@/data/siteData";
 import AboutPage from "@/pages/AboutMePage";
 import BlogPage from "@/pages/BlogPage";
 import BlogPostPage from "@/pages/BlogPostPage";
@@ -54,14 +53,7 @@ const AppRoutes = () => {
 
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
-
-        {PRODUCTS.map((product) => (
-          <Route
-            key={product.slug}
-            path={`/${product.slug}`}
-            element={<ProductDetailPage />}
-          />
-        ))}
+        <Route path="/:slug" element={<ProductDetailPage />} />
 
         <Route path="/404" element={<NotFoundPage />} />
         <Route path="*" element={<NotFoundPage />} />

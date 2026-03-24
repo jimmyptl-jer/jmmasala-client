@@ -22,7 +22,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 relative border-b border-[var(--brand-gold-pale)] bg-[rgba(253,251,247,0.95)] backdrop-blur transition-shadow">
-      <div className="jm-container flex items-center justify-between gap-4 py-2 lg:py-3">
+      <div className="jm-container flex items-center justify-between gap-4 py-1.5 lg:py-2.5">
         <Link
           to="/"
           className="flex items-center gap-3"
@@ -31,7 +31,7 @@ const Header = () => {
           <img
             src={logo}
             alt="JM Masala logo"
-            className="h-10 w-auto md:h-12"
+            className="h-14 w-auto md:h-16 lg:h-20"
             loading="lazy"
           />
         </Link>

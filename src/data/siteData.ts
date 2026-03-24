@@ -53,6 +53,16 @@ export type ProductSpec = {
   value: string;
 };
 
+export type TechnicalSpec = {
+  label: string;
+  value: string;
+};
+
+export type ExportDetail = {
+  label: string;
+  value: string;
+};
+
 export type QualityGrade = {
   market: string;
   purity: string;
@@ -83,6 +93,19 @@ export type ProductData = {
   qualityGrades?: QualityGrade[];
   relatedSlugs: string[];
   colors?: ColorPalette;
+};
+
+export type ProductTechnicalDetails = {
+  general?: TechnicalSpec[];
+  physical?: TechnicalSpec[];
+  chemical?: TechnicalSpec[];
+  microbiological?: TechnicalSpec[];
+  contaminants?: string[];
+  processing?: string[];
+  packaging?: string[];
+  certifications?: string[];
+  exportDetails?: ExportDetail[];
+  optionalBuyerRequirements?: string[];
 };
 
 export const PRODUCTS: ProductData[] = [
@@ -516,6 +539,517 @@ export const PRODUCTS: ProductData[] = [
 export const PRODUCTS_BY_SLUG = Object.fromEntries(
   PRODUCTS.map((product) => [product.slug, product]),
 ) as Record<string, ProductData>;
+
+const COMMON_MICROBIOLOGY: TechnicalSpec[] = [
+  { label: "Total Plate Count", value: "< 1,000,000 cfu/g" },
+  { label: "Yeast & Mold", value: "< 100,000 cfu/g" },
+  { label: "E. coli", value: "Absent" },
+  { label: "Salmonella", value: "Absent / 25g" },
+];
+
+const COMMON_CERTIFICATIONS = [
+  "FSSAI licensed facility",
+  "ISO 22000 / HACCP aligned processing",
+  "APEDA registered exporter",
+  "SGS / Intertek / third-party lab reports on request",
+];
+
+const COMMON_OPTIONAL_REQUIREMENTS = [
+  "Steam sterilization (ETO-free) on request",
+  "Cold storage logistics where applicable",
+  "Organic certification support (NOP / EU) subject to lot availability",
+  "Gluten-free / Non-GMO declarations on request",
+];
+
+export const PRODUCT_TECHNICAL_DETAILS: Record<string, ProductTechnicalDetails> = {
+  "cumin-seeds-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Cuminum cyminum" },
+      { label: "Origin", value: "Unjha, Gujarat, India" },
+      { label: "Harvest Season", value: "February to April" },
+      { label: "Shelf Life", value: "12 to 24 months in cool, dry storage" },
+    ],
+    physical: [
+      { label: "Purity", value: "99% / 99.5% / 99.9% (Sortex)" },
+      { label: "Moisture", value: "Max 8% to 10%" },
+      { label: "Admixture", value: "Max 0.5% to 1%" },
+      { label: "Foreign Matter", value: "Max 0.5%" },
+      { label: "Damaged Seeds", value: "Max 1%" },
+      { label: "Immature Seeds", value: "Max 1%" },
+      { label: "Color", value: "Brown to dark brown" },
+      { label: "Odor", value: "Strong aromatic, typical cumin" },
+    ],
+    chemical: [
+      { label: "Volatile Oil", value: "2.0 to 4.5 ml/100g" },
+      { label: "Acid Insoluble Ash", value: "Max 1.5%" },
+      { label: "Total Ash", value: "Max 9%" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Aflatoxin compliant as per EU standards",
+      "Pesticide residue compliant with destination MRL requirements",
+      "Lead (Pb): below 2 ppm",
+      "Arsenic (As): below 1 ppm",
+    ],
+    processing: [
+      "Machine cleaned",
+      "Gravity separator applied",
+      "Sortex color sorting",
+      "Metal detection before packing",
+    ],
+    packaging: [
+      "25 kg and 50 kg PP bags",
+      "Jute bags",
+      "Vacuum packing",
+      "Customized retail packs",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 MT to 20 MT (FCL support available)" },
+      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "coriander-seeds-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Coriandrum sativum" },
+      { label: "Origin", value: "Gujarat / Rajasthan, India" },
+      { label: "Harvest Season", value: "March to May" },
+      { label: "Shelf Life", value: "12 to 18 months in dry storage" },
+    ],
+    physical: [
+      { label: "Purity", value: "98% to 99%" },
+      { label: "Moisture", value: "8% to 10%" },
+      { label: "Split Seeds", value: "Max 5%" },
+      { label: "Foreign Matter", value: "Max 1%" },
+      { label: "Color", value: "Light brown to greenish" },
+      { label: "Size", value: "Approx. 2 to 4 mm diameter" },
+      { label: "Grades", value: "Eagle / Scooter / Parrot" },
+    ],
+    chemical: [
+      { label: "Volatile Oil", value: "0.2% to 1.5%" },
+      { label: "Total Ash", value: "Max 6%" },
+      { label: "Acid Insoluble Ash", value: "Max 1.25%" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Aflatoxin and pesticide residue controlled as per buyer market",
+      "Heavy metals checked through third-party lab report on request",
+    ],
+    processing: [
+      "Machine cleaned",
+      "Density grading",
+      "Sortex cleaning on premium lots",
+      "Metal detection before dispatch",
+    ],
+    packaging: [
+      "25 kg and 50 kg PP bags with liner",
+      "Jute packing on request",
+      "Private-label retail packs on request",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 MT onward" },
+      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "fennel-seeds-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Foeniculum vulgare" },
+      { label: "Origin", value: "Gujarat, India" },
+      { label: "Harvest Season", value: "February to April" },
+      { label: "Shelf Life", value: "12 to 18 months" },
+    ],
+    physical: [
+      { label: "Purity", value: "99%" },
+      { label: "Moisture", value: "Max 8%" },
+      { label: "Color", value: "Light green to green" },
+      { label: "Size", value: "Bold / Medium" },
+      { label: "Breakage", value: "Low breakage export lots" },
+    ],
+    chemical: [
+      { label: "Volatile Oil", value: "1.5% to 3%" },
+      { label: "Sweetness", value: "High, export-preferred profile" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Pesticide residue and aflatoxin compliance as per destination market",
+    ],
+    processing: [
+      "Cleaning and destoning",
+      "Size grading",
+      "Sortex on premium export lots",
+      "Metal detection",
+    ],
+    packaging: [
+      "25 kg and 50 kg export bags",
+      "Retail and private-label packs on request",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 MT onward" },
+      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "fenugreek-seeds-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Trigonella foenum-graecum" },
+      { label: "Origin", value: "Gujarat, India" },
+      { label: "Harvest Season", value: "February to April" },
+      { label: "Shelf Life", value: "12 to 18 months" },
+    ],
+    physical: [
+      { label: "Purity", value: "99%" },
+      { label: "Moisture", value: "Max 10%" },
+      { label: "Color", value: "Yellow golden" },
+      { label: "Broken", value: "Below 2%" },
+      { label: "Grades", value: "Semi-bold / Bold" },
+    ],
+    chemical: [
+      { label: "Protein", value: "20% to 25%" },
+      { label: "Fiber", value: "25% to 50%" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Pesticide residue and aflatoxin controlled as per buyer requirement",
+    ],
+    processing: [
+      "Machine cleaned",
+      "Sortex cleaned",
+      "Metal detection",
+    ],
+    packaging: [
+      "25 kg and 50 kg PP bags",
+      "Bulk and retail-ready packing on request",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 MT onward" },
+      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "psyllium-husk-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Plantago ovata" },
+      { label: "Origin", value: "Gujarat, India" },
+      { label: "Harvest Season", value: "March to May" },
+      { label: "Shelf Life", value: "24 months under dry storage" },
+    ],
+    physical: [
+      { label: "Swell Volume", value: "25 to 40 ml/g" },
+      { label: "Moisture", value: "Max 12%" },
+      { label: "Purity", value: "98% to 99%" },
+      { label: "Color", value: "Off-white to cream" },
+    ],
+    chemical: [
+      { label: "Fiber Content", value: "80% to 85%" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Heavy metals and pesticide residue checked as per pharma / food use case",
+    ],
+    processing: [
+      "Cleaned and milled as per mesh requirement",
+      "Lot-wise lab verification",
+      "Metal detection and export-safe packing",
+    ],
+    packaging: [
+      "25 kg multiwall paper bags",
+      "HDPE / PP bags with liner",
+      "Customized retail packs",
+    ],
+    certifications: [
+      ...COMMON_CERTIFICATIONS,
+      "Pharma-grade supply possible under USP / BP aligned requirements",
+    ],
+    exportDetails: [
+      { label: "MOQ", value: "1 MT onward" },
+      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB / CIF / CNF" },
+      { label: "Lead Time", value: "10 to 18 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "psyllium-seeds-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Plantago ovata" },
+      { label: "Origin", value: "Gujarat, India" },
+      { label: "Harvest Season", value: "March to May" },
+      { label: "Shelf Life", value: "18 to 24 months" },
+    ],
+    physical: [
+      { label: "Purity", value: "Min 99%" },
+      { label: "Moisture", value: "Max 10% to 12%" },
+      { label: "Color", value: "Light brown" },
+      { label: "Foreign Matter", value: "As per contract grade" },
+    ],
+    chemical: [
+      { label: "Base Ingredient Use", value: "Food, feed, and fiber products" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Lot-wise pesticide residue and heavy metal testing available on request",
+    ],
+    processing: [
+      "Machine cleaned and graded",
+      "Metal detection",
+      "Moisture-controlled packing",
+    ],
+    packaging: [
+      "25 kg and 50 kg food-safe PP bags with liner",
+      "Customized private-label packs on request",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 MT onward" },
+      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "sesame-seeds-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Sesamum indicum" },
+      { label: "Origin", value: "Gujarat, India" },
+      { label: "Harvest Season", value: "October to December / seasonal lots" },
+      { label: "Shelf Life", value: "12 months under cool, dry storage" },
+    ],
+    physical: [
+      { label: "Purity", value: "Up to 99.5%" },
+      { label: "Moisture", value: "Max 6% to 8%" },
+      { label: "Color", value: "Natural white / hulled white" },
+      { label: "Variants", value: "Natural and hulled" },
+    ],
+    chemical: [
+      { label: "Oil Content", value: "48% to 52%" },
+      { label: "FFA", value: "Below 2%" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Aflatoxin and pesticide residue checked as per buyer market",
+    ],
+    processing: [
+      "Machine cleaned",
+      "Color sorting",
+      "Metal detection",
+      "Export-safe moisture control",
+    ],
+    packaging: [
+      "25 kg and 50 kg export bags",
+      "Vacuum and retail packs on request",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 MT onward" },
+      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "red-chilli-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Capsicum annuum" },
+      { label: "Origin", value: "Andhra Pradesh, India" },
+      { label: "Harvest Season", value: "January to April" },
+      { label: "Shelf Life", value: "12 months" },
+    ],
+    physical: [
+      { label: "Moisture", value: "Max 12%" },
+      { label: "Stemless", value: "Available" },
+      { label: "Formats", value: "Whole / stemless / crushed / powder" },
+    ],
+    chemical: [
+      { label: "ASTA Color", value: "80 to 180+" },
+      { label: "Capsaicin", value: "As per required SHU range" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Aflatoxin and Sudan dye free supply supported through lab-tested lots",
+      "Pesticide residue aligned to destination market requirement",
+    ],
+    processing: [
+      "Cleaning and destemming",
+      "Size / color grading",
+      "Metal detection",
+    ],
+    packaging: [
+      "25 kg and 50 kg export bags",
+      "Compressed or customized packs on request",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 MT onward" },
+      { label: "Loading Port", value: "Chennai / Mundra / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "turmeric-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Curcuma longa" },
+      { label: "Origin", value: "Telangana / South India" },
+      { label: "Harvest Season", value: "January to March" },
+      { label: "Shelf Life", value: "12 to 18 months" },
+    ],
+    physical: [
+      { label: "Moisture", value: "Max 10%" },
+      { label: "Formats", value: "Finger / bulb / powder" },
+      { label: "Color", value: "Golden yellow to deep orange" },
+    ],
+    chemical: [
+      { label: "Curcumin", value: "2% to 5%+" },
+      { label: "Lead Chromate", value: "NIL" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Pesticide residue and heavy metals as per buyer and destination standard",
+    ],
+    processing: [
+      "Polishing and cleaning",
+      "Sorting by finger / bulb / powder requirement",
+      "Metal detection and lab testing",
+    ],
+    packaging: [
+      "25 kg and 50 kg export bags",
+      "Retail packs and powder pouches on request",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 MT onward" },
+      { label: "Loading Port", value: "Chennai / Mundra / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "black-pepper-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Piper nigrum" },
+      { label: "Origin", value: "Kerala, India" },
+      { label: "Harvest Season", value: "December to March" },
+      { label: "Shelf Life", value: "12 to 18 months" },
+    ],
+    physical: [
+      { label: "Density", value: "550 to 600 g/l" },
+      { label: "Grade", value: "MG1 FAQ / TGSEB / buyer-specific grade" },
+      { label: "Moisture", value: "Max 12%" },
+    ],
+    chemical: [
+      { label: "Piperine", value: "3% to 6%" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Pesticide residue and contaminant compliance as per import market",
+    ],
+    processing: [
+      "Cleaning and grading",
+      "Density-based sorting",
+      "Metal detection",
+    ],
+    packaging: [
+      "25 kg and 50 kg export bags",
+      "Vacuum packs on request",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 MT onward" },
+      { label: "Loading Port", value: "Cochin / Chennai / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "cardamom-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Elettaria cardamomum" },
+      { label: "Origin", value: "Kerala / South India" },
+      { label: "Harvest Season", value: "Seasonal lots by crop availability" },
+      { label: "Shelf Life", value: "12 months under cool, dry storage" },
+    ],
+    physical: [
+      { label: "Size", value: "6 mm / 7 mm / 8 mm+" },
+      { label: "Color", value: "Natural green" },
+      { label: "Aroma", value: "Strong and premium export quality" },
+    ],
+    chemical: [
+      { label: "Volatile Oil", value: "Buyer and season specific" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Pesticide residue compliance supported through lot-wise testing",
+    ],
+    processing: [
+      "Hand sorting and grading",
+      "Color and size segregation",
+      "Export-safe packing",
+    ],
+    packaging: [
+      "Vacuum packs",
+      "Bulk export packs",
+      "Retail jars / pouches on request",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "250 kg onward depending on grade" },
+      { label: "Loading Port", value: "Cochin / Chennai / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "curry-leaf-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Murraya koenigii" },
+      { label: "Origin", value: "Tamil Nadu / South India" },
+      { label: "Formats", value: "Fresh / Dehydrated / Powder" },
+      { label: "Shelf Life", value: "Format dependent" },
+    ],
+    physical: [
+      { label: "Fresh Moisture", value: "Approx. 60% to 70%" },
+      { label: "Dry Moisture", value: "Below 10%" },
+      { label: "Color", value: "Natural green retention" },
+    ],
+    chemical: [
+      { label: "Use Case", value: "Food manufacturing and seasoning" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Format- and destination-based testing supported on request",
+    ],
+    processing: [
+      "Sorting and washing",
+      "Controlled dehydration where applicable",
+      "Metal detection and buyer-specific packing",
+    ],
+    packaging: [
+      "Fresh leaf transport packs",
+      "Dehydrated bulk pouches",
+      "Private-label packs on request",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "Format dependent; bulk and retail support available" },
+      { label: "Loading Port", value: "Chennai / Nhava Sheva / air shipment support" },
+      { label: "Delivery Terms", value: "FOB / CIF / CNF" },
+      { label: "Lead Time", value: "Fresh lots faster; dehydrated 7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+};
 
 export type BlogPostSummary = {
   slug: string;

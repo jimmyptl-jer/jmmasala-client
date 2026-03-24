@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="jm-container grid gap-10 py-10 md:grid-cols-3 md:py-12">
         <section>
           <div className="flex items-center gap-3">
-            <img src={logo} alt="JM Masala logo" className="h-9 w-auto md:h-12" loading="lazy" />
+            <img src={logo} alt="JM Masala logo" className="h-12 w-auto md:h-14 lg:h-16" loading="lazy" />
             <div>
               <h2 className="text-xs font-semibold tracking-[0.16em] text-[var(--brand-gold)] sm:text-sm sm:tracking-[0.2em]">
                 JM MASALA

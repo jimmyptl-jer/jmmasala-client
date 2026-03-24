@@ -1,23 +1,77 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import Seo from "@/components/Seo";
-import { PRODUCTS_BY_SLUG } from "@/data/siteData";
+import {
+  PRODUCTS_BY_SLUG,
+  PRODUCT_TECHNICAL_DETAILS,
+  type ExportDetail,
+  type TechnicalSpec,
+} from "@/data/siteData";
 import "@/styles/product-palette.css";
 
 const TITLE_BY_SLUG: Record<string, string> = {
   "cumin-seeds-exporter-india":
     "Cumin Seeds Exporter India | Unjha Gujarat | HACCP APEDA | JM Masala",
+  "coriander-seeds-exporter-india":
+    "Coriander Seeds Exporter India | Export Grade | JM Masala",
+  "fennel-seeds-exporter-india":
+    "Fennel Seeds Exporter India | Export Grade | JM Masala",
+  "fenugreek-seeds-exporter-india":
+    "Fenugreek Seeds Exporter India | Export Grade | JM Masala",
+  "sesame-seeds-exporter-india":
+    "Sesame Seeds Exporter India | Natural and Hulled | JM Masala",
   "turmeric-exporter-india":
     "Turmeric Exporter India | High Curcumin | HACCP Certified | JM Masala",
   "psyllium-husk-exporter-india":
     "Psyllium Husk Exporter India | HACCP ISO 22000 | Unjha Gujarat | JM Masala",
+  "psyllium-seeds-exporter-india":
+    "Psyllium Seeds Exporter India | Export Grade | JM Masala",
+  "red-chilli-exporter-india":
+    "Red Chilli Exporter India | ASTA and SHU Based Supply | JM Masala",
   "black-pepper-exporter-india":
     "Black Pepper Exporter India | MG1 FAQ Grade | HACCP Certified | JM Masala",
+  "cardamom-exporter-india":
+    "Cardamom Exporter India | Premium Size-Graded Lots | JM Masala",
+  "curry-leaf-exporter-india":
+    "Curry Leaf Exporter India | Fresh and Dehydrated Supply | JM Masala",
 };
+
+const renderSpecTable = (title: string, rows: TechnicalSpec[]) => (
+  <section className="mt-8 jm-spec-table">
+    <div className="jm-spec-table__header">{title}</div>
+    <table>
+      <tbody>
+        {rows.map((row) => (
+          <tr key={`${title}-${row.label}`}>
+            <th>{row.label}</th>
+            <td>{row.value}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </section>
+);
+
+const renderExportDetails = (title: string, rows: ExportDetail[]) => (
+  <section className="mt-8 jm-spec-table">
+    <div className="jm-spec-table__header">{title}</div>
+    <table>
+      <tbody>
+        {rows.map((row) => (
+          <tr key={`${title}-${row.label}`}>
+            <th>{row.label}</th>
+            <td>{row.value}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </section>
+);
 
 const ProductDetailPage = () => {
   const params = useParams();
   const slug = params.slug ?? "";
   const product = PRODUCTS_BY_SLUG[slug];
+  const technicalDetails = PRODUCT_TECHNICAL_DETAILS[slug];
 
   if (!product) {
     return <Navigate to="/404" replace />;
@@ -62,91 +116,6 @@ const ProductDetailPage = () => {
         }}
       />
 
-      {/* Product Color Identity Hero Section */}
-      {product.colors && (
-        <section
-          className="product-detail-hero"
-          style={{ background: product.colors.primary }}
-        >
-          <div className="jm-container">
-            <div className="product-detail-hero-grid">
-              {/* Left: Hero Content */}
-              <div className="hero-content">
-                <div
-                  className="hero-monogram"
-                  style={{ color: product.colors.accent }}
-                >
-                  JM
-                </div>
-                <h1
-                  className="hero-product-name"
-                  style={{ color: product.colors.accent }}
-                >
-                  {product.name}
-                </h1>
-                <p
-                  className="hero-botanical"
-                  style={{ color: product.colors.accent }}
-                >
-                  {product.botanicalName}
-                </p>
-                <p
-                  className="hero-origin"
-                  style={{ color: product.colors.accent }}
-                >
-                  {product.origin}
-                </p>
-                <p
-                  className="hero-tagline"
-                  style={{ color: product.colors.accent }}
-                >
-                  {product.colors.tagline && `"${product.colors.tagline}"`}
-                </p>
-              </div>
-
-              {/* Right: Color Palette */}
-              <div className="hero-color-palette">
-                <div className="palette-preview">
-                  <div
-                    className="color-box"
-                    style={{ background: product.colors.primary }}
-                  >
-                    <span className="color-label">Primary</span>
-                    <span className="color-value">
-                      {product.colors.primary}
-                    </span>
-                  </div>
-                  <div
-                    className="color-box"
-                    style={{ background: product.colors.accent }}
-                  >
-                    <span className="color-label">Accent</span>
-                    <span className="color-value">{product.colors.accent}</span>
-                  </div>
-                  <div
-                    className="color-box"
-                    style={{ background: product.colors.pale }}
-                  >
-                    <span className="color-label">Pale</span>
-                    <span className="color-value">{product.colors.pale}</span>
-                  </div>
-                </div>
-                <div className="swatch-row">
-                  {product.colors.swatches.map((color, idx) => (
-                    <div
-                      key={idx}
-                      className="swatch"
-                      style={{ background: color }}
-                      title={color}
-                    ></div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
       <section className="jm-section jm-section--white">
         <div className="jm-container">
           <div className="grid gap-8 lg:grid-cols-[1.15fr,0.85fr]">
@@ -177,6 +146,40 @@ const ProductDetailPage = () => {
                   </tbody>
                 </table>
               </div>
+
+              {technicalDetails?.general &&
+                renderSpecTable("General Information", technicalDetails.general)}
+
+              {technicalDetails?.physical &&
+                renderSpecTable(
+                  "Physical Specifications",
+                  technicalDetails.physical,
+                )}
+
+              {technicalDetails?.chemical &&
+                renderSpecTable(
+                  "Chemical Specifications",
+                  technicalDetails.chemical,
+                )}
+
+              {technicalDetails?.microbiological &&
+                renderSpecTable(
+                  "Microbiological Parameters",
+                  technicalDetails.microbiological,
+                )}
+
+              {technicalDetails?.contaminants && (
+                <section className="mt-8 jm-surface-card p-5">
+                  <h2 className="text-tagline not-italic text-[24px] text-[var(--brand-charcoal)]">
+                    Contaminants &amp; Safety
+                  </h2>
+                  <ul className="mt-3 space-y-2 text-sm text-[var(--brand-forest)]">
+                    {technicalDetails.contaminants.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </section>
+              )}
 
               {product.qualityGrades && (
                 <div className="mt-8 overflow-x-auto jm-grade-table">
@@ -222,37 +225,73 @@ const ProductDetailPage = () => {
                   </table>
                 </div>
               )}
+
+              {technicalDetails?.exportDetails &&
+                renderExportDetails(
+                  "Export Details",
+                  technicalDetails.exportDetails,
+                )}
             </article>
 
             <aside className="space-y-6">
               <img
                 src={product.imageUrl}
-                alt={`${product.name} export lot sample from India`}
+                alt={product.name}
                 className="h-72 w-full rounded-xl object-cover"
                 loading="lazy"
               />
 
-              <section className="jm-surface-card p-5">
-                <h2 className="text-tagline not-italic text-[24px] text-[var(--brand-charcoal)]">
-                  Processing Standards
-                </h2>
-                <ul className="mt-3 space-y-2 text-sm text-[var(--brand-forest)]">
-                  <li>Sortex cleaned for export-grade uniformity</li>
-                  <li>NABL tested lots and COA available</li>
-                  <li>Fumigation available based on destination</li>
-                </ul>
-              </section>
+              {technicalDetails?.processing && (
+                <section className="jm-surface-card p-5">
+                  <h2 className="text-tagline not-italic text-[24px] text-[var(--brand-charcoal)]">
+                    Processing Standards
+                  </h2>
+                  <ul className="mt-3 space-y-2 text-sm text-[var(--brand-forest)]">
+                    {technicalDetails.processing.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </section>
+              )}
 
-              <section className="jm-surface-card p-5">
-                <h2 className="text-tagline not-italic text-[24px] text-[var(--brand-charcoal)]">
-                  Packaging Options
-                </h2>
-                <ul className="mt-3 space-y-2 text-sm text-[var(--brand-forest)]">
-                  <li>25kg PP bags</li>
-                  <li>50kg PP bags</li>
-                  <li>Retail packs on request</li>
-                </ul>
-              </section>
+              {technicalDetails?.packaging && (
+                <section className="jm-surface-card p-5">
+                  <h2 className="text-tagline not-italic text-[24px] text-[var(--brand-charcoal)]">
+                    Packaging Options
+                  </h2>
+                  <ul className="mt-3 space-y-2 text-sm text-[var(--brand-forest)]">
+                    {technicalDetails.packaging.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
+              {technicalDetails?.certifications && (
+                <section className="jm-surface-card p-5">
+                  <h2 className="text-tagline not-italic text-[24px] text-[var(--brand-charcoal)]">
+                    Compliance &amp; Certifications
+                  </h2>
+                  <ul className="mt-3 space-y-2 text-sm text-[var(--brand-forest)]">
+                    {technicalDetails.certifications.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
+              {technicalDetails?.optionalBuyerRequirements && (
+                <section className="jm-surface-card p-5">
+                  <h2 className="text-tagline not-italic text-[24px] text-[var(--brand-charcoal)]">
+                    Optional Buyer Requirements
+                  </h2>
+                  <ul className="mt-3 space-y-2 text-sm text-[var(--brand-forest)]">
+                    {technicalDetails.optionalBuyerRequirements.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </section>
+              )}
 
               <div className="flex flex-wrap gap-3">
                 <a

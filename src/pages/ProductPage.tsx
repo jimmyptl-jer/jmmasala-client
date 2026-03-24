@@ -67,7 +67,7 @@ const ProductsPage = () => {
                   <span className="jm-product-card__badge">Export Grade</span>
                   <img
                     src={product.imageUrl}
-                    alt={`${product.name} export-grade product sample`}
+                    alt={product.name}
                     loading="lazy"
                   />
                 </div>
