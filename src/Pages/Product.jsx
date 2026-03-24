@@ -62,23 +62,30 @@ const spices = [
 
 const Products = () => {
   return (
-    <section className="mt-16 bg-softBeige p-8 rounded-lg max-w-7xl mx-auto">
-      <h2 className="text-3xl font-heading text-limePrimary mb-6 text-center">
+    <section className="mt-16 bg-brand-warm-white p-8 rounded-lg max-w-7xl mx-auto">
+      <h2 className="text-3xl font-display text-brand-gold mb-6 text-center">
         Our Premium Spices
       </h2>
 
       <section className="max-w-4xl mx-auto mb-12 text-center px-4">
-        <p className="text-lg text-earthBrown font-body leading-relaxed">
-          Discover the authentic flavors of nature with our carefully sourced premium spices. Each seed is handpicked to bring freshness, aroma, and vibrant taste to your kitchen. Whether you’re crafting traditional recipes or experimenting with new flavors, our spices add the perfect touch of heritage and quality.
+        <p className="text-lg text-brand-charcoal font-body leading-relaxed">
+          Discover the authentic flavors of nature with our carefully sourced
+          premium spices. Each seed is handpicked to bring freshness, aroma, and
+          vibrant taste to your kitchen. Whether you’re crafting traditional
+          recipes or experimenting with new flavors, our spices add the perfect
+          touch of heritage and quality.
         </p>
       </section>
 
-      <div role="list" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+      <div
+        role="list"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10"
+      >
         {spices.map(({ name, local, img, description }) => (
           <div
             role="listitem"
             key={name}
-            className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center hover:shadow-xl transition-shadow duration-300 hover:scale-105 border-2 border-transparent hover:border-limeSecondary animate-fadeIn"
+            className="bg-brand-cream rounded-lg shadow-lg p-6 flex flex-col items-center hover:shadow-xl transition-shadow duration-300 hover:scale-105 border-2 border-transparent hover:border-brand-gold-light animate-fadeIn"
           >
             <img
               src={img}
@@ -86,9 +93,11 @@ const Products = () => {
               className="w-24 h-24 object-contain mb-4"
               loading="lazy"
             />
-            <h3 className="text-xl font-semibold text-earthBrown mb-2">{name}</h3>
-            <p className="text-limeSecondary italic mb-4">{local}</p>
-            <p className="text-center text-earthBrown font-body text-sm leading-relaxed px-2">
+            <h3 className="text-xl font-semibold text-brand-charcoal mb-2">
+              {name}
+            </h3>
+            <p className="text-brand-gold italic mb-4">{local}</p>
+            <p className="text-center text-brand-charcoal font-body text-sm leading-relaxed px-2">
               {description}
             </p>
           </div>

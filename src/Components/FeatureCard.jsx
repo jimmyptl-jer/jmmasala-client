@@ -31,17 +31,21 @@ const StunningThings = () => {
 
   return (
     <div className="text-center py-10 px-5">
-      <h3 className="text-limePrimary italic text-lg">For Your Comfort</h3>
-      <h1 className="text-3xl font-bold mb-8 text-earthBrown">Stunning Things</h1>
+      <h3 className="text-brand-gold italic text-lg">For Your Comfort</h3>
+      <h1 className="text-3xl font-display mb-8 text-brand-charcoal">
+        Stunning Things
+      </h1>
 
       {/* Grid Layout for Responsiveness */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {features.map((feature, index) => (
           <div
             key={index}
-            className="flex flex-col items-center bg-softBeige text-darkSlate p-6 rounded-xl shadow-lg max-w-sm mx-auto"
+            className="flex flex-col items-center bg-brand-cream text-brand-charcoal p-6 rounded-xl shadow-lg max-w-sm mx-auto"
           >
-            <div className="bg-limePrimary p-4 rounded-full mb-4">{feature.icon}</div>
+            <div className="bg-brand-gold p-4 rounded-full mb-4 text-brand-deep-green">
+              {feature.icon}
+            </div>
             <h2 className="font-bold text-lg mb-3">{feature.title}</h2>
             <p className="text-center text-sm">{feature.description}</p>
           </div>

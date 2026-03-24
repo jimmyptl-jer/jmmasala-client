@@ -1,13 +1,315 @@
 /* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=Didact+Gothic&display=swap");
 
 /* Tailwind base styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Brand CSS Variables */
+:root {
+  /* Fonts */
+  --font-display: "Cinzel", serif;
+  --font-editorial: "Cormorant Garamond", serif;
+  --font-body: "Didact Gothic", sans-serif;
+
+  /* Core Brand */
+  --brand-deep-green: #1a2e1a;
+  --brand-forest: #2d4a2d;
+  --brand-sage: #4a6741;
+  --brand-moss: #6b8c5e;
+
+  /* Gold System */
+  --brand-gold: #c9a84c;
+  --brand-gold-light: #e2c97e;
+  --brand-gold-pale: #f5e9c8;
+
+  /* Neutral Base */
+  --brand-cream: #faf6ee;
+  --brand-warm-white: #fdfbf7;
+  --brand-charcoal: #2a2a2a;
+
+  /* Materials */
+  --wood-dark: #5c3d1e;
+  --wood-mid: #7a5230;
+  --wood-light: #a0713f;
+
+  /* Product Colors */
+
+  /* Cumin */
+  --cumin-bg: #1e1208;
+  --cumin-dark: #2d1f0e;
+  --cumin-accent: #c17f3a;
+  --cumin-light: #e2ad6e;
+  --cumin-label: #f5e6d0;
+
+  /* Coriander */
+  --coriander-bg: #111a0c;
+  --coriander-dark: #1a2e12;
+  --coriander-accent: #6fa832;
+  --coriander-light: #a8d46a;
+  --coriander-label: #e8f4d0;
+
+  /* Turmeric */
+  --turmeric-bg: #1e1400;
+  --turmeric-dark: #2e1e00;
+  --turmeric-accent: #e89b00;
+  --turmeric-light: #f5c84a;
+  --turmeric-label: #fff3c4;
+
+  /* Red Chilli */
+  --chilli-bg: #1a0404;
+  --chilli-dark: #2e0a0a;
+  --chilli-accent: #cc2222;
+  --chilli-light: #e87070;
+  --chilli-label: #fde8e8;
+
+  /* Black Pepper */
+  --pepper-bg: #101010;
+  --pepper-dark: #1e1e1e;
+  --pepper-mid: #888888;
+  --pepper-accent: #c9a84c;
+  --pepper-label: #ebebeb;
+
+  /* Cardamom */
+  --cardamom-bg: #060e12;
+  --cardamom-dark: #0e1e26;
+  --cardamom-accent: #2a7a8c;
+  --cardamom-light: #6ab8c8;
+  --cardamom-label: #d0edf4;
+
+  /* Psyllium */
+  --psyllium-bg: #141008;
+  --psyllium-dark: #1e1a0e;
+  --psyllium-accent: #8a7840;
+  --psyllium-light: #c4ae6e;
+  --psyllium-label: #f0e9d0;
+
+  /* Cold Press Oils */
+  --oil-bg: #0f1a0f;
+  --oil-dark: #1a2e1a;
+  --oil-accent: #c9a84c;
+  --oil-light: #e2c97e;
+  --oil-label: #faf6ee;
+}
+
+/* Typography Scale */
+.text-brand {
+  font-family: var(--font-display);
+  font-size: 140px;
+  letter-spacing: -8px;
+}
+.text-hero {
+  font-family: var(--font-display);
+  font-size: 72px;
+  letter-spacing: 4px;
+}
+.text-heading-1 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  letter-spacing: 8px;
+}
+.text-heading-2 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 6px;
+}
+.text-label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+.text-badge {
+  font-family: var(--font-display);
+  font-size: 7px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.text-section-tag {
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 5px;
+  color: var(--brand-gold);
+}
+
+.text-product-name {
+  font-family: var(--font-editorial);
+  font-size: 52px;
+  font-weight: 300;
+  font-style: italic;
+}
+.text-tagline {
+  font-family: var(--font-editorial);
+  font-size: 28px;
+  font-style: italic;
+}
+.text-subtitle {
+  font-family: var(--font-editorial);
+  font-size: 16px;
+  font-style: italic;
+}
+.text-botanical {
+  font-family: var(--font-editorial);
+  font-size: 11px;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+.text-origin {
+  font-family: var(--font-editorial);
+  font-size: 9px;
+  font-style: italic;
+  letter-spacing: 2px;
+}
+
+.text-body {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.text-small {
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+.text-micro {
+  font-family: var(--font-body);
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+
+/* Label Structure */
+.jm-label {
+  border-radius: 4px;
+  overflow: hidden;
+  font-family: var(--font-editorial);
+  padding: 28px 22px 32px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.jm-label::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--product-accent);
+}
+
+.jm-label .brand {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 6px;
+}
+.jm-label .origin {
+  font-size: 9px;
+  font-style: italic;
+  letter-spacing: 2px;
+  opacity: 0.35;
+  margin-bottom: 20px;
+}
+.jm-label .divider {
+  height: 1px;
+  background: currentColor;
+  opacity: 0.12;
+  margin-bottom: 18px;
+}
+.jm-label .name {
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1.1;
+}
+.jm-label .botanical {
+  font-style: italic;
+  font-size: 10px;
+  opacity: 0.35;
+  letter-spacing: 1px;
+}
+.jm-label .badges {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+.jm-label .badge {
+  font-family: var(--font-display);
+  font-size: 6px;
+  letter-spacing: 1.5px;
+  padding: 3px 7px;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  opacity: 0.4;
+}
+.jm-label .volume {
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 3px;
+  opacity: 0.25;
+  margin-top: 16px;
+}
+.jm-label .batch {
+  font-family: var(--font-body);
+  font-size: 8px;
+  opacity: 0.2;
+  margin-top: 5px;
+}
+
+/* Product Label Color Mapping */
+.label-cumin {
+  background: var(--cumin-label);
+  color: var(--cumin-dark);
+  --product-accent: var(--cumin-accent);
+}
+
+.label-coriander {
+  background: var(--coriander-label);
+  color: var(--coriander-dark);
+  --product-accent: var(--coriander-accent);
+}
+
+.label-turmeric {
+  background: var(--turmeric-label);
+  color: var(--turmeric-dark);
+  --product-accent: var(--turmeric-accent);
+}
+
+.label-chilli {
+  background: var(--chilli-label);
+  color: var(--chilli-dark);
+  --product-accent: var(--chilli-accent);
+}
+
+.label-pepper {
+  background: var(--pepper-dark);
+  color: var(--brand-gold-light);
+  --product-accent: var(--brand-gold);
+}
+
+.label-cardamom {
+  background: var(--cardamom-label);
+  color: var(--cardamom-dark);
+  --product-accent: var(--cardamom-accent);
+}
+
+.label-psyllium {
+  background: var(--psyllium-label);
+  color: var(--psyllium-dark);
+  --product-accent: var(--psyllium-accent);
+}
+
+.label-oils {
+  background: var(--oil-dark);
+  color: var(--brand-cream);
+  --product-accent: var(--brand-gold);
+}
+
 /* Global Styles */
 body {
-  @apply font-body text-darkSlate bg-softBeige;
+  @apply font-body text-brand-charcoal bg-brand-cream;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -20,27 +322,27 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-heading text-earthBrown tracking-wider;
+  @apply font-display text-brand-deep-green tracking-wider;
 }
 
 /* Anchor tags */
 a {
-  @apply text-limePrimary hover:text-limeSecondary transition duration-300;
+  @apply text-brand-gold hover:text-brand-gold-light transition duration-300;
 }
 
 /* Buttons */
 .btn-primary {
-  @apply bg-limePrimary text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-limeSecondary transition duration-300;
+  @apply bg-brand-gold text-brand-deep-green font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-brand-gold-light transition duration-300;
 }
 
 .btn-secondary {
-  @apply border-2 border-limePrimary text-limePrimary font-semibold px-6 py-3 rounded-lg hover:bg-limeSecondary hover:text-white transition duration-300;
+  @apply border-2 border-brand-gold text-brand-gold font-semibold px-6 py-3 rounded-lg hover:bg-brand-gold hover:text-brand-deep-green transition duration-300;
 }
 
 /* Input fields */
 input,
 textarea {
-  @apply border border-earthBrown rounded-md p-3 w-full focus:outline-none focus:ring-2 focus:ring-limePrimary;
+  @apply border border-brand-forest rounded-md p-3 w-full focus:outline-none focus:ring-2 focus:ring-brand-gold;
 }
 
 /* Utility classes */

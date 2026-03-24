@@ -6,17 +6,17 @@ const ProcessCards = () => {
     {
       title: "Purchasing",
       description: "At APMC Market yard Unjha",
-      icon: <FiShoppingCart className="text-limePrimary w-12 h-12 mb-4" />,
+      icon: <FiShoppingCart className="text-brand-gold w-12 h-12 mb-4" />,
     },
     {
       title: "Processing",
       description: "With High tech machineries",
-      icon: <FiSettings className="text-limePrimary w-12 h-12 mb-4" />,
+      icon: <FiSettings className="text-brand-gold w-12 h-12 mb-4" />,
     },
     {
       title: "Packaging",
       description: "Standard packets with varied quantity",
-      icon: <FiPackage className="text-limePrimary w-12 h-12 mb-4" />,
+      icon: <FiPackage className="text-brand-gold w-12 h-12 mb-4" />,
     },
   ];
 
@@ -25,11 +25,13 @@ const ProcessCards = () => {
       {cards.map(({ title, description, icon }) => (
         <div
           key={title}
-          className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:shadow-2xl transition-shadow duration-300"
+          className="bg-brand-cream rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:shadow-2xl transition-shadow duration-300"
         >
           {icon}
-          <h3 className="text-xl font-semibold text-limePrimary mb-2">{title}</h3>
-          <p className="text-gray-700 text-base">{description}</p>
+          <h3 className="text-xl font-semibold text-brand-gold mb-2">
+            {title}
+          </h3>
+          <p className="text-brand-charcoal text-base">{description}</p>
         </div>
       ))}
     </div>
