@@ -1062,11 +1062,26 @@ export const PRODUCT_TECHNICAL_DETAILS: Record<string, ProductTechnicalDetails> 
   },
 };
 
+export type BlogPostSection = {
+  heading: string;
+  paragraphs: string[];
+  bullets?: string[];
+};
+
+export type BlogPostFaq = {
+  question: string;
+  answer: string;
+};
+
 export type BlogPostSummary = {
   slug: string;
   title: string;
   date: string;
   excerpt: string;
+  keywords: string[];
+  sections: BlogPostSection[];
+  faqs?: BlogPostFaq[];
+  relatedProductSlugs: string[];
 };
 
 export const BLOG_POSTS: BlogPostSummary[] = [
@@ -1075,35 +1090,331 @@ export const BLOG_POSTS: BlogPostSummary[] = [
     title: "Cumin Seeds Quality Grades: Europe vs USA vs Gulf vs Singapore",
     date: "2026-03-01",
     excerpt:
-      "Placeholder article page created. Content will be added separately.",
+      "A buyer-focused guide to how cumin specifications change across Europe, USA, Gulf and Singapore markets.",
+    keywords: [
+      "cumin seeds exporter India",
+      "cumin quality grades",
+      "Unjha cumin supplier",
+      "cumin seeds export specifications",
+    ],
+    sections: [
+      {
+        heading: "Why cumin grades differ by market",
+        paragraphs: [
+          "Cumin buyers do not all buy on the same quality logic. A European importer may focus more on lower admixture and stronger documentation, while a Gulf wholesaler may accept a more commercial grade if color, aroma, and price are balanced.",
+          "That is why exporters should not quote only one generic cumin specification. The better approach is to align purity, moisture, sorting level, and packing with the destination market and the final use of the product.",
+        ],
+      },
+      {
+        heading: "Typical market expectations",
+        paragraphs: [
+          "The following patterns are common in trade discussions, but final contracts should always be lot-specific and buyer-approved.",
+        ],
+        bullets: [
+          "Europe: lower admixture, cleaner appearance, stronger compliance focus.",
+          "USA: high-purity lots with stable aroma and consistent visual quality.",
+          "Gulf: balanced commercial grades with competitive landed value.",
+          "Singapore: reliable medium to high purity with consistent moisture and color.",
+        ],
+      },
+      {
+        heading: "What buyers should confirm before booking",
+        paragraphs: [
+          "Before confirming a cumin order, buyers should review more than price. The practical checkpoints are purity band, moisture range, foreign matter, crop year, cleaning method, packing type, and available laboratory reports.",
+          "It is also helpful to confirm whether the quoted lot is machine cleaned, gravity separated, or Sortex cleaned. These processing steps affect export suitability, complaint risk, and the consistency of repeat shipments.",
+        ],
+        bullets: [
+          "Purity and moisture committed in the final contract",
+          "Admixture and foreign matter limits",
+          "Sortex and metal detection status",
+          "Packing format and shipment markings",
+          "COA, phytosanitary, fumigation, and origin documents where required",
+        ],
+      },
+      {
+        heading: "How JM Masala supports cumin buyers",
+        paragraphs: [
+          "JM Masala works from Unjha, Gujarat, so cumin is not just one more item in the catalog. We support buyer discussions with grade-wise clarity, lot-wise testing support, and packing formats aligned to wholesale, food service, and import distribution needs.",
+          "For serious cumin buyers, the goal is simple: match the specification to the destination market instead of forcing one grade into every country.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Which cumin grade is usually preferred for Europe?",
+        answer:
+          "European buyers often prefer cleaner lots with lower admixture and stronger documentation support, but the final grade still depends on the buyer's application and contract terms.",
+      },
+      {
+        question: "Can one cumin grade work for multiple countries?",
+        answer:
+          "Sometimes yes, but it is safer to align the grade to the strictest buyer requirement in the shipment plan so there is less risk of quality mismatch after arrival.",
+      },
+    ],
+    relatedProductSlugs: [
+      "cumin-seeds-exporter-india",
+      "coriander-seeds-exporter-india",
+      "fennel-seeds-exporter-india",
+    ],
   },
   {
     slug: "why-unjha-gujarat-is-worlds-cumin-capital",
     title: "Why Unjha, Gujarat Is the World's Cumin Capital",
     date: "2026-03-01",
     excerpt:
-      "Placeholder article page created. Content will be added separately.",
+      "Why Unjha matters in global cumin trade and how that origin gives importers a sourcing advantage.",
+    keywords: [
+      "Unjha cumin market",
+      "cumin exporter Unjha Gujarat",
+      "spice exporter from Unjha",
+      "cumin supplier India",
+    ],
+    sections: [
+      {
+        heading: "Why origin matters in spice buying",
+        paragraphs: [
+          "In commodity trade, origin affects more than storytelling. It influences availability, market intelligence, lot freshness, trader access, and how quickly an exporter can respond when quality or pricing changes after harvest.",
+          "For cumin, Unjha is one of the most important trade points in India. Buyers looking for steady cumin sourcing often prefer partners close to this market because that reduces information gaps and procurement delays.",
+        ],
+      },
+      {
+        heading: "What makes Unjha important",
+        paragraphs: [
+          "Unjha is known for deep cumin trade activity, strong mandi linkages, and a commercial ecosystem built around seeds, grading, testing, and movement. This concentration matters because exporters can source with more speed and visibility.",
+        ],
+        bullets: [
+          "Direct access to large cumin arrivals during season",
+          "Trade intelligence from the mandi ecosystem",
+          "Better visibility on price movement and crop quality",
+          "Fast access to cleaning, sorting, transport, and documentation support",
+        ],
+      },
+      {
+        heading: "How this benefits importers",
+        paragraphs: [
+          "For an importer, origin advantage shows up in practical ways. Faster procurement can reduce delays, closer market access can improve grade matching, and a stronger local network can help secure the right lots when demand is high.",
+          "This does not remove the need for proper testing and documentation, but it does improve the exporter's ability to execute consistently on buyer requirements.",
+        ],
+      },
+      {
+        heading: "Why JM Masala highlights Unjha",
+        paragraphs: [
+          "JM Masala is rooted in Unjha, Gujarat, which is why cumin remains one of the strongest products in our export portfolio. We combine local sourcing strength with export-ready communication, packing, and specification support.",
+          "For buyers searching for a cumin exporter from India, understanding the role of Unjha helps explain why origin can be a real commercial advantage and not just a branding statement.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Is Unjha only important for cumin?",
+        answer:
+          "Unjha is strongly associated with cumin and seed trade, but its wider trading ecosystem also supports other products and supply chain services connected to spice exports.",
+      },
+      {
+        question: "Does buying from an Unjha-based exporter guarantee quality?",
+        answer:
+          "No location alone guarantees quality. Buyers should still confirm specifications, testing, packing, and documents, but an Unjha base can improve sourcing access and execution.",
+      },
+    ],
+    relatedProductSlugs: [
+      "cumin-seeds-exporter-india",
+      "fenugreek-seeds-exporter-india",
+      "psyllium-seeds-exporter-india",
+    ],
   },
   {
     slug: "complete-guide-importing-spices-from-india",
     title: "Complete Guide to Importing Spices from India",
     date: "2026-03-01",
     excerpt:
-      "Placeholder article page created. Content will be added separately.",
+      "A practical import guide covering specifications, documents, packing, and supplier checks for spice buyers sourcing from India.",
+    keywords: [
+      "import spices from India",
+      "Indian spice exporter guide",
+      "spice import documentation",
+      "bulk spice supplier India",
+    ],
+    sections: [
+      {
+        heading: "Start with specification, not only price",
+        paragraphs: [
+          "The most common mistake in spice buying is comparing prices before locking the specification. A cheaper price can reflect lower purity, higher moisture, weaker cleaning, or less suitable packing.",
+          "For importers, the first step should be a written specification sheet that matches the destination market, product application, and buyer tolerance for variation.",
+        ],
+      },
+      {
+        heading: "Documents importers usually ask for",
+        paragraphs: [
+          "The exact document set depends on the country and product, but serious buyers usually review a standard export pack before shipment approval.",
+        ],
+        bullets: [
+          "Commercial invoice and packing list",
+          "Certificate of origin where required",
+          "Phytosanitary certificate if applicable",
+          "Fumigation certificate for the shipment",
+          "Laboratory COA or buyer-requested test report",
+          "Bill of lading and shipment markings",
+        ],
+      },
+      {
+        heading: "Packing and logistics planning",
+        paragraphs: [
+          "Packing should be agreed at the quotation stage, especially for moisture-sensitive or appearance-sensitive products. Bulk bags, retail packs, vacuum packs, liners, and pallet rules can all affect export readiness.",
+          "It is also useful to confirm lead time, loading port, incoterm, and whether multiple products can be consolidated into one shipment.",
+        ],
+      },
+      {
+        heading: "How to evaluate an Indian spice exporter",
+        paragraphs: [
+          "Buyers should look for clear product pages, lot-wise communication, realistic claims, traceable origin, and the ability to explain processing steps. Certifications help, but consistency in documents and responses matters just as much.",
+          "A dependable exporter should be able to discuss product specifications, packaging options, sample flow, payment terms, and shipment support without relying on vague promises.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "What should a buyer confirm before placing the first spice order from India?",
+        answer:
+          "Confirm the full product specification, packing details, documentation set, shipment terms, payment terms, and sample approval process before placing the order.",
+      },
+      {
+        question: "Do all spices need the same documents?",
+        answer:
+          "No. Documentation can vary by product type, importing country, and buyer requirement, so it is better to confirm destination-specific needs before dispatch.",
+      },
+    ],
+    relatedProductSlugs: [
+      "cumin-seeds-exporter-india",
+      "turmeric-exporter-india",
+      "red-chilli-exporter-india",
+    ],
   },
   {
     slug: "psyllium-husk-vs-psyllium-seeds-explained",
     title: "Psyllium Husk vs Psyllium Seeds: Explained",
     date: "2026-03-01",
     excerpt:
-      "Placeholder article page created. Content will be added separately.",
+      "A clear comparison of psyllium husk and psyllium seeds for nutraceutical, food, and processing buyers.",
+    keywords: [
+      "psyllium husk exporter India",
+      "psyllium seeds exporter India",
+      "psyllium husk vs seeds",
+      "Plantago ovata supplier",
+    ],
+    sections: [
+      {
+        heading: "The basic difference",
+        paragraphs: [
+          "Psyllium husk and psyllium seeds come from the same plant, Plantago ovata, but they are sold for different use cases. Husk is the outer covering and is typically selected for higher fiber and swell-related applications.",
+          "Psyllium seeds are the whole seed format and are used where the buyer requires seed form for further processing, extraction, or specialized formulations.",
+        ],
+      },
+      {
+        heading: "What buyers usually compare",
+        paragraphs: [
+          "The buying conversation usually changes depending on whether the customer is in nutraceuticals, food processing, or ingredient trading.",
+        ],
+        bullets: [
+          "Psyllium husk: swell volume, mesh, moisture, microbiology, and fiber-focused performance.",
+          "Psyllium seeds: purity, moisture, seed appearance, foreign matter, and suitability for downstream processing.",
+        ],
+      },
+      {
+        heading: "How to choose the right format",
+        paragraphs: [
+          "If the end use depends on fiber expansion and functional performance, husk is usually the correct commercial discussion. If the buyer needs the seed itself as an input, then seed-grade supply becomes the right direction.",
+          "Because psyllium is often buyer-specification-driven, it is useful to align on technical parameters and intended use before quoting volume and packing.",
+        ],
+      },
+      {
+        heading: "How JM Masala supports psyllium buyers",
+        paragraphs: [
+          "JM Masala supports both psyllium husk and psyllium seeds with export-oriented specifications, packing options, and document support. This helps buyers compare formats based on application instead of guessing from generic catalog descriptions.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Is psyllium husk better than psyllium seeds?",
+        answer:
+          "Neither is universally better. The correct choice depends on the buyer's application, whether the need is for husk performance or whole-seed processing use.",
+      },
+      {
+        question: "Can one exporter supply both psyllium husk and psyllium seeds?",
+        answer:
+          "Yes. Many buyers prefer one exporter who can discuss both formats clearly and support the right specification for the final application.",
+      },
+    ],
+    relatedProductSlugs: [
+      "psyllium-husk-exporter-india",
+      "psyllium-seeds-exporter-india",
+      "fenugreek-seeds-exporter-india",
+    ],
   },
   {
     slug: "haccp-certification-spice-processing-buyers-guide",
     title: "HACCP Certification in Spice Processing: Buyer Guide",
     date: "2026-03-01",
     excerpt:
-      "Placeholder article page created. Content will be added separately.",
+      "What HACCP certification means in spice exports and what serious buyers should still verify beyond the certificate.",
+    keywords: [
+      "HACCP spice exporter India",
+      "spice processing certification",
+      "HACCP buyer guide spices",
+      "certified spice exporter India",
+    ],
+    sections: [
+      {
+        heading: "What HACCP means in spice processing",
+        paragraphs: [
+          "HACCP refers to a structured food safety approach based on hazard analysis and critical control points. In spice processing, buyers often view HACCP as a sign that the exporter works with a more disciplined quality and process framework.",
+          "It is an important trust signal, but buyers should treat it as part of a wider quality review rather than the only approval checkpoint.",
+        ],
+      },
+      {
+        heading: "Why buyers ask for HACCP",
+        paragraphs: [
+          "Importers, food brands, and processors often need supplier evidence that food safety risks are being managed consistently. HACCP helps support that conversation because it points to formalized process controls and audit discipline.",
+        ],
+        bullets: [
+          "Stronger confidence in processing control",
+          "Better support during supplier onboarding",
+          "Useful signal for retail, food service, and manufacturing buyers",
+          "Helps frame quality conversations with procurement and compliance teams",
+        ],
+      },
+      {
+        heading: "What to verify beyond the certificate",
+        paragraphs: [
+          "A certificate is useful, but buyers should also review actual operational readiness. Lot-wise testing, moisture control, cleaning stages, packing hygiene, complaint handling, and document discipline all matter in real shipments.",
+          "In practice, the strongest exporters combine certification with transparent communication on how lots are cleaned, tested, packed, and documented.",
+        ],
+      },
+      {
+        heading: "How JM Masala positions HACCP in export discussions",
+        paragraphs: [
+          "JM Masala uses HACCP as part of a broader exporter profile that also includes specifications, packing options, quality documents, and shipment communication. That gives buyers a more complete picture than certification alone.",
+          "For procurement teams, the best supplier conversation combines paperwork with operational clarity, because shipments are won or lost on execution.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Does HACCP certification guarantee every shipment will be acceptable?",
+        answer:
+          "No. It improves confidence in process control, but buyers should still verify product specifications, test reports, and shipment documents for each order.",
+      },
+      {
+        question: "Why do importers still ask for lab reports when HACCP is available?",
+        answer:
+          "Because certification does not replace lot-specific quality confirmation. Lab reports remain important for moisture, purity, microbiology, and destination-market compliance checks.",
+      },
+    ],
+    relatedProductSlugs: [
+      "cumin-seeds-exporter-india",
+      "black-pepper-exporter-india",
+      "turmeric-exporter-india",
+    ],
   },
 ];
 
