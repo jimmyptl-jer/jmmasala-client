@@ -89,6 +89,7 @@ const ProductDetailPage = () => {
   const title =
     TITLE_BY_SLUG[product.slug] ??
     `${product.name} Exporter India | HACCP Certified | JM Masala`;
+  const canonicalUrl = `https://jmmasalaexports.com/${product.slug}`;
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -113,6 +114,53 @@ const ProductDetailPage = () => {
       },
     ],
   };
+  const faqItems = [
+    {
+      question: `What specifications are available for ${product.name}?`,
+      answer: `${product.name} is supplied according to buyer-approved export specifications covering purity, moisture, packing, and lot-wise quality parameters. The exact grade can be aligned to your market and application.`,
+    },
+    {
+      question: `Can JM Masala supply ${product.name} in bulk export packing?`,
+      answer: `Yes. We support bulk export packing, buyer-specific labelling, and container-ready documentation for ${product.name} shipments from India.`,
+    },
+    {
+      question: `Do you share lab reports and export documents for ${product.name}?`,
+      answer: `Yes. We can share available test reports, specification sheets, and export documentation support for ${product.name} based on buyer requirements and destination market norms.`,
+    },
+  ];
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.description,
+    image: product.imageUrl,
+    brand: { "@type": "Brand", name: "JM Masala" },
+    category: "Spices",
+    countryOfOrigin: "India",
+    manufacturer: {
+      "@type": "Organization",
+      name: "JM Masala Exports",
+      url: "https://jmmasalaexports.com",
+    },
+    url: canonicalUrl,
+    additionalProperty: product.specs.map((spec) => ({
+      "@type": "PropertyValue",
+      name: spec.label,
+      value: spec.value,
+    })),
+  };
 
   const specSheetUrl = "/JMMasalaProducts.pdf";
   const quoteUrl = buildWhatsAppUrl(buildProductInquiryMessage(product.name));
@@ -131,26 +179,16 @@ const ProductDetailPage = () => {
           `${product.name} from India`,
           `${product.name} export grade`,
           `${product.name} wholesaler India`,
+          `${product.name} manufacturer India`,
+          `${product.name} specifications`,
+          `${product.name} bulk supplier`,
           "Indian spice exporter",
           "JM Masala exports",
         ]}
         schema={[
-          {
-            "@context": "https://schema.org",
-            "@type": "Product",
-            name: product.name,
-            description: product.description,
-            image: product.imageUrl,
-            brand: { "@type": "Brand", name: "JM Masala" },
-            category: "Spices",
-            countryOfOrigin: "India",
-            additionalProperty: product.specs.map((spec) => ({
-              "@type": "PropertyValue",
-              name: spec.label,
-              value: spec.value,
-            })),
-          },
+          productSchema,
           breadcrumbSchema,
+          faqSchema,
         ]}
       />
 
@@ -158,6 +196,20 @@ const ProductDetailPage = () => {
         <div className="jm-container">
           <div className="grid gap-8 lg:grid-cols-[1.15fr,0.85fr]">
             <article>
+              <nav
+                aria-label="Breadcrumb"
+                className="mb-4 text-sm text-[var(--brand-forest)]"
+              >
+                <Link to="/" className="hover:text-[var(--brand-gold)]">
+                  Home
+                </Link>
+                {" / "}
+                <Link to="/products" className="hover:text-[var(--brand-gold)]">
+                  Products
+                </Link>
+                {" / "}
+                <span>{product.name}</span>
+              </nav>
               <h1 className="jm-heading-1 text-[32px] lg:text-[40px]">
                 {product.name}
               </h1>
@@ -269,6 +321,22 @@ const ProductDetailPage = () => {
                   "Export Details",
                   technicalDetails.exportDetails,
                 )}
+
+              <section className="mt-8 jm-surface-card p-5">
+                <h2 className="text-tagline not-italic text-[24px] text-[var(--brand-charcoal)]">
+                  Buyer FAQs
+                </h2>
+                <div className="mt-4 space-y-4 text-[var(--brand-forest)]">
+                  {faqItems.map((item) => (
+                    <div key={item.question}>
+                      <h3 className="text-base font-semibold text-[var(--brand-charcoal)]">
+                        {item.question}
+                      </h3>
+                      <p className="mt-1 text-sm">{item.answer}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
             </article>
 
             <aside className="space-y-6">

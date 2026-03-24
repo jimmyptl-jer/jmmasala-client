@@ -227,7 +227,7 @@ const HomePage = () => {
             url: SITE_URL,
             potentialAction: {
               "@type": "SearchAction",
-              target: `${SITE_URL}/products`,
+              target: `${SITE_URL}/products?search={search_term_string}`,
               "query-input": "required name=search_term_string",
             },
           },

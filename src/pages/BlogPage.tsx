@@ -6,9 +6,38 @@ const BlogPage = () => {
   return (
     <>
       <Seo
-        title="JM Masala Blog | Spice Export Insights"
-        description="Read JM Masala insights on spice quality grades, sourcing, and importing from India."
+        title="Spice Export Blog | Cumin, Psyllium, Importing from India | JM Masala"
+        description="Read JM Masala articles on spice quality grades, cumin sourcing from Unjha, psyllium, HACCP processing, and importing spices from India."
         path="/blog"
+        keywords={[
+          "spice export blog India",
+          "importing spices from India",
+          "cumin sourcing Unjha",
+          "psyllium husk exporter guide",
+          "HACCP spice processing",
+          "JM Masala blog",
+        ]}
+        schema={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Blog",
+              name: "JM Masala Blog",
+              url: "https://jmmasalaexports.com/blog",
+              description:
+                "Insights on Indian spice exports, sourcing, compliance, and buyer requirements.",
+            },
+            {
+              "@type": "ItemList",
+              itemListElement: BLOG_POSTS.map((post, index) => ({
+                "@type": "ListItem",
+                position: index + 1,
+                url: `https://jmmasalaexports.com/blog/${post.slug}`,
+                name: post.title,
+              })),
+            },
+          ],
+        }}
       />
 
       <section className="jm-section">

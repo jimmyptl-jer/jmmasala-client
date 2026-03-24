@@ -8,6 +8,7 @@ type SeoProps = {
   imageUrl?: string;
   type?: "website" | "article" | "product";
   keywords?: string[];
+  robots?: string;
   schema?: Record<string, unknown> | Array<Record<string, unknown>>;
 };
 
@@ -74,6 +75,7 @@ const Seo = ({
   imageUrl,
   type = "website",
   keywords,
+  robots = "index, follow",
   schema,
 }: SeoProps) => {
   useEffect(() => {
@@ -90,7 +92,7 @@ const Seo = ({
     if (keywords?.length) {
       upsertNamedMeta("keywords", keywords.join(", "));
     }
-    upsertNamedMeta("robots", "index, follow");
+    upsertNamedMeta("robots", robots);
     upsertPropertyMeta("og:title", title);
     upsertPropertyMeta("og:description", description);
     upsertPropertyMeta("og:type", type);
@@ -117,7 +119,7 @@ const Seo = ({
         activeSchema.remove();
       }
     };
-  }, [title, description, path, imageUrl, type, keywords, schema]);
+  }, [title, description, path, imageUrl, type, keywords, robots, schema]);
 
   return null;
 };

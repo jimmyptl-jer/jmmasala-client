@@ -150,13 +150,35 @@ const ColdPressedOilsPage = () => {
         title="Cold Pressed Oils | JM Masala | Premium Single-Origin from Unjha"
         description="Pure, cold-pressed oils from Unjha, Gujarat. Sesame, black seed, mustard, groundnut, cumin, fennel, flaxseed. No heat. No chemicals. Pressed in the seed capital of the world."
         path="/cold-pressed-oils"
+        keywords={[
+          "cold pressed oils India",
+          "groundnut oil manufacturer India",
+          "sesame oil supplier India",
+          "mustard oil exporter India",
+          "black seed oil India",
+          "cold pressed oils Unjha Gujarat",
+          "JM Masala oils",
+        ]}
         schema={{
           "@context": "https://schema.org",
-          "@type": "CollectionPage",
-          name: "JM Cold Pressed Oils",
-          url: `${SITE_URL}/cold-pressed-oils`,
-          description:
-            "Pure, cold-pressed single-origin oils from Unjha, Gujarat. Traditional methods, modern purity.",
+          "@graph": [
+            {
+              "@type": "CollectionPage",
+              name: "JM Cold Pressed Oils",
+              url: `${SITE_URL}/cold-pressed-oils`,
+              description:
+                "Pure, cold-pressed single-origin oils from Unjha, Gujarat. Traditional methods, modern purity.",
+            },
+            {
+              "@type": "ItemList",
+              itemListElement: oilProducts.map((oil, index) => ({
+                "@type": "ListItem",
+                position: index + 1,
+                name: oil.name,
+                url: `${SITE_URL}/cold-pressed-oils#${oil.name.toLowerCase().replace(/\s+/g, "-")}`,
+              })),
+            },
+          ],
         }}
       />
 
@@ -279,6 +301,7 @@ const ColdPressedOilsPage = () => {
               {oilProducts.map((oil) => (
                 <article
                   key={oil.name}
+                  id={oil.name.toLowerCase().replace(/\s+/g, "-")}
                   className={`oil-bottle-card ${oil.themeClass}`}
                 >
                   <div
