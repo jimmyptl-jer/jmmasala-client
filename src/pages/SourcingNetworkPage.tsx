@@ -1,5 +1,5 @@
 import Seo from "@/components/Seo";
-import { buildWhatsAppUrl } from "@/data/siteData";
+import { COMPANY, SITE_URL, buildWhatsAppUrl } from "@/data/siteData";
 
 // ─── Inline styles to avoid Tailwind purge issues with dynamic classes ──────
 const styles = `
@@ -578,6 +578,54 @@ const SourcingNetworkPage = () => {
         title="Our Sourcing Network | Farm to Port | JM Masala"
         description="JM Masala sources directly from Unjha, Gujarat and South India farming regions. HACCP-aligned processing, NABL lab testing, fumigation and complete export documentation. Customised to your exact grade, packaging and documentation requirement."
         path="/sourcing-network"
+        keywords={[
+          "spice sourcing network India",
+          "Unjha spice sourcing",
+          "farm to port spice exporter",
+          "custom spice packing India",
+          "NABL tested spice exporter",
+          "JM Masala sourcing network",
+        ]}
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "JM Masala Sourcing Network",
+            url: `${SITE_URL}/sourcing-network`,
+            description:
+              "Direct sourcing network, processing, lab testing, fumigation and export dispatch support from JM Masala.",
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Indian Spice Sourcing and Export Supply",
+            provider: {
+              "@type": "Organization",
+              name: COMPANY.legalName,
+              url: SITE_URL,
+            },
+            areaServed: "Worldwide",
+            serviceType: "Spice sourcing, grading, packing, documentation and export dispatch",
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: `${SITE_URL}/`,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Sourcing Network",
+                item: `${SITE_URL}/sourcing-network`,
+              },
+            ],
+          },
+        ]}
       />
 
       <style>{styles}</style>

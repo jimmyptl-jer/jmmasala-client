@@ -105,22 +105,58 @@ const ContactPage = () => {
         title="Contact JM Masala | Indian Spice Export Inquiries"
         description="Send your spice sourcing inquiry to JM Masala. We respond quickly with specifications, pricing, and shipment support."
         path="/contact"
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          name: "JM Masala Exports",
-          url: `${SITE_URL}/contact`,
-          email: COMPANY.email,
-          telephone: COMPANY.phones,
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Near APMC Market Yard",
-            addressLocality: "Unjha",
-            addressRegion: "Gujarat",
-            postalCode: "384170",
-            addressCountry: "IN",
+        keywords={[
+          "contact spice exporter India",
+          "contact JM Masala",
+          "spice export inquiry India",
+          "Unjha Gujarat spice exporter contact",
+          "WhatsApp spice exporter India",
+          "jmmasalaexports@gmail.com",
+        ]}
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            name: "Contact JM Masala",
+            url: `${SITE_URL}/contact`,
+            description:
+              "Direct WhatsApp and email contact page for export spice inquiries with JM Masala.",
           },
-        }}
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            name: "JM Masala Exports",
+            url: `${SITE_URL}/contact`,
+            email: COMPANY.email,
+            telephone: COMPANY.phones,
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Near APMC Market Yard",
+              addressLocality: "Unjha",
+              addressRegion: "Gujarat",
+              postalCode: "384170",
+              addressCountry: "IN",
+            },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: `${SITE_URL}/`,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Contact",
+                item: `${SITE_URL}/contact`,
+              },
+            ],
+          },
+        ]}
       />
 
       <section className="jm-section">

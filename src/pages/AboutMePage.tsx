@@ -1,5 +1,5 @@
 import Seo from "@/components/Seo";
-import { buildWhatsAppUrl } from "@/data/siteData";
+import { COMPANY, SITE_URL, buildWhatsAppUrl } from "@/data/siteData";
 import teamImage from "@/assets/team.png";
 import jmMasalaLogo from "@/assets/JmMasala.png";
 
@@ -359,6 +359,58 @@ const AboutPage = () => {
         title="About JM Masala | Heritage, Unjha Location, and Global Spice Expansion"
         description="Learn JM Masala's family heritage spanning generations in Unjha, Gujarat's spice trade. HACCP certified exporter of cumin, turmeric, pepper, cardamom and 12 more Indian spices."
         path="/about-jm-masala"
+        keywords={[
+          "about JM Masala",
+          "spice exporter Unjha Gujarat",
+          "Indian spice exporter company",
+          "cumin exporter Unjha",
+          "spice traders Gujarat",
+          "JM Masala exports history",
+        ]}
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            name: "About JM Masala",
+            url: `${SITE_URL}/about-jm-masala`,
+            description:
+              "About JM Masala Exports, a spice exporter rooted in Unjha, Gujarat with global buyer support.",
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: COMPANY.legalName,
+            url: SITE_URL,
+            email: COMPANY.email,
+            telephone: COMPANY.phones[0],
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Near APMC Market Yard",
+              addressLocality: "Unjha",
+              addressRegion: "Gujarat",
+              postalCode: "384170",
+              addressCountry: "IN",
+            },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: `${SITE_URL}/`,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "About JM Masala",
+                item: `${SITE_URL}/about-jm-masala`,
+              },
+            ],
+          },
+        ]}
       />
 
       <style>{styles}</style>

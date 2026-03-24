@@ -48,6 +48,19 @@ const upsertCanonical = (href: string) => {
   link.setAttribute("href", href);
 };
 
+const upsertAlternate = (hrefLang: string, href: string) => {
+  let link = document.head.querySelector(
+    `link[rel="alternate"][hreflang="${hrefLang}"]`,
+  ) as HTMLLinkElement | null;
+  if (!link) {
+    link = document.createElement("link");
+    link.setAttribute("rel", "alternate");
+    link.setAttribute("hreflang", hrefLang);
+    document.head.appendChild(link);
+  }
+  link.setAttribute("href", href);
+};
+
 const upsertSchema = (schema?: Record<string, unknown> | Array<Record<string, unknown>>) => {
   const existing = document.getElementById("page-schema");
   if (!schema) {
@@ -89,6 +102,7 @@ const Seo = ({
     document.title = title;
 
     upsertNamedMeta("description", description);
+    upsertNamedMeta("author", "JM Masala Exports");
     if (keywords?.length) {
       upsertNamedMeta("keywords", keywords.join(", "));
     }
@@ -106,6 +120,8 @@ const Seo = ({
     upsertNamedMeta("twitter:image", ogImage);
     upsertNamedMeta("twitter:site", "@jmmasalaexports");
     upsertCanonical(canonicalUrl);
+    upsertAlternate("en-IN", canonicalUrl);
+    upsertAlternate("x-default", canonicalUrl);
     upsertSchema(schema);
 
     const gscToken = import.meta.env.VITE_GSC_VERIFICATION_TOKEN;

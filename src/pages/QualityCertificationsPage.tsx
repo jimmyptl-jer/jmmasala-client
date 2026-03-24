@@ -1,5 +1,5 @@
 import Seo from "@/components/Seo";
-import { COMPANY, DOCUMENTATION_PACKAGE } from "@/data/siteData";
+import { COMPANY, DOCUMENTATION_PACKAGE, SITE_URL } from "@/data/siteData";
 
 const certifications = [
   {
@@ -63,6 +63,42 @@ const QualityCertificationsPage = () => {
         title="Quality Certifications | JM Masala Export Quality System"
         description="Every lot and every shipment is verified through certification, testing, and export documentation standards."
         path="/quality-certifications"
+        keywords={[
+          "spice exporter certifications India",
+          "HACCP certified spice exporter",
+          "ISO 22000 spice exporter India",
+          "APEDA registered exporter India",
+          "spice export documentation India",
+          "JM Masala quality certifications",
+        ]}
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "JM Masala Quality Certifications",
+            url: `${SITE_URL}/quality-certifications`,
+            description:
+              "Quality systems, export certifications, lot testing, and documentation process followed by JM Masala.",
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: `${SITE_URL}/`,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Quality Certifications",
+                item: `${SITE_URL}/quality-certifications`,
+              },
+            ],
+          },
+        ]}
       />
 
       <section className="jm-section">
@@ -146,6 +182,23 @@ const QualityCertificationsPage = () => {
                 </li>
               ))}
             </ul>
+          </section>
+
+          <section className="jm-surface-card mt-8 p-6">
+            <h2 className="text-tagline not-italic text-[28px] text-[var(--brand-charcoal)]">
+              Buyer Assurance
+            </h2>
+            <div className="mt-4 grid gap-3 md:grid-cols-3">
+              <div className="rounded-md border border-[var(--brand-gold-pale)] px-4 py-3 text-sm text-[var(--brand-forest)]">
+                Lot-wise documentation support for importer approvals and customs processes.
+              </div>
+              <div className="rounded-md border border-[var(--brand-gold-pale)] px-4 py-3 text-sm text-[var(--brand-forest)]">
+                Lab reports, moisture checks, and export packing aligned to buyer specifications.
+              </div>
+              <div className="rounded-md border border-[var(--brand-gold-pale)] px-4 py-3 text-sm text-[var(--brand-forest)]">
+                HACCP, ISO 22000, APEDA, Spice Board, FSSAI, IEC and MSME-backed exporter profile.
+              </div>
+            </div>
           </section>
 
           <p className="jm-soft-panel mt-8 p-4 text-sm font-semibold text-[var(--brand-charcoal)]">

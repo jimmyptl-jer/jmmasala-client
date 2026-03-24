@@ -54,6 +54,27 @@ const ProductsPage = () => {
                 name: product.name,
               })),
             },
+            {
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "Which spices does JM Masala export from India?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "JM Masala exports cumin seeds, coriander seeds, fennel, fenugreek, psyllium husk, psyllium seeds, sesame, turmeric, red chilli, black pepper, cardamom and curry leaf.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Can buyers request custom packing and export documentation?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Yes. JM Masala supports buyer-specific packing, labelling, documentation, and shipment terms based on the destination market and product requirement.",
+                  },
+                },
+              ],
+            },
           ],
         }}
       />
@@ -131,6 +152,55 @@ const ProductsPage = () => {
               </article>
             ))}
           </div>
+
+          <section className="jm-surface-card mt-12 p-6 lg:p-8">
+            <h2 className="text-[28px] text-[var(--brand-charcoal)] text-tagline not-italic">
+              Export Spices from India for Serious Buyers
+            </h2>
+            <div className="mt-4 grid gap-6 lg:grid-cols-2">
+              <div className="text-body text-[var(--brand-forest)]">
+                <p>
+                  JM Masala focuses on exporter-grade Indian spices with buyer-led
+                  control over purity, moisture, packing format, documentation, and
+                  shipment preparation. Our portfolio is built around high-demand
+                  products like{" "}
+                  <Link to="/cumin-seeds-exporter-india" className="text-[var(--brand-gold)] hover:text-[var(--brand-deep-green)]">
+                    cumin seeds
+                  </Link>
+                  ,{" "}
+                  <Link to="/coriander-seeds-exporter-india" className="text-[var(--brand-gold)] hover:text-[var(--brand-deep-green)]">
+                    coriander seeds
+                  </Link>
+                  ,{" "}
+                  <Link to="/psyllium-husk-exporter-india" className="text-[var(--brand-gold)] hover:text-[var(--brand-deep-green)]">
+                    psyllium husk
+                  </Link>
+                  ,{" "}
+                  <Link to="/turmeric-exporter-india" className="text-[var(--brand-gold)] hover:text-[var(--brand-deep-green)]">
+                    turmeric
+                  </Link>
+                  , and other export staples sourced and processed for international trade.
+                </p>
+                <p className="mt-4">
+                  Buyers can review each product page for specifications, market-grade
+                  notes, packaging options, certifications, export details, and direct
+                  WhatsApp inquiry support. This helps your team move faster from
+                  sourcing review to sample approval and shipment planning.
+                </p>
+              </div>
+              <div className="space-y-3 text-sm text-[var(--brand-forest)]">
+                <div className="rounded-md border border-[var(--brand-gold-pale)] px-4 py-3">
+                  Export-focused portfolio for importers, wholesalers, food brands, and private-label buyers.
+                </div>
+                <div className="rounded-md border border-[var(--brand-gold-pale)] px-4 py-3">
+                  Direct product pages for cumin, coriander, fennel, fenugreek, psyllium, sesame, turmeric, chilli, pepper, cardamom, and curry leaf.
+                </div>
+                <div className="rounded-md border border-[var(--brand-gold-pale)] px-4 py-3">
+                  Support for lot-wise documents, quality parameters, custom packing, and export communication.
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </section>
     </>
