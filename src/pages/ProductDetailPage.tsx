@@ -89,6 +89,30 @@ const ProductDetailPage = () => {
   const title =
     TITLE_BY_SLUG[product.slug] ??
     `${product.name} Exporter India | HACCP Certified | JM Masala`;
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://jmmasalaexports.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Products",
+        item: "https://jmmasalaexports.com/products",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: product.name,
+        item: `https://jmmasalaexports.com/${product.slug}`,
+      },
+    ],
+  };
 
   const specSheetUrl = "/JMMasalaProducts.pdf";
   const quoteUrl = buildWhatsAppUrl(buildProductInquiryMessage(product.name));
@@ -101,21 +125,33 @@ const ProductDetailPage = () => {
         path={`/${product.slug}`}
         imageUrl={product.imageUrl}
         type="product"
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "Product",
-          name: product.name,
-          description: product.description,
-          image: product.imageUrl,
-          brand: { "@type": "Brand", name: "JM Masala" },
-          category: "Spices",
-          countryOfOrigin: "India",
-          additionalProperty: product.specs.map((spec) => ({
-            "@type": "PropertyValue",
-            name: spec.label,
-            value: spec.value,
-          })),
-        }}
+        keywords={[
+          `${product.name} exporter India`,
+          `${product.name} supplier India`,
+          `${product.name} from India`,
+          `${product.name} export grade`,
+          `${product.name} wholesaler India`,
+          "Indian spice exporter",
+          "JM Masala exports",
+        ]}
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: product.name,
+            description: product.description,
+            image: product.imageUrl,
+            brand: { "@type": "Brand", name: "JM Masala" },
+            category: "Spices",
+            countryOfOrigin: "India",
+            additionalProperty: product.specs.map((spec) => ({
+              "@type": "PropertyValue",
+              name: spec.label,
+              value: spec.value,
+            })),
+          },
+          breadcrumbSchema,
+        ]}
       />
 
       <section className="jm-section jm-section--white">

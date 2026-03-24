@@ -22,10 +22,40 @@ const ProductsPage = () => {
   return (
     <>
       <Seo
-        title="Complete Indian Spice Portfolio - Export Grade. HACCP Certified."
-        description="Browse JM Masala's complete Indian spice portfolio with export specifications, quality grades, and packaging options."
+        title="Export Grade Indian Spices Portfolio | Cumin, Coriander, Turmeric, Psyllium | JM Masala"
+        description="Browse JM Masala's export-grade Indian spices portfolio including cumin seeds, coriander seeds, fennel, fenugreek, psyllium, sesame, red chilli, turmeric, black pepper, cardamom and curry leaf."
         path="/products"
         imageUrl={PRODUCTS[0]?.imageUrl}
+        keywords={[
+          "export grade spices India",
+          "Indian spices exporter products",
+          "cumin coriander turmeric exporter",
+          "bulk spices supplier India",
+          "psyllium husk exporter India",
+          "black pepper exporter India",
+          "cardamom exporter India",
+        ]}
+        schema={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "CollectionPage",
+              name: "JM Masala Product Portfolio",
+              url: "https://jmmasalaexports.com/products",
+              description:
+                "Export-grade Indian spice portfolio from JM Masala Exports.",
+            },
+            {
+              "@type": "ItemList",
+              itemListElement: PRODUCTS.map((product, index) => ({
+                "@type": "ListItem",
+                position: index + 1,
+                url: `https://jmmasalaexports.com/${product.slug}`,
+                name: product.name,
+              })),
+            },
+          ],
+        }}
       />
 
       <section className="jm-section jm-section--white">

@@ -7,6 +7,7 @@ type SeoProps = {
   path: string;
   imageUrl?: string;
   type?: "website" | "article" | "product";
+  keywords?: string[];
   schema?: Record<string, unknown> | Array<Record<string, unknown>>;
 };
 
@@ -66,24 +67,42 @@ const upsertSchema = (schema?: Record<string, unknown> | Array<Record<string, un
   script.textContent = JSON.stringify(schema);
 };
 
-const Seo = ({ title, description, path, imageUrl, type = "website", schema }: SeoProps) => {
+const Seo = ({
+  title,
+  description,
+  path,
+  imageUrl,
+  type = "website",
+  keywords,
+  schema,
+}: SeoProps) => {
   useEffect(() => {
     const canonicalUrl = `${SITE_URL}${path}`;
-    const ogImage = imageUrl ?? `${SITE_URL}/favicon.svg`;
+    const ogImage = imageUrl
+      ? imageUrl.startsWith("http")
+        ? imageUrl
+        : `${SITE_URL}${imageUrl}`
+      : `${SITE_URL}/JMMasala.png`;
 
     document.title = title;
 
     upsertNamedMeta("description", description);
+    if (keywords?.length) {
+      upsertNamedMeta("keywords", keywords.join(", "));
+    }
     upsertNamedMeta("robots", "index, follow");
     upsertPropertyMeta("og:title", title);
     upsertPropertyMeta("og:description", description);
     upsertPropertyMeta("og:type", type);
     upsertPropertyMeta("og:url", canonicalUrl);
     upsertPropertyMeta("og:image", ogImage);
+    upsertPropertyMeta("og:locale", "en_IN");
+    upsertPropertyMeta("og:site_name", "JM Masala");
     upsertNamedMeta("twitter:card", "summary_large_image");
     upsertNamedMeta("twitter:title", title);
     upsertNamedMeta("twitter:description", description);
     upsertNamedMeta("twitter:image", ogImage);
+    upsertNamedMeta("twitter:site", "@jmmasalaexports");
     upsertCanonical(canonicalUrl);
     upsertSchema(schema);
 
@@ -98,7 +117,7 @@ const Seo = ({ title, description, path, imageUrl, type = "website", schema }: S
         activeSchema.remove();
       }
     };
-  }, [title, description, path, imageUrl, type, schema]);
+  }, [title, description, path, imageUrl, type, keywords, schema]);
 
   return null;
 };

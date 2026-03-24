@@ -12,7 +12,39 @@ const BlogPostPage = () => {
 
   return (
     <>
-      <Seo title={post.title} description={post.excerpt} path={`/blog/${post.slug}`} type="article" />
+      <Seo
+        title={post.title}
+        description={post.excerpt}
+        path={`/blog/${post.slug}`}
+        type="article"
+        keywords={[
+          post.title,
+          "Indian spice exporter blog",
+          "spice sourcing India",
+          "JM Masala blog",
+        ]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: post.title,
+          description: post.excerpt,
+          datePublished: post.date,
+          dateModified: post.date,
+          author: {
+            "@type": "Organization",
+            name: "JM Masala Exports",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "JM Masala Exports",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://jmmasalaexports.com/JMMasala.png",
+            },
+          },
+          mainEntityOfPage: `https://jmmasalaexports.com/blog/${post.slug}`,
+        }}
+      />
       <section className="jm-section">
         <div className="jm-container max-w-4xl">
           <p className="jm-section-label">Article</p>

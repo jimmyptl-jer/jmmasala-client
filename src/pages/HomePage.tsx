@@ -189,24 +189,49 @@ const HomePage = () => {
   return (
     <>
       <Seo
-        title="JM Masala | Premium Indian Spice Exporter | Unjha Gujarat"
-        description="HACCP certified Indian spice exporter from Unjha Gujarat. Complete portfolio — cumin, coriander, turmeric, red chilli, black pepper, cardamom, psyllium. Custom packing, private label, export documentation. APEDA Spice Board registered."
+        title="Indian Spice Exporter from Unjha Gujarat | Cumin, Coriander, Turmeric | JM Masala"
+        description="JM Masala is an Indian spice exporter from Unjha, Gujarat supplying cumin seeds, coriander, fennel, turmeric, red chilli, sesame, psyllium, black pepper, cardamom and more with export documentation and custom packing."
         path="/"
         imageUrl={PRODUCTS[0]?.imageUrl}
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "JM Masala Exports",
-          url: SITE_URL,
-          email: "jmmasalaexports@gmail.com",
-          logo: `${SITE_URL}/favicon.svg`,
-          contactPoint: {
-            "@type": "ContactPoint",
-            telephone: "+91 91067 66041",
-            contactType: "sales",
-            areaServed: "Worldwide",
+        keywords={[
+          "Indian spice exporter",
+          "spices exporter from India",
+          "cumin exporter India",
+          "turmeric exporter India",
+          "sesame seeds exporter India",
+          "psyllium exporter India",
+          "Unjha spice exporter",
+          "Gujarat spice exporter",
+          "bulk spice supplier India",
+          "JM Masala exports",
+        ]}
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "JM Masala Exports",
+            url: SITE_URL,
+            email: "jmmasalaexports@gmail.com",
+            logo: `${SITE_URL}/JMMasala.png`,
+            contactPoint: {
+              "@type": "ContactPoint",
+              telephone: "+91 91067 66041",
+              contactType: "sales",
+              areaServed: "Worldwide",
+            },
           },
-        }}
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "JM Masala Exports",
+            url: SITE_URL,
+            potentialAction: {
+              "@type": "SearchAction",
+              target: `${SITE_URL}/products`,
+              "query-input": "required name=search_term_string",
+            },
+          },
+        ]}
       />
 
       <style>{`
@@ -1068,3 +1093,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
