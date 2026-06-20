@@ -8,6 +8,7 @@ const NotFoundPage = () => {
         title="404 | Page Not Found | JM Masala"
         description="The page you requested could not be found."
         path="/404"
+        noindex={true}
       />
       <section className="jm-section">
         <div className="jm-container flex min-h-[60vh] max-w-4xl flex-col items-center justify-center text-center">

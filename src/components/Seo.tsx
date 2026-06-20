@@ -6,7 +6,10 @@ type SeoProps = {
   description: string;
   path: string;
   imageUrl?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   type?: "website" | "article" | "product";
+  noindex?: boolean;
   schema?: Record<string, unknown> | Array<Record<string, unknown>>;
 };
 
@@ -66,20 +69,50 @@ const upsertSchema = (schema?: Record<string, unknown> | Array<Record<string, un
   script.textContent = JSON.stringify(schema);
 };
 
-const Seo = ({ title, description, path, imageUrl, type = "website", schema }: SeoProps) => {
+/**
+ * Ensures the imageUrl is an absolute URL.
+ * Vite asset imports produce data URIs or hashed paths — use a static fallback
+ * when sharing on social media.
+ */
+const resolveAbsoluteImageUrl = (imageUrl?: string): string => {
+  if (!imageUrl) return `${SITE_URL}/logo.png`;
+  // If it's already an absolute URL, use it
+  if (imageUrl.startsWith("http")) return imageUrl;
+  // Vite asset imports that start with "data:" won't work for OG
+  if (imageUrl.startsWith("data:")) return `${SITE_URL}/logo.png`;
+  // Relative or hashed paths — prepend site URL
+  return `${SITE_URL}${imageUrl.startsWith("/") ? "" : "/"}${imageUrl}`;
+};
+
+const Seo = ({
+  title,
+  description,
+  path,
+  imageUrl,
+  imageWidth,
+  imageHeight,
+  type = "website",
+  noindex = false,
+  schema,
+}: SeoProps) => {
   useEffect(() => {
     const canonicalUrl = `${SITE_URL}${path}`;
-    const ogImage = imageUrl ?? `${SITE_URL}/favicon.svg`;
+    const ogImage = resolveAbsoluteImageUrl(imageUrl);
 
     document.title = title;
 
     upsertNamedMeta("description", description);
-    upsertNamedMeta("robots", "index, follow");
+    upsertNamedMeta("robots", noindex ? "noindex, nofollow" : "index, follow");
     upsertPropertyMeta("og:title", title);
     upsertPropertyMeta("og:description", description);
     upsertPropertyMeta("og:type", type);
     upsertPropertyMeta("og:url", canonicalUrl);
     upsertPropertyMeta("og:image", ogImage);
+    upsertPropertyMeta("og:site_name", "JM Masala Exports");
+    upsertPropertyMeta("og:locale", "en_US");
+    if (imageWidth) upsertPropertyMeta("og:image:width", String(imageWidth));
+    if (imageHeight) upsertPropertyMeta("og:image:height", String(imageHeight));
+    upsertPropertyMeta("og:image:alt", `${title} — JM Masala Exports`);
     upsertNamedMeta("twitter:card", "summary_large_image");
     upsertNamedMeta("twitter:title", title);
     upsertNamedMeta("twitter:description", description);
@@ -87,8 +120,9 @@ const Seo = ({ title, description, path, imageUrl, type = "website", schema }: S
     upsertCanonical(canonicalUrl);
     upsertSchema(schema);
 
+    // GSC verification — skip if env var is unresolved (contains %VITE_)
     const gscToken = import.meta.env.VITE_GSC_VERIFICATION_TOKEN;
-    if (gscToken) {
+    if (gscToken && !gscToken.includes("%VITE_")) {
       upsertNamedMeta("google-site-verification", gscToken);
     }
 
@@ -98,7 +132,7 @@ const Seo = ({ title, description, path, imageUrl, type = "website", schema }: S
         activeSchema.remove();
       }
     };
-  }, [title, description, path, imageUrl, type, schema]);
+  }, [title, description, path, imageUrl, imageWidth, imageHeight, type, noindex, schema]);
 
   return null;
 };

@@ -60,8 +60,8 @@ const QualityCertificationsPage = () => {
   return (
     <>
       <Seo
-        title="Quality Certifications | JM Masala Export Quality System"
-        description="Every lot and every shipment is verified through certification, testing, and export documentation standards."
+        title="Quality Certifications | HACCP ISO 22000 APEDA | JM Masala"
+        description="JM Masala holds HACCP, ISO 22000, APEDA, Spice Board RCMC, FSSAI and IEC certifications. Every shipment backed by NABL lab tests, phytosanitary and fumigation certificates."
         path="/quality-certifications"
       />
 

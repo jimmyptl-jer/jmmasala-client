@@ -1,5 +1,5 @@
 import { Navigate, Outlet, Route, Routes } from "react-router-dom";
-import AnalyticsTracker from "@/components/AnalyticsTracker";
+// import AnalyticsTracker from "@/components/AnalyticsTracker";
 import BackToTopButton from "@/components/BackToTopButton";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
@@ -22,7 +22,7 @@ import SourcingNetworkPage from "@/pages/SourcingNetworkPage";
 const SiteLayout = () => {
   return (
     <div className="jm-page-shell min-h-screen text-[var(--brand-charcoal)]">
-      <AnalyticsTracker />
+      {/* <AnalyticsTracker /> */}
       <Header />
       <main>
         <Outlet />

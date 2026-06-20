@@ -6,8 +6,8 @@ const BlogPage = () => {
   return (
     <>
       <Seo
-        title="JM Masala Blog | Spice Export Insights"
-        description="Read JM Masala insights on spice quality grades, sourcing, and importing from India."
+        title="Spice Export Insights | Blog | JM Masala"
+        description="Expert articles on spice export from India — quality grades, import guides, HACCP compliance, sourcing tips and market insights from JM Masala, Unjha Gujarat."
         path="/blog"
       />
 

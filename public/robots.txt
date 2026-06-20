@@ -1,4 +1,17 @@
 User-agent: *
 Allow: /
 
+# Block internal/admin routes
+Disallow: /dashboard
+Disallow: /login
+Disallow: /register
+Disallow: /profile
+Disallow: /add-project
+Disallow: /auth-callback
+Disallow: /logout
+Disallow: /404
+
+# Block URL parameter duplicates
+Disallow: /*?*intent=*
+
 Sitemap: https://jmmasalaexports.com/sitemap.xml

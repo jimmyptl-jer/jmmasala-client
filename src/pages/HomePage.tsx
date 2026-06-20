@@ -198,14 +198,33 @@ const HomePage = () => {
           "@type": "Organization",
           name: "JM Masala Exports",
           url: SITE_URL,
+          description:
+            "HACCP and ISO 22000 certified Indian spice exporter from Unjha, Gujarat. Supplying cumin, coriander, turmeric, fennel, fenugreek, psyllium, sesame, red chilli, black pepper, cardamom and curry leaf to 30+ countries with custom packing, private labelling and full export documentation.",
           email: "jmmasala@outlook.in",
           logo: `${SITE_URL}/favicon.svg`,
-          contactPoint: {
-            "@type": "ContactPoint",
-            telephone: "+91 91067 66041",
-            contactType: "sales",
-            areaServed: "Worldwide",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Near APMC Market Yard",
+            addressLocality: "Unjha",
+            addressRegion: "Gujarat",
+            postalCode: "384170",
+            addressCountry: "IN",
           },
+          contactPoint: [
+            {
+              "@type": "ContactPoint",
+              telephone: "+91 91067 66041",
+              contactType: "sales",
+              areaServed: "Worldwide",
+              availableLanguage: ["English", "Hindi", "Gujarati"],
+            },
+            {
+              "@type": "ContactPoint",
+              telephone: "+91 98245 10478",
+              contactType: "sales",
+              areaServed: "Worldwide",
+            },
+          ],
         }}
       />
 

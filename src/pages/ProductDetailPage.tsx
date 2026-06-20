@@ -1,18 +1,7 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import Seo from "@/components/Seo";
-import { PRODUCTS_BY_SLUG } from "@/data/siteData";
-import "@/styles/product-palette.css";
-
-const TITLE_BY_SLUG: Record<string, string> = {
-  "cumin-seeds-exporter-india":
-    "Cumin Seeds Exporter India | Unjha Gujarat | HACCP APEDA | JM Masala",
-  "turmeric-exporter-india":
-    "Turmeric Exporter India | High Curcumin | HACCP Certified | JM Masala",
-  "psyllium-husk-exporter-india":
-    "Psyllium Husk Exporter India | HACCP ISO 22000 | Unjha Gujarat | JM Masala",
-  "black-pepper-exporter-india":
-    "Black Pepper Exporter India | MG1 FAQ Grade | HACCP Certified | JM Masala",
-};
+import { PRODUCTS_BY_SLUG, SITE_URL } from "@/data/siteData";
+import { PRODUCT_SEO_TITLES, PRODUCT_SEO_DESCRIPTIONS } from "@/data/seoData";
 
 const ProductDetailPage = () => {
   const params = useParams();
@@ -31,35 +20,65 @@ const ProductDetailPage = () => {
     .slice(0, 3);
 
   const title =
-    TITLE_BY_SLUG[product.slug] ??
+    PRODUCT_SEO_TITLES[product.slug] ??
     `${product.name} Exporter India | HACCP Certified | JM Masala`;
+
+  const description =
+    PRODUCT_SEO_DESCRIPTIONS[product.slug] ?? product.description;
 
   const specSheetUrl = "/JMMasalaProducts.pdf";
   const quoteUrl = `/contact?product=${encodeURIComponent(product.name)}#inquiry-form`;
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Products",
+        item: `${SITE_URL}/products`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: product.name,
+        item: `${SITE_URL}/${product.slug}`,
+      },
+    ],
+  };
+
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: description,
+    image: product.imageUrl,
+    brand: { "@type": "Brand", name: "JM Masala" },
+    category: "Spices",
+    countryOfOrigin: "India",
+    additionalProperty: product.specs.map((spec) => ({
+      "@type": "PropertyValue",
+      name: spec.label,
+      value: spec.value,
+    })),
+  };
 
   return (
     <>
       <Seo
         title={title}
-        description={product.description}
+        description={description}
         path={`/${product.slug}`}
         imageUrl={product.imageUrl}
         type="product"
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "Product",
-          name: product.name,
-          description: product.description,
-          image: product.imageUrl,
-          brand: { "@type": "Brand", name: "JM Masala" },
-          category: "Spices",
-          countryOfOrigin: "India",
-          additionalProperty: product.specs.map((spec) => ({
-            "@type": "PropertyValue",
-            name: spec.label,
-            value: spec.value,
-          })),
-        }}
+        schema={[breadcrumbSchema, productSchema]}
       />
 
       {/* Product Color Identity Hero Section */}
@@ -149,6 +168,17 @@ const ProductDetailPage = () => {
 
       <section className="jm-section jm-section--white">
         <div className="jm-container">
+          {/* Breadcrumb navigation */}
+          <nav aria-label="Breadcrumb" className="mb-6 text-sm text-[var(--brand-forest)]">
+            <ol className="flex items-center gap-1.5">
+              <li><Link to="/" className="hover:text-[var(--brand-gold)] transition-colors">Home</Link></li>
+              <li className="text-[var(--brand-gold-pale)]">/</li>
+              <li><Link to="/products" className="hover:text-[var(--brand-gold)] transition-colors">Products</Link></li>
+              <li className="text-[var(--brand-gold-pale)]">/</li>
+              <li aria-current="page" className="font-semibold text-[var(--brand-charcoal)]">{product.name}</li>
+            </ol>
+          </nav>
+
           <div className="grid gap-8 lg:grid-cols-[1.15fr,0.85fr]">
             <article>
               <h1 className="jm-heading-1 text-[32px] lg:text-[40px]">
@@ -227,8 +257,10 @@ const ProductDetailPage = () => {
             <aside className="space-y-6">
               <img
                 src={product.imageUrl}
-                alt={`${product.name} export lot sample from India`}
+                alt={`${product.name} export lot — ${product.origin}, India`}
                 className="h-72 w-full rounded-xl object-cover"
+                width={600}
+                height={288}
                 loading="lazy"
               />
 

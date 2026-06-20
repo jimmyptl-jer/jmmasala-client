@@ -22,8 +22,8 @@ const ProductsPage = () => {
   return (
     <>
       <Seo
-        title="Complete Indian Spice Portfolio - Export Grade. HACCP Certified."
-        description="Browse JM Masala's complete Indian spice portfolio with export specifications, quality grades, and packaging options."
+        title="Indian Spices Export Catalogue | 12+ Varieties | JM Masala"
+        description="Complete range of export-grade Indian spices: cumin, coriander, fennel, fenugreek, turmeric, red chilli, black pepper, cardamom, sesame, psyllium. HACCP certified, APEDA registered."
         path="/products"
         imageUrl={PRODUCTS[0]?.imageUrl}
       />

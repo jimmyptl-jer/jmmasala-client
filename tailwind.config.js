@@ -1,10 +1,13 @@
-<<<<<<< HEAD
+import tailwindcssAnimate from "tailwindcss-animate";
+import flowbitePlugin from "flowbite/plugin";
+
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: ["class"],
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}", // if using flowbite-react plugin
+    "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
@@ -87,34 +90,28 @@ export default {
           light: '#E2C97E',
           label: '#FAF6EE',
         },
+
+        // From master branch
+        white: "#FFFFFF",
+        brand: {
+          primary: "#5C2E0E",
+          secondary: "#8B3A0F",
+          accent: "#C8960C",
+          cream: "#F5EDD6",
+          beige: "#EDE0C4",
+          textDark: "#2C1A0E",
+          textMedium: "#5C3D1E",
+          footer: "#2C1A0E",
+        },
+        success: {
+          DEFAULT: "#2E7D32",
+        },
       },
       fontFamily: {
         display: ['Cinzel', 'serif'],
         editorial: ['Cormorant Garamond', 'serif'],
         body: ['Didact Gothic', 'sans-serif'],
-      },
-      letterSpacing: {
-        wider: '0.05em',
-        widest: '0.15em',
-      },
-      lineHeight: {
-        relaxed: '1.75',
-      },
-    },
-  },
-  plugins: [
-    require('flowbite/plugin'), // optional, only if you use flowbite-react
-  ],
-=======
-import tailwindcssAnimate from "tailwindcss-animate";
-
-/** @type {import('tailwindcss').Config} */
-export default {
-  darkMode: ["class"],
-  content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
-  theme: {
-    extend: {
-      fontFamily: {
+        custom: ["Josefin Slab", "serif"],
         sans: ["Lato", "system-ui", "sans-serif"],
         serif: ["Playfair Display", "serif"],
         accent: ["Cormorant Garamond", "serif"],
@@ -152,24 +149,17 @@ export default {
           lg: "2rem",
         },
       },
-      colors: {
-        white: "#FFFFFF",
-        brand: {
-          primary: "#5C2E0E",
-          secondary: "#8B3A0F",
-          accent: "#C8960C",
-          cream: "#F5EDD6",
-          beige: "#EDE0C4",
-          textDark: "#2C1A0E",
-          textMedium: "#5C3D1E",
-          footer: "#2C1A0E",
-        },
-        success: {
-          DEFAULT: "#2E7D32",
-        },
+      letterSpacing: {
+        wider: '0.05em',
+        widest: '0.15em',
+      },
+      lineHeight: {
+        relaxed: '1.75',
       },
     },
   },
-  plugins: [tailwindcssAnimate],
->>>>>>> master
+  plugins: [
+    tailwindcssAnimate,
+    flowbitePlugin,
+  ],
 };
