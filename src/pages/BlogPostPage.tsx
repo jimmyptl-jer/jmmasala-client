@@ -1,6 +1,6 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import Seo from "@/components/Seo";
-import { BLOG_POSTS, PRODUCTS_BY_SLUG } from "@/data/siteData";
+import { BLOG_POSTS, PRODUCTS_BY_SLUG, SITE_URL } from "@/data/siteData";
 
 const BlogPostPage = () => {
   const params = useParams();
@@ -14,6 +14,11 @@ const BlogPostPage = () => {
     .map((slug) => PRODUCTS_BY_SLUG[slug])
     .filter((product): product is NonNullable<typeof product> => Boolean(product));
   const articleImage = relatedProducts[0]?.imageUrl;
+  const absoluteArticleImage = articleImage
+    ? articleImage.startsWith("http")
+      ? articleImage
+      : `${SITE_URL}${articleImage}`
+    : `${SITE_URL}/JMMasala.png`;
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -22,19 +27,19 @@ const BlogPostPage = () => {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://jmmasalaexports.com/",
+        item: `${SITE_URL}/`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://jmmasalaexports.com/blog",
+        item: `${SITE_URL}/blog`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: post.title,
-        item: `https://jmmasalaexports.com/blog/${post.slug}`,
+        item: `${SITE_URL}/blog/${post.slug}`,
       },
     ],
   };
@@ -71,7 +76,7 @@ const BlogPostPage = () => {
             description: post.excerpt,
             datePublished: post.date,
             dateModified: post.date,
-            image: articleImage,
+            image: absoluteArticleImage,
             keywords: post.keywords.join(", "),
             articleSection: post.sections.map((section) => section.heading),
             author: {
@@ -83,10 +88,10 @@ const BlogPostPage = () => {
               name: "JM Masala Exports",
               logo: {
                 "@type": "ImageObject",
-                url: "https://jmmasalaexports.com/JMMasala.png",
+                url: `${SITE_URL}/JMMasala.png`,
               },
             },
-            mainEntityOfPage: `https://jmmasalaexports.com/blog/${post.slug}`,
+            mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
           },
           breadcrumbSchema,
           ...(faqSchema ? [faqSchema] : []),

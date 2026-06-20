@@ -83,7 +83,7 @@ const ProductsPage = () => {
         <div className="jm-container">
           <p className="jm-section-label">Product Portfolio</p>
           <h1 className="jm-section-heading">
-            Complete Indian Spice Portfolio – Export Grade
+            Complete Indian Spice Portfolio - Export Grade
           </h1>
 
           {query && (
@@ -120,6 +120,7 @@ const ProductsPage = () => {
                     src={product.imageUrl}
                     alt={product.name}
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="jm-product-card__body">

@@ -213,7 +213,7 @@ const HomePage = () => {
     <>
       <Seo
         title="Indian Spice Exporter from Unjha Gujarat | Cumin, Coriander, Turmeric | JM Masala"
-        description="JM Masala is an Indian spice exporter from Unjha, Gujarat supplying cumin seeds, coriander, fennel, turmeric, red chilli, sesame, psyllium, black pepper, cardamom and more with export documentation and custom packing."
+        description="HACCP-certified spice exporter from Unjha, Gujarat. Cumin, coriander, turmeric and 10+ spices with custom packing, FOB/CIF, and global shipping."
         path="/"
         imageUrl={PRODUCTS[0]?.imageUrl}
         keywords={[
@@ -307,7 +307,7 @@ const HomePage = () => {
         }
         .jm2-hero__bg {
           position: absolute; inset: 0;
-          background-image: url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1800&q=80');
+          background-image: url('${bannerImage}');
           background-size: cover; background-position: center;
         }
         .jm2-hero__overlay {
@@ -533,7 +533,15 @@ const HomePage = () => {
           transition: transform 0.25s, box-shadow 0.25s;
         }
         .jm2-product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(44,26,14,0.12); }
-        .jm2-product-card__img { width: 100%; height: 180px; object-fit: cover; }
+        .jm2-product-card__img {
+          width: 100%;
+          height: 180px;
+          object-fit: contain;
+          padding: 1rem;
+          background:
+            radial-gradient(circle at 50% 45%, rgba(201,168,76,0.18), transparent 58%),
+            var(--brand-cream);
+        }
         .jm2-product-card__body { padding: 1.25rem; }
         .jm2-product-card__name { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--spice-dark); margin-bottom: 0.4rem; }
         .jm2-product-card__desc { font-size: 0.85rem; color: var(--brand-forest); line-height: 1.6; margin-bottom: 1rem; }
@@ -933,6 +941,8 @@ const HomePage = () => {
                       src={product.imageUrl}
                       alt={product.name}
                       className="jm2-product-card__img"
+                      loading="lazy"
+                      decoding="async"
                     />
                   )}
                   <div className="jm2-product-card__body">

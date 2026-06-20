@@ -4,6 +4,7 @@ import {
   BLOG_POSTS,
   PRODUCTS_BY_SLUG,
   PRODUCT_TECHNICAL_DETAILS,
+  SITE_URL,
   buildProductInquiryMessage,
   buildWhatsAppUrl,
   type ExportDetail,
@@ -214,7 +215,10 @@ const ProductDetailPage = () => {
   const title =
     TITLE_BY_SLUG[product.slug] ??
     `${product.name} Exporter India | HACCP Certified | JM Masala`;
-  const canonicalUrl = `https://jmmasalaexports.com/${product.slug}`;
+  const canonicalUrl = `${SITE_URL}/${product.slug}`;
+  const productImageUrl = product.imageUrl.startsWith("http")
+    ? product.imageUrl
+    : `${SITE_URL}${product.imageUrl}`;
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -223,19 +227,19 @@ const ProductDetailPage = () => {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://jmmasalaexports.com/",
+        item: `${SITE_URL}/`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Products",
-        item: "https://jmmasalaexports.com/products",
+        item: `${SITE_URL}/products`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: product.name,
-        item: `https://jmmasalaexports.com/${product.slug}`,
+        item: `${SITE_URL}/${product.slug}`,
       },
     ],
   };
@@ -270,14 +274,14 @@ const ProductDetailPage = () => {
     "@type": "Product",
     name: product.name,
     description: product.description,
-    image: product.imageUrl,
+    image: productImageUrl,
     brand: { "@type": "Brand", name: "JM Masala" },
     category: "Spices",
     countryOfOrigin: "India",
     manufacturer: {
       "@type": "Organization",
       name: "JM Masala Exports",
-      url: "https://jmmasalaexports.com",
+      url: SITE_URL,
     },
     url: canonicalUrl,
     additionalProperty: product.specs.map((spec) => ({
@@ -285,6 +289,12 @@ const ProductDetailPage = () => {
       name: spec.label,
       value: spec.value,
     })),
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url: canonicalUrl,
+    },
   };
   const pageSchema = {
     "@context": "https://schema.org",
@@ -551,8 +561,9 @@ const ProductDetailPage = () => {
               <img
                 src={product.imageUrl}
                 alt={product.name}
-                className="h-72 w-full rounded-xl object-cover"
+                className="h-72 w-full rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] object-contain p-5"
                 loading="lazy"
+                decoding="async"
               />
 
               {technicalDetails?.processing && (
