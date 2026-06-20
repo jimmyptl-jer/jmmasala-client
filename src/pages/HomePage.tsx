@@ -13,7 +13,7 @@ import {
 import Seo from "@/components/Seo";
 import { DOCUMENTATION_PACKAGE, PRODUCTS, SITE_URL } from "@/data/siteData";
 
-import bannerImage from "@/assets/homepage.png";
+import bannerImage from "@/assets/homepage.jpg";
 /* ─────────────────────────── DATA ─────────────────────────── */
 
 const STATS = [

@@ -1,15 +1,15 @@
-import blackPepperImage from "../assets/BlackPepper.png";
-import cardamomImage from "../assets/Cardamom.png";
-import corianderSeedsImage from "../assets/CorianderSeeds.png";
-import cuminImage from "../assets/cumin.png";
-import curryLeafImage from "../assets/CurryLeaf.png";
-import fennelSeedsImage from "../assets/FennelSeeds.png";
-import fenugreekSeedsImage from "../assets/FenugreekSeeds.png";
-import psylliumHuskImage from "../assets/PsylliumHusk.png";
-import psylliumSeedsImage from "../assets/PsylliumSeeds.png";
-import redChilliImage from "../assets/RedChilli.png";
-import sesameSeedsImage from "../assets/SesameSeeds.png";
-import turmericImage from "../assets/Turmeric.png";
+import blackPepperImage from "../assets/BlackPepper.jpg";
+import cardamomImage from "../assets/Cardamom.jpg";
+import corianderSeedsImage from "../assets/CorianderSeeds.jpg";
+import cuminImage from "../assets/cumin.jpg";
+import curryLeafImage from "../assets/CurryLeaf.jpg";
+import fennelSeedsImage from "../assets/FennelSeeds.jpg";
+import fenugreekSeedsImage from "../assets/FenugreekSeeds.jpg";
+import psylliumHuskImage from "../assets/PsylliumHusk.jpg";
+import psylliumSeedsImage from "../assets/PsylliumSeeds.jpg";
+import redChilliImage from "../assets/RedChilli.jpg";
+import sesameSeedsImage from "../assets/SesameSeeds.jpg";
+import turmericImage from "../assets/Turmeric.jpg";
 
 export const SITE_URL = "https://jmmasalaexports.com";
 

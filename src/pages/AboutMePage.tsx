@@ -1,5 +1,5 @@
 import Seo from "@/components/Seo";
-import teamImage from "@/assets/team.png";
+import teamImage from "@/assets/team.jpg";
 import jmMasalaLogo from "@/assets/JmMasala.png";
 
 const styles = `
