@@ -57,10 +57,11 @@ const stripRouteHeadTags = (html) =>
   html
     .replace(/<title>[\s\S]*?<\/title>\s*/i, "")
     .replace(
-      /<meta\s+name=["'](?:description|keywords|robots|twitter:card|twitter:title|twitter:description|twitter:image|twitter:site|google-site-verification)["'][^>]*>\s*/gi,
+      /<meta\s+name=["'](?:description|keywords|robots|twitter:card|twitter:title|twitter:description|twitter:image|twitter:image:alt|twitter:site|google-site-verification)["'][^>]*>\s*/gi,
       "",
     )
     .replace(/<meta\s+property=["']og:[^"']+["'][^>]*>\s*/gi, "")
+    .replace(/<meta\s+property=["']article:[^"']+["'][^>]*>\s*/gi, "")
     .replace(/<link\s+rel=["']canonical["'][^>]*>\s*/gi, "")
     .replace(/<link\s+rel=["']alternate["'][^>]*>\s*/gi, "")
     .replace(
@@ -81,12 +82,16 @@ const renderHead = (seo) => {
     `<meta property="og:type" content="${escapeHtml(type)}" />`,
     `<meta property="og:url" content="${escapeHtml(canonicalUrl)}" />`,
     `<meta property="og:image" content="${escapeHtml(imageUrl)}" />`,
+    `<meta property="og:image:alt" content="${escapeHtml(seo.imageAlt ?? "JM Masala export-grade Indian spices")}" />`,
+    `<meta property="og:image:width" content="1200" />`,
+    `<meta property="og:image:height" content="630" />`,
     `<meta property="og:site_name" content="JM Masala" />`,
     `<meta property="og:locale" content="en_IN" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:title" content="${escapeHtml(seo.title)}" />`,
     `<meta name="twitter:description" content="${escapeHtml(seo.description)}" />`,
     `<meta name="twitter:image" content="${escapeHtml(imageUrl)}" />`,
+    `<meta name="twitter:image:alt" content="${escapeHtml(seo.imageAlt ?? "JM Masala export-grade Indian spices")}" />`,
     `<meta name="twitter:site" content="@jmmasalaexports" />`,
     `<link rel="canonical" href="${escapeHtml(canonicalUrl)}" />`,
     `<link rel="alternate" hreflang="en-IN" href="${escapeHtml(canonicalUrl)}" />`,
@@ -99,6 +104,24 @@ const renderHead = (seo) => {
       0,
       `<meta name="keywords" content="${escapeHtml(seo.keywords.join(", "))}" />`,
     );
+  }
+
+  if (type === "article") {
+    if (seo.publishedTime) {
+      tags.push(
+        `<meta property="article:published_time" content="${escapeHtml(
+          seo.publishedTime,
+        )}" />`,
+      );
+    }
+
+    if (seo.modifiedTime) {
+      tags.push(
+        `<meta property="article:modified_time" content="${escapeHtml(
+          seo.modifiedTime,
+        )}" />`,
+      );
+    }
   }
 
   if (process.env.VITE_GSC_VERIFICATION_TOKEN) {
@@ -152,16 +175,23 @@ const getPriority = (route) => {
 };
 const getChangefreq = (route) => (route.startsWith("/blog/") ? "yearly" : "monthly");
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${prerenderRoutes
-  .map(
-    (route) => `  <url>
+  .map((route) => {
+    const seo = getRouteSeo(route);
+    const imageUrl = normalizeUrl(seo.imageUrl);
+
+    return `  <url>
     <loc>${SITE_URL}${route}</loc>
     <lastmod>${sitemapLastmod}</lastmod>
     <changefreq>${getChangefreq(route)}</changefreq>
     <priority>${getPriority(route)}</priority>
-  </url>`,
-  )
+    <image:image>
+      <image:loc>${imageUrl}</image:loc>
+      <image:title>${escapeHtml(seo.imageAlt ?? seo.title)}</image:title>
+    </image:image>
+  </url>`;
+  })
   .join("\n")}
 </urlset>
 `;

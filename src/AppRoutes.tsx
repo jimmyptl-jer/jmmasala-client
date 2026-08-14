@@ -11,7 +11,9 @@ import BlogPostPage from "@/pages/BlogPostPage";
 import ColdPressedOilsPage from "@/pages/ColdPressedOilsPage";
 import ContactPage from "@/pages/ContactPage";
 import DomesticSupplyPage from "@/pages/DomesticSupplyPage";
+import GujaratSpiceExporterPage from "@/pages/GujaratSpiceExporterPage";
 import HomePage from "@/pages/HomePage";
+import { BestCuminExporterIndiaPage, SpiceExporterIndiaPage } from "@/pages/IndiaSeoPages";
 import NotFoundPage from "@/pages/NotFoundPage";
 import ProductDetailPage from "@/pages/ProductDetailPage";
 import ProductsPage from "@/pages/ProductPage";
@@ -43,6 +45,9 @@ const AppRoutes = () => {
         <Route path="/cold-pressed-oils" element={<ColdPressedOilsPage />} />
         <Route path="/oils" element={<Navigate to="/cold-pressed-oils" replace />} />
         <Route path="/about-jm-masala" element={<AboutPage />} />
+        <Route path="/best-spice-exporter-india" element={<SpiceExporterIndiaPage />} />
+        <Route path="/best-cumin-exporter-india" element={<BestCuminExporterIndiaPage />} />
+        <Route path="/spice-exporter-gujarat" element={<GujaratSpiceExporterPage />} />
         <Route path="/quality-certifications" element={<QualityCertificationsPage />} />
         <Route path="/sourcing-network" element={<SourcingNetworkPage />} />
         <Route path="/domestic-supply-india" element={<DomesticSupplyPage />} />

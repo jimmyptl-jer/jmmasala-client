@@ -371,6 +371,20 @@ const ProductDetailPage = () => {
               <p className="mt-4 text-body text-[var(--brand-forest)]">
                 {product.description}
               </p>
+              {product.slug === "cumin-seeds-exporter-india" && (
+                <div className="mt-5 rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-4 text-sm leading-7 text-[var(--brand-forest)]">
+                  Buyers comparing the{" "}
+                  <Link
+                    to="/best-cumin-exporter-india"
+                    className="font-semibold text-[var(--brand-gold)] hover:text-[var(--brand-deep-green)]"
+                  >
+                    best cumin exporter in India
+                  </Link>
+                  {" "}can review this page for full cumin seed specifications,
+                  market-grade notes, packing options, and export documentation
+                  support from JM Masala.
+                </div>
+              )}
 
               <div className="mt-8 jm-spec-table">
                 <div className="jm-spec-table__header">Full Specifications</div>

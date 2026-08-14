@@ -817,6 +817,12 @@ const HomePage = () => {
                 >
                   Request a Quote <ArrowRight className="h-4 w-4" />
                 </Link>
+                <Link to="/best-spice-exporter-india" className="jm2-btn-outline">
+                  Spice Exporter in India
+                </Link>
+                <Link to="/spice-exporter-gujarat" className="jm2-btn-outline">
+                  Spice Exporter in Gujarat
+                </Link>
                 <a href="/JMMasalaProducts.pdf" className="jm2-btn-outline">
                   Download Catalogue
                 </a>
@@ -1229,6 +1235,24 @@ const HomePage = () => {
                       {product.name}
                     </Link>
                   ))}
+                  <Link
+                    to="/best-spice-exporter-india"
+                    className="jm2-resource-link"
+                  >
+                    Best Spice Exporter in India
+                  </Link>
+                  <Link
+                    to="/best-cumin-exporter-india"
+                    className="jm2-resource-link"
+                  >
+                    Best Cumin Exporter in India
+                  </Link>
+                  <Link
+                    to="/spice-exporter-gujarat"
+                    className="jm2-resource-link"
+                  >
+                    Best Spice Exporter in Gujarat
+                  </Link>
                   {BLOG_POSTS.slice(0, 4).map((post) => (
                     <Link
                       key={post.slug}

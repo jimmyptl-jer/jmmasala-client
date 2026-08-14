@@ -163,7 +163,15 @@ const ProductsPage = () => {
                 <p>
                   JM Masala focuses on exporter-grade Indian spices with buyer-led
                   control over purity, moisture, packing format, documentation, and
-                  shipment preparation. Our portfolio is built around high-demand
+                  shipment preparation. As a{" "}
+                  <Link to="/best-spice-exporter-india" className="text-[var(--brand-gold)] hover:text-[var(--brand-deep-green)]">
+                    spice exporter in India
+                  </Link>
+                  {" "}and{" "}
+                  <Link to="/spice-exporter-gujarat" className="text-[var(--brand-gold)] hover:text-[var(--brand-deep-green)]">
+                    Gujarat spice exporter based in Unjha
+                  </Link>
+                  , our portfolio is built around high-demand
                   products like{" "}
                   <Link to="/cumin-seeds-exporter-india" className="text-[var(--brand-gold)] hover:text-[var(--brand-deep-green)]">
                     cumin seeds

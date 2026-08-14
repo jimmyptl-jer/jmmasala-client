@@ -66,8 +66,11 @@ const BlogPostPage = () => {
         description={post.excerpt}
         path={`/blog/${post.slug}`}
         imageUrl={articleImage}
+        imageAlt={`${post.title} - JM Masala buyer guide`}
         type="article"
         keywords={post.keywords}
+        publishedTime={post.date}
+        modifiedTime={post.date}
         schema={[
           {
             "@context": "https://schema.org",

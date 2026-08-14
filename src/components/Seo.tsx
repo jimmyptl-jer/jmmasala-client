@@ -6,9 +6,12 @@ type SeoProps = {
   description: string;
   path: string;
   imageUrl?: string;
+  imageAlt?: string;
   type?: "website" | "article" | "product";
   keywords?: string[];
   robots?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
   schema?: Record<string, unknown> | Array<Record<string, unknown>>;
 };
 
@@ -34,6 +37,13 @@ const upsertPropertyMeta = (property: string, content: string) => {
     document.head.appendChild(tag);
   }
   tag.setAttribute("content", content);
+};
+
+const removePropertyMeta = (property: string) => {
+  const tag = document.head.querySelector(`meta[property="${property}"]`);
+  if (tag) {
+    tag.remove();
+  }
 };
 
 const upsertCanonical = (href: string) => {
@@ -86,9 +96,12 @@ const Seo = ({
   description,
   path,
   imageUrl,
+  imageAlt = "JM Masala export-grade Indian spices",
   type = "website",
   keywords,
   robots = "index, follow",
+  publishedTime,
+  modifiedTime,
   schema,
 }: SeoProps) => {
   useEffect(() => {
@@ -112,12 +125,31 @@ const Seo = ({
     upsertPropertyMeta("og:type", type);
     upsertPropertyMeta("og:url", canonicalUrl);
     upsertPropertyMeta("og:image", ogImage);
+    upsertPropertyMeta("og:image:alt", imageAlt);
+    upsertPropertyMeta("og:image:width", "1200");
+    upsertPropertyMeta("og:image:height", "630");
     upsertPropertyMeta("og:locale", "en_IN");
     upsertPropertyMeta("og:site_name", "JM Masala");
+    if (type === "article") {
+      if (publishedTime) {
+        upsertPropertyMeta("article:published_time", publishedTime);
+      } else {
+        removePropertyMeta("article:published_time");
+      }
+      if (modifiedTime) {
+        upsertPropertyMeta("article:modified_time", modifiedTime);
+      } else {
+        removePropertyMeta("article:modified_time");
+      }
+    } else {
+      removePropertyMeta("article:published_time");
+      removePropertyMeta("article:modified_time");
+    }
     upsertNamedMeta("twitter:card", "summary_large_image");
     upsertNamedMeta("twitter:title", title);
     upsertNamedMeta("twitter:description", description);
     upsertNamedMeta("twitter:image", ogImage);
+    upsertNamedMeta("twitter:image:alt", imageAlt);
     upsertNamedMeta("twitter:site", "@jmmasalaexports");
     upsertCanonical(canonicalUrl);
     upsertAlternate("en-IN", canonicalUrl);
@@ -135,7 +167,19 @@ const Seo = ({
         activeSchema.remove();
       }
     };
-  }, [title, description, path, imageUrl, type, keywords, robots, schema]);
+  }, [
+    title,
+    description,
+    path,
+    imageUrl,
+    imageAlt,
+    type,
+    keywords,
+    robots,
+    publishedTime,
+    modifiedTime,
+    schema,
+  ]);
 
   return null;
 };

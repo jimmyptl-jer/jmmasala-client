@@ -58,6 +58,30 @@ const Footer = () => {
             ))}
             <li>
               <Link
+                to="/best-spice-exporter-india"
+                className="text-[rgba(255,255,255,0.75)] transition-all duration-150 hover:pl-1 hover:text-white"
+              >
+                Spice Exporter India
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/best-cumin-exporter-india"
+                className="text-[rgba(255,255,255,0.75)] transition-all duration-150 hover:pl-1 hover:text-white"
+              >
+                Cumin Exporter India
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/spice-exporter-gujarat"
+                className="text-[rgba(255,255,255,0.75)] transition-all duration-150 hover:pl-1 hover:text-white"
+              >
+                Gujarat Spice Exporter
+              </Link>
+            </li>
+            <li>
+              <Link
                 to="/blog"
                 className="text-[rgba(255,255,255,0.75)] transition-all duration-150 hover:pl-1 hover:text-white"
               >
