@@ -242,7 +242,10 @@ const IndiaMap = () => (
     <ellipse cx="108" cy="148" rx="32" ry="22" fill="rgba(200,150,12,0.12)" />
 
     {/* South India region highlight */}
-    <ellipse cx="185" cy="330" rx="35" ry="28" fill="rgba(76,175,80,0.1)" />
+    <ellipse cx="190" cy="330" rx="35" ry="28" fill="rgba(76,175,80,0.1)" />
+
+    {/* North-East India region highlight */}
+    <ellipse cx="265" cy="155" rx="28" ry="20" fill="rgba(230,126,34,0.12)" />
 
     {/* ── Unjha, Gujarat pin ── */}
     <circle cx="108" cy="148" r="20" fill="rgba(200,150,12,0.15)" />
@@ -274,7 +277,7 @@ const IndiaMap = () => (
       fontSize="8"
       fontFamily="Lato, sans-serif"
     >
-      Gujarat
+      Gujarat &amp; Raj
     </text>
     <line
       x1="115"
@@ -282,6 +285,47 @@ const IndiaMap = () => (
       x2="124"
       y2="148"
       stroke="#C8960C"
+      strokeWidth="1"
+      strokeOpacity="0.6"
+    />
+
+    {/* ── North-East India pin (Meghalaya/Assam) ── */}
+    <circle cx="265" cy="155" r="20" fill="rgba(230,126,34,0.15)" />
+    <circle
+      cx="265"
+      cy="155"
+      r="8"
+      fill="rgba(230,126,34,0.3)"
+    />
+    <circle cx="265" cy="155" r="7" fill="#E67E22" />
+    <circle cx="265" cy="155" r="3" fill="#fff" />
+
+    {/* North-East label */}
+    <text
+      x="205"
+      y="150"
+      fill="#E67E22"
+      fontSize="9"
+      fontWeight="700"
+      fontFamily="Lato, sans-serif"
+    >
+      NORTH-EAST
+    </text>
+    <text
+      x="205"
+      y="162"
+      fill="rgba(230,126,34,0.8)"
+      fontSize="8"
+      fontFamily="Lato, sans-serif"
+    >
+      Meghalaya / Assam
+    </text>
+    <line
+      x1="258"
+      y1="155"
+      x2="248"
+      y2="155"
+      stroke="#E67E22"
       strokeWidth="1"
       strokeOpacity="0.6"
     />
@@ -310,7 +354,7 @@ const IndiaMap = () => (
       SOUTH INDIA
     </text>
     <text
-      x="145"
+      x="140"
       y="326"
       fill="rgba(76,175,80,0.7)"
       fontSize="8"
@@ -329,25 +373,35 @@ const IndiaMap = () => (
     />
 
     {/* Legend */}
-    <circle cx="76" cy="408" r="5" fill="#C8960C" />
+    <circle cx="20" cy="408" r="4" fill="#C8960C" />
     <text
-      x="86"
-      y="413"
-      fill="rgba(255,255,255,0.6)"
-      fontSize="9"
+      x="28"
+      y="412"
+      fill="rgba(255,255,255,0.7)"
+      fontSize="8"
       fontFamily="Lato, sans-serif"
     >
-      North Indian Spices
+      Gujarat &amp; North
     </text>
-    <circle cx="76" cy="424" r="5" fill="#4CAF50" />
+    <circle cx="120" cy="408" r="4" fill="#E67E22" />
     <text
-      x="86"
-      y="429"
-      fill="rgba(255,255,255,0.6)"
-      fontSize="9"
+      x="128"
+      y="412"
+      fill="rgba(255,255,255,0.7)"
+      fontSize="8"
       fontFamily="Lato, sans-serif"
     >
-      South Indian Spices
+      North-East India
+    </text>
+    <circle cx="220" cy="408" r="4" fill="#4CAF50" />
+    <text
+      x="228"
+      y="412"
+      fill="rgba(255,255,255,0.7)"
+      fontSize="8"
+      fontFamily="Lato, sans-serif"
+    >
+      South India
     </text>
   </svg>
 );
@@ -575,8 +629,8 @@ const SourcingNetworkPage = () => {
   return (
     <>
       <Seo
-        title="Our Sourcing Network | Farm to Port | JM Masala"
-        description="JM Masala sources directly from Unjha, Gujarat and South India farming regions. HACCP-aligned processing, NABL lab testing, fumigation and complete export documentation. Customised to your exact grade, packaging and documentation requirement."
+        title="Indian Spice Sourcing Network | Gujarat, North-East & South India | JM Masala"
+        description="JM Masala maintains a multi-region Indian sourcing network spanning Gujarat (Unjha APMC Mandi), North-East India (Lakadong turmeric & ginger), and South India with unified HACCP processing, NABL testing, and Mundra port export dispatch."
         path="/sourcing-network"
         keywords={[
           "spice sourcing network India",
@@ -645,22 +699,22 @@ const SourcingNetworkPage = () => {
             <div className="sn-hero-label">Sourcing &amp; Processing</div>
             <h1>
               From the Farm to Your Port —<br />
-              <em>Every Step Under Our Control</em>
+              <em>Multi-Region Indian Sourcing Network</em>
             </h1>
             <p>
-              JM Masala doesn't buy spices from a catalogue. We travel to Unjha
-              APMC Market Yard and South Indian growing regions, inspect every
-              lot in person, and process through our HACCP-aligned facility
-              before a single gram reaches your container.
+              JM Masala maintains a direct, multi-region Indian sourcing network spanning Gujarat,
+              Rajasthan, North-East India, and South India. We inspect every lot at origin, process through
+              our advanced Unjha Sortex cleaning facility, and verify specifications before a single gram
+              reaches your export container.
             </p>
             <div className="sn-hero-stats">
               <div className="sn-stat">
-                <div className="sn-stat-num">12+</div>
-                <div className="sn-stat-label">Spice Products</div>
+                <div className="sn-stat-num">25+</div>
+                <div className="sn-stat-label">Master Spices</div>
               </div>
               <div className="sn-stat">
-                <div className="sn-stat-num">2</div>
-                <div className="sn-stat-label">Sourcing Regions</div>
+                <div className="sn-stat-num">3</div>
+                <div className="sn-stat-label">Origin Hubs</div>
               </div>
               <div className="sn-stat">
                 <div className="sn-stat-num">6</div>
@@ -668,7 +722,7 @@ const SourcingNetworkPage = () => {
               </div>
               <div className="sn-stat">
                 <div className="sn-stat-num">4hrs</div>
-                <div className="sn-stat-label">From Port</div>
+                <div className="sn-stat-label">From Mundra Port</div>
               </div>
             </div>
           </div>
@@ -680,39 +734,41 @@ const SourcingNetworkPage = () => {
             <div className="sn-map-grid">
               <div>
                 <div className="sn-section-label" style={{ color: "#C8960C" }}>
-                  Dual Sourcing Network
+                  Multi-Region Sourcing Network
                 </div>
                 <h2 className="sn-map-title">
-                  Two Sourcing Hubs.
+                  Three Dedicated Origin Hubs.
                   <br />
-                  One Quality Standard.
+                  One Unified Export Standard.
                 </h2>
                 <p className="sn-map-sub">
-                  Our North Indian spices come directly from Unjha, Gujarat —
-                  Asia's largest spice mandi. Our South Indian range comes
-                  through our formal East India sourcing partnership covering
-                  Andhra Pradesh, Telangana, Kerala and Tamil Nadu. Both streams
-                  converge at our Unjha facility for unified HACCP processing.
+                  Our seed spices originate directly from Unjha APMC Mandi, Gujarat — the seed spice capital of Asia.
+                  Our North-East hub supplies high-curcumin Lakadong turmeric and organic sun-dried ginger from Meghalaya and Assam.
+                  Our South Indian channels procure Tellicherry pepper, Alleppey cardamom, and Guntur chillies.
+                  All lots converge at our Unjha facility for unified Sortex cleaning, cryogenic grinding, and HACCP export packing.
                 </p>
 
+                {/* Hub 1: Gujarat & Rajasthan */}
                 <div className="sn-zone">
                   <div className="sn-zone-dot sn-zone-dot-north" />
                   <div>
                     <div className="sn-zone-name">
-                      Unjha, Gujarat — Primary Hub
+                      Unjha, Gujarat &amp; Rajasthan — Primary Seed Spice Hub
                     </div>
                     <div className="sn-zone-desc">
-                      Asia's largest spice mandi. Direct farmer and mandi agent
-                      relationships. Our home base since the business began.
+                      Asia's largest seed spice mandi. Direct farmer linkages, mandi floor inspection,
+                      and continuous harvest procurement spanning Gujarat and Rajasthan.
                     </div>
                     <div className="sn-zone-products">
                       {[
-                        "Cumin",
-                        "Coriander",
-                        "Fennel",
-                        "Fenugreek",
-                        "Psyllium",
-                        "Sesame",
+                        "Cumin Seeds",
+                        "Coriander Seeds",
+                        "Fennel Seeds",
+                        "Fenugreek Seeds",
+                        "Ajwain Seeds",
+                        "Mustard Seeds",
+                        "Psyllium Husk",
+                        "Sesame Seeds",
                       ].map((p) => (
                         <span key={p} className="sn-zone-tag sn-zone-tag-north">
                           {p}
@@ -722,23 +778,51 @@ const SourcingNetworkPage = () => {
                   </div>
                 </div>
 
+                {/* Hub 2: North-East India */}
+                <div className="sn-zone">
+                  <div className="sn-zone-dot" style={{ background: "#E67E22" }} />
+                  <div>
+                    <div className="sn-zone-name" style={{ color: "#F39C12" }}>
+                      North-East India — High-Potency Specialty Hub
+                    </div>
+                    <div className="sn-zone-desc">
+                      Direct tribal farmer cooperative linkages in Meghalaya and Assam. Famous for pristine
+                      high-curcumin Lakadong turmeric and sun-dried organic ginger with exceptional essential oil content.
+                    </div>
+                    <div className="sn-zone-products">
+                      {[
+                        "Lakadong Turmeric (7-9% Curcumin)",
+                        "Sun-Dried Organic Ginger Slices",
+                        "Pure Ginger Powder",
+                        "Bird's Eye Chilli",
+                        "Wild Black Pepper",
+                      ].map((p) => (
+                        <span key={p} className="sn-zone-tag" style={{ background: "rgba(230,126,34,0.15)", color: "#F39C12", border: "1px solid rgba(230,126,34,0.3)" }}>
+                          {p}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Hub 3: South India */}
                 <div className="sn-zone">
                   <div className="sn-zone-dot sn-zone-dot-south" />
                   <div>
                     <div className="sn-zone-name">
-                      South &amp; East India — Partner Sourcing
+                      South India — Plantation &amp; Tropical Spices
                     </div>
                     <div className="sn-zone-desc">
-                      Formal sourcing partnership covering Andhra, Telangana,
-                      Kerala and Tamil Nadu farming and wholesale channels.
+                      Sourcing partnerships covering Andhra Pradesh, Telangana, Kerala, and Tamil Nadu
+                      plantation estates and specialized wholesale channels.
                     </div>
                     <div className="sn-zone-products">
                       {[
-                        "Red Chilli",
-                        "Turmeric",
-                        "Black Pepper",
-                        "Cardamom",
-                        "Curry Leaf",
+                        "Tellicherry Black Pepper",
+                        "Alleppey Green Cardamom",
+                        "Guntur Red Chilli (Teja/S17)",
+                        "Curry Leaves",
+                        "Salem Turmeric Fingers",
                       ].map((p) => (
                         <span key={p} className="sn-zone-tag sn-zone-tag-south">
                           {p}

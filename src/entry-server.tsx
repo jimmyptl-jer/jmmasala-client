@@ -5,8 +5,12 @@ import App from "./AppRoutes";
 import {
   BLOG_POSTS,
   COMPANY,
+  ENTITY_ASSOCIATIONS,
+  OFFICIAL_PROFILES,
+  PROCESSING_CAPABILITIES,
   PRODUCTS,
   SITE_URL,
+  SOURCING_REGIONS,
   TRUST_BADGES,
 } from "@/data/siteData";
 import "./index.css";
@@ -34,6 +38,7 @@ const basePages = [
   "/spice-exporter-gujarat",
   "/quality-certifications",
   "/sourcing-network",
+  "/spice-processing-manufacturing",
   "/private-label-spices",
   "/spice-packaging",
   "/domestic-supply-india",
@@ -43,6 +48,7 @@ const basePages = [
 
 export const prerenderRoutes = [
   ...basePages,
+  ...SOURCING_REGIONS.map((region) => `/sourcing/${region.slug}`),
   ...PRODUCTS.map((product) => `/${product.slug}`),
   ...BLOG_POSTS.map((post) => `/blog/${post.slug}`),
 ];
@@ -82,6 +88,7 @@ const baseOrganizationSchema = {
     name: "Unjha, Mehsana District, Gujarat, India",
   },
   knowsAbout: [
+    ...ENTITY_ASSOCIATIONS,
     "Cumin Seeds (Jeera)",
     "Coriander Seeds (Dhania)",
     "Fennel Seeds (Saunf)",
@@ -141,7 +148,7 @@ const baseOrganizationSchema = {
     areaServed: "Worldwide",
     availableLanguage: ["English", "Hindi", "Gujarati"],
   },
-  sameAs: [`https://${COMPANY.website}`],
+  sameAs: OFFICIAL_PROFILES,
 };
 
 const baseWebSiteSchema = {
@@ -297,7 +304,7 @@ const pageSeo: Record<string, StaticSeo> = {
   "/about-jm-masala": {
     title: "About JM Masala | Spice Exporter from Unjha Gujarat",
     description:
-      "Learn about JM Masala Exports, a two-generation spice business based in Unjha, Gujarat serving global spice importers.",
+      "Learn about JM Masala Exports, a three-generation spice business based in Unjha, Gujarat serving global spice importers.",
     path: "/about-jm-masala",
     imageUrl: "/JMMasala.png",
     imageAlt: "JM Masala Exports from Unjha Gujarat",
@@ -473,12 +480,66 @@ const pageSeo: Record<string, StaticSeo> = {
     imageAlt: "JM Masala quality certifications and export documentation",
   },
   "/sourcing-network": {
-    title: "Sourcing Network | Unjha Spice Export Supply Chain",
+    title: "Indian Spice Sourcing Network | Gujarat, North-East & South India | JM Masala",
     description:
-      "JM Masala sources spices from Unjha, Gujarat and selected South India channels with cleaning, grading, packing, and export dispatch support.",
+      "JM Masala maintains a multi-region Indian sourcing network spanning Gujarat (Unjha Mandi), North-East India (Lakadong turmeric & ginger), and South India with unified HACCP processing and Mundra port export.",
     path: "/sourcing-network",
     imageUrl: "/JMMasala.png",
     imageAlt: "JM Masala sourcing network for Indian spices",
+  },
+  "/spice-processing-manufacturing": {
+    title:
+      "Spice Processing & Manufacturing India | Sortex Cleaning, Grading & Packing | JM Masala",
+    description:
+      "JM Masala Trading LLP is an Indian spice processor and manufacturer offering machine cleaning, Sortex cleaning, destoning, grading, grinding, private-label packing, and export-ready documentation.",
+    path: "/spice-processing-manufacturing",
+    imageUrl: "/JMMasala.png",
+    imageAlt: "JM Masala spice processing and manufacturing India",
+    keywords: [
+      "spice processing India",
+      "spice manufacturer India",
+      "Sortex cleaned cumin India",
+      "machine cleaned spices India",
+      "private label spice processing",
+      "bulk spice processor Gujarat",
+      "Indian spice processor exporter",
+    ],
+    schema: [
+      baseOrganizationSchema,
+      baseWebSiteSchema,
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": `${SITE_URL}/spice-processing-manufacturing#service`,
+        name: "Spice Processing and Manufacturing",
+        provider: { "@id": `${SITE_URL}/#organization` },
+        serviceType:
+          "Machine cleaning, Sortex cleaning, destoning, grading, grinding, packaging, private label spice manufacturing, and export support",
+        description:
+          "Indian spice processing service for global B2B buyers covering raw material sourcing, machine cleaning, Sortex optical sorting, grading, grinding, quality checks, packing, and export documentation.",
+        areaServed: "Worldwide",
+        url: `${SITE_URL}/spice-processing-manufacturing`,
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "JM Masala Spice Processing Capabilities",
+          itemListElement: PROCESSING_CAPABILITIES.map((capability) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: capability.name,
+              description: capability.description,
+            },
+          })),
+        },
+      },
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        {
+          name: "Spice Processing and Manufacturing",
+          path: "/spice-processing-manufacturing",
+        },
+      ]),
+    ],
   },
   "/domestic-supply-india": {
     title: "Domestic Spice Supply India | JM Masala",
@@ -742,6 +803,80 @@ const buildProductSeo = (path: string): StaticSeo | null => {
   };
 };
 
+const buildSourcingRegionSeo = (path: string): StaticSeo | null => {
+  const slug = path.replace("/sourcing/", "");
+  const region = SOURCING_REGIONS.find((item) => item.slug === slug);
+
+  if (!region) {
+    return null;
+  }
+
+  return {
+    title: `${region.title} | Indian Spice Sourcing Company | JM Masala`,
+    description: region.description,
+    path,
+    imageUrl: "/JMMasala.png",
+    imageAlt: `${region.name} spice sourcing by JM Masala`,
+    keywords: [
+      `${region.name} spice supplier`,
+      `${region.name} spice sourcing`,
+      `${region.name} agricultural products`,
+      "Indian spice sourcing company",
+      "spice sourcing from India",
+      "bulk spice sourcing India",
+      "private label spice sourcing India",
+    ],
+    schema: [
+      baseOrganizationSchema,
+      baseWebSiteSchema,
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: region.title,
+        url: `${SITE_URL}${path}`,
+        description: region.description,
+        about: [
+          {
+            "@type": "Place",
+            name: region.name,
+          },
+          {
+            "@type": "Thing",
+            name: "Indian spice sourcing",
+          },
+        ],
+        provider: { "@id": `${SITE_URL}/#organization` },
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: `${region.name} Spice and Agro Product Sourcing`,
+        provider: { "@id": `${SITE_URL}/#organization` },
+        areaServed: region.name,
+        serviceType:
+          "Indian spice sourcing, agro product sourcing, processing, packing, private label, and export support",
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: `${region.name} Sourcing Products`,
+          itemListElement: region.products.map((productName) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Product",
+              name: productName,
+              category: "Spices and agro products",
+            },
+          })),
+        },
+      },
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Sourcing Network", path: "/sourcing-network" },
+        { name: region.name, path },
+      ]),
+    ],
+  };
+};
+
 const buildBlogSeo = (path: string): StaticSeo | null => {
   const slug = path.replace("/blog/", "");
   const post = BLOG_POSTS.find((item) => item.slug === slug);
@@ -797,6 +932,7 @@ const buildBlogSeo = (path: string): StaticSeo | null => {
 export const getRouteSeo = (path: string): StaticSeo => {
   return (
     pageSeo[path] ??
+    buildSourcingRegionSeo(path) ??
     buildProductSeo(path) ??
     buildBlogSeo(path) ?? {
       title: "JM Masala Exports",

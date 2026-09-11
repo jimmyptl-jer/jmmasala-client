@@ -17,6 +17,9 @@ type ContactFormState = {
   whatsappNumber: string;
   productOfInterest: string;
   estimatedMonthlyQuantity: string;
+  grade: string;
+  specification: string;
+  packing: string;
   preferredPaymentTerms: string;
   message: string;
   website: string;
@@ -37,6 +40,9 @@ const ContactPage = () => {
     whatsappNumber: "",
     productOfInterest: prefilledProduct,
     estimatedMonthlyQuantity: "",
+    grade: "",
+    specification: "",
+    packing: "",
     preferredPaymentTerms: "",
     message: "",
     website: "",
@@ -71,6 +77,9 @@ const ContactPage = () => {
       `WhatsApp Number: ${form.whatsappNumber}`,
       `Product of Interest: ${form.productOfInterest}`,
       `Estimated Monthly Quantity: ${form.estimatedMonthlyQuantity}`,
+      `Grade: ${form.grade}`,
+      `Specification: ${form.specification}`,
+      `Packing: ${form.packing}`,
       `Preferred Payment Terms: ${form.preferredPaymentTerms}`,
       `Message: ${form.message}`,
     ].join("\n");
@@ -85,6 +94,9 @@ const ContactPage = () => {
       `Company: ${form.companyName}`,
       `Product: ${form.productOfInterest}`,
       `Qty: ${form.estimatedMonthlyQuantity}`,
+      `Grade: ${form.grade}`,
+      `Specification: ${form.specification}`,
+      `Packing: ${form.packing}`,
       `Payment terms: ${form.preferredPaymentTerms}`,
       `Email: ${form.email}`,
       `WhatsApp: ${form.whatsappNumber}`,
@@ -207,7 +219,7 @@ const ContactPage = () => {
                   required
                   value={form.country}
                   onChange={(event) => setForm({ ...form, country: event.target.value })}
-                  placeholder="Country"
+                  placeholder="Destination Country / Port"
                   className="jm-input"
                 />
                 <input
@@ -242,7 +254,25 @@ const ContactPage = () => {
                   required
                   value={form.estimatedMonthlyQuantity}
                   onChange={(event) => setForm({ ...form, estimatedMonthlyQuantity: event.target.value })}
-                  placeholder="Estimated Monthly Quantity"
+                  placeholder="Quantity"
+                  className="jm-input"
+                />
+                <input
+                  value={form.grade}
+                  onChange={(event) => setForm({ ...form, grade: event.target.value })}
+                  placeholder="Grade"
+                  className="jm-input"
+                />
+                <input
+                  value={form.specification}
+                  onChange={(event) => setForm({ ...form, specification: event.target.value })}
+                  placeholder="Specification"
+                  className="jm-input"
+                />
+                <input
+                  value={form.packing}
+                  onChange={(event) => setForm({ ...form, packing: event.target.value })}
+                  placeholder="Packing"
                   className="jm-input"
                 />
                 <select

@@ -719,10 +719,10 @@ const ProductDetailPage = () => {
                     </h2>
                   </div>
                   <Link
-                    to="/sourcing-network"
+                    to="/spice-processing-manufacturing"
                     className="text-xs font-semibold text-[var(--brand-gold)] hover:underline shrink-0"
                   >
-                    View Sourcing Network &rarr;
+                    View Processing Hub &rarr;
                   </Link>
                 </div>
                 <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

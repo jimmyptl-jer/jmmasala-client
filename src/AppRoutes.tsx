@@ -20,6 +20,8 @@ import ProductsPage from "@/pages/ProductPage";
 import QualityCertificationsPage from "@/pages/QualityCertificationsPage";
 import PrivateLabelPage from "@/pages/PrivateLabelPage";
 import SpicePackagingPage from "@/pages/SpicePackagingPage";
+import SpiceProcessingPage from "@/pages/SpiceProcessingPage";
+import SourcingRegionPage from "@/pages/SourcingRegionPage";
 import SourcingNetworkPage from "@/pages/SourcingNetworkPage";
 
 const SiteLayout = () => {
@@ -52,13 +54,16 @@ const AppRoutes = () => {
         <Route path="/spice-exporter-gujarat" element={<GujaratSpiceExporterPage />} />
         <Route path="/quality-certifications" element={<QualityCertificationsPage />} />
         <Route path="/sourcing-network" element={<SourcingNetworkPage />} />
+        <Route path="/sourcing/:regionSlug" element={<SourcingRegionPage />} />
+        <Route path="/spice-processing-manufacturing" element={<SpiceProcessingPage />} />
         <Route path="/private-label-spices" element={<PrivateLabelPage />} />
         <Route path="/spice-packaging" element={<SpicePackagingPage />} />
         <Route path="/domestic-supply-india" element={<DomesticSupplyPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/get-quote" element={<Navigate to="/contact?intent=quote" replace />} />
         <Route path="/about" element={<Navigate to="/about-jm-masala" replace />} />
-        <Route path="/process" element={<Navigate to="/sourcing-network" replace />} />
+        <Route path="/process" element={<Navigate to="/spice-processing-manufacturing" replace />} />
+        <Route path="/spice-processing" element={<Navigate to="/spice-processing-manufacturing" replace />} />
 
         {/* Short SEO Product Slugs Redirects */}
         <Route path="/coriander-seeds" element={<Navigate to="/coriander-seeds-exporter-india" replace />} />

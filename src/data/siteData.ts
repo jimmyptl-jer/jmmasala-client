@@ -42,6 +42,165 @@ export const COMPANY = {
     "Hi JM Masala, I am interested in your spices. Can you share specifications and pricing?",
 };
 
+export const OFFICIAL_PROFILES = [
+  SITE_URL,
+  `https://${COMPANY.website}`,
+];
+
+export const ENTITY_ASSOCIATIONS = [
+  "Indian Spice Manufacturer",
+  "Spice Processor",
+  "Spice Exporter",
+  "Indian Spice Supplier",
+  "Private Label Spice Manufacturer",
+  "Retail Spice Supplier",
+  "Bulk Spice Supplier",
+  "Cumin / Jeera Specialist",
+  "Indian Agro Product Supplier",
+];
+
+export const PROCESSING_CAPABILITIES = [
+  {
+    name: "Machine Cleaning",
+    description:
+      "Raw spice lots are passed through mechanical cleaning systems to remove dust, stalks, husk fragments, light impurities, and visible foreign matter before grading.",
+  },
+  {
+    name: "Destoning",
+    description:
+      "Density-based separation helps remove stones, mud balls, and heavy field impurities from seed spices before final buyer-grade sorting.",
+  },
+  {
+    name: "Gravity Separation",
+    description:
+      "Gravity tables separate hollow, lightweight, immature, and broken seeds so export lots have stronger density and visual consistency.",
+  },
+  {
+    name: "Sortex Optical Cleaning",
+    description:
+      "Color sorting supports higher-purity cumin, coriander, fennel, fenugreek, sesame, psyllium, and other spice lots by rejecting off-color grains.",
+  },
+  {
+    name: "Grading and Sieving",
+    description:
+      "Product lots are graded by size, purity, moisture, and buyer specification for bulk import, food processing, retail, and private-label channels.",
+  },
+  {
+    name: "Grinding and Milling",
+    description:
+      "Whole spices can be ground into pure spice powders with buyer-specific mesh, aroma retention, and packaging requirements.",
+  },
+  {
+    name: "Blending and Custom Processing",
+    description:
+      "Buyer-led specifications can combine product selection, cleaning level, powder mesh, packing size, label needs, and export documents.",
+  },
+  {
+    name: "Quality Inspection",
+    description:
+      "Inward and finished lots are checked for moisture, appearance, aroma, foreign matter, and lab-test requirements before dispatch.",
+  },
+];
+
+export type SourcingRegion = {
+  slug: string;
+  name: string;
+  title: string;
+  description: string;
+  products: string[];
+  productSlugs: string[];
+  sourcingUseCases: string[];
+};
+
+export const SOURCING_REGIONS: SourcingRegion[] = [
+  {
+    slug: "gujarat",
+    name: "Gujarat",
+    title: "Gujarat Spice Sourcing",
+    description:
+      "Gujarat is JM Masala's primary sourcing and trading base, especially through Unjha and nearby agricultural markets for seed spices, psyllium, sesame, and other agro products.",
+    products: [
+      "Cumin Seeds",
+      "Fennel Seeds",
+      "Fenugreek Seeds",
+      "Ajwain Seeds",
+      "Psyllium Husk",
+      "Psyllium Seeds",
+      "Sesame Seeds",
+      "Coriander Seeds",
+    ],
+    productSlugs: [
+      "cumin-seeds-exporter-india",
+      "fennel-seeds-exporter-india",
+      "fenugreek-seeds-exporter-india",
+      "ajwain-seeds-exporter-india",
+      "psyllium-husk-exporter-india",
+      "psyllium-seeds-exporter-india",
+      "sesame-seeds-exporter-india",
+      "coriander-seeds-exporter-india",
+    ],
+    sourcingUseCases: [
+      "Bulk spice sourcing for importers and traders",
+      "Seed spice lots for cleaning, grading, and Sortex processing",
+      "Private-label product supply built around Gujarat-origin spices",
+      "FOB Mundra and Gujarat port export planning",
+    ],
+  },
+  {
+    slug: "north-east-india",
+    name: "North-East India",
+    title: "North-East India Spice and Agro Product Sourcing",
+    description:
+      "JM Masala is expanding sourcing relationships across North-East India to evaluate regional spices, ginger, turmeric, chilli, herbs, and specialty agro products for processing, private-label, retail, and export opportunities.",
+    products: [
+      "Ginger",
+      "Turmeric",
+      "Chilli",
+      "Black Pepper",
+      "Regional Spices",
+      "Herbs",
+      "Specialty Agro Products",
+    ],
+    productSlugs: [
+      "dry-ginger-exporter-india",
+      "ginger-powder-exporter-india",
+      "turmeric-exporter-india",
+      "turmeric-powder-exporter-india",
+      "red-chilli-exporter-india",
+      "black-pepper-exporter-india",
+    ],
+    sourcingUseCases: [
+      "Regional Indian products for international food markets",
+      "Specialty spice and agro product discovery",
+      "Retail and private-label product development",
+      "Bulk export evaluation based on season, quality, and commercial availability",
+    ],
+  },
+  {
+    slug: "andhra-pradesh",
+    name: "Andhra Pradesh",
+    title: "Andhra Pradesh Chilli and Spice Sourcing",
+    description:
+      "Andhra Pradesh is an important Indian sourcing region for red chilli and selected spice products. JM Masala can evaluate chilli requirements by variety, heat, color, grade, packing, and destination-market needs.",
+    products: [
+      "Red Chilli",
+      "Red Chilli Powder",
+      "Chilli Varieties",
+      "Product-Specific Spices",
+    ],
+    productSlugs: [
+      "red-chilli-exporter-india",
+      "red-chilli-powder-exporter-india",
+    ],
+    sourcingUseCases: [
+      "Chilli sourcing for importers and food manufacturers",
+      "ASTA color and SHU-led product discussions",
+      "Whole, stemless, crushed, or powder-format requirements",
+      "Aflatoxin and destination-market testing support where required",
+    ],
+  },
+];
+
 export const buildWhatsAppUrl = (message: string) =>
   `https://wa.me/${COMPANY.whatsappNumber}?text=${encodeURIComponent(message)}`;
 
@@ -59,6 +218,7 @@ export const NAV_LINKS = [
   { label: "Cold Pressed Oils", path: "/cold-pressed-oils" },
   { label: "About Us", path: "/about-jm-masala" },
   { label: "Sourcing", path: "/sourcing-network" },
+  { label: "Processing", path: "/spice-processing-manufacturing" },
   { label: "Quality and Certifications", path: "/quality-certifications" },
   { label: "Private Label", path: "/private-label-spices" },
   { label: "Packaging", path: "/spice-packaging" },

@@ -10,6 +10,7 @@
 - **Contact Email**: jmmasalaexports@gmail.com
 - **Phone / WhatsApp**: +91 91067 66041 / +91 98245 10478
 - **Core Operations**: Spice Processing, Optical Sortex Cleaning, Density Grading, Cold-Milling/Grinding, Private Label Packaging, Global Bulk Export
+- **Entity Associations**: Indian Spice Manufacturer, Spice Processor, Spice Exporter, Indian Spice Supplier, Private Label Spice Manufacturer, Retail Spice Supplier, Bulk Spice Supplier, Cumin / Jeera Specialist, Indian Agro Product Supplier
 - **Certifications & Compliance**: FSSAI Licensed, ISO 22000 / HACCP aligned processing, APEDA Registered Exporter, Spices Board of India aligned, NABL accredited third-party lab testing (SGS / Intertek)
 
 ## Flagship Product: Indian Cumin Seeds (Jeera)
@@ -53,9 +54,12 @@
 25. **Agro Commodities (Peanuts, Chickpeas, Oilseeds)**: https://jmmasalaexports.com/agro-commodities-exporter-india
 
 ## Manufacturing & Processing Capabilities
+- **Processing Authority Hub**: https://jmmasalaexports.com/spice-processing-manufacturing
 - **Pre-Cleaning & Destoning**: High-capacity mechanical vibro-separators, aspirators, and destoners removing field dirt, dust, and stones.
 - **Optical Sortex Sorting**: Multi-camera bichromatic color sorters capable of sorting seeds by minute shade differences and rejecting weed/damaged grains.
+- **Gravity Separation & Sieving**: Density and size grading for uniform seed lots and buyer-specific export specifications.
 - **Grinding & Cold Milling**: Temperature-controlled milling to preserve volatile essential oils, natural flavor, and color.
+- **Blending & Custom Processing**: Buyer-led processing plans can combine cleaning level, purity grade, mesh size, packing size, private-label format, and export documents.
 - **Sterilization**: Steam sterilization (ETO-free) available upon buyer request to meet strict EU and North American microbiological standards.
 
 ## Private Label & Retail Packaging Services

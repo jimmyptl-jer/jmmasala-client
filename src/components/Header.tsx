@@ -32,10 +32,10 @@ const OILS_AND_AGRO = [
   { name: "Agro Commodities", slug: "agro-commodities-exporter-india", desc: "Peanuts, chickpeas & sesame" },
 ];
 
-const QUALITY_LINKS = [
-  { label: "Quality & Certifications", path: "/quality-certifications", desc: "FSSAI, ISO 22000, HACCP, APEDA & NABL lab COA" },
-  { label: "Sourcing & Processing", path: "/sourcing-network", desc: "APMC Unjha mandi sourcing & Sortex capabilities" },
-  { label: "Domestic Supply India", path: "/domestic-supply-india", desc: "Pan-India B2B supply for food processors & brands" },
+const PROCESSING_LINKS = [
+  { label: "Spice Processing & Plant", path: "/spice-processing-manufacturing", desc: "Machine cleaning, Sortex, destoning, grinding & export packaging" },
+  { label: "Quality, Testing & Certifications", path: "/quality-certifications", desc: "FSSAI, ISO 22000, HACCP, APEDA & NABL lab COA" },
+  { label: "Pan-India Domestic Supply", path: "/domestic-supply-india", desc: "Commercial B2B supply for food processors & brands" },
 ];
 
 const Header = () => {
@@ -266,67 +266,33 @@ const Header = () => {
                 )}
               </li>
 
-              {/* 2. PRIVATE LABEL */}
-              <li>
-                <NavLink
-                  to="/private-label-spices"
-                  className={({ isActive }) =>
-                    [
-                      "inline-flex items-center px-3 py-2 text-[11px] font-bold tracking-[0.16em] uppercase transition-colors",
-                      isActive
-                        ? "text-[var(--brand-gold)] font-bold"
-                        : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]",
-                    ].join(" ")
-                  }
-                >
-                  Private Label
-                </NavLink>
-              </li>
-
-              {/* 3. PACKAGING */}
-              <li>
-                <NavLink
-                  to="/spice-packaging"
-                  className={({ isActive }) =>
-                    [
-                      "inline-flex items-center px-3 py-2 text-[11px] font-bold tracking-[0.16em] uppercase transition-colors",
-                      isActive
-                        ? "text-[var(--brand-gold)] font-bold"
-                        : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]",
-                    ].join(" ")
-                  }
-                >
-                  Packaging
-                </NavLink>
-              </li>
-
-              {/* 4. QUALITY & SOURCING DROPDOWN */}
+              {/* 2. PROCESSING ▾ */}
               <li
                 className="relative"
-                onMouseEnter={() => handleMouseEnter("quality")}
+                onMouseEnter={() => handleMouseEnter("processing")}
                 onMouseLeave={handleMouseLeave}
               >
                 <button
                   type="button"
                   onClick={() =>
-                    setActiveDropdown((curr) => (curr === "quality" ? null : "quality"))
+                    setActiveDropdown((curr) => (curr === "processing" ? null : "processing"))
                   }
                   className="inline-flex items-center gap-1 px-3 py-2 text-[11px] font-bold tracking-[0.16em] uppercase transition-colors text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]"
                 >
-                  <span>Quality &amp; Sourcing</span>
+                  <span>Processing</span>
                   <ChevronDown
                     className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                      activeDropdown === "quality" ? "rotate-180 text-[var(--brand-gold)]" : "text-gray-400"
+                      activeDropdown === "processing" ? "rotate-180 text-[var(--brand-gold)]" : "text-gray-400"
                     }`}
                   />
                 </button>
 
-                {activeDropdown === "quality" && (
+                {activeDropdown === "processing" && (
                   <div
                     className="absolute top-full left-0 mt-1 w-80 rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-warm-white)] p-2.5 shadow-[0_16px_36px_rgba(26,46,26,0.12)] z-50 animate-in fade-in slide-in-from-top-1 duration-150"
                   >
                     <ul className="space-y-1">
-                      {QUALITY_LINKS.map((sub) => (
+                      {PROCESSING_LINKS.map((sub) => (
                         <li key={sub.path}>
                           <Link
                             to={sub.path}
@@ -346,7 +312,75 @@ const Header = () => {
                 )}
               </li>
 
-              {/* 5. ABOUT */}
+              {/* 3. SOURCING */}
+              <li>
+                <NavLink
+                  to="/sourcing-network"
+                  className={({ isActive }) =>
+                    [
+                      "inline-flex items-center px-3 py-2 text-[11px] font-bold tracking-[0.16em] uppercase transition-colors",
+                      isActive
+                        ? "text-[var(--brand-gold)] font-bold"
+                        : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]",
+                    ].join(" ")
+                  }
+                >
+                  Sourcing
+                </NavLink>
+              </li>
+
+              {/* 4. PRIVATE LABEL */}
+              <li>
+                <NavLink
+                  to="/private-label-spices"
+                  className={({ isActive }) =>
+                    [
+                      "inline-flex items-center px-3 py-2 text-[11px] font-bold tracking-[0.16em] uppercase transition-colors",
+                      isActive
+                        ? "text-[var(--brand-gold)] font-bold"
+                        : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]",
+                    ].join(" ")
+                  }
+                >
+                  Private Label
+                </NavLink>
+              </li>
+
+              {/* 5. RETAIL */}
+              <li>
+                <NavLink
+                  to="/spice-packaging"
+                  className={({ isActive }) =>
+                    [
+                      "inline-flex items-center px-3 py-2 text-[11px] font-bold tracking-[0.16em] uppercase transition-colors",
+                      isActive
+                        ? "text-[var(--brand-gold)] font-bold"
+                        : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]",
+                    ].join(" ")
+                  }
+                >
+                  Retail
+                </NavLink>
+              </li>
+
+              {/* 6. EXPORT */}
+              <li>
+                <NavLink
+                  to="/export-destinations"
+                  className={({ isActive }) =>
+                    [
+                      "inline-flex items-center px-3 py-2 text-[11px] font-bold tracking-[0.16em] uppercase transition-colors",
+                      isActive
+                        ? "text-[var(--brand-gold)] font-bold"
+                        : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]",
+                    ].join(" ")
+                  }
+                >
+                  Export
+                </NavLink>
+              </li>
+
+              {/* 7. ABOUT */}
               <li>
                 <NavLink
                   to="/about-jm-masala"
@@ -363,7 +397,7 @@ const Header = () => {
                 </NavLink>
               </li>
 
-              {/* 6. CONTACT */}
+              {/* 8. CONTACT */}
               <li>
                 <NavLink
                   to="/contact"
@@ -478,6 +512,24 @@ const Header = () => {
             <ul className="space-y-2 text-sm font-medium">
               <li>
                 <NavLink
+                  to="/spice-processing-manufacturing"
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2 text-[13px] font-bold tracking-[0.16em] uppercase text-[var(--brand-charcoal)]"
+                >
+                  Processing &amp; Plant
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/sourcing-network"
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2 text-[13px] font-bold tracking-[0.16em] uppercase text-[var(--brand-charcoal)]"
+                >
+                  Sourcing Network
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
                   to="/private-label-spices"
                   onClick={() => setMenuOpen(false)}
                   className="block py-2 text-[13px] font-bold tracking-[0.16em] uppercase text-[var(--brand-charcoal)]"
@@ -491,7 +543,16 @@ const Header = () => {
                   onClick={() => setMenuOpen(false)}
                   className="block py-2 text-[13px] font-bold tracking-[0.16em] uppercase text-[var(--brand-charcoal)]"
                 >
-                  Packaging Solutions
+                  Retail Packaging
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/export-destinations"
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2 text-[13px] font-bold tracking-[0.16em] uppercase text-[var(--brand-charcoal)]"
+                >
+                  Export Markets
                 </NavLink>
               </li>
               <li>
@@ -500,16 +561,7 @@ const Header = () => {
                   onClick={() => setMenuOpen(false)}
                   className="block py-2 text-[13px] font-bold tracking-[0.16em] uppercase text-[var(--brand-charcoal)]"
                 >
-                  Quality &amp; Certifications
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/sourcing-network"
-                  onClick={() => setMenuOpen(false)}
-                  className="block py-2 text-[13px] font-bold tracking-[0.16em] uppercase text-[var(--brand-charcoal)]"
-                >
-                  Sourcing Network
+                  Quality &amp; Lab Testing
                 </NavLink>
               </li>
               <li>

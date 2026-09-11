@@ -1,32 +1,24 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import {
-  CheckCircle2,
   ArrowRight,
   MapPin,
   Package,
-  Tag,
-  Layers,
-  Truck,
   FileText,
   ChevronRight,
-  Search,
   Sparkles,
   ShieldCheck,
   Globe2,
-  Anchor,
-  Clock,
-  MessageSquare,
   Award,
-  Zap,
-  Check,
-  ArrowUpRight,
+  Factory,
+  FileCheck,
+  Scale,
+  Building2,
+  Send
 } from "lucide-react";
 import Seo from "@/components/Seo";
 import {
-  BLOG_POSTS,
   COMPANY,
-  DOCUMENTATION_PACKAGE,
   PRODUCTS,
   SITE_URL,
   buildWhatsAppUrl,
@@ -38,22 +30,13 @@ import cuminImage from "@/assets/cumin.png";
 import corianderSeedsImage from "@/assets/CorianderSeeds.png";
 import fennelSeedsImage from "@/assets/FennelSeeds.png";
 import fenugreekSeedsImage from "@/assets/FenugreekSeeds.png";
-import pouchTurmeric from "@/assets/pouch-turmeric-powder.jpg";
-import pouchGingerSlices from "@/assets/pouch-dry-ginger-slices.jpg";
-import pouchGingerPowder from "@/assets/pouch-dry-ginger-powder.jpg";
-import pouchBayLeaf from "@/assets/pouch-bay-leaf.jpg";
-import pouchCardamom from "@/assets/pouch-black-cardamom.jpg";
+import ajwainSeedsImage from "@/assets/AjwainSeeds.jpg";
+import redChilliImage from "@/assets/RedChilli.png";
+import turmericImage from "@/assets/Turmeric.png";
+import psylliumHuskImage from "@/assets/PsylliumHusk.png";
 
 /* ─────────────────────────── CONSTANTS & DATA ─────────────────────────── */
 
-const STATS = [
-  { value: "25+", label: "Years Industry Legacy", sub: "Two generations in Unjha Mandi" },
-  { value: "23+", label: "Master Spices & Commodities", sub: "Whole, ground & cold pressed" },
-  { value: "30+", label: "Export Destinations", sub: "Across 5 global continents" },
-  { value: "500+", label: "B2B Importers & Brands", sub: "Bulk & private-label partners" },
-];
-
-/* THE BIG FOUR FLAGSHIP SEED SPICES (UNJHA MANDI CORE) */
 const CORE_FOUR_SPICES = [
   {
     id: "cumin",
@@ -66,10 +49,9 @@ const CORE_FOUR_SPICES = [
     image: cuminImage,
     slug: "cumin-seeds-exporter-india",
     powderSlug: "cumin-powder-exporter-india",
-    powderName: "Pure Cumin Powder",
     fcl20: "13.0 - 14.0 MT",
     fcl40: "26.0 - 28.0 MT",
-    headline: "Why Global Spice Importers Source Unjha Cumin from JM Masala",
+    headline: "Unjha Cumin Seeds — Cleaned & Sortex Graded at Source",
     description:
       "Unjha is the undisputed cumin capital of the world. Stationed directly adjacent to the APMC Mandi, JM Masala procures fresh harvest arrivals directly from farmers, eliminating multi-tier trading markups. Our automated Sortex lines deliver calibrated optical cleaning up to 99.9% purity.",
     keySpecs: "Volatile Oil: 2.5% to 4.5% · Moisture: <8.0% · Purity: 99.5% Sortex",
@@ -98,554 +80,309 @@ const CORE_FOUR_SPICES = [
       {
         name: "Gulf & Middle East Grade",
         purity: "98.0% - 99.0%",
-        moisture: "Max 9.0%",
-        features: "High Aroma · Bold Seed Size · Ideal for Grinding",
-        target: "UAE, Saudi Arabia, Qatar & Oman",
+        moisture: "Max 9.5%",
+        features: "Bold Grain · High Aroma · Machine Cleaned",
+        target: "UAE, Saudi Arabia & Middle East Wholesalers",
       },
     ],
   },
   {
     id: "coriander",
     tabLabel: "Coriander Seeds (Dhania)",
-    name: "Whole Coriander Seeds (Dhania)",
+    name: "Indian Coriander Seeds (Dhania)",
     botanical: "Coriandrum sativum",
-    hsCode: "0909 21 90",
-    origin: "Gujarat & Rajasthan Mandi",
-    tag: "High Export Volume",
+    hsCode: "0909 21 10",
+    origin: "Gujarat & Rajasthan Mandis",
+    tag: "High Essential Oil",
     image: corianderSeedsImage,
     slug: "coriander-seeds-exporter-india",
     powderSlug: "coriander-powder-exporter-india",
-    powderName: "Pure Coriander Powder",
-    fcl20: "10.0 - 11.5 MT",
-    fcl40: "21.0 - 23.0 MT",
-    headline: "Indian Coriander Seeds — Eagle, Scooter & Single Parrot Grades",
+    fcl20: "9.0 - 10.0 MT",
+    fcl40: "20.0 - 21.0 MT",
+    headline: "Whole Round Coriander (Eagle, Scooter, Badami & Single Parrot)",
     description:
-      "Sourced from prime Gujarat and Kota growing belts, our coriander seeds feature vibrant green-to-golden color, citrusy aroma, and low split percentage (<2%). We offer machine cleaned and double sortex sorted lots for premium retail packaging and spice grinding.",
-    keySpecs: "Moisture: <9.0% · Splits: <2.0% · Purity: 99%+ · Volatile Oil: >0.4%",
+      "Sourced from the prime coriander growing tracts of Gujarat and Rajasthan. Available in Eagle, Scooter, and Badami grades with high linalool content, golden husk color, and calibrated moisture retention.",
+    keySpecs: "Volatile Oil: >0.3% · Moisture: <9.0% · Splits: <5%",
     grades: [
       {
-        name: "Europe Single Parrot (99.5% Sortex)",
-        purity: "99.5% Purity",
-        moisture: "Max 8.5%",
-        features: "Splits <1.5% · Pesticide Residue Tested · High Volatile Oil",
-        target: "EU Whole Spice Brands & Herb Packers",
-      },
-      {
-        name: "USA Eagle Quality (99% Clean)",
+        name: "Eagle Quality (Bold Golden)",
         purity: "99.0% Purity",
-        moisture: "Max 9.0%",
-        features: "ASTA Clean · Golden Color · Fresh Season Harvest",
-        target: "US Meat Seasoning & Blending Manufacturers",
+        moisture: "Max 8.5%",
+        features: "Uniform Round Seeds · Vibrant Aroma · Low Splits",
+        target: "Grinding Plants & Global Retail Brands",
       },
       {
-        name: "Gulf Scooter / Badami Grade",
-        purity: "98.0% - 99.0%",
-        moisture: "Max 10.0%",
-        features: "Uniform Seed Size · Rich Citrus Flavour Profile",
-        target: "Middle East Curry Powder & Masala Makers",
-      },
-      {
-        name: "Singapore Commercial Clean",
+        name: "Scooter Quality (Sortex Graded)",
         purity: "98.5% Purity",
-        moisture: "Max 9.5%",
-        features: "Machine Cleaned & Sortex · Zero Stems & Stones",
-        target: "ASEAN Repackers & Wholesale Traders",
+        moisture: "Max 9.0%",
+        features: "Selected Grain · Cleaned · Minimal Foreign Matter",
+        target: "B2B Spice Blenders & Food Processors",
+      },
+      {
+        name: "Badami Quality (Commercial)",
+        purity: "98.0% Purity",
+        moisture: "Max 10.0%",
+        features: "Brownish Hue · Cost-Effective · High Yield",
+        target: "Wholesale Repackers & Curry Powder Mills",
+      },
+      {
+        name: "Single Parrot / Super Green",
+        purity: "99.5% Purity",
+        moisture: "Max 8.0%",
+        features: "Rare Vibrant Green · Premium Fragrance",
+        target: "Middle East & Gourmet Specialty Importers",
       },
     ],
   },
   {
     id: "fennel",
     tabLabel: "Fennel Seeds (Saunf)",
-    name: "Green Fennel Seeds (Saunf)",
+    name: "Indian Fennel Seeds (Saunf / Variyali)",
     botanical: "Foeniculum vulgare",
-    hsCode: "0909 61 39",
-    origin: "North Gujarat & Abu Road Mandi",
-    tag: "High Aroma Grade",
+    hsCode: "0909 61 19",
+    origin: "Unjha & North Gujarat Mandis",
+    tag: "Sweet Anethole Rich",
     image: fennelSeedsImage,
     slug: "fennel-seeds-exporter-india",
-    powderSlug: "coriander-powder-exporter-india",
-    powderName: "Fennel Ground",
+    powderSlug: "fennel-seeds-exporter-india",
     fcl20: "12.0 - 13.0 MT",
-    fcl40: "24.0 - 26.0 MT",
-    headline: "Aromatic Indian Fennel Seeds — Abu Road Bold Green Quality",
+    fcl40: "24.0 - 25.0 MT",
+    headline: "Unjha Green & Lucknow Quality Fennel Seeds",
     description:
-      "North Gujarat produces India's highest-sweetness fennel seeds with distinctive anise-like essential oil (1.5%+). Processed through optical sortex cleaners to preserve the natural lush green hue without chemical colorants, ideal for mouth fresheners, tea blending, and bakeries.",
-    keySpecs: "Essential Oil: 1.5%+ · Moisture: <8.0% · Bold Green · Sweet Anise Profile",
+      "Unjha is the global nerve center for fennel seed processing. JM Masala selects long-grain, pale-green to vivid-green fennel seeds with high anethole sweetness, screened for export across Europe, North America, and the Middle East.",
+    keySpecs: "Anethole Content: Rich · Moisture: <9.0% · Stemless: Yes",
     grades: [
       {
-        name: "Abu Road Extra Bold Green (99.5%)",
-        purity: "99.5% Sortex",
-        moisture: "Max 8.0%",
-        features: "Natural Lush Green · Sweet Anise Flavor · Essential Oil 1.8%+",
-        target: "Premium Confectionery & Beverage Importers",
+        name: "Abu Road / Green Sortex",
+        purity: "99.5% Purity",
+        moisture: "Max 8.5%",
+        features: "Intense Natural Green · Extra Bold · Sweet Taste",
+        target: "Europe & Confectionery Importers",
       },
       {
-        name: "Europe Grade Sortex (99% Clean)",
+        name: "Singapore Grade (99%)",
         purity: "99.0% Purity",
-        moisture: "Max 8.5%",
-        features: "Low Admixture (<0.8%) · Lab Tested for Pesticides & ETO",
-        target: "EU Herbal Tea & Bakery Distributors",
-      },
-      {
-        name: "USA ASTA Cleaned",
-        purity: "99.0% ASTA",
-        moisture: "Max 8.5%",
-        features: "Microbiologically Screened · Uniform Seed Size",
-        target: "North American Food Processors & Spice Mills",
-      },
-      {
-        name: "Gulf & Singapore Commercial Grade",
-        purity: "98.0% - 99.0%",
         moisture: "Max 9.0%",
-        features: "Medium Bold Greenish Seeds · High Aroma Retention",
-        target: "Mukhwas Manufacturers & Asian Groceries",
+        features: "Double Machine Cleaned · Uniform Size",
+        target: "Southeast Asia & Mukhwas Manufacturers",
+      },
+      {
+        name: "Medium Bold Grade",
+        purity: "98.5% Purity",
+        moisture: "Max 9.5%",
+        features: "Even Grain · Machine Cleaned · Aromatic",
+        target: "Gulf & North African Bulk Buyers",
+      },
+      {
+        name: "Commercial Grade",
+        purity: "98.0% Purity",
+        moisture: "Max 10.0%",
+        features: "Standard Seed · High Extraction Yield",
+        target: "Distillation & Essential Oil Processors",
       },
     ],
   },
   {
     id: "fenugreek",
     tabLabel: "Fenugreek Seeds (Methi)",
-    name: "Golden Fenugreek Seeds (Methi)",
+    name: "Indian Fenugreek Seeds (Methi Dana)",
     botanical: "Trigonella foenum-graecum",
     hsCode: "0910 99 12",
-    origin: "Gujarat & Rajasthan Mandi",
-    tag: "High Saponin Potency",
+    origin: "Gujarat & Rajasthan Mandis",
+    tag: "Pharma & Culinary Grade",
     image: fenugreekSeedsImage,
     slug: "fenugreek-seeds-exporter-india",
     powderSlug: "fenugreek-powder-exporter-india",
-    powderName: "Pure Fenugreek Powder",
     fcl20: "18.0 - 20.0 MT",
-    fcl40: "26.0 - 28.0 MT",
-    headline: "Indian Fenugreek Seeds — High Saponin & Pure Sortex Cleaned",
+    fcl40: "26.0 - 27.0 MT",
+    headline: "Sortex Cleaned Machine-Graded Golden Methi Dana",
     description:
-      "Gujarat fenugreek seeds are world-renowned for high trigonelline and steroid saponin content, making them a dual-purpose commodity for international spice blenders and nutraceutical extractors. Our Sortex processing ensures zero soil, stones, or weed seeds.",
-    keySpecs: "Purity: 99.0% Sortex · Moisture: <10.0% · Bold Golden Yellow · Saponin Rich",
+      "Selected hard, angular golden-yellow fenugreek seeds with high saponin and mucilage content. Machine-cleaned and optical-sorted to eliminate immature dark grains and inert matter for culinary, nutraceutical, and extraction buyers.",
+    keySpecs: "Purity: 99.0% - 99.5% · Moisture: <8.5% · Heavy Density",
     grades: [
       {
-        name: "Europe Nutraceutical Grade (99.5%)",
-        purity: "99.5% Sortex",
-        moisture: "Max 9.0%",
-        features: "High Saponin · Double Sortex · Heavy Metal & Pesticide Tested",
-        target: "Pharma, Nutraceutical & Extract Manufacturers",
+        name: "Europe Quality (Sortex 99.5%)",
+        purity: "99.5% Minimum",
+        moisture: "Max 8.0%",
+        features: "Low Heavy Metals · ETO Cleaned · Zero Weevil",
+        target: "EU Nutraceutical & Seasoning Houses",
       },
       {
-        name: "USA ASTA Clean (99.0%)",
-        purity: "99.0% ASTA",
-        moisture: "Max 9.0%",
-        features: "Steam Treated Option · Low Foreign Matter (<0.8%)",
-        target: "US Dietary Supplement & Seasoning Companies",
+        name: "USA Machine Cleaned (99%)",
+        purity: "99.0% Purity",
+        moisture: "Max 8.5%",
+        features: "Uniform Yellow Color · Clean Husk",
+        target: "North American Food Packers",
       },
       {
-        name: "Gulf Pickling & Masala Grade",
-        purity: "98.0% - 99.0%",
-        moisture: "Max 10.0%",
-        features: "Bold Golden Yellow Seeds · Intense Bitter-Sweet Aroma",
-        target: "Middle East Pickle Factories & Spice Mills",
-      },
-      {
-        name: "Singapore Commercial Grade",
+        name: "Gulf Quality (Bold Yellow)",
         purity: "98.5% Purity",
-        moisture: "Max 9.5%",
-        features: "Semi-bold & Bold Uniform Lots · Free from Live Insects",
-        target: "Southeast Asia Importers & Food Service",
+        moisture: "Max 9.0%",
+        features: "Hard Grain · High Bitterness & Aroma",
+        target: "Middle East & North Africa Buyers",
+      },
+      {
+        name: "Extraction Grade",
+        purity: "98.0% Purity",
+        moisture: "Max 10.0%",
+        features: "High Saponin & Galactomannan Content",
+        target: "Herbal & Oleoresin Extractors",
       },
     ],
   },
 ];
 
-const STAR_SLUGS = [
-  "cumin-seeds-exporter-india",
-  "coriander-seeds-exporter-india",
-  "fennel-seeds-exporter-india",
-  "fenugreek-seeds-exporter-india",
-  "turmeric-exporter-india",
-  "red-chilli-exporter-india",
-  "cumin-powder-exporter-india",
-  "psyllium-husk-exporter-india",
+const FEATURED_PRODUCTS = [
+  { name: "Cumin Seeds (Jeera)", botanical: "Cuminum cyminum", origin: "Unjha Mandi, Gujarat", spec: "99.5% Sortex · Max 8% Moisture", img: cuminImage, slug: "cumin-seeds-exporter-india" },
+  { name: "Coriander Seeds (Dhania)", botanical: "Coriandrum sativum", origin: "Gujarat & Rajasthan", spec: "Eagle Grade · High Linalool", img: corianderSeedsImage, slug: "coriander-seeds-exporter-india" },
+  { name: "Fennel Seeds (Saunf)", botanical: "Foeniculum vulgare", origin: "Unjha Mandi, Gujarat", spec: "Green Bold · Sweet Anethole", img: fennelSeedsImage, slug: "fennel-seeds-exporter-india" },
+  { name: "Fenugreek Seeds (Methi)", botanical: "Trigonella foenum-graecum", origin: "Gujarat Mandi", spec: "Golden Rhomboid · Saponin Rich", img: fenugreekSeedsImage, slug: "fenugreek-seeds-exporter-india" },
+  { name: "Ajwain Seeds (Carom)", botanical: "Trachyspermum ammi", origin: "Unjha & Gujarat", spec: "High Thymol · Micro Graded", img: ajwainSeedsImage, slug: "ajwain-seeds-exporter-india" },
+  { name: "Red Chilli (Lal Mirch)", botanical: "Capsicum annuum", origin: "Guntur Origin", spec: "Stemless · High ASTA Color", img: redChilliImage, slug: "red-chilli-exporter-india" },
+  { name: "Turmeric (Haldi)", botanical: "Curcuma longa", origin: "Salem & North-East", spec: "Bold Fingers · High Curcumin", img: turmericImage, slug: "turmeric-exporter-india" },
+  { name: "Psyllium Husk (Isabgol)", botanical: "Plantago ovata", origin: "Unjha Hub, Gujarat", spec: "99% Purity · High Swell Volume", img: psylliumHuskImage, slug: "psyllium-husk-exporter-india" },
 ];
 
-const PROCESS_STEPS = [
-  {
-    step: "01",
-    title: "Direct Mandi & Farm Sourcing",
-    description:
-      "Direct procurement from Unjha APMC market yard and dedicated farmer networks across Gujarat and southern spice growing belts.",
-    icon: "🌾",
-    detail: "Zero intermediary markups",
-  },
-  {
-    step: "02",
-    title: "Optical Sortex Cleaning",
-    description:
-      "Multi-stage mechanical pre-cleaning, de-stoning, gravity separation, and high-speed optical sortex sorting up to 99.9% purity.",
-    icon: "⚙️",
-    detail: "State-of-the-art grading",
-  },
-  {
-    step: "03",
-    title: "Lab Testing & Microbiological QA",
-    description:
-      "Strict in-house and NABL-accredited third-party testing for moisture, volatile oil content, pesticide residue, ETO, and microbial compliance.",
-    icon: "🔬",
-    detail: "COA with every shipment",
-  },
-  {
-    step: "04",
-    title: "Custom Packaging & Private Label",
-    description:
-      "Flexible packing from 100g shelf-ready zipper pouches and PET jars to 25kg/50kg multi-ply paper or PP export sacks.",
-    icon: "📦",
-    detail: "Barcode & nutritional print",
-  },
-  {
-    step: "05",
-    title: "Complete Export Documentation",
-    description:
-      "Issuance of Certificate of Origin, Phytosanitary inspection, Fumigation certificate, APEDA documentation, and LC compliance.",
-    icon: "📋",
-    detail: "100% customs clearance guarantee",
-  },
-  {
-    step: "06",
-    title: "Container Dispatch via Mundra Port",
-    description:
-      "Direct container stuffing just ~300km from Mundra and Kandla ports, delivering prompt ocean transit to Middle East, Europe, and Americas.",
-    icon: "🚢",
-    detail: "FOB Mundra or CIF terms",
-  },
+const SUPPLY_MODELS = [
+  { model: "Bulk Commodity Export", bestFor: "International importers, traders & bulk distributors", jmSolution: "20ft & 40ft FCL container loads in 25kg / 50kg PP, Jute or multi-wall paper bags with full export documentation." },
+  { model: "Food Manufacturing & Seasoning", bestFor: "Industrial food processors, snack brands & bakeries", jmSolution: "Standardized physical purity (99.5% - 99.9% Sortex), calibrated mesh sizes, and continuous contract consistency." },
+  { model: "Spice Brands & Repackers", bestFor: "Wholesale re-packers & regional spice houses", jmSolution: "Machine cleaned & Sortex graded lots with consistent lot-to-lot color, moisture control, and low microbial counts." },
+  { model: "Retail-Ready Packaging", bestFor: "Supermarket chains, retail distributors & ethnic grocers", jmSolution: "100g, 250g, 500g, and 1kg stand-up zipper pouches or pillow packs packed in shelf-ready master cartons." },
+  { model: "Private Label OEM Program", bestFor: "D2C brands, overseas ethnic labels & private brands", jmSolution: "Turnkey brand identity: sourcing, processing, custom pouch printing, barcoding, and export clearance under your brand." },
+  { model: "Direct Export Supply", bestFor: "Overseas trading houses & government tenders", jmSolution: "FOB Mundra, CIF global discharge ports, pre-shipment inspections (SGS/Bureau Veritas), and complete bank LC terms." }
 ];
 
-const RETAIL_POUCH_PRODUCTS = [
-  {
-    id: "turmeric",
-    tab: "Turmeric Powder",
-    name: "Turmeric Powder (Rajapuri)",
-    cataloguePage: "Catalogue Page 15",
-    category: "Pure Ground Spice",
-    weights: "100g, 200g, 500g, 1kg, 5kg, 10kg, 25kg",
-    image: pouchTurmeric,
-    form: "Deep Golden Yellow Ground Powder",
-    features: ["Cleaned & Graded", "Natural Colour", "Rich Aroma", "No Additives", "Non-GMO"],
-    specs: "Curcumin: 2.5% - 5.0% · Mesh: 80 - 100 · Moisture: ≤10% · Shelf Life: 12-24M",
-    applications: "Curries, gravies, seasonings, nutraceuticals, ready-to-eat foods",
-  },
-  {
-    id: "ginger-slices",
-    tab: "Dry Ginger Slices",
-    name: "Dry Ginger Slices",
-    cataloguePage: "Catalogue Page 18",
-    category: "Whole Dehydrated Slices",
-    weights: "500g, 5kg, 10kg, 25kg, 50kg",
-    image: pouchGingerSlices,
-    form: "Sun-Dried Ginger Slices (2 - 10 mm)",
-    features: ["Cleaned & Graded", "Natural Product", "Rich Aroma", "No Additives", "Non-GMO"],
-    specs: "Moisture: ≤12% · Foreign Matter: <0.5% · Admixture: <1.0% · High Pungency",
-    applications: "Spice blends, herbal teas, confectionery, pickles & chutneys",
-  },
-  {
-    id: "ginger-powder",
-    tab: "Dry Ginger Powder",
-    name: "Dry Ginger Powder",
-    cataloguePage: "Catalogue Page 17",
-    category: "Pure Ground Spice",
-    weights: "100g, 200g, 500g, 1kg, 5kg, 10kg, 25kg",
-    image: pouchGingerPowder,
-    form: "Fine Ground Zingiber officinale Powder",
-    features: ["Cleaned & Graded", "Natural Product", "Fine Grind", "No Additives", "Non-GMO"],
-    specs: "Particle Size: 80 - 100 Mesh · Moisture: ≤12% · High Natural Gingerol",
-    applications: "Bakery, curries, nutraceutical products, health tea & beverages",
-  },
-  {
-    id: "bay-leaf",
-    tab: "Bay Leaf (Tej Patta)",
-    name: "Bay Leaf (Tej Patta)",
-    cataloguePage: "Catalogue Page 21",
-    category: "Whole Dried Leaves",
-    weights: "500g, 1kg, 5kg, 10kg, 25kg, 50kg",
-    image: pouchBayLeaf,
-    form: "Whole Selected Leaves (8 - 18 cm)",
-    features: ["Cleaned & Graded", "Natural Product", "Premium Quality", "No Additives", "Non-GMO"],
-    specs: "Moisture: 8 - 10% · Essential Oil: 1.5% - 2.5% · Grade A Whole Leaves",
-    applications: "Rice & biryani, soups & broths, spice blends, essential oil extraction",
-  },
-  {
-    id: "black-cardamom",
-    tab: "Black Cardamom",
-    name: "Black Cardamom (Large Cardamom)",
-    cataloguePage: "Catalogue Page 22",
-    category: "Whole Aromatic Pods",
-    weights: "500g, 1kg, 5kg, 10kg, 25kg, 50kg",
-    image: pouchCardamom,
-    form: "Bold Uniform Capsules (Dark Brown)",
-    features: ["Cleaned & Graded", "Natural Product", "Rich Aroma", "No Additives", "Non-GMO"],
-    specs: "Moisture: 8 - 10% · Volatile Oil: ~2.0% · Essential Oil: ~1.5%",
-    applications: "Curries, spice blends, meat seasoning, herbal products",
-  },
-];
-
-const SERVICES = [
-  {
-    icon: <Layers className="h-6 w-6" />,
-    title: "Private Label & Contract Packing",
-    description:
-      "Launch or expand your own spice brand with zero manufacturing overhead. We supply retail shelf-ready bags, jars, and cartons customized with your barcode, branding, and local regulatory requirements.",
-    highlights: [
-      "Stand-up pouches with zip lock (100g to 1kg)",
-      "Food-grade PET jars and tins with shaker caps",
-      "Retail-ready inner display cartons",
-      "Full multilingual regulatory text & nutrition labels",
-    ],
-    link: "/private-label-spices",
-    linkText: "Explore Private Label Program",
-  },
-  {
-    icon: <Package className="h-6 w-6" />,
-    title: "Custom Export Packaging",
-    description:
-      "Engineered packaging designed for long ocean freight voyages. We eliminate moisture ingress and preserve volatile aromatic oils across all transit climates.",
-    highlights: [
-      "25 kg & 50 kg PP woven bags with inner liners",
-      "Multi-wall kraft paper bags (food-grade)",
-      "Traditional heavy-duty jute bags",
-      "Palletized and stretch-wrapped container loading",
-    ],
-    link: "/spice-packaging",
-    linkText: "View Packaging Solutions",
-  },
-  {
-    icon: <Truck className="h-6 w-6" />,
-    title: "Bulk Container Logistics",
-    description:
-      "Full container loads (FCL 20ft & 40ft) and consolidated LCL shipments dispatched on FOB Mundra, CIF, or CFR terms with real-time tracking.",
-    highlights: [
-      "13 to 20 MT capacity depending on product",
-      "Direct container stuffing at Unjha facility",
-      "Proximity to Mundra Port (~300 km)",
-      "Pre-shipment fumigation & seal verification",
-    ],
-    link: "/contact?intent=quote#inquiry-form",
-    linkText: "Request Container Freight Rates",
-  },
-  {
-    icon: <FileText className="h-6 w-6" />,
-    title: "End-to-End Export Compliance",
-    description:
-      "We eliminate import clearance delays by delivering accurate, pre-verified international trade documentation tailored to your national customs authority.",
-    highlights: [
-      "Certificate of Analysis (COA) per lot",
-      "Government Phytosanitary Inspection Certificate",
-      "Phosphine / Methyl Bromide Fumigation",
-      "Spice Board RCMC & APEDA verification",
-    ],
-    link: "/quality-certifications",
-    linkText: "Check Compliance Standards",
-  },
-];
-
-const EXPORT_DESTINATIONS = [
-  {
-    region: "Middle East & GCC",
-    transit: "3 - 5 Days Sailing",
-    countries: ["UAE (Jebel Ali)", "Saudi Arabia (Jeddah/Dammam)", "Kuwait", "Qatar", "Oman", "Bahrain"],
-  },
-  {
-    region: "Southeast Asia",
-    transit: "8 - 12 Days Sailing",
-    countries: ["Singapore", "Malaysia (Port Klang)", "Indonesia", "Vietnam", "Thailand"],
-  },
-  {
-    region: "Europe & UK",
-    transit: "18 - 24 Days Sailing",
-    countries: ["United Kingdom", "Germany (Hamburg)", "Netherlands (Rotterdam)", "France", "Spain", "Poland"],
-  },
-  {
-    region: "Americas",
-    transit: "24 - 32 Days Sailing",
-    countries: ["USA (New York/Savannah/LA)", "Canada (Montreal/Vancouver)", "Mexico", "Brazil"],
-  },
-  {
-    region: "Africa & Oceania",
-    transit: "14 - 22 Days Sailing",
-    countries: ["South Africa (Durban)", "Kenya (Mombasa)", "Australia (Melbourne/Sydney)", "New Zealand"],
-  },
-];
-
-const HOME_FAQS = [
-  {
-    question: "Why is sourcing spices directly from Unjha, Gujarat a major competitive advantage?",
-    answer:
-      "Unjha is recognized as the world's largest commercial hub for cumin, fennel, coriander, and fenugreek seeds. Sourcing directly from JM Masala in Unjha gives international buyers fresh mandi arrivals, eliminates multi-tier trading markups, enables strict Sortex grading at origin, and ensures shorter transit to Mundra Port.",
-  },
-  {
-    question: "Can JM Masala supply custom retail packaging and private-label spice lines?",
-    answer:
-      "Yes. We support global supermarket chains, spice brands, and distributors with turn-key private label manufacturing. This includes stand-up pouches with zipper, food-grade PET jars, custom artwork printing, multilingual regulatory labeling, barcode compliance, and Master Shipper cartons.",
-  },
-  {
-    question: "What are the standard container capacities (FCL) for spice shipments?",
-    answer:
-      "For whole cumin, coriander, and fennel seeds, a standard 20ft container accommodates approximately 10 to 14 metric tonnes depending on seed density. For fenugreek and psyllium seeds, capacity reaches 18 to 20 MT per 20ft container. In 40ft High Cube containers, whole seed shipments reach 24 to 28 metric tonnes.",
-  },
-  {
-    question: "What export certificates and laboratory testing are provided with each order?",
-    answer:
-      "Every export consignment is accompanied by a comprehensive document package: Certificate of Analysis (COA) specifying purity, moisture, and volatile oil; Government Phytosanitary Certificate; Fumigation Certificate; Certificate of Origin; Commercial Invoice; Packing List; and Bill of Lading (or BL draft for approval).",
-  },
+const KNOWLEDGE_ARTICLES = [
+  { title: "Cumin Seeds Export Guide (Mandi to Container)", desc: "A comprehensive guide on procuring, Sortex cleaning, packing, and shipping Indian Cumin from Unjha to world ports.", slug: "cumin-seeds-export-guide" },
+  { title: "Cumin Grades Explained: Europe vs USA vs Gulf", desc: "Understanding the commercial purity, admixture tolerances, and volatile oil specifications across international markets.", slug: "cumin-grades-explained" },
+  { title: "Machine Cleaning vs Sortex Optical Cleaning", desc: "Why optical sorting matters for international spice compliance and how bi-chromatic cameras eliminate defects.", slug: "machine-cleaning-vs-sortex" },
+  { title: "How Indian Spices Are Industrially Processed", desc: "An inside look at destoning, aspiration, cryogenic low-temperature milling, and foreign body magnetic extraction.", slug: "how-indian-spices-are-processed" },
+  { title: "Private Label Spice Manufacturing Guide", desc: "Step-by-step roadmap for overseas brands launching retail-ready Indian spice products with custom packaging.", slug: "private-label-spice-manufacturing-guide" },
+  { title: "How International Buyers Source Spices from India", desc: "Essential buyer playbook: crop calendars, contract terms, Mundra port logistics, and NABL laboratory COAs.", slug: "how-to-source-spices-from-india" }
 ];
 
 /* ─────────────────────────── COMPONENT ─────────────────────────── */
 
 const HomePage = () => {
   const [activeHeroSpice, setActiveHeroSpice] = useState(0);
-  const [activeFlagshipTab, setActiveFlagshipTab] = useState(0);
-  const [activePouch, setActivePouch] = useState(0);
   const [activeCategory, setActiveCategory] = useState<string>("star");
-  const [searchQuery, setSearchQuery] = useState("");
 
-  // Interactive RFQ Calculator State
+  // RFQ Form State
   const [rfqSpice, setRfqSpice] = useState("Cumin Seeds (Jeera)");
-  const [rfqGrade, setRfqGrade] = useState("Europe Quality 99.5% Sortex");
-  const [rfqPacking, setRfqPacking] = useState("25kg PP Export Bags");
-  const [rfqVolume, setRfqVolume] = useState("1x 20ft FCL (~13-14 MT)");
-  const [rfqPort, setRfqPort] = useState("FOB Mundra Port");
+  const [rfqQuantity, setRfqQuantity] = useState("1x 20ft FCL (~14 MT)");
+  const [rfqGrade, setRfqGrade] = useState("Sortex Cleaned 99.5% (Europe Quality)");
+  const [rfqPacking, setRfqPacking] = useState("25kg PP Bags with Inner Liner");
+  const [rfqDestination, setRfqDestination] = useState("");
+  const [rfqCompany, setRfqCompany] = useState("");
+  const [rfqEmail, setRfqEmail] = useState("");
+  const [rfqMessage, setRfqMessage] = useState("");
 
   const currentHeroSpice = CORE_FOUR_SPICES[activeHeroSpice];
-  const currentFlagship = CORE_FOUR_SPICES[activeFlagshipTab];
-  const currentPouch = RETAIL_POUCH_PRODUCTS[activePouch];
 
-  // Filtered Products Logic
-  const filteredProducts = PRODUCTS.filter((p) => {
-    // Search match
-    if (
-      searchQuery.trim() !== "" &&
-      !p.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
-      !p.shortDescription.toLowerCase().includes(searchQuery.toLowerCase()) &&
-      !p.botanicalName.toLowerCase().includes(searchQuery.toLowerCase())
-    ) {
-      return false;
-    }
+  // Category Filter for Master Product Portfolio
+  const filteredProducts = useMemo(() => {
+    return PRODUCTS.filter((p) => {
+      return (
+        activeCategory === "all" ||
+        (activeCategory === "star" && ["cumin-seeds-exporter-india", "coriander-seeds-exporter-india", "fennel-seeds-exporter-india", "fenugreek-seeds-exporter-india"].includes(p.slug)) ||
+        (activeCategory === "whole" && (p.category === "whole" || p.category === "north" || p.category === "south")) ||
+        (activeCategory === "powders" && p.category === "powders") ||
+        (activeCategory === "agro" && p.category === "agro")
+      );
+    });
+  }, [activeCategory]);
 
-    if (activeCategory === "star") {
-      return STAR_SLUGS.includes(p.slug);
-    }
-    if (activeCategory === "whole") {
-      return p.category === "whole" || p.category === "north" || p.category === "south";
-    }
-    if (activeCategory === "powders") {
-      return p.category === "powders";
-    }
-    if (activeCategory === "agro") {
-      return p.category === "agro";
-    }
-    return true;
-  });
-
-  const rfqWhatsAppMessage = `Hi JM Masala Export Team, I am requesting a commercial quotation for:
-• Product: ${rfqSpice}
-• Grade / Purity: ${rfqGrade}
-• Required Volume: ${rfqVolume}
-• Packing Preference: ${rfqPacking}
-• Delivery Terms: ${rfqPort}
-Please share current FOB/CIF pricing and COA technical specification.`;
+  const handleRfqSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const text = `Hi JM Masala Export Desk, I would like to request a commercial quotation:\n\n- Product: ${rfqSpice}\n- Quantity: ${rfqQuantity}\n- Grade: ${rfqGrade}\n- Packing: ${rfqPacking}\n- Destination: ${rfqDestination || "To Be Advised"}\n- Company: ${rfqCompany || "N/A"}\n- Email: ${rfqEmail || "N/A"}\n- Notes: ${rfqMessage || "Please share latest FOB Mundra & CIF pricing."}`;
+    window.open(buildWhatsAppUrl(text), "_blank");
+  };
 
   return (
     <>
       <Seo
-        title="JM Masala | Indian Spices Manufacturer, Processor & Exporter"
-        description="JM Masala Trading LLP is a premier Indian spices manufacturer, processor and exporter based in Unjha, Gujarat. Sourcing and processing Sortex cumin seeds, coriander, fennel, fenugreek, turmeric, ground powders, and private-label packaging worldwide."
-        path=""
-        schema={[
-          {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "JM Masala Trading LLP",
-            url: SITE_URL,
-            logo: `${SITE_URL}/logo.png`,
-            description:
-              "Indian Spices Manufacturer, Processor & Global Exporter of Sortex Cumin Seeds, Coriander, Fennel, Fenugreek, Turmeric, Powders, and Private-Label Products.",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Unjha",
-              addressRegion: "Gujarat",
-              addressCountry: "India",
-            },
-          },
-          {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: HOME_FAQS.map((faq) => ({
-              "@type": "Question",
-              name: faq.question,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: faq.answer,
-              },
-            })),
-          },
+        title="Indian Spice Manufacturer, Processor & Exporter | JM Masala Trading LLP"
+        description="JM Masala Trading LLP is an Indian spice manufacturer, processor and exporter based in Unjha, Gujarat. Leading suppliers of Cumin, Coriander, Fennel, Fenugreek, Ajwain, Turmeric, Red Chilli, and Psyllium with advanced Sortex cleaning and global export."
+        path="/"
+        imageUrl="/JMMasala.png"
+        keywords={[
+          "Indian spice manufacturer",
+          "spice processor India",
+          "spice exporter India",
+          "cumin seeds exporter Unjha",
+          "Sortex cleaned cumin India",
+          "private label spice manufacturer India",
+          "bulk spices supplier Gujarat",
+          "JM Masala Trading LLP",
+          "coriander fennel fenugreek exporter"
         ]}
+        schema={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": `${SITE_URL}/#organization`,
+              name: COMPANY.legalName,
+              alternateName: [COMPANY.name, "JM Masala Exports", "JM Masala Unjha"],
+              url: SITE_URL,
+              logo: `${SITE_URL}/JMMasala.png`,
+              description:
+                "Indian spice manufacturer, processor, bulk exporter and private-label partner rooted in Unjha APMC Market Yard, Gujarat.",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: COMPANY.addressLine,
+                addressLocality: "Unjha",
+                addressRegion: "Gujarat",
+                postalCode: "384170",
+                addressCountry: "IN",
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+91 91067 66041",
+                contactType: "sales and export desk",
+                availableLanguage: ["English", "Hindi", "Gujarati"],
+              },
+            },
+            {
+              "@type": "WebSite",
+              "@id": `${SITE_URL}/#website`,
+              url: SITE_URL,
+              name: "JM Masala Indian Spices",
+              publisher: { "@id": `${SITE_URL}/#organization` },
+            }
+          ]
+        }}
       />
 
       <style>{`
-        .jm-home {
-          font-family: var(--font-body);
-          color: var(--brand-charcoal);
-        }
-
-        .jm-display {
-          font-family: var(--font-display);
-        }
-
         .jm-hero-gradient {
-          background: linear-gradient(135deg, rgba(26, 46, 26, 0.96) 0%, rgba(45, 74, 45, 0.88) 52%, rgba(16, 23, 15, 0.95) 100%);
+          background: linear-gradient(135deg, rgba(16, 23, 15, 0.96) 0%, rgba(26, 46, 26, 0.92) 55%, rgba(45, 74, 45, 0.88) 100%);
         }
-
         .jm-gold-text {
           background: linear-gradient(135deg, #e2c97e 0%, #c9a84c 60%, #fff 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
-
-        /* Glassmorphism Cards */
         .jm-glass-dark {
           background: rgba(26, 46, 26, 0.78);
           backdrop-filter: blur(12px);
           -webkit-backdrop-filter: blur(12px);
           border: 1px solid rgba(201, 168, 76, 0.3);
         }
-
-        /* Tab Pills */
-        .jm-tab-btn {
-          transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .jm-tab-btn.active {
-          background: linear-gradient(135deg, var(--brand-gold), var(--brand-gold-light));
-          color: var(--brand-deep-green);
-          font-weight: 700;
-          box-shadow: 0 4px 14px rgba(201, 168, 76, 0.3);
-        }
-
-        /* Product Card Animation */
         .jm-card-lift {
           transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.28s;
         }
         .jm-card-lift:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 18px 36px -10px rgba(26, 46, 26, 0.16);
+          transform: translateY(-5px);
+          box-shadow: 0 16px 32px -10px rgba(26, 46, 26, 0.15);
           border-color: rgba(201, 168, 76, 0.6);
-        }
-
-        @keyframes floatSlow {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-8px); }
-        }
-        .jm-float {
-          animation: floatSlow 4s ease-in-out infinite;
         }
       `}</style>
 
       <div className="jm-home bg-[var(--brand-warm-white)]">
+        
         {/* ══════════════════════════════════════════════════════════════════
-            1. HERO SECTION WITH CORE FOUR SPOTLIGHT
+            2. HERO SECTION (10/10 CORE POSITIONING)
         ══════════════════════════════════════════════════════════════════ */}
         <section className="relative min-h-[92vh] flex items-center overflow-hidden">
           <div
@@ -658,7 +395,7 @@ Please share current FOB/CIF pricing and COA technical specification.`;
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 w-full">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
               
-              {/* Left Column: Authority & Direct CTA */}
+              {/* Left Column: Authority & Headline */}
               <div className="lg:col-span-7 space-y-6">
                 
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[rgba(201,168,76,0.16)] border border-[rgba(201,168,76,0.4)] text-[var(--brand-gold-light)] text-xs sm:text-sm font-semibold tracking-wide uppercase">
@@ -666,66 +403,63 @@ Please share current FOB/CIF pricing and COA technical specification.`;
                   <span>Unjha Mandi Origin · ISO 22000 &amp; HACCP Certified</span>
                 </div>
 
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.12] jm-display">
-                  Premium Indian Spices &amp; Agro Produce —{" "}
-                  <span className="jm-gold-text italic block sm:inline">Direct from Origin</span>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.14] jm-display">
+                  Indian Spices.{" "}
+                  <span className="jm-gold-text block sm:inline">Processed for Your Market.</span>{" "}
+                  Ready for the World.
                 </h1>
 
                 <p className="text-base sm:text-lg text-emerald-100/90 leading-relaxed max-w-2xl">
-                  <strong>JM Masala Trading LLP</strong> is an integrated Indian spice manufacturer, processor, and exporter based in Unjha, Gujarat. Leading processors of <strong>Cumin, Coriander, Fennel, and Fenugreek</strong>, along with pure ground powders and agro commodities for importers across 30+ countries.
+                  <strong>JM Masala Trading LLP</strong> is an Indian spice manufacturer, processor and exporter supplying whole spices, processed ingredients, private-label products and retail-ready solutions to international B2B buyers.
                 </p>
 
-                {/* Core Capability Chips */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2">
-                  <div className="flex items-center gap-2 p-2.5 rounded-lg bg-white/5 border border-white/10 text-white/90 text-xs">
-                    <CheckCircle2 className="h-4 w-4 text-[var(--brand-gold)] shrink-0" />
-                    <span>99.5%+ Sortex Purity</span>
-                  </div>
-                  <div className="flex items-center gap-2 p-2.5 rounded-lg bg-white/5 border border-white/10 text-white/90 text-xs">
-                    <Truck className="h-4 w-4 text-[var(--brand-gold)] shrink-0" />
-                    <span>FCL &amp; LCL Shipments</span>
-                  </div>
-                  <div className="flex items-center gap-2 p-2.5 rounded-lg bg-white/5 border border-white/10 text-white/90 text-xs">
-                    <Package className="h-4 w-4 text-[var(--brand-gold)] shrink-0" />
-                    <span>Private Label Packs</span>
-                  </div>
-                  <div className="flex items-center gap-2 p-2.5 rounded-lg bg-white/5 border border-white/10 text-white/90 text-xs">
-                    <Anchor className="h-4 w-4 text-[var(--brand-gold)] shrink-0" />
-                    <span>Mundra Port Dispatch</span>
-                  </div>
+                {/* The 7-Step Value Flow Banner */}
+                <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 text-[var(--brand-gold-light)] text-xs sm:text-sm font-medium tracking-wide flex flex-wrap items-center gap-2">
+                  <span className="font-bold text-white">Flow:</span>
+                  <span>Source in India</span>
+                  <span className="text-white/40">→</span>
+                  <span>Process</span>
+                  <span className="text-white/40">→</span>
+                  <span>Clean</span>
+                  <span className="text-white/40">→</span>
+                  <span>Grade</span>
+                  <span className="text-white/40">→</span>
+                  <span>Pack</span>
+                  <span className="text-white/40">→</span>
+                  <span>Private Label</span>
+                  <span className="text-white/40">→</span>
+                  <span className="text-white font-bold">Export</span>
                 </div>
 
                 {/* CTA Action Buttons */}
-                <div className="flex flex-wrap gap-4 pt-3">
-                  <Link
-                    to="/contact?intent=quote#inquiry-form"
-                    className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-lg bg-gradient-to-r from-[var(--brand-gold)] to-[var(--brand-gold-light)] text-[var(--brand-deep-green)] font-bold text-sm sm:text-base hover:shadow-xl hover:shadow-[rgba(201,168,76,0.35)] hover:-translate-y-0.5 transition-all duration-200"
+                <div className="flex flex-wrap gap-4 pt-2">
+                  <a
+                    href="#featured-products"
+                    className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[var(--brand-gold)] to-[var(--brand-gold-light)] text-[var(--brand-deep-green)] font-bold text-sm sm:text-base hover:shadow-xl hover:shadow-[rgba(201,168,76,0.35)] hover:-translate-y-0.5 transition-all duration-200"
                   >
-                    <span>Request Commercial Quote</span>
+                    <span>Explore Products</span>
                     <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  </a>
 
                   <a
-                    href="#core-four"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg border border-white/30 text-white hover:bg-white/10 hover:border-white font-semibold text-sm sm:text-base transition-all duration-200"
+                    href="#inquiry-rfq"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-white/30 text-white hover:bg-white/10 hover:border-white font-semibold text-sm sm:text-base transition-all duration-200"
                   >
-                    <span>Core 4 Flagships</span>
+                    <span>Request a Quote</span>
                     <ChevronRight className="h-4 w-4" />
                   </a>
 
-                  <a
-                    href="/JMMasalaProducts.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg border border-[rgba(201,168,76,0.5)] text-[var(--brand-gold-light)] hover:bg-[rgba(201,168,76,0.12)] font-semibold text-sm transition-all duration-200"
+                  <Link
+                    to="/spice-processing-manufacturing"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl border border-[rgba(201,168,76,0.5)] text-[var(--brand-gold-light)] hover:bg-[rgba(201,168,76,0.12)] font-semibold text-sm transition-all duration-200"
                   >
-                    <FileText className="h-4 w-4" />
-                    <span>Catalogue (PDF)</span>
-                  </a>
+                    <Factory className="h-4 w-4" />
+                    <span>Processing Plant</span>
+                  </Link>
                 </div>
               </div>
 
-              {/* Right Column: Hero Product Spotlight Showcase */}
+              {/* Right Column: Hero Core 4 Spotlight Switcher */}
               <div className="lg:col-span-5">
                 <div className="jm-glass-dark rounded-2xl p-6 sm:p-7 shadow-2xl relative overflow-hidden">
                   
@@ -748,68 +482,70 @@ Please share current FOB/CIF pricing and COA technical specification.`;
                       <button
                         key={sp.id}
                         onClick={() => setActiveHeroSpice(idx)}
-                        className={`py-1.5 px-1 text-center rounded-lg text-xs transition-all ${
+                        className={`py-2 px-1 text-center rounded-lg text-xs font-bold transition-all ${
                           activeHeroSpice === idx
-                            ? "bg-[var(--brand-gold)] text-[var(--brand-deep-green)] font-bold shadow-md"
-                            : "text-white/70 hover:text-white hover:bg-white/10"
+                            ? "bg-[var(--brand-gold)] text-[var(--brand-deep-green)] shadow-md"
+                            : "text-white/70 hover:text-white hover:bg-white/5"
                         }`}
                       >
-                        {sp.tabLabel.split(" ")[0]}
+                        {sp.id.charAt(0).toUpperCase() + sp.id.slice(1)}
                       </button>
                     ))}
                   </div>
 
-                  {/* Active Product Visual & Specs */}
-                  <div className="text-center">
-                    <div className="relative mx-auto w-48 h-48 sm:w-56 sm:h-56 flex items-center justify-center mb-4">
-                      <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,rgba(201,168,76,0.3)_0%,transparent_70%)]" />
-                      
+                  {/* Dynamic Product Card */}
+                  <div className="space-y-4">
+                    <div className="relative h-52 sm:h-56 rounded-xl bg-gradient-to-b from-white/10 to-black/30 flex items-center justify-center p-4 overflow-hidden border border-white/10">
                       <img
                         src={currentHeroSpice.image}
                         alt={currentHeroSpice.name}
-                        className="relative max-h-full max-w-full object-contain jm-float drop-shadow-[0_15px_25px_rgba(0,0,0,0.5)]"
+                        className="max-h-full max-w-full object-contain filter drop-shadow-2xl hover:scale-105 transition-transform duration-300"
                       />
-                    </div>
-
-                    <h2 className="text-xl sm:text-2xl font-bold text-white jm-display mb-1">
-                      {currentHeroSpice.name}
-                    </h2>
-                    <p className="text-xs sm:text-sm text-[var(--brand-gold-light)] italic mb-3">
-                      {currentHeroSpice.botanical} · {currentHeroSpice.origin}
-                    </p>
-
-                    <div className="bg-black/40 rounded-xl p-3 border border-white/10 text-left mb-4">
-                      <div className="flex justify-between items-center text-xs mb-1">
-                        <span className="text-white/60">Export Quality Target:</span>
-                        <span className="text-[var(--brand-gold)] font-semibold">{currentHeroSpice.grades[0].name.split("(")[0]}</span>
-                      </div>
-                      <div className="text-xs text-emerald-100/90 font-mono">
-                        {currentHeroSpice.keySpecs}
+                      <div className="absolute bottom-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 text-[11px] text-white/90">
+                        <span className="text-[var(--brand-gold-light)] font-bold">Origin:</span> {currentHeroSpice.origin}
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2">
+                    <div>
+                      <div className="text-xs text-[var(--brand-gold-light)] font-serif italic">
+                        {currentHeroSpice.botanical}
+                      </div>
+                      <h3 className="text-xl font-bold text-white jm-display mt-0.5">
+                        {currentHeroSpice.name}
+                      </h3>
+                      <p className="text-xs text-white/80 leading-relaxed mt-1 line-clamp-2">
+                        {currentHeroSpice.description}
+                      </p>
+                    </div>
+
+                    <div className="p-3 rounded-lg bg-white/5 border border-white/10 text-xs text-white/90 space-y-1">
+                      <div className="flex justify-between">
+                        <span className="text-white/60">Standard Spec:</span>
+                        <span className="font-semibold text-[var(--brand-gold-light)]">{currentHeroSpice.keySpecs}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-white/60">20ft FCL Load:</span>
+                        <span className="font-semibold">{currentHeroSpice.fcl20}</span>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-2 pt-1">
                       <Link
                         to={`/${currentHeroSpice.slug}`}
-                        className="flex-1 py-2.5 px-4 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm transition-colors border border-white/20 flex items-center justify-center gap-1.5"
+                        className="w-full py-2.5 px-3 rounded-lg bg-[var(--brand-gold)] hover:bg-[var(--brand-gold-light)] text-[var(--brand-deep-green)] text-xs font-bold text-center transition-colors"
                       >
-                        <span>Full Specifications</span>
-                        <ArrowUpRight className="h-3.5 w-3.5" />
+                        Technical Specs
                       </Link>
                       <a
-                        href={buildWhatsAppUrl(
-                          `Hi JM Masala, I would like current export pricing and lot availability for ${currentHeroSpice.name}.`
-                        )}
+                        href={buildWhatsAppUrl(`Hi JM Masala, please quote FOB Mundra for ${currentHeroSpice.name}.`)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="py-2.5 px-4 rounded-lg bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs sm:text-sm transition-colors flex items-center justify-center gap-1.5 shadow-md"
+                        className="w-full py-2.5 px-3 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-bold text-center border border-white/20 transition-colors"
                       >
-                        <MessageSquare className="h-3.5 w-3.5" />
-                        <span>Quick RFQ</span>
+                        Quick WhatsApp RFQ
                       </a>
                     </div>
                   </div>
-
                 </div>
               </div>
 
@@ -818,247 +554,694 @@ Please share current FOB/CIF pricing and COA technical specification.`;
         </section>
 
         {/* ══════════════════════════════════════════════════════════════════
-            2. TRUST BAR & CERTIFICATION RIBBON
+            3. TRUST STRIP
         ══════════════════════════════════════════════════════════════════ */}
-        <div className="bg-[var(--brand-forest)] text-white py-3.5 border-y border-[rgba(201,168,76,0.3)] shadow-inner">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-wrap items-center justify-center sm:justify-between gap-y-2 gap-x-6 text-xs sm:text-sm font-medium">
-              {[
-                "HACCP Certified",
-                "ISO 22000:2018",
-                "APEDA Registered",
-                "Spice Board RCMC",
-                "FSSAI Licensed",
-                "IEC Registered",
-                "Mundra Port Dispatch",
-              ].map((badge) => (
-                <div key={badge} className="flex items-center gap-2 text-white/90">
-                  <ShieldCheck className="h-4 w-4 text-[var(--brand-gold)]" />
-                  <span>{badge}</span>
-                </div>
-              ))}
-            </div>
+        <div className="bg-[#121b13] border-y border-[rgba(201,168,76,0.3)] py-4 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 text-xs sm:text-sm font-semibold text-white/90">
+            <div className="flex items-center gap-2"><span className="text-base">🇮🇳</span><span>Indian Origin</span></div>
+            <div className="hidden sm:block text-[var(--brand-gold)] opacity-40">•</div>
+            <div className="flex items-center gap-2"><Factory className="h-4 w-4 text-[var(--brand-gold)]" /><span>Advanced Processing &amp; Sortex</span></div>
+            <div className="hidden sm:block text-[var(--brand-gold)] opacity-40">•</div>
+            <div className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-[var(--brand-gold)]" /><span>NABL Lab Quality Control</span></div>
+            <div className="hidden sm:block text-[var(--brand-gold)] opacity-40">•</div>
+            <div className="flex items-center gap-2"><Package className="h-4 w-4 text-[var(--brand-gold)]" /><span>Custom Export Packaging</span></div>
+            <div className="hidden sm:block text-[var(--brand-gold)] opacity-40">•</div>
+            <div className="flex items-center gap-2"><Award className="h-4 w-4 text-[var(--brand-gold)]" /><span>Private Label OEM</span></div>
+            <div className="hidden sm:block text-[var(--brand-gold)] opacity-40">•</div>
+            <div className="flex items-center gap-2"><Globe2 className="h-4 w-4 text-[var(--brand-gold)]" /><span>Global Supply (30+ Countries)</span></div>
           </div>
         </div>
 
         {/* ══════════════════════════════════════════════════════════════════
-            3. KEY OPERATIONAL METRICS (STATS)
+            4. PRODUCT CATEGORIES (FEATURED CORE PRODUCTS)
         ══════════════════════════════════════════════════════════════════ */}
-        <section className="bg-white py-12 border-b border-[var(--brand-gold-pale)]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
-              {STATS.map((s) => (
-                <div
-                  key={s.label}
-                  className="text-center p-6 rounded-2xl bg-[var(--brand-cream)] border border-[rgba(201,168,76,0.25)] hover:border-[var(--brand-gold)] transition-all duration-300"
-                >
-                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--brand-forest)] jm-display mb-1">
-                    {s.value}
-                  </div>
-                  <div className="text-sm font-bold text-[var(--brand-charcoal)] mb-0.5">
-                    {s.label}
-                  </div>
-                  <div className="text-xs text-[var(--brand-sage)]">
-                    {s.sub}
-                  </div>
-                </div>
-              ))}
+        <section id="featured-products" className="py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
+              <Package className="h-4 w-4" />
+              <span>Core Commercial Portfolio</span>
             </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display">
+              Our Indian Spices &amp; Agro Products
+            </h2>
+            <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
+              From whole spices and seeds to processed ingredients and retail-ready products, JM Masala supplies Indian agricultural products according to customer specifications and market requirements.
+            </p>
           </div>
-        </section>
 
-        {/* ══════════════════════════════════════════════════════════════════
-            4. THE BIG FOUR INDIAN SEED SPICES SPOTLIGHT (UNJHA CORE)
-        ══════════════════════════════════════════════════════════════════ */}
-        <section id="core-four" className="py-20 lg:py-24 bg-white border-b border-[var(--brand-gold-pale)] scroll-mt-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            {/* Section Header */}
-            <div className="max-w-3xl mb-10">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)] mb-2">
-                <Award className="h-4 w-4" />
-                <span>Unjha APMC Mandi Flagships</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--brand-charcoal)] jm-display mb-4">
-                The Big Four Indian Seed Spices
-              </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-[var(--brand-gold)] to-[var(--brand-gold-light)] rounded mb-4" />
-              <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
-                Directly sourced from farm gates and Unjha's premier APMC trading yard. We specialize in <strong>Cumin, Coriander, Fennel, and Fenugreek</strong> — machine cleaned, double sortex graded, and lab-certified for global food manufacturers and spice brands.
-              </p>
-            </div>
-
-            {/* Interactive 4-Tab Switcher */}
-            <div className="flex flex-wrap gap-2 sm:gap-3 p-1.5 bg-[var(--brand-cream)] rounded-2xl border border-[rgba(201,168,76,0.3)] mb-10">
-              {CORE_FOUR_SPICES.map((sp, idx) => (
-                <button
-                  key={sp.id}
-                  onClick={() => setActiveFlagshipTab(idx)}
-                  className={`flex-1 min-w-[140px] sm:min-w-[160px] py-3 px-4 rounded-xl text-xs sm:text-sm font-bold transition-all text-center ${
-                    activeFlagshipTab === idx
-                      ? "bg-[var(--brand-forest)] text-white shadow-lg"
-                      : "text-[var(--brand-charcoal)] hover:bg-white/80"
-                  }`}
-                >
-                  {sp.tabLabel}
-                </button>
-              ))}
-            </div>
-
-            {/* Dynamic Spotlight Display */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-[var(--brand-cream)] rounded-3xl p-6 sm:p-10 border border-[rgba(201,168,76,0.35)] shadow-xl">
-              
-              {/* Left Column: Visual Product Box */}
-              <div className="lg:col-span-5 space-y-6">
-                <div className="relative rounded-2xl p-6 sm:p-8 bg-white border border-[rgba(201,168,76,0.3)] text-center shadow-md overflow-hidden">
-                  <div className="absolute top-4 right-4 bg-[var(--brand-forest)] text-white text-[10px] font-bold uppercase px-3 py-1 rounded-full">
-                    {currentFlagship.tag}
-                  </div>
-                  
-                  <img
-                    src={currentFlagship.image}
-                    alt={`${currentFlagship.name} Exporter from India`}
-                    className="w-52 h-52 sm:w-60 sm:h-60 mx-auto object-contain drop-shadow-xl mb-4 jm-float"
-                  />
-                  
-                  <h3 className="text-2xl font-bold text-[var(--brand-charcoal)] jm-display">
-                    {currentFlagship.name}
-                  </h3>
-                  <p className="text-xs text-[var(--brand-sage)] italic mb-4">
-                    {currentFlagship.botanical} · HS: {currentFlagship.hsCode}
-                  </p>
-
-                  {/* FCL Capacity Callout */}
-                  <div className="grid grid-cols-2 gap-2 text-left bg-[var(--brand-cream)] p-3 rounded-xl border border-[rgba(201,168,76,0.3)] text-xs">
-                    <div>
-                      <span className="text-gray-500 block text-[10px]">20ft FCL Container:</span>
-                      <strong className="text-[var(--brand-forest)] font-mono">{currentFlagship.fcl20}</strong>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {FEATURED_PRODUCTS.map((prod) => (
+              <article
+                key={prod.slug}
+                className="jm-card-lift bg-white rounded-2xl border border-[rgba(201,168,76,0.25)] overflow-hidden flex flex-col justify-between shadow-sm group"
+              >
+                <div>
+                  <div className="relative h-48 bg-gradient-to-b from-[var(--brand-cream)] to-white p-4 flex items-center justify-center border-b border-[var(--brand-gold-pale)]">
+                    <img
+                      src={prod.img}
+                      alt={`${prod.name} Exporter India`}
+                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                    <div className="absolute bottom-2 left-2 text-[10px] font-bold px-2 py-0.5 rounded bg-white/90 border border-[rgba(201,168,76,0.3)] text-[var(--brand-forest)]">
+                      {prod.origin.split(",")[0]}
                     </div>
-                    <div>
-                      <span className="text-gray-500 block text-[10px]">40ft FCL Container:</span>
-                      <strong className="text-[var(--brand-forest)] font-mono">{currentFlagship.fcl40}</strong>
+                  </div>
+
+                  <div className="p-5 space-y-2">
+                    <div className="text-[11px] text-[var(--brand-sage)] font-serif italic">
+                      {prod.botanical}
+                    </div>
+                    <h3 className="text-base font-bold text-[var(--brand-charcoal)] jm-display group-hover:text-[var(--brand-forest)] transition-colors">
+                      {prod.name}
+                    </h3>
+                    <div className="bg-[var(--brand-cream)] rounded-lg p-2 text-[11px] font-mono text-[var(--brand-charcoal)] border border-[rgba(201,168,76,0.2)]">
+                      <span className="text-[var(--brand-gold)] font-bold">Spec:</span> {prod.spec}
                     </div>
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="px-5 pb-5 pt-3 border-t border-[var(--brand-gold-pale)] flex items-center justify-between gap-2">
                   <Link
-                    to={`/${currentFlagship.slug}`}
-                    className="flex-1 py-3 px-4 rounded-xl bg-[var(--brand-forest)] text-white text-center font-bold text-xs sm:text-sm hover:bg-[var(--brand-deep-green)] transition-colors shadow-md"
+                    to={`/${prod.slug}`}
+                    className="text-xs font-bold text-[var(--brand-forest)] hover:text-[var(--brand-gold)] inline-flex items-center gap-1"
                   >
-                    View {currentFlagship.tabLabel.split(" ")[0]} Specs
+                    <span>View Specs</span>
+                    <ChevronRight className="h-3 w-3" />
                   </Link>
-                  <Link
-                    to={`/${currentFlagship.powderSlug}`}
-                    className="py-3 px-4 rounded-xl border border-[var(--brand-forest)] text-[var(--brand-forest)] text-center font-bold text-xs sm:text-sm hover:bg-white transition-colors"
-                  >
-                    {currentFlagship.powderName}
-                  </Link>
-                </div>
-              </div>
-
-              {/* Right Column: Global Market Quality Grades */}
-              <div className="lg:col-span-7 space-y-5">
-                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--brand-gold)]">
-                  <ShieldCheck className="h-4 w-4" />
-                  <span>Calibrated Export Standards</span>
-                </div>
-                
-                <h3 className="text-2xl sm:text-3xl font-bold text-[var(--brand-charcoal)] jm-display leading-tight">
-                  {currentFlagship.headline}
-                </h3>
-                
-                <p className="text-xs sm:text-sm text-[var(--brand-forest)] leading-relaxed">
-                  {currentFlagship.description}
-                </p>
-
-                {/* 4 Quality Grades Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
-                  {currentFlagship.grades.map((g) => (
-                    <div
-                      key={g.name}
-                      className="p-4 rounded-xl bg-white border border-[rgba(201,168,76,0.3)] hover:border-[var(--brand-gold)] transition-colors shadow-sm"
-                    >
-                      <div className="font-bold text-sm text-[var(--brand-charcoal)] mb-1">
-                        {g.name}
-                      </div>
-                      <div className="flex items-center gap-2 text-xs text-[var(--brand-forest)] font-mono mb-1.5">
-                        <span>Purity: {g.purity}</span>
-                        <span>•</span>
-                        <span>{g.moisture}</span>
-                      </div>
-                      <p className="text-xs text-[var(--brand-sage)] mb-2">
-                        {g.features}
-                      </p>
-                      <div className="text-[11px] font-semibold text-[var(--brand-gold)]">
-                        Buyer: {g.target}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-[rgba(201,168,76,0.2)]">
-                  <span className="text-xs text-gray-600">
-                    Need customized admixture, moisture, or private label packing?
-                  </span>
                   <a
-                    href={buildWhatsAppUrl(
-                      `Hi JM Masala, I would like to inquire about specifications and commercial rates for ${currentFlagship.name}.`
-                    )}
+                    href={buildWhatsAppUrl(`Hi JM Masala, I would like to inquire about specifications and pricing for ${prod.name}.`)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--brand-forest)] hover:text-[var(--brand-gold)] transition-colors"
+                    className="px-3 py-1.5 rounded-lg bg-[rgba(201,168,76,0.15)] hover:bg-[var(--brand-gold)] text-[var(--brand-deep-green)] hover:text-white font-bold text-xs transition-colors"
                   >
-                    <span>Request Custom Quote on WhatsApp</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
+                    Quick RFQ
                   </a>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              to="/products"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-[var(--brand-forest)] text-white hover:bg-[var(--brand-deep-green)] font-bold text-sm shadow-md transition-all"
+            >
+              <span>View All 25+ Products</span>
+              <ArrowRight className="h-4 w-4 text-[var(--brand-gold-light)]" />
+            </Link>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════════
+            5. FLAGSHIP CUMIN SECTION (CUMIN AUTHORITY)
+        ══════════════════════════════════════════════════════════════════ */}
+        <section className="py-20 bg-gradient-to-b from-[var(--brand-cream)] to-[var(--brand-warm-white)] border-y border-[rgba(201,168,76,0.25)]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              
+              <div className="lg:col-span-7 space-y-6">
+                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
+                  <Award className="h-4 w-4" />
+                  <span>Unjha Mandi Flagship Authority</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display leading-tight">
+                  Indian Cumin — From Source to Global Supply
+                </h2>
+                <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
+                  JM Masala supplies Indian cumin seeds in different grades and processing specifications for international buyers. From sourcing through established Indian markets to cleaning, grading, packaging and export, we work with customers to develop specifications suited to their application and destination market.
+                </p>
+
+                {/* Cumin Flow Diagram */}
+                <div className="p-4 rounded-xl bg-white border border-[rgba(201,168,76,0.3)] shadow-sm">
+                  <div className="text-xs font-bold text-[var(--brand-gold)] uppercase tracking-wider mb-2">
+                    Industrial Processing Sequence:
+                  </div>
+                  <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-[var(--brand-charcoal)]">
+                    <span className="px-2.5 py-1 rounded bg-[var(--brand-cream)]">Sourcing</span>
+                    <span>→</span>
+                    <span className="px-2.5 py-1 rounded bg-[var(--brand-cream)]">Machine Cleaning</span>
+                    <span>→</span>
+                    <span className="px-2.5 py-1 rounded bg-[var(--brand-cream)] text-[var(--brand-forest)] font-bold">Sortex (99.9%)</span>
+                    <span>→</span>
+                    <span className="px-2.5 py-1 rounded bg-[var(--brand-cream)]">Grading</span>
+                    <span>→</span>
+                    <span className="px-2.5 py-1 rounded bg-[var(--brand-cream)]">Quality Control</span>
+                    <span>→</span>
+                    <span className="px-2.5 py-1 rounded bg-[var(--brand-cream)]">Custom Packing</span>
+                    <span>→</span>
+                    <span className="px-2.5 py-1 rounded bg-[var(--brand-forest)] text-white">Export</span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+                  <div className="p-3 rounded-lg bg-white border border-[rgba(201,168,76,0.2)]">
+                    <div className="text-gray-500 font-medium">Europe Grade</div>
+                    <div className="font-bold text-[var(--brand-forest)] mt-0.5">99.5% Sortex</div>
+                  </div>
+                  <div className="p-3 rounded-lg bg-white border border-[rgba(201,168,76,0.2)]">
+                    <div className="text-gray-500 font-medium">USA ASTA</div>
+                    <div className="font-bold text-[var(--brand-forest)] mt-0.5">99.0% Clean</div>
+                  </div>
+                  <div className="p-3 rounded-lg bg-white border border-[rgba(201,168,76,0.2)]">
+                    <div className="text-gray-500 font-medium">Singapore Grade</div>
+                    <div className="font-bold text-[var(--brand-forest)] mt-0.5">99.0% Purity</div>
+                  </div>
+                  <div className="p-3 rounded-lg bg-white border border-[rgba(201,168,76,0.2)]">
+                    <div className="text-gray-500 font-medium">Gulf Quality</div>
+                    <div className="font-bold text-[var(--brand-forest)] mt-0.5">98.5% Machine</div>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-4 pt-2">
+                  <Link
+                    to="/cumin-seeds-exporter-india"
+                    className="px-7 py-3 rounded-xl bg-[var(--brand-forest)] text-white hover:bg-[var(--brand-deep-green)] font-bold text-sm shadow-sm transition-all"
+                  >
+                    Explore Cumin Specifications
+                  </Link>
+                  <Link
+                    to="/best-cumin-exporter-india"
+                    className="px-6 py-3 rounded-xl bg-white border border-[rgba(201,168,76,0.4)] text-[var(--brand-forest)] hover:bg-[var(--brand-gold-pale)] font-semibold text-sm transition-all"
+                  >
+                    Unjha Sourcing Details
+                  </Link>
+                </div>
+              </div>
+
+              <div className="lg:col-span-5">
+                <div className="relative rounded-2xl overflow-hidden shadow-xl border border-[rgba(201,168,76,0.35)] bg-white p-6">
+                  <img
+                    src={cuminImage}
+                    alt="Indian Cumin Seeds Sourcing & Processing"
+                    className="w-full h-72 object-contain"
+                  />
+                  <div className="mt-4 p-4 rounded-xl bg-[var(--brand-cream)] border border-[rgba(201,168,76,0.2)] text-xs text-[var(--brand-forest)] space-y-1.5">
+                    <div className="font-bold text-[var(--brand-charcoal)]">FCL Container Loading Volume:</div>
+                    <div className="flex justify-between"><span>20ft Container (Bagged):</span><span className="font-bold">13.0 - 14.0 Metric Tons</span></div>
+                    <div className="flex justify-between"><span>40ft Container (Bagged):</span><span className="font-bold">26.0 - 28.0 Metric Tons</span></div>
+                    <div className="flex justify-between"><span>Discharge Port Transit:</span><span className="font-bold">4 Hours to Mundra / Kandla</span></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════════
+            6. WHY JM MASALA / DIFFERENTIATORS
+        ══════════════════════════════════════════════════════════════════ */}
+        <section className="py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
+              <ShieldCheck className="h-4 w-4" />
+              <span>Core Differentiators</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display">
+              More Than an Indian Spice Exporter
+            </h2>
+            <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
+              We operate as a full-stack spice partner — combining agricultural origin procurement with precision processing, custom private-label packing, and rigorous export documentation.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <div className="bg-white p-6 rounded-2xl border border-[rgba(201,168,76,0.25)] shadow-sm space-y-3">
+              <div className="w-10 h-10 rounded-lg bg-[var(--brand-cream)] flex items-center justify-center text-[var(--brand-gold)] font-bold text-base font-mono">01</div>
+              <h3 className="text-lg font-bold text-[var(--brand-charcoal)] jm-display">Source</h3>
+              <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
+                Multi-region sourcing across India, including Gujarat (Unjha Mandi, Saurashtra), Rajasthan, North-East India (Meghalaya, Assam), and South Indian plantation belts.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-[rgba(201,168,76,0.25)] shadow-sm space-y-3">
+              <div className="w-10 h-10 rounded-lg bg-[var(--brand-cream)] flex items-center justify-center text-[var(--brand-gold)] font-bold text-base font-mono">02</div>
+              <h3 className="text-lg font-bold text-[var(--brand-charcoal)] jm-display">Process</h3>
+              <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
+                Automated multi-deck pre-cleaning, gravity destoning, high-speed Sortex optical sorting (99.9%), and cryogenic low-temperature powder grinding.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-[rgba(201,168,76,0.25)] shadow-sm space-y-3">
+              <div className="w-10 h-10 rounded-lg bg-[var(--brand-cream)] flex items-center justify-center text-[var(--brand-gold)] font-bold text-base font-mono">03</div>
+              <h3 className="text-lg font-bold text-[var(--brand-charcoal)] jm-display">Customize</h3>
+              <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
+                Physical purity grades, volatile oil retention, calibrated mesh sizes (40-100 mesh), and country-specific microbiological compliance protocols.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-[rgba(201,168,76,0.25)] shadow-sm space-y-3">
+              <div className="w-10 h-10 rounded-lg bg-[var(--brand-cream)] flex items-center justify-center text-[var(--brand-gold)] font-bold text-base font-mono">04</div>
+              <h3 className="text-lg font-bold text-[var(--brand-charcoal)] jm-display">Pack</h3>
+              <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
+                Bulk export packaging (25kg/50kg PP, Jute, multi-wall paper), institutional totes, and customized retail stand-up zipper pouches (100g to 1kg).
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-[rgba(201,168,76,0.25)] shadow-sm space-y-3">
+              <div className="w-10 h-10 rounded-lg bg-[var(--brand-cream)] flex items-center justify-center text-[var(--brand-gold)] font-bold text-base font-mono">05</div>
+              <h3 className="text-lg font-bold text-[var(--brand-charcoal)] jm-display">Export</h3>
+              <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
+                Full documentation: Phytosanitary Certificate, fumigation, NABL COA, APEDA, Certificate of Origin, and container stuffing 4 hours from Mundra Port.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════════
+            7. SOURCING SECTION (MULTI-REGION SOURCING NETWORK)
+        ══════════════════════════════════════════════════════════════════ */}
+        <section className="py-20 bg-gradient-to-b from-[var(--brand-cream)] to-[var(--brand-warm-white)] border-t border-[rgba(201,168,76,0.25)]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
+                <MapPin className="h-4 w-4" />
+                <span>Multi-Region Procurement</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display">
+                Sourced Across India's Agricultural Regions
+              </h2>
+              <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
+                India's agricultural diversity gives buyers access to different products, varieties and regional characteristics. JM Masala develops sourcing relationships across relevant producing regions to identify products according to quality, seasonality, availability and customer requirements.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              
+              {/* Hub 1: Gujarat */}
+              <div className="bg-white rounded-2xl p-6 sm:p-7 border border-[rgba(201,168,76,0.3)] shadow-sm space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[var(--brand-gold)]">Primary Seed Spice Hub</span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-[var(--brand-gold)]" />
+                </div>
+                <h3 className="text-xl font-bold text-[var(--brand-charcoal)] jm-display">Gujarat &amp; Rajasthan</h3>
+                <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
+                  Asia's largest seed spice mandi at Unjha. Direct farmer linkages, mandi floor inspection, and continuous harvest procurement.
+                </p>
+                <div className="pt-2 border-t border-gray-100 flex flex-wrap gap-1.5">
+                  {["Cumin", "Fennel", "Fenugreek", "Ajwain", "Mustard", "Psyllium", "Sesame"].map((item) => (
+                    <span key={item} className="px-2 py-0.5 rounded text-[11px] bg-[var(--brand-cream)] text-[var(--brand-charcoal)] font-medium">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Hub 2: North-East India */}
+              <div className="bg-white rounded-2xl p-6 sm:p-7 border border-[rgba(230,126,34,0.3)] shadow-sm space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#E67E22]">High-Potency Specialty Hub</span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#E67E22]" />
+                </div>
+                <h3 className="text-xl font-bold text-[var(--brand-charcoal)] jm-display">North-East India</h3>
+                <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
+                  Meghalaya and Assam tribal farmer cooperative linkages. World-famous for pristine high-curcumin Lakadong turmeric and sun-dried organic ginger.
+                </p>
+                <div className="pt-2 border-t border-gray-100 flex flex-wrap gap-1.5">
+                  {["Lakadong Turmeric (7-9% Curcumin)", "Organic Dry Ginger", "Bird's Eye Chilli", "Wild Black Pepper"].map((item) => (
+                    <span key={item} className="px-2 py-0.5 rounded text-[11px] bg-orange-50 text-orange-800 font-medium">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Hub 3: South India */}
+              <div className="bg-white rounded-2xl p-6 sm:p-7 border border-[rgba(76,175,80,0.3)] shadow-sm space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#4CAF50]">Plantation Spices</span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#4CAF50]" />
+                </div>
+                <h3 className="text-xl font-bold text-[var(--brand-charcoal)] jm-display">South India &amp; Coast</h3>
+                <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
+                  Direct plantation sourcing across Kerala, Andhra Pradesh, and Tamil Nadu estates for pungent chillies and whole spices.
+                </p>
+                <div className="pt-2 border-t border-gray-100 flex flex-wrap gap-1.5">
+                  {["Tellicherry Black Pepper", "Alleppey Green Cardamom", "Guntur Red Chilli", "Curry Leaves"].map((item) => (
+                    <span key={item} className="px-2 py-0.5 rounded text-[11px] bg-emerald-50 text-emerald-800 font-medium">
+                      {item}
+                    </span>
+                  ))}
                 </div>
               </div>
 
             </div>
 
+            <div className="text-center mt-10">
+              <Link
+                to="/sourcing-network"
+                className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-[var(--brand-forest)] text-white hover:bg-[var(--brand-deep-green)] font-bold text-sm shadow-sm transition-all"
+              >
+                <span>Explore Our Sourcing Network</span>
+                <ArrowRight className="h-4 w-4 text-[var(--brand-gold-light)]" />
+              </Link>
+            </div>
           </div>
         </section>
 
         {/* ══════════════════════════════════════════════════════════════════
-            5. MASTER PRODUCT SHOWCASE (ALL PRODUCTS ACCESSIBLE)
+            8. PROCESSING SECTION (HORIZONTAL TIMELINE)
         ══════════════════════════════════════════════════════════════════ */}
-        <section id="product-showcase" className="py-20 lg:py-28 bg-[var(--brand-warm-white)] scroll-mt-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            {/* Section Header */}
-            <div className="max-w-3xl mb-12">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)] mb-2">
-                <Sparkles className="h-3.5 w-3.5" />
-                <span>Full Product Catalog</span>
+        <section className="py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
+              <Factory className="h-4 w-4" />
+              <span>Plant Capabilities</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display">
+              From Raw Product to Export-Ready Specification
+            </h2>
+            <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
+              Our processing approach enables JM Masala to supply products for bulk commodity buyers, food manufacturers, spice companies, private-label brands and retail businesses.
+            </p>
+          </div>
+
+          {/* Horizontal Process Steps */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-9 gap-3 text-center">
+            {[
+              { step: "01", label: "SOURCE", sub: "Mandi Intake" },
+              { step: "02", label: "INSPECT", sub: "Physical QC" },
+              { step: "03", label: "CLEAN", sub: "Pre-Screening" },
+              { step: "04", label: "DESTONE", sub: "Gravity Sep." },
+              { step: "05", label: "GRADE", sub: "Size Sieving" },
+              { step: "06", label: "SORTEX", sub: "Optical 99.9%" },
+              { step: "07", label: "PROCESS", sub: "Cold Grinding" },
+              { step: "08", label: "QUALITY", sub: "NABL Lab COA" },
+              { step: "09", label: "PACK", sub: "Export Loading" },
+            ].map((p) => (
+              <div
+                key={p.step}
+                className="p-3.5 rounded-xl bg-white border border-[rgba(201,168,76,0.25)] shadow-sm hover:border-[var(--brand-gold)] transition-colors"
+              >
+                <div className="text-xs font-mono font-black text-[var(--brand-gold)]">{p.step}</div>
+                <div className="text-xs font-bold text-[var(--brand-charcoal)] mt-1">{p.label}</div>
+                <div className="text-[10px] text-gray-500 mt-0.5">{p.sub}</div>
               </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--brand-charcoal)] jm-display mb-4">
-                Whole Spices, Pure Powders &amp; Agro Commodities
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              to="/spice-processing-manufacturing"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-[var(--brand-forest)] text-white hover:bg-[var(--brand-deep-green)] font-bold text-sm shadow-sm transition-all"
+            >
+              <span>Explore Processing Plant</span>
+              <ArrowRight className="h-4 w-4 text-[var(--brand-gold-light)]" />
+            </Link>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════════
+            9. PRIVATE LABEL SECTION
+        ══════════════════════════════════════════════════════════════════ */}
+        <section className="py-20 bg-gradient-to-b from-[var(--brand-warm-white)] to-[var(--brand-cream)] border-y border-[rgba(201,168,76,0.25)]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              
+              <div className="lg:col-span-7 space-y-6">
+                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
+                  <Award className="h-4 w-4" />
+                  <span>Turnkey OEM Manufacturing</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display leading-tight">
+                  Build Your Spice Brand with JM Masala
+                </h2>
+                <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
+                  From product sourcing and processing to customized packaging and export, JM Masala can support businesses developing their own spice products under a private-label brand.
+                </p>
+
+                {/* Journey Timeline */}
+                <div className="p-4 rounded-xl bg-white border border-[rgba(201,168,76,0.3)] shadow-sm">
+                  <div className="text-xs font-bold text-[var(--brand-gold)] uppercase tracking-wider mb-2">
+                    Turnkey Private Label Journey:
+                  </div>
+                  <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-[var(--brand-charcoal)]">
+                    <span className="px-2.5 py-1 rounded bg-[var(--brand-gold)] text-[var(--brand-deep-green)] font-bold">Your Brand</span>
+                    <span>→</span>
+                    <span className="px-2.5 py-1 rounded bg-[var(--brand-cream)]">Our Sourcing</span>
+                    <span>→</span>
+                    <span className="px-2.5 py-1 rounded bg-[var(--brand-cream)]">Processing</span>
+                    <span>→</span>
+                    <span className="px-2.5 py-1 rounded bg-[var(--brand-cream)]">Packaging</span>
+                    <span>→</span>
+                    <span className="px-2.5 py-1 rounded bg-[var(--brand-cream)]">Retail-Ready</span>
+                    <span>→</span>
+                    <span className="px-2.5 py-1 rounded bg-[var(--brand-forest)] text-white">Global Export</span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
+                  <div className="p-3 rounded-lg bg-white border border-[rgba(201,168,76,0.2)]">
+                    <div className="font-bold text-[var(--brand-forest)]">Flexible MOQs</div>
+                    <div className="text-gray-500 text-[11px] mt-0.5">Low barrier SKU testing</div>
+                  </div>
+                  <div className="p-3 rounded-lg bg-white border border-[rgba(201,168,76,0.2)]">
+                    <div className="font-bold text-[var(--brand-forest)]">Custom Branding</div>
+                    <div className="text-gray-500 text-[11px] mt-0.5">Pouches, jars, tins &amp; boxes</div>
+                  </div>
+                  <div className="p-3 rounded-lg bg-white border border-[rgba(201,168,76,0.2)]">
+                    <div className="font-bold text-[var(--brand-forest)]">Compliance Ready</div>
+                    <div className="text-gray-500 text-[11px] mt-0.5">Barcodes &amp; nutrition panels</div>
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <Link
+                    to="/private-label-spices"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[var(--brand-forest)] text-white hover:bg-[var(--brand-deep-green)] font-bold text-sm shadow-md transition-all"
+                  >
+                    <span>Explore Private Label Program</span>
+                    <ArrowRight className="h-4 w-4 text-[var(--brand-gold-light)]" />
+                  </Link>
+                </div>
+              </div>
+
+              <div className="lg:col-span-5 bg-white p-7 rounded-2xl border border-[rgba(201,168,76,0.3)] shadow-lg space-y-4">
+                <h3 className="text-lg font-bold text-[var(--brand-charcoal)] jm-display">
+                  Supported Packaging Formats
+                </h3>
+                <div className="space-y-2.5 text-xs text-[var(--brand-forest)]">
+                  <div className="flex items-center justify-between p-2.5 rounded-lg bg-[var(--brand-cream)]">
+                    <span className="font-semibold">Stand-up Zipper Pouches:</span>
+                    <span className="font-mono text-[var(--brand-gold)] font-bold">100g, 200g, 500g, 1kg</span>
+                  </div>
+                  <div className="flex items-center justify-between p-2.5 rounded-lg bg-[var(--brand-cream)]">
+                    <span className="font-semibold">Pillow Packs &amp; Sachets:</span>
+                    <span className="font-mono text-[var(--brand-gold)] font-bold">50g, 100g, 250g</span>
+                  </div>
+                  <div className="flex items-center justify-between p-2.5 rounded-lg bg-[var(--brand-cream)]">
+                    <span className="font-semibold">PET Jars &amp; Spice Shakers:</span>
+                    <span className="font-mono text-[var(--brand-gold)] font-bold">100g, 200g, 400g</span>
+                  </div>
+                  <div className="flex items-center justify-between p-2.5 rounded-lg bg-[var(--brand-cream)]">
+                    <span className="font-semibold">Institutional Bulk Sacks:</span>
+                    <span className="font-mono text-[var(--brand-gold)] font-bold">5kg, 10kg, 25kg, 50kg</span>
+                  </div>
+                </div>
+                <Link
+                  to="/spice-packaging"
+                  className="block text-center py-2.5 rounded-lg border border-[rgba(201,168,76,0.4)] hover:bg-[var(--brand-gold-pale)] text-[var(--brand-forest)] font-bold text-xs transition-colors"
+                >
+                  View Full Packaging Catalogue →
+                </Link>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════════
+            10. RETAIL SECTION
+        ══════════════════════════════════════════════════════════════════ */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
+              <Package className="h-4 w-4" />
+              <span>Shelf-Ready Excellence</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display">
+              Retail-Ready Indian Spices
+            </h2>
+            <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
+              We support retail-oriented requirements with product selection, processing, packaging and private-label solutions designed around the customer's target market.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto text-center">
+            <div className="p-5 rounded-xl bg-white border border-[rgba(201,168,76,0.25)] shadow-sm">
+              <div className="text-2xl font-bold text-[var(--brand-gold)] font-mono">100g</div>
+              <div className="text-xs font-semibold text-[var(--brand-charcoal)] mt-1">Trial / Retail Sachet</div>
+              <div className="text-[10px] text-gray-500 mt-0.5">High Turn Repacking</div>
+            </div>
+            <div className="p-5 rounded-xl bg-white border border-[rgba(201,168,76,0.25)] shadow-sm">
+              <div className="text-2xl font-bold text-[var(--brand-gold)] font-mono">250g</div>
+              <div className="text-xs font-semibold text-[var(--brand-charcoal)] mt-1">Supermarket Standup</div>
+              <div className="text-[10px] text-gray-500 mt-0.5">Zipper Window Pouch</div>
+            </div>
+            <div className="p-5 rounded-xl bg-white border border-[rgba(201,168,76,0.25)] shadow-sm">
+              <div className="text-2xl font-bold text-[var(--brand-gold)] font-mono">500g</div>
+              <div className="text-xs font-semibold text-[var(--brand-charcoal)] mt-1">Family Consumer Pack</div>
+              <div className="text-[10px] text-gray-500 mt-0.5">Pillow / Window Pouch</div>
+            </div>
+            <div className="p-5 rounded-xl bg-white border border-[rgba(201,168,76,0.25)] shadow-sm">
+              <div className="text-2xl font-bold text-[var(--brand-gold)] font-mono">1kg</div>
+              <div className="text-xs font-semibold text-[var(--brand-charcoal)] mt-1">Chef &amp; Bulk Retail</div>
+              <div className="text-[10px] text-gray-500 mt-0.5">Resealable Heavy Duty</div>
+            </div>
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              to="/spice-packaging"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-[var(--brand-forest)] text-white hover:bg-[var(--brand-deep-green)] font-bold text-sm shadow-sm transition-all"
+            >
+              <span>Retail Packaging Solutions</span>
+              <ArrowRight className="h-4 w-4 text-[var(--brand-gold-light)]" />
+            </Link>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════════
+            11. QUALITY SECTION
+        ══════════════════════════════════════════════════════════════════ */}
+        <section className="py-20 bg-gradient-to-b from-[var(--brand-cream)] to-[var(--brand-warm-white)] border-y border-[rgba(201,168,76,0.25)]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
+                <FileCheck className="h-4 w-4" />
+                <span>Food Safety Standard</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display">
+                Quality Begins at the Source
               </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-[var(--brand-gold)] to-[var(--brand-gold-light)] rounded mb-4" />
-              <p className="text-base text-[var(--brand-forest)] leading-relaxed">
-                Directly sourced from Unjha APMC mandi and premier Indian spice belts. Graded with multi-deck vibro-separators and optical sortex technology to guarantee zero foreign matter and maximum essential oil retention.
+              <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
+                Specifications can be established according to product, application and destination-market requirements.
               </p>
             </div>
 
-            {/* Interactive Filter Tabs & Search Bar */}
-            <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-10 pb-6 border-b border-[rgba(201,168,76,0.3)]">
-              
-              {/* Category Buttons */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white p-7 rounded-2xl border border-[rgba(201,168,76,0.25)] shadow-sm space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-[var(--brand-cream)] flex items-center justify-center text-[var(--brand-gold)]">
+                  <MapPin className="h-5 w-5" />
+                </div>
+                <h3 className="text-xl font-bold text-[var(--brand-charcoal)] jm-display">1. Sourcing</h3>
+                <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
+                  Product and origin selection directly from farmers and certified mandis with strict moisture meters and varietal purity checks before inward clearance.
+                </p>
+              </div>
+
+              <div className="bg-white p-7 rounded-2xl border border-[rgba(201,168,76,0.25)] shadow-sm space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-[var(--brand-cream)] flex items-center justify-center text-[var(--brand-gold)]">
+                  <Factory className="h-5 w-5" />
+                </div>
+                <h3 className="text-xl font-bold text-[var(--brand-charcoal)] jm-display">2. Processing</h3>
+                <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
+                  Mechanical cleaning, precision gravity destoning, and high-resolution Sortex optical color sorting (99.5% to 99.9% purity) with magnetic separation.
+                </p>
+              </div>
+
+              <div className="bg-white p-7 rounded-2xl border border-[rgba(201,168,76,0.25)] shadow-sm space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-[var(--brand-cream)] flex items-center justify-center text-[var(--brand-gold)]">
+                  <FileCheck className="h-5 w-5" />
+                </div>
+                <h3 className="text-xl font-bold text-[var(--brand-charcoal)] jm-display">3. Testing</h3>
+                <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
+                  NABL accredited laboratory COAs issued per container lot: chemical analysis (moisture, volatile oil, ash), food safety (pesticides, ETO, aflatoxins), and microbial limits.
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center mt-10">
+              <Link
+                to="/quality-certifications"
+                className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-[var(--brand-forest)] text-white hover:bg-[var(--brand-deep-green)] font-bold text-sm shadow-sm transition-all"
+              >
+                <span>Quality &amp; Testing Protocols</span>
+                <ArrowRight className="h-4 w-4 text-[var(--brand-gold-light)]" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════════
+            12. SUPPLY MODELS (TABLE MATRIX)
+        ══════════════════════════════════════════════════════════════════ */}
+        <section className="py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
+              <Scale className="h-4 w-4" />
+              <span>Commercial Versatility</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display">
+              One Supplier. Multiple Supply Models.
+            </h2>
+            <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
+              We structure commercial supply agreements to match your exact business model, volume requirements, and destination logistics.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl border border-[rgba(201,168,76,0.3)] shadow-sm overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse text-xs sm:text-sm">
+                <thead>
+                  <tr className="bg-[var(--brand-cream)] border-b border-[rgba(201,168,76,0.3)] text-[var(--brand-charcoal)] font-bold">
+                    <th className="py-4 px-6">Requirement / Buyer Profile</th>
+                    <th className="py-4 px-6">Target Application</th>
+                    <th className="py-4 px-6">JM Masala Solution</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {SUPPLY_MODELS.map((item, idx) => (
+                    <tr key={idx} className="hover:bg-[var(--brand-cream)]/30 transition-colors">
+                      <td className="py-4 px-6 font-bold text-[var(--brand-forest)]">
+                        {item.model}
+                      </td>
+                      <td className="py-4 px-6 text-gray-600 font-medium">
+                        {item.bestFor}
+                      </td>
+                      <td className="py-4 px-6 text-[var(--brand-charcoal)]">
+                        {item.jmSolution}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════════
+            13. PRODUCT PORTFOLIO CATEGORY EXPLORER
+        ══════════════════════════════════════════════════════════════════ */}
+        <section className="py-20 bg-[var(--brand-cream)] border-y border-[rgba(201,168,76,0.25)]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+              <div>
+                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)] mb-1">
+                  <Package className="h-4 w-4" />
+                  <span>Comprehensive Portfolio</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display">
+                  Explore by Product Category
+                </h2>
+              </div>
+
+              {/* Category Filter Tabs */}
               <div className="flex flex-wrap gap-2">
                 {[
                   { id: "star", label: "★ Star Flagships" },
-                  { id: "whole", label: "Whole Spices (Sortex)" },
+                  { id: "whole", label: "Whole Spices" },
                   { id: "powders", label: "Pure Ground Powders" },
-                  { id: "agro", label: "Agro & Psyllium" },
+                  { id: "agro", label: "Seeds & Agro" },
                   { id: "all", label: "All 23+ Products" },
                 ].map((tab) => (
                   <button
                     key={tab.id}
                     onClick={() => setActiveCategory(tab.id)}
-                    className={`jm-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+                    className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
                       activeCategory === tab.id
-                        ? "active"
+                        ? "bg-[var(--brand-forest)] text-white shadow-sm"
                         : "bg-white text-[var(--brand-forest)] hover:bg-[var(--brand-gold-pale)] border border-[rgba(201,168,76,0.25)]"
                     }`}
                   >
@@ -1066,868 +1249,391 @@ Please share current FOB/CIF pricing and COA technical specification.`;
                   </button>
                 ))}
               </div>
-
-              {/* Live Search */}
-              <div className="relative min-w-[260px] sm:min-w-[300px]">
-                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--brand-sage)]" />
-                <input
-                  type="text"
-                  placeholder="Search spice by name (e.g. Cumin, Coriander, Turmeric...)"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 rounded-xl bg-white border border-[rgba(201,168,76,0.3)] text-xs sm:text-sm text-[var(--brand-charcoal)] placeholder:text-gray-400 focus:outline-none focus:border-[var(--brand-gold)] shadow-sm"
-                />
-                {searchQuery && (
-                  <button
-                    onClick={() => setSearchQuery("")}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-400 hover:text-gray-700"
-                  >
-                    Clear
-                  </button>
-                )}
-              </div>
-
             </div>
 
             {/* Product Grid */}
-            {filteredProducts.length === 0 ? (
-              <div className="text-center py-16 bg-white rounded-2xl border border-[var(--brand-gold-pale)] p-8">
-                <p className="text-base text-[var(--brand-forest)] mb-4">
-                  No products found matching "{searchQuery}".
-                </p>
-                <button
-                  onClick={() => {
-                    setSearchQuery("");
-                    setActiveCategory("all");
-                  }}
-                  className="px-5 py-2.5 rounded-lg bg-[var(--brand-forest)] text-white text-xs font-semibold"
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {filteredProducts.slice(0, 8).map((p) => (
+                <article
+                  key={p.slug}
+                  className="bg-white rounded-xl p-4 border border-[rgba(201,168,76,0.25)] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
                 >
-                  Reset Product Filters
-                </button>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {filteredProducts.map((product) => (
-                  <article
-                    key={product.slug}
-                    className="jm-card-lift bg-white rounded-2xl border border-[rgba(201,168,76,0.25)] overflow-hidden flex flex-col justify-between shadow-sm group"
-                  >
-                    <div>
-                      {/* Image Area */}
-                      <div className="relative h-48 bg-gradient-to-b from-[var(--brand-cream)] to-[var(--brand-warm-white)] p-4 flex items-center justify-center overflow-hidden border-b border-[var(--brand-gold-pale)]">
-                        <div className="absolute top-3 left-3 z-10">
-                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-sm border border-[rgba(201,168,76,0.4)] text-[10px] font-semibold text-[var(--brand-forest)]">
-                            <MapPin className="h-2.5 w-2.5 text-[var(--brand-gold)]" />
-                            {product.origin.split(",")[0]}
-                          </span>
-                        </div>
-
-                        <div className="absolute top-3 right-3 z-10">
-                          <span className="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded bg-[var(--brand-forest)] text-white">
-                            {product.category}
-                          </span>
-                        </div>
-
-                        <img
-                          src={product.imageUrl}
-                          alt={`${product.name} Exporter from India`}
-                          className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </div>
-
-                      {/* Content Area */}
-                      <div className="p-5">
-                        <div className="text-[11px] text-[var(--brand-sage)] font-serif italic mb-1">
-                          {product.botanicalName}
-                        </div>
-                        <h3 className="text-base font-bold text-[var(--brand-charcoal)] jm-display group-hover:text-[var(--brand-forest)] transition-colors mb-2 line-clamp-1">
-                          {product.name}
-                        </h3>
-                        <p className="text-xs text-[var(--brand-forest)] leading-relaxed mb-3 line-clamp-2">
-                          {product.shortDescription}
-                        </p>
-
-                        <div className="bg-[var(--brand-cream)] rounded-lg p-2.5 border border-[rgba(201,168,76,0.2)] text-[11px] font-mono text-[var(--brand-charcoal)] mb-4">
-                          <span className="text-[var(--brand-gold)] font-bold">Spec:</span> {product.keySpec}
-                        </div>
-                      </div>
+                  <div>
+                    <div className="h-40 bg-[var(--brand-warm-white)] rounded-lg p-3 flex items-center justify-center mb-3">
+                      <img
+                        src={p.imageUrl}
+                        alt={p.name}
+                        className="max-h-full max-w-full object-contain"
+                        loading="lazy"
+                      />
                     </div>
+                    <div className="text-[10px] text-gray-500 font-serif italic">{p.botanicalName}</div>
+                    <h3 className="text-sm font-bold text-[var(--brand-charcoal)] jm-display mt-0.5">{p.name}</h3>
+                    <p className="text-[11px] text-[var(--brand-forest)] mt-1 line-clamp-2">{p.shortDescription}</p>
+                  </div>
+                  <div className="pt-3 mt-3 border-t border-gray-100 flex items-center justify-between">
+                    <Link to={`/${p.slug}`} className="text-xs font-bold text-[var(--brand-forest)] hover:text-[var(--brand-gold)]">
+                      View Specs →
+                    </Link>
+                    <span className="text-[10px] font-mono text-gray-500">{p.origin.split(",")[0]}</span>
+                  </div>
+                </article>
+              ))}
+            </div>
 
-                    {/* Card Actions */}
-                    <div className="px-5 pb-5 pt-0 flex items-center justify-between gap-2 border-t border-[var(--brand-gold-pale)] pt-3 mt-auto">
-                      <Link
-                        to={`/${product.slug}`}
-                        className="text-xs font-bold text-[var(--brand-forest)] hover:text-[var(--brand-gold)] inline-flex items-center gap-1 transition-colors"
-                      >
-                        <span>Specifications</span>
-                        <ChevronRight className="h-3 w-3" />
-                      </Link>
-
-                      <a
-                        href={buildWhatsAppUrl(
-                          `Hi JM Masala, I would like to inquire about specifications and pricing for ${product.name}.`
-                        )}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-3 py-1.5 rounded-lg bg-[rgba(201,168,76,0.15)] hover:bg-[var(--brand-gold)] text-[var(--brand-deep-green)] hover:text-white font-bold text-xs transition-colors"
-                      >
-                        Quick RFQ
-                      </a>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            )}
-
-            {/* Cold Pressed Oils Banner (White in Color) */}
-            <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-white border border-[rgba(201,168,76,0.35)] text-[var(--brand-charcoal)] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md hover:shadow-lg transition-shadow">
-              <div className="space-y-1.5 text-center sm:text-left">
-                <div className="text-xs font-bold uppercase tracking-wider text-[var(--brand-gold)]">
-                  Virgin Cold Pressed Oils Available
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold jm-display text-[var(--brand-charcoal)]">
-                  Looking for Wood Pressed Cooking Oils &amp; Seeds?
+            {/* Cold Pressed Oils Highlight Card */}
+            <div className="mt-12 p-6 rounded-2xl bg-white border border-[rgba(201,168,76,0.35)] shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
+              <div className="space-y-1 text-center sm:text-left">
+                <div className="text-xs font-bold uppercase tracking-wider text-[var(--brand-gold)]">Dedicated Oil Sourcing</div>
+                <h3 className="text-xl font-bold text-[var(--brand-charcoal)] jm-display">
+                  Looking for Cold Pressed Cooking Oils?
                 </h3>
-                <p className="text-xs sm:text-sm text-[var(--brand-forest)] max-w-xl leading-relaxed">
-                  We also process and export 100% natural, chemical-free cold pressed groundnut, sesame, and mustard oils for retail and bulk distribution.
+                <p className="text-xs sm:text-sm text-[var(--brand-forest)]">
+                  100% pure virgin wood pressed mustard oil, sesame oil, and groundnut oil in retail and bulk drums.
                 </p>
               </div>
               <Link
                 to="/cold-pressed-oils"
-                className="shrink-0 px-6 py-3 rounded-xl bg-[var(--brand-forest)] text-white hover:bg-[var(--brand-deep-green)] font-bold text-xs sm:text-sm transition-colors shadow-sm flex items-center gap-2"
+                className="shrink-0 px-6 py-3 rounded-xl bg-[var(--brand-forest)] text-white hover:bg-[var(--brand-deep-green)] font-bold text-xs sm:text-sm transition-colors shadow-sm"
               >
-                <span>Explore Cold Pressed Oils</span>
+                Explore Cold Pressed Oils →
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════════
+            14. GLOBAL MARKETS
+        ══════════════════════════════════════════════════════════════════ */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
+              <Globe2 className="h-4 w-4" />
+              <span>Worldwide Footprint</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display">
+              Supplying Indian Products to Global Markets
+            </h2>
+            <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
+              We work with international importers, distributors, wholesalers, food manufacturers, spice companies, retailers and private-label businesses across key commercial territories.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
+            <div className="p-4 rounded-xl bg-white border border-[rgba(201,168,76,0.25)] shadow-sm">
+              <div className="text-2xl mb-1">🇦🇪 🇸🇦</div>
+              <div className="text-xs font-bold text-[var(--brand-charcoal)]">Middle East &amp; Gulf</div>
+              <div className="text-[10px] text-gray-500 mt-0.5">UAE, Saudi, Oman</div>
+            </div>
+            <div className="p-4 rounded-xl bg-white border border-[rgba(201,168,76,0.25)] shadow-sm">
+              <div className="text-2xl mb-1">🇧🇩 🇱🇰</div>
+              <div className="text-xs font-bold text-[var(--brand-charcoal)]">South Asia</div>
+              <div className="text-[10px] text-gray-500 mt-0.5">Bangladesh, Sri Lanka</div>
+            </div>
+            <div className="p-4 rounded-xl bg-white border border-[rgba(201,168,76,0.25)] shadow-sm">
+              <div className="text-2xl mb-1">🇬🇧 🇩🇪</div>
+              <div className="text-xs font-bold text-[var(--brand-charcoal)]">Europe &amp; UK</div>
+              <div className="text-[10px] text-gray-500 mt-0.5">Germany, Netherlands</div>
+            </div>
+            <div className="p-4 rounded-xl bg-white border border-[rgba(201,168,76,0.25)] shadow-sm">
+              <div className="text-2xl mb-1">🇨🇦 🇺🇸</div>
+              <div className="text-xs font-bold text-[var(--brand-charcoal)]">North America</div>
+              <div className="text-[10px] text-gray-500 mt-0.5">Canada, USA (ASTA)</div>
+            </div>
+            <div className="p-4 rounded-xl bg-white border border-[rgba(201,168,76,0.25)] shadow-sm">
+              <div className="text-2xl mb-1">🇦🇺 🇳🇿</div>
+              <div className="text-xs font-bold text-[var(--brand-charcoal)]">Oceania</div>
+              <div className="text-[10px] text-gray-500 mt-0.5">Australia, New Zealand</div>
+            </div>
+            <div className="p-4 rounded-xl bg-white border border-[rgba(201,168,76,0.25)] shadow-sm">
+              <div className="text-2xl mb-1">🇸🇬 🇲🇾</div>
+              <div className="text-xs font-bold text-[var(--brand-charcoal)]">Southeast Asia</div>
+              <div className="text-[10px] text-gray-500 mt-0.5">Singapore, Malaysia</div>
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════════
+            15. KNOWLEDGE CENTER
+        ══════════════════════════════════════════════════════════════════ */}
+        <section className="py-20 bg-gradient-to-b from-[var(--brand-warm-white)] to-[var(--brand-cream)] border-t border-[rgba(201,168,76,0.25)]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
+                <FileText className="h-4 w-4" />
+                <span>Topical Authority</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display">
+                Indian Spice Knowledge Center
+              </h2>
+              <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
+                Objective technical resources and commercial guides answering the real-world operational questions of international spice importers.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {KNOWLEDGE_ARTICLES.map((art, idx) => (
+                <article
+                  key={idx}
+                  className="bg-white p-6 rounded-2xl border border-[rgba(201,168,76,0.25)] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+                >
+                  <div className="space-y-2.5">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-[var(--brand-gold)]">
+                      Buyer Technical Resource
+                    </div>
+                    <h3 className="text-base font-bold text-[var(--brand-charcoal)] jm-display leading-snug">
+                      {art.title}
+                    </h3>
+                    <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
+                      {art.desc}
+                    </p>
+                  </div>
+                  <div className="pt-4 mt-4 border-t border-gray-100">
+                    <Link
+                      to="/blog"
+                      className="text-xs font-bold text-[var(--brand-forest)] hover:text-[var(--brand-gold)] inline-flex items-center gap-1"
+                    >
+                      <span>Read Full Guide</span>
+                      <ChevronRight className="h-3 w-3" />
+                    </Link>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <div className="text-center mt-10">
+              <Link
+                to="/blog"
+                className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-[var(--brand-forest)] text-white hover:bg-[var(--brand-deep-green)] font-bold text-sm shadow-sm transition-all"
+              >
+                <span>Visit Knowledge Center</span>
                 <ArrowRight className="h-4 w-4 text-[var(--brand-gold-light)]" />
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════════
+            16. ABOUT / COMPANY TRUST
+        ══════════════════════════════════════════════════════════════════ */}
+        <section className="py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            <div className="lg:col-span-5 relative">
+              <img
+                src={aboutImage}
+                alt="JM Masala Spice Processing Facility"
+                className="w-full h-80 sm:h-96 object-cover rounded-2xl shadow-xl border border-[rgba(201,168,76,0.3)]"
+              />
+              <div className="absolute -bottom-4 -right-4 bg-[var(--brand-forest)] text-white px-5 py-3 rounded-xl shadow-lg border border-[rgba(201,168,76,0.4)]">
+                <div className="text-xs font-bold text-[var(--brand-gold-light)]">Established Heritage</div>
+                <div className="text-sm font-black jm-display">Three Generations in Unjha</div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
+                <Building2 className="h-4 w-4" />
+                <span>Company Credibility</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display leading-tight">
+                JM Masala Trading LLP — Indian Manufacturer • Processor • Exporter
+              </h2>
+              <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
+                Rooted directly in Unjha, Gujarat — Asia's premier spice capital — JM Masala combines three generations of mandi trading insight with modern Sortex optical cleaning, temperature-controlled grinding, and standardized export packing.
+              </p>
+              <p className="text-xs sm:text-sm text-[var(--brand-forest)] leading-relaxed">
+                We maintain registered licenses with APEDA, the Spices Board of India, FSSAI, and operate under ISO 22000 and HACCP certified food safety management protocols.
+              </p>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+                <div className="p-3 rounded-lg bg-[var(--brand-cream)] border border-[rgba(201,168,76,0.2)]">
+                  <div className="text-[10px] text-gray-500 uppercase font-semibold">Location</div>
+                  <div className="text-xs font-bold text-[var(--brand-charcoal)] mt-0.5">Unjha APMC Yard</div>
+                </div>
+                <div className="p-3 rounded-lg bg-[var(--brand-cream)] border border-[rgba(201,168,76,0.2)]">
+                  <div className="text-[10px] text-gray-500 uppercase font-semibold">Port Transit</div>
+                  <div className="text-xs font-bold text-[var(--brand-charcoal)] mt-0.5">Mundra Port (4 Hrs)</div>
+                </div>
+                <div className="p-3 rounded-lg bg-[var(--brand-cream)] border border-[rgba(201,168,76,0.2)]">
+                  <div className="text-[10px] text-gray-500 uppercase font-semibold">Certifications</div>
+                  <div className="text-xs font-bold text-[var(--brand-charcoal)] mt-0.5">ISO 22000 · HACCP</div>
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <Link
+                  to="/about-jm-masala"
+                  className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-[var(--brand-forest)] text-white hover:bg-[var(--brand-deep-green)] font-bold text-sm shadow-sm transition-all"
+                >
+                  <span>About JM Masala</span>
+                  <ArrowRight className="h-4 w-4 text-[var(--brand-gold-light)]" />
+                </Link>
+              </div>
             </div>
 
           </div>
         </section>
 
         {/* ══════════════════════════════════════════════════════════════════
-            6. INTERACTIVE B2B RFQ / QUOTE CALCULATOR WIDGET
+            17. FINAL B2B RFQ / INQUIRY FORM
         ══════════════════════════════════════════════════════════════════ */}
-        <section className="py-20 lg:py-24 bg-gradient-to-b from-[var(--brand-warm-white)] to-[var(--brand-cream)] border-b border-[var(--brand-gold-pale)]">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)] mb-2">
-                <Zap className="h-4 w-4" />
-                <span>Instant Commercial Quotation</span>
+        <section id="inquiry-rfq" className="py-20 lg:py-24 bg-gradient-to-b from-[var(--brand-warm-white)] to-[var(--brand-cream)] border-t border-[rgba(201,168,76,0.3)]">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
+                <Send className="h-4 w-4" />
+                <span>Direct Commercial Inquiry</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display mb-3">
-                Build Your Commercial RFQ in Seconds
+              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display">
+                Looking for an Indian Spice Supply Partner?
               </h2>
               <p className="text-xs sm:text-sm text-[var(--brand-forest)]">
-                Select your required spice variety, export grade, container volume, and packing preference. Our export desk will confirm FOB/CIF rates within 24 hours.
+                Tell us what you need and our team will help evaluate the right product, specification, processing, packaging and shipment solution.
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 sm:p-10 border border-[rgba(201,168,76,0.35)] shadow-xl">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                
-                {/* 1. Select Spice */}
+            <form onSubmit={handleRfqSubmit} className="bg-white rounded-2xl p-6 sm:p-10 border border-[rgba(201,168,76,0.35)] shadow-xl space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[var(--brand-forest)] mb-2">
-                    1. Select Commodity / Spice
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[var(--brand-charcoal)] mb-2">
+                    1. Product Required
                   </label>
                   <select
                     value={rfqSpice}
                     onChange={(e) => setRfqSpice(e.target.value)}
-                    className="w-full p-3 rounded-xl border border-gray-300 bg-white text-sm text-[var(--brand-charcoal)] font-medium focus:border-[var(--brand-gold)] focus:ring-1 focus:ring-[var(--brand-gold)] outline-none"
+                    className="w-full p-3 rounded-xl border border-gray-300 bg-white text-xs sm:text-sm text-[var(--brand-charcoal)] font-medium focus:border-[var(--brand-gold)] outline-none"
                   >
                     <option value="Cumin Seeds (Jeera)">Cumin Seeds (Jeera) - Unjha Origin</option>
                     <option value="Coriander Seeds (Dhania)">Coriander Seeds (Dhania) - Eagle / Scooter</option>
                     <option value="Fennel Seeds (Saunf)">Fennel Seeds (Saunf) - Green Bold</option>
                     <option value="Fenugreek Seeds (Methi)">Fenugreek Seeds (Methi) - Sortex Cleaned</option>
-                    <option value="Turmeric Finger (Haldi)">Turmeric Finger - Salem / Nizamabad</option>
                     <option value="Ajwain Seeds (Carom)">Ajwain Seeds (Carom) - Bold Green</option>
                     <option value="Mustard Seeds (Rai)">Mustard Seeds (Black / Yellow)</option>
-                    <option value="Psyllium Husk (Isabgol)">Psyllium Husk 99% / 98% Purity</option>
-                    <option value="Cumin Powder">Pure Cumin Powder (Cryogenic Ground)</option>
-                    <option value="Turmeric Powder">Pure Turmeric Powder (High Curcumin)</option>
-                    <option value="Red Chilli Powder">Red Chilli Powder (Stemless)</option>
-                    <option value="Cold Pressed Oils">Virgin Cold Pressed Cooking Oils</option>
+                    <option value="Turmeric Finger (Haldi)">Turmeric Finger - Salem / Nizamabad</option>
+                    <option value="Red Chilli (Lal Mirch)">Whole Red Chilli - Guntur Sannam / Teja</option>
+                    <option value="Black Pepper">Tellicherry Black Pepper</option>
+                    <option value="Psyllium Husk">Psyllium Husk 99% / 98%</option>
+                    <option value="Pure Ground Powder">Ground Powder (Cumin / Turmeric / Chilli)</option>
                   </select>
                 </div>
 
-                {/* 2. Select Quality Grade */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[var(--brand-forest)] mb-2">
-                    2. Desired Quality Grade / Purity
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[var(--brand-charcoal)] mb-2">
+                    2. Estimated Order Quantity
+                  </label>
+                  <select
+                    value={rfqQuantity}
+                    onChange={(e) => setRfqQuantity(e.target.value)}
+                    className="w-full p-3 rounded-xl border border-gray-300 bg-white text-xs sm:text-sm text-[var(--brand-charcoal)] font-medium focus:border-[var(--brand-gold)] outline-none"
+                  >
+                    <option value="Trial / LCL (1 to 5 MT)">Trial / LCL (1 to 5 Metric Tons)</option>
+                    <option value="1x 20ft FCL (~14 MT)">1x 20ft FCL Container (~14 Metric Tons)</option>
+                    <option value="1x 40ft FCL (~26-28 MT)">1x 40ft FCL Container (~26-28 MT)</option>
+                    <option value="Multiple Containers (Monthly)">Multiple Containers (Monthly Contract)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[var(--brand-charcoal)] mb-2">
+                    3. Specification / Grade
                   </label>
                   <select
                     value={rfqGrade}
                     onChange={(e) => setRfqGrade(e.target.value)}
-                    className="w-full p-3 rounded-xl border border-gray-300 bg-white text-sm text-[var(--brand-charcoal)] font-medium focus:border-[var(--brand-gold)] focus:ring-1 focus:ring-[var(--brand-gold)] outline-none"
+                    className="w-full p-3 rounded-xl border border-gray-300 bg-white text-xs sm:text-sm text-[var(--brand-charcoal)] font-medium focus:border-[var(--brand-gold)] outline-none"
                   >
-                    <option value="Europe Quality 99.5% Sortex">Europe Quality (99.5% Sortex, ETO Tested)</option>
-                    <option value="USA Quality (ASTA Graded)">USA Quality (ASTA Graded &amp; Cleaned)</option>
-                    <option value="Singapore Quality (99.0% Clean)">Singapore Quality (99.0% Machine Cleaned)</option>
-                    <option value="Gulf / Middle East Grade (98-99%)">Gulf / Middle East Commercial Grade (98%-99%)</option>
-                    <option value="Standard Machine Cleaned (98%)">Standard Machine Cleaned (98% Purity)</option>
+                    <option value="Sortex Cleaned 99.5% (Europe Quality)">Sortex Cleaned 99.5% (Europe Quality)</option>
+                    <option value="USA Quality (99.0% ASTA Clean)">USA Quality (99.0% ASTA Clean)</option>
+                    <option value="Singapore Quality (99.0% Machine Cleaned)">Singapore Quality (99.0% Machine Cleaned)</option>
+                    <option value="Gulf Quality (98.0% - 99.0%)">Gulf Quality (98.0% - 99.0%)</option>
+                    <option value="Custom Technical Specification">Custom Technical Specification</option>
                   </select>
                 </div>
 
-                {/* 3. Select Volume */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[var(--brand-forest)] mb-2">
-                    3. Required Order Volume
-                  </label>
-                  <select
-                    value={rfqVolume}
-                    onChange={(e) => setRfqVolume(e.target.value)}
-                    className="w-full p-3 rounded-xl border border-gray-300 bg-white text-sm text-[var(--brand-charcoal)] font-medium focus:border-[var(--brand-gold)] focus:ring-1 focus:ring-[var(--brand-gold)] outline-none"
-                  >
-                    <option value="1x 20ft FCL (~13-14 MT)">1x 20ft Container (FCL ~10 to 14 MT)</option>
-                    <option value="1x 40ft FCL (~26-28 MT)">1x 40ft Container (FCL ~24 to 28 MT)</option>
-                    <option value="Multiple Containers (50+ MT)">Multiple Containers (50+ Metric Tonnes)</option>
-                    <option value="LCL Consolidation (3 to 8 MT)">LCL Partial Container (3 to 8 MT)</option>
-                    <option value="Sample Order (100kg to 1 MT)">Commercial Sample Lot (100kg to 1 MT)</option>
-                  </select>
-                </div>
-
-                {/* 4. Select Packaging */}
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[var(--brand-forest)] mb-2">
-                    4. Export Packaging Format
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[var(--brand-charcoal)] mb-2">
+                    4. Packaging Preference
                   </label>
                   <select
                     value={rfqPacking}
                     onChange={(e) => setRfqPacking(e.target.value)}
-                    className="w-full p-3 rounded-xl border border-gray-300 bg-white text-sm text-[var(--brand-charcoal)] font-medium focus:border-[var(--brand-gold)] focus:ring-1 focus:ring-[var(--brand-gold)] outline-none"
+                    className="w-full p-3 rounded-xl border border-gray-300 bg-white text-xs sm:text-sm text-[var(--brand-charcoal)] font-medium focus:border-[var(--brand-gold)] outline-none"
                   >
-                    <option value="25kg PP Export Bags">25 kg PP Woven Export Bags with Liner</option>
-                    <option value="50kg PP Export Bags">50 kg PP Woven Export Bags</option>
-                    <option value="25kg Multi-wall Paper Bags">25 kg Multi-wall Kraft Paper Bags</option>
-                    <option value="50kg Jute Bags">50 kg Heavy Duty Jute Bags</option>
-                    <option value="Retail Stand-up Pouches (100g-1kg)">Retail Stand-up Pouches (100g - 1kg)</option>
-                    <option value="Private Label PET Jars">Private Label PET Jars &amp; Tins</option>
+                    <option value="25kg PP Bags with Inner Liner">25kg PP Bags with Inner Liner</option>
+                    <option value="50kg Jute Bags">50kg Traditional Jute Bags</option>
+                    <option value="Multi-Wall Paper Bags (25kg)">Multi-Wall Paper Bags (25kg)</option>
+                    <option value="Stand-up Zipper Pouches (Retail/Private Label)">Stand-up Zipper Pouches (Retail/Private Label)</option>
+                    <option value="Palletized & Shrink-Wrapped (ISPM-15)">Palletized &amp; Shrink-Wrapped (ISPM-15)</option>
                   </select>
                 </div>
 
-              </div>
-
-              {/* Delivery Terms */}
-              <div className="mb-8 p-4 rounded-xl bg-[var(--brand-cream)] border border-[rgba(201,168,76,0.3)]">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <div>
-                    <div className="text-xs font-bold text-[var(--brand-forest)] uppercase">
-                      5. Preferred Shipping Terms
-                    </div>
-                    <div className="text-xs text-gray-600">
-                      Dispatched directly from Mundra Port (Gujarat, India)
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {["FOB Mundra Port", "CIF Destination Port", "CFR Terms"].map((term) => (
-                      <button
-                        key={term}
-                        type="button"
-                        onClick={() => setRfqPort(term)}
-                        className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                          rfqPort === term
-                            ? "bg-[var(--brand-forest)] text-white"
-                            : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
-                        }`}
-                      >
-                        {term}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href={buildWhatsAppUrl(rfqWhatsAppMessage)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-sm sm:text-base shadow-lg transition-all"
-                >
-                  <MessageSquare className="h-4 w-4" />
-                  <span>Send RFQ via WhatsApp (Instant)</span>
-                </a>
-
-                <Link
-                  to={`/contact?product=${encodeURIComponent(rfqSpice)}&grade=${encodeURIComponent(rfqGrade)}&volume=${encodeURIComponent(rfqVolume)}&packing=${encodeURIComponent(rfqPacking)}#inquiry-form`}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-[var(--brand-deep-green)] hover:bg-[var(--brand-forest)] text-white font-bold text-sm sm:text-base transition-all shadow-md"
-                >
-                  <span>Submit Email Inquiry Form</span>
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-
-            </div>
-
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════════════════════════════
-            7. PROCESSING, RETAIL PACKING & PRIVATE LABEL INFRASTRUCTURE
-        ══════════════════════════════════════════════════════════════════ */}
-        <section className="py-20 lg:py-24 bg-white border-b border-[var(--brand-gold-pale)]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div className="max-w-3xl mb-12">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)] mb-2">
-                <Tag className="h-4 w-4" />
-                <span>Our Retail Packaging &amp; Private Label</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--brand-charcoal)] jm-display mb-4">
-                Our Retail Packaging &amp; Private Label Solutions
-              </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-[var(--brand-gold)] to-[var(--brand-gold-light)] rounded mb-4" />
-              <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
-                We manufacture shelf-ready, food-grade stand-up zipper pouches with transparent display windows and airtight aroma seals. Full private-label customization with your brand logo, barcodes, and multi-language regulatory information for global supermarket chains and distributors.
-              </p>
-            </div>
-
-            {/* Visual Real Stand-Up Pouch Showcase */}
-            <div className="mb-16 bg-gradient-to-br from-[var(--brand-cream)] via-[var(--brand-warm-white)] to-[var(--brand-gold-pale)] rounded-3xl p-6 sm:p-10 border border-[rgba(201,168,76,0.35)] shadow-xl">
-              
-              {/* Product Pouch Selector Tabs */}
-              <div className="flex flex-wrap gap-2 mb-8 pb-4 border-b border-[rgba(201,168,76,0.25)]">
-                {RETAIL_POUCH_PRODUCTS.map((p, idx) => (
-                  <button
-                    key={p.id}
-                    onClick={() => setActivePouch(idx)}
-                    className={`py-2 px-3.5 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
-                      activePouch === idx
-                        ? "bg-[var(--brand-forest)] text-white shadow-md font-bold"
-                        : "bg-white text-[var(--brand-charcoal)] hover:bg-[var(--brand-gold-pale)] border border-[rgba(201,168,76,0.25)]"
-                    }`}
-                  >
-                    {p.tab}
-                  </button>
-                ))}
-              </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-                
-                {/* Left Column: Real Pouch / Catalogue Image */}
-                <div className="lg:col-span-5 text-center">
-                  <div className="relative mx-auto max-w-sm rounded-2xl overflow-hidden shadow-2xl border-2 border-[rgba(201,168,76,0.4)] group bg-white">
-                    <img
-                      src={currentPouch.image}
-                      alt={`${currentPouch.name} Retail Stand-Up Pouch Packaging - JM Masala`}
-                      className="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-300"
-                    />
-                    <div className="absolute bottom-3 left-3 right-3 bg-[var(--brand-deep-green)]/90 backdrop-blur-sm text-white py-1.5 px-3 rounded-lg text-xs font-semibold flex items-center justify-between">
-                      <span className="text-[var(--brand-gold-light)] font-mono">{currentPouch.cataloguePage}</span>
-                      <span>Stand-Up Zipper Pouch with Window</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right Column: Packaging Anatomy & Specifications */}
-                <div className="lg:col-span-7 space-y-5">
-                  <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--brand-gold)]">
-                    <Sparkles className="h-3.5 w-3.5" />
-                    <span>Food-Grade Barrier Pouch with Transparent Display Window</span>
-                  </div>
-
-                  <h3 className="text-2xl sm:text-3xl font-bold text-[var(--brand-charcoal)] jm-display">
-                    {currentPouch.name}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-[var(--brand-forest)] leading-relaxed">
-                    Packed in multi-layer barrier stand-up pouches featuring a clear display window so consumers see the authentic purity, rich natural colour, and uniform particle size.
-                  </p>
-
-                  {/* 5 Quality Badges from the Pouch */}
-                  <div className="bg-white p-3.5 rounded-xl border border-[rgba(201,168,76,0.3)] shadow-sm">
-                    <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--brand-forest)] mb-2">
-                      Official Packaging Quality Seals:
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {currentPouch.features.map((feat) => (
-                        <span
-                          key={feat}
-                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[var(--brand-cream)] text-[11px] font-semibold text-[var(--brand-charcoal)] border border-[rgba(201,168,76,0.25)]"
-                        >
-                          <CheckCircle2 className="h-3 w-3 text-[var(--brand-gold)]" />
-                          <span>{feat}</span>
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Pouch Specification Matrix */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                    <div className="p-3 rounded-xl bg-white border border-[rgba(201,168,76,0.25)]">
-                      <span className="text-gray-500 block text-[10px] uppercase font-bold">Pack Formats Available:</span>
-                      <strong className="text-[var(--brand-forest)]">{currentPouch.weights}</strong>
-                    </div>
-                    <div className="p-3 rounded-xl bg-white border border-[rgba(201,168,76,0.25)]">
-                      <span className="text-gray-500 block text-[10px] uppercase font-bold">Pouch Construction:</span>
-                      <strong className="text-[var(--brand-forest)]">Zipper Lock · Window · Stand-Up Bottom</strong>
-                    </div>
-                    <div className="p-3 rounded-xl bg-white border border-[rgba(201,168,76,0.25)]">
-                      <span className="text-gray-500 block text-[10px] uppercase font-bold">Product Specifications:</span>
-                      <strong className="text-[var(--brand-forest)] font-mono">{currentPouch.specs}</strong>
-                    </div>
-                    <div className="p-3 rounded-xl bg-white border border-[rgba(201,168,76,0.25)]">
-                      <span className="text-gray-500 block text-[10px] uppercase font-bold">Private Label Customization:</span>
-                      <strong className="text-[var(--brand-forest)]">Buyer Logo · Barcode · Multilingual Label</strong>
-                    </div>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex flex-wrap items-center gap-3 pt-2">
-                    <a
-                      href={buildWhatsAppUrl(
-                        `Hi JM Masala, I would like to inquire about private label manufacturing and retail packing for ${currentPouch.name}. Please share MOQ and pouch pricing.`
-                      )}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-6 py-3 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-md transition-colors"
-                    >
-                      <MessageSquare className="h-4 w-4" />
-                      <span>Inquire for Private Label (WhatsApp)</span>
-                    </a>
-
-                    <Link
-                      to="/private-label-spices"
-                      className="px-6 py-3 rounded-xl bg-[var(--brand-forest)] hover:bg-[var(--brand-deep-green)] text-white font-bold text-xs sm:text-sm transition-colors shadow-sm flex items-center gap-2"
-                    >
-                      <span>Explore Private Label Program</span>
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-
-                    <Link
-                      to="/spice-packaging"
-                      className="px-5 py-3 rounded-xl border border-[var(--brand-forest)] text-[var(--brand-forest)] hover:bg-white font-bold text-xs sm:text-sm transition-colors"
-                    >
-                      All Packaging Specs
-                    </Link>
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            {/* 4 Infrastructure Service Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {SERVICES.map((svc) => (
-                <div
-                  key={svc.title}
-                  className="p-8 rounded-2xl bg-[var(--brand-cream)] border border-[rgba(201,168,76,0.3)] hover:border-[var(--brand-gold)] transition-all duration-300 flex flex-col justify-between shadow-sm"
-                >
-                  <div>
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--brand-gold)] to-[var(--brand-gold-light)] text-[var(--brand-deep-green)] flex items-center justify-center mb-6 shadow-md">
-                      {svc.icon}
-                    </div>
-                    <h3 className="text-xl font-bold text-[var(--brand-charcoal)] jm-display mb-3">
-                      {svc.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-[var(--brand-forest)] leading-relaxed mb-6">
-                      {svc.description}
-                    </p>
-                    <ul className="space-y-2 mb-6">
-                      {svc.highlights.map((h) => (
-                        <li key={h} className="flex items-center gap-2 text-xs text-[var(--brand-charcoal)] font-medium">
-                          <Check className="h-3.5 w-3.5 text-[var(--brand-gold)] shrink-0" />
-                          <span>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <Link
-                    to={svc.link}
-                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[var(--brand-forest)] hover:text-[var(--brand-gold)] transition-colors pt-4 border-t border-[rgba(201,168,76,0.2)]"
-                  >
-                    <span>{svc.linkText}</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                </div>
-              ))}
-            </div>
-
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════════════════════════════
-            8. 6-STAGE EXPORT SUPPLY CHAIN JOURNEY
-        ══════════════════════════════════════════════════════════════════ */}
-        <section className="py-20 bg-[var(--brand-cream)] border-t border-[var(--brand-gold-pale)]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)] mb-2">
-                <Clock className="h-4 w-4" />
-                <span>Supply Chain Transparency</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display mb-3">
-                From Unjha Mandi to Container Loading
-              </h2>
-              <p className="text-xs sm:text-sm text-[var(--brand-forest)]">
-                Every consignment undergoes a calibrated 6-stage lifecycle ensuring quality compliance, optical sortex cleaning, and smooth port clearance.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {PROCESS_STEPS.map((ps) => (
-                <div
-                  key={ps.step}
-                  className="bg-white rounded-2xl p-6 border border-[rgba(201,168,76,0.25)] relative shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-3xl sm:text-4xl font-bold text-[var(--brand-gold-pale)] font-mono">
-                      {ps.step}
-                    </span>
-                    <span className="text-2xl">{ps.icon}</span>
-                  </div>
-                  <h3 className="text-base font-bold text-[var(--brand-charcoal)] jm-display mb-2">
-                    {ps.title}
-                  </h3>
-                  <p className="text-xs text-[var(--brand-forest)] leading-relaxed mb-3">
-                    {ps.description}
-                  </p>
-                  <div className="text-[11px] font-semibold text-[var(--brand-gold)] flex items-center gap-1">
-                    <CheckCircle2 className="h-3 w-3" />
-                    <span>{ps.detail}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════════════════════════════
-            9. GLOBAL EXPORT DESTINATIONS & MUNDRA PORT ADVANTAGE
-        ══════════════════════════════════════════════════════════════════ */}
-        <section className="py-20 lg:py-24 bg-gradient-to-br from-[#10170f] via-[var(--brand-deep-green)] to-[#1a2e1a] text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold-light)] mb-2">
-                <Globe2 className="h-4 w-4" />
-                <span>Global Shipping Network</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold jm-display mb-4 text-white">
-                Exporting to 30+ Countries Worldwide
-              </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-[var(--brand-gold)] to-[var(--brand-gold-light)] mx-auto mb-4" />
-              <p className="text-xs sm:text-sm text-emerald-100/80 max-w-2xl mx-auto">
-                Situated just ~300 km from Mundra and Kandla Ports, India's largest commercial marine gateways. Fast container trucking enables shorter dispatch lead times.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-              {EXPORT_DESTINATIONS.map((dest) => (
-                <div
-                  key={dest.region}
-                  className="jm-glass-dark rounded-2xl p-6 border border-white/10 hover:border-[var(--brand-gold)] transition-colors"
-                >
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-lg font-bold text-white jm-display">
-                      {dest.region}
-                    </h3>
-                    <span className="text-[11px] font-semibold text-[var(--brand-gold-light)] bg-white/10 px-2 py-0.5 rounded">
-                      {dest.transit}
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {dest.countries.map((c) => (
-                      <span
-                        key={c}
-                        className="text-xs px-2.5 py-1 rounded-full bg-white/10 text-emerald-100/90"
-                      >
-                        {c}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Logistics Badge Bar */}
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 flex flex-col sm:flex-row items-center justify-around gap-4 text-center sm:text-left">
-              <div className="flex items-center gap-3">
-                <Anchor className="h-6 w-6 text-[var(--brand-gold)]" />
                 <div>
-                  <div className="font-bold text-sm text-white">Direct Sea Ports</div>
-                  <div className="text-xs text-white/70">Mundra Port &amp; Kandla Port, Gujarat</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <Truck className="h-6 w-6 text-[var(--brand-gold)]" />
-                <div>
-                  <div className="font-bold text-sm text-white">Inland Container Depot</div>
-                  <div className="text-xs text-white/70">ICD Khodiyar / ICD Sanand</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <Clock className="h-6 w-6 text-[var(--brand-gold)]" />
-                <div>
-                  <div className="font-bold text-sm text-white">Dispatch Speed</div>
-                  <div className="text-xs text-white/70">Container Stuffing in 3-5 Business Days</div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════════════════════════════
-            10. ABOUT JM MASALA & UNJHA HERITAGE
-        ══════════════════════════════════════════════════════════════════ */}
-        <section className="py-20 lg:py-24 bg-white border-b border-[var(--brand-gold-pale)]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              
-              <div className="lg:col-span-5 relative">
-                <div className="rounded-2xl overflow-hidden shadow-2xl border border-[rgba(201,168,76,0.3)]">
-                  <img
-                    src={aboutImage}
-                    alt="JM Masala Spice Trading Yard in Unjha Gujarat"
-                    className="w-full h-80 sm:h-96 object-cover"
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[var(--brand-charcoal)] mb-2">
+                    5. Discharge Port &amp; Country
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g. Jebel Ali, UAE / Felixstowe, UK / Toronto, Canada"
+                    value={rfqDestination}
+                    onChange={(e) => setRfqDestination(e.target.value)}
+                    className="w-full p-3 rounded-xl border border-gray-300 bg-white text-xs sm:text-sm text-[var(--brand-charcoal)] focus:border-[var(--brand-gold)] outline-none"
                   />
                 </div>
-                <div className="absolute -bottom-5 -right-5 bg-gradient-to-r from-[var(--brand-gold)] to-[var(--brand-gold-light)] text-[var(--brand-deep-green)] font-bold text-xs sm:text-sm px-5 py-3 rounded-xl shadow-xl jm-display hidden sm:block">
-                  Est. Unjha, Gujarat · 2 Generations
+
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[var(--brand-charcoal)] mb-2">
+                    6. Company Name
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="Your company / trading entity"
+                    value={rfqCompany}
+                    onChange={(e) => setRfqCompany(e.target.value)}
+                    className="w-full p-3 rounded-xl border border-gray-300 bg-white text-xs sm:text-sm text-[var(--brand-charcoal)] focus:border-[var(--brand-gold)] outline-none"
+                  />
                 </div>
               </div>
 
-              <div className="lg:col-span-7 space-y-6">
-                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
-                  <Award className="h-4 w-4" />
-                  <span>Heritage &amp; Processing Credibility</span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display leading-tight">
-                  Rooted in the APMC Spice Capital of India
-                </h2>
-                <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
-                  <strong>JM Masala Trading LLP</strong> was born out of Unjha's vibrant APMC market yard. Over two generations, our team has built direct linkages with thousands of cumin, coriander, fennel, and fenugreek farmers across Gujarat and Rajasthan.
-                </p>
-                <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
-                  Today, we merge traditional mandi grading wisdom with advanced Sortex optical separation and cryogenic grinding machinery. Our buyers receive honest lot representation, competitive FOB Mundra rates, and zero supply surprises.
-                </p>
-
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
-                  <div className="p-3.5 rounded-xl bg-[var(--brand-cream)] border border-[rgba(201,168,76,0.25)]">
-                    <div className="text-xs text-[var(--brand-sage)] font-bold uppercase">Mandi Presence</div>
-                    <div className="text-sm font-bold text-[var(--brand-charcoal)] mt-0.5">APMC Unjha Yard</div>
-                  </div>
-                  <div className="p-3.5 rounded-xl bg-[var(--brand-cream)] border border-[rgba(201,168,76,0.25)]">
-                    <div className="text-xs text-[var(--brand-sage)] font-bold uppercase">Processing</div>
-                    <div className="text-sm font-bold text-[var(--brand-charcoal)] mt-0.5">Sortex &amp; Milling</div>
-                  </div>
-                  <div className="p-3.5 rounded-xl bg-[var(--brand-cream)] border border-[rgba(201,168,76,0.25)]">
-                    <div className="text-xs text-[var(--brand-sage)] font-bold uppercase">Regulatory</div>
-                    <div className="text-sm font-bold text-[var(--brand-charcoal)] mt-0.5">APEDA &amp; Spice Board</div>
-                  </div>
-                </div>
-
-                <div className="pt-2">
-                  <Link
-                    to="/about-jm-masala"
-                    className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[var(--brand-forest)] hover:text-[var(--brand-gold)] transition-colors"
-                  >
-                    <span>Learn More About Our Company &amp; Facility</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-[var(--brand-charcoal)] mb-2">
+                  7. Business Email &amp; WhatsApp
+                </label>
+                <input
+                  type="email"
+                  required
+                  placeholder="commercial@yourcompany.com"
+                  value={rfqEmail}
+                  onChange={(e) => setRfqEmail(e.target.value)}
+                  className="w-full p-3 rounded-xl border border-gray-300 bg-white text-xs sm:text-sm text-[var(--brand-charcoal)] focus:border-[var(--brand-gold)] outline-none"
+                />
               </div>
 
-            </div>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════════════════════════════
-            11. EXPORT DOCUMENTATION & CERTIFICATIONS
-        ══════════════════════════════════════════════════════════════════ */}
-        <section className="py-20 bg-[var(--brand-cream)]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-              
-              <div className="lg:col-span-5 space-y-6">
-                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
-                  <ShieldCheck className="h-4 w-4" />
-                  <span>Trade Verification</span>
-                </div>
-                <h2 className="text-3xl font-bold text-[var(--brand-charcoal)] jm-display">
-                  Verified Certifications &amp; Accreditations
-                </h2>
-                <p className="text-xs sm:text-sm text-[var(--brand-forest)] leading-relaxed">
-                  We maintain full compliance with Indian statutory trade authorities and destination market food safety standards.
-                </p>
-
-                <div className="grid grid-cols-2 gap-3">
-                  {[
-                    { name: "HACCP Certified", sub: "Food Safety System" },
-                    { name: "ISO 22000:2018", sub: "Food Safety Mgmt" },
-                    { name: "APEDA Reg.", sub: "Govt of India" },
-                    { name: "Spice Board RCMC", sub: "Ministry of Commerce" },
-                    { name: "FSSAI Licensed", sub: "Food Authority" },
-                    { name: "IEC Registered", sub: "Foreign Trade" },
-                  ].map((cert) => (
-                    <div
-                      key={cert.name}
-                      className="p-3.5 rounded-xl bg-white border border-[rgba(201,168,76,0.3)] flex items-start gap-2.5"
-                    >
-                      <CheckCircle2 className="h-4 w-4 text-[var(--brand-gold)] shrink-0 mt-0.5" />
-                      <div>
-                        <div className="text-xs font-bold text-[var(--brand-charcoal)]">{cert.name}</div>
-                        <div className="text-[10px] text-gray-500">{cert.sub}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-[var(--brand-charcoal)] mb-2">
+                  8. Technical Requirements / Notes
+                </label>
+                <textarea
+                  rows={3}
+                  placeholder="Specify target delivery terms (FOB Mundra / CIF), lab testing parameters, or payment terms."
+                  value={rfqMessage}
+                  onChange={(e) => setRfqMessage(e.target.value)}
+                  className="w-full p-3 rounded-xl border border-gray-300 bg-white text-xs sm:text-sm text-[var(--brand-charcoal)] focus:border-[var(--brand-gold)] outline-none resize-none"
+                />
               </div>
 
-              {/* Right: Export Documentation Package */}
-              <div className="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-8 border border-[rgba(201,168,76,0.3)] shadow-md">
-                <h3 className="text-xl font-bold text-[var(--brand-charcoal)] jm-display mb-3">
-                  Standard International Export Document Package
-                </h3>
-                <p className="text-xs sm:text-sm text-[var(--brand-forest)] mb-6">
-                  Every commercial order comes with an ironclad documentation set compatible with Letter of Credit (LC) and documentary collections (DP/DA).
-                </p>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {DOCUMENTATION_PACKAGE.map((doc) => (
-                    <div
-                      key={doc}
-                      className="flex items-center gap-2 p-2.5 rounded-lg bg-[var(--brand-cream)] border border-[rgba(201,168,76,0.2)] text-xs text-[var(--brand-charcoal)]"
-                    >
-                      <Check className="h-3.5 w-3.5 text-[var(--brand-gold)] shrink-0" />
-                      <span className="font-medium">{doc}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs">
-                  <span className="text-gray-500">Need specific lab analysis (SGS, Eurofins, Geo-Chem)?</span>
-                  <Link to="/quality-certifications" className="font-bold text-[var(--brand-forest)] hover:underline">
-                    View Lab Protocols →
-                  </Link>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════════════════════════════
-            12. B2B BUYER FAQS & SOURCING DIRECTORY
-        ══════════════════════════════════════════════════════════════════ */}
-        <section className="py-20 lg:py-24 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div className="max-w-3xl mx-auto text-center mb-12">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)] mb-2">
-                <FileText className="h-4 w-4" />
-                <span>Buyer Knowledge Center</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display mb-3">
-                Frequently Asked Procurement Questions
-              </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-[var(--brand-gold)] to-[var(--brand-gold-light)] mx-auto mb-4" />
-              <p className="text-xs sm:text-sm text-[var(--brand-forest)]">
-                Essential insights on sourcing Indian spices directly from Unjha processors, custom packing specifications, and international export documentation.
-              </p>
-            </div>
-
-            {/* Clean 2-Column Balanced FAQ Grid */}
-            <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-              {HOME_FAQS.map((faq) => (
-                <div
-                  key={faq.question}
-                  className="p-6 rounded-2xl bg-[var(--brand-cream)] border border-[rgba(201,168,76,0.3)] hover:border-[var(--brand-gold)] transition-colors shadow-sm"
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  className="w-full py-4 rounded-xl bg-gradient-to-r from-[var(--brand-forest)] to-[var(--brand-deep-green)] text-white hover:from-[var(--brand-deep-green)] hover:to-[#10170f] font-bold text-sm sm:text-base transition-all shadow-md flex items-center justify-center gap-2"
                 >
-                  <h3 className="text-sm sm:text-base font-bold text-[var(--brand-charcoal)] jm-display mb-2">
-                    {faq.question}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[var(--brand-forest)] leading-relaxed">
-                    {faq.answer}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* Hidden Semantic Sourcing Directory for Search Crawlers & Indexing */}
-            <nav aria-label="Internal Sourcing and Product Directory" className="sr-only">
-              <h2>Product Specifications &amp; Market Sourcing Directory</h2>
-              <ul>
-                {PRODUCTS.map((product) => (
-                  <li key={product.slug}>
-                    <Link to={`/${product.slug}`}>{product.name} Exporter &amp; Supplier India</Link>
-                  </li>
-                ))}
-                <li><Link to="/best-spice-exporter-india">Best Spice Exporter in India</Link></li>
-                <li><Link to="/best-cumin-exporter-india">Best Cumin Exporter in India</Link></li>
-                <li><Link to="/spice-exporter-gujarat">Spice Exporter in Gujarat</Link></li>
-                <li><Link to="/private-label-spices">Private Label Spice Manufacturing</Link></li>
-                <li><Link to="/spice-packaging">Bulk &amp; Retail Spice Packaging</Link></li>
-                <li><Link to="/cold-pressed-oils">Wood Pressed Edible Oils India</Link></li>
-                {BLOG_POSTS.map((post) => (
-                  <li key={post.slug}>
-                    <Link to={`/blog/${post.slug}`}>{post.title}</Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════════════════════════════
-            13. FINAL COMMERCIAL CALL TO ACTION
-        ══════════════════════════════════════════════════════════════════ */}
-        <section className="py-20 lg:py-24 bg-gradient-to-r from-[#10170f] via-[var(--brand-deep-green)] to-[#10170f] text-white relative overflow-hidden text-center">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(201,168,76,0.15)_0%,transparent_70%)] pointer-events-none" />
-          
-          <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold-light)] px-3.5 py-1 rounded-full bg-white/10 border border-white/20">
-              <Zap className="h-3.5 w-3.5 text-[var(--brand-gold)]" />
-              <span>Direct Mandi Procurement · Global Shipping</span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold jm-display text-white leading-tight">
-              Looking for a Trusted Indian Spice Processing Partner?
-            </h2>
-
-            <p className="text-sm sm:text-base text-emerald-100/90 max-w-2xl mx-auto leading-relaxed">
-              Connect directly with JM Masala Trading LLP at Unjha, Gujarat. Share your target specifications, required packaging, and destination port to receive verified COA parameters and a competitive FOB/CIF quotation.
-            </p>
-
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
-              <Link
-                to="/contact?intent=quote#inquiry-form"
-                className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[var(--brand-gold)] to-[var(--brand-gold-light)] text-[var(--brand-deep-green)] font-bold text-sm sm:text-base hover:shadow-xl hover:shadow-[rgba(201,168,76,0.35)] hover:-translate-y-0.5 transition-all"
-              >
-                Request Commercial Quote
-              </Link>
-              
-              <a
-                href={buildWhatsAppUrl("Hi JM Masala, I would like to discuss spice importing and request FOB Mundra pricing.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-7 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-sm sm:text-base flex items-center gap-2 transition-colors shadow-lg"
-              >
-                <MessageSquare className="h-4 w-4" />
-                <span>Chat on WhatsApp</span>
-              </a>
-
-              <a
-                href="/JMMasalaProducts.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3.5 rounded-xl border border-white/30 text-white hover:bg-white/10 font-semibold text-sm transition-colors"
-              >
-                Download Catalogue PDF
-              </a>
-            </div>
-
-            <div className="pt-8 text-xs text-white/60">
-              {COMPANY.addressLine} · Direct Phone: {COMPANY.phones.join(" · ")}
-            </div>
+                  <Send className="h-4 w-4 text-[var(--brand-gold-light)]" />
+                  <span>Submit Commercial RFQ via WhatsApp &amp; Email</span>
+                </button>
+              </div>
+            </form>
           </div>
         </section>
 
