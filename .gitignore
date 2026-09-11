@@ -24,3 +24,10 @@ dist-ssr
 *.sw?
 
 .env
+
+# Agent & IDE local configs
+.agents/
+.cursor/
+.jetro/
+.mcp.json
+.windsurfrules

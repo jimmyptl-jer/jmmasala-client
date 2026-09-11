@@ -1,29 +1,49 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Seo from "@/components/Seo";
 import { PRODUCTS } from "@/data/siteData";
 
+type CategoryFilter = "all" | "whole" | "powders" | "agro";
+
+const CATEGORY_TABS: Array<{ id: CategoryFilter; label: string }> = [
+  { id: "all", label: "All Master Products" },
+  { id: "whole", label: "Whole Spices" },
+  { id: "powders", label: "Spice Powders" },
+  { id: "agro", label: "Agro Products" },
+];
+
 const ProductsPage = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("search")?.toLowerCase().trim() ?? "";
+  const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>("all");
 
   const visibleProducts = useMemo(() => {
-    if (!query) {
-      return PRODUCTS;
-    }
-
     return PRODUCTS.filter((product) => {
+      // Category match check
+      const matchesCategory =
+        selectedCategory === "all" ||
+        product.category === selectedCategory ||
+        (selectedCategory === "whole" && (product.category === "north" || product.category === "south"));
+
+      if (!matchesCategory) {
+        return false;
+      }
+
+      if (!query) {
+        return true;
+      }
+
       const fullText =
-        `${product.name} ${product.description} ${product.keySpec}`.toLowerCase();
+        `${product.name} ${product.botanicalName} ${product.description} ${product.keySpec}`.toLowerCase();
       return fullText.includes(query);
     });
-  }, [query]);
+  }, [query, selectedCategory]);
 
   return (
     <>
       <Seo
-        title="Export Grade Indian Spices Portfolio | Cumin, Coriander, Turmeric, Psyllium | JM Masala"
-        description="Browse JM Masala's export-grade Indian spices portfolio including cumin seeds, coriander seeds, fennel, fenugreek, psyllium, sesame, red chilli, turmeric, black pepper, cardamom and curry leaf."
+        title="Indian Spice Manufacturer, Processor & Exporter | Master Product Portfolio | JM Masala"
+        description="JM Masala Trading LLP is an Indian spices manufacturer, processor and exporter supplying premium cumin, coriander, fennel, fenugreek, ajwain, mustard, turmeric, dry ginger, red chilli, powders, and psyllium worldwide."
         path="/products"
         imageUrl={PRODUCTS[0]?.imageUrl}
         keywords={[
@@ -33,17 +53,17 @@ const ProductsPage = () => {
           "bulk spices supplier India",
           "psyllium husk exporter India",
           "black pepper exporter India",
-          "cardamom exporter India",
+          "mustard ajwain kalonji exporter India",
         ]}
         schema={{
           "@context": "https://schema.org",
           "@graph": [
             {
               "@type": "CollectionPage",
-              name: "JM Masala Product Portfolio",
+              name: "JM Masala Master Product Portfolio",
               url: "https://jmmasalaexports.com/products",
               description:
-                "Export-grade Indian spice portfolio from JM Masala Exports.",
+                "Export-grade Indian spice master portfolio from JM Masala Trading LLP.",
             },
             {
               "@type": "ItemList",
@@ -62,7 +82,7 @@ const ProductsPage = () => {
                   name: "Which spices does JM Masala export from India?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "JM Masala exports cumin seeds, coriander seeds, fennel, fenugreek, psyllium husk, psyllium seeds, sesame, turmeric, red chilli, black pepper, cardamom and curry leaf.",
+                    text: "JM Masala exports cumin seeds, coriander seeds, fennel, fenugreek, ajwain, mustard, turmeric fingers & powder, dry ginger & powder, red chilli whole & powder, kalonji, psyllium, dehydrated onion/garlic, and agro commodities.",
                   },
                 },
                 {
@@ -70,7 +90,7 @@ const ProductsPage = () => {
                   name: "Can buyers request custom packing and export documentation?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Yes. JM Masala supports buyer-specific packing, labelling, documentation, and shipment terms based on the destination market and product requirement.",
+                    text: "Yes. JM Masala supports buyer-specific packing (25kg/50kg PP, Jute, paper bags, vacuum packs), private labelling, NABL lab COA, phytosanitary, fumigation, APEDA, and FOB Mundra port terms.",
                   },
                 },
               ],
@@ -81,14 +101,34 @@ const ProductsPage = () => {
 
       <section className="jm-section jm-section--white">
         <div className="jm-container">
-          <p className="jm-section-label">Product Portfolio</p>
+          <p className="jm-section-label">Master Product Database</p>
           <h1 className="jm-section-heading">
-            Complete Indian Spice Portfolio - Export Grade
+            Premium Indian Spices & Agro Products Portfolio
           </h1>
+          <p className="mt-2 max-w-3xl text-[var(--brand-forest)]">
+            JM Masala Trading LLP is an Indian spice manufacturer, processor, and exporter supplying high-purity whole spices, ground spice powders, and agro commodities with FOB Mundra shipping terms.
+          </p>
+
+          {/* Category Filter Tabs */}
+          <div className="mt-8 flex flex-wrap gap-2 border-b border-[var(--brand-gold-pale)] pb-4">
+            {CATEGORY_TABS.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setSelectedCategory(tab.id)}
+                className={`rounded-full px-5 py-2 text-xs font-medium transition-all ${
+                  selectedCategory === tab.id
+                    ? "bg-[var(--brand-deep-green)] text-white shadow-sm"
+                    : "bg-[var(--brand-gold-pale)]/50 text-[var(--brand-charcoal)] hover:bg-[var(--brand-gold-pale)]"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
 
           {query && (
             <p className="mt-4 text-sm text-[var(--brand-forest)]">
-              Search results for: <strong>{query}</strong>
+              Search results for: <strong>{query}</strong> ({visibleProducts.length} items found)
             </p>
           )}
 
@@ -96,7 +136,7 @@ const ProductsPage = () => {
             {visibleProducts.map((product) => (
               <article
                 key={product.slug}
-                className="jm-product-card"
+                className="jm-product-card transition-transform hover:-translate-y-1"
                 style={
                   product.colors
                     ? ({
@@ -121,6 +161,7 @@ const ProductsPage = () => {
                     alt={product.name}
                     loading="lazy"
                     decoding="async"
+                    className="h-56 w-full object-cover"
                   />
                 </div>
                 <div className="jm-product-card__body">
@@ -132,10 +173,10 @@ const ProductsPage = () => {
                       fontStyle: "italic",
                       color: product.colors ? product.colors.accent : "#c9a84c",
                       marginBottom: "8px",
-                      opacity: 0.8,
+                      opacity: 0.85,
                     }}
                   >
-                    {product.botanicalName}
+                    {product.botanicalName} &bull; {product.origin}
                   </p>
                   <p className="jm-product-card__description">
                     {product.shortDescription}
@@ -147,7 +188,7 @@ const ProductsPage = () => {
                     to={`/${product.slug}`}
                     className="mt-4 inline-flex w-full justify-center jm-btn jm-btn--outline text-[13px]"
                   >
-                    View Specifications
+                    View Specifications & Quotes
                   </Link>
                 </div>
               </article>
@@ -156,56 +197,26 @@ const ProductsPage = () => {
 
           <section className="jm-surface-card mt-12 p-6 lg:p-8">
             <h2 className="text-[28px] text-[var(--brand-charcoal)] text-tagline not-italic">
-              Export Spices from India for Serious Buyers
+              JM Masala Trading LLP — Indian Spice Manufacturer, Processor & Exporter
             </h2>
             <div className="mt-4 grid gap-6 lg:grid-cols-2">
               <div className="text-body text-[var(--brand-forest)]">
                 <p>
-                  JM Masala focuses on exporter-grade Indian spices with buyer-led
-                  control over purity, moisture, packing format, documentation, and
-                  shipment preparation. As a{" "}
-                  <Link to="/best-spice-exporter-india" className="text-[var(--brand-gold)] hover:text-[var(--brand-deep-green)]">
-                    spice exporter in India
-                  </Link>
-                  {" "}and{" "}
-                  <Link to="/spice-exporter-gujarat" className="text-[var(--brand-gold)] hover:text-[var(--brand-deep-green)]">
-                    Gujarat spice exporter based in Unjha
-                  </Link>
-                  , our portfolio is built around high-demand
-                  products like{" "}
-                  <Link to="/cumin-seeds-exporter-india" className="text-[var(--brand-gold)] hover:text-[var(--brand-deep-green)]">
-                    cumin seeds
-                  </Link>
-                  ,{" "}
-                  <Link to="/coriander-seeds-exporter-india" className="text-[var(--brand-gold)] hover:text-[var(--brand-deep-green)]">
-                    coriander seeds
-                  </Link>
-                  ,{" "}
-                  <Link to="/psyllium-husk-exporter-india" className="text-[var(--brand-gold)] hover:text-[var(--brand-deep-green)]">
-                    psyllium husk
-                  </Link>
-                  ,{" "}
-                  <Link to="/turmeric-exporter-india" className="text-[var(--brand-gold)] hover:text-[var(--brand-deep-green)]">
-                    turmeric
-                  </Link>
-                  , and other export staples sourced and processed for international trade.
+                  JM Masala Trading LLP is a Gujarat-based manufacturer, processor, and exporter of premium Indian spices and agro products. We source, clean, process, grade, and supply high-quality spices to international buyers with specifications tailored to their market and application requirements.
                 </p>
                 <p className="mt-4">
-                  Buyers can review each product page for specifications, market-grade
-                  notes, packaging options, certifications, export details, and direct
-                  WhatsApp inquiry support. This helps your team move faster from
-                  sourcing review to sample approval and shipment planning.
+                  From sourcing in Unjha mandi and quality control to processing, packing, and export documentation, JM Masala works with international importers, distributors, wholesalers, food manufacturers, and spice companies looking for reliable Indian spice supply.
                 </p>
               </div>
               <div className="space-y-3 text-sm text-[var(--brand-forest)]">
-                <div className="rounded-md border border-[var(--brand-gold-pale)] px-4 py-3">
-                  Export-focused portfolio for importers, wholesalers, food brands, and private-label buyers.
+                <div className="rounded-md border border-[var(--brand-gold-pale)] px-4 py-3 font-medium">
+                  Direct processing capability: Machine cleaning, gravity separation, destoning, grading, and Sortex color sorting.
                 </div>
-                <div className="rounded-md border border-[var(--brand-gold-pale)] px-4 py-3">
-                  Direct product pages for cumin, coriander, fennel, fenugreek, psyllium, sesame, turmeric, chilli, pepper, cardamom, and curry leaf.
+                <div className="rounded-md border border-[var(--brand-gold-pale)] px-4 py-3 font-medium">
+                  Customized parameters: Purity (98-99.5%), moisture control, admixture limits, custom mesh grinding, and private-label packaging.
                 </div>
-                <div className="rounded-md border border-[var(--brand-gold-pale)] px-4 py-3">
-                  Support for lot-wise documents, quality parameters, custom packing, and export communication.
+                <div className="rounded-md border border-[var(--brand-gold-pale)] px-4 py-3 font-medium">
+                  Export compliance: COA, Phytosanitary Certificate, Fumigation, APEDA RCMC, Spice Board RCMC, and FOB Mundra port shipment options.
                 </div>
               </div>
             </div>

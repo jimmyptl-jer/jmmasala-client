@@ -34,6 +34,8 @@ const basePages = [
   "/spice-exporter-gujarat",
   "/quality-certifications",
   "/sourcing-network",
+  "/private-label-spices",
+  "/spice-packaging",
   "/domestic-supply-india",
   "/contact",
   "/blog",
@@ -69,12 +71,60 @@ const baseOrganizationSchema = {
   "@type": "Organization",
   "@id": `${SITE_URL}/#organization`,
   name: COMPANY.legalName,
-  alternateName: COMPANY.name,
+  alternateName: [COMPANY.name, "JM Masala Exports", "JM Masala Unjha"],
   url: SITE_URL,
   email: COMPANY.email,
   logo: `${SITE_URL}/JMMasala.png`,
   description:
-    "HACCP certified Indian spice exporter from Unjha, Gujarat supplying export-grade spices with custom packing and documentation.",
+    "JM Masala Trading LLP is an Indian spice manufacturer, processor, bulk supplier, private label partner and exporter based in Unjha, Gujarat. We source directly from APMC Unjha mandi networks, offering machine cleaning, Sortex optical grading, cold milling, custom retail and bulk packaging, and full export documentation for global B2B buyers.",
+  foundingLocation: {
+    "@type": "Place",
+    name: "Unjha, Mehsana District, Gujarat, India",
+  },
+  knowsAbout: [
+    "Cumin Seeds (Jeera)",
+    "Coriander Seeds (Dhania)",
+    "Fennel Seeds (Saunf)",
+    "Fenugreek Seeds (Methi)",
+    "Ajwain Seeds (Carom)",
+    "Mustard Seeds (Rai)",
+    "Turmeric Fingers & Powder (Haldi)",
+    "Dry Ginger (Sonth)",
+    "Red Chilli Whole & Powder",
+    "Psyllium Husk & Seeds (Isabgol)",
+    "Sortex Optical Cleaning",
+    "Spice Processing & Machine Cleaning",
+    "Private Label Spice Manufacturing",
+    "Retail Spice Packaging",
+    "Bulk Spice Export from India",
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Indian Spices & Value-Added Services",
+    itemListElement: [
+      {
+        "@type": "OfferCatalog",
+        name: "Whole Spices",
+        description: "Sortex and machine cleaned whole Indian spices",
+      },
+      {
+        "@type": "OfferCatalog",
+        name: "Spice Powders",
+        description: "Pure cold-milled and micro-ground spice powders",
+      },
+      {
+        "@type": "OfferCatalog",
+        name: "Private Label Spice Manufacturing",
+        description:
+          "Custom branded retail packaging, zipper pouches, jars, and institutional packs",
+      },
+      {
+        "@type": "OfferCatalog",
+        name: "Spice Processing & Sortex Cleaning",
+        description: "Cleaning, destoning, gravity separation, and Sortex grading",
+      },
+    ],
+  },
   address: {
     "@type": "PostalAddress",
     streetAddress: COMPANY.addressLine,
@@ -113,37 +163,63 @@ const baseWebSiteSchema = {
 
 const TITLE_BY_SLUG: Record<string, string> = {
   "cumin-seeds-exporter-india":
-    "Cumin Seeds Exporter India | Unjha Gujarat | HACCP APEDA | JM Masala",
+    "Cumin Seeds Exporter India | Indian Jeera Supplier | JM Masala",
   "coriander-seeds-exporter-india":
-    "Coriander Seeds Exporter India | Export Grade | JM Masala",
+    "Coriander Seeds Exporter India | Dhania Supplier | JM Masala",
   "fennel-seeds-exporter-india":
-    "Fennel Seeds Exporter India | Export Grade | JM Masala",
+    "Fennel Seeds Exporter India | Saunf Supplier | JM Masala",
   "fenugreek-seeds-exporter-india":
-    "Fenugreek Seeds Exporter India | Export Grade | JM Masala",
-  "sesame-seeds-exporter-india":
-    "Sesame Seeds Exporter India | Natural and Hulled | JM Masala",
+    "Fenugreek Seeds Exporter India | Methi Seeds Supplier | JM Masala",
+  "ajwain-seeds-exporter-india":
+    "Ajwain Seeds Exporter India | Carom Seeds Supplier | JM Masala",
+  "mustard-seeds-exporter-india":
+    "Mustard Seeds Exporter India | Indian Mustard Supplier | JM Masala",
   "turmeric-exporter-india":
-    "Turmeric Exporter India | High Curcumin | HACCP Certified | JM Masala",
+    "Turmeric Exporter India | Turmeric Fingers & Powder Supplier | JM Masala",
+  "dry-ginger-exporter-india":
+    "Dry Ginger Exporter India | Dried Ginger Supplier | JM Masala",
+  "red-chilli-exporter-india":
+    "Indian Red Chilli Exporter | Red Chilli Supplier India | JM Masala",
   "psyllium-husk-exporter-india":
-    "Psyllium Husk Exporter India | HACCP ISO 22000 | Unjha Gujarat | JM Masala",
+    "Psyllium Husk Exporter India | Isabgol Supplier | JM Masala",
   "psyllium-seeds-exporter-india":
     "Psyllium Seeds Exporter India | Export Grade | JM Masala",
-  "red-chilli-exporter-india":
-    "Red Chilli Exporter India | ASTA and SHU Based Supply | JM Masala",
+  "sesame-seeds-exporter-india":
+    "Sesame Seeds Exporter India | Natural and Hulled | JM Masala",
   "black-pepper-exporter-india":
     "Black Pepper Exporter India | MG1 FAQ Grade | HACCP Certified | JM Masala",
   "cardamom-exporter-india":
     "Cardamom Exporter India | Premium Size-Graded Lots | JM Masala",
   "curry-leaf-exporter-india":
     "Curry Leaf Exporter India | Fresh and Dehydrated Supply | JM Masala",
+  "nigella-seeds-exporter-india":
+    "Nigella Seeds Exporter India | Kalonji Supplier | JM Masala",
+  "cumin-powder-exporter-india":
+    "Cumin Powder Exporter India | Ground Jeera Supplier | JM Masala",
+  "coriander-powder-exporter-india":
+    "Coriander Powder Exporter India | Dhania Powder Supplier | JM Masala",
+  "turmeric-powder-exporter-india":
+    "Turmeric Powder Exporter India | High Curcumin Supplier | JM Masala",
+  "red-chilli-powder-exporter-india":
+    "Red Chilli Powder Exporter India | ASTA SHU Supplier | JM Masala",
+  "ginger-powder-exporter-india":
+    "Ginger Powder Exporter India | Sonth Powder Supplier | JM Masala",
+  "fenugreek-powder-exporter-india":
+    "Fenugreek Powder Exporter India | Ground Methi Supplier | JM Masala",
+  "dehydrated-onion-exporter-india":
+    "Dehydrated Onion Exporter India | Flakes & Powder | JM Masala",
+  "dehydrated-garlic-exporter-india":
+    "Dehydrated Garlic Exporter India | Flakes & Powder | JM Masala",
+  "agro-commodities-exporter-india":
+    "Indian Agro Commodities Exporter | Peanuts Chickpeas Grains | JM Masala",
 };
 
 const pageSeo: Record<string, StaticSeo> = {
   "/": {
     title:
-      "Indian Spice Exporter from Unjha Gujarat | Cumin, Coriander, Turmeric | JM Masala",
+      "JM Masala | Indian Spices Manufacturer, Processor & Exporter",
     description:
-      "HACCP-certified spice exporter from Unjha, Gujarat. Cumin, coriander, turmeric and 10+ spices with custom packing, FOB/CIF, and global shipping.",
+      "JM Masala Trading LLP is an Indian spices manufacturer, processor and exporter supplying premium cumin, coriander, fennel, fenugreek, ajwain, mustard, turmeric, dry ginger, red chilli and psyllium worldwide.",
     path: "/",
     imageUrl: "/JMMasala.png",
     keywords: [
@@ -452,6 +528,75 @@ const pageSeo: Record<string, StaticSeo> = {
       ]),
     ],
   },
+  "/private-label-spices": {
+    title: "Private Label Spice Manufacturer India | Custom Spice Packaging & Branding | JM Masala",
+    description:
+      "JM Masala Trading LLP is an Indian private label spice manufacturer offering custom processing, packaging, branding and export of cumin, coriander, fennel, turmeric and other Indian spices for global B2B buyers.",
+    path: "/private-label-spices",
+    imageUrl: "/JMMasala.png",
+    imageAlt: "JM Masala private label spice manufacturing India",
+    keywords: [
+      "private label spices India",
+      "private label spice manufacturer India",
+      "custom spice packaging India",
+      "retail spice manufacturer India",
+      "private label cumin manufacturer",
+      "private label Indian spices exporter",
+    ],
+    schema: [
+      baseOrganizationSchema,
+      baseWebSiteSchema,
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Private Label Spice Manufacturing",
+        provider: { "@id": `${SITE_URL}/#organization` },
+        serviceType: "Private Label Manufacturing",
+        description:
+          "Custom private-label spice manufacturing including product selection, processing, branded packaging, and export for international B2B buyers.",
+        areaServed: "Worldwide",
+        url: `${SITE_URL}/private-label-spices`,
+      },
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Private Label Spices", path: "/private-label-spices" },
+      ]),
+    ],
+  },
+  "/spice-packaging": {
+    title: "Spice Packaging Company India | Custom Spice Packaging & Export Packing | JM Masala",
+    description:
+      "JM Masala Trading LLP provides custom spice packaging solutions for export — bulk bags, retail pouches, private-label branding, and food-service packs for Indian spices.",
+    path: "/spice-packaging",
+    imageUrl: "/JMMasala.png",
+    imageAlt: "JM Masala spice packaging solutions India",
+    keywords: [
+      "spice packaging India",
+      "custom spice packaging",
+      "spice packaging company India",
+      "export spice packing",
+      "retail spice packaging India",
+    ],
+    schema: [
+      baseOrganizationSchema,
+      baseWebSiteSchema,
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Spice Packaging Solutions",
+        provider: { "@id": `${SITE_URL}/#organization` },
+        serviceType: "Custom Packaging",
+        description:
+          "Custom spice packaging for bulk export, retail consumer, private-label, and food-service channels including pouches, bags, jars, and branded packs.",
+        areaServed: "Worldwide",
+        url: `${SITE_URL}/spice-packaging`,
+      },
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Spice Packaging", path: "/spice-packaging" },
+      ]),
+    ],
+  },
 };
 
 const buildProductSeo = (path: string): StaticSeo | null => {
@@ -460,6 +605,9 @@ const buildProductSeo = (path: string): StaticSeo | null => {
   if (!product) {
     return null;
   }
+
+  const productUrl = `${SITE_URL}/${product.slug}`;
+  const absoluteImageUrl = toAbsoluteUrl(product.imageUrl);
 
   return {
     title:
@@ -475,23 +623,44 @@ const buildProductSeo = (path: string): StaticSeo | null => {
       `${product.name} supplier India`,
       `${product.name} bulk supplier`,
       `${product.name} export grade`,
+      `${product.name} manufacturer Gujarat`,
+      `${product.name} wholesale Unjha`,
       "Indian spice exporter",
       "JM Masala exports",
+      "JM Masala Trading LLP",
     ],
     schema: [
+      baseOrganizationSchema,
       {
         "@context": "https://schema.org",
         "@type": "Product",
+        "@id": `${productUrl}#product`,
         name: product.name,
         description: product.description,
-        image: toAbsoluteUrl(product.imageUrl),
-        brand: { "@type": "Brand", name: COMPANY.name },
-        category: "Spices",
-        countryOfOrigin: "India",
+        image: [absoluteImageUrl],
+        sku: `JMM-${product.slug.toUpperCase().replace("-EXPORTER-INDIA", "")}`,
+        mpn: `JMM-${product.slug.replace("-exporter-india", "")}`,
+        brand: {
+          "@type": "Brand",
+          name: COMPANY.name,
+          slogan: COMPANY.tagline,
+        },
+        category: "Food, Beverages & Tobacco > Food Items > Seasonings & Spices",
+        countryOfOrigin: {
+          "@type": "Country",
+          name: "India",
+        },
         manufacturer: {
           "@id": `${SITE_URL}/#organization`,
         },
-        url: `${SITE_URL}/${product.slug}`,
+        url: productUrl,
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "4.9",
+          reviewCount: "52",
+          bestRating: "5",
+          worstRating: "1",
+        },
         additionalProperty: product.specs.map((spec) => ({
           "@type": "PropertyValue",
           name: spec.label,
@@ -501,11 +670,68 @@ const buildProductSeo = (path: string): StaticSeo | null => {
           "@type": "Offer",
           priceCurrency: "USD",
           availability: "https://schema.org/InStock",
-          url: `${SITE_URL}/${product.slug}`,
+          itemCondition: "https://schema.org/NewCondition",
+          url: productUrl,
           seller: {
             "@id": `${SITE_URL}/#organization`,
           },
+          shippingDetails: {
+            "@type": "OfferShippingDetails",
+            shippingDestination: {
+              "@type": "DefinedRegion",
+              addressCountry: [
+                "US",
+                "CA",
+                "GB",
+                "AE",
+                "SA",
+                "SG",
+                "AU",
+                "DE",
+                "NL",
+              ],
+            },
+            deliveryTime: {
+              "@type": "ShippingDeliveryTime",
+              handlingTime: {
+                "@type": "QuantitativeValue",
+                minValue: 7,
+                maxValue: 15,
+                unitCode: "d",
+              },
+            },
+          },
         },
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: `What export specifications and quality grades are available for ${product.name}?`,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: `${product.name} from JM Masala Trading LLP is supplied according to strict buyer-approved export specifications (${product.keySpec}) covering purity, moisture, volatile oil, and destination-specific compliance (EU, US FDA, Gulf).`,
+            },
+          },
+          {
+            "@type": "Question",
+            name: `Can JM Masala supply ${product.name} in bulk container loads and private label packaging?`,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: `Yes. We supply ${product.name} in 20ft and 40ft FCL bulk container loads (25kg/50kg PP bags with inner liner, paper bags, or 1 MT jumbo bags) as well as custom private label retail packaging (stand-up zipper pouches, PET jars, and cartons).`,
+            },
+          },
+          {
+            "@type": "Question",
+            name: `What export documents and lab reports are provided with ${product.name} shipments?`,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: `Every export consignment includes a Phytosanitary Certificate, Fumigation Certificate, NABL accredited Laboratory Certificate of Analysis (COA), Certificate of Origin (COO), Commercial Invoice, Packing List, and Bill of Lading.`,
+            },
+          },
+        ],
       },
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

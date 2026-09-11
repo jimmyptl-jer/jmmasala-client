@@ -10,12 +10,28 @@ import psylliumSeedsImage from "../assets/PsylliumSeeds.png";
 import redChilliImage from "../assets/RedChilli.png";
 import sesameSeedsImage from "../assets/SesameSeeds.png";
 import turmericImage from "../assets/Turmeric.png";
+import ajwainSeedsImage from "../assets/AjwainSeeds.jpg";
+import mustardSeedsImage from "../assets/MustardSeeds.jpg";
+import dryGingerImage from "../assets/DryGinger.jpg";
+import nigellaSeedsImage from "../assets/NigellaSeeds.jpg";
+import cuminPowderImage from "../assets/CuminPowder.jpg";
+import corianderPowderImage from "../assets/CorianderPowder.jpg";
+import turmericPowderImage from "../assets/TurmericPowder.jpg";
+import redChilliPowderImage from "../assets/RedChilliPowder.jpg";
+import gingerPowderImage from "../assets/GingerPowder.jpg";
+import fenugreekPowderImage from "../assets/FenugreekPowder.jpg";
+import dehydratedOnionImage from "../assets/DehydratedOnion.jpg";
+import dehydratedGarlicImage from "../assets/DehydratedGarlic.jpg";
+import agroCommoditiesImage from "../assets/AgroCommodities.jpg";
 
 export const SITE_URL = "https://jmmasalaexports.com";
 
 export const COMPANY = {
   name: "JM Masala",
-  legalName: "JM Masala Exports",
+  legalName: "JM Masala Trading LLP",
+  tagline: "Indian Spice Manufacturer, Processor & Exporter",
+  entityType:
+    "Spice Manufacturer, Processor, Exporter, Bulk Supplier & Private Label Partner",
   email: "jmmasalaexports@gmail.com",
   website: "jmmasalaexports.com",
   phones: ["+91 91067 66041", "+91 98245 10478"],
@@ -44,6 +60,8 @@ export const NAV_LINKS = [
   { label: "About Us", path: "/about-jm-masala" },
   { label: "Sourcing", path: "/sourcing-network" },
   { label: "Quality and Certifications", path: "/quality-certifications" },
+  { label: "Private Label", path: "/private-label-spices" },
+  { label: "Packaging", path: "/spice-packaging" },
   { label: "Domestic Buyers", path: "/domestic-supply-india" },
   { label: "Contact", path: "/contact" },
 ];
@@ -57,7 +75,7 @@ export const TRUST_BADGES = [
   "IEC Registered",
 ];
 
-export type ProductCategory = "north" | "south" | "powders";
+export type ProductCategory = "whole" | "powders" | "agro" | "north" | "south";
 
 export type ProductSpec = {
   label: string;
@@ -140,12 +158,14 @@ export const PRODUCTS: ProductData[] = [
       tagline: "Warm amber tones of Unjha's finest jeera",
     },
     specs: [
-      { label: "Purity", value: "98% / 99% / 99.5%" },
+      { label: "HS Code (ITC-HS)", value: "0909 31 29 (Sortex) / 0909 31 19" },
+      { label: "Purity", value: "98% / 99% / 99.5% / 99.9%" },
       { label: "Moisture", value: "Max 8% to 10%" },
-      { label: "Admixture", value: "Max 1% to 3% by market grade" },
+      { label: "Admixture", value: "Max 0.5% to 1.75% by market grade" },
       { label: "Oil Content", value: "2.5% to 4.5%" },
+      { label: "Cleaning Process", value: "Machine Cleaned & Sortex Optical Sorted" },
       { label: "Color", value: "Brown to dark brown" },
-      { label: "Crop Year", value: "Latest available" },
+      { label: "Crop Year", value: "Latest fresh harvest" },
     ],
     qualityGrades: [
       {
@@ -545,6 +565,435 @@ export const PRODUCTS: ProductData[] = [
       "cardamom-exporter-india",
     ],
   },
+  {
+    slug: "ajwain-seeds-exporter-india",
+    name: "Ajwain / Carom Seeds",
+    botanicalName: "Trachyspermum ammi",
+    origin: "Gujarat / Rajasthan",
+    category: "whole",
+    shortDescription:
+      "Aromatic Ajwain seeds with high essential oil content, machine cleaned and Sortex processed.",
+    description:
+      "JM Masala supplies and exports Indian ajwain (Carom Seeds) sourced from established growing regions in Gujarat and Rajasthan. Known for high thymol oil content, uniform seed size, low admixture, and distinctive herbal aroma.",
+    keySpec: "Purity 99% Sortex | Essential Oil 2.5-5%",
+    imageUrl: ajwainSeedsImage,
+    colors: {
+      primary: "#2e2210",
+      accent: "#b5873e",
+      pale: "#f7eee1",
+      swatches: ["#2e2210", "#5c4320", "#b5873e", "#d8b273", "#f7eee1"],
+      tagline: "Earthy herbal notes of premium Indian Carom",
+    },
+    specs: [
+      { label: "Purity", value: "98% / 99% / 99.5% Sortex" },
+      { label: "Moisture", value: "Max 8% to 10%" },
+      { label: "Admixture", value: "Max 1%" },
+      { label: "Essential Oil", value: "2.5% to 5.0%" },
+      { label: "Color", value: "Greyish green to light brown" },
+      { label: "Cleaning", value: "Machine Cleaned & Sortex Cleaned" },
+    ],
+    relatedSlugs: [
+      "cumin-seeds-exporter-india",
+      "fennel-seeds-exporter-india",
+      "fenugreek-seeds-exporter-india",
+    ],
+  },
+  {
+    slug: "mustard-seeds-exporter-india",
+    name: "Mustard Seeds",
+    botanicalName: "Brassica juncea",
+    origin: "Gujarat / Rajasthan",
+    category: "whole",
+    shortDescription:
+      "Export-grade yellow and brown mustard seeds with high oil content and Sortex purity.",
+    description:
+      "JM Masala supplies premium Indian mustard seeds for international food processors, spice blenders, pickling manufacturers, and oil extractors. We process small yellow, bold yellow, and black/brown mustard varieties.",
+    keySpec: "Purity 99% | Oil Content 38-42%",
+    imageUrl: mustardSeedsImage,
+    colors: {
+      primary: "#332605",
+      accent: "#d4a71c",
+      pale: "#faf3d9",
+      swatches: ["#332605", "#664d0a", "#d4a71c", "#e6c354", "#faf3d9"],
+      tagline: "Golden brilliance of Gujarat mustard",
+    },
+    specs: [
+      { label: "Varieties", value: "Small Yellow / Bold Yellow / Black Brown" },
+      { label: "Purity", value: "98% / 99% / 99.5%" },
+      { label: "Moisture", value: "Max 8%" },
+      { label: "Admixture", value: "Max 1%" },
+      { label: "Oil Content", value: "38% to 42%" },
+      { label: "Cleaning", value: "Machine Cleaned & Sortex Cleaned" },
+    ],
+    relatedSlugs: [
+      "cumin-seeds-exporter-india",
+      "coriander-seeds-exporter-india",
+      "sesame-seeds-exporter-india",
+    ],
+  },
+  {
+    slug: "dry-ginger-exporter-india",
+    name: "Dry Ginger",
+    botanicalName: "Zingiber officinale",
+    origin: "Kerala / Gujarat",
+    category: "whole",
+    shortDescription:
+      "Whole bleached and unbleached dry ginger (Sonth) with rich pungency and volatile oil.",
+    description:
+      "JM Masala exports premium Indian dry ginger (Sonth) processed into nuggets and splits. Sourced from optimal spice belts and lab-tested for essential oil, low moisture, and clean appearance.",
+    keySpec: "Moisture 10-12% | Volatile Oil 1.5-2.5%",
+    imageUrl: dryGingerImage,
+    colors: {
+      primary: "#2e2113",
+      accent: "#ab7a46",
+      pale: "#f7ebd9",
+      swatches: ["#2e2113", "#5c4226", "#ab7a46", "#cca474", "#f7ebd9"],
+      tagline: "Warm pungent ginger notes",
+    },
+    specs: [
+      { label: "Format", value: "Whole Bleached / Unbleached (Splits/Nuggets)" },
+      { label: "Purity", value: "Min 99%" },
+      { label: "Moisture", value: "Max 10% to 12%" },
+      { label: "Extraneous Matter", value: "Max 1%" },
+      { label: "Volatile Oil", value: "1.5% to 2.5%" },
+      { label: "Processing", value: "Hand Selected & Machine Cleaned" },
+    ],
+    relatedSlugs: [
+      "ginger-powder-exporter-india",
+      "turmeric-exporter-india",
+      "black-pepper-exporter-india",
+    ],
+  },
+  {
+    slug: "nigella-seeds-exporter-india",
+    name: "Nigella Seeds / Kalonji",
+    botanicalName: "Nigella sativa",
+    origin: "Gujarat / Madhya Pradesh",
+    category: "whole",
+    shortDescription:
+      "Jet-black, high-purity Kalonji seeds with intense aromatic profile for global export.",
+    description:
+      "Our Nigella seeds (Kalonji) are selected for deep dark visual appearance, high oil content, and low admixture. Fully Sortex cleaned and packed for global food, bakery, and nutraceutical buyers.",
+    keySpec: "Purity 99.5% Sortex | Moisture max 7-8%",
+    imageUrl: nigellaSeedsImage,
+    colors: {
+      primary: "#141414",
+      accent: "#6b6b6b",
+      pale: "#f0f0f0",
+      swatches: ["#141414", "#2e2e2e", "#6b6b6b", "#a3a3a3", "#f0f0f0"],
+      tagline: "Deep obsidian purity of premium Kalonji",
+    },
+    specs: [
+      { label: "Purity", value: "99% / 99.5% (Sortex Cleaned)" },
+      { label: "Moisture", value: "Max 7% to 8%" },
+      { label: "Admixture", value: "Max 0.5% to 1%" },
+      { label: "Volatile Oil", value: "1.0% to 1.8%" },
+      { label: "Color", value: "Jet Black" },
+      { label: "Cleaning", value: "Sortex Cleaned & Destoned" },
+    ],
+    relatedSlugs: [
+      "cumin-seeds-exporter-india",
+      "sesame-seeds-exporter-india",
+      "ajwain-seeds-exporter-india",
+    ],
+  },
+  {
+    slug: "cumin-powder-exporter-india",
+    name: "Cumin Powder",
+    botanicalName: "Cuminum cyminum",
+    origin: "Unjha, Gujarat",
+    category: "powders",
+    shortDescription:
+      "100% pure ground cumin powder milled from Unjha Sortex jeera seeds.",
+    description:
+      "Milled in controlled hygienic conditions from Unjha cumin seeds. Retains natural essential oils, warm aroma, and rich flavor. Custom mesh sizes and steam sterilization available.",
+    keySpec: "100% Pure | Mesh 40-80 | Steam Sterilized",
+    imageUrl: cuminPowderImage,
+    colors: {
+      primary: "#2d1f0e",
+      accent: "#c17f3a",
+      pale: "#f5e6d0",
+      swatches: ["#2d1f0e", "#5c3e1c", "#c17f3a", "#e2ad6e", "#f5e6d0"],
+      tagline: "Aromatic ground jeera from Unjha",
+    },
+    specs: [
+      { label: "Mesh Size", value: "40 to 80 mesh custom ground" },
+      { label: "Purity", value: "100% Pure Cumin Ground" },
+      { label: "Moisture", value: "Max 8%" },
+      { label: "Total Ash", value: "Max 8.5%" },
+      { label: "Volatile Oil", value: "Min 1.8% to 3.0%" },
+      { label: "Sterilization", value: "Steam Sterilized / ETO Free options" },
+    ],
+    relatedSlugs: [
+      "cumin-seeds-exporter-india",
+      "coriander-powder-exporter-india",
+      "turmeric-powder-exporter-india",
+    ],
+  },
+  {
+    slug: "coriander-powder-exporter-india",
+    name: "Coriander Powder",
+    botanicalName: "Coriandrum sativum",
+    origin: "Gujarat",
+    category: "powders",
+    shortDescription:
+      "Aromatic Dhania powder milled from fresh-harvest coriander seeds.",
+    description:
+      "Cold-milled coriander powder preserving natural green-golden hue and citrusy volatile oils. Free from synthetic additives or fillers, ideal for spice blenders and food packaging.",
+    keySpec: "100% Pure | Moisture max 9% | Fine ground",
+    imageUrl: corianderPowderImage,
+    colors: {
+      primary: "#1a2e12",
+      accent: "#6fa832",
+      pale: "#e8f4d0",
+      swatches: ["#1a2e12", "#2e5020", "#6fa832", "#a8d46a", "#e8f4d0"],
+      tagline: "Fresh herbal Dhania powder",
+    },
+    specs: [
+      { label: "Mesh Size", value: "40 to 80 mesh" },
+      { label: "Purity", value: "100% Pure Coriander Ground" },
+      { label: "Moisture", value: "Max 9%" },
+      { label: "Total Ash", value: "Max 7%" },
+      { label: "Volatile Oil", value: "Min 0.3% to 0.8%" },
+      { label: "Milling", value: "Cold-milled process" },
+    ],
+    relatedSlugs: [
+      "coriander-seeds-exporter-india",
+      "cumin-powder-exporter-india",
+      "turmeric-powder-exporter-india",
+    ],
+  },
+  {
+    slug: "turmeric-powder-exporter-india",
+    name: "Turmeric Powder",
+    botanicalName: "Curcuma longa",
+    origin: "Telangana / Gujarat",
+    category: "powders",
+    shortDescription:
+      "Vibrant golden turmeric powder with high curcumin content and zero chromate.",
+    description:
+      "Ground from polished turmeric fingers. Lab-certified for zero lead chromate, controlled moisture, and guaranteed curcumin levels ranging from 2% to 5%+.",
+    keySpec: "Curcumin 2-5%+ | Zero Chromate | 60-100 Mesh",
+    imageUrl: turmericPowderImage,
+    colors: {
+      primary: "#2e1e00",
+      accent: "#e89b00",
+      pale: "#fff3c4",
+      swatches: ["#2e1e00", "#5c3c00", "#e89b00", "#f5c84a", "#fff3c4"],
+      tagline: "High curcumin golden radiance",
+    },
+    specs: [
+      { label: "Curcumin", value: "2.0% to 5.0%+ (Grade Aligned)" },
+      { label: "Mesh Size", value: "60 to 100 mesh" },
+      { label: "Moisture", value: "Max 8% to 9%" },
+      { label: "Total Ash", value: "Max 7%" },
+      { label: "Lead Chromate", value: "NIL (Lab Certified)" },
+      { label: "Processing", value: "Cleaned finger milling" },
+    ],
+    relatedSlugs: [
+      "turmeric-exporter-india",
+      "red-chilli-powder-exporter-india",
+      "cumin-powder-exporter-india",
+    ],
+  },
+  {
+    slug: "red-chilli-powder-exporter-india",
+    name: "Red Chilli Powder",
+    botanicalName: "Capsicum annuum",
+    origin: "Andhra Pradesh",
+    category: "powders",
+    shortDescription:
+      "Vibrant red chilli powder custom-blended by ASTA color and SHU heat levels.",
+    description:
+      "Export-quality red chilli powder sourced from Guntur red chilli belts. Supplied in Reshampatti, Sanam, Teja, and Kashmiri grades with Aflatoxin and Sudan dye testing.",
+    keySpec: "ASTA 60-140 | Heat 15k-90k SHU | Aflatoxin free",
+    imageUrl: redChilliPowderImage,
+    colors: {
+      primary: "#2e0a0a",
+      accent: "#cc2222",
+      pale: "#fde8e8",
+      swatches: ["#2e0a0a", "#5c1414", "#cc2222", "#e87070", "#fde8e8"],
+      tagline: "Vibrant crimson pungency",
+    },
+    specs: [
+      { label: "Heat Band (SHU)", value: "15,000 to 90,000 SHU" },
+      { label: "ASTA Color", value: "60 to 140 ASTA" },
+      { label: "Moisture", value: "Max 10%" },
+      { label: "Total Ash", value: "Max 8%" },
+      { label: "Aflatoxin", value: "EU/US compliant lab certified" },
+      { label: "Grades", value: "Reshampatti / Sanam / Teja / Kashmiri" },
+    ],
+    relatedSlugs: [
+      "red-chilli-exporter-india",
+      "turmeric-powder-exporter-india",
+      "coriander-powder-exporter-india",
+    ],
+  },
+  {
+    slug: "ginger-powder-exporter-india",
+    name: "Ginger Powder",
+    botanicalName: "Zingiber officinale",
+    origin: "Kerala / Gujarat",
+    category: "powders",
+    shortDescription:
+      "Pure dry ginger powder (Sonth) for food manufacturing and spice seasonings.",
+    description:
+      "Fine micro-milled dry ginger powder with pungent zing and high essential oil content. Ideal for bakery, beverages, spice blends, and nutraceutical processing.",
+    keySpec: "100% Pure | Moisture max 9% | 50-80 Mesh",
+    imageUrl: gingerPowderImage,
+    colors: {
+      primary: "#2e2113",
+      accent: "#ab7a46",
+      pale: "#f7ebd9",
+      swatches: ["#2e2113", "#5c4226", "#ab7a46", "#cca474", "#f7ebd9"],
+      tagline: "Pure aromatic Sonth powder",
+    },
+    specs: [
+      { label: "Mesh Size", value: "50 to 80 mesh fine powder" },
+      { label: "Purity", value: "100% Natural Dried Ginger Ground" },
+      { label: "Moisture", value: "Max 9% to 10%" },
+      { label: "Volatile Oil", value: "Min 1.5%" },
+      { label: "Total Ash", value: "Max 6%" },
+      { label: "Applications", value: "Bakery, spice blends, tea & food processing" },
+    ],
+    relatedSlugs: [
+      "dry-ginger-exporter-india",
+      "turmeric-powder-exporter-india",
+      "cumin-powder-exporter-india",
+    ],
+  },
+  {
+    slug: "fenugreek-powder-exporter-india",
+    name: "Fenugreek Powder",
+    botanicalName: "Trigonella foenum-graecum",
+    origin: "Gujarat",
+    category: "powders",
+    shortDescription:
+      "Nutty and aromatic ground Methi powder for spice blends and health formulations.",
+    description:
+      "Fine ground fenugreek powder milled from machine-cleaned golden seeds. Rich in dietary fiber and protein, suited for food manufacturing and nutraceutical applications.",
+    keySpec: "100% Pure | Protein 20-25% | Mesh 40-60",
+    imageUrl: fenugreekPowderImage,
+    colors: {
+      primary: "#2a1f0a",
+      accent: "#d4a048",
+      pale: "#fae8c5",
+      swatches: ["#2a1f0a", "#5c3e1c", "#d4a048", "#e5c485", "#fae8c5"],
+      tagline: "Nutty golden Methi powder",
+    },
+    specs: [
+      { label: "Mesh Size", value: "40 to 60 mesh" },
+      { label: "Purity", value: "100% Pure Ground Methi" },
+      { label: "Moisture", value: "Max 9%" },
+      { label: "Protein Content", value: "20% to 25%" },
+      { label: "Cleaning", value: "Sortex seed milling" },
+      { label: "Packing", value: "25kg PP / paper bags with PE liner" },
+    ],
+    relatedSlugs: [
+      "fenugreek-seeds-exporter-india",
+      "coriander-powder-exporter-india",
+      "cumin-powder-exporter-india",
+    ],
+  },
+  {
+    slug: "dehydrated-onion-exporter-india",
+    name: "Dehydrated Onion",
+    botanicalName: "Allium cepa",
+    origin: "Mahuva, Gujarat",
+    category: "agro",
+    shortDescription:
+      "Export-grade dehydrated onion flakes, kibbled, minced, granules, and powder.",
+    description:
+      "Sourced from Mahuva, Gujarat onion hub. Supplied in White, Red, and Pink onion variants. Processed with low moisture, high pungency, and strict microbial hygiene.",
+    keySpec: "Purity 99.5% | Moisture max 6% | Flakes/Granules/Powder",
+    imageUrl: dehydratedOnionImage,
+    colors: {
+      primary: "#2e1c12",
+      accent: "#c46c3b",
+      pale: "#faebd7",
+      swatches: ["#2e1c12", "#5c3824", "#c46c3b", "#e39a72", "#faebd7"],
+      tagline: "Premium Mahuva dehydrated onion",
+    },
+    specs: [
+      { label: "Variants", value: "White Onion / Red Onion / Pink Onion" },
+      { label: "Formats", value: "Flakes (Kibbled) / Chopped / Minced / Granules / Powder" },
+      { label: "Moisture", value: "Max 6%" },
+      { label: "Purity", value: "Min 99.5%" },
+      { label: "Microbiology", value: "TPC < 100,000 cfu/g, Salmonella Negative" },
+      { label: "Packaging", value: "14-20kg Kraft paper bags / Corrugated carton" },
+    ],
+    relatedSlugs: [
+      "dehydrated-garlic-exporter-india",
+      "agro-commodities-exporter-india",
+      "psyllium-husk-exporter-india",
+    ],
+  },
+  {
+    slug: "dehydrated-garlic-exporter-india",
+    name: "Dehydrated Garlic",
+    botanicalName: "Allium sativum",
+    origin: "Gujarat / MP",
+    category: "agro",
+    shortDescription:
+      "Dehydrated garlic flakes, cloves, minced, granules, and pure garlic powder.",
+    description:
+      "Dehydrated garlic processed from fresh Indian garlic bulbs. Features intense aroma and low moisture. Perfect for soup mixes, meat seasoning, sauces, and instant foods.",
+    keySpec: "Purity 99.5% | Moisture max 6% | Flakes & Powder",
+    imageUrl: dehydratedGarlicImage,
+    colors: {
+      primary: "#242119",
+      accent: "#8c826b",
+      pale: "#f5f2eb",
+      swatches: ["#242119", "#474233", "#8c826b", "#b8b09d", "#f5f2eb"],
+      tagline: "Intense aroma dehydrated garlic",
+    },
+    specs: [
+      { label: "Formats", value: "Flakes (Cloves) / Chopped / Minced / Granules / Powder" },
+      { label: "Moisture", value: "Max 6%" },
+      { label: "Purity", value: "Min 99.5%" },
+      { label: "Acid Insoluble Ash", value: "Max 0.5%" },
+      { label: "Color", value: "Creamy white to light yellow" },
+      { label: "Packaging", value: "20kg Kraft paper bags / cartons with inner poly bag" },
+    ],
+    relatedSlugs: [
+      "dehydrated-onion-exporter-india",
+      "agro-commodities-exporter-india",
+      "psyllium-husk-exporter-india",
+    ],
+  },
+  {
+    slug: "agro-commodities-exporter-india",
+    name: "Indian Agro Commodities",
+    botanicalName: "Various Agro Produce",
+    origin: "Gujarat & India",
+    category: "agro",
+    shortDescription:
+      "Bulk supply of peanuts, chickpeas, sesame, oilseeds, and specialty Indian grains.",
+    description:
+      "JM Masala facilitates container-load export of key Indian agricultural commodities including Groundnuts/Peanuts, Kabuli Chickpeas, Oilseeds, and Grains with full port shipping terms.",
+    keySpec: "Machine & Sortex Cleaned | FCL Loading | FOB Mundra",
+    imageUrl: agroCommoditiesImage,
+    colors: {
+      primary: "#241c10",
+      accent: "#a88242",
+      pale: "#f7efe1",
+      swatches: ["#241c10", "#473820", "#a88242", "#cca86a", "#f7efe1"],
+      tagline: "Pan-India agro commodity export strength",
+    },
+    specs: [
+      { label: "Products Handled", value: "Peanuts, Chickpeas (Kabuli), Oilseeds, Rice & Grains" },
+      { label: "Cleaning", value: "Machine Cleaned & Sortex Cleaned" },
+      { label: "Moisture & Purity", value: "As per buyer contract specifications" },
+      { label: "Packaging", value: "25kg / 50kg PP / Jute bags or 1 MT Jumbo bags" },
+      { label: "MOQ", value: "1 FCL (20ft / 40ft container load)" },
+      { label: "Ports", value: "FOB Mundra / Nhava Sheva / CIF destination" },
+    ],
+    relatedSlugs: [
+      "sesame-seeds-exporter-india",
+      "dehydrated-onion-exporter-india",
+      "psyllium-husk-exporter-india",
+    ],
+  },
 ];
 
 export const PRODUCTS_BY_SLUG = Object.fromEntries(
@@ -576,6 +1025,7 @@ export const PRODUCT_TECHNICAL_DETAILS: Record<string, ProductTechnicalDetails> 
   "cumin-seeds-exporter-india": {
     general: [
       { label: "Botanical Name", value: "Cuminum cyminum" },
+      { label: "HS Code (ITC-HS)", value: "0909 31 29 (Sortex Whole) / 0909 31 19" },
       { label: "Origin", value: "Unjha, Gujarat, India" },
       { label: "Harvest Season", value: "February to April" },
       { label: "Shelf Life", value: "12 to 24 months in cool, dry storage" },
@@ -603,29 +1053,38 @@ export const PRODUCT_TECHNICAL_DETAILS: Record<string, ProductTechnicalDetails> 
       "Arsenic (As): below 1 ppm",
     ],
     processing: [
-      "Machine cleaned",
-      "Gravity separator applied",
-      "Sortex color sorting",
-      "Metal detection before packing",
+      "Direct mandi arrival pre-cleaning & dust aspiration",
+      "Destoner & gravity density separation",
+      "Sortex optical color sorting (99%, 99.5%, 99.9% purity)",
+      "Continuous metal detection & foreign body check",
+      "Optional cold-milling into Cumin Powder (40-80 mesh)",
+      "Optional steam sterilization (ETO-free) on request",
     ],
     packaging: [
-      "25 kg and 50 kg PP bags",
-      "Jute bags",
-      "Vacuum packing",
-      "Customized retail packs",
+      "Bulk: 25 kg & 50 kg PP bags with inner poly liner",
+      "Export: Multi-layer paper bags & food-grade jute bags",
+      "Industrial: 1 MT Jumbo FIBC bags for commercial processors",
+      "Retail: 50g, 100g, 200g, 500g, 1kg stand-up zipper pouches",
+      "Consumer: PET jars, shaker bottles, and branded monocartons",
+      "Private label branding, custom artwork & barcoding support",
     ],
     certifications: COMMON_CERTIFICATIONS,
     exportDetails: [
-      { label: "MOQ", value: "1 MT to 20 MT (FCL support available)" },
-      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
-      { label: "Delivery Terms", value: "FOB / CIF / CNF" },
-      { label: "Lead Time", value: "7 to 15 days" },
+      { label: "MOQ", value: "1 MT (LCL) / 1 FCL for optimal freight economics" },
+      { label: "20ft FCL Capacity", value: "Approx. 13 to 14 Metric Tons" },
+      { label: "40ft FCL Capacity", value: "Approx. 26 to 27 Metric Tons" },
+      { label: "Origin Mandi", value: "APMC Unjha, Gujarat, India" },
+      { label: "Loading Port", value: "Mundra Port (Gujarat) / Nhava Sheva (JNPT)" },
+      { label: "Delivery Terms", value: "FOB Mundra / CIF / CFR / CNF" },
+      { label: "Payment Terms", value: "LC at sight / Advance TT as agreed" },
+      { label: "Lead Time", value: "7 to 15 business days from order confirmation" },
     ],
     optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
   },
   "coriander-seeds-exporter-india": {
     general: [
       { label: "Botanical Name", value: "Coriandrum sativum" },
+      { label: "HS Code (ITC-HS)", value: "0909 21 90 (Whole Seeds)" },
       { label: "Origin", value: "Gujarat / Rajasthan, India" },
       { label: "Harvest Season", value: "March to May" },
       { label: "Shelf Life", value: "12 to 18 months in dry storage" },
@@ -656,35 +1115,39 @@ export const PRODUCT_TECHNICAL_DETAILS: Record<string, ProductTechnicalDetails> 
       "Metal detection before dispatch",
     ],
     packaging: [
-      "25 kg and 50 kg PP bags with liner",
-      "Jute packing on request",
-      "Private-label retail packs on request",
+      "Bulk: 25 kg & 50 kg PP bags with inner poly liner",
+      "Export: Multi-wall paper bags & food-grade jute bags",
+      "Retail: 50g, 100g, 200g, 500g, 1kg stand-up zipper pouches",
+      "Private label branding & barcode printing on request",
     ],
     certifications: COMMON_CERTIFICATIONS,
     exportDetails: [
-      { label: "MOQ", value: "1 MT onward" },
-      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
-      { label: "Delivery Terms", value: "FOB / CIF / CNF" },
-      { label: "Lead Time", value: "7 to 15 days" },
+      { label: "MOQ", value: "1 MT (LCL) / 1 FCL for optimal freight economics" },
+      { label: "20ft FCL Capacity", value: "Approx. 7 to 9 Metric Tons" },
+      { label: "40ft FCL Capacity", value: "Approx. 17 to 19 Metric Tons" },
+      { label: "Loading Port", value: "Mundra Port (Gujarat) / Nhava Sheva (JNPT)" },
+      { label: "Delivery Terms", value: "FOB Mundra / CIF / CFR / CNF" },
+      { label: "Lead Time", value: "7 to 15 business days from order confirmation" },
     ],
     optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
   },
   "fennel-seeds-exporter-india": {
     general: [
       { label: "Botanical Name", value: "Foeniculum vulgare" },
+      { label: "HS Code (ITC-HS)", value: "0909 61 39 (Sortex Whole)" },
       { label: "Origin", value: "Gujarat, India" },
       { label: "Harvest Season", value: "February to April" },
       { label: "Shelf Life", value: "12 to 18 months" },
     ],
     physical: [
-      { label: "Purity", value: "99%" },
+      { label: "Purity", value: "99% / 99.5% Sortex" },
       { label: "Moisture", value: "Max 8%" },
-      { label: "Color", value: "Light green to green" },
-      { label: "Size", value: "Bold / Medium" },
+      { label: "Color", value: "Light green to vibrant green" },
+      { label: "Size", value: "Bold / Medium / Singapore Grade" },
       { label: "Breakage", value: "Low breakage export lots" },
     ],
     chemical: [
-      { label: "Volatile Oil", value: "1.5% to 3%" },
+      { label: "Volatile Oil", value: "1.5% to 3.0%" },
       { label: "Sweetness", value: "High, export-preferred profile" },
     ],
     microbiological: COMMON_MICROBIOLOGY,
@@ -692,21 +1155,24 @@ export const PRODUCT_TECHNICAL_DETAILS: Record<string, ProductTechnicalDetails> 
       "Pesticide residue and aflatoxin compliance as per destination market",
     ],
     processing: [
-      "Cleaning and destoning",
-      "Size grading",
-      "Sortex on premium export lots",
-      "Metal detection",
+      "Mandi procurement & dust aspiration",
+      "Destoning & density gravity grading",
+      "Sortex optical sorting for color uniformity",
+      "Continuous metal detection before packing",
     ],
     packaging: [
-      "25 kg and 50 kg export bags",
-      "Retail and private-label packs on request",
+      "Bulk: 25 kg & 50 kg PP export bags with inner liner",
+      "Retail: Stand-up zipper pouches & PET jars on request",
+      "Private label packaging with custom buyer artwork",
     ],
     certifications: COMMON_CERTIFICATIONS,
     exportDetails: [
-      { label: "MOQ", value: "1 MT onward" },
-      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
-      { label: "Delivery Terms", value: "FOB / CIF / CNF" },
-      { label: "Lead Time", value: "7 to 15 days" },
+      { label: "MOQ", value: "1 MT (LCL) / 1 FCL" },
+      { label: "20ft FCL Capacity", value: "Approx. 12 to 13 Metric Tons" },
+      { label: "40ft FCL Capacity", value: "Approx. 25 to 26 Metric Tons" },
+      { label: "Loading Port", value: "Mundra Port (Gujarat) / Nhava Sheva (JNPT)" },
+      { label: "Delivery Terms", value: "FOB Mundra / CIF / CFR / CNF" },
+      { label: "Lead Time", value: "7 to 15 business days" },
     ],
     optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
   },
@@ -1057,6 +1523,489 @@ export const PRODUCT_TECHNICAL_DETAILS: Record<string, ProductTechnicalDetails> 
       { label: "Loading Port", value: "Chennai / Nhava Sheva / air shipment support" },
       { label: "Delivery Terms", value: "FOB / CIF / CNF" },
       { label: "Lead Time", value: "Fresh lots faster; dehydrated 7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "ajwain-seeds-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Trachyspermum ammi" },
+      { label: "Origin", value: "Gujarat / Rajasthan, India" },
+      { label: "Harvest Season", value: "February to April" },
+      { label: "Shelf Life", value: "12 to 18 months in dry storage" },
+    ],
+    physical: [
+      { label: "Purity", value: "98% / 99% / 99.5% (Sortex Cleaned)" },
+      { label: "Moisture", value: "Max 8% to 10%" },
+      { label: "Admixture", value: "Max 1%" },
+      { label: "Foreign Matter", value: "Max 0.5%" },
+      { label: "Color", value: "Greyish green to light brown" },
+    ],
+    chemical: [
+      { label: "Essential Oil (Thymol)", value: "2.5% to 5.0%" },
+      { label: "Total Ash", value: "Max 9%" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Pesticide residue compliant with destination market requirement",
+    ],
+    processing: [
+      "Machine cleaned",
+      "Sortex color sorting",
+      "Metal detection",
+    ],
+    packaging: [
+      "25 kg and 50 kg PP bags with liner",
+      "Jute bags on request",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 MT onward" },
+      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB Mundra / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "mustard-seeds-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Brassica juncea" },
+      { label: "Origin", value: "Gujarat / Rajasthan, India" },
+      { label: "Harvest Season", value: "February to March" },
+      { label: "Shelf Life", value: "12 to 18 months" },
+    ],
+    physical: [
+      { label: "Purity", value: "98% / 99% / 99.5%" },
+      { label: "Moisture", value: "Max 8%" },
+      { label: "Admixture", value: "Max 1%" },
+      { label: "Varieties", value: "Small Yellow / Bold Yellow / Black Brown" },
+    ],
+    chemical: [
+      { label: "Oil Content", value: "38% to 42%" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Pesticide residue and heavy metals checked per lot COA",
+    ],
+    processing: [
+      "Machine cleaned",
+      "Sortex cleaned",
+      "Metal detection",
+    ],
+    packaging: [
+      "25 kg and 50 kg PP export bags",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 MT onward" },
+      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB Mundra / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "dry-ginger-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Zingiber officinale" },
+      { label: "Origin", value: "Kerala / Gujarat, India" },
+      { label: "Harvest Season", value: "January to March" },
+      { label: "Shelf Life", value: "12 to 18 months" },
+    ],
+    physical: [
+      { label: "Format", value: "Whole Bleached / Unbleached (Splits / Nuggets)" },
+      { label: "Purity", value: "Min 99%" },
+      { label: "Moisture", value: "Max 10% to 12%" },
+      { label: "Extraneous Matter", value: "Max 1%" },
+    ],
+    chemical: [
+      { label: "Volatile Oil", value: "1.5% to 2.5%" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Aflatoxin compliant as per target country standards",
+    ],
+    processing: [
+      "Hand selected and machine cleaned",
+      "Sun dried / hot-air dried",
+      "Metal detection",
+    ],
+    packaging: [
+      "25 kg and 50 kg Jute or PP bags",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 MT onward" },
+      { label: "Loading Port", value: "Mundra / Cochin / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB Mundra / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "nigella-seeds-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Nigella sativa" },
+      { label: "Origin", value: "Gujarat / MP, India" },
+      { label: "Harvest Season", value: "March to April" },
+      { label: "Shelf Life", value: "18 to 24 months" },
+    ],
+    physical: [
+      { label: "Purity", value: "99% / 99.5% (Sortex Cleaned)" },
+      { label: "Moisture", value: "Max 7% to 8%" },
+      { label: "Admixture", value: "Max 0.5% to 1%" },
+      { label: "Color", value: "Jet Black" },
+    ],
+    chemical: [
+      { label: "Volatile Oil", value: "1.0% to 1.8%" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Pesticide residue checked as per import market standard",
+    ],
+    processing: [
+      "Machine cleaned",
+      "Gravity separator & Sortex color sorting",
+      "Metal detection",
+    ],
+    packaging: [
+      "25 kg and 50 kg PP export bags",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 MT onward" },
+      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB Mundra / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "cumin-powder-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Cuminum cyminum" },
+      { label: "Origin", value: "Unjha, Gujarat, India" },
+      { label: "Format", value: "Ground Powder" },
+      { label: "Shelf Life", value: "12 to 18 months" },
+    ],
+    physical: [
+      { label: "Mesh Size", value: "40 to 80 mesh custom ground" },
+      { label: "Purity", value: "100% Pure Cumin Ground" },
+      { label: "Moisture", value: "Max 8%" },
+    ],
+    chemical: [
+      { label: "Volatile Oil", value: "Min 1.8% to 3.0%" },
+      { label: "Total Ash", value: "Max 8.5%" },
+      { label: "Acid Insoluble Ash", value: "Max 1.2%" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Pesticide and aflatoxin test compliant",
+    ],
+    processing: [
+      "Cleaned seed grinding",
+      "Steam sterilization option (ETO free)",
+      "Sieving and metal detection",
+    ],
+    packaging: [
+      "25 kg Multiwall paper bags with PE liner",
+      "Custom retail packs on request",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 MT onward" },
+      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB Mundra / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "coriander-powder-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Coriandrum sativum" },
+      { label: "Origin", value: "Gujarat, India" },
+      { label: "Format", value: "Ground Powder" },
+      { label: "Shelf Life", value: "12 to 18 months" },
+    ],
+    physical: [
+      { label: "Mesh Size", value: "40 to 80 mesh" },
+      { label: "Purity", value: "100% Pure Coriander Ground" },
+      { label: "Moisture", value: "Max 9%" },
+    ],
+    chemical: [
+      { label: "Volatile Oil", value: "Min 0.3% to 0.8%" },
+      { label: "Total Ash", value: "Max 7%" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Lab verified COA available per lot",
+    ],
+    processing: [
+      "Cold-milling process",
+      "Fine sieving",
+      "Metal detection",
+    ],
+    packaging: [
+      "25 kg Multiwall paper / PP bags with PE liner",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 MT onward" },
+      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB Mundra / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "turmeric-powder-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Curcuma longa" },
+      { label: "Origin", value: "Telangana / Gujarat, India" },
+      { label: "Format", value: "Ground Powder" },
+      { label: "Shelf Life", value: "18 to 24 months" },
+    ],
+    physical: [
+      { label: "Mesh Size", value: "60 to 100 mesh" },
+      { label: "Color", value: "Vibrant Golden Yellow" },
+      { label: "Moisture", value: "Max 8% to 9%" },
+    ],
+    chemical: [
+      { label: "Curcumin Content", value: "2.0% to 5.0%+" },
+      { label: "Lead Chromate", value: "NIL (Guaranteed Pure)" },
+      { label: "Total Ash", value: "Max 7%" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Zero artificial colors, Sudan dye free, Aflatoxin compliant",
+    ],
+    processing: [
+      "Polished finger milling",
+      "Steam sterilization option",
+      "Metal detection before packing",
+    ],
+    packaging: [
+      "25 kg Kraft paper bags with food-grade liner",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 MT onward" },
+      { label: "Loading Port", value: "Mundra / Nhava Sheva / Chennai" },
+      { label: "Delivery Terms", value: "FOB Mundra / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "red-chilli-powder-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Capsicum annuum" },
+      { label: "Origin", value: "Andhra Pradesh, India" },
+      { label: "Format", value: "Ground Powder" },
+      { label: "Shelf Life", value: "12 to 18 months" },
+    ],
+    physical: [
+      { label: "Grades", value: "Reshampatti / Sanam / Teja / Kashmiri" },
+      { label: "Color Value", value: "60 to 140 ASTA" },
+      { label: "Moisture", value: "Max 10%" },
+    ],
+    chemical: [
+      { label: "Pungency (Heat)", value: "15,000 to 90,000 SHU" },
+      { label: "Total Ash", value: "Max 8%" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Aflatoxin & Ochratoxin compliant as per EU/US standards",
+      "Sudan dye free declaration with COA",
+    ],
+    processing: [
+      "Destemming and cleaned pod milling",
+      "Mesh sizing and metal detection",
+    ],
+    packaging: [
+      "25 kg Multiwall paper bags / laminated PP bags",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 MT onward" },
+      { label: "Loading Port", value: "Mundra / Chennai / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB Mundra / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "ginger-powder-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Zingiber officinale" },
+      { label: "Origin", value: "Kerala / Gujarat, India" },
+      { label: "Format", value: "Ground Powder (Sonth)" },
+      { label: "Shelf Life", value: "12 to 18 months" },
+    ],
+    physical: [
+      { label: "Mesh Size", value: "50 to 80 mesh" },
+      { label: "Color", value: "Off-white to light beige" },
+      { label: "Moisture", value: "Max 9% to 10%" },
+    ],
+    chemical: [
+      { label: "Volatile Oil", value: "Min 1.5%" },
+      { label: "Total Ash", value: "Max 6%" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Pesticide residue testing available per lot",
+    ],
+    processing: [
+      "Dry ginger root milling",
+      "Metal detection",
+    ],
+    packaging: [
+      "25 kg Kraft paper bags with PE liner",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 MT onward" },
+      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB Mundra / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "fenugreek-powder-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Trigonella foenum-graecum" },
+      { label: "Origin", value: "Gujarat, India" },
+      { label: "Format", value: "Ground Powder (Methi)" },
+      { label: "Shelf Life", value: "12 to 18 months" },
+    ],
+    physical: [
+      { label: "Mesh Size", value: "40 to 60 mesh" },
+      { label: "Purity", value: "100% Pure Ground Methi" },
+      { label: "Moisture", value: "Max 9%" },
+    ],
+    chemical: [
+      { label: "Protein Content", value: "20% to 25%" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Pesticide residue checked as per contract",
+    ],
+    processing: [
+      "Clean seed grinding",
+      "Metal detection",
+    ],
+    packaging: [
+      "25 kg PP / paper bags with PE liner",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 MT onward" },
+      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB Mundra / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "dehydrated-onion-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Allium cepa" },
+      { label: "Origin", value: "Mahuva, Gujarat, India" },
+      { label: "Harvest Season", value: "January to May" },
+      { label: "Shelf Life", value: "24 months under dry storage" },
+    ],
+    physical: [
+      { label: "Variants", value: "White Onion / Red Onion / Pink Onion" },
+      { label: "Formats", value: "Flakes (Kibbled) / Chopped / Minced / Granules / Powder" },
+      { label: "Moisture", value: "Max 6%" },
+      { label: "Purity", value: "Min 99.5%" },
+    ],
+    chemical: [
+      { label: "Acid Insoluble Ash", value: "Max 0.5%" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Strict food safety and heavy metal compliance",
+    ],
+    processing: [
+      "Washing and slicing",
+      "Controlled hot-air dehydration",
+      "Optical sorting & metal detection",
+    ],
+    packaging: [
+      "14 kg - 20 kg Kraft paper bags / Corrugated carton with poly liner",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 MT onward" },
+      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB Mundra / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "dehydrated-garlic-exporter-india": {
+    general: [
+      { label: "Botanical Name", value: "Allium sativum" },
+      { label: "Origin", value: "Gujarat / MP, India" },
+      { label: "Harvest Season", value: "February to April" },
+      { label: "Shelf Life", value: "24 months under dry storage" },
+    ],
+    physical: [
+      { label: "Formats", value: "Flakes (Cloves) / Chopped / Minced / Granules / Powder" },
+      { label: "Moisture", value: "Max 6%" },
+      { label: "Purity", value: "Min 99.5%" },
+      { label: "Color", value: "Creamy white to light yellow" },
+    ],
+    chemical: [
+      { label: "Acid Insoluble Ash", value: "Max 0.5%" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Lab report COA supported per lot",
+    ],
+    processing: [
+      "Clove separation and peeling",
+      "Hot-air dehydration & size milling",
+      "Metal detection",
+    ],
+    packaging: [
+      "20 kg Kraft paper bags / cartons with inner poly bag",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 MT onward" },
+      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB Mundra / CIF / CNF" },
+      { label: "Lead Time", value: "7 to 15 days" },
+    ],
+    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
+  },
+  "agro-commodities-exporter-india": {
+    general: [
+      { label: "Commodity Scope", value: "Peanuts, Chickpeas, Sesame, Oilseeds, Grains" },
+      { label: "Origin", value: "Gujarat & Pan-India Sourcing" },
+      { label: "Harvest Season", value: "Crop dependent" },
+      { label: "Shelf Life", value: "Product dependent" },
+    ],
+    physical: [
+      { label: "Cleaning", value: "Machine Cleaned & Sortex Cleaned" },
+      { label: "Purity", value: "Min 98% to 99.5% (Contract aligned)" },
+      { label: "Moisture", value: "As per product standard (Max 7-10%)" },
+    ],
+    chemical: [
+      { label: "Quality Checks", value: "Aflatoxin, FFA, Protein as applicable" },
+    ],
+    microbiological: COMMON_MICROBIOLOGY,
+    contaminants: [
+      "Phytosanitary & SGS inspection support",
+    ],
+    processing: [
+      "Mandi procurement",
+      "Density & Sortex cleaning",
+      "Container loading & stuffing",
+    ],
+    packaging: [
+      "25 kg / 50 kg PP or Jute bags, 1 MT Jumbo bags",
+    ],
+    certifications: COMMON_CERTIFICATIONS,
+    exportDetails: [
+      { label: "MOQ", value: "1 FCL (20ft / 40ft container)" },
+      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
+      { label: "Delivery Terms", value: "FOB Mundra / CIF / CNF" },
+      { label: "Lead Time", value: "10 to 18 days" },
     ],
     optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
   },

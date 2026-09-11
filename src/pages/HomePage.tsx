@@ -12,13 +12,13 @@ import {
 } from "lucide-react";
 import Seo from "@/components/Seo";
 import { BLOG_POSTS, DOCUMENTATION_PACKAGE, PRODUCTS, SITE_URL } from "@/data/siteData";
-
 import bannerImage from "@/assets/homepage.png";
+
 /* ─────────────────────────── DATA ─────────────────────────── */
 
 const STATS = [
   { value: "25+", label: "Years of Legacy" },
-  { value: "12+", label: "Spice Varieties" },
+  { value: "23+", label: "Spice Varieties & Agro Commodities" },
   { value: "30+", label: "Export Countries" },
   { value: "500+", label: "Satisfied Buyers" },
 ];
@@ -26,44 +26,44 @@ const STATS = [
 const PROCESS_STEPS = [
   {
     step: "01",
-    title: "Farmer Sourcing",
+    title: "Farmer & Mandi Sourcing",
     description:
       "Direct procurement from Unjha mandi network and trusted farmer channels across Gujarat and South India.",
     icon: "🌾",
   },
   {
     step: "02",
-    title: "Cleaning & Grading",
+    title: "Cleaning & Sortex Grading",
     description:
-      "Every lot goes through mechanical cleaning, optical sorting, and manual grading for consistent quality.",
+      "Every lot goes through mechanical cleaning, optical sortex sorting, and manual grading for consistent purity.",
     icon: "⚙️",
   },
   {
     step: "03",
-    title: "Lab Testing",
+    title: "Lab Testing & Quality",
     description:
       "In-house and third-party lab tests for moisture, volatile oil, pesticide residue, and microbial compliance.",
     icon: "🔬",
   },
   {
     step: "04",
-    title: "Packing & Labelling",
+    title: "Custom Packaging",
     description:
-      "Custom packing in retail or bulk formats with private-label printing and batch coding per buyer spec.",
+      "Custom packing in retail or bulk export formats (PP/Jute/Vacuum) with private-label printing.",
     icon: "📦",
   },
   {
     step: "05",
-    title: "Documentation",
+    title: "Export Documentation",
     description:
       "Full export document set prepared — COA, phytosanitary, fumigation, APEDA, and LC-compatible documents.",
     icon: "📋",
   },
   {
     step: "06",
-    title: "Dispatch & Tracking",
+    title: "FOB / CIF Dispatch",
     description:
-      "Container stuffing, shipping marks, and shipment communication to ensure smooth port clearance.",
+      "Container stuffing, shipping marks, and shipment communication from Mundra / Kandla port for smooth clearance.",
     icon: "🚢",
   },
 ];
@@ -83,14 +83,14 @@ const SERVICES = [
   },
   {
     icon: <Package className="h-7 w-7" />,
-    title: "Custom Packing",
+    title: "Custom Packaging",
     description:
       "From 50g sachets to 50kg export bags — we offer flexible packing formats tailored to your distribution model.",
     highlights: [
       "100g / 250g / 500g / 1kg retail",
       "5kg / 10kg institutional packs",
-      "25kg / 50kg export bags",
-      "Food-grade PP & HDPE liners",
+      "25kg / 50kg export bags (PP/Jute)",
+      "Food-grade & Vacuum liners",
     ],
   },
   {
@@ -111,7 +111,7 @@ const SERVICES = [
     description:
       "Container-load supply for importers, wholesalers, and food processors with consistent quality across shipments.",
     highlights: [
-      "FCL & LCL options",
+      "FCL & LCL options (FOB Mundra/CIF)",
       "Fumigation & phytosanitary",
       "LC / TT / DA payment terms",
       "Multi-product consolidation",
@@ -183,8 +183,6 @@ const ABOUT_HIGHLIGHTS = [
   { label: "Registrations", value: "APEDA · Spice Board · FSSAI" },
 ];
 
-/* ─────────────────────────── COMPONENT ─────────────────────────── */
-
 const HOME_FAQS = [
   {
     question: "Why choose an Indian spice exporter from Unjha, Gujarat?",
@@ -199,7 +197,7 @@ const HOME_FAQS = [
   {
     question: "Which products are most searched and exported by JM Masala?",
     answer:
-      "The strongest demand usually centers on cumin seeds, coriander seeds, fennel, psyllium husk, sesame, turmeric, red chilli, black pepper, and cardamom.",
+      "The strongest demand usually centers on cumin seeds, coriander seeds, fennel, psyllium husk, mustard, turmeric, red chilli, dry ginger, ajwain, and fenugreek.",
   },
   {
     question: "Do you provide specifications, COA support, and export documents?",
@@ -212,60 +210,24 @@ const HomePage = () => {
   return (
     <>
       <Seo
-        title="Indian Spice Exporter from Unjha Gujarat | Cumin, Coriander, Turmeric | JM Masala"
-        description="HACCP-certified spice exporter from Unjha, Gujarat. Cumin, coriander, turmeric and 10+ spices with custom packing, FOB/CIF, and global shipping."
-        path="/"
-        imageUrl={PRODUCTS[0]?.imageUrl}
-        keywords={[
-          "Indian spice exporter",
-          "spices exporter from India",
-          "cumin exporter India",
-          "turmeric exporter India",
-          "sesame seeds exporter India",
-          "psyllium exporter India",
-          "Unjha spice exporter",
-          "Gujarat spice exporter",
-          "bulk spice supplier India",
-          "JM Masala exports",
-        ]}
+        title="JM Masala | Indian Spices Manufacturer, Processor & Exporter"
+        description="JM Masala Trading LLP is an Indian spices manufacturer, processor and exporter supplying premium cumin, coriander, fennel, fenugreek, ajwain, mustard, turmeric, dry ginger, red chilli and psyllium worldwide."
+        path=""
         schema={[
           {
             "@context": "https://schema.org",
             "@type": "Organization",
-            name: "JM Masala Exports",
+            name: "JM Masala Trading LLP",
             url: SITE_URL,
-            email: "jmmasalaexports@gmail.com",
-            logo: `${SITE_URL}/JMMasala.png`,
-            contactPoint: {
-              "@type": "ContactPoint",
-              telephone: "+91 91067 66041",
-              contactType: "sales",
-              areaServed: "Worldwide",
+            logo: `${SITE_URL}/logo.png`,
+            description:
+              "Indian Spices Manufacturer, Processor & Exporter of Cumin, Coriander, Fennel, Fenugreek, Ajwain, Mustard, Turmeric, Dry Ginger, Red Chilli, and Psyllium.",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Unjha",
+              addressRegion: "Gujarat",
+              addressCountry: "India",
             },
-          },
-          {
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            name: "JM Masala Exports",
-            url: SITE_URL,
-            potentialAction: {
-              "@type": "SearchAction",
-              target: `${SITE_URL}/products?search={search_term_string}`,
-              "query-input": "required name=search_term_string",
-            },
-          },
-          {
-            "@context": "https://schema.org",
-            "@type": "OfferCatalog",
-            name: "JM Masala Export Spice Portfolio",
-            itemListElement: PRODUCTS.slice(0, 10).map((product) => ({
-              "@type": "Offer",
-              itemOffered: {
-                "@type": "Product",
-                name: product.name,
-                url: `${SITE_URL}/${product.slug}`,
-              },
-            })),
           },
           {
             "@context": "https://schema.org",
@@ -392,19 +354,6 @@ const HomePage = () => {
           transition: all 0.2s;
         }
         .jm2-btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
-
-        /* Spice cards in hero */
-        .jm2-hero__spice-grid {
-          display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
-        }
-        .jm2-spice-pill {
-          background: rgba(255,255,255,0.1); backdrop-filter: blur(8px);
-          border: 1px solid rgba(255,255,255,0.15);
-          padding: 0.85rem 1.2rem; border-radius: 0.75rem;
-          color: #fff; font-size: 0.9rem; font-weight: 500;
-          display: flex; align-items: center; gap: 0.6rem;
-        }
-        .jm2-spice-pill span { font-size: 1.3rem; }
 
         /* Trust bar */
         .jm2-trust {
@@ -648,28 +597,6 @@ const HomePage = () => {
           }
         }
 
-        /* Testimonials */
-        .jm2-testimonials {
-          display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
-        }
-        @media (max-width: 640px) { .jm2-testimonials { grid-template-columns: 1fr; } }
-        .jm2-testimonial {
-          background: #fff; padding: 2rem; border-radius: 1rem;
-          border: 1px solid var(--spice-beige);
-          box-shadow: 0 2px 12px rgba(44,26,14,0.05);
-          position: relative;
-        }
-        .jm2-testimonial::before {
-          content: '"'; font-family: var(--font-display); font-size: 5rem;
-          color: var(--spice-beige); position: absolute; top: 0.5rem; right: 1.5rem;
-          line-height: 1;
-        }
-        .jm2-stars { display: flex; gap: 0.2rem; margin-bottom: 1rem; }
-        .jm2-star { color: var(--brand-gold); font-size: 1rem; }
-        .jm2-testimonial__text { font-size: 0.9rem; color: var(--wood-dark); line-height: 1.8; margin-bottom: 1.5rem; font-style: italic; }
-        .jm2-testimonial__author { font-weight: 700; font-size: 0.9rem; color: var(--spice-dark); }
-        .jm2-testimonial__company { font-size: 0.8rem; color: var(--spice-amber); font-weight: 500; margin-top: 0.1rem; }
-
         /* Certifications */
         .jm2-certs {
           display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
@@ -802,13 +729,10 @@ const HomePage = () => {
                 <MapPin className="h-3 w-3" /> Unjha, Gujarat, India
               </div>
               <h1 className="jm2-hero__h1">
-                Premium Indian Spices — <em>Direct from Origin</em>
+                Premium Indian Spices &amp; Agro Products — <em>Direct from Origin</em>
               </h1>
               <p className="jm2-hero__sub">
-                Two generations of spice expertise. One complete export partner
-                for cumin, coriander, turmeric, chilli, fennel, fenugreek,
-                psyllium and more. HACCP certified, APEDA & Spice Board
-                registered.
+                JM Masala Trading LLP is an Indian spices manufacturer, processor and exporter supplying premium cumin, coriander, fennel, fenugreek, ajwain, mustard, turmeric, dry ginger, red chilli, and psyllium worldwide.
               </p>
               <div className="jm2-hero__actions">
                 <Link
@@ -877,15 +801,15 @@ const HomePage = () => {
               <div className="jm2-about__img-wrap">
                 <img
                   src={bannerImage}
-                  alt="Spice market at Unjha"
+                  alt="Spice market at Unjha, Gujarat, India"
                   className="jm2-about__img"
                 />
                 <div className="jm2-about__badge">Est. Unjha, Gujarat</div>
               </div>
               <div>
-                <p className="jm2-label">About JM Masala</p>
+                <p className="jm2-label">About JM Masala Trading LLP</p>
                 <h2 className="jm2-heading">
-                  Two Generations. One Commitment to Quality.
+                  Indian Spice Manufacturer, Processor &amp; Global Exporter
                 </h2>
                 <div className="jm2-divider" />
                 <p
@@ -896,10 +820,7 @@ const HomePage = () => {
                     marginBottom: "1rem",
                   }}
                 >
-                  JM Masala Exports is rooted in Unjha — India's largest spice
-                  trading hub in Gujarat. What started as a family passion for
-                  spice quality has grown into a trusted export operation
-                  supplying buyers across 30+ countries.
+                  JM Masala Trading LLP is rooted in Unjha, Gujarat — India's premier spice trading and processing capital. Operating as a direct manufacturer, processor, and exporter, we connect global food manufacturers, spice importers, and distributors directly with authentic Indian spice origin.
                 </p>
                 <p
                   style={{
@@ -909,12 +830,7 @@ const HomePage = () => {
                     marginBottom: "1.5rem",
                   }}
                 >
-                  Our dual sourcing network — Unjha mandi for core spices and
-                  selected partners in South India for region-specific varieties
-                  — ensures we cover your full portfolio needs from a single,
-                  accountable supplier. Every shipment is backed by genuine
-                  certifications, lot-wise testing, and meticulous export
-                  documentation.
+                  Our advanced machine cleaning and sortex processing facilities in Gujarat ensure every lot meets rigorous purity, moisture, and microbiological standards required across North America, Europe, Middle East, and Asia-Pacific.
                 </p>
                 <div className="jm2-about__meta">
                   {ABOUT_HIGHLIGHTS.map((h) => (
@@ -932,20 +848,19 @@ const HomePage = () => {
         {/* ── PRODUCTS ── */}
         <section className="jm2-section jm2-section--cream">
           <div className="jm2-container">
-            <p className="jm2-label">Our Portfolio</p>
-            <h2 className="jm2-heading">Complete Indian Spice Range</h2>
+            <p className="jm2-label">Our Master Product Portfolio</p>
+            <h2 className="jm2-heading">Whole Spices, Powders &amp; Agro Commodities</h2>
             <div className="jm2-divider" />
             <p className="jm2-sub">
-              12+ varieties sourced from origin, graded to specification, and
-              packed for your market.
+              23+ master products sourced directly from farm gates &amp; Unjha mandi, processed with Sortex purity, and exported worldwide on FOB Mundra / CIF terms.
             </p>
             <div className="jm2-products-grid">
-              {PRODUCTS.slice(0, 6).map((product) => (
+              {PRODUCTS.slice(0, 9).map((product) => (
                 <article key={product.slug} className="jm2-product-card">
                   {product.imageUrl && (
                     <img
                       src={product.imageUrl}
-                      alt={product.name}
+                      alt={`${product.name} Exporter & Supplier from India`}
                       className="jm2-product-card__img"
                       loading="lazy"
                       decoding="async"
@@ -960,7 +875,7 @@ const HomePage = () => {
                       to={`/${product.slug}`}
                       className="jm2-product-card__link"
                     >
-                      View Specifications{" "}
+                      View Specifications &amp; Grades{" "}
                       <ChevronRight className="h-3.5 w-3.5" />
                     </Link>
                   </div>
@@ -973,7 +888,7 @@ const HomePage = () => {
                 className="jm2-btn-primary"
                 style={{ display: "inline-flex" }}
               >
-                View All Products <ArrowRight className="h-4 w-4" />
+                View All 23+ Master Products <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
@@ -984,12 +899,11 @@ const HomePage = () => {
           <div className="jm2-container">
             <p className="jm2-label">How It Works</p>
             <h2 className="jm2-heading">
-              From Farm to Your Shipment — Our Process
+              From Farm Sourcing to Global Container Dispatch
             </h2>
             <div className="jm2-divider" />
             <p className="jm2-sub">
-              Every order follows a structured 6-step journey ensuring quality,
-              compliance, and on-time delivery.
+              Every order follows a structured 6-step journey ensuring quality compliance, optical sortex cleaning, and smooth port clearance.
             </p>
             <div className="jm2-process">
               {PROCESS_STEPS.map((step) => (
@@ -1010,12 +924,11 @@ const HomePage = () => {
           <div className="jm2-container">
             <p className="jm2-label">Our Services</p>
             <h2 className="jm2-heading">
-              Everything You Need Beyond the Spice
+              Tailored Export Processing &amp; Private Labelling
             </h2>
             <div className="jm2-divider" />
             <p className="jm2-sub">
-              We don't just supply spices — we build your supply chain. Custom
-              packing, private labelling, export documentation and more.
+              We don't just supply spices — we engineer your supply chain. Custom packaging, private label branding, export documentation, and container loading on FOB/CIF terms.
             </p>
             <div className="jm2-services">
               {SERVICES.map((svc) => (
@@ -1044,7 +957,7 @@ const HomePage = () => {
         >
           <div className="jm2-container">
             <div className="jm2-export-hero">
-              <p className="jm2-label">Global Reach</p>
+              <p className="jm2-label">Global Export Markets</p>
               <div className="jm2-export-hero__num">30+</div>
               <h2
                 className="jm2-heading jm2-heading--white"
@@ -1064,8 +977,7 @@ const HomePage = () => {
                   margin: "0 auto",
                 }}
               >
-                Trusted by importers, distributors, and food processors across 6
-                global regions.
+                Trusted by importers, food manufacturers, distributors, and retail chains across North America, Europe, Middle East, and Asia-Pacific.
               </p>
             </div>
             <div className="jm2-regions">
@@ -1194,16 +1106,14 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* ── CTA ── */}
+        {/* ── FAQ & RESOURCES ── */}
         <section className="jm2-section jm2-section--cream">
           <div className="jm2-container">
-            <p className="jm2-label">Buyer Questions</p>
-            <h2 className="jm2-heading">Why Buyers Search for JM Masala</h2>
+            <p className="jm2-label">B2B Buyer FAQs</p>
+            <h2 className="jm2-heading">International Sourcing Questions</h2>
             <div className="jm2-divider" />
             <p className="jm2-sub">
-              Broad searches like Indian spice exporter, cumin exporter India,
-              psyllium supplier, and private label spice exporter usually rank
-              sites that explain both products and supply capability clearly.
+              Key insights on sourcing Indian spices directly from Unjha processors, custom packing specifications, and international export documentation.
             </p>
 
             <div className="jm2-faq-grid">
@@ -1221,12 +1131,10 @@ const HomePage = () => {
                   Popular Product &amp; Buyer Resource Pages
                 </h3>
                 <p className="jm2-resource-panel__text">
-                  These internal pages help search engines and buyers move directly
-                  to the products and export topics most often compared during
-                  supplier selection.
+                  Direct navigation to product specifications, export market guides, and technical compliance articles.
                 </p>
                 <div className="jm2-resource-links">
-                  {PRODUCTS.slice(0, 8).map((product) => (
+                  {PRODUCTS.slice(0, 10).map((product) => (
                     <Link
                       key={product.slug}
                       to={`/${product.slug}`}
@@ -1268,28 +1176,27 @@ const HomePage = () => {
           </div>
         </section>
 
+        {/* ── CTA ── */}
         <section className="jm2-cta">
           <div className="jm2-cta__inner">
             <p className="jm2-label" style={{ color: "var(--brand-gold-light)" }}>
-              Get Started
+              Get Commercial Quote
             </p>
             <h2 className="jm2-cta__heading">
-              Ready to Source Premium Indian Spices?
+              Looking for a Reliable Indian Spice Supplier?
             </h2>
             <p className="jm2-cta__sub">
-              Send us your requirements — product, quantity, packing preference,
-              and destination. We'll get back with a competitive quote and
-              sample availability.
+              Share your required quantity, specification, packing format, and destination port with JM Masala Trading LLP. Our export team will provide technical specifications and commercial quotation within 24 hours.
             </p>
             <div className="jm2-cta__actions">
               <Link
                 to="/contact?intent=quote#inquiry-form"
                 className="jm2-btn-primary"
               >
-                Send Your Requirement <ArrowRight className="h-4 w-4" />
+                Request a Quote <ArrowRight className="h-4 w-4" />
               </Link>
               <a href="/JMMasalaProducts.pdf" className="jm2-btn-outline">
-                Download Catalogue
+                Download Product Catalogue
               </a>
             </div>
           </div>
@@ -1300,4 +1207,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-

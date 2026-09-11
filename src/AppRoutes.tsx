@@ -18,6 +18,8 @@ import NotFoundPage from "@/pages/NotFoundPage";
 import ProductDetailPage from "@/pages/ProductDetailPage";
 import ProductsPage from "@/pages/ProductPage";
 import QualityCertificationsPage from "@/pages/QualityCertificationsPage";
+import PrivateLabelPage from "@/pages/PrivateLabelPage";
+import SpicePackagingPage from "@/pages/SpicePackagingPage";
 import SourcingNetworkPage from "@/pages/SourcingNetworkPage";
 
 const SiteLayout = () => {
@@ -50,11 +52,25 @@ const AppRoutes = () => {
         <Route path="/spice-exporter-gujarat" element={<GujaratSpiceExporterPage />} />
         <Route path="/quality-certifications" element={<QualityCertificationsPage />} />
         <Route path="/sourcing-network" element={<SourcingNetworkPage />} />
+        <Route path="/private-label-spices" element={<PrivateLabelPage />} />
+        <Route path="/spice-packaging" element={<SpicePackagingPage />} />
         <Route path="/domestic-supply-india" element={<DomesticSupplyPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/get-quote" element={<Navigate to="/contact?intent=quote" replace />} />
         <Route path="/about" element={<Navigate to="/about-jm-masala" replace />} />
         <Route path="/process" element={<Navigate to="/sourcing-network" replace />} />
+
+        {/* Short SEO Product Slugs Redirects */}
+        <Route path="/coriander-seeds" element={<Navigate to="/coriander-seeds-exporter-india" replace />} />
+        <Route path="/cumin-seeds" element={<Navigate to="/cumin-seeds-exporter-india" replace />} />
+        <Route path="/fennel-seeds" element={<Navigate to="/fennel-seeds-exporter-india" replace />} />
+        <Route path="/fenugreek-seeds" element={<Navigate to="/fenugreek-seeds-exporter-india" replace />} />
+        <Route path="/ajwain" element={<Navigate to="/ajwain-seeds-exporter-india" replace />} />
+        <Route path="/mustard-seeds" element={<Navigate to="/mustard-seeds-exporter-india" replace />} />
+        <Route path="/turmeric" element={<Navigate to="/turmeric-exporter-india" replace />} />
+        <Route path="/dry-ginger" element={<Navigate to="/dry-ginger-exporter-india" replace />} />
+        <Route path="/red-chilli" element={<Navigate to="/red-chilli-exporter-india" replace />} />
+        <Route path="/psyllium" element={<Navigate to="/psyllium-husk-exporter-india" replace />} />
 
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
