@@ -70,6 +70,7 @@
 - **Branding & Compliance**: Custom artwork printing, EAN/UPC barcode generation, nutrition fact panel formatting, multilingual labeling per destination country regulations.
 
 ## Export & B2B Logistics
+- **Export Authority Hub**: https://jmmasalaexports.com/export-destinations
 - **Incoterms**: FOB Mundra, CIF, CFR, CNF
 - **Standard Shipping Documents**: Certificate of Origin (COO), Phytosanitary Certificate, Fumigation Certificate, NABL accredited Laboratory Certificate of Analysis (COA), APEDA Certificate, Commercial Invoice, Packing List, Bill of Lading.
 - **Target Buyer Segments**: International spice importers, bulk commodity traders, food processing manufacturers, supermarket and grocery retail chains, private label food brands, restaurant chains, and institutional caterers.

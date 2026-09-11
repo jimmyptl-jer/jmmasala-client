@@ -41,6 +41,8 @@ const basePages = [
   "/spice-processing-manufacturing",
   "/private-label-spices",
   "/spice-packaging",
+  "/export-destinations",
+  "/export",
   "/domestic-supply-india",
   "/contact",
   "/blog",
@@ -548,6 +550,51 @@ const pageSeo: Record<string, StaticSeo> = {
     path: "/domestic-supply-india",
     imageUrl: "/JMMasala.png",
     imageAlt: "JM Masala domestic spice supply India",
+  },
+  "/export-destinations": {
+    title: "Indian Spices Export Operations & Global Supply | JM Masala Trading LLP",
+    description:
+      "Official export operations and global supply chain of JM Masala Trading LLP. Supplying whole and processed Indian spices via Mundra Port to 20+ countries with complete export documentation, container loading, and CIF shipping.",
+    path: "/export-destinations",
+    imageUrl: "/JMMasala.png",
+    imageAlt: "JM Masala Indian spices export operations and container logistics",
+    keywords: [
+      "Indian spices export",
+      "spice exporter Mundra port",
+      "spice export documentation India",
+      "bulk spice container loading",
+      "Cumin seeds exporter CIF Dubai",
+      "Sortex spices export GCC Europe",
+      "JM Masala export markets",
+    ],
+    schema: [
+      baseOrganizationSchema,
+      baseWebSiteSchema,
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": `${SITE_URL}/export-destinations#service`,
+        name: "Indian Spices Export Operations & Logistics",
+        provider: { "@id": `${SITE_URL}/#organization` },
+        serviceType: "Commercial Agricultural Export & Sea-Freight Logistics",
+        description:
+          "End-to-end export handling for Indian agricultural spices from APMC Unjha mandi processing to container loading at Mundra Port, full documentation sets, and CIF delivery across 20+ countries.",
+        areaServed: "Worldwide",
+        url: `${SITE_URL}/export-destinations`,
+      },
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Export Operations", path: "/export-destinations" },
+      ]),
+    ],
+  },
+  "/export": {
+    title: "Indian Spices Export Operations & Global Supply | JM Masala Trading LLP",
+    description:
+      "Official export operations and global supply chain of JM Masala Trading LLP. Supplying whole and processed Indian spices via Mundra Port to 20+ countries with complete export documentation, container loading, and CIF shipping.",
+    path: "/export",
+    imageUrl: "/JMMasala.png",
+    imageAlt: "JM Masala Indian spices export operations and container logistics",
   },
   "/contact": {
     title: "Contact JM Masala Exports | Request Spice Quote",

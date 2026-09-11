@@ -23,6 +23,7 @@ import SpicePackagingPage from "@/pages/SpicePackagingPage";
 import SpiceProcessingPage from "@/pages/SpiceProcessingPage";
 import SourcingRegionPage from "@/pages/SourcingRegionPage";
 import SourcingNetworkPage from "@/pages/SourcingNetworkPage";
+import ExportOperationsPage from "@/pages/ExportOperationsPage";
 
 const SiteLayout = () => {
   return (
@@ -60,6 +61,10 @@ const AppRoutes = () => {
         <Route path="/spice-packaging" element={<SpicePackagingPage />} />
         <Route path="/domestic-supply-india" element={<DomesticSupplyPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/export-destinations" element={<ExportOperationsPage />} />
+        <Route path="/export" element={<ExportOperationsPage />} />
+        <Route path="/export-markets" element={<ExportOperationsPage />} />
+        <Route path="/exports" element={<Navigate to="/export-destinations" replace />} />
         <Route path="/get-quote" element={<Navigate to="/contact?intent=quote" replace />} />
         <Route path="/about" element={<Navigate to="/about-jm-masala" replace />} />
         <Route path="/process" element={<Navigate to="/spice-processing-manufacturing" replace />} />

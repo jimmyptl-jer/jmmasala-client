@@ -1351,6 +1351,16 @@ const HomePage = () => {
               <div className="text-[10px] text-gray-500 mt-0.5">Singapore, Malaysia</div>
             </div>
           </div>
+
+          <div className="text-center mt-10">
+            <Link
+              to="/export-destinations"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-[var(--brand-forest)] text-white hover:bg-[var(--brand-deep-green)] font-bold text-sm shadow-sm transition-all"
+            >
+              <span>Explore Global Export Operations &amp; Transit Times</span>
+              <ArrowRight className="h-4 w-4 text-[var(--brand-gold-light)]" />
+            </Link>
+          </div>
         </section>
 
         {/* ══════════════════════════════════════════════════════════════════

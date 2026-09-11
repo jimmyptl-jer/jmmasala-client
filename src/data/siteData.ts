@@ -222,6 +222,7 @@ export const NAV_LINKS = [
   { label: "Quality and Certifications", path: "/quality-certifications" },
   { label: "Private Label", path: "/private-label-spices" },
   { label: "Packaging", path: "/spice-packaging" },
+  { label: "Export Operations", path: "/export-destinations" },
   { label: "Domestic Buyers", path: "/domestic-supply-india" },
   { label: "Contact", path: "/contact" },
 ];
