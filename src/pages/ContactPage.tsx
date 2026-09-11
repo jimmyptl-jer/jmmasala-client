@@ -143,7 +143,7 @@ const ContactPage = () => {
             telephone: COMPANY.phones,
             address: {
               "@type": "PostalAddress",
-              streetAddress: "Near APMC Market Yard",
+              streetAddress: "A/18, Main Line, APMC Market Yard",
               addressLocality: "Unjha",
               addressRegion: "Gujarat",
               postalCode: "384170",
@@ -326,6 +326,7 @@ const ContactPage = () => {
                     </a>
                   </div>
                   <div className="jm-info-item">
+                    <p className="font-semibold text-[var(--brand-deep-green)]">Corporate Office:</p>
                     <p>{COMPANY.addressLine}</p>
                   </div>
                 </div>

@@ -440,7 +440,7 @@ const pageSeo: Record<string, StaticSeo> = {
         telephone: COMPANY.phones,
         address: {
           "@type": "PostalAddress",
-          streetAddress: "Near APMC Market Yard",
+          streetAddress: "A/18, Main Line, APMC Market Yard",
           addressLocality: "Unjha",
           addressRegion: "Gujarat",
           postalCode: "384170",

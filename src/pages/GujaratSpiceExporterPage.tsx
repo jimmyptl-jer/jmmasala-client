@@ -21,7 +21,7 @@ const GUJARAT_FAQS = [
   {
     question: "Is JM Masala a Gujarat-based spice exporter?",
     answer:
-      "Yes. JM Masala Exports is based near APMC Market Yard in Unjha, Mehsana district, Gujarat, and supplies export-grade Indian spices with packing, testing, and documentation support.",
+      "Yes. JM Masala Exports has its corporate office and facility at A/18, Main Line, APMC Market Yard in Unjha, Mehsana district, Gujarat, and supplies export-grade Indian spices with packing, testing, and documentation support.",
   },
   {
     question: "Which Gujarat spices can buyers source from JM Masala?",
@@ -101,7 +101,7 @@ const GujaratSpiceExporterPage = () => {
             telephone: COMPANY.phones,
             address: {
               "@type": "PostalAddress",
-              streetAddress: "Near APMC Market Yard",
+              streetAddress: "A/18, Main Line, APMC Market Yard",
               addressLocality: "Unjha",
               addressRegion: "Gujarat",
               postalCode: "384170",
@@ -196,7 +196,7 @@ const GujaratSpiceExporterPage = () => {
             </h2>
             <div className="mt-5 grid gap-3">
               {[
-                "Near APMC Market Yard, Unjha",
+                "A/18, Main Line, APMC Market Yard, Unjha",
                 "HACCP and ISO 22000 aligned",
                 "APEDA, Spice Board, FSSAI, IEC profile",
                 "FOB, CIF, CNF shipment support",

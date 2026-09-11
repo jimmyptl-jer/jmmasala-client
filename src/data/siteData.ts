@@ -36,7 +36,9 @@ export const COMPANY = {
   website: "jmmasalaexports.com",
   phones: ["+91 91067 66041", "+91 98245 10478"],
   addressLine:
-    "Near APMC Market Yard, Unjha, Mehsana District, Gujarat 384170, India",
+    "A/18, Main Line, APMC Market Yard, Unjha, Mehsana District, Gujarat 384170, India",
+  corporateOffice:
+    "A/18, Main Line, APMC Market Yard, Unjha, Mehsana District, Gujarat 384170, India",
   whatsappNumber: "919106766041",
   whatsappMessage:
     "Hi JM Masala, I am interested in your spices. Can you share specifications and pricing?",

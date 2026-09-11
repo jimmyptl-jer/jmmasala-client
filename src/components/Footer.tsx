@@ -11,7 +11,7 @@ import {
   Globe2,
   FileCheck
 } from "lucide-react";
-import { COMPANY, SITE_URL } from "@/data/siteData";
+import { COMPANY } from "@/data/siteData";
 import logo from "@/assets/JmMasala.png";
 
 const TOP_PRODUCTS = [

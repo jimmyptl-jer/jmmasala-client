@@ -385,7 +385,7 @@ const AboutPage = () => {
             telephone: COMPANY.phones[0],
             address: {
               "@type": "PostalAddress",
-              streetAddress: "Near APMC Market Yard",
+              streetAddress: "A/18, Main Line, APMC Market Yard",
               addressLocality: "Unjha",
               addressRegion: "Gujarat",
               postalCode: "384170",
@@ -438,7 +438,7 @@ const AboutPage = () => {
                 "APEDA Registered",
                 "Spice Board RCMC",
                 "12+ Products",
-                "Near APMC Market Yard, Unjha",
+                "A/18, Main Line, APMC Market Yard, Unjha",
               ].map((p) => (
                 <div key={p} className="ab-hero-pill">
                   <span>✓</span> {p}
@@ -501,13 +501,13 @@ const AboutPage = () => {
             <div className="ab-loc-grid">
               <div>
                 <div className="ab-label">Our Location</div>
-                <h2 className="ab-heading">Near APMC Market Yard, Unjha</h2>
+                <h2 className="ab-heading">A/18, Main Line, APMC Market Yard, Unjha</h2>
                 <div className="ab-loc-body">
                   <p>
-                    Our facility sits near APMC Market Yard, Unjha — Mehsana
-                    District, Gujarat. This is not just a postal address. It is
-                    the most strategically valuable location a spice processor
-                    in India can have.
+                    Our corporate office and facility sit at A/18, Main Line,
+                    APMC Market Yard, Unjha — Mehsana District, Gujarat. This is
+                    not just a postal address. It is the most strategically
+                    valuable location a spice processor in India can have.
                   </p>
                   <p>
                     Unjha is where Indian cumin, fennel, coriander and psyllium
