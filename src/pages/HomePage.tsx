@@ -823,7 +823,7 @@ const HomePage = () => {
                 Sourced Across India's Agricultural Regions
               </h2>
               <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
-                India's agricultural diversity gives buyers access to different products, varieties and regional characteristics. JM Masala develops sourcing relationships across relevant producing regions to identify products according to quality, seasonality, availability and customer requirements.
+                India&apos;s agricultural diversity gives buyers access to different products, varieties and regional characteristics. JM Masala operates a multi-region sourcing network spanning Gujarat (Unjha APMC Mandi, Saurashtra), Rajasthan, South India (Kerala, Andhra, Tamil Nadu), and North-East India (Meghalaya, Assam for Lakadong turmeric and organic ginger) to procure directly at origin according to quality, seasonality, availability and destination-market specifications.
               </p>
             </div>
 
@@ -1234,7 +1234,7 @@ const HomePage = () => {
                   { id: "whole", label: "Whole Spices" },
                   { id: "powders", label: "Pure Ground Powders" },
                   { id: "agro", label: "Seeds & Agro" },
-                  { id: "all", label: "All 23+ Products" },
+                  { id: "all", label: "All 25 Products" },
                 ].map((tab) => (
                   <button
                     key={tab.id}

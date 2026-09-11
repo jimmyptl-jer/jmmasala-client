@@ -204,7 +204,7 @@ const TARGET_MARKETS = [
   {
     region: "European Union & United Kingdom",
     countries: "Germany, Netherlands, United Kingdom, France, Poland, Spain, Italy",
-    standards: "Strict EU MRL limits for pesticide residues, Aflatoxins (<10 ppb), Ochratoxin A, Zero ETO (Ethylene Oxide) guarantee",
+    standards: "Strict EU MRL limits for pesticide residues, Aflatoxins (<10 ppb), Ochratoxin A, Zero ETO (Ethylene Oxide) protocol",
     leadTime: "18 to 24 Days ocean transit via Mundra to Rotterdam/Hamburg/Felixstowe",
     popularProducts: "Europe Quality Cumin 99.5%, Sortex Fennel, Coriander Split, Psyllium Husk 99%, High Curcumin Lakadong Turmeric",
     notes: "Pre-tested in certified laboratories for 500+ pesticide compounds before container stuffing."
@@ -709,7 +709,7 @@ const ExportOperationsPage = () => {
                   Moisture, Mold &amp; Infestation Barrier
                 </h2>
                 <p className="text-sm text-[var(--brand-forest)] leading-relaxed">
-                  Ocean container transit involves extreme temperature swings, high relative humidity, and risk of condensation (&apos;cargo sweat&apos;). Our packaging protocol guarantees that agricultural spices reach your warehouse in the exact crisp condition they left our Unjha facility.
+                  Ocean container transit involves extreme temperature swings, high relative humidity, and risk of condensation (&apos;cargo sweat&apos;). Our packaging protocol is engineered so that agricultural spices reach your warehouse in optimum physical and sensory condition.
                 </p>
 
                 <div className="space-y-3 pt-2">

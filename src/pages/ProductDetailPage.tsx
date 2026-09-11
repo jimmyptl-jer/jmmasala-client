@@ -158,7 +158,7 @@ const PRODUCT_APPLICATIONS: Record<string, string[]> = {
   ],
   "turmeric-powder-exporter-india": [
     "Food colorant, curry powder manufacturing, and wellness formulations",
-    "Guaranteed 2%-5%+ curcumin levels with zero lead chromate",
+    "Certified 2%-5%+ curcumin levels with zero lead chromate",
     "Retail pouches and bulk multiwall paper bag supply",
   ],
   "red-chilli-powder-exporter-india": [

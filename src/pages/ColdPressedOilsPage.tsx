@@ -148,7 +148,7 @@ const ColdPressedOilsPage = () => {
     <>
       <Seo
         title="Cold Pressed Oils | JM Masala | Premium Single-Origin from Unjha"
-        description="Pure, cold-pressed oils from Unjha, Gujarat. Sesame, black seed, mustard, groundnut, cumin, fennel, flaxseed. No heat. No chemicals. Pressed in the seed capital of the world."
+        description="Pure, cold-pressed oils from Unjha, Gujarat. Sesame, black seed, mustard, groundnut, cumin, fennel, flaxseed. Cold pressed without chemical refining."
         path="/cold-pressed-oils"
         keywords={[
           "cold pressed oils India",
@@ -191,15 +191,15 @@ const ColdPressedOilsPage = () => {
           <div className="jm-container">
             <p className="jm-section-label">Cold Pressed Oils</p>
             <h1 className="jm-section-heading jm-section-heading--on-dark">
-              Pure, Unrefined Oils from the Seed Capital of the World
+              Pure, Unrefined Oils from Unjha&apos;s Spice &amp; Oilseed Hub
             </h1>
             <p
               className="mt-5 max-w-3xl text-body"
               style={{ color: "rgba(250,246,238,0.72)" }}
             >
               Pressed fresh in Unjha, Gujarat — where cumin, sesame, and mustard
-              have been traded for centuries. No heat above 49°C. No chemicals.
-              No additives. Just seeds and tradition.
+              have been traded for centuries. Slow cold-pressed below 49°C without
+              chemical refining, solvent extraction, or artificial additives. Just pure seeds and mechanical extraction.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -228,15 +228,15 @@ const ColdPressedOilsPage = () => {
                 <p className="jm-section-label">Our Origin</p>
                 <h2 className="jm-section-heading">Pressed in Unjha</h2>
                 <p className="mt-4 text-body text-[var(--brand-forest)]">
-                  Unjha is not just a town — it's the world's largest seed
-                  trading hub. Every morning, traders from across India and 50+
-                  countries gather at the APMC (Agricultural Market) here to buy
-                  and sell seeds. We buy directly from this market, pressing
-                  oils the same day they arrive.
+                  Unjha is one of India&apos;s premier commercial hubs for seed
+                  spices and oilseeds. Every morning, traders and farmers from across India
+                  gather at the APMC (Agricultural Market) here to trade seeds.
+                  We procure directly from this established market, processing
+                  and cold pressing fresh lots upon arrival.
                 </p>
                 <p className="mt-4 text-body text-[var(--brand-forest)]">
-                  This means: freshest seeds in India, lowest cost per litre,
-                  and a story that no competitor outside Gujarat can replicate.
+                  This ensures direct origin access, high natural purity, and
+                  reliable batch traceability from the heart of Gujarat.
                 </p>
               </div>
               <div>
@@ -497,7 +497,7 @@ const ColdPressedOilsPage = () => {
                   Zero Additives
                 </h4>
                 <p className="mt-2 text-sm text-[var(--brand-forest)]">
-                  No chemicals, no preservatives
+                  No chemical refining, no preservatives
                 </p>
               </div>
             </div>

@@ -3,13 +3,55 @@ import { Link, useSearchParams } from "react-router-dom";
 import Seo from "@/components/Seo";
 import { PRODUCTS } from "@/data/siteData";
 
-type CategoryFilter = "all" | "whole" | "powders" | "agro";
+type CategoryFilter = "all" | "whole" | "powders" | "dehydrated" | "psyllium" | "agro";
 
 const CATEGORY_TABS: Array<{ id: CategoryFilter; label: string }> = [
-  { id: "all", label: "All Master Products" },
-  { id: "whole", label: "Whole Spices" },
-  { id: "powders", label: "Spice Powders" },
-  { id: "agro", label: "Agro Products" },
+  { id: "all", label: "All 25 Products" },
+  { id: "whole", label: "Whole Spices (11)" },
+  { id: "powders", label: "Spice Powders (6)" },
+  { id: "dehydrated", label: "Dehydrated Products (4)" },
+  { id: "psyllium", label: "Psyllium (2)" },
+  { id: "agro", label: "Agro Commodities (2)" },
+];
+
+const WHOLE_SPICE_SLUGS = [
+  "cumin-seeds-exporter-india",
+  "coriander-seeds-exporter-india",
+  "fennel-seeds-exporter-india",
+  "fenugreek-seeds-exporter-india",
+  "ajwain-seeds-exporter-india",
+  "mustard-seeds-exporter-india",
+  "nigella-seeds-exporter-india",
+  "black-pepper-exporter-india",
+  "cardamom-exporter-india",
+  "red-chilli-exporter-india",
+  "turmeric-exporter-india",
+];
+
+const POWDER_SLUGS = [
+  "cumin-powder-exporter-india",
+  "coriander-powder-exporter-india",
+  "turmeric-powder-exporter-india",
+  "red-chilli-powder-exporter-india",
+  "ginger-powder-exporter-india",
+  "fenugreek-powder-exporter-india",
+];
+
+const DEHYDRATED_SLUGS = [
+  "dry-ginger-exporter-india",
+  "dehydrated-onion-exporter-india",
+  "dehydrated-garlic-exporter-india",
+  "curry-leaf-exporter-india",
+];
+
+const PSYLLIUM_SLUGS = [
+  "psyllium-husk-exporter-india",
+  "psyllium-seeds-exporter-india",
+];
+
+const AGRO_SLUGS = [
+  "sesame-seeds-exporter-india",
+  "agro-commodities-exporter-india",
 ];
 
 const ProductsPage = () => {
@@ -20,10 +62,13 @@ const ProductsPage = () => {
   const visibleProducts = useMemo(() => {
     return PRODUCTS.filter((product) => {
       // Category match check
-      const matchesCategory =
-        selectedCategory === "all" ||
-        product.category === selectedCategory ||
-        (selectedCategory === "whole" && (product.category === "north" || product.category === "south"));
+      let matchesCategory = false;
+      if (selectedCategory === "all") matchesCategory = true;
+      else if (selectedCategory === "whole") matchesCategory = WHOLE_SPICE_SLUGS.includes(product.slug);
+      else if (selectedCategory === "powders") matchesCategory = POWDER_SLUGS.includes(product.slug);
+      else if (selectedCategory === "dehydrated") matchesCategory = DEHYDRATED_SLUGS.includes(product.slug);
+      else if (selectedCategory === "psyllium") matchesCategory = PSYLLIUM_SLUGS.includes(product.slug);
+      else if (selectedCategory === "agro") matchesCategory = AGRO_SLUGS.includes(product.slug);
 
       if (!matchesCategory) {
         return false;
@@ -101,13 +146,30 @@ const ProductsPage = () => {
 
       <section className="jm-section jm-section--white">
         <div className="jm-container">
-          <p className="jm-section-label">Master Product Database</p>
+          <p className="jm-section-label">Definitive Product Database</p>
           <h1 className="jm-section-heading">
-            Premium Indian Spices & Agro Products Portfolio
+            JM Masala — Complete Product Catalogue
           </h1>
           <p className="mt-2 max-w-3xl text-[var(--brand-forest)]">
-            JM Masala Trading LLP is an Indian spice manufacturer, processor, and exporter supplying high-purity whole spices, ground spice powders, and agro commodities with FOB Mundra shipping terms.
+            JM Masala Trading LLP is an Indian spice manufacturer, processor, and exporter supplying high-purity Whole Spices, Pure Ground Powders, Dehydrated Products, Psyllium, and Agro Commodities with advanced Sortex optical cleaning and FOB Mundra / CIF global shipping terms.
           </p>
+
+          {/* Quick link banner for Cold Pressed Oils */}
+          <div className="mt-5 p-4 rounded-xl bg-[var(--brand-cream)] border border-[rgba(201,168,76,0.3)] flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🌱</span>
+              <div>
+                <span className="text-xs font-bold uppercase tracking-wider text-[var(--brand-gold)] block">Single-Origin Extraction</span>
+                <span className="text-sm font-bold text-[var(--brand-charcoal)]">Looking for Cold Pressed Oils? (Groundnut, Sesame, Mustard, Black Seed)</span>
+              </div>
+            </div>
+            <Link
+              to="/cold-pressed-oils"
+              className="px-4 py-2 rounded-lg bg-[var(--brand-forest)] text-white text-xs font-bold hover:bg-[var(--brand-deep-green)] transition-all shrink-0"
+            >
+              Explore Oils Catalogue →
+            </Link>
+          </div>
 
           {/* Category Filter Tabs */}
           <div className="mt-8 flex flex-wrap gap-2 border-b border-[var(--brand-gold-pale)] pb-4">
