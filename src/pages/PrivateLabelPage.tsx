@@ -6,6 +6,11 @@ import {
   buildWhatsAppUrl,
   buildGeneralInquiryMessage,
 } from "@/data/siteData";
+import pouchTurmeric from "@/assets/pouch-turmeric-powder.jpg";
+import pouchGingerSlices from "@/assets/pouch-dry-ginger-slices.jpg";
+import pouchGingerPowder from "@/assets/pouch-dry-ginger-powder.jpg";
+import pouchBayLeaf from "@/assets/pouch-bay-leaf.jpg";
+import pouchCardamom from "@/assets/pouch-black-cardamom.jpg";
 
 /* ─── DATA ─── */
 
@@ -525,6 +530,79 @@ const PrivateLabelPage = () => {
                   )}
                   {p.name}
                 </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── REAL RETAIL POUCH SHOWCASE ── */}
+        <section className="pl-bg-cream" style={{ borderBottom: "1px solid var(--brand-gold-pale)" }}>
+          <div className="pl-section">
+            <div className="pl-label">Our Retail Packaging &amp; Pouching</div>
+            <h2 className="pl-heading">
+              Official Food-Grade Stand-Up Zipper Pouches
+            </h2>
+            <p className="pl-sub">
+              Available in 100g, 200g, 500g, 1kg, 5kg, 10kg, and 25kg formats. Multi-layer barrier stand-up pouches with transparent display window, airtight reclosable zipper, bottom gusset, and full private-label custom branding.
+            </p>
+
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
+              gap: "20px",
+              marginTop: "24px"
+            }}>
+              {[
+                { name: "Turmeric Powder (Rajapuri)", page: "Page 15", img: pouchTurmeric, desc: "Deep golden yellow ground spice in window zipper pouch." },
+                { name: "Dry Ginger Slices", page: "Page 18", img: pouchGingerSlices, desc: "Sun-dried ginger slices, moisture ≤12%, window pouch." },
+                { name: "Dry Ginger Powder", page: "Page 17", img: pouchGingerPowder, desc: "Fine 80-100 mesh ginger root powder with rich aroma." },
+                { name: "Bay Leaf (Tej Patta)", page: "Page 21", img: pouchBayLeaf, desc: "Whole selected Himalayan leaves in 500g zipper pack." },
+                { name: "Black Cardamom", page: "Page 22", img: pouchCardamom, desc: "Bold aromatic dark brown capsules with smoky flavor." },
+              ].map((item) => (
+                <div key={item.name} style={{
+                  background: "#fff",
+                  borderRadius: "16px",
+                  overflow: "hidden",
+                  border: "1px solid rgba(201,168,76,0.35)",
+                  boxShadow: "0 4px 16px rgba(44,26,14,0.06)",
+                  display: "flex",
+                  flexDirection: "column"
+                }}>
+                  <div style={{ position: "relative", overflow: "hidden", background: "#faf6ee" }}>
+                    <img
+                      src={item.img}
+                      alt={`${item.name} Private Label Pouch`}
+                      style={{ width: "100%", height: "auto", display: "block" }}
+                      loading="lazy"
+                    />
+                    <div style={{
+                      position: "absolute",
+                      bottom: "8px",
+                      left: "8px",
+                      background: "rgba(26,46,26,0.85)",
+                      color: "var(--brand-gold-light)",
+                      fontSize: "11px",
+                      padding: "2px 8px",
+                      borderRadius: "6px",
+                      fontWeight: 600
+                    }}>
+                      {item.page}
+                    </div>
+                  </div>
+                  <div style={{ padding: "16px", flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                    <div>
+                      <h3 style={{ fontFamily: "var(--font-display)", fontSize: "15px", fontWeight: 700, color: "var(--brand-charcoal)", marginBottom: "4px" }}>
+                        {item.name}
+                      </h3>
+                      <p style={{ fontSize: "12px", color: "var(--brand-forest)", lineHeight: 1.6 }}>
+                        {item.desc}
+                      </p>
+                    </div>
+                    <div style={{ marginTop: "12px", paddingTop: "8px", borderTop: "1px solid var(--brand-gold-pale)", fontSize: "11px", color: "var(--brand-gold)", fontWeight: 700 }}>
+                      100g to 25kg Available
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
