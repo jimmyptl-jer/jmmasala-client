@@ -53,14 +53,14 @@ const CORE_FOUR_SPICES = [
     fcl40: "26.0 - 28.0 MT",
     headline: "Unjha Cumin Seeds — Cleaned & Sortex Graded at Source",
     description:
-      "Unjha is the undisputed cumin capital of the world. Stationed directly adjacent to the APMC Mandi, JM Masala procures fresh harvest arrivals directly from farmers, eliminating multi-tier trading markups. Our automated Sortex lines deliver calibrated optical cleaning up to 99.9% purity.",
+      "Headquartered in Unjha, Gujarat, one of India's major commercial hubs for seed spices, JM Masala sources fresh harvest arrivals through established APMC mandi networks. With calibrated multi-stage cleaning and optical Sortex grading up to 99.9% purity, we supply consistent export-grade lots to buyers across global markets.",
     keySpecs: "Volatile Oil: 2.5% to 4.5% · Moisture: <8.0% · Purity: 99.5% Sortex",
     grades: [
       {
         name: "Europe Quality (Sortex 99.5%)",
         purity: "99.5% Minimum",
         moisture: "Max 8.0%",
-        features: "ETO Tested · Low Pesticide · Double Sortex Cleaned",
+        features: "Destination MRL Testing Available · Double Sortex Cleaned",
         target: "EU, UK & Scandinavia Importers",
       },
       {
@@ -204,7 +204,7 @@ const CORE_FOUR_SPICES = [
         name: "Europe Quality (Sortex 99.5%)",
         purity: "99.5% Minimum",
         moisture: "Max 8.0%",
-        features: "Low Heavy Metals · ETO Cleaned · Zero Weevil",
+        features: "Low Heavy Metals · Tested Parameters · Zero Weevil",
         target: "EU Nutraceutical & Seasoning Houses",
       },
       {
@@ -878,7 +878,7 @@ const HomePage = () => {
                   Direct plantation sourcing across Kerala, Andhra Pradesh, and Tamil Nadu estates for pungent chillies and whole spices.
                 </p>
                 <div className="pt-2 border-t border-gray-100 flex flex-wrap gap-1.5">
-                  {["Tellicherry Black Pepper", "Alleppey Green Cardamom", "Guntur Red Chilli", "Curry Leaves"].map((item) => (
+                  {["Tellicherry Black Pepper", "Alleppey Green Cardamom", "Guntur Red Chilli", "Salem Turmeric"].map((item) => (
                     <span key={item} className="px-2 py-0.5 rounded text-[11px] bg-emerald-50 text-emerald-800 font-medium">
                       {item}
                     </span>
@@ -1127,7 +1127,7 @@ const HomePage = () => {
                 </div>
                 <h3 className="text-xl font-bold text-[var(--brand-charcoal)] jm-display">1. Sourcing</h3>
                 <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
-                  Product and origin selection directly from farmers and certified mandis with strict moisture meters and varietal purity checks before inward clearance.
+                  Product and origin selection through certified APMC mandis and established regional farmer networks with calibrated moisture meters and varietal purity checks before inward clearance.
                 </p>
               </div>
 

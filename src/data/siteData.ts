@@ -2,7 +2,6 @@ import blackPepperImage from "../assets/BlackPepper.png";
 import cardamomImage from "../assets/Cardamom.png";
 import corianderSeedsImage from "../assets/CorianderSeeds.png";
 import cuminImage from "../assets/cumin.png";
-import curryLeafImage from "../assets/CurryLeaf.png";
 import fennelSeedsImage from "../assets/FennelSeeds.png";
 import fenugreekSeedsImage from "../assets/FenugreekSeeds.png";
 import psylliumHuskImage from "../assets/PsylliumHusk.png";
@@ -20,8 +19,6 @@ import turmericPowderImage from "../assets/TurmericPowder.jpg";
 import redChilliPowderImage from "../assets/RedChilliPowder.jpg";
 import gingerPowderImage from "../assets/GingerPowder.jpg";
 import fenugreekPowderImage from "../assets/FenugreekPowder.jpg";
-import dehydratedOnionImage from "../assets/DehydratedOnion.jpg";
-import dehydratedGarlicImage from "../assets/DehydratedGarlic.jpg";
 import agroCommoditiesImage from "../assets/AgroCommodities.jpg";
 
 export const SITE_URL = "https://jmmasalaexports.com";
@@ -776,7 +773,7 @@ export const PRODUCTS: ProductData[] = [
     relatedSlugs: [
       "red-chilli-exporter-india",
       "black-pepper-exporter-india",
-      "curry-leaf-exporter-india",
+      "ginger-powder-exporter-india",
     ],
   },
   {
@@ -873,39 +870,6 @@ export const PRODUCTS: ProductData[] = [
       "black-pepper-exporter-india",
       "turmeric-exporter-india",
       "red-chilli-exporter-india",
-    ],
-  },
-  {
-    slug: "curry-leaf-exporter-india",
-    name: "Curry Leaf",
-    botanicalName: "Murraya koenigii",
-    origin: "Tamil Nadu",
-    category: "south",
-    shortDescription:
-      "Fresh and dehydrated curry leaf for food manufacturing buyers.",
-    description:
-      "Curry leaf is supplied through partner channels in South India for buyers needing fresh or dehydrated formats. We align lot preparation, moisture control, and packing based on destination regulations.",
-    keySpec: "Fresh and dehydrated formats available",
-    imageUrl: curryLeafImage,
-    colors: {
-      primary: "#0f1a14",
-      accent: "#4a8856",
-      pale: "#d5f0d8",
-      swatches: ["#0f1a14", "#1a3828", "#4a8856", "#7cb380", "#d5f0d8"],
-      tagline: "Vibrant green vitality, tropical aroma",
-    },
-    specs: [
-      { label: "Format", value: "Fresh / dehydrated / powder on request" },
-      { label: "Moisture", value: "As per format and destination" },
-      { label: "Color", value: "Natural green retention" },
-      { label: "Cleaning", value: "Sorted and washed process" },
-      { label: "Packaging", value: "Retail and bulk options" },
-      { label: "Testing", value: "Lot testing available" },
-    ],
-    relatedSlugs: [
-      "turmeric-exporter-india",
-      "red-chilli-exporter-india",
-      "cardamom-exporter-india",
     ],
   },
   {
@@ -1299,72 +1263,6 @@ export const PRODUCTS: ProductData[] = [
     ],
   },
   {
-    slug: "dehydrated-onion-exporter-india",
-    name: "Dehydrated Onion",
-    botanicalName: "Allium cepa",
-    origin: "Mahuva, Gujarat",
-    category: "agro",
-    shortDescription:
-      "Export-grade dehydrated onion flakes, kibbled, minced, granules, and powder.",
-    description:
-      "Sourced from Mahuva, Gujarat onion hub. Supplied in White, Red, and Pink onion variants. Processed with low moisture, high pungency, and strict microbial hygiene.",
-    keySpec: "Purity 99.5% | Moisture max 6% | Flakes/Granules/Powder",
-    imageUrl: dehydratedOnionImage,
-    colors: {
-      primary: "#2e1c12",
-      accent: "#c46c3b",
-      pale: "#faebd7",
-      swatches: ["#2e1c12", "#5c3824", "#c46c3b", "#e39a72", "#faebd7"],
-      tagline: "Premium Mahuva dehydrated onion",
-    },
-    specs: [
-      { label: "Variants", value: "White Onion / Red Onion / Pink Onion" },
-      { label: "Formats", value: "Flakes (Kibbled) / Chopped / Minced / Granules / Powder" },
-      { label: "Moisture", value: "Max 6%" },
-      { label: "Purity", value: "Min 99.5%" },
-      { label: "Microbiology", value: "TPC < 100,000 cfu/g, Salmonella Negative" },
-      { label: "Packaging", value: "14-20kg Kraft paper bags / Corrugated carton" },
-    ],
-    relatedSlugs: [
-      "dehydrated-garlic-exporter-india",
-      "agro-commodities-exporter-india",
-      "psyllium-husk-exporter-india",
-    ],
-  },
-  {
-    slug: "dehydrated-garlic-exporter-india",
-    name: "Dehydrated Garlic",
-    botanicalName: "Allium sativum",
-    origin: "Gujarat / MP",
-    category: "agro",
-    shortDescription:
-      "Dehydrated garlic flakes, cloves, minced, granules, and pure garlic powder.",
-    description:
-      "Dehydrated garlic processed from fresh Indian garlic bulbs. Features intense aroma and low moisture. Perfect for soup mixes, meat seasoning, sauces, and instant foods.",
-    keySpec: "Purity 99.5% | Moisture max 6% | Flakes & Powder",
-    imageUrl: dehydratedGarlicImage,
-    colors: {
-      primary: "#242119",
-      accent: "#8c826b",
-      pale: "#f5f2eb",
-      swatches: ["#242119", "#474233", "#8c826b", "#b8b09d", "#f5f2eb"],
-      tagline: "Intense aroma dehydrated garlic",
-    },
-    specs: [
-      { label: "Formats", value: "Flakes (Cloves) / Chopped / Minced / Granules / Powder" },
-      { label: "Moisture", value: "Max 6%" },
-      { label: "Purity", value: "Min 99.5%" },
-      { label: "Acid Insoluble Ash", value: "Max 0.5%" },
-      { label: "Color", value: "Creamy white to light yellow" },
-      { label: "Packaging", value: "20kg Kraft paper bags / cartons with inner poly bag" },
-    ],
-    relatedSlugs: [
-      "dehydrated-onion-exporter-india",
-      "agro-commodities-exporter-india",
-      "psyllium-husk-exporter-india",
-    ],
-  },
-  {
     slug: "agro-commodities-exporter-india",
     name: "Indian Agro Commodities",
     botanicalName: "Various Agro Produce",
@@ -1393,7 +1291,7 @@ export const PRODUCTS: ProductData[] = [
     ],
     relatedSlugs: [
       "sesame-seeds-exporter-india",
-      "dehydrated-onion-exporter-india",
+      "psyllium-seeds-exporter-india",
       "psyllium-husk-exporter-india",
     ],
   },
@@ -1891,44 +1789,6 @@ export const PRODUCT_TECHNICAL_DETAILS: Record<string, ProductTechnicalDetails> 
     ],
     optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
   },
-  "curry-leaf-exporter-india": {
-    general: [
-      { label: "Botanical Name", value: "Murraya koenigii" },
-      { label: "Origin", value: "Tamil Nadu / South India" },
-      { label: "Formats", value: "Fresh / Dehydrated / Powder" },
-      { label: "Shelf Life", value: "Format dependent" },
-    ],
-    physical: [
-      { label: "Fresh Moisture", value: "Approx. 60% to 70%" },
-      { label: "Dry Moisture", value: "Below 10%" },
-      { label: "Color", value: "Natural green retention" },
-    ],
-    chemical: [
-      { label: "Use Case", value: "Food manufacturing and seasoning" },
-    ],
-    microbiological: COMMON_MICROBIOLOGY,
-    contaminants: [
-      "Format- and destination-based testing supported on request",
-    ],
-    processing: [
-      "Sorting and washing",
-      "Controlled dehydration where applicable",
-      "Metal detection and buyer-specific packing",
-    ],
-    packaging: [
-      "Fresh leaf transport packs",
-      "Dehydrated bulk pouches",
-      "Private-label packs on request",
-    ],
-    certifications: COMMON_CERTIFICATIONS,
-    exportDetails: [
-      { label: "MOQ", value: "Format dependent; bulk and retail support available" },
-      { label: "Loading Port", value: "Chennai / Nhava Sheva / air shipment support" },
-      { label: "Delivery Terms", value: "FOB / CIF / CNF" },
-      { label: "Lead Time", value: "Fresh lots faster; dehydrated 7 to 15 days" },
-    ],
-    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
-  },
   "ajwain-seeds-exporter-india": {
     general: [
       { label: "Botanical Name", value: "Trachyspermum ammi" },
@@ -2302,80 +2162,6 @@ export const PRODUCT_TECHNICAL_DETAILS: Record<string, ProductTechnicalDetails> 
     ],
     optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
   },
-  "dehydrated-onion-exporter-india": {
-    general: [
-      { label: "Botanical Name", value: "Allium cepa" },
-      { label: "Origin", value: "Mahuva, Gujarat, India" },
-      { label: "Harvest Season", value: "January to May" },
-      { label: "Shelf Life", value: "24 months under dry storage" },
-    ],
-    physical: [
-      { label: "Variants", value: "White Onion / Red Onion / Pink Onion" },
-      { label: "Formats", value: "Flakes (Kibbled) / Chopped / Minced / Granules / Powder" },
-      { label: "Moisture", value: "Max 6%" },
-      { label: "Purity", value: "Min 99.5%" },
-    ],
-    chemical: [
-      { label: "Acid Insoluble Ash", value: "Max 0.5%" },
-    ],
-    microbiological: COMMON_MICROBIOLOGY,
-    contaminants: [
-      "Strict food safety and heavy metal compliance",
-    ],
-    processing: [
-      "Washing and slicing",
-      "Controlled hot-air dehydration",
-      "Optical sorting & metal detection",
-    ],
-    packaging: [
-      "14 kg - 20 kg Kraft paper bags / Corrugated carton with poly liner",
-    ],
-    certifications: COMMON_CERTIFICATIONS,
-    exportDetails: [
-      { label: "MOQ", value: "1 MT onward" },
-      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
-      { label: "Delivery Terms", value: "FOB Mundra / CIF / CNF" },
-      { label: "Lead Time", value: "7 to 15 days" },
-    ],
-    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
-  },
-  "dehydrated-garlic-exporter-india": {
-    general: [
-      { label: "Botanical Name", value: "Allium sativum" },
-      { label: "Origin", value: "Gujarat / MP, India" },
-      { label: "Harvest Season", value: "February to April" },
-      { label: "Shelf Life", value: "24 months under dry storage" },
-    ],
-    physical: [
-      { label: "Formats", value: "Flakes (Cloves) / Chopped / Minced / Granules / Powder" },
-      { label: "Moisture", value: "Max 6%" },
-      { label: "Purity", value: "Min 99.5%" },
-      { label: "Color", value: "Creamy white to light yellow" },
-    ],
-    chemical: [
-      { label: "Acid Insoluble Ash", value: "Max 0.5%" },
-    ],
-    microbiological: COMMON_MICROBIOLOGY,
-    contaminants: [
-      "Lab report COA supported per lot",
-    ],
-    processing: [
-      "Clove separation and peeling",
-      "Hot-air dehydration & size milling",
-      "Metal detection",
-    ],
-    packaging: [
-      "20 kg Kraft paper bags / cartons with inner poly bag",
-    ],
-    certifications: COMMON_CERTIFICATIONS,
-    exportDetails: [
-      { label: "MOQ", value: "1 MT onward" },
-      { label: "Loading Port", value: "Mundra / Nhava Sheva" },
-      { label: "Delivery Terms", value: "FOB Mundra / CIF / CNF" },
-      { label: "Lead Time", value: "7 to 15 days" },
-    ],
-    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
-  },
   "agro-commodities-exporter-india": {
     general: [
       { label: "Commodity Scope", value: "Peanuts, Chickpeas, Sesame, Oilseeds, Grains" },
@@ -2511,7 +2297,7 @@ export const BLOG_POSTS: BlogPostSummary[] = [
   },
   {
     slug: "why-unjha-gujarat-is-worlds-cumin-capital",
-    title: "Why Unjha, Gujarat Is the World's Cumin Capital",
+    title: "Why Unjha, Gujarat Is a Major Hub for Cumin Trade",
     date: "2026-03-01",
     excerpt:
       "Why Unjha matters in global cumin trade and how that origin gives importers a sourcing advantage.",
@@ -2766,6 +2552,91 @@ export const BLOG_POSTS: BlogPostSummary[] = [
       "cumin-seeds-exporter-india",
       "black-pepper-exporter-india",
       "turmeric-exporter-india",
+    ],
+  },
+  {
+    slug: "fennel-seeds-quality-grades-varieties-europe-usa-gulf",
+    title: "Indian Fennel Seeds Quality Grades: Bold Green, Lakhnavi, Europe vs USA vs Gulf Standards",
+    date: "2026-03-15",
+    excerpt:
+      "A comprehensive commercial guide to sourcing Indian fennel seeds (Saunf / Variyali): comparing Abu Road Bold Green, Lakhnavi, and FAQ grades across European, American, and Gulf regulatory standards.",
+    keywords: [
+      "fennel seeds quality grades",
+      "Indian fennel seeds exporter",
+      "bold green fennel seeds",
+      "lakhnavi fennel seeds",
+      "Unjha saunf market",
+      "fennel seeds Europe vs USA standards",
+      "fennel seed volatile oil",
+      "variyali export Gujarat",
+    ],
+    sections: [
+      {
+        heading: "Commercial Varieties of Indian Fennel Seeds",
+        paragraphs: [
+          "India is the world's leading producer and exporter of fennel seeds (Foeniculum vulgare), with Gujarat and Rajasthan accounting for over 80% of national production. At the commercial level, buyers do not simply purchase 'fennel'—they select specific botanical variants and optical grades tailored to their processing requirements.",
+          "The three dominant commercial classifications traded through the APMC Unjha market yard are Abu Road Bold Green (Variyali), Lakhnavi Fennel (Choti Saunf), and Machine Cleaned FAQ Grade.",
+        ],
+        bullets: [
+          "Abu Road / Gujarat Bold Green: Plump, intensely aromatic seeds with high natural chlorophyll green retention, measuring 6–8mm in length. Favored for whole-seed retail packing, herbal tea infusions, and European sausage seasoning.",
+          "Lakhnavi Fennel (Choti Saunf): Miniature, delicate seeds with sweet, gentle aniseed flavor and minimal bitterness. Highly prized in the Middle East and South Asia as a luxury tabletop mouth freshener (mukhwas) and confectionery coating.",
+          "Machine Cleaned FAQ Grade: Economical 98% to 99% pure lots processed for industrial grinding into pure ground fennel powder, curry powder formulations, and oleoresin distillation.",
+        ],
+      },
+      {
+        heading: "Destination-Specific Quality Expectations",
+        paragraphs: [
+          "Regulatory frameworks and consumer habits vary significantly across major importing regions. Aligning lot specifications with destination standards is essential for seamless customs clearance:",
+        ],
+        bullets: [
+          "Europe (EU): Strict compliance with Regulation (EC) No 396/2005 for pesticide Maximum Residue Limits (MRLs), Total Aflatoxins under 10 ppb (B1 < 5 ppb), and maximum moisture of 8.0%. Double Sortex optical grading (99.5% purity) is standard.",
+          "USA & North America: Aligned to American Spice Trade Association (ASTA) cleanliness specifications, FDA Defect Action Levels (DALs), and microbiological safety (Salmonella negative in 25g, low Total Plate Count).",
+          "Gulf & Middle East (GCC): Strong preference for vibrant green visual coloration (Bold Green Saunf) and sweet chewing texture, compliant with GSO 1016 standards in 25kg and 50kg food-grade PP bags.",
+          "Singapore & Southeast Asia: Focus on consistent physical cleanliness (99% Machine Cleaned) and moisture stability for re-export and ethnic food service markets.",
+        ],
+      },
+      {
+        heading: "Essential Oil Profile & Chemical Benchmarks",
+        paragraphs: [
+          "Fennel's characteristic sweetness and therapeutic value stem from its volatile essential oil content, which ranges from 1.5% to 3.5% v/w in high-grade Unjha arrivals. The primary constituent is trans-anethole (>70%), responsible for licorice-like sweetness, balanced by fenchone (10%–15%), which imparts crisp herbal warmth.",
+          "NABL-accredited laboratory test reports should confirm moisture (max 8.0%), volatile oil (>1.5% v/w), total ash (max 8.0%), and acid-insoluble ash (max 1.25%).",
+        ],
+      },
+      {
+        heading: "Packaging, Container Stuffing & Ocean Logistics",
+        paragraphs: [
+          "Fennel seeds have a medium bulk density (~480–520 g/L). Standard container stuffing parameters from Mundra Port are:",
+        ],
+        bullets: [
+          "20ft FCL Container: 12.0 to 13.5 Metric Tons loose stuffed (approx. 10.5–11.0 MT palletized)",
+          "40ft FCL Container: 24.0 to 26.0 Metric Tons loose stuffed (approx. 21.0–22.0 MT palletized)",
+          "Packaging: 25kg / 50kg woven polypropylene (PP) bags with LDPE liner, or multi-wall kraft paper sacks",
+          "Transit Protection: Container desiccants and high-barrier poly-liners to prevent moisture absorption and color degradation during ocean transit",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "How do you preserve the bright green color of fennel seeds during international shipping?",
+        answer:
+          "Chlorophyll is light- and heat-sensitive. JM Masala packs premium green fennel in UV-shielded, moisture-barrier inner poly liners or multi-wall paper bags, stored in cool conditions and shipped in clean, desiccant-equipped containers via direct express ocean vessels from Mundra Port.",
+      },
+      {
+        question: "What is the difference between Lakhnavi fennel and standard green fennel?",
+        answer:
+          "Lakhnavi fennel seeds are physically smaller, softer to chew, and possess a naturally sweeter profile with virtually zero bitter fenchone undertones, making them ideal for confectionery and direct consumption rather than industrial spice grinding.",
+      },
+      {
+        question: "Can JM Masala supply pesticide-tested fennel compliant with European MRLs?",
+        answer:
+          "Yes. We supply fennel lots tested for over 500 pesticide residues at NABL-accredited laboratories, ensuring full compliance with European Commission Regulation (EC) 396/2005.",
+      },
+    ],
+    relatedProductSlugs: [
+      "fennel-seeds-exporter-india",
+      "cumin-seeds-exporter-india",
+      "ajwain-seeds-exporter-india",
+      "coriander-seeds-exporter-india",
     ],
   },
 ];

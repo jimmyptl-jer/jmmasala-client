@@ -13,6 +13,7 @@ import {
   SOURCING_REGIONS,
   TRUST_BADGES,
 } from "@/data/siteData";
+import { PRODUCT_MASTER_SEO } from "@/data/productMasterSeo";
 import "./index.css";
 
 type StaticSeo = {
@@ -35,6 +36,9 @@ const basePages = [
   "/about-jm-masala",
   "/best-spice-exporter-india",
   "/best-cumin-exporter-india",
+  "/unjha-cumin-seeds",
+  "/unjha-fennel-seeds",
+  "/cumin-seeds-specifications",
   "/spice-exporter-gujarat",
   "/quality-certifications",
   "/sourcing-network",
@@ -46,6 +50,9 @@ const basePages = [
   "/domestic-supply-india",
   "/contact",
   "/blog",
+  "/teja-chilli-exporter-india",
+  "/bird-eye-chilli-exporter-india",
+  "/king-chilli-exporter-india",
 ];
 
 export const prerenderRoutes = [
@@ -170,59 +177,6 @@ const baseWebSiteSchema = {
   },
 };
 
-const TITLE_BY_SLUG: Record<string, string> = {
-  "cumin-seeds-exporter-india":
-    "Cumin Seeds Exporter India | Indian Jeera Supplier | JM Masala",
-  "coriander-seeds-exporter-india":
-    "Coriander Seeds Exporter India | Dhania Supplier | JM Masala",
-  "fennel-seeds-exporter-india":
-    "Fennel Seeds Exporter India | Saunf Supplier | JM Masala",
-  "fenugreek-seeds-exporter-india":
-    "Fenugreek Seeds Exporter India | Methi Seeds Supplier | JM Masala",
-  "ajwain-seeds-exporter-india":
-    "Ajwain Seeds Exporter India | Carom Seeds Supplier | JM Masala",
-  "mustard-seeds-exporter-india":
-    "Mustard Seeds Exporter India | Indian Mustard Supplier | JM Masala",
-  "turmeric-exporter-india":
-    "Turmeric Exporter India | Turmeric Fingers & Powder Supplier | JM Masala",
-  "dry-ginger-exporter-india":
-    "Dry Ginger Exporter India | Dried Ginger Supplier | JM Masala",
-  "red-chilli-exporter-india":
-    "Indian Red Chilli Exporter | Red Chilli Supplier India | JM Masala",
-  "psyllium-husk-exporter-india":
-    "Psyllium Husk Exporter India | Isabgol Supplier | JM Masala",
-  "psyllium-seeds-exporter-india":
-    "Psyllium Seeds Exporter India | Export Grade | JM Masala",
-  "sesame-seeds-exporter-india":
-    "Sesame Seeds Exporter India | Natural and Hulled | JM Masala",
-  "black-pepper-exporter-india":
-    "Black Pepper Exporter India | MG1 FAQ Grade | HACCP Certified | JM Masala",
-  "cardamom-exporter-india":
-    "Cardamom Exporter India | Premium Size-Graded Lots | JM Masala",
-  "curry-leaf-exporter-india":
-    "Curry Leaf Exporter India | Fresh and Dehydrated Supply | JM Masala",
-  "nigella-seeds-exporter-india":
-    "Nigella Seeds Exporter India | Kalonji Supplier | JM Masala",
-  "cumin-powder-exporter-india":
-    "Cumin Powder Exporter India | Ground Jeera Supplier | JM Masala",
-  "coriander-powder-exporter-india":
-    "Coriander Powder Exporter India | Dhania Powder Supplier | JM Masala",
-  "turmeric-powder-exporter-india":
-    "Turmeric Powder Exporter India | High Curcumin Supplier | JM Masala",
-  "red-chilli-powder-exporter-india":
-    "Red Chilli Powder Exporter India | ASTA SHU Supplier | JM Masala",
-  "ginger-powder-exporter-india":
-    "Ginger Powder Exporter India | Sonth Powder Supplier | JM Masala",
-  "fenugreek-powder-exporter-india":
-    "Fenugreek Powder Exporter India | Ground Methi Supplier | JM Masala",
-  "dehydrated-onion-exporter-india":
-    "Dehydrated Onion Exporter India | Flakes & Powder | JM Masala",
-  "dehydrated-garlic-exporter-india":
-    "Dehydrated Garlic Exporter India | Flakes & Powder | JM Masala",
-  "agro-commodities-exporter-india":
-    "Indian Agro Commodities Exporter | Peanuts Chickpeas Grains | JM Masala",
-};
-
 const pageSeo: Record<string, StaticSeo> = {
   "/": {
     title:
@@ -296,12 +250,69 @@ const pageSeo: Record<string, StaticSeo> = {
     ],
   },
   "/cold-pressed-oils": {
-    title: "Cold Pressed Oils from India | JM Masala",
+    title: "Cold Pressed Oils Manufacturer & Exporter India | JM Masala",
     description:
-      "Cold pressed edible oil supply from JM Masala with buyer-specific packing and export documentation support.",
+      "Manufacturer and bulk exporter of 100% pure cold-pressed oils from Unjha, Gujarat. Sesame, mustard, groundnut, black seed, cumin, and fennel oils in retail bottles and bulk FCL.",
     path: "/cold-pressed-oils",
     imageUrl: "/JMMasala.png",
-    imageAlt: "Cold pressed oils supplied by JM Masala",
+    imageAlt: "Pure single-origin cold pressed oils from Unjha Gujarat by JM Masala",
+    keywords: [
+      "cold pressed oils manufacturer india",
+      "cold pressed oils exporter",
+      "sesame oil exporter india",
+      "mustard oil supplier gujarat",
+      "groundnut oil export india",
+      "black seed oil manufacturer unjha",
+      "cumin oil bulk supplier",
+      "wood pressed oils india",
+      "edible oils exporter gujarat",
+    ],
+    schema: [
+      baseOrganizationSchema,
+      baseWebSiteSchema,
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "JM Masala Pure Cold Pressed Oils",
+        url: `${SITE_URL}/cold-pressed-oils`,
+        description:
+          "Pure, cold-pressed single-origin oils from Unjha, Gujarat. Traditional wood/cold pressing below 49°C without chemical refining.",
+      },
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Cold Pressed Oils", path: "/cold-pressed-oils" },
+      ]),
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "What cold-pressed oils does JM Masala manufacture in Unjha?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "JM Masala processes Sesame Oil, Mustard Oil, Groundnut Oil, Black Seed (Kalonji) Oil, Cumin Seed Oil, Fennel Seed Oil, and Flaxseed Oil from fresh local seed spice arrivals in Unjha, Gujarat.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Are JM Masala cold-pressed oils chemically refined or heated?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "No. All oils are extracted mechanically below 49°C without chemical solvents, hexane, bleaching agents, or synthetic preservatives to preserve natural fatty acids and micronutrients.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What packaging formats are available for bulk oil export?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "We provide retail dark amber glass bottles (100ml, 250ml, 500ml, 1 Litre) with custom private label branding, as well as 5L food-grade HDPE cans, 200L steel drums, and 1000L IBC totes for international industrial buyers.",
+            },
+          },
+        ],
+      },
+    ],
   },
   "/about-jm-masala": {
     title: "About JM Masala | Spice Exporter from Unjha Gujarat",
@@ -400,12 +411,318 @@ const pageSeo: Record<string, StaticSeo> = {
           priceCurrency: "USD",
           availability: "https://schema.org/InStock",
           url: `${SITE_URL}/best-cumin-exporter-india`,
-          seller: { "@id": `${SITE_URL}/#organization` },
         },
       },
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
         { name: "Best Cumin Exporter India", path: "/best-cumin-exporter-india" },
+      ]),
+    ],
+  },
+  "/unjha-cumin-seeds": {
+    title: "Unjha Cumin Seeds | APMC Mandi Sourcing & Export Supply | JM Masala",
+    description:
+      "Learn about Unjha cumin seeds sourcing, APMC market yard arrival dynamics, Sortex optical grading, harvest calendar, and export container logistics from Unjha, Gujarat.",
+    path: "/unjha-cumin-seeds",
+    imageUrl:
+      PRODUCTS.find((product) => product.slug === "cumin-seeds-exporter-india")
+        ?.imageUrl ?? "/JMMasala.png",
+    imageAlt: "Unjha cumin seeds processing and export supply from Gujarat India",
+    keywords: [
+      "Unjha cumin seeds",
+      "Unjha jeera market",
+      "APMC Unjha cumin supplier",
+      "cumin seeds origin Gujarat",
+      "Unjha spice exporter",
+      "Sortex cumin seeds Unjha",
+      "Indian cumin seeds supplier",
+      "cumin harvest calendar India",
+    ],
+    schema: [
+      baseOrganizationSchema,
+      baseWebSiteSchema,
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemPage",
+        name: "Unjha Cumin Seeds Origin & Export Supply",
+        url: `${SITE_URL}/unjha-cumin-seeds`,
+        description:
+          "Commercial and technical guide to sourcing Indian cumin seeds directly from the Unjha trading hub in Gujarat.",
+      },
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Products", path: "/products" },
+        { name: "Cumin Seeds", path: "/cumin-seeds-exporter-india" },
+        { name: "Unjha Cumin Seeds", path: "/unjha-cumin-seeds" },
+      ]),
+    ],
+  },
+  "/unjha-fennel-seeds": {
+    title: "Unjha Fennel Seeds Exporter India | Indian Saunf | JM Masala",
+    description:
+      "Comprehensive guide to Unjha fennel seeds (Saunf / Variyali) export supply from Gujarat. Bold Green, Lakhnavi, Sortex 99.5%, EU MRL testing, FOB Mundra.",
+    path: "/unjha-fennel-seeds",
+    imageUrl:
+      PRODUCTS.find((product) => product.slug === "fennel-seeds-exporter-india")
+        ?.imageUrl ?? "/JMMasala.png",
+    imageAlt: "Unjha fennel seeds processing and export supply from Gujarat India",
+    keywords: [
+      "Unjha fennel seeds",
+      "fennel seeds exporter india",
+      "Unjha saunf market",
+      "APMC Unjha fennel supplier",
+      "fennel seeds origin Gujarat",
+      "bold green fennel seeds",
+      "lakhnavi fennel seeds supplier",
+      "variyali exporter gujarat",
+      "Sortex fennel seeds Unjha",
+      "Indian saunf wholesale",
+      "fennel seeds hs code 09096129",
+      "fennel seeds harvest calendar India",
+    ],
+    schema: [
+      baseOrganizationSchema,
+      baseWebSiteSchema,
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemPage",
+        name: "Unjha Fennel Seeds Origin Sourcing & Export Supply",
+        url: `${SITE_URL}/unjha-fennel-seeds`,
+        description:
+          "Commercial and technical guide to sourcing Indian fennel seeds (Saunf / Variyali) directly from the Unjha agricultural trade hub in Gujarat.",
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "Why is Unjha, Gujarat considered the premier trading hub for Indian fennel seeds?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Unjha hosts one of Asia's largest Agricultural Produce Market Committees (APMC) dedicated to seed spices. Adjacent agricultural belts in northern Gujarat produce the world's most aromatic Foeniculum vulgare crops. Unjha acts as the central arrival, quality grading, and price-discovery mandi.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What are the primary varieties of Indian fennel seeds exported from Unjha?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "JM Masala exports three primary commercial varieties: (1) Abu Road / Gujarat Bold Green Fennel for tea blends and seasonings; (2) Lakhnavi Fennel (Choti Saunf) for luxury tabletop mouth fresheners and confectionery; and (3) Machine Cleaned FAQ Grade for industrial grinding and extraction.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "When is the peak fresh fennel harvest arrival window in Gujarat?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Fresh fennel harvest arrivals at the Unjha APMC mandi commence in late February and peak between March and April with optimal natural green hue and maximum trans-anethole essential oil.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What container loading capacity and packaging options are available for fennel?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "A standard 20ft container carries 12.0 to 13.5 MT in loose bags (~10.5-11.0 MT palletized). A 40ft container carries 24.0 to 26.0 MT. Packed in 25kg/50kg PP bags with inner liner, paper bags, or retail pouches.",
+            },
+          },
+        ],
+      },
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Products", path: "/products" },
+        { name: "Fennel Seeds", path: "/fennel-seeds-exporter-india" },
+        { name: "Unjha Fennel Seeds", path: "/unjha-fennel-seeds" },
+      ]),
+    ],
+  },
+  "/cumin-seeds-specifications": {
+    title: "Cumin Seeds Technical Specifications | Export Grades & COA Standards | JM Masala",
+    description:
+      "Comprehensive technical datasheet for Indian cumin seeds (jeera): purity levels, volatile oil, moisture limits, microbiological standards, container stuffing, and commercial export grades.",
+    path: "/cumin-seeds-specifications",
+    imageUrl:
+      PRODUCTS.find((product) => product.slug === "cumin-seeds-exporter-india")
+        ?.imageUrl ?? "/JMMasala.png",
+    imageAlt: "Indian cumin seeds technical specifications and export grade comparison",
+    keywords: [
+      "cumin seeds specifications",
+      "jeera technical datasheet",
+      "cumin seeds export grades",
+      "Sortex 99.5 cumin specs",
+      "cumin seeds volatile oil content",
+      "cumin seeds moisture limit",
+      "cumin seeds HS code 09093129",
+      "cumin container loading capacity",
+      "Indian cumin seeds COA",
+    ],
+    schema: [
+      baseOrganizationSchema,
+      baseWebSiteSchema,
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemPage",
+        name: "Indian Cumin Seeds Technical Specifications",
+        url: `${SITE_URL}/cumin-seeds-specifications`,
+        description:
+          "Commercial and laboratory specifications datasheet for procurement of export-grade Indian cumin seeds from JM Masala.",
+      },
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Products", path: "/products" },
+        { name: "Cumin Seeds", path: "/cumin-seeds-exporter-india" },
+        { name: "Technical Specifications", path: "/cumin-seeds-specifications" },
+      ]),
+    ],
+  },
+  "/teja-chilli-exporter-india": {
+    title: "Teja Chilli Exporter from India | S17 Red Chilli | JM Masala",
+    description:
+      "JM Masala supplies Indian Teja red chilli (S17) for bulk export. High heat 50,000–85,000 SHU, 50–70 ASTA color, whole & stemless. Request lab specs & quote.",
+    path: "/teja-chilli-exporter-india",
+    imageUrl:
+      PRODUCTS.find((product) => product.slug === "red-chilli-exporter-india")
+        ?.imageUrl ?? "/JMMasala.png",
+    imageAlt: "Export-grade Indian Teja red chilli S17 supplied by JM Masala",
+    keywords: [
+      "teja chilli exporter india",
+      "teja chilli supplier",
+      "teja dry red chilli",
+      "teja chilli wholesale",
+      "indian teja chilli",
+      "teja chilli bulk supplier",
+      "guntur teja chilli exporter",
+      "s17 chilli supplier india",
+    ],
+    schema: [
+      baseOrganizationSchema,
+      baseWebSiteSchema,
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: "Teja Chilli (S17)",
+        description:
+          "Export-grade Indian Teja Red Chilli (S17) from Guntur, Andhra Pradesh. High pungency 50,000–85,000 SHU, 50–70 ASTA color, whole and stemless, supplied in bulk FCL by JM Masala.",
+        image: toAbsoluteUrl(
+          PRODUCTS.find((product) => product.slug === "red-chilli-exporter-india")
+            ?.imageUrl ?? "/JMMasala.png",
+        ),
+        brand: { "@type": "Brand", name: COMPANY.name },
+        category: "Spices",
+        countryOfOrigin: "India",
+        manufacturer: { "@id": `${SITE_URL}/#organization` },
+        url: `${SITE_URL}/teja-chilli-exporter-india`,
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "USD",
+          availability: "https://schema.org/InStock",
+          url: `${SITE_URL}/teja-chilli-exporter-india`,
+        },
+      },
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Products", path: "/products" },
+        { name: "Red Chilli", path: "/red-chilli-exporter-india" },
+        { name: "Teja Chilli", path: "/teja-chilli-exporter-india" },
+      ]),
+    ],
+  },
+  "/bird-eye-chilli-exporter-india": {
+    title: "Bird's Eye Chilli Exporter from India | Kanthari Chilli | JM Masala",
+    description:
+      "JM Masala supplies authentic Indian Bird's Eye chilli (Kanthari) for bulk international buyers. Intense heat 100,000–225,000 SHU, small conical dried pods.",
+    path: "/bird-eye-chilli-exporter-india",
+    imageUrl:
+      PRODUCTS.find((product) => product.slug === "red-chilli-exporter-india")
+        ?.imageUrl ?? "/JMMasala.png",
+    imageAlt: "Export-grade Indian Bird's Eye chilli Kanthari supplied by JM Masala",
+    keywords: [
+      "bird eye chilli exporter india",
+      "bird's eye chilli supplier",
+      "kanthari chilli export",
+      "indian bird eye chilli",
+      "capsicum frutescens supplier",
+    ],
+    schema: [
+      baseOrganizationSchema,
+      baseWebSiteSchema,
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: "Bird's Eye Chilli (Kanthari)",
+        description:
+          "Export-grade Indian Bird's Eye Chilli (Capsicum frutescens) supplied by JM Masala. Intense heat 100,000–225,000 SHU, small conical dried pods, tested for aflatoxin and Sudan dye compliance.",
+        image: toAbsoluteUrl(
+          PRODUCTS.find((product) => product.slug === "red-chilli-exporter-india")
+            ?.imageUrl ?? "/JMMasala.png",
+        ),
+        brand: { "@type": "Brand", name: COMPANY.name },
+        category: "Spices",
+        countryOfOrigin: "India",
+        manufacturer: { "@id": `${SITE_URL}/#organization` },
+        url: `${SITE_URL}/bird-eye-chilli-exporter-india`,
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "USD",
+          availability: "https://schema.org/InStock",
+          url: `${SITE_URL}/bird-eye-chilli-exporter-india`,
+        },
+      },
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Products", path: "/products" },
+        { name: "Red Chilli", path: "/red-chilli-exporter-india" },
+        { name: "Bird's Eye Chilli", path: "/bird-eye-chilli-exporter-india" },
+      ]),
+    ],
+  },
+  "/king-chilli-exporter-india": {
+    title: "King Chilli Exporter from India | Bhut Jolokia Ghost Pepper | JM Masala",
+    description:
+      "JM Masala supplies genuine Indian King Chilli (Bhut Jolokia / Naga Chilli) for bulk export. Super-hot 800,000–1,041,000+ SHU, solar dried whole pods & flakes.",
+    path: "/king-chilli-exporter-india",
+    imageUrl:
+      PRODUCTS.find((product) => product.slug === "red-chilli-exporter-india")
+        ?.imageUrl ?? "/JMMasala.png",
+    imageAlt: "Export-grade Indian King chilli Bhut Jolokia supplied by JM Masala",
+    keywords: [
+      "king chilli exporter india",
+      "bhut jolokia supplier india",
+      "ghost pepper bulk export",
+      "naga chilli exporter",
+      "indian king chilli wholesale",
+    ],
+    schema: [
+      baseOrganizationSchema,
+      baseWebSiteSchema,
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: "King Chilli (Bhut Jolokia)",
+        description:
+          "Export-grade Indian King Chilli (Capsicum chinense) supplied by JM Masala. Super-hot 800,000–1,041,000+ SHU, solar-dried whole pods and flakes with full laboratory test reports.",
+        image: toAbsoluteUrl(
+          PRODUCTS.find((product) => product.slug === "red-chilli-exporter-india")
+            ?.imageUrl ?? "/JMMasala.png",
+        ),
+        brand: { "@type": "Brand", name: COMPANY.name },
+        category: "Spices",
+        countryOfOrigin: "India",
+        manufacturer: { "@id": `${SITE_URL}/#organization` },
+        url: `${SITE_URL}/king-chilli-exporter-india`,
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "USD",
+          availability: "https://schema.org/InStock",
+          url: `${SITE_URL}/king-chilli-exporter-india`,
+        },
+      },
+      buildBreadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Products", path: "/products" },
+        { name: "Red Chilli", path: "/red-chilli-exporter-india" },
+        { name: "King Chilli", path: "/king-chilli-exporter-india" },
       ]),
     ],
   },
@@ -714,29 +1031,51 @@ const buildProductSeo = (path: string): StaticSeo | null => {
     return null;
   }
 
+  const masterSeo = PRODUCT_MASTER_SEO[product.slug];
   const productUrl = `${SITE_URL}/${product.slug}`;
   const absoluteImageUrl = toAbsoluteUrl(product.imageUrl);
+  const title =
+    masterSeo?.seo.title ??
+    `${product.name} Exporter India | Export Grade | JM Masala`;
+  const description = masterSeo?.seo.description ?? product.description;
+  const keywords = masterSeo?.seo.secondaryKeywords ?? [
+    `${product.name} exporter India`,
+    `${product.name} supplier India`,
+    `${product.name} bulk supplier`,
+    `${product.name} export grade`,
+    `${product.name} manufacturer Gujarat`,
+    `${product.name} wholesale Unjha`,
+    "Indian spice exporter",
+    "JM Masala exports",
+    "JM Masala Trading LLP",
+  ];
+
+  const faqItems =
+    masterSeo?.content.faqs && masterSeo.content.faqs.length > 0
+      ? masterSeo.content.faqs
+      : [
+          {
+            question: `What export specifications and quality grades are available for ${product.name}?`,
+            answer: `${product.name} from JM Masala Trading LLP is supplied according to strict buyer-approved export specifications (${product.keySpec}) covering purity, moisture, volatile oil, and destination-specific compliance (EU, US FDA, Gulf).`,
+          },
+          {
+            question: `Can JM Masala supply ${product.name} in bulk container loads and private label packaging?`,
+            answer: `Yes. We supply ${product.name} in 20ft and 40ft FCL bulk container loads (25kg/50kg PP bags with inner liner, paper bags, or 1 MT jumbo bags) as well as custom private label retail packaging (stand-up zipper pouches, PET jars, and cartons).`,
+          },
+          {
+            question: `What export documents and lab reports are provided with ${product.name} shipments?`,
+            answer: `Every export consignment includes a Phytosanitary Certificate, Fumigation Certificate, NABL accredited Laboratory Certificate of Analysis (COA), Certificate of Origin (COO), Commercial Invoice, Packing List, and Bill of Lading.`,
+          },
+        ];
 
   return {
-    title:
-      TITLE_BY_SLUG[product.slug] ??
-      `${product.name} Exporter India | Export Grade | JM Masala`,
-    description: product.description,
+    title,
+    description,
     path,
     type: "product",
     imageUrl: product.imageUrl,
     imageAlt: `${product.name} export-grade spice supplied by JM Masala`,
-    keywords: [
-      `${product.name} exporter India`,
-      `${product.name} supplier India`,
-      `${product.name} bulk supplier`,
-      `${product.name} export grade`,
-      `${product.name} manufacturer Gujarat`,
-      `${product.name} wholesale Unjha`,
-      "Indian spice exporter",
-      "JM Masala exports",
-      "JM Masala Trading LLP",
-    ],
+    keywords,
     schema: [
       baseOrganizationSchema,
       {
@@ -744,7 +1083,7 @@ const buildProductSeo = (path: string): StaticSeo | null => {
         "@type": "Product",
         "@id": `${productUrl}#product`,
         name: product.name,
-        description: product.description,
+        description,
         image: [absoluteImageUrl],
         sku: `JMM-${product.slug.toUpperCase().replace("-EXPORTER-INDIA", "")}`,
         mpn: `JMM-${product.slug.replace("-exporter-india", "")}`,
@@ -762,13 +1101,6 @@ const buildProductSeo = (path: string): StaticSeo | null => {
           "@id": `${SITE_URL}/#organization`,
         },
         url: productUrl,
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: "4.9",
-          reviewCount: "52",
-          bestRating: "5",
-          worstRating: "1",
-        },
         additionalProperty: product.specs.map((spec) => ({
           "@type": "PropertyValue",
           name: spec.label,
@@ -799,6 +1131,11 @@ const buildProductSeo = (path: string): StaticSeo | null => {
                 "NL",
               ],
             },
+            shippingRate: {
+              "@type": "MonetaryAmount",
+              value: "0",
+              currency: "USD",
+            },
             deliveryTime: {
               "@type": "ShippingDeliveryTime",
               handlingTime: {
@@ -809,37 +1146,27 @@ const buildProductSeo = (path: string): StaticSeo | null => {
               },
             },
           },
+          hasMerchantReturnPolicy: {
+            "@type": "MerchantReturnPolicy",
+            applicableCountry: ["IN", "US", "AE", "GB", "CA", "SG", "SA", "AU", "DE", "NL"],
+            returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+            merchantReturnDays: 14,
+            returnMethod: "https://schema.org/ReturnByMail",
+            returnFees: "https://schema.org/FreeReturn",
+          },
         },
       },
       {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: `What export specifications and quality grades are available for ${product.name}?`,
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: `${product.name} from JM Masala Trading LLP is supplied according to strict buyer-approved export specifications (${product.keySpec}) covering purity, moisture, volatile oil, and destination-specific compliance (EU, US FDA, Gulf).`,
-            },
+        mainEntity: faqItems.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
           },
-          {
-            "@type": "Question",
-            name: `Can JM Masala supply ${product.name} in bulk container loads and private label packaging?`,
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: `Yes. We supply ${product.name} in 20ft and 40ft FCL bulk container loads (25kg/50kg PP bags with inner liner, paper bags, or 1 MT jumbo bags) as well as custom private label retail packaging (stand-up zipper pouches, PET jars, and cartons).`,
-            },
-          },
-          {
-            "@type": "Question",
-            name: `What export documents and lab reports are provided with ${product.name} shipments?`,
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: `Every export consignment includes a Phytosanitary Certificate, Fumigation Certificate, NABL accredited Laboratory Certificate of Analysis (COA), Certificate of Origin (COO), Commercial Invoice, Packing List, and Bill of Lading.`,
-            },
-          },
-        ],
+        })),
       },
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },

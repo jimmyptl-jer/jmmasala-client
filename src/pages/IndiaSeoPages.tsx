@@ -34,7 +34,7 @@ const indiaFaqs = [
   {
     question: "Which spices does JM Masala export from India?",
     answer:
-      "JM Masala exports cumin seeds, coriander seeds, fennel, fenugreek, sesame, psyllium husk, psyllium seeds, turmeric, red chilli, black pepper, cardamom, and curry leaf.",
+      "JM Masala exports cumin seeds, coriander seeds, fennel, fenugreek, sesame, psyllium husk, psyllium seeds, turmeric, red chilli, black pepper, cardamom, and dry ginger.",
   },
   {
     question: "Can international buyers request custom packing?",
@@ -58,6 +58,29 @@ const cuminFaqs = [
     question: "Can JM Masala supply cumin for Europe, USA, Gulf, and Singapore buyers?",
     answer:
       "Yes. JM Masala supports market-specific cumin discussions for Europe, USA, Gulf, Singapore, and other importer destinations based on final contract specification and lot availability.",
+  },
+];
+
+const corianderFaqs = [
+  {
+    question: "Why is JM Masala a leading coriander seeds exporter from India?",
+    answer:
+      "JM Masala sources whole and split coriander seeds directly from prime mandis in Northern Gujarat (Unjha, Gondal) and Southeast Rajasthan (Kota, Ramganj Mandi), delivering calibrated Eagle, Scooter, and Parrot grades with multi-deck cleaning, optical Sortex sorting, and export documentation.",
+  },
+  {
+    question: "Which commercial coriander seed grades are available for export?",
+    answer:
+      "We supply Eagle Quality (high volatile linalool oil, preferred for commercial grinding and oleoresin), Scooter Quality (golden-green bold grains with low split count), Parrot Quality (selected bright green seeds for retail), and Badami Quality.",
+  },
+  {
+    question: "What is the container loading capacity for whole coriander seeds?",
+    answer:
+      "Due to coriander's light bulk density (~320-380 g/L), a 20ft FCL container accommodates approximately 6.5 to 7.5 Metric Tons loose stuffed in 20kg/25kg PP bags, while a 40ft FCL holds 14.0 to 16.0 Metric Tons.",
+  },
+  {
+    question: "Can JM Masala ship mixed containers of Cumin and Coriander seeds?",
+    answer:
+      "Yes. We frequently execute consolidated mixed-spice containers (e.g., Cumin Seeds, Coriander Seeds, Fennel Seeds, and Fenugreek) under a single bill of lading with lot-wise lab test certificates and phytosanitary clearance.",
   },
 ];
 
@@ -351,8 +374,17 @@ export const BestCuminExporterIndiaPage = () => {
               <Link to="/cumin-seeds-exporter-india" className="jm-btn jm-btn--secondary">
                 Full Cumin Product Page
               </Link>
+              <Link to="/unjha-cumin-seeds" className="jm-btn jm-btn--outline">
+                Unjha Sourcing Hub
+              </Link>
+              <Link to="/cumin-seeds-specifications" className="jm-btn jm-btn--outline">
+                Technical Specifications &amp; COA
+              </Link>
               <Link to="/blog/cumin-seeds-quality-grades-europe-usa-gulf-singapore" className="jm-btn jm-btn--outline">
                 Compare Cumin Grades
+              </Link>
+              <Link to="/best-coriander-exporter-india" className="jm-btn jm-btn--outline">
+                Best Coriander Exporter Page
               </Link>
             </div>
           </div>
@@ -388,6 +420,175 @@ export const BestCuminExporterIndiaPage = () => {
       </section>
 
       <FaqSection title="Best Cumin Exporter in India FAQs" faqs={cuminFaqs} />
+    </>
+  );
+};
+
+export const BestCorianderExporterIndiaPage = () => {
+  const coriander = PRODUCTS_BY_SLUG["coriander-seeds-exporter-india"];
+  const quoteUrl = buildWhatsAppUrl(buildProductInquiryMessage("Coriander Seeds"));
+
+  return (
+    <>
+      <Seo
+        title="Best Coriander Seeds Exporter in India | Whole Dhania | JM Masala"
+        description="JM Masala exports premium Indian coriander seeds (Dhania) from Gujarat and Rajasthan. Eagle, Scooter & Parrot grades, Sortex cleaned, high volatile oil, FOB Mundra and CIF global export."
+        path="/best-coriander-exporter-india"
+        imageUrl={coriander.imageUrl}
+        imageAlt="Best coriander seeds exporter in India from Gujarat and Rajasthan"
+        type="product"
+        keywords={[
+          "best coriander exporter in India",
+          "coriander seeds exporter India",
+          "dhania exporter India",
+          "Eagle coriander seeds exporter",
+          "Scooter coriander seeds supplier",
+          "Parrot coriander seeds India",
+          "bulk coriander seeds supplier",
+          "Indian coriander seeds wholesale",
+          "coriander supplier Gujarat",
+        ]}
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: "Coriander Seeds (Dhania)",
+            description: coriander.description,
+            image: toAbsoluteUrl(coriander.imageUrl),
+            brand: { "@type": "Brand", name: COMPANY.name },
+            category: "Spices",
+            countryOfOrigin: "India",
+            url: `${SITE_URL}/best-coriander-exporter-india`,
+            additionalProperty: coriander.specs.map((spec) => ({
+              "@type": "PropertyValue",
+              name: spec.label,
+              value: spec.value,
+            })),
+            offers: {
+              "@type": "Offer",
+              availability: "https://schema.org/InStock",
+              priceCurrency: "USD",
+              url: `${SITE_URL}/best-coriander-exporter-india`,
+            },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: corianderFaqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: { "@type": "Answer", text: faq.answer },
+            })),
+          },
+        ]}
+      />
+
+      <Hero
+        eyebrow="Indian Coriander Exporter"
+        title="Best Coriander Seeds Exporter in India for Importers and Bulk Buyers"
+        description="JM Masala supplies export-grade whole coriander seeds (Dhania) sourced from Gujarat and Rajasthan with calibrated Eagle, Scooter, and Parrot grades, high linalool aroma, Sortex optical purity, and complete export documentation."
+        quoteUrl={quoteUrl}
+        secondaryPath="/coriander-seeds-exporter-india"
+        secondaryLabel="View Coriander Specifications"
+      />
+
+      <section className="jm-section jm-section--white">
+        <div className="jm-container grid gap-8 lg:grid-cols-[1fr,0.9fr]">
+          <div>
+            <p className="jm-section-label">Coriander Export Strength</p>
+            <h2 className="jm-section-heading">Direct Gujarat &amp; Rajasthan Sourcing with Global Standards</h2>
+            <div className="mt-5 space-y-4 text-body leading-8 text-[var(--brand-forest)]">
+              <p>
+                Coriander (Dhania) is an essential seed spice staple alongside Cumin. JM Masala procures directly from primary mandis in Northern Gujarat (Unjha, Gondal) and Southeast Rajasthan (Kota, Ramganj Mandi) during peak post-harvest windows to secure seeds with golden husk color, high linalool essential oil, and low split count.
+              </p>
+              <p>
+                Whether you need machine-cleaned Eagle grade for industrial curry grinding or premium Sortex-cleaned Scooter/Parrot variety for retail repacking in Europe, the Americas, or the Gulf, we configure custom cleaning, packaging, and phytosanitary compliance to your exact specifications.
+              </p>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link to="/coriander-seeds-exporter-india" className="jm-btn jm-btn--secondary">
+                Full Coriander Product Page
+              </Link>
+              <Link to="/coriander-powder-exporter-india" className="jm-btn jm-btn--outline">
+                Coriander Powder Specs
+              </Link>
+              <Link to="/best-cumin-exporter-india" className="jm-btn jm-btn--outline">
+                Best Cumin Exporter Page
+              </Link>
+              <Link to="/spice-processing-manufacturing" className="jm-btn jm-btn--outline">
+                Processing &amp; Sortex Cleaning
+              </Link>
+            </div>
+          </div>
+
+          <aside className="jm-surface-card p-6">
+            <h2 className="text-tagline not-italic text-[28px] text-[var(--brand-charcoal)]">
+              Coriander Specification Signals
+            </h2>
+            <div className="mt-4 grid gap-3">
+              {coriander.specs.map((spec) => (
+                <div key={spec.label} className="rounded-md border border-[var(--brand-gold-pale)] px-4 py-3 text-sm">
+                  <span className="font-semibold text-[var(--brand-charcoal)]">{spec.label}: </span>
+                  <span className="text-[var(--brand-forest)]">{spec.value}</span>
+                </div>
+              ))}
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section className="jm-section jm-section--cream">
+        <div className="jm-container">
+          <p className="jm-section-label">Commercial Grade Selection</p>
+          <h2 className="jm-section-heading">Coriander Seed Varieties Available for Export</h2>
+          <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            <article className="jm-surface-card p-5">
+              <span className="inline-block rounded bg-[var(--brand-gold-pale)] px-2.5 py-1 text-xs font-bold text-[var(--brand-deep-green)]">Top Volume</span>
+              <h3 className="mt-3 text-lg font-bold text-[var(--brand-charcoal)]">Eagle Grade</h3>
+              <p className="mt-2 text-sm leading-6 text-[var(--brand-forest)]">
+                Light brownish-yellow whole seeds with high volatile oil retention. The industry benchmark for spice grinders, oleoresin extractors, and curry blends.
+              </p>
+            </article>
+            <article className="jm-surface-card p-5">
+              <span className="inline-block rounded bg-[var(--brand-gold-pale)] px-2.5 py-1 text-xs font-bold text-[var(--brand-deep-green)]">Wholesale Choice</span>
+              <h3 className="mt-3 text-lg font-bold text-[var(--brand-charcoal)]">Scooter Grade</h3>
+              <p className="mt-2 text-sm leading-6 text-[var(--brand-forest)]">
+                Uniform golden-green bold seeds with calibrated low split ratio (&lt;5%). Ideal for wholesale distribution and consumer packing.
+              </p>
+            </article>
+            <article className="jm-surface-card p-5">
+              <span className="inline-block rounded bg-[var(--brand-gold-pale)] px-2.5 py-1 text-xs font-bold text-[var(--brand-deep-green)]">Premium Selection</span>
+              <h3 className="mt-3 text-lg font-bold text-[var(--brand-charcoal)]">Parrot Grade</h3>
+              <p className="mt-2 text-sm leading-6 text-[var(--brand-forest)]">
+                Bright green, whole round hand-selected and Sortex-passed coriander seeds for premium supermarket shelves and gourmet retail brands.
+              </p>
+            </article>
+            <article className="jm-surface-card p-5">
+              <span className="inline-block rounded bg-[var(--brand-gold-pale)] px-2.5 py-1 text-xs font-bold text-[var(--brand-deep-green)]">Value Grade</span>
+              <h3 className="mt-3 text-lg font-bold text-[var(--brand-charcoal)]">Badami Grade</h3>
+              <p className="mt-2 text-sm leading-6 text-[var(--brand-forest)]">
+                Naturally sun-cured brownish seeds with distinct citrus notes, widely preferred for industrial food manufacturing and bulk catering supply.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="jm-section jm-section--white">
+        <div className="jm-container">
+          <p className="jm-section-label">Export Readiness</p>
+          <h2 className="jm-section-heading">Documents and Compliance for Coriander Buyers</h2>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {[...TRUST_BADGES, ...DOCUMENTATION_PACKAGE].map((item) => (
+              <div key={item} className="rounded-md border border-[var(--brand-gold-pale)] bg-white px-4 py-3 text-sm text-[var(--brand-forest)]">
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <FaqSection title="Best Coriander Exporter in India FAQs" faqs={corianderFaqs} />
     </>
   );
 };

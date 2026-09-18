@@ -30,6 +30,8 @@ const TOP_PRODUCTS = [
 ];
 
 const CAPABILITIES = [
+  { label: "Unjha Cumin Seeds Origin", path: "/unjha-cumin-seeds" },
+  { label: "Unjha Fennel Seeds Origin", path: "/unjha-fennel-seeds" },
   { label: "Spice Processing & Plant", path: "/spice-processing-manufacturing" },
   { label: "Multi-Region Sourcing Network", path: "/sourcing-network" },
   { label: "Private Label Spice OEM", path: "/private-label-spices" },

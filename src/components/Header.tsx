@@ -1,19 +1,34 @@
-import { ChevronDown, Menu, Sparkles, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Menu, Sparkles, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "@/assets/JmMasala.png";
-import cuminImg from "@/assets/cumin.png";
 
-const WHOLE_SPICES = [
+const WHOLE_SEED_SPICES = [
   { name: "Cumin Seeds (Jeera)", slug: "cumin-seeds-exporter-india", tag: "Flagship" },
   { name: "Coriander Seeds (Dhania)", slug: "coriander-seeds-exporter-india" },
   { name: "Fennel Seeds (Saunf)", slug: "fennel-seeds-exporter-india" },
   { name: "Fenugreek Seeds (Methi)", slug: "fenugreek-seeds-exporter-india" },
   { name: "Ajwain / Carom Seeds", slug: "ajwain-seeds-exporter-india" },
   { name: "Mustard Seeds (Rai)", slug: "mustard-seeds-exporter-india" },
-  { name: "Turmeric Whole / Fingers", slug: "turmeric-exporter-india" },
+  { name: "Sesame Seeds (Til)", slug: "sesame-seeds-exporter-india", tag: "Natural & Hulled" },
+  { name: "Nigella Seeds (Kalonji)", slug: "nigella-seeds-exporter-india" },
+];
+
+const WHOLE_HOT_AND_AROMATICS = [
+  { name: "Turmeric Whole & Fingers", slug: "turmeric-exporter-india", tag: "High Curcumin" },
+  {
+    name: "Red Chilli (Whole Pods)",
+    slug: "red-chilli-exporter-india",
+    tag: "Stemless/Stem-cut",
+    chilliTypes: [
+      { name: "Teja", slug: "teja-chilli-exporter-india" },
+      { name: "Bird's Eye", slug: "bird-eye-chilli-exporter-india" },
+      { name: "King Chilli", slug: "king-chilli-exporter-india" },
+    ],
+  },
   { name: "Dry Ginger (Sonth)", slug: "dry-ginger-exporter-india" },
-  { name: "Red Chilli Whole", slug: "red-chilli-exporter-india" },
+  { name: "Black Pepper (MG1)", slug: "black-pepper-exporter-india" },
+  { name: "Green Cardamom (Alleppey)", slug: "cardamom-exporter-india" },
 ];
 
 const SPICE_POWDERS = [
@@ -25,10 +40,10 @@ const SPICE_POWDERS = [
   { name: "Fenugreek Powder (Methi)", slug: "fenugreek-powder-exporter-india" },
 ];
 
-const OILS_AND_AGRO = [
-  { name: "Cold Pressed Oils", path: "/cold-pressed-oils", desc: "Wood-pressed virgin edible oils", isSpecial: true },
-  { name: "Psyllium Husk & Seeds", slug: "psyllium-husk-exporter-india", desc: "High swell 98%-99% purity" },
-  { name: "Dehydrated Onion & Garlic", slug: "dehydrated-onion-exporter-india", desc: "Flakes, minced, granules & powder" },
+const PSYLLIUM_AND_AGRO = [
+  { name: "Cold Pressed Oils", path: "/cold-pressed-oils", desc: "Virgin wood-pressed edible oils", isSpecial: true, tag: "Wood Pressed" },
+  { name: "Psyllium Husk", slug: "psyllium-husk-exporter-india", desc: "High swell 98%-99% purity", tag: "99% Purity" },
+  { name: "Psyllium Seeds (Isabgol)", slug: "psyllium-seeds-exporter-india", desc: "Whole clean seeds" },
   { name: "Agro Commodities", slug: "agro-commodities-exporter-india", desc: "Peanuts, chickpeas & sesame" },
 ];
 
@@ -125,20 +140,20 @@ const Header = () => {
                 {/* Product Mega Menu Dropdown */}
                 {activeDropdown === "products" && (
                   <div
-                    className="absolute top-full -left-20 xl:-left-28 mt-1.5 w-[840px] xl:w-[940px] rounded-2xl border border-[var(--brand-gold-pale)] bg-[var(--brand-warm-white)] p-6 shadow-[0_20px_45px_rgba(26,46,26,0.14)] z-50 animate-in fade-in slide-in-from-top-1 duration-150"
+                    className="absolute top-full -left-20 xl:-left-28 mt-1.5 w-[920px] xl:w-[1020px] rounded-2xl border border-[var(--brand-gold-pale)] bg-[var(--brand-warm-white)] p-6 shadow-[0_20px_45px_rgba(26,46,26,0.14)] z-50 animate-in fade-in slide-in-from-top-1 duration-150"
                   >
-                    <div className="grid grid-cols-4 gap-6">
+                    <div className="grid grid-cols-4 gap-5 xl:gap-6">
                       
-                      {/* Col 1: Whole Spices */}
+                      {/* Col 1: Whole Seed Spices (8) */}
                       <div>
-                        <div className="flex items-center justify-between border-b border-[var(--brand-gold-pale)] pb-2 mb-3">
+                        <div className="flex items-center justify-between border-b border-[var(--brand-gold-pale)] pb-2 mb-2.5">
                           <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--brand-charcoal)]">
-                            Whole Spices
+                            Whole Seeds (8)
                           </span>
                           <span className="text-[10px] text-[var(--brand-gold)] font-medium">Sortex Cleaned</span>
                         </div>
-                        <ul className="space-y-1 text-[13px]">
-                          {WHOLE_SPICES.map((item) => (
+                        <ul className="space-y-0.5 text-[12.5px] xl:text-[13px]">
+                          {WHOLE_SEED_SPICES.map((item) => (
                             <li key={item.slug}>
                               <Link
                                 to={`/${item.slug}`}
@@ -158,15 +173,58 @@ const Header = () => {
                         </ul>
                       </div>
 
-                      {/* Col 2: Pure Spice Powders */}
+                      {/* Col 2: Whole Peppers & Hot Spices (5 + Chilli Varieties) */}
                       <div>
-                        <div className="flex items-center justify-between border-b border-[var(--brand-gold-pale)] pb-2 mb-3">
+                        <div className="flex items-center justify-between border-b border-[var(--brand-gold-pale)] pb-2 mb-2.5">
                           <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--brand-charcoal)]">
-                            Spice Powders
+                            Peppers &amp; Chillies (5)
+                          </span>
+                          <span className="text-[10px] text-[var(--brand-gold)] font-medium">Whole &amp; Cured</span>
+                        </div>
+                        <ul className="space-y-0.5 text-[12.5px] xl:text-[13px]">
+                          {WHOLE_HOT_AND_AROMATICS.map((item) => (
+                            <li key={item.slug}>
+                              <Link
+                                to={`/${item.slug}`}
+                                className="flex items-center justify-between py-1 px-1.5 rounded text-[var(--brand-forest)] hover:text-[var(--brand-gold)] hover:bg-[var(--brand-cream)] transition-colors group"
+                              >
+                                <span className="group-hover:translate-x-0.5 transition-transform">
+                                  {item.name}
+                                </span>
+                                {item.tag && (
+                                  <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--brand-gold)]/15 text-[var(--brand-charcoal)] font-bold uppercase tracking-wider">
+                                    {item.tag}
+                                  </span>
+                                )}
+                              </Link>
+                              {item.chilliTypes && (
+                                <div className="flex items-center gap-1.5 pl-2.5 py-0.5">
+                                  <span className="text-[10px] text-stone-400 font-medium">Types:</span>
+                                  {item.chilliTypes.map((c) => (
+                                    <Link
+                                      key={c.slug}
+                                      to={`/${c.slug}`}
+                                      className="text-[10.5px] font-semibold text-[var(--brand-gold)] hover:underline px-1 py-0.2 rounded hover:bg-[var(--brand-cream)] transition-colors"
+                                    >
+                                      {c.name}
+                                    </Link>
+                                  ))}
+                                </div>
+                              )}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Col 3: Pure Spice Powders (6) */}
+                      <div>
+                        <div className="flex items-center justify-between border-b border-[var(--brand-gold-pale)] pb-2 mb-2.5">
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--brand-charcoal)]">
+                            Spice Powders (6)
                           </span>
                           <span className="text-[10px] text-[var(--brand-gold)] font-medium">Cold Milled</span>
                         </div>
-                        <ul className="space-y-1 text-[13px]">
+                        <ul className="space-y-0.5 text-[12.5px] xl:text-[13px]">
                           {SPICE_POWDERS.map((item) => (
                             <li key={item.slug}>
                               <Link
@@ -189,35 +247,42 @@ const Header = () => {
                               to="/products?category=powders"
                               className="text-[11px] font-semibold text-[var(--brand-gold)] hover:underline block pt-1"
                             >
-                              Custom Mesh Grinding →
+                              Custom Mesh Grinding (40–100) →
                             </Link>
                           </li>
                         </ul>
                       </div>
 
-                      {/* Col 3: Cold Pressed Oils & Agro Produce */}
+                      {/* Col 4: Psyllium, Dehydrated & Oils (6) */}
                       <div>
-                        <div className="flex items-center justify-between border-b border-[var(--brand-gold-pale)] pb-2 mb-3">
+                        <div className="flex items-center justify-between border-b border-[var(--brand-gold-pale)] pb-2 mb-2.5">
                           <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--brand-charcoal)]">
-                            Oils &amp; Agro
+                            Psyllium, Agro &amp; Oils
                           </span>
                           <span className="text-[10px] text-[var(--brand-gold)] font-medium">Export Lots</span>
                         </div>
-                        <ul className="space-y-2 text-[13px]">
-                          {OILS_AND_AGRO.map((item) => (
+                        <ul className="space-y-1 text-[12px] xl:text-[12.5px]">
+                          {PSYLLIUM_AND_AGRO.map((item) => (
                             <li key={item.name}>
                               <Link
                                 to={item.path ?? `/${item.slug}`}
-                                className={`block p-2 rounded-lg transition-colors group ${
+                                className={`block p-1.5 rounded transition-colors group ${
                                   item.isSpecial
                                     ? "bg-[var(--brand-cream)] border border-[var(--brand-gold-pale)]"
                                     : "hover:bg-[var(--brand-cream)]"
                                 }`}
                               >
-                                <div className="font-semibold text-[var(--brand-charcoal)] group-hover:text-[var(--brand-gold)] text-[12px]">
-                                  {item.name}
+                                <div className="flex items-center justify-between">
+                                  <span className="font-semibold text-[var(--brand-charcoal)] group-hover:text-[var(--brand-gold)] text-[12px]">
+                                    {item.name}
+                                  </span>
+                                  {item.tag && (
+                                    <span className="text-[9px] px-1.5 py-0.2 rounded bg-[var(--brand-gold)]/15 text-[var(--brand-charcoal)] font-bold uppercase tracking-wider">
+                                      {item.tag}
+                                    </span>
+                                  )}
                                 </div>
-                                <div className="text-[10px] text-[var(--brand-forest)]/70 mt-0.5">
+                                <div className="text-[10px] text-[var(--brand-forest)]/70 mt-0.5 leading-snug">
                                   {item.desc}
                                 </div>
                               </Link>
@@ -226,41 +291,33 @@ const Header = () => {
                         </ul>
                       </div>
 
-                      {/* Col 4: Flagship Spotlight Card (Cumin Seeds) */}
-                      <div className="rounded-xl border border-[var(--brand-gold)]/40 bg-[var(--brand-cream)] p-4 flex flex-col justify-between shadow-sm">
-                        <div>
-                          <div className="flex items-center gap-1.5 text-[10px] uppercase font-bold tracking-wider text-[var(--brand-gold)]">
-                            <Sparkles className="h-3.5 w-3.5" /> Flagship Export
-                          </div>
-                          <img
-                            src={cuminImg}
-                            alt="Indian Cumin Seeds"
-                            className="h-24 w-full object-contain my-2.5"
-                            loading="lazy"
-                          />
-                          <h4 className="text-[14px] font-bold text-[var(--brand-charcoal)]">
-                            Unjha Cumin Seeds (Jeera)
-                          </h4>
-                          <p className="text-[11px] text-[var(--brand-forest)]/80 mt-1 leading-relaxed">
-                            Sortex 99.5% purity sourced directly from APMC Unjha Mandi. FOB Mundra / CIF global ports.
-                          </p>
-                        </div>
-                        <div className="mt-3 pt-2 border-t border-[var(--brand-gold-pale)] flex flex-col gap-1.5">
-                          <Link
-                            to="/cumin-seeds-exporter-india"
-                            className="text-[11px] font-bold text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]"
-                          >
-                            View Cumin Specs →
-                          </Link>
-                          <Link
-                            to="/products"
-                            className="text-[11px] text-[var(--brand-gold)] font-bold hover:underline"
-                          >
-                            Browse All 25+ Products →
-                          </Link>
-                        </div>
-                      </div>
+                    </div>
 
+                    {/* Bottom Quick Bar */}
+                    <div className="mt-4 pt-3 border-t border-[var(--brand-gold-pale)] flex flex-wrap items-center justify-between gap-3 text-xs">
+                      <div className="flex items-center gap-2 text-[var(--brand-forest)]">
+                        <span className="inline-flex items-center gap-1 font-semibold text-[var(--brand-deep-green)]">
+                          <Sparkles className="h-3.5 w-3.5 text-[var(--brand-gold)]" /> APMC Unjha Mandi Sourced
+                        </span>
+                        <span className="text-gray-300">|</span>
+                        <span>Sortex 99.5%</span>
+                        <span className="text-gray-300">|</span>
+                        <span>Mundra Port Global Dispatch</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <Link
+                          to="/products"
+                          className="font-bold text-[var(--brand-gold)] hover:underline inline-flex items-center gap-1"
+                        >
+                          View All 22 Products Catalog <ArrowRight className="h-3.5 w-3.5" />
+                        </Link>
+                        <Link
+                          to="/contact?intent=quote"
+                          className="font-bold text-[var(--brand-deep-green)] hover:text-[var(--brand-gold)]"
+                        >
+                          Request Export Quote →
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 )}
@@ -452,7 +509,7 @@ const Header = () => {
                 }
                 className="flex w-full items-center justify-between py-2 text-[14px] font-bold uppercase tracking-wider text-[var(--brand-deep-green)]"
               >
-                <span>Products Portfolio (25+)</span>
+                <span>Products Portfolio (22 Products)</span>
                 <ChevronDown
                   className={`h-4 w-4 transition-transform duration-200 ${
                     mobileSection === "products" ? "rotate-180 text-[var(--brand-gold)]" : "text-gray-400"
@@ -461,48 +518,128 @@ const Header = () => {
               </button>
 
               {mobileSection === "products" && (
-                <div className="mt-2 pl-3 space-y-3 border-l-2 border-[var(--brand-gold)]/30">
+                <div className="mt-2 pl-3 space-y-4 border-l-2 border-[var(--brand-gold)]/30">
+                  {/* Category 1: Whole Seeds */}
                   <div>
                     <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--brand-gold)]">
-                      Whole Spices
+                      Whole Seeds (8)
                     </div>
                     <ul className="mt-1 space-y-1 text-[13px] text-[var(--brand-forest)]">
-                      {WHOLE_SPICES.slice(0, 5).map((s) => (
+                      {WHOLE_SEED_SPICES.map((s) => (
                         <li key={s.slug}>
-                          <Link to={`/${s.slug}`} onClick={() => setMenuOpen(false)} className="block py-1">
-                            {s.name}
+                          <Link
+                            to={`/${s.slug}`}
+                            onClick={() => setMenuOpen(false)}
+                            className="flex items-center justify-between py-1 hover:text-[var(--brand-gold)]"
+                          >
+                            <span>{s.name}</span>
+                            {s.tag && (
+                              <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--brand-gold)]/15 text-[var(--brand-charcoal)] font-semibold">
+                                {s.tag}
+                              </span>
+                            )}
                           </Link>
                         </li>
                       ))}
                     </ul>
                   </div>
 
+                  {/* Category 2: Peppers & Chillies */}
                   <div>
                     <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--brand-gold)]">
-                      Spice Powders &amp; Oils
+                      Peppers &amp; Chillies (5)
                     </div>
                     <ul className="mt-1 space-y-1 text-[13px] text-[var(--brand-forest)]">
-                      {SPICE_POWDERS.slice(0, 3).map((p) => (
+                      {WHOLE_HOT_AND_AROMATICS.map((s) => (
+                        <li key={s.slug}>
+                          <Link
+                            to={`/${s.slug}`}
+                            onClick={() => setMenuOpen(false)}
+                            className="flex items-center justify-between py-1 hover:text-[var(--brand-gold)]"
+                          >
+                            <span>{s.name}</span>
+                            {s.tag && (
+                              <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--brand-gold)]/15 text-[var(--brand-charcoal)] font-semibold">
+                                {s.tag}
+                              </span>
+                            )}
+                          </Link>
+                          {s.chilliTypes && (
+                            <div className="flex items-center gap-2 pl-2.5 py-0.5">
+                              <span className="text-[10px] text-stone-400">Types:</span>
+                              {s.chilliTypes.map((c) => (
+                                <Link
+                                  key={c.slug}
+                                  to={`/${c.slug}`}
+                                  onClick={() => setMenuOpen(false)}
+                                  className="text-[11px] font-semibold text-[var(--brand-gold)] hover:underline"
+                                >
+                                  {c.name}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Category 3: Spice Powders */}
+                  <div>
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--brand-gold)]">
+                      Spice Powders (6)
+                    </div>
+                    <ul className="mt-1 space-y-1 text-[13px] text-[var(--brand-forest)]">
+                      {SPICE_POWDERS.map((p) => (
                         <li key={p.slug}>
-                          <Link to={`/${p.slug}`} onClick={() => setMenuOpen(false)} className="block py-1">
-                            {p.name}
+                          <Link
+                            to={`/${p.slug}`}
+                            onClick={() => setMenuOpen(false)}
+                            className="flex items-center justify-between py-1 hover:text-[var(--brand-gold)]"
+                          >
+                            <span>{p.name}</span>
+                            {p.tag && (
+                              <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--brand-sage)]/15 text-[var(--brand-forest)] font-semibold">
+                                {p.tag}
+                              </span>
+                            )}
                           </Link>
                         </li>
                       ))}
-                      <li>
-                        <Link to="/cold-pressed-oils" onClick={() => setMenuOpen(false)} className="block py-1 font-semibold text-[var(--brand-gold)]">
-                          Cold Pressed Oils →
-                        </Link>
-                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Category 4: Psyllium, Agro & Oils */}
+                  <div>
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--brand-gold)]">
+                      Psyllium, Agro &amp; Oils (4)
+                    </div>
+                    <ul className="mt-1 space-y-1 text-[13px] text-[var(--brand-forest)]">
+                      {PSYLLIUM_AND_AGRO.map((item) => (
+                        <li key={item.name}>
+                          <Link
+                            to={item.path ?? `/${item.slug}`}
+                            onClick={() => setMenuOpen(false)}
+                            className="flex items-center justify-between py-1 hover:text-[var(--brand-gold)]"
+                          >
+                            <span>{item.name}</span>
+                            {item.tag && (
+                              <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--brand-gold)]/15 text-[var(--brand-charcoal)] font-semibold">
+                                {item.tag}
+                              </span>
+                            )}
+                          </Link>
+                        </li>
+                      ))}
                     </ul>
                   </div>
 
                   <Link
                     to="/products"
                     onClick={() => setMenuOpen(false)}
-                    className="inline-block text-[12px] font-bold text-[var(--brand-charcoal)] underline pt-1"
+                    className="inline-block text-[12px] font-bold text-[var(--brand-gold)] underline pt-1"
                   >
-                    View All 25+ Products →
+                    View All 22 Products Catalog →
                   </Link>
                 </div>
               )}

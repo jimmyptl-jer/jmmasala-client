@@ -3,13 +3,12 @@ import { Link, useSearchParams } from "react-router-dom";
 import Seo from "@/components/Seo";
 import { PRODUCTS } from "@/data/siteData";
 
-type CategoryFilter = "all" | "whole" | "powders" | "dehydrated" | "psyllium" | "agro";
+type CategoryFilter = "all" | "whole" | "powders" | "psyllium" | "agro";
 
 const CATEGORY_TABS: Array<{ id: CategoryFilter; label: string }> = [
-  { id: "all", label: "All 25 Products" },
-  { id: "whole", label: "Whole Spices (11)" },
+  { id: "all", label: "All 22 Products" },
+  { id: "whole", label: "Whole Spices (12)" },
   { id: "powders", label: "Spice Powders (6)" },
-  { id: "dehydrated", label: "Dehydrated Products (4)" },
   { id: "psyllium", label: "Psyllium (2)" },
   { id: "agro", label: "Agro Commodities (2)" },
 ];
@@ -26,6 +25,7 @@ const WHOLE_SPICE_SLUGS = [
   "cardamom-exporter-india",
   "red-chilli-exporter-india",
   "turmeric-exporter-india",
+  "dry-ginger-exporter-india",
 ];
 
 const POWDER_SLUGS = [
@@ -35,13 +35,6 @@ const POWDER_SLUGS = [
   "red-chilli-powder-exporter-india",
   "ginger-powder-exporter-india",
   "fenugreek-powder-exporter-india",
-];
-
-const DEHYDRATED_SLUGS = [
-  "dry-ginger-exporter-india",
-  "dehydrated-onion-exporter-india",
-  "dehydrated-garlic-exporter-india",
-  "curry-leaf-exporter-india",
 ];
 
 const PSYLLIUM_SLUGS = [
@@ -66,7 +59,6 @@ const ProductsPage = () => {
       if (selectedCategory === "all") matchesCategory = true;
       else if (selectedCategory === "whole") matchesCategory = WHOLE_SPICE_SLUGS.includes(product.slug);
       else if (selectedCategory === "powders") matchesCategory = POWDER_SLUGS.includes(product.slug);
-      else if (selectedCategory === "dehydrated") matchesCategory = DEHYDRATED_SLUGS.includes(product.slug);
       else if (selectedCategory === "psyllium") matchesCategory = PSYLLIUM_SLUGS.includes(product.slug);
       else if (selectedCategory === "agro") matchesCategory = AGRO_SLUGS.includes(product.slug);
 

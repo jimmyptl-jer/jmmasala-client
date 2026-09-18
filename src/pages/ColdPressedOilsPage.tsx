@@ -147,17 +147,19 @@ const ColdPressedOilsPage = () => {
   return (
     <>
       <Seo
-        title="Cold Pressed Oils | JM Masala | Premium Single-Origin from Unjha"
-        description="Pure, cold-pressed oils from Unjha, Gujarat. Sesame, black seed, mustard, groundnut, cumin, fennel, flaxseed. Cold pressed without chemical refining."
+        title="Cold Pressed Oils Manufacturer & Exporter India | JM Masala"
+        description="Manufacturer and bulk exporter of 100% pure cold-pressed oils from Unjha, Gujarat. Sesame, mustard, groundnut, black seed, cumin, and fennel oils in retail bottles and bulk FCL."
         path="/cold-pressed-oils"
         keywords={[
-          "cold pressed oils India",
-          "groundnut oil manufacturer India",
-          "sesame oil supplier India",
-          "mustard oil exporter India",
-          "black seed oil India",
-          "cold pressed oils Unjha Gujarat",
-          "JM Masala oils",
+          "cold pressed oils manufacturer india",
+          "cold pressed oils exporter",
+          "sesame oil exporter india",
+          "mustard oil supplier gujarat",
+          "groundnut oil export india",
+          "black seed oil manufacturer unjha",
+          "cumin oil bulk supplier",
+          "wood pressed oils india",
+          "edible oils exporter gujarat",
         ]}
         schema={{
           "@context": "https://schema.org",
@@ -167,7 +169,24 @@ const ColdPressedOilsPage = () => {
               name: "JM Cold Pressed Oils",
               url: `${SITE_URL}/cold-pressed-oils`,
               description:
-                "Pure, cold-pressed single-origin oils from Unjha, Gujarat. Traditional methods, modern purity.",
+                "Pure, cold-pressed single-origin oils from Unjha, Gujarat. Traditional wood/cold pressing below 49°C without chemical refining.",
+            },
+            {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: `${SITE_URL}/`,
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Cold Pressed Oils",
+                  item: `${SITE_URL}/cold-pressed-oils`,
+                },
+              ],
             },
             {
               "@type": "ItemList",
@@ -177,6 +196,35 @@ const ColdPressedOilsPage = () => {
                 name: oil.name,
                 url: `${SITE_URL}/cold-pressed-oils#${oil.name.toLowerCase().replace(/\s+/g, "-")}`,
               })),
+            },
+            {
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "What cold-pressed oils does JM Masala manufacture in Unjha?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "JM Masala processes Sesame Oil, Mustard Oil, Groundnut Oil, Black Seed (Kalonji) Oil, Cumin Seed Oil, Fennel Seed Oil, and Flaxseed Oil from fresh local seed spice arrivals in Unjha, Gujarat.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Are JM Masala cold-pressed oils chemically refined or heated?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "No. All oils are extracted mechanically below 49°C without chemical solvents, hexane, bleaching agents, or synthetic preservatives to preserve natural fatty acids and micronutrients.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "What packaging formats are available for bulk oil export?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "We provide retail dark amber glass bottles (100ml, 250ml, 500ml, 1 Litre) with custom private label branding, as well as 5L food-grade HDPE cans, 200L steel drums, and 1000L IBC totes for international industrial buyers.",
+                  },
+                },
+              ],
             },
           ],
         }}

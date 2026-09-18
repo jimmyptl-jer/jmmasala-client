@@ -204,26 +204,26 @@ const TARGET_MARKETS = [
   {
     region: "European Union & United Kingdom",
     countries: "Germany, Netherlands, United Kingdom, France, Poland, Spain, Italy",
-    standards: "Strict EU MRL limits for pesticide residues, Aflatoxins (<10 ppb), Ochratoxin A, Zero ETO (Ethylene Oxide) protocol",
-    leadTime: "18 to 24 Days ocean transit via Mundra to Rotterdam/Hamburg/Felixstowe",
+    standards: "Pesticide residue screening, Aflatoxins (<10 ppb), and laboratory protocols aligned to buyer purchase orders",
+    leadTime: "Typical ocean transit ~18 to 24 days via Mundra to major European container ports",
     popularProducts: "Europe Quality Cumin 99.5%, Sortex Fennel, Coriander Split, Psyllium Husk 99%, High Curcumin Lakadong Turmeric",
-    notes: "Pre-tested in certified laboratories for 500+ pesticide compounds before container stuffing."
+    notes: "Pre-shipment sampling and test reports from accredited laboratories coordinated before container stuffing."
   },
   {
     region: "North America (USA & Canada)",
     countries: "United States (US East & West Coast), Canada (Montreal, Toronto, Vancouver)",
-    standards: "US FDA Food Safety Modernization Act (FSMA), Foreign Supplier Verification (FSVP), ASTA Cleanliness specifications, CFIA",
-    leadTime: "26 to 35 Days ocean transit",
+    standards: "US FDA food facility registration, ASTA cleanliness guidelines, and buyer-specified food safety documentation",
+    leadTime: "Typical ocean transit ~26 to 35 days",
     popularProducts: "Cumin Seeds Sortex 99.5%, Fenugreek Seeds, Ajwain, Psyllium Husk Organic, Ground Spice Powders, Private Label Pouches",
-    notes: "Full lot traceability from Unjha mandi to container seal with ASTA compliance documentation."
+    notes: "Lot tracking from Unjha mandi procurement to container stuffing with comprehensive export documentation."
   },
   {
     region: "Oceania & Southeast Asia",
     countries: "Australia, New Zealand, Singapore, Malaysia, Indonesia, Vietnam, Japan",
-    standards: "Australia DAFF biosecurity import protocols, zero soil/weed seed tolerance, Singapore SFA standards",
-    leadTime: "8 to 24 Days ocean transit",
+    standards: "Biosecurity import protocols, cleanliness standards, and destination food authority guidelines",
+    leadTime: "Typical ocean transit ~8 to 24 days",
     popularProducts: "Sortex Cumin, Fennel Bold Green, Pure Spice Powders, Mustard Seeds, Sesame Seeds",
-    notes: "Phosphine/Methyl bromide fumigation certificates and weed-seed free declarations for stringent biosecurity clearance."
+    notes: "Fumigation certificates and phytosanitary declarations arranged to meet port clearance requirements."
   }
 ];
 
@@ -288,8 +288,8 @@ const EXPORT_FAQS = [
     a: "Absolutely. We welcome third-party pre-shipment inspection (PSI) by internationally recognized surveyors such as SGS, Intertek, Bureau Veritas, or Cotecna nominated by the buyer. The surveyor is granted full access to supervise container stuffing, draw random composite samples, verify gross/tare weights, and witness container sealing."
   },
   {
-    q: "Are JM Masala spices compliant with European Union (EU) pesticide MRL standards?",
-    a: "Yes. We supply dedicated 'Europe Quality' spices that are pre-screened and laboratory-tested by NABL-accredited facilities for over 500 pesticide compounds, ensuring compliance with strict European Commission Maximum Residue Limits (MRLs), Aflatoxins (B1 < 5 ppb, Total < 10 ppb), and ETO (Ethylene Oxide) zero-tolerance requirements."
+    q: "Can JM Masala supply spices aligned with European Union (EU) pesticide MRL requirements?",
+    a: "Yes. Spice lots for European buyers can be supplied against buyer-specified EU pesticide-residue (MRL) parameters, Aflatoxin thresholds, and laboratory testing criteria. Pre-shipment test reports from NABL-accredited laboratories are coordinated against contract specifications and buyer purchase order requirements."
   }
 ];
 

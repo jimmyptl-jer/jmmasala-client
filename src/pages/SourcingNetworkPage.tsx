@@ -821,7 +821,6 @@ const SourcingNetworkPage = () => {
                         "Tellicherry Black Pepper",
                         "Alleppey Green Cardamom",
                         "Guntur Red Chilli (Teja/S17)",
-                        "Curry Leaves",
                         "Salem Turmeric Fingers",
                       ].map((p) => (
                         <span key={p} className="sn-zone-tag sn-zone-tag-south">
