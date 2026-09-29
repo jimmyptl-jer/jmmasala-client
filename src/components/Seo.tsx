@@ -1,7 +1,7 @@
-import { useEffect } from "react";
+import { createContext, useContext, useEffect } from "react";
 import { SITE_URL } from "@/data/siteData";
 
-type SeoProps = {
+export type SeoProps = {
   title: string;
   description: string;
   path: string;
@@ -70,11 +70,20 @@ const upsertSchema = (schema?: Record<string, unknown> | Array<Record<string, un
 };
 
 /**
+ * During prerendering (see src/entry-server.tsx) a collector is provided so the
+ * page's head tags can be written into the static HTML. On the client this is
+ * null and tags are applied to the live document in an effect instead.
+ */
+export const SeoCollectorContext = createContext<{ props?: SeoProps } | null>(
+  null,
+);
+
+/**
  * Ensures the imageUrl is an absolute URL.
  * Vite asset imports produce data URIs or hashed paths — use a static fallback
  * when sharing on social media.
  */
-const resolveAbsoluteImageUrl = (imageUrl?: string): string => {
+export const resolveAbsoluteImageUrl = (imageUrl?: string): string => {
   if (!imageUrl) return `${SITE_URL}/logo.png`;
   // If it's already an absolute URL, use it
   if (imageUrl.startsWith("http")) return imageUrl;
@@ -84,7 +93,11 @@ const resolveAbsoluteImageUrl = (imageUrl?: string): string => {
   return `${SITE_URL}${imageUrl.startsWith("/") ? "" : "/"}${imageUrl}`;
 };
 
-const Seo = ({
+/**
+ * The full set of head tags for a page. Shared by the client effect and the
+ * prerender script so both produce identical output.
+ */
+export const buildHeadTags = ({
   title,
   description,
   path,
@@ -93,31 +106,49 @@ const Seo = ({
   imageHeight,
   type = "website",
   noindex = false,
-  schema,
 }: SeoProps) => {
+  const canonicalUrl = `${SITE_URL}${path}`;
+  const ogImage = resolveAbsoluteImageUrl(imageUrl);
+
+  const named: Array<[string, string]> = [
+    ["description", description],
+    ["robots", noindex ? "noindex, nofollow" : "index, follow"],
+    ["twitter:card", "summary_large_image"],
+    ["twitter:title", title],
+    ["twitter:description", description],
+    ["twitter:image", ogImage],
+  ];
+  const property: Array<[string, string]> = [
+    ["og:title", title],
+    ["og:description", description],
+    ["og:type", type],
+    ["og:url", canonicalUrl],
+    ["og:image", ogImage],
+    ["og:site_name", "JM Masala Exports"],
+    ["og:locale", "en_US"],
+  ];
+  if (imageWidth) property.push(["og:image:width", String(imageWidth)]);
+  if (imageHeight) property.push(["og:image:height", String(imageHeight)]);
+  property.push(["og:image:alt", `${title} — JM Masala Exports`]);
+
+  return { title, canonicalUrl, named, property };
+};
+
+const Seo = (props: SeoProps) => {
+  const { title, description, path, imageUrl, imageWidth, imageHeight, type, noindex, schema } = props;
+
+  const collector = useContext(SeoCollectorContext);
+  if (collector) {
+    collector.props = props;
+  }
+
   useEffect(() => {
-    const canonicalUrl = `${SITE_URL}${path}`;
-    const ogImage = resolveAbsoluteImageUrl(imageUrl);
+    const tags = buildHeadTags(props);
 
-    document.title = title;
-
-    upsertNamedMeta("description", description);
-    upsertNamedMeta("robots", noindex ? "noindex, nofollow" : "index, follow");
-    upsertPropertyMeta("og:title", title);
-    upsertPropertyMeta("og:description", description);
-    upsertPropertyMeta("og:type", type);
-    upsertPropertyMeta("og:url", canonicalUrl);
-    upsertPropertyMeta("og:image", ogImage);
-    upsertPropertyMeta("og:site_name", "JM Masala Exports");
-    upsertPropertyMeta("og:locale", "en_US");
-    if (imageWidth) upsertPropertyMeta("og:image:width", String(imageWidth));
-    if (imageHeight) upsertPropertyMeta("og:image:height", String(imageHeight));
-    upsertPropertyMeta("og:image:alt", `${title} — JM Masala Exports`);
-    upsertNamedMeta("twitter:card", "summary_large_image");
-    upsertNamedMeta("twitter:title", title);
-    upsertNamedMeta("twitter:description", description);
-    upsertNamedMeta("twitter:image", ogImage);
-    upsertCanonical(canonicalUrl);
+    document.title = tags.title;
+    tags.named.forEach(([name, content]) => upsertNamedMeta(name, content));
+    tags.property.forEach(([name, content]) => upsertPropertyMeta(name, content));
+    upsertCanonical(tags.canonicalUrl);
     upsertSchema(schema);
 
     // GSC verification — skip if env var is unresolved (contains %VITE_)
@@ -132,6 +163,7 @@ const Seo = ({
         activeSchema.remove();
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [title, description, path, imageUrl, imageWidth, imageHeight, type, noindex, schema]);
 
   return null;
