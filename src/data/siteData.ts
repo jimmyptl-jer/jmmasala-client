@@ -61,6 +61,12 @@ export type QualityGrade = {
   notes: string;
 };
 
+export type CommercialGrade = {
+  name: string;
+  purity: string;
+  cleaning: string;
+};
+
 export type ColorPalette = {
   primary: string;
   accent: string;
@@ -81,6 +87,7 @@ export type ProductData = {
   imageUrl: string;
   specs: ProductSpec[];
   qualityGrades?: QualityGrade[];
+  commercialGrades?: CommercialGrade[];
   relatedSlugs: string[];
   colors?: ColorPalette;
 };
@@ -142,6 +149,12 @@ export const PRODUCTS: ProductData[] = [
         admixture: "Max 2%",
         notes: "Uniform medium-brown color with stable aroma",
       },
+    ],
+    commercialGrades: [
+      { name: "Singapore Quality", purity: "99%", cleaning: "Machine cleaned" },
+      { name: "Singapore Quality", purity: "99%", cleaning: "Sortex cleaned" },
+      { name: "Europe Quality", purity: "99.5%", cleaning: "Sortex cleaned" },
+      { name: "Europe Bold", purity: "99.99%", cleaning: "Sortex cleaned" },
     ],
     relatedSlugs: [
       "coriander-seeds-exporter-india",
@@ -513,6 +526,24 @@ export const PRODUCTS: ProductData[] = [
   },
 ];
 
+/** Supplied on request; no dedicated page yet (needs confirmed specifications first). */
+export const ADDITIONAL_PRODUCTS = {
+  "Seeds & spices": [
+    "Ajwain",
+    "Mustard seeds",
+    "Black cardamom",
+    "Cloves",
+    "Ginger",
+    "Bay leaf",
+  ],
+  Chillies: [
+    "Guntur red chilli",
+    "Red chilli powder",
+    "King chilli",
+    "Bird's eye chilli",
+  ],
+};
+
 export const PRODUCTS_BY_SLUG = Object.fromEntries(
   PRODUCTS.map((product) => [product.slug, product]),
 ) as Record<string, ProductData>;
@@ -522,6 +553,8 @@ export type BlogPostSummary = {
   title: string;
   date: string;
   excerpt: string;
+  /** Drafts are noindexed and left out of the sitemap until the article is written. */
+  draft?: boolean;
 };
 
 export const BLOG_POSTS: BlogPostSummary[] = [
@@ -530,35 +563,40 @@ export const BLOG_POSTS: BlogPostSummary[] = [
     title: "Cumin Seeds Quality Grades: Europe vs USA vs Gulf vs Singapore",
     date: "2026-03-01",
     excerpt:
-      "Placeholder article page created. Content will be added separately.",
+      "How cumin purity, moisture and admixture requirements differ between European, US, Gulf and Singapore buyers.",
+    draft: true,
   },
   {
     slug: "why-unjha-gujarat-is-worlds-cumin-capital",
     title: "Why Unjha, Gujarat Is the World's Cumin Capital",
     date: "2026-03-01",
     excerpt:
-      "Placeholder article page created. Content will be added separately.",
+      "The history of the Unjha APMC mandi and why it sets the benchmark for Indian cumin trade.",
+    draft: true,
   },
   {
     slug: "complete-guide-importing-spices-from-india",
     title: "Complete Guide to Importing Spices from India",
     date: "2026-03-01",
     excerpt:
-      "Placeholder article page created. Content will be added separately.",
+      "Documentation, quality testing, packaging and shipping terms to know before importing spices from India.",
+    draft: true,
   },
   {
     slug: "psyllium-husk-vs-psyllium-seeds-explained",
     title: "Psyllium Husk vs Psyllium Seeds: Explained",
     date: "2026-03-01",
     excerpt:
-      "Placeholder article page created. Content will be added separately.",
+      "The differences between psyllium husk and psyllium seeds, and which suits pharma, food and nutraceutical buyers.",
+    draft: true,
   },
   {
     slug: "haccp-certification-spice-processing-buyers-guide",
     title: "HACCP Certification in Spice Processing: Buyer Guide",
     date: "2026-03-01",
     excerpt:
-      "Placeholder article page created. Content will be added separately.",
+      "What HACCP certification covers in spice processing and what buyers should ask their supplier for.",
+    draft: true,
   },
 ];
 

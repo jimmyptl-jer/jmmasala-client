@@ -9,6 +9,7 @@ const BlogPage = () => {
         title="Spice Export Insights | Blog | JM Masala"
         description="Expert articles on spice export from India — quality grades, import guides, HACCP compliance, sourcing tips and market insights from JM Masala, Unjha Gujarat."
         path="/blog"
+        noindex={BLOG_POSTS.every((post) => post.draft)}
       />
 
       <section className="jm-section">

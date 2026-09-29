@@ -12,7 +12,13 @@ const BlogPostPage = () => {
 
   return (
     <>
-      <Seo title={post.title} description={post.excerpt} path={`/blog/${post.slug}`} type="article" />
+      <Seo
+        title={post.title}
+        description={post.excerpt}
+        path={`/blog/${post.slug}`}
+        type="article"
+        noindex={post.draft}
+      />
       <section className="jm-section">
         <div className="jm-container max-w-4xl">
           <p className="jm-section-label">Article</p>
@@ -26,7 +32,12 @@ const BlogPostPage = () => {
             })}
           </p>
           <article className="jm-surface-card mt-8 p-8 text-body text-[var(--brand-forest)]">
-            <p>Placeholder article page. Detailed content will be added separately.</p>
+            <p>{post.excerpt}</p>
+            {post.draft && (
+              <p className="mt-4">
+                This article is being written and will be published soon.
+              </p>
+            )}
           </article>
         </div>
       </section>

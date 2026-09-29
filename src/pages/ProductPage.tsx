@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Seo from "@/components/Seo";
-import { PRODUCTS } from "@/data/siteData";
+import { ADDITIONAL_PRODUCTS, PRODUCTS } from "@/data/siteData";
 
 const ProductsPage = () => {
   const [searchParams] = useSearchParams();
@@ -26,6 +26,7 @@ const ProductsPage = () => {
         description="Complete range of export-grade Indian spices: cumin, coriander, fennel, fenugreek, turmeric, red chilli, black pepper, cardamom, sesame, psyllium. HACCP certified, APEDA registered."
         path="/products"
         imageUrl={PRODUCTS[0]?.imageUrl}
+        noindex={Boolean(query)}
       />
 
       <section className="jm-section jm-section--white">
@@ -101,6 +102,38 @@ const ProductsPage = () => {
               </article>
             ))}
           </div>
+
+          {!query && (
+            <section className="mt-12 jm-surface-card p-6">
+              <h2 className="jm-heading-2 text-[24px] text-[var(--brand-charcoal)]">
+                Also Available on Request
+              </h2>
+              <p className="mt-2 text-body text-[var(--brand-forest)]">
+                Beyond the export range above, we supply the following products.{" "}
+                <Link
+                  to="/contact#inquiry-form"
+                  className="underline hover:text-[var(--brand-gold)]"
+                >
+                  Send an inquiry
+                </Link>{" "}
+                for specifications and pricing.
+              </p>
+              <div className="mt-4 grid gap-6 sm:grid-cols-2">
+                {Object.entries(ADDITIONAL_PRODUCTS).map(([group, items]) => (
+                  <div key={group}>
+                    <h3 className="font-semibold text-[var(--brand-charcoal)]">
+                      {group}
+                    </h3>
+                    <ul className="mt-2 space-y-1 text-sm text-[var(--brand-forest)]">
+                      {items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
         </div>
       </section>
     </>

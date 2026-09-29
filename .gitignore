@@ -23,10 +23,11 @@ dist-ssr
 *.sln
 *.sw?
 
-<<<<<<< HEAD
 
 # Contentlayer
 .contentlayer
-=======
+
 .env
->>>>>>> master
+
+# Certificate scans used as source material — never commit
+docs/certificates/

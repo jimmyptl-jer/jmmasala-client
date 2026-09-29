@@ -11,7 +11,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import Seo from "@/components/Seo";
-import { DOCUMENTATION_PACKAGE, PRODUCTS, SITE_URL } from "@/data/siteData";
+import { DOCUMENTATION_PACKAGE, PRODUCTS } from "@/data/siteData";
 
 import bannerImage from "@/assets/homepage.jpg";
 /* ─────────────────────────── DATA ─────────────────────────── */
@@ -188,44 +188,12 @@ const ABOUT_HIGHLIGHTS = [
 const HomePage = () => {
   return (
     <>
+      {/* Organization + WebSite schema live in index.html so every page carries them */}
       <Seo
-        title="JM Masala | Premium Indian Spice Exporter | Unjha Gujarat"
-        description="HACCP certified Indian spice exporter from Unjha Gujarat. Complete portfolio — cumin, coriander, turmeric, red chilli, black pepper, cardamom, psyllium. Custom packing, private label, export documentation. APEDA Spice Board registered."
+        title="Indian Spice Exporter from Unjha Gujarat | JM Masala"
+        description="HACCP & ISO 22000 certified spice exporter from Unjha, Gujarat. Cumin, coriander, fennel, turmeric & more. Sortex cleaned. Get an FOB Mundra quote."
         path="/"
         imageUrl={PRODUCTS[0]?.imageUrl}
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "JM Masala Exports",
-          url: SITE_URL,
-          description:
-            "HACCP and ISO 22000 certified Indian spice exporter from Unjha, Gujarat. Supplying cumin, coriander, turmeric, fennel, fenugreek, psyllium, sesame, red chilli, black pepper, cardamom and curry leaf to 30+ countries with custom packing, private labelling and full export documentation.",
-          email: "jmmasala@outlook.in",
-          logo: `${SITE_URL}/favicon.svg`,
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Near APMC Market Yard",
-            addressLocality: "Unjha",
-            addressRegion: "Gujarat",
-            postalCode: "384170",
-            addressCountry: "IN",
-          },
-          contactPoint: [
-            {
-              "@type": "ContactPoint",
-              telephone: "+91 91067 66041",
-              contactType: "sales",
-              areaServed: "Worldwide",
-              availableLanguage: ["English", "Hindi", "Gujarati"],
-            },
-            {
-              "@type": "ContactPoint",
-              telephone: "+91 98245 10478",
-              contactType: "sales",
-              areaServed: "Worldwide",
-            },
-          ],
-        }}
       />
 
       <style>{`
@@ -592,7 +560,7 @@ const HomePage = () => {
                 <MapPin className="h-3 w-3" /> Unjha, Gujarat, India
               </div>
               <h1 className="jm2-hero__h1">
-                Premium Indian Spices — <em>Direct from Origin</em>
+                Premium Indian Spice Exporter — <em>Direct from Unjha, Gujarat</em>
               </h1>
               <p className="jm2-hero__sub">
                 Two generations of spice expertise. One complete export partner

@@ -1,11 +1,14 @@
-import { Link, Navigate, useParams } from "react-router-dom";
-import Seo from "@/components/Seo";
+import { Link, Navigate, useLocation } from "react-router-dom";
+import Seo, { resolveAbsoluteImageUrl } from "@/components/Seo";
 import { PRODUCTS_BY_SLUG, SITE_URL } from "@/data/siteData";
 import { PRODUCT_SEO_TITLES, PRODUCT_SEO_DESCRIPTIONS } from "@/data/seoData";
+import { buildProductFaqs } from "@/data/faqData";
 
 const ProductDetailPage = () => {
-  const params = useParams();
-  const slug = params.slug ?? "";
+  // Product routes are registered as literal paths (/cumin-seeds-exporter-india),
+  // not /:slug, so the slug comes from the pathname rather than useParams().
+  const { pathname } = useLocation();
+  const slug = pathname.replace(/^\/+|\/+$/g, "");
   const product = PRODUCTS_BY_SLUG[slug];
 
   if (!product) {
@@ -59,7 +62,7 @@ const ProductDetailPage = () => {
     "@type": "Product",
     name: product.name,
     description: description,
-    image: product.imageUrl,
+    image: resolveAbsoluteImageUrl(product.imageUrl),
     brand: { "@type": "Brand", name: "JM Masala" },
     category: "Spices",
     countryOfOrigin: "India",
@@ -67,6 +70,18 @@ const ProductDetailPage = () => {
       "@type": "PropertyValue",
       name: spec.label,
       value: spec.value,
+    })),
+  };
+
+  const faqs = buildProductFaqs(product);
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
     })),
   };
 
@@ -78,7 +93,7 @@ const ProductDetailPage = () => {
         path={`/${product.slug}`}
         imageUrl={product.imageUrl}
         type="product"
-        schema={[breadcrumbSchema, productSchema]}
+        schema={[breadcrumbSchema, productSchema, faqSchema]}
       />
 
       {/* Product Color Identity Hero Section */}
@@ -97,12 +112,12 @@ const ProductDetailPage = () => {
                 >
                   JM
                 </div>
-                <h1
+                <p
                   className="hero-product-name"
                   style={{ color: product.colors.accent }}
                 >
                   {product.name}
-                </h1>
+                </p>
                 <p
                   className="hero-botanical"
                   style={{ color: product.colors.accent }}
@@ -182,7 +197,7 @@ const ProductDetailPage = () => {
           <div className="grid gap-8 lg:grid-cols-[1.15fr,0.85fr]">
             <article>
               <h1 className="jm-heading-1 text-[32px] lg:text-[40px]">
-                {product.name}
+                {product.name} Exporter from India
               </h1>
               <p className="mt-1 text-tagline text-[var(--brand-forest)]">
                 {product.botanicalName}
@@ -207,6 +222,32 @@ const ProductDetailPage = () => {
                   </tbody>
                 </table>
               </div>
+
+              {product.commercialGrades && (
+                <div className="mt-8 overflow-x-auto jm-grade-table">
+                  <div className="border-b border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] px-4 py-3 text-sm font-semibold text-[var(--brand-charcoal)]">
+                    Available Grades
+                  </div>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Grade</th>
+                        <th>Purity</th>
+                        <th>Cleaning</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {product.commercialGrades.map((grade) => (
+                        <tr key={`${grade.name}-${grade.purity}-${grade.cleaning}`}>
+                          <td className="font-semibold">{grade.name}</td>
+                          <td>{grade.purity}</td>
+                          <td>{grade.cleaning}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
 
               {product.qualityGrades && (
                 <div className="mt-8 overflow-x-auto jm-grade-table">
@@ -302,6 +343,24 @@ const ProductDetailPage = () => {
               </div>
             </aside>
           </div>
+
+          <section className="mt-12">
+            <h2 className="jm-heading-2 text-[24px] text-[var(--brand-charcoal)]">
+              {product.name} Export FAQs
+            </h2>
+            <div className="mt-4 space-y-3">
+              {faqs.map((faq) => (
+                <details key={faq.question} className="jm-surface-card p-5">
+                  <summary className="cursor-pointer font-semibold text-[var(--brand-charcoal)]">
+                    {faq.question}
+                  </summary>
+                  <p className="mt-3 text-sm text-[var(--brand-forest)]">
+                    {faq.answer}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </section>
 
           <section className="mt-12">
             <h2 className="jm-heading-2 text-[24px] text-[var(--brand-charcoal)]">
