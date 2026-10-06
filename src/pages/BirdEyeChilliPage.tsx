@@ -12,7 +12,7 @@ import {
   buildProductInquiryMessage,
   buildWhatsAppUrl,
 } from "@/data/siteData";
-import redChilliImage from "@/assets/RedChilli.png";
+import birdEyeChilliImage from "@/assets/BirdEyeChilli.jpg";
 
 const BIRD_EYE_SUMMARY_ROWS = [
   { label: "Product & Variety", value: "Bird's Eye Chilli / Kanthari Chilli (Capsicum frutescens)" },
@@ -76,7 +76,7 @@ const BirdEyeChilliPage = () => {
   );
 
   const canonicalUrl = `${SITE_URL}/bird-eye-chilli-exporter-india`;
-  const productImageUrl = `${SITE_URL}${redChilliImage}`;
+  const productImageUrl = `${SITE_URL}${birdEyeChilliImage}`;
 
   const productSchema = {
     "@context": "https://schema.org",
@@ -233,7 +233,7 @@ const BirdEyeChilliPage = () => {
             <div className="rounded-xl border border-[rgba(255,255,255,0.18)] bg-[rgba(255,255,255,0.06)] p-6 backdrop-blur-sm">
               <div className="overflow-hidden rounded-lg bg-black/20">
                 <img
-                  src={redChilliImage}
+                  src={birdEyeChilliImage}
                   alt="Indian Bird's Eye Kanthari chilli exported by JM Masala"
                   className="h-64 w-full object-cover transition-transform duration-300 hover:scale-105"
                   loading="eager"

@@ -12,7 +12,8 @@ import {
   buildProductInquiryMessage,
   buildWhatsAppUrl,
 } from "@/data/siteData";
-import redChilliImage from "@/assets/RedChilli.png";
+import tejaChilliImage from "@/assets/TejaChilli.jpg";
+import pouchRedChilliTeja from "@/assets/pouch-red-chilli-teja.jpg";
 
 const TEJA_SUMMARY_ROWS = [
   { label: "Product & Variety", value: "Teja Chilli / S17 Dry Red Chilli (Capsicum annuum var. acuminatum)" },
@@ -83,7 +84,7 @@ const TejaChilliPage = () => {
   );
 
   const canonicalUrl = `${SITE_URL}/teja-chilli-exporter-india`;
-  const productImageUrl = `${SITE_URL}${redChilliImage}`;
+  const productImageUrl = `${SITE_URL}${tejaChilliImage}`;
 
   const productSchema = {
     "@context": "https://schema.org",
@@ -242,7 +243,7 @@ const TejaChilliPage = () => {
             <div className="rounded-xl border border-[rgba(255,255,255,0.18)] bg-[rgba(255,255,255,0.06)] p-6 backdrop-blur-sm">
               <div className="overflow-hidden rounded-lg bg-black/20">
                 <img
-                  src={redChilliImage}
+                  src={tejaChilliImage}
                   alt="Indian Teja S17 dry red chilli exported by JM Masala"
                   className="h-64 w-full object-cover transition-transform duration-300 hover:scale-105"
                   loading="eager"
@@ -349,6 +350,63 @@ const TejaChilliPage = () => {
                 <li>• Higher capsaicin concentration per volume</li>
                 <li>• Recommended packing in 10kg or 20kg corrugated carton boxes to prevent pod crushing</li>
               </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Retail & Private Label Pouch Packaging */}
+      <section className="jm-section jm-section--white border-t border-[var(--brand-gold-pale)]">
+        <div className="jm-container">
+          <div className="grid items-center gap-10 lg:grid-cols-12">
+            <div className="lg:col-span-6">
+              <div className="overflow-hidden rounded-2xl border border-[rgba(201,168,76,0.35)] bg-[#faf6ee] p-4 shadow-lg transition-transform hover:scale-[1.01]">
+                <img
+                  src={pouchRedChilliTeja}
+                  alt="JM Masala Red Chilli Teja Whole 500g Stand-up Pouch Packaging (Front and Back)"
+                  className="w-full rounded-xl object-contain shadow-sm"
+                  loading="lazy"
+                  width={1200}
+                  height={800}
+                />
+              </div>
+            </div>
+            <div className="lg:col-span-6">
+              <p className="jm-section-label">Private Label & Retail Formats</p>
+              <h2 className="jm-section-heading">
+                Retail-Ready Teja Chilli Packaging Solutions
+              </h2>
+              <p className="mt-4 text-body leading-relaxed text-[var(--brand-forest)]">
+                In addition to containerized bulk burlap bales and corrugated export cartons, JM Masala provides complete private-label retail packaging for supermarket chains and gourmet spice brands worldwide.
+              </p>
+              <ul className="mt-6 space-y-3 text-sm text-[var(--brand-charcoal)]">
+                <li className="flex items-start gap-2.5">
+                  <span className="font-bold text-[var(--brand-gold)]">✓</span>
+                  <span><strong>500g &amp; 1kg Stand-Up Zipper Pouches:</strong> Multi-layer moisture barrier with transparent window displaying authentic pod grade.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="font-bold text-[var(--brand-gold)]">✓</span>
+                  <span><strong>Full Regulatory Compliance:</strong> Customized printing with your brand logo, nutritional facts, FSSAI / FDA export barcodes, and language translations.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="font-bold text-[var(--brand-gold)]">✓</span>
+                  <span><strong>Nitrogen Flushing Option:</strong> Locks in fiery red carotenoid color retention and prevents transit pest infestation.</span>
+                </li>
+              </ul>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link
+                  to="/private-label-spices"
+                  className="jm-btn jm-btn--primary inline-flex items-center gap-2"
+                >
+                  Explore Private Label Services <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  to="/contact?intent=private-label"
+                  className="jm-btn jm-btn--outline inline-flex items-center gap-2"
+                >
+                  Request Packaging Sample
+                </Link>
+              </div>
             </div>
           </div>
         </div>

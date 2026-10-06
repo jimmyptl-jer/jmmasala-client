@@ -12,7 +12,7 @@ import {
   buildProductInquiryMessage,
   buildWhatsAppUrl,
 } from "@/data/siteData";
-import redChilliImage from "@/assets/RedChilli.png";
+import kingChilliImage from "@/assets/KingChilli.jpg";
 
 const KING_CHILLI_SUMMARY_ROWS = [
   { label: "Product & Variety", value: "King Chilli / Bhut Jolokia / Ghost Pepper (Capsicum chinense)" },
@@ -77,7 +77,7 @@ const KingChilliPage = () => {
   );
 
   const canonicalUrl = `${SITE_URL}/king-chilli-exporter-india`;
-  const productImageUrl = `${SITE_URL}${redChilliImage}`;
+  const productImageUrl = `${SITE_URL}${kingChilliImage}`;
 
   const productSchema = {
     "@context": "https://schema.org",
@@ -233,7 +233,7 @@ const KingChilliPage = () => {
             <div className="rounded-xl border border-[rgba(255,255,255,0.18)] bg-[rgba(255,255,255,0.06)] p-6 backdrop-blur-sm">
               <div className="overflow-hidden rounded-lg bg-black/20">
                 <img
-                  src={redChilliImage}
+                  src={kingChilliImage}
                   alt="Indian King Chilli Bhut Jolokia exported by JM Masala"
                   className="h-64 w-full object-cover transition-transform duration-300 hover:scale-105"
                   loading="eager"

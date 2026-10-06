@@ -171,7 +171,7 @@ const GujaratSpiceExporterPage = () => {
             <p className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.24)] bg-[rgba(255,255,255,0.1)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-gold-light)]">
               <MapPin className="h-4 w-4" /> Unjha, Gujarat
             </p>
-            <h1 className="mt-5 max-w-4xl font-[var(--font-display)] text-[42px] leading-tight md:text-[58px]">
+            <h1 className="mt-5 max-w-4xl font-[var(--font-display)] text-[42px] leading-tight md:text-[58px] text-white">
               Best Spice Exporter in Gujarat for Origin-Led Bulk Supply
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-8 text-[rgba(255,255,255,0.82)]">

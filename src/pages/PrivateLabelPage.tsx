@@ -11,6 +11,8 @@ import pouchGingerSlices from "@/assets/pouch-dry-ginger-slices.jpg";
 import pouchGingerPowder from "@/assets/pouch-dry-ginger-powder.jpg";
 import pouchBayLeaf from "@/assets/pouch-bay-leaf.jpg";
 import pouchCardamom from "@/assets/pouch-black-cardamom.jpg";
+import pouchRedChilliTeja from "@/assets/pouch-red-chilli-teja.jpg";
+import Product3DViewer from "@/components/Product3DViewer";
 
 /* ─── DATA ─── */
 
@@ -535,6 +537,20 @@ const PrivateLabelPage = () => {
           </div>
         </section>
 
+        {/* ── 3D INTERACTIVE POUCH VIEWER ── */}
+        <section className="pl-bg-dark" style={{ borderBottom: "1px solid rgba(201,168,76,0.3)" }}>
+          <div className="pl-section">
+            <div className="pl-label">Interactive 3D Technology</div>
+            <h2 className="pl-heading pl-heading--white">
+              Explore JM Masala 3D Retail Pouch Packaging
+            </h2>
+            <p className="pl-sub pl-sub--white">
+              Rotate 360°, inspect front branding, examine back nutritional specifications, and zoom into our 500g food-grade stand-up zipper pouch across multiple spices.
+            </p>
+            <Product3DViewer />
+          </div>
+        </section>
+
         {/* ── REAL RETAIL POUCH SHOWCASE ── */}
         <section className="pl-bg-cream" style={{ borderBottom: "1px solid var(--brand-gold-pale)" }}>
           <div className="pl-section">
@@ -554,6 +570,7 @@ const PrivateLabelPage = () => {
             }}>
               {[
                 { name: "Turmeric Powder (Rajapuri)", page: "Page 15", img: pouchTurmeric, desc: "Deep golden yellow ground spice in window zipper pouch." },
+                { name: "Red Chilli Teja (Whole)", page: "Catalogue", img: pouchRedChilliTeja, desc: "Export-grade bright red whole pods with natural stem in window zipper stand-up pouch." },
                 { name: "Dry Ginger Slices", page: "Page 18", img: pouchGingerSlices, desc: "Sun-dried ginger slices, moisture ≤12%, window pouch." },
                 { name: "Dry Ginger Powder", page: "Page 17", img: pouchGingerPowder, desc: "Fine 80-100 mesh ginger root powder with rich aroma." },
                 { name: "Bay Leaf (Tej Patta)", page: "Page 21", img: pouchBayLeaf, desc: "Whole selected Himalayan leaves in 500g zipper pack." },
