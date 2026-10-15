@@ -1,7 +1,7 @@
 import { ArrowRight, ChevronDown, Menu, Sparkles, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
-import { COMPANY, buildWhatsAppUrl } from "@/data/siteData";
+import { COMPANY, PRODUCTS, buildWhatsAppUrl } from "@/data/siteData";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "@/assets/JmMasala.png";
 
@@ -380,7 +380,7 @@ const Header = () => {
                           to="/products"
                           className="font-bold text-[var(--brand-gold)] hover:underline inline-flex items-center gap-1"
                         >
-                          View All 22 Products Catalog <ArrowRight className="h-3.5 w-3.5" />
+                          View All {PRODUCTS.length} Products Catalog <ArrowRight className="h-3.5 w-3.5" />
                         </Link>
                         <Link
                           to="/contact?intent=quote"
@@ -601,7 +601,7 @@ const Header = () => {
                 aria-controls="mobile-products-group"
                 className="flex w-full items-center justify-between py-2 text-[14px] font-bold uppercase tracking-wider text-[var(--brand-deep-green)]"
               >
-                <span>Products Portfolio (22 Products)</span>
+                <span>Products Portfolio ({PRODUCTS.length} Products)</span>
                 <ChevronDown
                   className={`h-4 w-4 transition-transform duration-200 ${
                     mobileSection === "products" ? "rotate-180 text-[var(--brand-gold)]" : "text-gray-400"
@@ -760,7 +760,7 @@ const Header = () => {
                     onClick={() => setMenuOpen(false)}
                     className="inline-block text-[12px] font-bold text-[var(--brand-gold)] underline pt-1"
                   >
-                    View All 22 Products Catalog →
+                    View All {PRODUCTS.length} Products Catalog →
                   </Link>
                 </div>
               )}

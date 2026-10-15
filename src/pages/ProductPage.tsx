@@ -6,7 +6,7 @@ import { PRODUCTS } from "@/data/siteData";
 type CategoryFilter = "all" | "whole" | "powders" | "psyllium" | "agro";
 
 const CATEGORY_TABS: Array<{ id: CategoryFilter; label: string }> = [
-  { id: "all", label: "All 22 Products" },
+  { id: "all", label: `All ${PRODUCTS.length} Products` },
   { id: "whole", label: "Whole Spices (12)" },
   { id: "powders", label: "Spice Powders (6)" },
   { id: "psyllium", label: "Psyllium (2)" },

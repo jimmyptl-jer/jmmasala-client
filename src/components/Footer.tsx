@@ -11,7 +11,7 @@ import {
   Globe2,
   FileCheck
 } from "lucide-react";
-import { COMPANY } from "@/data/siteData";
+import { COMPANY, PRODUCTS } from "@/data/siteData";
 import logo from "@/assets/JmMasala.png";
 
 const TOP_PRODUCTS = [
@@ -158,7 +158,7 @@ const Footer = () => {
           <div className="lg:col-span-4 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--brand-gold-light)] border-b border-white/10 pb-2 flex items-center justify-between">
               <span>Export Spices</span>
-              <span className="text-[10px] text-gray-400 font-mono">25 Products</span>
+              <span className="text-[10px] text-gray-400 font-mono">{PRODUCTS.length} Products</span>
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 text-xs text-gray-300">
               {TOP_PRODUCTS.map((p) => (
@@ -182,7 +182,7 @@ const Footer = () => {
                 to="/products"
                 className="text-xs font-bold text-[var(--brand-gold)] hover:underline inline-flex items-center gap-1"
               >
-                <span>Complete Catalogue (25) →</span>
+                <span>Complete Catalogue ({PRODUCTS.length}) →</span>
               </Link>
             </div>
           </div>
