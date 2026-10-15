@@ -1,53 +1,12 @@
-.jmh-about-grid {
-  display: grid;
-  gap: 40px;
-}
 .jmh-about-body p {
   margin: 16px 0 0;
   max-width: 62ch;
   font-size: 1.0625rem;
   line-height: 1.7;
 }
-.jmh-about-address {
-  margin: 0;
-  padding: 24px;
-  font-style: normal;
-  line-height: 1.7;
-  background: var(--jmh-ivory);
-  border: 1px solid var(--jmh-ivory-dark);
-  border-radius: var(--jmh-radius);
-}
-.jmh-about-address h3 {
-  margin: 0 0 8px;
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: var(--jmh-forest);
-}
-.jmh-about-address p {
-  margin: 0 0 8px;
-}
-.jmh-about-address a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 48px;
-  color: var(--jmh-forest);
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.jmh-about-address a:hover {
-  color: var(--jmh-gold-dark);
-}
 .jmh-about-links {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 28px;
-}
-@media (min-width: 900px) {
-  .jmh-about-grid {
-    grid-template-columns: 1.3fr 1fr;
-    gap: 64px;
-    align-items: start;
-  }
 }

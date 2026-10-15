@@ -3,7 +3,6 @@ import { ArrowRight } from "lucide-react";
 import { COMPANY } from "@/data/siteData";
 import "@/styles/home-about.css";
 
-const telHref = (phone: string): string => `tel:${phone.replace(/\s+/g, "")}`;
 
 const AboutJmSection = (): JSX.Element => (
   <section
@@ -11,7 +10,7 @@ const AboutJmSection = (): JSX.Element => (
     aria-labelledby="about-jm-heading"
     className="jmh-section jmh-section--white"
   >
-    <div className="jmh-container jmh-about-grid">
+    <div className="jmh-container">
       <div className="jmh-about-body">
         <p className="jmh-eyebrow">{COMPANY.legalName}</p>
         <h2 id="about-jm-heading" className="jmh-h2">
@@ -39,21 +38,6 @@ const AboutJmSection = (): JSX.Element => (
         </div>
       </div>
 
-      <address className="jmh-about-address">
-        <h3>{COMPANY.legalName}</h3>
-        <p>{COMPANY.addressLine}</p>
-        <p>
-          {COMPANY.phones.map((phone, i) => (
-            <span key={phone}>
-              {i > 0 && <br />}
-              <a href={telHref(phone)}>{phone}</a>
-            </span>
-          ))}
-        </p>
-        <p>
-          <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
-        </p>
-      </address>
     </div>
   </section>
 );
