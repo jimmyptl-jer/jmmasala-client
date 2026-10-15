@@ -25,6 +25,7 @@ export default function HomeHero(): JSX.Element {
       />
       <div className="jmh-hero-overlay" aria-hidden="true" />
       <div className="jmh-container jmh-hero-inner">
+        <div className="jmh-hero-panel">
         <p className="jmh-eyebrow" style={{ color: "var(--jmh-gold)" }}>
           JM Masala Trading LLP · Unjha, Gujarat
         </p>
@@ -52,6 +53,7 @@ export default function HomeHero(): JSX.Element {
             </li>
           ))}
         </ul>
+        </div>
       </div>
     </section>
   );

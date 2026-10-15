@@ -15,23 +15,29 @@
 .jmh-hero-overlay {
   position: absolute;
   inset: 0;
-  /* dark enough behind the text for AA contrast, lighter on the right so the spice photos show */
-  background: linear-gradient(
-    90deg,
-    rgba(22, 43, 32, 0.94) 0%,
-    rgba(32, 61, 45, 0.84) 50%,
-    rgba(32, 61, 45, 0.58) 100%
-  );
+  /* light tint only: the spice photos must stay visible across the whole hero */
+  background: linear-gradient(180deg, rgba(22, 43, 32, 0.28) 0%, rgba(22, 43, 32, 0.1) 100%);
 }
-.jmh-hero-inner {
+.jmh-hero .jmh-hero-inner {
   position: relative;
-  padding-top: 72px;
-  padding-bottom: 72px;
+  padding-top: 56px;
+  padding-bottom: 56px;
 }
 @media (min-width: 1024px) {
-  .jmh-hero-inner { padding-top: 120px; padding-bottom: 120px; }
+  .jmh-hero .jmh-hero-inner { padding-top: 96px; padding-bottom: 96px; }
 }
-.jmh-hero .jmh-h1 { color: var(--jmh-ivory); max-width: 18ch; }
+/* text sits on a translucent forest panel (AA contrast on any photo) so the spices show around it */
+.jmh-hero-panel {
+  max-width: 720px;
+  padding: 28px 22px;
+  border-radius: 14px;
+  background: rgba(22, 43, 32, 0.84);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+@media (min-width: 640px) {
+  .jmh-hero-panel { padding: 44px 44px; }
+}
+.jmh-hero .jmh-h1 { color: var(--jmh-ivory); max-width: 20ch; }
 .jmh-hero-text { max-width: 58ch; color: var(--jmh-ivory); }
 .jmh-hero-actions {
   display: flex;
