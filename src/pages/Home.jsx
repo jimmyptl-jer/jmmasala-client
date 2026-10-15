@@ -1,13 +1,13 @@
 import React from "react";
-import Hero from "../Components/Hero"
+import Hero from "../components/Hero"
 
-import AboutMe from "../Components/AboutMe"
+import AboutMe from "../components/AboutMe"
 import ContactSection from "./Contact";
-import InfoSection from "../Components/InfoSection"
-import StunningThings from "../Components/FeatureCard";
-import BestServices from "../Components/BestServices";
-import ProcessCards from "../Components/ProcessCard";
-// import LatestBlogPosts from "../Components/Blog/LastestBlog"
+import InfoSection from "../components/InfoSection"
+import StunningThings from "../components/FeatureCard";
+import BestServices from "../components/BestServices";
+import ProcessCards from "../components/ProcessCard";
+// import LatestBlogPosts from "../components/Blog/LastestBlog"
 
 const Home = () => {
 

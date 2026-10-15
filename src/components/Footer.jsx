@@ -4,8 +4,8 @@ import { IoCodeSlash } from "react-icons/io5";
 
 import GrayWolf from "../assets/logo.png";
 import { useAuth0 } from "@auth0/auth0-react";
-import LoginButton from "../Pages/Login";
-import LogoutButton from "../Pages/Logout";
+import LoginButton from "../pages/Login";
+import LogoutButton from "../pages/Logout";
 
 export default function FooterCom() {
   const { loginWithRedirect } = useAuth0();

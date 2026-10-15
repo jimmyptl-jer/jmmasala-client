@@ -31,3 +31,8 @@ dist-ssr
 
 # Certificate scans used as source material — never commit
 docs/certificates/
+
+# Local environment values (never commit)
+.env
+.env.*
+!.env.example

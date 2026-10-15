@@ -5,7 +5,7 @@ import {
   FaSeedling,
   FaClipboardCheck,
 } from "react-icons/fa";
-import InfoSection from "../Components/InfoSection";
+import InfoSection from "../components/InfoSection";
 
 const About = () => {
   return (
