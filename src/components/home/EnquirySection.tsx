@@ -6,16 +6,8 @@ import "@/styles/home-enquiry.css";
 const telHref = (phone: string): string => `tel:${phone.replace(/\s+/g, "")}`;
 
 const EnquirySection = (): JSX.Element => (
-  <section id="inquiry-rfq" aria-labelledby="inquiry-rfq-heading" className="jmh-enquiry">
+  <section id="inquiry-rfq" aria-labelledby="home-quotation-form-title" className="jmh-enquiry">
     <div className="jmh-container jmh-enquiry-inner">
-      <div className="jmh-enquiry-intro">
-        <p className="jmh-eyebrow">Enquire Now</p>
-        <h2 id="inquiry-rfq-heading" className="jmh-h2">Looking for a Reliable Indian Spice Supplier?</h2>
-        <p className="jmh-enquiry-lead">
-          Share your requirements and our team will get back to you with a quotation.
-        </p>
-      </div>
-
       <div className="jmh-enquiry-card">
         <QuotationForm id="home-quotation-form" heading="Request a Quotation" sourcePage="home" />
       </div>

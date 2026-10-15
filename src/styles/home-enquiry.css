@@ -14,19 +14,6 @@
   padding-top: 56px;
   padding-bottom: 56px;
 }
-.jmh-enquiry-intro .jmh-eyebrow {
-  color: var(--jmh-gold);
-}
-.jmh-enquiry-intro .jmh-h2 {
-  margin: 8px 0 16px;
-  color: var(--jmh-ivory);
-}
-.jmh-enquiry-lead {
-  margin: 0;
-  max-width: 34ch;
-  font-size: 1.05rem;
-  line-height: 1.6;
-}
 .jmh-enquiry-card {
   min-width: 0;
   padding: 8px;
@@ -119,7 +106,7 @@
 }
 @media (min-width: 1100px) {
   .jmh .jmh-enquiry .jmh-enquiry-inner {
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr) minmax(0, 0.9fr);
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
     gap: 40px;
     align-items: center;
   }
