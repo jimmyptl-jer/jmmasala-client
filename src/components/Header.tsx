@@ -112,7 +112,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 relative border-b border-[var(--brand-gold-pale)] bg-[rgba(253,251,247,0.97)] backdrop-blur-md transition-shadow">
-      <div className="jm-container flex items-center justify-between gap-6 py-2 md:py-2.5">
+      <div className="jm-container flex items-center justify-between gap-4 xl:gap-6 py-2 md:py-2.5">
         {/* Brand Logo */}
         <Link
           to="/"
@@ -122,15 +122,15 @@ const Header = () => {
           <img
             src={logo}
             alt="JM Masala Trading LLP"
-            className="h-12 w-auto md:h-14 lg:h-16 object-contain"
+            className="h-12 w-auto md:h-14 xl:h-16 object-contain"
             loading="lazy"
           />
         </Link>
 
         {/* Desktop Navigation - Product in Main Focus */}
-        <div className="hidden lg:flex items-center justify-end gap-6 xl:gap-8 flex-1">
+        <div className="hidden lg:flex items-center justify-end gap-3 xl:gap-8 flex-1">
           <nav aria-label="Main navigation">
-            <ul className="flex items-center gap-1 xl:gap-2 text-sm font-medium">
+            <ul className="flex items-center gap-1 xl:gap-2 text-sm font-medium whitespace-nowrap">
               
               {/* 1. PRODUCTS - Main Hero Mega-Menu */}
               <li
@@ -158,7 +158,7 @@ const Header = () => {
                 >
                   <Link
                     to="/products"
-                    className={`inline-flex items-center pl-3 pr-1 py-2 text-[11px] font-bold tracking-[0.16em] uppercase rounded-l-md transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--brand-gold)] ${
+                    className={`inline-flex items-center pl-2 xl:pl-3 pr-1 py-2 text-[11px] font-bold tracking-[0.08em] xl:tracking-[0.16em] uppercase rounded-l-md transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--brand-gold)] ${
                       location.pathname.startsWith("/products") || activeDropdown === "products"
                         ? "text-[var(--brand-gold)]"
                         : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]"
@@ -405,7 +405,7 @@ const Header = () => {
                   onClick={() =>
                     setActiveDropdown((curr) => (curr === "processing" ? null : "processing"))
                   }
-                  className="inline-flex items-center gap-1 px-3 py-2 text-[11px] font-bold tracking-[0.16em] uppercase transition-colors text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]"
+                  className="inline-flex items-center gap-1 px-2 xl:px-3 py-2 text-[11px] font-bold tracking-[0.08em] xl:tracking-[0.16em] uppercase transition-colors text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]"
                 >
                   <span>Processing</span>
                   <ChevronDown
@@ -446,7 +446,7 @@ const Header = () => {
                   to="/sourcing-network"
                   className={({ isActive }) =>
                     [
-                      "inline-flex items-center px-3 py-2 text-[11px] font-bold tracking-[0.16em] uppercase transition-colors",
+                      "inline-flex items-center px-2 xl:px-3 py-2 text-[11px] font-bold tracking-[0.08em] xl:tracking-[0.16em] uppercase transition-colors",
                       isActive
                         ? "text-[var(--brand-gold)] font-bold"
                         : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]",
@@ -463,7 +463,7 @@ const Header = () => {
                   to="/private-label-spices"
                   className={({ isActive }) =>
                     [
-                      "inline-flex items-center px-3 py-2 text-[11px] font-bold tracking-[0.16em] uppercase transition-colors",
+                      "inline-flex items-center px-2 xl:px-3 py-2 text-[11px] font-bold tracking-[0.08em] xl:tracking-[0.16em] uppercase transition-colors",
                       isActive
                         ? "text-[var(--brand-gold)] font-bold"
                         : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]",
@@ -480,7 +480,7 @@ const Header = () => {
                   to="/spice-packaging"
                   className={({ isActive }) =>
                     [
-                      "inline-flex items-center px-3 py-2 text-[11px] font-bold tracking-[0.16em] uppercase transition-colors",
+                      "inline-flex items-center px-2 xl:px-3 py-2 text-[11px] font-bold tracking-[0.08em] xl:tracking-[0.16em] uppercase transition-colors",
                       isActive
                         ? "text-[var(--brand-gold)] font-bold"
                         : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]",
@@ -497,7 +497,7 @@ const Header = () => {
                   to="/export-destinations"
                   className={({ isActive }) =>
                     [
-                      "inline-flex items-center px-3 py-2 text-[11px] font-bold tracking-[0.16em] uppercase transition-colors",
+                      "inline-flex items-center px-2 xl:px-3 py-2 text-[11px] font-bold tracking-[0.08em] xl:tracking-[0.16em] uppercase transition-colors",
                       isActive
                         ? "text-[var(--brand-gold)] font-bold"
                         : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]",
@@ -514,7 +514,7 @@ const Header = () => {
                   to="/about-jm-masala"
                   className={({ isActive }) =>
                     [
-                      "inline-flex items-center px-3 py-2 text-[11px] font-bold tracking-[0.16em] uppercase transition-colors",
+                      "inline-flex items-center px-2 xl:px-3 py-2 text-[11px] font-bold tracking-[0.08em] xl:tracking-[0.16em] uppercase transition-colors",
                       isActive
                         ? "text-[var(--brand-gold)] font-bold"
                         : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]",
@@ -531,7 +531,7 @@ const Header = () => {
                   to="/contact"
                   className={({ isActive }) =>
                     [
-                      "inline-flex items-center px-3 py-2 text-[11px] font-bold tracking-[0.16em] uppercase transition-colors",
+                      "inline-flex items-center px-2 xl:px-3 py-2 text-[11px] font-bold tracking-[0.08em] xl:tracking-[0.16em] uppercase transition-colors",
                       isActive
                         ? "text-[var(--brand-gold)] font-bold"
                         : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]",
@@ -548,19 +548,19 @@ const Header = () => {
           {/* High-Converting CTA Button */}
           <Link
             to={QUOTE_PATH}
-            className="jm-btn jm-btn--primary text-[11px] font-bold tracking-[0.12em] uppercase py-2.5 px-5 shadow-sm hover:shadow-md transition-all shrink-0"
+            className="jm-btn jm-btn--primary text-[11px] font-bold tracking-[0.12em] uppercase py-2.5 px-4 xl:px-5 shadow-sm hover:shadow-md transition-all shrink-0"
           >
-            <span className="xl:hidden">Request a Quote</span>
-            <span className="hidden xl:inline">Request a Bulk Quotation</span>
+            Request a Quote
           </Link>
           <a
             href={buildWhatsAppUrl(COMPANY.whatsappMessage)}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${WHATSAPP_BTN_CLASS} hidden xl:inline-flex shrink-0 text-[11px] tracking-[0.12em] px-5`}
+            aria-label="Chat on WhatsApp"
+            className={`${WHATSAPP_BTN_CLASS} hidden xl:inline-flex shrink-0 text-[11px] tracking-[0.12em] px-3`}
           >
-            <FaWhatsapp aria-hidden="true" className="h-4 w-4" />
-            WhatsApp
+            <FaWhatsapp aria-hidden="true" className="h-5 w-5" />
+            <span className="sr-only">WhatsApp</span>
           </a>
         </div>
 
