@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Award, Leaf, Package, Ship } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
+import heroImageSmall from "@/assets/hero-bg-sm.jpg";
 import "@/styles/home-hero.css";
 
 const HIGHLIGHTS = [
@@ -16,6 +17,8 @@ export default function HomeHero(): JSX.Element {
       <div className="jmh-hero-media">
         <img
           src={heroImage}
+          srcSet={`${heroImageSmall} 960w, ${heroImage} 1920w`}
+          sizes="100vw"
           alt="Rustic wooden bowls of cumin, coriander and fennel seeds on a dark green background"
           width={1920}
           height={768}
