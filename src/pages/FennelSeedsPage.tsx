@@ -10,6 +10,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import Seo from "@/components/Seo";
+import QuotationForm from "@/components/quote/QuotationForm";
 import {
   COMPANY,
   DOCUMENTATION_PACKAGE,
@@ -409,6 +410,12 @@ const FennelSeedsPage = () => {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="#quotation-form"
+                  className="jm-btn jm-btn--primary inline-flex items-center gap-2"
+                >
+                  Request a Bulk Quotation <ArrowRight className="h-4 w-4" />
+                </a>
                 <a
                   href={quoteUrl}
                   target="_blank"
@@ -1145,6 +1152,23 @@ const FennelSeedsPage = () => {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Bulk Quotation Form */}
+      <section className="jm-section jm-section--cream">
+        <div className="jm-container">
+          <QuotationForm
+            id="quotation-form"
+            defaultProduct="Fennel Seeds"
+            gradeOptions={[
+              "Bold Fennel Seeds",
+              "Small Fennel Seeds",
+              "Singapore Fennel Seeds",
+              "Lucknow & Abu Road Style",
+            ]}
+            sourcePage="fennel-seeds-exporter-india"
+          />
         </div>
       </section>
 

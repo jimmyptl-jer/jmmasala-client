@@ -1,0 +1,64 @@
+.jmh-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--jmh-forest);
+  color: var(--jmh-ivory);
+}
+.jmh-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.jmh-hero-overlay {
+  position: absolute;
+  inset: 0;
+  /* dark enough behind the text for AA contrast, lighter on the right so the spice photos show */
+  background: linear-gradient(
+    90deg,
+    rgba(22, 43, 32, 0.94) 0%,
+    rgba(32, 61, 45, 0.84) 50%,
+    rgba(32, 61, 45, 0.58) 100%
+  );
+}
+.jmh-hero-inner {
+  position: relative;
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+@media (min-width: 1024px) {
+  .jmh-hero-inner { padding-top: 120px; padding-bottom: 120px; }
+}
+.jmh-hero .jmh-h1 { color: var(--jmh-ivory); max-width: 18ch; }
+.jmh-hero-text { max-width: 58ch; color: var(--jmh-ivory); }
+.jmh-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 32px;
+}
+.jmh-hero-facts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin: 40px 0 0;
+  padding: 24px 0 0;
+  list-style: none;
+  border-top: 1px solid rgba(247, 243, 233, 0.25);
+}
+@media (min-width: 640px) {
+  .jmh-hero-facts { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .jmh-hero-facts { grid-template-columns: repeat(4, 1fr); }
+}
+.jmh-hero-fact {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.jmh-hero-fact svg { flex: none; color: var(--jmh-gold); margin-top: 2px; }

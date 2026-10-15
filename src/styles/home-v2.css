@@ -1,0 +1,111 @@
+/*
+ * Homepage redesign tokens and shared building blocks (premium B2B export look).
+ * Scope: everything lives under `.jmh` (the wrapper element of HomePage), so no other page changes.
+ * Palette is the one requested for the homepage; the rest of the site keeps the existing --brand-* tokens.
+ * Section components in src/components/home/ use these classes and variables and may add their own
+ * rules in their own CSS file, prefixed `jmh-<section>-`.
+ */
+.jmh {
+  --jmh-forest: #203d2d;
+  --jmh-forest-dark: #162b20;
+  --jmh-gold: #c39a4a;
+  --jmh-gold-dark: #8a6a2b; /* gold text on ivory: 4.6:1, passes AA for body text */
+  --jmh-ivory: #f7f3e9;
+  --jmh-ivory-dark: #ece5d2;
+  --jmh-charcoal: #292b27;
+  --jmh-white: #ffffff;
+  --jmh-radius: 10px;
+  --jmh-shadow: 0 6px 24px rgba(32, 61, 45, 0.1);
+
+  background: var(--jmh-ivory);
+  color: var(--jmh-charcoal);
+}
+
+.jmh a:focus-visible,
+.jmh button:focus-visible,
+.jmh input:focus-visible,
+.jmh select:focus-visible,
+.jmh textarea:focus-visible {
+  outline: 3px solid var(--jmh-gold);
+  outline-offset: 2px;
+}
+
+/* layout */
+.jmh-container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.jmh-section {
+  padding: 64px 0;
+}
+.jmh-section--ivory { background: var(--jmh-ivory); }
+.jmh-section--white { background: var(--jmh-white); }
+.jmh-section--forest { background: var(--jmh-forest); color: var(--jmh-ivory); }
+@media (min-width: 1024px) {
+  .jmh-section { padding: 88px 0; }
+}
+
+/* type */
+.jmh-eyebrow {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--jmh-gold-dark);
+}
+.jmh-section--forest .jmh-eyebrow { color: var(--jmh-gold); }
+.jmh-h1,
+.jmh-h2 {
+  font-family: var(--font-editorial, "Cormorant Garamond"), Georgia, serif;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--jmh-forest);
+  margin: 0;
+}
+.jmh-section--forest .jmh-h2 { color: var(--jmh-ivory); }
+.jmh-h1 { font-size: clamp(2.25rem, 6vw, 4rem); }
+.jmh-h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+.jmh-lead {
+  margin: 16px 0 0;
+  max-width: 62ch;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+/* buttons: solid gold (primary), outlined (secondary), same 48px touch target */
+.jmh-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.jmh-btn--primary { background: var(--jmh-gold); color: var(--jmh-charcoal); }
+.jmh-btn--primary:hover { background: #d4ab5b; }
+.jmh-btn--outline { border-color: var(--jmh-forest); color: var(--jmh-forest); background: transparent; }
+.jmh-btn--outline:hover { background: var(--jmh-forest); color: var(--jmh-ivory); }
+.jmh-btn--outline-light { border-color: var(--jmh-ivory); color: var(--jmh-ivory); background: transparent; }
+.jmh-btn--outline-light:hover { background: var(--jmh-ivory); color: var(--jmh-forest); }
+
+/* cards */
+.jmh-card {
+  background: var(--jmh-white);
+  border: 1px solid var(--jmh-ivory-dark);
+  border-radius: var(--jmh-radius);
+  box-shadow: var(--jmh-shadow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jmh * { transition: none !important; animation: none !important; }
+}

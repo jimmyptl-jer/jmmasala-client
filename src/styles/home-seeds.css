@@ -1,0 +1,71 @@
+.jmh-seeds-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin: 40px 0 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 640px) {
+  .jmh-seeds-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .jmh-seeds-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.jmh-seeds-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.jmh-seeds-media { position: relative; aspect-ratio: 4 / 3; background: var(--jmh-ivory-dark); }
+.jmh-seeds-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.jmh-seeds-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--jmh-forest);
+  color: var(--jmh-ivory);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.jmh-seeds-body { display: flex; flex-direction: column; flex: 1; padding: 20px; }
+.jmh-seeds-name {
+  margin: 0;
+  font-family: var(--font-editorial, "Cormorant Garamond"), Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--jmh-forest);
+}
+.jmh-seeds-desc {
+  margin: 8px 0 0;
+  font-size: 15px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.jmh-seeds-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin-top: auto;
+  padding-top: 20px;
+}
+.jmh-seeds-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  font-weight: 600;
+  color: var(--jmh-forest);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+.jmh-seeds-link:hover { color: var(--jmh-gold-dark); }
+.jmh-seeds-all { margin: 32px 0 0; text-align: center; }

@@ -6,6 +6,7 @@ import {
   MapPin,
 } from "lucide-react";
 import Seo from "@/components/Seo";
+import QuotationForm from "@/components/quote/QuotationForm";
 import {
   COMPANY,
   DOCUMENTATION_PACKAGE,
@@ -345,6 +346,12 @@ const CuminSeedsPage = () => {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="#quotation-form"
+                  className="jm-btn jm-btn--primary inline-flex items-center gap-2"
+                >
+                  Request a Bulk Quotation <ArrowRight className="h-4 w-4" />
+                </a>
                 <a
                   href={quoteUrl}
                   target="_blank"
@@ -885,6 +892,19 @@ const CuminSeedsPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Quotation Form */}
+      <QuotationForm
+        id="quotation-form"
+        defaultProduct="Cumin Seeds"
+        gradeOptions={[
+          "Europe Quality",
+          "USA Quality (ASTA)",
+          "Gulf / Middle East Quality",
+          "Singapore / Asian Quality",
+        ]}
+        sourcePage="cumin-seeds-exporter-india"
+      />
 
       {/* Section 10: Frequently Asked Questions */}
       <section className="jm-section jm-section--white">

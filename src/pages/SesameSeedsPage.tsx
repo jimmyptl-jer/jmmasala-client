@@ -18,6 +18,7 @@ import {
   buildProductInquiryMessage,
   buildWhatsAppUrl,
 } from "@/data/siteData";
+import QuotationForm from "@/components/quote/QuotationForm";
 import sesameSeedsImage from "@/assets/SesameSeeds.png";
 
 const SESAME_SPEC_ROWS = [
@@ -382,6 +383,12 @@ const SesameSeedsPage = () => {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="#quotation-form"
+                  className="jm-btn jm-btn--primary inline-flex items-center gap-2"
+                >
+                  Request a Bulk Quotation <ArrowRight className="h-4 w-4" />
+                </a>
                 <a
                   href={quoteUrl}
                   target="_blank"
@@ -1250,6 +1257,25 @@ const SesameSeedsPage = () => {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Bulk Quotation Form */}
+      <section className="jm-section jm-section--white">
+        <div className="jm-container">
+          <QuotationForm
+            id="quotation-form"
+            defaultProduct="Sesame Seeds"
+            gradeOptions={[
+              "98% FAQ Machine Cleaned",
+              "99% Sortex",
+              "99.5% Sortex",
+              "99.90% Sortex",
+              "99.95% Sortex",
+              "99.98% Auto Sortex",
+            ]}
+            sourcePage="sesame-seeds-exporter-india"
+          />
         </div>
       </section>
 

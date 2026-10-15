@@ -6,6 +6,7 @@ import {
   MapPin,
 } from "lucide-react";
 import Seo from "@/components/Seo";
+import QuotationForm from "@/components/quote/QuotationForm";
 import {
   COMPANY,
   DOCUMENTATION_PACKAGE,
@@ -345,6 +346,12 @@ const AjwainSeedsPage = () => {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="#quotation-form"
+                  className="jm-btn jm-btn--primary inline-flex items-center gap-2"
+                >
+                  Request a Bulk Quotation <ArrowRight className="h-4 w-4" />
+                </a>
                 <a
                   href={quoteUrl}
                   target="_blank"
@@ -875,6 +882,18 @@ const AjwainSeedsPage = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Quotation Form */}
+      <section className="jm-section jm-section--cream">
+        <div className="jm-container">
+          <QuotationForm
+            id="quotation-form"
+            defaultProduct="Ajwain / Carom Seeds"
+            gradeOptions={AJWAIN_MARKET_GRADES.map((grade) => grade.market)}
+            sourcePage="ajwain-seeds-exporter-india"
+          />
         </div>
       </section>
 

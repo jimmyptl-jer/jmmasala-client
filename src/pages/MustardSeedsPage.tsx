@@ -10,6 +10,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import Seo from "@/components/Seo";
+import QuotationForm from "@/components/quote/QuotationForm";
 import {
   COMPANY,
   DOCUMENTATION_PACKAGE,
@@ -414,6 +415,12 @@ const MustardSeedsPage = () => {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="#quotation-form"
+                  className="jm-btn jm-btn--primary inline-flex items-center gap-2"
+                >
+                  Request a Bulk Quotation <ArrowRight className="h-4 w-4" />
+                </a>
                 <a
                   href={quoteUrl}
                   target="_blank"
@@ -1189,6 +1196,23 @@ const MustardSeedsPage = () => {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Bulk Quotation Form */}
+      <section className="jm-section jm-section--white">
+        <div className="jm-container">
+          <QuotationForm
+            id="quotation-form"
+            defaultProduct="Mustard Seeds"
+            gradeOptions={[
+              "Europe Quality (Sortex Clean)",
+              "USA Quality (ASTA Clean)",
+              "Singapore & East Asia",
+              "Gulf & Middle East",
+            ]}
+            sourcePage="mustard-seeds-exporter-india"
+          />
         </div>
       </section>
 

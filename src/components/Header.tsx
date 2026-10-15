@@ -53,7 +53,19 @@ const PROCESSING_LINKS = [
   { label: "Pan-India Domestic Supply", path: "/domestic-supply-india", desc: "Commercial B2B supply for food processors & brands" },
 ];
 
+const PRIORITY_PRODUCTS = [
+  { label: "Cumin Seeds", slug: "cumin-seeds-exporter-india" },
+  { label: "Coriander Seeds", slug: "coriander-seeds-exporter-india" },
+  { label: "Fennel Seeds", slug: "fennel-seeds-exporter-india" },
+  { label: "Sesame Seeds", slug: "sesame-seeds-exporter-india" },
+  { label: "Ajwain Seeds", slug: "ajwain-seeds-exporter-india" },
+  { label: "Mustard Seeds", slug: "mustard-seeds-exporter-india" },
+];
+
+const QUOTE_PATH = "/contact#inquiry-form";
+
 const Header = () => {
+  const productsToggleRef = useRef<HTMLButtonElement | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileSection, setMobileSection] = useState<string | null>("products");
@@ -120,28 +132,82 @@ const Header = () => {
                 className="relative"
                 onMouseEnter={() => handleMouseEnter("products")}
                 onMouseLeave={handleMouseLeave}
+                onKeyDown={(e) => {
+                  if (e.key === "Escape" && activeDropdown === "products") {
+                    setActiveDropdown(null);
+                    productsToggleRef.current?.focus();
+                  }
+                }}
+                onBlur={(e) => {
+                  if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+                    setActiveDropdown((curr) => (curr === "products" ? null : curr));
+                  }
+                }}
               >
-                <Link
-                  to="/products"
-                  className={`inline-flex items-center gap-1.5 px-3 py-2 text-[11px] font-bold tracking-[0.16em] uppercase rounded-md transition-all ${
+                <div
+                  className={`inline-flex items-center rounded-md transition-all ${
                     location.pathname.startsWith("/products") || activeDropdown === "products"
-                      ? "text-[var(--brand-gold)] bg-[var(--brand-cream)]/70 shadow-sm"
-                      : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]"
+                      ? "bg-[var(--brand-cream)]/70 shadow-sm"
+                      : ""
                   }`}
                 >
-                  <span className="font-extrabold text-[var(--brand-deep-green)]">Products</span>
-                  <ChevronDown
-                    className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                      activeDropdown === "products" ? "rotate-180 text-[var(--brand-gold)]" : "text-gray-400"
+                  <Link
+                    to="/products"
+                    className={`inline-flex items-center pl-3 pr-1 py-2 text-[11px] font-bold tracking-[0.16em] uppercase rounded-l-md transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--brand-gold)] ${
+                      location.pathname.startsWith("/products") || activeDropdown === "products"
+                        ? "text-[var(--brand-gold)]"
+                        : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]"
                     }`}
-                  />
-                </Link>
+                  >
+                    <span className="font-extrabold text-[var(--brand-deep-green)]">Products</span>
+                  </Link>
+                  <button
+                    ref={productsToggleRef}
+                    type="button"
+                    aria-expanded={activeDropdown === "products"}
+                    aria-controls="desktop-products-menu"
+                    aria-label="Show product menu"
+                    onClick={() =>
+                      setActiveDropdown((curr) => (curr === "products" ? null : "products"))
+                    }
+                    className="inline-flex items-center px-2 py-2 rounded-r-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--brand-gold)]"
+                  >
+                    <ChevronDown
+                      aria-hidden="true"
+                      className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                        activeDropdown === "products" ? "rotate-180 text-[var(--brand-gold)]" : "text-gray-400"
+                      }`}
+                    />
+                  </button>
+                </div>
 
                 {/* Product Mega Menu Dropdown */}
                 {activeDropdown === "products" && (
                   <div
+                    id="desktop-products-menu"
                     className="absolute top-full -left-20 xl:-left-28 mt-1.5 w-[920px] xl:w-[1020px] rounded-2xl border border-[var(--brand-gold-pale)] bg-[var(--brand-warm-white)] p-6 shadow-[0_20px_45px_rgba(26,46,26,0.14)] z-50 animate-in fade-in slide-in-from-top-1 duration-150"
                   >
+                    {/* Priority export spices */}
+                    <div className="mb-5 flex flex-wrap items-center gap-x-2 gap-y-2 border-b border-[var(--brand-gold-pale)] pb-4">
+                      <span className="mr-2 text-[11px] font-bold uppercase tracking-wider text-[var(--brand-charcoal)]">
+                        Core Seeds
+                      </span>
+                      {PRIORITY_PRODUCTS.map((p) => (
+                        <Link
+                          key={p.slug}
+                          to={`/${p.slug}`}
+                          className="rounded-full border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] px-3 py-1 text-[12.5px] font-semibold text-[var(--brand-deep-green)] transition-colors hover:text-[var(--brand-gold)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--brand-gold)]"
+                        >
+                          {p.label}
+                        </Link>
+                      ))}
+                      <Link
+                        to="/products"
+                        className="ml-auto text-[12.5px] font-bold text-[var(--brand-gold)] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--brand-gold)]"
+                      >
+                        All products →
+                      </Link>
+                    </div>
                     <div className="grid grid-cols-4 gap-5 xl:gap-6">
                       
                       {/* Col 1: Whole Seed Spices (8) */}
@@ -476,28 +542,37 @@ const Header = () => {
 
           {/* High-Converting CTA Button */}
           <Link
-            to="/contact"
+            to={QUOTE_PATH}
             className="jm-btn jm-btn--primary text-[11px] font-bold tracking-[0.12em] uppercase py-2.5 px-5 shadow-sm hover:shadow-md transition-all shrink-0"
           >
             Request a Quote
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          type="button"
-          className="rounded-lg border border-[var(--brand-gold-pale)] p-2 text-[var(--brand-deep-green)] lg:hidden"
-          onClick={() => setMenuOpen((open) => !open)}
-          aria-expanded={menuOpen}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-        >
-          {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <Link
+            to={QUOTE_PATH}
+            className="jm-btn jm-btn--primary text-[11px] font-bold tracking-[0.08em] uppercase py-2 px-3 shrink-0 whitespace-nowrap"
+          >
+            Get a Quote
+          </Link>
+          {/* Mobile Menu Button */}
+          <button
+            type="button"
+            className="rounded-lg border border-[var(--brand-gold-pale)] p-2 text-[var(--brand-deep-green)]"
+            onClick={() => setMenuOpen((open) => !open)}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+          >
+            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer (Product-First) */}
       {menuOpen && (
-        <div className="absolute inset-x-0 top-full max-h-[calc(100vh-4.5rem)] overflow-y-auto border-t border-[var(--brand-gold-pale)] bg-[var(--brand-warm-white)] px-5 py-6 pb-10 shadow-2xl lg:hidden">
+        <div id="mobile-navigation" className="absolute inset-x-0 top-full max-h-[calc(100vh-4.5rem)] overflow-y-auto border-t border-[var(--brand-gold-pale)] bg-[var(--brand-warm-white)] px-5 py-6 pb-10 shadow-2xl lg:hidden">
           <nav aria-label="Mobile navigation">
             
             {/* Mobile Product Accordion */}
@@ -507,6 +582,8 @@ const Header = () => {
                 onClick={() =>
                   setMobileSection((curr) => (curr === "products" ? null : "products"))
                 }
+                aria-expanded={mobileSection === "products"}
+                aria-controls="mobile-products-group"
                 className="flex w-full items-center justify-between py-2 text-[14px] font-bold uppercase tracking-wider text-[var(--brand-deep-green)]"
               >
                 <span>Products Portfolio (22 Products)</span>
@@ -518,7 +595,36 @@ const Header = () => {
               </button>
 
               {mobileSection === "products" && (
-                <div className="mt-2 pl-3 space-y-4 border-l-2 border-[var(--brand-gold)]/30">
+                <div id="mobile-products-group" className="mt-2 pl-3 space-y-4 border-l-2 border-[var(--brand-gold)]/30">
+                  {/* Priority export spices */}
+                  <div>
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--brand-gold)]">
+                      Core Seeds
+                    </div>
+                    <ul className="mt-1 space-y-1 text-[13px] text-[var(--brand-forest)]">
+                      {PRIORITY_PRODUCTS.map((p) => (
+                        <li key={p.slug}>
+                          <Link
+                            to={`/${p.slug}`}
+                            onClick={() => setMenuOpen(false)}
+                            className="block py-1 font-semibold hover:text-[var(--brand-gold)]"
+                          >
+                            {p.label}
+                          </Link>
+                        </li>
+                      ))}
+                      <li>
+                        <Link
+                          to="/products"
+                          onClick={() => setMenuOpen(false)}
+                          className="block py-1 font-bold text-[var(--brand-gold)]"
+                        >
+                          All products
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+
                   {/* Category 1: Whole Seeds */}
                   <div>
                     <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--brand-gold)]">
@@ -723,7 +829,7 @@ const Header = () => {
 
             <div className="mt-6 pt-3">
               <Link
-                to="/contact"
+                to={QUOTE_PATH}
                 onClick={() => setMenuOpen(false)}
                 className="jm-btn jm-btn--primary w-full text-center text-[12px] font-bold uppercase tracking-wider py-3 block"
               >

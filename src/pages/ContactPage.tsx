@@ -1,52 +1,17 @@
-import { FormEvent, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import Seo from "@/components/Seo";
+import QuotationForm from "@/components/quote/QuotationForm";
 import {
   COMPANY,
-  PRODUCTS,
   SITE_URL,
   buildGeneralInquiryMessage,
   buildWhatsAppUrl,
 } from "@/data/siteData";
 
-type ContactFormState = {
-  fullName: string;
-  companyName: string;
-  country: string;
-  email: string;
-  whatsappNumber: string;
-  productOfInterest: string;
-  estimatedMonthlyQuantity: string;
-  grade: string;
-  specification: string;
-  packing: string;
-  preferredPaymentTerms: string;
-  message: string;
-  website: string;
-};
-
-const paymentTerms = ["LC at Sight", "LC 30 Days", "TT Advance", "Other"];
-
 const ContactPage = () => {
   const [params] = useSearchParams();
   const prefilledProduct = params.get("product") ?? "";
-  const [submitted, setSubmitted] = useState(false);
-
-  const [form, setForm] = useState<ContactFormState>({
-    fullName: "",
-    companyName: "",
-    country: "",
-    email: "",
-    whatsappNumber: "",
-    productOfInterest: prefilledProduct,
-    estimatedMonthlyQuantity: "",
-    grade: "",
-    specification: "",
-    packing: "",
-    preferredPaymentTerms: "",
-    message: "",
-    website: "",
-  });
 
   const whatsappLink = useMemo(
     () => buildWhatsAppUrl(COMPANY.whatsappMessage),
@@ -62,54 +27,6 @@ const ContactPage = () => {
       `Hi JM Masala, I am interested in ${prefilledProduct}. Please share specifications, MOQ, packing options, and pricing.`,
     );
   }, [prefilledProduct]);
-
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (form.website.trim()) {
-      return;
-    }
-
-    const mailBody = [
-      `Full Name: ${form.fullName}`,
-      `Company Name: ${form.companyName}`,
-      `Country: ${form.country}`,
-      `Email: ${form.email}`,
-      `WhatsApp Number: ${form.whatsappNumber}`,
-      `Product of Interest: ${form.productOfInterest}`,
-      `Estimated Monthly Quantity: ${form.estimatedMonthlyQuantity}`,
-      `Grade: ${form.grade}`,
-      `Specification: ${form.specification}`,
-      `Packing: ${form.packing}`,
-      `Preferred Payment Terms: ${form.preferredPaymentTerms}`,
-      `Message: ${form.message}`,
-    ].join("\n");
-
-    const mailtoUrl = `mailto:${COMPANY.email}?subject=${encodeURIComponent(
-      "New Export Inquiry - JM Masala Website",
-    )}&body=${encodeURIComponent(mailBody)}`;
-
-    const waMessage = [
-      "New website inquiry:",
-      `Name: ${form.fullName}`,
-      `Company: ${form.companyName}`,
-      `Product: ${form.productOfInterest}`,
-      `Qty: ${form.estimatedMonthlyQuantity}`,
-      `Grade: ${form.grade}`,
-      `Specification: ${form.specification}`,
-      `Packing: ${form.packing}`,
-      `Payment terms: ${form.preferredPaymentTerms}`,
-      `Email: ${form.email}`,
-      `WhatsApp: ${form.whatsappNumber}`,
-    ].join("\n");
-
-    window.open(
-      buildWhatsAppUrl(waMessage),
-      "_blank",
-      "noopener,noreferrer",
-    );
-    window.location.href = mailtoUrl;
-    setSubmitted(true);
-  };
 
   return (
     <>
@@ -181,16 +98,8 @@ const ContactPage = () => {
 
           <div className="mt-8 grid gap-8 lg:grid-cols-[1.1fr,0.9fr]">
             <section className="jm-surface-card p-6 lg:p-8">
-              <h2 className="text-[28px] text-[var(--brand-charcoal)] text-tagline not-italic">Export Inquiry Form</h2>
-
-              {submitted && (
-                <p className="mt-4 rounded-md bg-[rgba(74,103,65,0.12)] p-3 text-sm text-[var(--brand-forest)]">
-                  Your inquiry has been opened in WhatsApp and email draft view.
-                </p>
-              )}
-
               {prefilledProduct && (
-                <div className="mt-4 flex flex-wrap gap-3">
+                <div className="mb-5 flex flex-wrap gap-3">
                   <a href={productWhatsappLink} target="_blank" rel="noreferrer" className="jm-btn jm-btn--primary">
                     WhatsApp About {prefilledProduct}
                   </a>
@@ -200,116 +109,12 @@ const ContactPage = () => {
                 </div>
               )}
 
-              <form id="inquiry-form" className="mt-5 grid gap-4 md:grid-cols-2" onSubmit={onSubmit}>
-                <input
-                  required
-                  value={form.fullName}
-                  onChange={(event) => setForm({ ...form, fullName: event.target.value })}
-                  placeholder="Full Name"
-                  className="jm-input"
-                />
-                <input
-                  required
-                  value={form.companyName}
-                  onChange={(event) => setForm({ ...form, companyName: event.target.value })}
-                  placeholder="Company Name"
-                  className="jm-input"
-                />
-                <input
-                  required
-                  value={form.country}
-                  onChange={(event) => setForm({ ...form, country: event.target.value })}
-                  placeholder="Destination Country / Port"
-                  className="jm-input"
-                />
-                <input
-                  type="email"
-                  required
-                  value={form.email}
-                  onChange={(event) => setForm({ ...form, email: event.target.value })}
-                  placeholder="Email Address"
-                  className="jm-input"
-                />
-                <input
-                  required
-                  value={form.whatsappNumber}
-                  onChange={(event) => setForm({ ...form, whatsappNumber: event.target.value })}
-                  placeholder="WhatsApp Number"
-                  className="jm-input"
-                />
-                <select
-                  required
-                  value={form.productOfInterest}
-                  onChange={(event) => setForm({ ...form, productOfInterest: event.target.value })}
-                  className="jm-input"
-                >
-                  <option value="">Product of Interest</option>
-                  {PRODUCTS.map((product) => (
-                    <option key={product.slug} value={product.name}>
-                      {product.name}
-                    </option>
-                  ))}
-                </select>
-                <input
-                  required
-                  value={form.estimatedMonthlyQuantity}
-                  onChange={(event) => setForm({ ...form, estimatedMonthlyQuantity: event.target.value })}
-                  placeholder="Quantity"
-                  className="jm-input"
-                />
-                <input
-                  value={form.grade}
-                  onChange={(event) => setForm({ ...form, grade: event.target.value })}
-                  placeholder="Grade"
-                  className="jm-input"
-                />
-                <input
-                  value={form.specification}
-                  onChange={(event) => setForm({ ...form, specification: event.target.value })}
-                  placeholder="Specification"
-                  className="jm-input"
-                />
-                <input
-                  value={form.packing}
-                  onChange={(event) => setForm({ ...form, packing: event.target.value })}
-                  placeholder="Packing"
-                  className="jm-input"
-                />
-                <select
-                  required
-                  value={form.preferredPaymentTerms}
-                  onChange={(event) => setForm({ ...form, preferredPaymentTerms: event.target.value })}
-                  className="jm-input"
-                >
-                  <option value="">Preferred Payment Terms</option>
-                  {paymentTerms.map((term) => (
-                    <option key={term} value={term}>
-                      {term}
-                    </option>
-                  ))}
-                </select>
-                <textarea
-                  required
-                  value={form.message}
-                  onChange={(event) => setForm({ ...form, message: event.target.value })}
-                  placeholder="Message"
-                  rows={5}
-                  className="jm-input md:col-span-2"
-                />
-
-                <input
-                  type="text"
-                  value={form.website}
-                  onChange={(event) => setForm({ ...form, website: event.target.value })}
-                  className="hidden"
-                  tabIndex={-1}
-                  autoComplete="off"
-                />
-
-                <button type="submit" className="jm-btn jm-btn--primary md:col-span-2">
-                  Send on WhatsApp
-                </button>
-              </form>
+              <QuotationForm
+                id="inquiry-form"
+                defaultProduct={prefilledProduct}
+                sourcePage="contact"
+                showPaymentTerms
+              />
             </section>
 
             <aside className="space-y-6">

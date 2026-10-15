@@ -1,0 +1,97 @@
+.jmh-enquiry-grid {
+  display: grid;
+  gap: 32px;
+  margin-top: 32px;
+}
+.jmh-enquiry-form {
+  display: grid;
+  gap: 18px;
+  padding: 24px;
+  background: var(--jmh-white);
+  color: var(--jmh-charcoal);
+  border-radius: var(--jmh-radius);
+  box-shadow: var(--jmh-shadow);
+}
+.jmh-enquiry-fields {
+  display: grid;
+  gap: 18px;
+}
+.jmh-enquiry-field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--jmh-forest);
+}
+.jmh-enquiry-field select,
+.jmh-enquiry-field input,
+.jmh-enquiry-field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 16px;
+  color: var(--jmh-charcoal);
+  background: var(--jmh-white);
+  border: 1px solid #8c8f87;
+  border-radius: 8px;
+}
+.jmh-enquiry-field textarea {
+  resize: vertical;
+}
+.jmh-enquiry-submit {
+  width: 100%;
+  border: 0;
+  background: var(--jmh-forest);
+  color: var(--jmh-ivory);
+}
+.jmh-enquiry-submit:hover {
+  background: var(--jmh-forest-dark);
+}
+.jmh-enquiry-contact {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+.jmh-enquiry-contact h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--jmh-ivory);
+}
+.jmh-enquiry-contact p {
+  margin: 0;
+  line-height: 1.6;
+}
+.jmh-enquiry-whatsapp {
+  min-height: 64px;
+  font-size: 18px;
+}
+.jmh-enquiry-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  color: var(--jmh-ivory);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.jmh-enquiry-link:hover {
+  color: var(--jmh-gold);
+}
+@media (min-width: 640px) {
+  .jmh-enquiry-fields {
+    grid-template-columns: 1fr 1fr;
+  }
+  .jmh-enquiry-form {
+    padding: 32px;
+  }
+}
+@media (min-width: 960px) {
+  .jmh-enquiry-grid {
+    grid-template-columns: 1.6fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+}

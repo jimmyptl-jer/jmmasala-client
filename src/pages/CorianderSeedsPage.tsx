@@ -6,6 +6,7 @@ import {
   MapPin,
 } from "lucide-react";
 import Seo from "@/components/Seo";
+import QuotationForm from "@/components/quote/QuotationForm";
 import {
   COMPANY,
   DOCUMENTATION_PACKAGE,
@@ -207,7 +208,7 @@ const CorianderSeedsPage = () => {
       {
         "@type": "ListItem",
         position: 3,
-        name: "Coriander Seeds Exporter India",
+        name: "Coriander Seeds Exporter from India",
         item: canonicalUrl,
       },
     ],
@@ -306,6 +307,12 @@ const CorianderSeedsPage = () => {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="#quotation-form"
+                  className="jm-btn jm-btn--primary inline-flex items-center gap-2"
+                >
+                  Request a Bulk Quotation <ArrowRight className="h-4 w-4" />
+                </a>
                 <a
                   href={quoteUrl}
                   target="_blank"
@@ -952,6 +959,18 @@ const CorianderSeedsPage = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Bulk quotation form */}
+      <section className="jm-section jm-section--white">
+        <div className="jm-container">
+          <QuotationForm
+            id="quotation-form"
+            defaultProduct="Coriander Seeds"
+            gradeOptions={["Eagle Coriander Seeds", "Parrot Coriander Seeds", "Badami Coriander Seeds"]}
+            sourcePage="coriander-seeds-exporter-india"
+          />
         </div>
       </section>
 
