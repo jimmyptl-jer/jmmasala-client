@@ -194,8 +194,6 @@ const AjwainSeedsPage = () => {
     description:
       "Export-grade Indian ajwain seeds (carom seeds) from Gujarat. High thymol volatile oil (2.5%-5%), Sortex optical cleaned, 98%-99.5% purity, FOB Mundra and CIF global supply.",
     image: [productImageUrl],
-    sku: "JMM-AJWAIN-SEEDS",
-    mpn: "JMM-AJWAIN-SEEDS",
     brand: {
       "@type": "Brand",
       name: COMPANY.name,
@@ -215,23 +213,6 @@ const AjwainSeedsPage = () => {
       name: spec.label,
       value: spec.value,
     })),
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/NewCondition",
-      url: canonicalUrl,
-      seller: {
-        "@id": `${SITE_URL}/#organization`,
-      },
-      shippingDetails: {
-        "@type": "OfferShippingDetails",
-        shippingDestination: {
-          "@type": "DefinedRegion",
-          addressCountry: ["US", "CA", "GB", "AE", "SA", "SG", "AU", "DE", "NL"],
-        },
-      },
-    },
   };
 
   const breadcrumbSchema = {
@@ -275,8 +256,8 @@ const AjwainSeedsPage = () => {
   return (
     <>
       <Seo
-        title="Ajwain Seeds Exporter from India | Carom Seeds | JM Masala"
-        description="JM Masala supplies Ajwain seeds (carom seeds) from Gujarat, India. 98%, 99% & 99.5% Sortex purity, high thymol oil (2.5%-5%), lab tested, FOB Mundra and CIF global export."
+        title="Ajwain (Carom) Seeds Exporter India | Bulk, Sortex Cleaned"
+        description="Bulk ajwain (carom, ajmo) seeds from Gujarat, Sortex cleaned, FOB Mundra. Request specifications, samples and a quotation."
         path="/ajwain-seeds-exporter-india"
         imageUrl={productImageUrl}
         imageAlt="Export-grade Ajwain carom seeds supplied by JM Masala from India"
@@ -328,7 +309,7 @@ const AjwainSeedsPage = () => {
                 <MapPin className="h-3.5 w-3.5" /> Gujarat, India Sourcing &amp; Export
               </p>
               <h1 className="mt-4 font-[var(--font-display)] text-3xl leading-tight text-white md:text-5xl">
-                Ajwain Seeds Exporter from India
+                Ajwain (Carom) Seeds Exporter from India
               </h1>
               <p className="mt-3 text-lg font-medium text-[var(--brand-gold-light)] md:text-xl">
                 Indian Carom Seeds | Bulk Export Supply | Buyer-Specific Specifications
@@ -975,6 +956,29 @@ const AjwainSeedsPage = () => {
       </section>
 
       {/* Final Call to Action */}
+      {/* Related seed spices */}
+      <section className="jm-section jm-section--white">
+        <div className="jm-container">
+          <h2 className="jm-section-heading">Related Seed Spices and Services</h2>
+          <p className="mt-3 text-sm leading-7 text-[var(--brand-forest)]">
+            Also from JM Masala:{" "}
+              <Link to="/cumin-seeds-exporter-india" className="underline">cumin seeds (jeera) exporter</Link>,{" "}
+              <Link to="/coriander-seeds-exporter-india" className="underline">bulk coriander seeds exporter</Link>,{" "}
+              <Link to="/fennel-seeds-exporter-india" className="underline">fennel seeds (saunf) exporter</Link>,{" "}
+              <Link to="/sesame-seeds-exporter-india" className="underline">sesame seeds (til) supplier</Link> and{" "}
+              <Link to="/mustard-seeds-exporter-india" className="underline">mustard seeds (rai) supplier</Link>.
+            For quality and documents see{" "}
+            <Link to="/quality-certifications" className="underline">quality and export documentation</Link>
+            ; for packing see{" "}
+            <Link to="/spice-packaging" className="underline">spice packaging for export</Link>
+            ; for branded packs see{" "}
+            <Link to="/private-label-spices" className="underline">private label spice manufacturing</Link>
+            ; and for cleaning and grinding see{" "}
+            <Link to="/spice-processing-manufacturing" className="underline">spice processing in Unjha</Link>.
+          </p>
+        </div>
+      </section>
+
       <section className="bg-[var(--brand-deep-green)] py-14 text-white">
         <div className="jm-container text-center">
           <h2 className="font-[var(--font-display)] text-2xl md:text-3xl">

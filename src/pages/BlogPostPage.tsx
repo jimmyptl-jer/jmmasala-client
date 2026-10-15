@@ -1,6 +1,6 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import Seo from "@/components/Seo";
-import { BLOG_POSTS, PRODUCTS_BY_SLUG, SITE_URL } from "@/data/siteData";
+import { BLOG_POSTS, COMPANY, PRODUCTS_BY_SLUG, SITE_URL } from "@/data/siteData";
 
 const BlogPostPage = () => {
   const params = useParams();
@@ -84,11 +84,13 @@ const BlogPostPage = () => {
             articleSection: post.sections.map((section) => section.heading),
             author: {
               "@type": "Organization",
-              name: "JM Masala Exports",
+              "@id": `${SITE_URL}/#organization`,
+              name: COMPANY.legalName,
             },
             publisher: {
               "@type": "Organization",
-              name: "JM Masala Exports",
+              "@id": `${SITE_URL}/#organization`,
+              name: COMPANY.legalName,
               logo: {
                 "@type": "ImageObject",
                 url: `${SITE_URL}/JMMasala.png`,

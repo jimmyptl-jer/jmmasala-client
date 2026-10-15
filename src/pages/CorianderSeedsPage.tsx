@@ -15,7 +15,7 @@ import {
   buildProductInquiryMessage,
   buildWhatsAppUrl,
 } from "@/data/siteData";
-import corianderSeedsImage from "@/assets/CorianderSeeds.png";
+import corianderSeedsImage from "@/assets/CorianderSeeds.jpg";
 
 const CORIANDER_SPEC_ROWS = [
   { label: "Botanical Name", value: "Coriandrum sativum L." },
@@ -149,8 +149,6 @@ const CorianderSeedsPage = () => {
     description:
       "Export-grade Indian coriander seeds (Dhania) from Gujarat and Rajasthan. Available in Eagle, Parrot, and Badami grades with machine and Sortex cleaning, high volatile oil, and complete export documentation.",
     image: [productImageUrl],
-    sku: "JMM-CORIANDER-SEEDS",
-    mpn: "JMM-CORIANDER-SEEDS",
     brand: {
       "@type": "Brand",
       name: COMPANY.name,
@@ -170,23 +168,6 @@ const CorianderSeedsPage = () => {
       name: spec.label,
       value: spec.value,
     })),
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/NewCondition",
-      url: canonicalUrl,
-      seller: {
-        "@id": `${SITE_URL}/#organization`,
-      },
-      shippingDetails: {
-        "@type": "OfferShippingDetails",
-        shippingDestination: {
-          "@type": "DefinedRegion",
-          addressCountry: ["US", "CA", "GB", "AE", "SA", "SG", "AU", "DE", "NL"],
-        },
-      },
-    },
   };
 
   const breadcrumbSchema = {
@@ -230,8 +211,8 @@ const CorianderSeedsPage = () => {
   return (
     <>
       <Seo
-        title="Coriander Seeds Exporter from India | Gujarat Dhania | JM Masala"
-        description="JM Masala supplies coriander seeds from Gujarat, India. Eagle, Parrot & Badami grades, Sortex cleaned (98%-99.9% purity), lab tested, FOB Mundra and CIF global export."
+        title="Coriander Seeds (Dhania) Exporter India | Bulk, Sortex Cleaned"
+        description="Bulk coriander (dhania) seeds from Gujarat: Eagle, Scooter and Parrot grades, Sortex cleaned, FOB Mundra. Request samples and a quote."
         path="/coriander-seeds-exporter-india"
         imageUrl={productImageUrl}
         imageAlt="Export-grade coriander seeds from Gujarat India supplied by JM Masala"
@@ -285,7 +266,7 @@ const CorianderSeedsPage = () => {
                 <MapPin className="h-3.5 w-3.5" /> Gujarat, India Sourcing &amp; Export
               </p>
               <h1 className="mt-4 font-[var(--font-display)] text-3xl leading-tight text-white md:text-5xl">
-                Coriander Seeds Exporter from India
+                Coriander Seeds (Dhania) Exporter from India
               </h1>
               <p className="mt-3 text-lg font-medium text-[var(--brand-gold-light)] md:text-xl">
                 Gujarat-Origin Coriander Seeds | Eagle, Parrot &amp; Badami Grades | Bulk Export Supply
@@ -1052,6 +1033,29 @@ const CorianderSeedsPage = () => {
       </section>
 
       {/* Final Call to Action */}
+      {/* Related seed spices */}
+      <section className="jm-section jm-section--white">
+        <div className="jm-container">
+          <h2 className="jm-section-heading">Related Seed Spices and Services</h2>
+          <p className="mt-3 text-sm leading-7 text-[var(--brand-forest)]">
+            Also from JM Masala:{" "}
+              <Link to="/cumin-seeds-exporter-india" className="underline">cumin seeds (jeera) exporter</Link>,{" "}
+              <Link to="/fennel-seeds-exporter-india" className="underline">fennel seeds (saunf) exporter</Link>,{" "}
+              <Link to="/sesame-seeds-exporter-india" className="underline">sesame seeds (til) supplier</Link>,{" "}
+              <Link to="/ajwain-seeds-exporter-india" className="underline">ajwain (carom) seeds supplier</Link> and{" "}
+              <Link to="/mustard-seeds-exporter-india" className="underline">mustard seeds (rai) supplier</Link>.
+            For quality and documents see{" "}
+            <Link to="/quality-certifications" className="underline">quality and export documentation</Link>
+            ; for packing see{" "}
+            <Link to="/spice-packaging" className="underline">spice packaging for export</Link>
+            ; for branded packs see{" "}
+            <Link to="/private-label-spices" className="underline">private label spice manufacturing</Link>
+            ; and for cleaning and grinding see{" "}
+            <Link to="/spice-processing-manufacturing" className="underline">spice processing in Unjha</Link>.
+          </p>
+        </div>
+      </section>
+
       <section className="bg-[var(--brand-deep-green)] py-14 text-white">
         <div className="jm-container text-center">
           <h2 className="font-[var(--font-display)] text-2xl md:text-3xl">

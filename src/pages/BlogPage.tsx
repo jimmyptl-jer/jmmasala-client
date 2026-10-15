@@ -6,15 +6,15 @@ const BlogPage = () => {
   return (
     <>
       <Seo
-        title="Spice Export Blog | Cumin, Psyllium, Importing from India | JM Masala"
-        description="Read JM Masala articles on spice quality grades, cumin sourcing from Unjha, psyllium, HACCP processing, and importing spices from India."
+        title="Spice Export Buyer Guides | JM Masala Blog"
+        description="Buyer-focused guides on importing spices from India, Unjha cumin sourcing, psyllium and export specifications."
         path="/blog"
         keywords={[
           "spice export blog India",
           "importing spices from India",
           "cumin sourcing Unjha",
           "psyllium husk exporter guide",
-          "HACCP spice processing",
+          "spice processing India",
           "JM Masala blog",
         ]}
         schema={{

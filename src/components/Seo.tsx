@@ -1,5 +1,9 @@
 import { useEffect } from "react";
-import { SITE_URL } from "@/data/siteData";
+import { COMPANY, SITE_URL } from "@/data/siteData";
+
+const DEFAULT_ROBOTS = "index, follow, max-image-preview:large";
+const NOINDEX_ROBOTS = "noindex, follow";
+const DEFAULT_OG_IMAGE = "/og-default.jpg";
 
 type SeoProps = {
   title: string;
@@ -10,6 +14,9 @@ type SeoProps = {
   type?: "website" | "article" | "product";
   keywords?: string[];
   robots?: string;
+  noindex?: boolean;
+  /** Canonical path when it differs from `path` (exact-duplicate pages). */
+  canonicalPath?: string;
   publishedTime?: string;
   modifiedTime?: string;
   schema?: Record<string, unknown> | Array<Record<string, unknown>>;
@@ -99,27 +106,32 @@ const Seo = ({
   imageAlt = "JM Masala export-grade Indian spices",
   type = "website",
   keywords,
-  robots = "index, follow",
+  robots,
+  noindex = false,
+  canonicalPath,
   publishedTime,
   modifiedTime,
   schema,
 }: SeoProps) => {
   useEffect(() => {
-    const canonicalUrl = `${SITE_URL}${path}`;
+    const canonicalUrl = `${SITE_URL}${canonicalPath ?? path}`;
     const ogImage = imageUrl
       ? imageUrl.startsWith("http")
         ? imageUrl
         : `${SITE_URL}${imageUrl}`
-      : `${SITE_URL}/JMMasala.png`;
+      : `${SITE_URL}${DEFAULT_OG_IMAGE}`;
 
     document.title = title;
 
     upsertNamedMeta("description", description);
-    upsertNamedMeta("author", "JM Masala Exports");
+    upsertNamedMeta("author", COMPANY.legalName);
     if (keywords?.length) {
       upsertNamedMeta("keywords", keywords.join(", "));
     }
-    upsertNamedMeta("robots", robots);
+    upsertNamedMeta(
+      "robots",
+      robots ?? (noindex ? NOINDEX_ROBOTS : DEFAULT_ROBOTS),
+    );
     upsertPropertyMeta("og:title", title);
     upsertPropertyMeta("og:description", description);
     upsertPropertyMeta("og:type", type);
@@ -152,7 +164,15 @@ const Seo = ({
     upsertNamedMeta("twitter:image:alt", imageAlt);
     upsertNamedMeta("twitter:site", "@jmmasalaexports");
     upsertCanonical(canonicalUrl);
-    upsertAlternate("en-IN", canonicalUrl);
+    document.head
+      .querySelectorAll('link[rel="alternate"][hreflang]')
+      .forEach((link) => {
+        const lang = link.getAttribute("hreflang");
+        if (lang !== "en" && lang !== "x-default") {
+          link.remove();
+        }
+      });
+    upsertAlternate("en", canonicalUrl);
     upsertAlternate("x-default", canonicalUrl);
     upsertSchema(schema);
 
@@ -176,6 +196,8 @@ const Seo = ({
     type,
     keywords,
     robots,
+    noindex,
+    canonicalPath,
     publishedTime,
     modifiedTime,
     schema,

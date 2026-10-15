@@ -86,8 +86,6 @@ const BirdEyeChilliPage = () => {
     description:
       "Export-grade Indian Bird's Eye Chilli (Capsicum frutescens) supplied by JM Masala. Intense heat 100,000–225,000 SHU, small conical dried pods, tested for aflatoxin and Sudan dye compliance.",
     image: [productImageUrl],
-    sku: "JMM-BIRD-EYE-CHILLI",
-    mpn: "JMM-bird-eye-chilli",
     brand: {
       "@type": "Brand",
       name: COMPANY.name,
@@ -135,8 +133,8 @@ const BirdEyeChilliPage = () => {
   return (
     <>
       <Seo
-        title="Bird's Eye Chilli Exporter from India | Kanthari Chilli | JM Masala"
-        description="JM Masala supplies authentic Indian Bird's Eye chilli (Kanthari) for bulk international buyers. Intense heat 100,000–225,000 SHU, small conical dried pods."
+        title="Bird's Eye (Kanthari) Chilli Exporter India | Bulk"
+        description="Bulk Bird's Eye (Kanthari) chilli from India: small conical dried pods for importers. Request SHU specifications, samples and a quotation."
         path="/bird-eye-chilli-exporter-india"
         imageUrl={productImageUrl}
         imageAlt="Export-grade Indian Bird's Eye chilli Kanthari supplied by JM Masala"

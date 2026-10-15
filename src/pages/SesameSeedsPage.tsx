@@ -19,7 +19,7 @@ import {
   buildWhatsAppUrl,
 } from "@/data/siteData";
 import QuotationForm from "@/components/quote/QuotationForm";
-import sesameSeedsImage from "@/assets/SesameSeeds.png";
+import sesameSeedsImage from "@/assets/SesameSeeds.jpg";
 
 const SESAME_SPEC_ROWS = [
   { label: "Product Name", value: "Sesame Seeds" },
@@ -227,10 +227,8 @@ const SesameSeedsPage = () => {
     "@id": `${canonicalUrl}#product`,
     name: "Sesame Seeds (Natural & Hulled)",
     description:
-      "Export-grade Indian sesame seeds from Gujarat: Natural White, Hulled (up to 99.98% Sortex), Black & Brown sesame. High oil (48%-52%), lab tested, FOB Mundra and CIF global supply.",
+      "Export-grade Indian sesame seeds from Gujarat: Natural White, Hulled (up to 99.98% Sortex), Black & Brown sesame. High oil (48%-52%), FOB Mundra and CIF global supply.",
     image: [productImageUrl],
-    sku: "JMM-SESAME-SEEDS",
-    mpn: "JMM-SESAME-SEEDS",
     brand: {
       "@type": "Brand",
       name: COMPANY.name,
@@ -250,23 +248,6 @@ const SesameSeedsPage = () => {
       name: spec.label,
       value: spec.value,
     })),
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/NewCondition",
-      url: canonicalUrl,
-      seller: {
-        "@id": `${SITE_URL}/#organization`,
-      },
-      shippingDetails: {
-        "@type": "OfferShippingDetails",
-        shippingDestination: {
-          "@type": "DefinedRegion",
-          addressCountry: ["US", "CA", "GB", "AE", "SA", "SG", "AU", "DE", "NL"],
-        },
-      },
-    },
   };
 
   const breadcrumbSchema = {
@@ -310,8 +291,8 @@ const SesameSeedsPage = () => {
   return (
     <>
       <Seo
-        title="Sesame Seeds Exporter from India | Natural & Hulled | JM Masala"
-        description="JM Masala supplies natural and hulled sesame seeds from India for bulk buyers, importers, distributors and food manufacturers. Request specifications, samples and export quotations."
+        title="Sesame Seeds (Til) Exporter India | Natural & Hulled, Bulk"
+        description="Bulk natural and hulled sesame seeds (til) from India for importers, distributors and food manufacturers. Request specs, samples and a quote."
         path="/sesame-seeds-exporter-india"
         imageUrl={productImageUrl}
         imageAlt="Export-grade natural and hulled sesame seeds supplied by JM Masala from India"
@@ -364,7 +345,7 @@ const SesameSeedsPage = () => {
                 <MapPin className="h-3.5 w-3.5" /> Gujarat, India Sourcing &amp; Export
               </p>
               <h1 className="mt-4 font-[var(--font-display)] text-3xl leading-tight text-white md:text-5xl">
-                Sesame Seeds Exporter from India
+                Sesame Seeds (Til) Exporter from India
               </h1>
               <p className="mt-3 text-lg font-medium text-[var(--brand-gold-light)] md:text-xl">
                 Natural &amp; Hulled Sesame Seeds | Bulk Export Supply | India
@@ -1322,6 +1303,29 @@ const SesameSeedsPage = () => {
       </section>
 
       {/* Call to Action Bar */}
+      {/* Related seed spices */}
+      <section className="jm-section jm-section--white">
+        <div className="jm-container">
+          <h2 className="jm-section-heading">Related Seed Spices and Services</h2>
+          <p className="mt-3 text-sm leading-7 text-[var(--brand-forest)]">
+            Also from JM Masala:{" "}
+              <Link to="/cumin-seeds-exporter-india" className="underline">cumin seeds (jeera) exporter</Link>,{" "}
+              <Link to="/coriander-seeds-exporter-india" className="underline">bulk coriander seeds exporter</Link>,{" "}
+              <Link to="/fennel-seeds-exporter-india" className="underline">fennel seeds (saunf) exporter</Link>,{" "}
+              <Link to="/ajwain-seeds-exporter-india" className="underline">ajwain (carom) seeds supplier</Link> and{" "}
+              <Link to="/mustard-seeds-exporter-india" className="underline">mustard seeds (rai) supplier</Link>.
+            For quality and documents see{" "}
+            <Link to="/quality-certifications" className="underline">quality and export documentation</Link>
+            ; for packing see{" "}
+            <Link to="/spice-packaging" className="underline">spice packaging for export</Link>
+            ; for branded packs see{" "}
+            <Link to="/private-label-spices" className="underline">private label spice manufacturing</Link>
+            ; and for cleaning and grinding see{" "}
+            <Link to="/spice-processing-manufacturing" className="underline">spice processing in Unjha</Link>.
+          </p>
+        </div>
+      </section>
+
       <section className="bg-[var(--brand-deep-green)] py-12 text-white">
         <div className="jm-container text-center">
           <h2 className="font-[var(--font-display)] text-2xl font-bold md:text-3xl">

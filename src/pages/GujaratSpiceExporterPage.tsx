@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2, FileText, MapPin, Package, ShieldCheck, Truck } from "lucide-react";
 import Seo from "@/components/Seo";
 import {
-  COMPANY,
   DOCUMENTATION_PACKAGE,
   PRODUCTS,
   SITE_URL,
@@ -10,7 +9,7 @@ import {
   buildGeneralInquiryMessage,
   buildWhatsAppUrl,
 } from "@/data/siteData";
-import bannerImage from "@/assets/homepage.png";
+import bannerImage from "@/assets/homepage.jpg";
 
 const GUJARAT_FAQS = [
   {
@@ -21,7 +20,7 @@ const GUJARAT_FAQS = [
   {
     question: "Is JM Masala a Gujarat-based spice exporter?",
     answer:
-      "Yes. JM Masala Exports has its corporate office and facility at A/18, Main Line, APMC Market Yard in Unjha, Mehsana district, Gujarat, and supplies export-grade Indian spices with packing, testing, and documentation support.",
+      "Yes. JM Masala Trading LLP has its corporate office at A/18, Main Line, APMC Market Yard in Unjha, Mehsana district, Gujarat, and supplies Indian spices with packing and export documentation support.",
   },
   {
     question: "Which Gujarat spices can buyers source from JM Masala?",
@@ -74,8 +73,8 @@ const GujaratSpiceExporterPage = () => {
   return (
     <>
       <Seo
-        title="Best Spice Exporter in Gujarat | Unjha Cumin Supplier | JM Masala"
-        description="JM Masala is a Gujarat-based spice exporter from Unjha supplying cumin, coriander, fennel, fenugreek, sesame, psyllium and more with HACCP, packing, lab testing, and export documentation."
+        title="Spice Exporter in Gujarat | Bulk Seed Spices from Unjha"
+        description="Gujarat-based spice exporter from Unjha: cumin, coriander, fennel, sesame and more, with processing, packing and export documents."
         path="/spice-exporter-gujarat"
         imageUrl={bannerImage}
         imageAlt="JM Masala spice exporter in Gujarat from Unjha"
@@ -86,37 +85,20 @@ const GujaratSpiceExporterPage = () => {
           "cumin exporter Gujarat",
           "Gujarat spices supplier",
           "Indian spice exporter from Gujarat",
-          "HACCP spice exporter Gujarat",
+          "Unjha seed spices exporter",
           "bulk spice supplier Gujarat",
         ]}
         schema={[
           {
             "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            name: COMPANY.legalName,
-            alternateName: COMPANY.name,
-            url: `${SITE_URL}/spice-exporter-gujarat`,
-            image: `${SITE_URL}/JMMasala.png`,
-            email: COMPANY.email,
-            telephone: COMPANY.phones,
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "A/18, Main Line, APMC Market Yard",
-              addressLocality: "Unjha",
-              addressRegion: "Gujarat",
-              postalCode: "384170",
-              addressCountry: "IN",
-            },
-            areaServed: ["Gujarat", "India", "Worldwide"],
-            priceRange: "$$",
-          },
-          {
-            "@context": "https://schema.org",
             "@type": "CollectionPage",
             name: "Best Spice Exporter in Gujarat",
             url: `${SITE_URL}/spice-exporter-gujarat`,
+            isPartOf: { "@id": `${SITE_URL}/#website` },
+            about: { "@id": `${SITE_URL}/#organization` },
+            publisher: { "@id": `${SITE_URL}/#organization` },
             description:
-              "Gujarat-focused spice exporter page for JM Masala Exports in Unjha.",
+              "Gujarat-focused spice exporter page for JM Masala Trading LLP in Unjha.",
             mainEntity: {
               "@type": "ItemList",
               itemListElement: gujaratProducts.map((product, index) => ({
@@ -175,7 +157,7 @@ const GujaratSpiceExporterPage = () => {
               Best Spice Exporter in Gujarat for Origin-Led Bulk Supply
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-8 text-[rgba(255,255,255,0.82)]">
-              JM Masala Exports is based in Unjha, Gujarat, helping importers,
+              JM Masala Trading LLP is based in Unjha, Gujarat, helping importers,
               wholesalers, food brands, and private-label buyers source export-grade
               cumin, coriander, fennel, fenugreek, sesame, psyllium, turmeric,
               chilli, pepper, cardamom, and more.
@@ -304,6 +286,24 @@ const GujaratSpiceExporterPage = () => {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="jm-section jm-section--white">
+        <div className="jm-container">
+          <h2 className="jm-section-heading">Seed Spices from Unjha, Gujarat</h2>
+          <p className="mt-3 text-sm leading-7 text-[var(--brand-forest)]">
+            Explore our
+            <Link to="/cumin-seeds-exporter-india" className="underline">cumin seeds (jeera) exporter</Link>,{" "}
+            <Link to="/coriander-seeds-exporter-india" className="underline">bulk coriander seeds exporter</Link>,{" "}
+            <Link to="/fennel-seeds-exporter-india" className="underline">fennel seeds (saunf) exporter</Link>,{" "}
+            <Link to="/sesame-seeds-exporter-india" className="underline">sesame seeds (til) supplier</Link>,{" "}
+            <Link to="/ajwain-seeds-exporter-india" className="underline">ajwain (carom) seeds supplier</Link> and{" "}
+            <Link to="/mustard-seeds-exporter-india" className="underline">mustard seeds (rai) supplier</Link>. See also{" "}
+            <Link to="/unjha-cumin-seeds" className="underline">Unjha cumin seeds</Link>,{" "}
+            <Link to="/unjha-fennel-seeds" className="underline">Unjha fennel seeds</Link> and{" "}
+            <Link to="/sourcing-network" className="underline">our Indian spice sourcing network</Link>.
+          </p>
         </div>
       </section>
 

@@ -18,8 +18,8 @@ const HomePage = () => {
   return (
     <>
       <Seo
-        title="Indian Spice Manufacturer, Processor & Exporter | JM Masala Trading LLP"
-        description="JM Masala Trading LLP is an Indian spice manufacturer, processor and exporter based in Unjha, Gujarat. Cumin, coriander, fennel, sesame, ajwain, mustard and more for bulk and export buyers."
+        title="JM Masala | Indian Spices Manufacturer, Processor & Exporter"
+        description="JM Masala Trading LLP, Unjha, Gujarat: manufacturer, processor and exporter of cumin, coriander, fennel, fenugreek, turmeric, chilli and more."
         path="/"
         imageUrl="/JMMasala.png"
         keywords={[
@@ -40,7 +40,7 @@ const HomePage = () => {
               "@type": "Organization",
               "@id": `${SITE_URL}/#organization`,
               name: COMPANY.legalName,
-              alternateName: [COMPANY.name, "JM Masala Exports", "JM Masala Unjha"],
+              alternateName: [COMPANY.name, "JM Masala Unjha"],
               url: SITE_URL,
               logo: `${SITE_URL}/JMMasala.png`,
               description:

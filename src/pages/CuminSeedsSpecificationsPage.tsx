@@ -18,7 +18,7 @@ import {
   buildProductInquiryMessage,
   buildWhatsAppUrl,
 } from "@/data/siteData";
-import bannerImage from "@/assets/homepage.png";
+import bannerImage from "@/assets/homepage.jpg";
 
 const SPEC_FAQS = [
   {
@@ -124,8 +124,8 @@ const CuminSeedsSpecificationsPage = () => {
   return (
     <>
       <Seo
-        title="Cumin Seeds Technical Specifications | Export Grades & COA Standards | JM Masala"
-        description="Comprehensive technical datasheet for Indian cumin seeds (jeera): purity levels, volatile oil, moisture limits, microbiological standards, container stuffing, and commercial export grades."
+        title="Cumin Seeds Specifications | Export Grades | JM Masala"
+        description="Technical datasheet for Indian cumin seeds (jeera): purity levels, moisture limits, volatile oil and export grades. Request a specification sheet."
         path="/cumin-seeds-specifications"
         imageUrl={bannerImage}
         imageAlt="Indian cumin seeds technical specifications and export grade comparison"

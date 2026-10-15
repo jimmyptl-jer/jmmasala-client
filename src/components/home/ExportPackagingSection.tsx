@@ -14,7 +14,7 @@ export default function ExportPackagingSection(): JSX.Element {
   const whatsappUrl = buildWhatsAppUrl(buildGeneralInquiryMessage("export quotations"));
 
   return (
-    <section className="jmh-section jmh-section--white" aria-labelledby="jmh-exp-heading">
+    <section className="jmh-section jmh-section--ivory" aria-labelledby="jmh-exp-heading">
       <div className="jmh-container">
         <h2 id="jmh-exp-heading" className="jmh-h2">
           Export Grades, Packing and Documentation

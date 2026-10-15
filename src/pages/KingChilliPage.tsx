@@ -87,8 +87,6 @@ const KingChilliPage = () => {
     description:
       "Export-grade Indian King Chilli (Capsicum chinense) supplied by JM Masala. Super-hot 800,000–1,041,000+ SHU, solar-dried whole pods and flakes with full laboratory test reports.",
     image: [productImageUrl],
-    sku: "JMM-KING-CHILLI",
-    mpn: "JMM-king-chilli",
     brand: {
       "@type": "Brand",
       name: COMPANY.name,
@@ -135,8 +133,8 @@ const KingChilliPage = () => {
   return (
     <>
       <Seo
-        title="King Chilli Exporter from India | Bhut Jolokia Ghost Pepper | JM Masala"
-        description="JM Masala supplies genuine Indian King Chilli (Bhut Jolokia / Naga Chilli) for bulk export. Super-hot 800,000–1,041,000+ SHU, solar dried whole pods & flakes."
+        title="King Chilli (Bhut Jolokia) Exporter India | Bulk"
+        description="Bulk King Chilli (Bhut Jolokia, Naga) as whole dried pods and flakes from India. Request SHU specifications, samples and a quotation."
         path="/king-chilli-exporter-india"
         imageUrl={productImageUrl}
         imageAlt="Export-grade Indian King chilli Bhut Jolokia supplied by JM Masala"

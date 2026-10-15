@@ -317,25 +317,31 @@ const ExportOperationsPage = () => {
   const schema = [
     {
       "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/export-destinations#webpage`,
+      "name": "Spice Export Operations from Mundra Port",
+      "url": `${SITE_URL}/export-destinations`,
+      "isPartOf": { "@id": `${SITE_URL}/#website` },
+      "about": { "@id": `${SITE_URL}/#organization` },
+      "publisher": { "@id": `${SITE_URL}/#organization` },
+      "breadcrumb": { "@id": `${SITE_URL}/export-destinations#breadcrumb` }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "@id": `${SITE_URL}/export-destinations#breadcrumb`,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+        { "@type": "ListItem", "position": 2, "name": "Export Operations", "item": `${SITE_URL}/export-destinations` }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "Service",
       "name": "Indian Spices Export Operations & Global Supply Chain",
-      "provider": {
-        "@type": "Organization",
-        "name": COMPANY.legalName,
-        "url": SITE_URL,
-        "logo": `${SITE_URL}/JmMasala.png`,
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": COMPANY.addressLine,
-          "addressLocality": "Unjha",
-          "addressRegion": "Gujarat",
-          "postalCode": "384170",
-          "addressCountry": "IN"
-        }
-      },
+      "provider": { "@id": `${SITE_URL}/#organization` },
       "serviceType": "Agricultural Commodity Export & Processing",
-      "areaServed": ["Middle East", "Europe", "North America", "South Asia", "Southeast Asia", "Oceania"],
-      "description": "Global export operations for Indian spices including Cumin, Coriander, Fennel, Fenugreek, Ajwain, Turmeric and Psyllium shipped via Mundra Port with full export documentation."
+      "description": "Export operations for Indian spices including Cumin, Coriander, Fennel, Fenugreek, Ajwain, Turmeric and Psyllium shipped via Mundra Port with export documentation."
     },
     {
       "@context": "https://schema.org",
@@ -354,8 +360,8 @@ const ExportOperationsPage = () => {
   return (
     <>
       <Seo
-        title="Indian Spices Export Operations & Global Supply | JM Masala Trading LLP"
-        description="Official export operations and global supply chain of JM Masala Trading LLP. Supplying whole and processed Indian spices via Mundra Port to 20+ countries with complete export documentation, container loading, and CIF shipping."
+        title="Indian Spices Export Operations | Mundra Port | JM Masala"
+        description="Export operations of JM Masala Trading LLP: Indian spices shipped from Mundra Port with export documentation and container loading."
         path="/export-destinations"
         schema={schema}
       />
@@ -991,6 +997,20 @@ const ExportOperationsPage = () => {
                 );
               })}
             </div>
+
+            <p className="mt-10 text-sm text-gray-600 leading-relaxed text-center">
+              Seed spices for export:{" "}
+              <Link to="/cumin-seeds-exporter-india" className="underline">cumin seeds (jeera) exporter</Link>,{" "}
+              <Link to="/coriander-seeds-exporter-india" className="underline">coriander seeds (dhania) exporter</Link>,{" "}
+              <Link to="/fennel-seeds-exporter-india" className="underline">fennel seeds (saunf) supplier</Link>,{" "}
+              <Link to="/sesame-seeds-exporter-india" className="underline">sesame seeds (til) supplier</Link>,{" "}
+              <Link to="/ajwain-seeds-exporter-india" className="underline">ajwain (carom) seeds exporter</Link> and{" "}
+              <Link to="/mustard-seeds-exporter-india" className="underline">mustard seeds (rai) supplier</Link>.
+              Origin and sourcing:{" "}
+              <Link to="/spice-exporter-gujarat" className="underline">spice exporter in Gujarat</Link>,{" "}
+              <Link to="/sourcing/gujarat" className="underline">Gujarat spice sourcing</Link>,{" "}
+              <Link to="/sourcing-network" className="underline">Indian spice sourcing network</Link>.
+            </p>
 
             <div className="text-center mt-12">
               <Link

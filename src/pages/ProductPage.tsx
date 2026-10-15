@@ -79,8 +79,8 @@ const ProductsPage = () => {
   return (
     <>
       <Seo
-        title="Indian Spice Manufacturer, Processor & Exporter | Master Product Portfolio | JM Masala"
-        description="JM Masala Trading LLP is an Indian spices manufacturer, processor and exporter supplying premium cumin, coriander, fennel, fenugreek, ajwain, mustard, turmeric, dry ginger, red chilli, powders, and psyllium worldwide."
+        title="Indian Spice Products for Export | JM Masala"
+        description="Browse Indian spices from JM Masala including cumin, coriander, fennel, turmeric, chilli, sesame, psyllium, black pepper and cardamom."
         path="/products"
         imageUrl={PRODUCTS[0]?.imageUrl}
         keywords={[
@@ -127,7 +127,7 @@ const ProductsPage = () => {
                   name: "Can buyers request custom packing and export documentation?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Yes. JM Masala supports buyer-specific packing (25kg/50kg PP, Jute, paper bags, vacuum packs), private labelling, NABL lab COA, phytosanitary, fumigation, APEDA, and FOB Mundra port terms.",
+                    text: "Yes. JM Masala supports buyer-specific packing (25kg/50kg PP, Jute, paper bags, vacuum packs), private labelling, quality documentation on request, phytosanitary and fumigation documents, and FOB Mundra port terms.",
                   },
                 },
               ],
@@ -140,7 +140,7 @@ const ProductsPage = () => {
         <div className="jm-container">
           <p className="jm-section-label">Definitive Product Database</p>
           <h1 className="jm-section-heading">
-            JM Masala — Complete Product Catalogue
+            JM Masala: Complete Product Catalogue
           </h1>
           <p className="mt-2 max-w-3xl text-[var(--brand-forest)]">
             JM Masala Trading LLP is an Indian spice manufacturer, processor, and exporter supplying high-purity Whole Spices, Pure Ground Powders, Dehydrated Products, Psyllium, and Agro Commodities with advanced Sortex optical cleaning and FOB Mundra / CIF global shipping terms.

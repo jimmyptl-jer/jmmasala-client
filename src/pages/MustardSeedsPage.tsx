@@ -263,8 +263,6 @@ const MustardSeedsPage = () => {
     description:
       "Export-grade Indian mustard seeds (small black, brown & bold yellow) from Gujarat. Machine-cleaned & Sortex optical graded, 38%-42% oil content, FOB Mundra and CIF global supply.",
     image: [productImageUrl],
-    sku: "JMM-MUSTARD-SEEDS",
-    mpn: "JMM-MUSTARD-SEEDS",
     brand: {
       "@type": "Brand",
       name: COMPANY.name,
@@ -284,23 +282,6 @@ const MustardSeedsPage = () => {
       name: spec.label,
       value: spec.value,
     })),
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/NewCondition",
-      url: canonicalUrl,
-      seller: {
-        "@id": `${SITE_URL}/#organization`,
-      },
-      shippingDetails: {
-        "@type": "OfferShippingDetails",
-        shippingDestination: {
-          "@type": "DefinedRegion",
-          addressCountry: ["US", "CA", "GB", "AE", "SA", "SG", "AU", "DE", "NL"],
-        },
-      },
-    },
   };
 
   const breadcrumbSchema = {
@@ -344,8 +325,8 @@ const MustardSeedsPage = () => {
   return (
     <>
       <Seo
-        title="Mustard Seeds Exporter from India | Rai & Sarson | JM Masala"
-        description="JM Masala supplies Indian mustard seeds for bulk buyers, importers, distributors and food manufacturers. Request specifications, samples and export quotations."
+        title="Mustard Seeds (Rai) Exporter India | Bulk Supplier, Sarson"
+        description="Bulk Indian mustard seeds (rai, sarson) for importers, distributors and food manufacturers. Request specifications, samples and export quotations."
         path="/mustard-seeds-exporter-india"
         imageUrl={productImageUrl}
         imageAlt="Export-grade Indian mustard seeds (rai & sarson) supplied by JM Masala"
@@ -397,7 +378,7 @@ const MustardSeedsPage = () => {
                 <MapPin className="h-3.5 w-3.5" /> Gujarat &amp; Rajasthan Sourcing Hub
               </p>
               <h1 className="mt-4 font-[var(--font-display)] text-3xl leading-tight text-white md:text-5xl">
-                Mustard Seeds Exporter from India
+                Mustard Seeds (Rai) Exporter from India
               </h1>
               <p className="mt-3 text-lg font-medium text-[var(--brand-gold-light)] md:text-xl">
                 Indian Rai &amp; Sarson | Bulk Export Supply | India
@@ -1259,6 +1240,29 @@ const MustardSeedsPage = () => {
       </section>
 
       {/* Call to Action Bar */}
+      {/* Related seed spices */}
+      <section className="jm-section jm-section--white">
+        <div className="jm-container">
+          <h2 className="jm-section-heading">Related Seed Spices and Services</h2>
+          <p className="mt-3 text-sm leading-7 text-[var(--brand-forest)]">
+            Also from JM Masala:{" "}
+              <Link to="/cumin-seeds-exporter-india" className="underline">cumin seeds (jeera) exporter</Link>,{" "}
+              <Link to="/coriander-seeds-exporter-india" className="underline">bulk coriander seeds exporter</Link>,{" "}
+              <Link to="/fennel-seeds-exporter-india" className="underline">fennel seeds (saunf) exporter</Link>,{" "}
+              <Link to="/sesame-seeds-exporter-india" className="underline">sesame seeds (til) supplier</Link> and{" "}
+              <Link to="/ajwain-seeds-exporter-india" className="underline">ajwain (carom) seeds supplier</Link>.
+            For quality and documents see{" "}
+            <Link to="/quality-certifications" className="underline">quality and export documentation</Link>
+            ; for packing see{" "}
+            <Link to="/spice-packaging" className="underline">spice packaging for export</Link>
+            ; for branded packs see{" "}
+            <Link to="/private-label-spices" className="underline">private label spice manufacturing</Link>
+            ; and for cleaning and grinding see{" "}
+            <Link to="/spice-processing-manufacturing" className="underline">spice processing in Unjha</Link>.
+          </p>
+        </div>
+      </section>
+
       <section className="bg-[var(--brand-deep-green)] py-12 text-white">
         <div className="jm-container text-center">
           <h2 className="font-[var(--font-display)] text-2xl font-bold md:text-3xl">

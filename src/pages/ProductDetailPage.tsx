@@ -10,6 +10,7 @@ import {
   buildWhatsAppUrl,
   type ExportDetail,
   type TechnicalSpec,
+  PRODUCT_SEO,
 } from "@/data/siteData";
 import { PRODUCT_MASTER_SEO } from "@/data/productMasterSeo";
 import "@/styles/product-palette.css";
@@ -102,7 +103,7 @@ const PRODUCT_PAIRS: Record<
   "turmeric-exporter-india": {
     title: "Looking for Pure Turmeric Powder / Haldi?",
     subtitle:
-      "High-curcumin (2.5%–5.0%+) lab-tested turmeric powder with zero lead chromate and micro-fine mesh.",
+      "High-curcumin (2.5%–5.0%+) turmeric powder with zero lead chromate and micro-fine mesh.",
     slug: "turmeric-powder-exporter-india",
     buttonText: "View Turmeric Powder Specs",
   },
@@ -338,9 +339,13 @@ const ProductDetailPage = () => {
   const productPair = PRODUCT_PAIRS[product.slug];
 
   const title =
+    PRODUCT_SEO[product.slug]?.title ??
     masterSeo?.seo.title ??
-    `${product.name} Exporter India | HACCP Certified | JM Masala`;
-  const metaDescription = masterSeo?.seo.description ?? product.description;
+    `${product.name} Exporter India | Bulk Supplier | JM Masala`;
+  const metaDescription =
+    PRODUCT_SEO[product.slug]?.description ??
+    masterSeo?.seo.description ??
+    product.description;
   const h1Title = masterSeo?.seo.h1 ?? `${product.name} Exporter & Supplier from India`;
   const canonicalUrl = `${SITE_URL}/${product.slug}`;
   const productImageUrl = product.imageUrl.startsWith("http")
@@ -425,8 +430,6 @@ const ProductDetailPage = () => {
     name: product.name,
     description: metaDescription,
     image: [productImageUrl],
-    sku: `JMM-${product.slug.toUpperCase().replace("-EXPORTER-INDIA", "")}`,
-    mpn: `JMM-${product.slug.replace("-exporter-india", "")}`,
     brand: {
       "@type": "Brand",
       name: COMPANY.name,
@@ -443,61 +446,11 @@ const ProductDetailPage = () => {
       url: SITE_URL,
     },
     url: canonicalUrl,
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "52",
-      bestRating: "5",
-      worstRating: "1",
-    },
     additionalProperty: product.specs.map((spec) => ({
       "@type": "PropertyValue",
       name: spec.label,
       value: spec.value,
     })),
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/NewCondition",
-      url: canonicalUrl,
-      seller: {
-        "@type": "Organization",
-        name: COMPANY.legalName,
-        url: SITE_URL,
-      },
-      shippingDetails: {
-        "@type": "OfferShippingDetails",
-        shippingDestination: {
-          "@type": "DefinedRegion",
-          addressCountry: [
-            "US", "CA", "GB", "AE", "SA", "SG", "AU", "DE", "NL"
-          ],
-        },
-        shippingRate: {
-          "@type": "MonetaryAmount",
-          value: "0",
-          currency: "USD",
-        },
-        deliveryTime: {
-          "@type": "ShippingDeliveryTime",
-          handlingTime: {
-            "@type": "QuantitativeValue",
-            minValue: 7,
-            maxValue: 15,
-            unitCode: "d",
-          },
-        },
-      },
-      hasMerchantReturnPolicy: {
-        "@type": "MerchantReturnPolicy",
-        applicableCountry: ["IN", "US", "AE", "GB", "CA", "SG", "SA", "AU", "DE", "NL"],
-        returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
-        merchantReturnDays: 14,
-        returnMethod: "https://schema.org/ReturnByMail",
-        returnFees: "https://schema.org/FreeReturn",
-      },
-    },
   };
 
   const pageSchema = {

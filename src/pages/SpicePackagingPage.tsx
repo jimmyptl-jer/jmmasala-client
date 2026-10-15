@@ -282,8 +282,8 @@ const SpicePackagingPage = () => {
   return (
     <>
       <Seo
-        title="Spice Packaging Company India | Custom Spice Packaging & Export Packing | JM Masala"
-        description="JM Masala Trading LLP provides custom spice packaging solutions for export — bulk bags, retail pouches, private-label branding, and food-service packs for cumin, coriander, turmeric, chilli and other Indian spices."
+        title="Spice Packaging Company India | Export Packing"
+        description="Custom spice packaging for export: bulk bags, retail pouches, private-label branding and food-service packs for Indian spices."
         path="/spice-packaging"
         keywords={[
           "spice packaging India",

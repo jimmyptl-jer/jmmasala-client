@@ -1,5 +1,5 @@
 import { Award, Globe, TrendingUp, Users } from 'lucide-react';
-import MainHeaderImage from "../assets/mainpageimage.png";
+import MainHeaderImage from "../assets/mainpageimage.jpg";
 
 const AboutUs = () => {
   return (

@@ -35,13 +35,13 @@ const SourcingRegionPage = () => {
   );
 
   const pagePath = `/sourcing/${region.slug}`;
-  const title = `${region.title} | Indian Spice Sourcing Company | JM Masala`;
+  const title = region.seoTitle;
 
   return (
     <>
       <Seo
         title={title}
-        description={region.description}
+        description={region.seoDescription}
         path={pagePath}
         keywords={[
           `${region.name} spice supplier`,
@@ -84,21 +84,8 @@ const SourcingRegionPage = () => {
               "@id": `${SITE_URL}/#organization`,
               name: COMPANY.legalName,
             },
-            areaServed: region.name,
             serviceType:
               "Indian spice sourcing, agro product sourcing, processing, packing, private label, and export support",
-            hasOfferCatalog: {
-              "@type": "OfferCatalog",
-              name: `${region.name} Sourcing Products`,
-              itemListElement: region.products.map((productName) => ({
-                "@type": "Offer",
-                itemOffered: {
-                  "@type": "Product",
-                  name: productName,
-                  category: "Spices and agro products",
-                },
-              })),
-            },
           },
           {
             "@context": "https://schema.org",
@@ -230,6 +217,34 @@ const SourcingRegionPage = () => {
           </div>
         </section>
       )}
+
+      <section className="jm-section jm-section--white">
+        <div className="jm-container">
+          <p className="jm-section-label">Related Pages</p>
+          <h2 className="jm-section-heading">Seed Spices and Other Sourcing Regions</h2>
+          <p className="mt-3 text-[var(--brand-forest)]">
+            Seed spices:{" "}
+            <Link to="/cumin-seeds-exporter-india" className="underline">cumin seeds (jeera) exporter</Link>,{" "}
+            <Link to="/coriander-seeds-exporter-india" className="underline">coriander seeds (dhania) exporter</Link>,{" "}
+            <Link to="/fennel-seeds-exporter-india" className="underline">fennel seeds (saunf) supplier</Link>,{" "}
+            <Link to="/sesame-seeds-exporter-india" className="underline">sesame seeds (til) supplier</Link>,{" "}
+            <Link to="/ajwain-seeds-exporter-india" className="underline">ajwain (carom) seeds exporter</Link> and{" "}
+            <Link to="/mustard-seeds-exporter-india" className="underline">mustard seeds (rai) supplier</Link>.
+          </p>
+          <p className="mt-3 text-[var(--brand-forest)]">
+            Other regions:{" "}
+            {SOURCING_REGIONS.filter((item) => item.slug !== region.slug).map((item, index, list) => (
+              <span key={item.slug}>
+                <Link to={`/sourcing/${item.slug}`} className="underline">{item.title}</Link>
+                {index < list.length - 1 ? ", " : ". "}
+              </span>
+            ))}
+            See also{" "}
+            <Link to="/spice-exporter-gujarat" className="underline">spice exporter in Gujarat</Link> and{" "}
+            <Link to="/domestic-supply-india" className="underline">domestic spice supply in India</Link>.
+          </p>
+        </div>
+      </section>
     </>
   );
 };

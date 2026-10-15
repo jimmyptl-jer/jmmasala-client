@@ -19,7 +19,7 @@ import {
   buildProductInquiryMessage,
   buildWhatsAppUrl,
 } from "@/data/siteData";
-import redChilliImage from "@/assets/RedChilli.png";
+import redChilliImage from "@/assets/RedChilli.jpg";
 
 const RED_CHILLI_SUMMARY_ROWS = [
   { label: "Product Category", value: "Indian Dried Red Chilli (Whole, Stemless, Crushed & Powder)" },
@@ -283,8 +283,6 @@ const RedChilliPage = () => {
     description:
       "Export-grade Indian dry red chillies supplied by JM Masala. Teja Chilli (S17), Bird's Eye Chilli (Kanthari), and King Chilli (Bhut Jolokia) with verified SHU heat, ASTA color, and aflatoxin compliance.",
     image: [productImageUrl],
-    sku: "JMM-RED-CHILLI",
-    mpn: "JMM-red-chilli",
     brand: {
       "@type": "Brand",
       name: COMPANY.name,
@@ -309,45 +307,6 @@ const RedChilliPage = () => {
       { "@type": "PropertyValue", name: "Sudan Dyes", value: "Negative / Absent (HPLC Screened)" },
       { "@type": "PropertyValue", name: "Origins", value: "Guntur (Andhra Pradesh), Warangal (Telangana), Assam (Northeast India)" },
     ],
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/NewCondition",
-      url: canonicalUrl,
-      seller: {
-        "@id": `${SITE_URL}/#organization`,
-      },
-      shippingDetails: {
-        "@type": "OfferShippingDetails",
-        shippingDestination: {
-          "@type": "DefinedRegion",
-          addressCountry: ["US", "CA", "GB", "AE", "SA", "SG", "AU", "DE", "NL", "MY"],
-        },
-        shippingRate: {
-          "@type": "MonetaryAmount",
-          value: "0",
-          currency: "USD",
-        },
-        deliveryTime: {
-          "@type": "ShippingDeliveryTime",
-          handlingTime: {
-            "@type": "QuantitativeValue",
-            minValue: 7,
-            maxValue: 15,
-            unitCode: "d",
-          },
-        },
-      },
-      hasMerchantReturnPolicy: {
-        "@type": "MerchantReturnPolicy",
-        applicableCountry: ["IN", "US", "AE", "GB", "CA", "SG", "SA", "AU", "DE", "NL", "MY"],
-        returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
-        merchantReturnDays: 14,
-        returnMethod: "https://schema.org/ReturnByMail",
-        returnFees: "https://schema.org/FreeReturn",
-      },
-    },
   };
 
   const breadcrumbSchema = {
@@ -391,8 +350,8 @@ const RedChilliPage = () => {
   return (
     <>
       <Seo
-        title="Red Chilli Exporter from India | Teja, Bird's Eye & King Chilli | JM Masala"
-        description="JM Masala supplies Indian red chillies for international importers, spice distributors, food manufacturers and bulk buyers. Request specifications, samples and export quotations."
+        title="Red Chilli Exporter India | Teja, Bird's Eye & King, Bulk"
+        description="Bulk Indian red chilli graded by pungency, color value and cleanliness. Request ASTA and SHU specifications, samples and a quotation."
         path="/red-chilli-exporter-india"
         imageUrl={productImageUrl}
         imageAlt="Export-grade Indian red chillies (Teja, Bird's Eye, King Chilli) supplied by JM Masala"

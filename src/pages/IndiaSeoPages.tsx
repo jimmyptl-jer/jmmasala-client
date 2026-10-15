@@ -12,7 +12,7 @@ import {
   buildProductInquiryMessage,
   buildWhatsAppUrl,
 } from "@/data/siteData";
-import bannerImage from "@/assets/homepage.png";
+import bannerImage from "@/assets/homepage.jpg";
 
 const toAbsoluteUrl = (value: string) =>
   value.startsWith("http") ? value : `${SITE_URL}${value.startsWith("/") ? value : `/${value}`}`;
@@ -179,8 +179,8 @@ export const SpiceExporterIndiaPage = () => {
   return (
     <>
       <Seo
-        title="Best Spice Exporter in India | Bulk Indian Spices | JM Masala"
-        description="JM Masala is an Indian spice exporter supplying cumin, coriander, fennel, fenugreek, sesame, psyllium, turmeric, chilli, pepper, cardamom and more with packing, testing, and export documentation."
+        title="Best Spice Exporter India | Bulk Indian Spices | JM Masala"
+        description="JM Masala supplies cumin, coriander, fennel, fenugreek, sesame, psyllium, turmeric, chilli, pepper and cardamom with packing and export documents."
         path="/best-spice-exporter-india"
         imageUrl={bannerImage}
         imageAlt="JM Masala best spice exporter in India"
@@ -189,7 +189,7 @@ export const SpiceExporterIndiaPage = () => {
           "spice exporter India",
           "Indian spices exporter",
           "bulk spice supplier India",
-          "HACCP spice exporter India",
+          "bulk spice exporter India",
           "private label spice exporter India",
         ]}
         schema={[
@@ -236,7 +236,7 @@ export const SpiceExporterIndiaPage = () => {
       <Hero
         eyebrow="Indian Spice Exporter"
         title="Best Spice Exporter in India for Bulk, Private Label, and Food Industry Buyers"
-        description="JM Masala Exports helps global buyers source export-grade Indian spices with clear specifications, dependable packing, certification support, and complete export documentation from India."
+        description="JM Masala Trading LLP helps global buyers source Indian spices with clear specifications, dependable packing, and complete export documentation from India."
         quoteUrl={quoteUrl}
         secondaryPath="/products"
         secondaryLabel="View Spice Portfolio"
@@ -293,7 +293,7 @@ export const BestCuminExporterIndiaPage = () => {
     <>
       <Seo
         title="Best Cumin Exporter in India | Unjha Cumin Seeds | JM Masala"
-        description="JM Masala exports cumin seeds from Unjha, Gujarat with 98%, 99%, and 99.5% purity options, Sortex cleaning, lab testing, packing, and export documentation for global buyers."
+        description="JM Masala exports cumin seeds from Unjha, Gujarat with 98%, 99% and 99.5% purity options, Sortex cleaning, packing and export documentation."
         path="/best-cumin-exporter-india"
         imageUrl={cumin.imageUrl}
         imageAlt="Best cumin exporter in India from Unjha Gujarat"
@@ -323,12 +323,6 @@ export const BestCuminExporterIndiaPage = () => {
               name: spec.label,
               value: spec.value,
             })),
-            offers: {
-              "@type": "Offer",
-              availability: "https://schema.org/InStock",
-              priceCurrency: "USD",
-              url: `${SITE_URL}/best-cumin-exporter-india`,
-            },
           },
           {
             "@context": "https://schema.org",
@@ -383,8 +377,8 @@ export const BestCuminExporterIndiaPage = () => {
               <Link to="/blog/cumin-seeds-quality-grades-europe-usa-gulf-singapore" className="jm-btn jm-btn--outline">
                 Compare Cumin Grades
               </Link>
-              <Link to="/best-coriander-exporter-india" className="jm-btn jm-btn--outline">
-                Best Coriander Exporter Page
+              <Link to="/coriander-seeds-exporter-india" className="jm-btn jm-btn--outline">
+                Coriander Seeds Exporter Page
               </Link>
             </div>
           </div>
@@ -432,7 +426,7 @@ export const BestCorianderExporterIndiaPage = () => {
     <>
       <Seo
         title="Best Coriander Seeds Exporter in India | Whole Dhania | JM Masala"
-        description="JM Masala exports premium Indian coriander seeds (Dhania) from Gujarat and Rajasthan. Eagle, Scooter & Parrot grades, Sortex cleaned, high volatile oil, FOB Mundra and CIF global export."
+        description="Indian coriander seeds (Dhania) from Gujarat and Rajasthan: Eagle, Scooter and Parrot grades, Sortex cleaned, FOB Mundra. Request a quote."
         path="/best-coriander-exporter-india"
         imageUrl={coriander.imageUrl}
         imageAlt="Best coriander seeds exporter in India from Gujarat and Rajasthan"
@@ -464,12 +458,6 @@ export const BestCorianderExporterIndiaPage = () => {
               name: spec.label,
               value: spec.value,
             })),
-            offers: {
-              "@type": "Offer",
-              availability: "https://schema.org/InStock",
-              priceCurrency: "USD",
-              url: `${SITE_URL}/best-coriander-exporter-india`,
-            },
           },
           {
             "@context": "https://schema.org",

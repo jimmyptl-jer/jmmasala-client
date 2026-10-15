@@ -18,7 +18,7 @@ import {
   buildProductInquiryMessage,
   buildWhatsAppUrl,
 } from "@/data/siteData";
-import fenugreekSeedsImage from "@/assets/FenugreekSeeds.png";
+import fenugreekSeedsImage from "@/assets/FenugreekSeeds.jpg";
 
 const FENUGREEK_SPEC_ROWS = [
   { label: "Product Name", value: "Fenugreek Seeds" },
@@ -230,8 +230,6 @@ const FenugreekSeedsPage = () => {
     description:
       "Export-grade Indian fenugreek seeds (Methi Dana) from Gujarat. Machine-cleaned & Sortex golden-yellow seeds, 99%-99.5% purity, high dietary fiber, FOB Mundra and CIF global supply.",
     image: [productImageUrl],
-    sku: "JMM-FENUGREEK-SEEDS",
-    mpn: "JMM-FENUGREEK-SEEDS",
     brand: {
       "@type": "Brand",
       name: COMPANY.name,
@@ -251,23 +249,6 @@ const FenugreekSeedsPage = () => {
       name: spec.label,
       value: spec.value,
     })),
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/NewCondition",
-      url: canonicalUrl,
-      seller: {
-        "@id": `${SITE_URL}/#organization`,
-      },
-      shippingDetails: {
-        "@type": "OfferShippingDetails",
-        shippingDestination: {
-          "@type": "DefinedRegion",
-          addressCountry: ["US", "CA", "GB", "AE", "SA", "SG", "AU", "DE", "NL"],
-        },
-      },
-    },
   };
 
   const breadcrumbSchema = {
@@ -311,8 +292,8 @@ const FenugreekSeedsPage = () => {
   return (
     <>
       <Seo
-        title="Fenugreek Seeds Exporter from India | Methi Seeds | JM Masala"
-        description="JM Masala supplies export-grade fenugreek (methi) seeds from India for bulk buyers, spice distributors and food manufacturers. Request specifications, samples and export quotations."
+        title="Fenugreek Seeds (Methi) Exporter India | Bulk Supplier"
+        description="Bulk fenugreek (methi) seeds from Gujarat in semi-bold and bold grades, cleaned for export. Request specifications, samples and a quotation."
         path="/fenugreek-seeds-exporter-india"
         imageUrl={productImageUrl}
         imageAlt="Export-grade golden fenugreek seeds (Methi Dana) supplied by JM Masala from India"

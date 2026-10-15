@@ -33,9 +33,12 @@ const escapeHtml = (value = "") =>
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
 
+const DEFAULT_IMAGE = "/og-default.jpg";
+const DEFAULT_ROBOTS = "index, follow, max-image-preview:large";
+
 const normalizeUrl = (value) => {
   if (!value) {
-    return `${SITE_URL}/JMMasala.png`;
+    return `${SITE_URL}${DEFAULT_IMAGE}`;
   }
 
   if (/^https?:\/\//i.test(value)) {
@@ -48,6 +51,11 @@ const normalizeUrl = (value) => {
 const routeToFilePath = (route) => {
   if (route === "/") {
     return join(distDir, "index.html");
+  }
+
+  // Served by nginx as the real 404 page (error_page 404 /404.html).
+  if (route === "/404") {
+    return join(distDir, "404.html");
   }
 
   return join(distDir, route.replace(/^\//, ""), "index.html");
@@ -70,21 +78,29 @@ const stripRouteHeadTags = (html) =>
     );
 
 const renderHead = (seo) => {
-  const canonicalUrl = `${SITE_URL}${seo.path}`;
+  // duplicate pages (for example /export) point their canonical at the page they duplicate
+  const canonicalUrl = `${SITE_URL}${seo.canonicalPath ?? seo.path}`;
   const imageUrl = normalizeUrl(seo.imageUrl);
   const type = seo.type ?? "website";
+  // The 1200x630 dimensions only describe the default image; a route-specific
+  // image has unknown dimensions, so they are omitted for it.
+  const hasOwnImage = Boolean(seo.imageUrl);
   const tags = [
     `<title>${escapeHtml(seo.title)}</title>`,
     `<meta name="description" content="${escapeHtml(seo.description)}" />`,
-    `<meta name="robots" content="index, follow" />`,
+    `<meta name="robots" content="${escapeHtml(seo.robots ?? DEFAULT_ROBOTS)}" />`,
     `<meta property="og:title" content="${escapeHtml(seo.title)}" />`,
     `<meta property="og:description" content="${escapeHtml(seo.description)}" />`,
     `<meta property="og:type" content="${escapeHtml(type)}" />`,
     `<meta property="og:url" content="${escapeHtml(canonicalUrl)}" />`,
     `<meta property="og:image" content="${escapeHtml(imageUrl)}" />`,
     `<meta property="og:image:alt" content="${escapeHtml(seo.imageAlt ?? "JM Masala export-grade Indian spices")}" />`,
-    `<meta property="og:image:width" content="1200" />`,
-    `<meta property="og:image:height" content="630" />`,
+    ...(hasOwnImage
+      ? []
+      : [
+          `<meta property="og:image:width" content="1200" />`,
+          `<meta property="og:image:height" content="630" />`,
+        ]),
     `<meta property="og:site_name" content="JM Masala" />`,
     `<meta property="og:locale" content="en_IN" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
@@ -95,14 +111,6 @@ const renderHead = (seo) => {
     `<meta name="twitter:site" content="@jmmasalaexports" />`,
     `<link rel="canonical" href="${escapeHtml(canonicalUrl)}" />`,
     `<link rel="alternate" hreflang="en" href="${escapeHtml(canonicalUrl)}" />`,
-    `<link rel="alternate" hreflang="en-US" href="${escapeHtml(canonicalUrl)}" />`,
-    `<link rel="alternate" hreflang="en-GB" href="${escapeHtml(canonicalUrl)}" />`,
-    `<link rel="alternate" hreflang="en-CA" href="${escapeHtml(canonicalUrl)}" />`,
-    `<link rel="alternate" hreflang="en-AU" href="${escapeHtml(canonicalUrl)}" />`,
-    `<link rel="alternate" hreflang="en-AE" href="${escapeHtml(canonicalUrl)}" />`,
-    `<link rel="alternate" hreflang="en-SA" href="${escapeHtml(canonicalUrl)}" />`,
-    `<link rel="alternate" hreflang="en-SG" href="${escapeHtml(canonicalUrl)}" />`,
-    `<link rel="alternate" hreflang="en-IN" href="${escapeHtml(canonicalUrl)}" />`,
     `<link rel="alternate" hreflang="x-default" href="${escapeHtml(canonicalUrl)}" />`,
   ];
 
@@ -165,35 +173,28 @@ for (const route of prerenderRoutes) {
   await writeFile(filePath, html, "utf8");
 }
 
-const sitemapLastmod = new Date().toISOString().slice(0, 10);
-const getPriority = (route) => {
-  if (route === "/") {
-    return "1.0";
-  }
+const buildDate = new Date().toISOString().slice(0, 10);
+const getLastmod = (seo) => {
+  const date = seo.modifiedTime ?? seo.publishedTime;
 
-  if (route === "/products") {
-    return "0.9";
-  }
-
-  if (route.startsWith("/blog/")) {
-    return "0.7";
-  }
-
-  return "0.8";
+  return date && /^\d{4}-\d{2}-\d{2}/.test(date) ? date.slice(0, 10) : buildDate;
 };
-const getChangefreq = (route) => (route.startsWith("/blog/") ? "yearly" : "monthly");
+const sitemapRoutes = prerenderRoutes.filter(
+  (route) => {
+    const seo = getRouteSeo(route);
+    return !/noindex/i.test(seo.robots ?? "") && !seo.canonicalPath;
+  },
+);
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-${prerenderRoutes
+${sitemapRoutes
   .map((route) => {
     const seo = getRouteSeo(route);
     const imageUrl = normalizeUrl(seo.imageUrl);
 
     return `  <url>
     <loc>${SITE_URL}${route}</loc>
-    <lastmod>${sitemapLastmod}</lastmod>
-    <changefreq>${getChangefreq(route)}</changefreq>
-    <priority>${getPriority(route)}</priority>
+    <lastmod>${getLastmod(seo)}</lastmod>
     <image:image>
       <image:loc>${imageUrl}</image:loc>
       <image:title>${escapeHtml(seo.imageAlt ?? seo.title)}</image:title>
@@ -208,4 +209,4 @@ await writeFile(join(distDir, "sitemap.xml"), sitemap, "utf8");
 
 await rm(join(distDir, "server"), { recursive: true, force: true });
 
-console.log(`Prerendered ${prerenderRoutes.length} routes.`);
+console.log(`Prerendered ${prerenderRoutes.length} routes (${sitemapRoutes.length} in sitemap).`);

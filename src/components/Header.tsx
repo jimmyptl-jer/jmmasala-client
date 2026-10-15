@@ -1,5 +1,7 @@
 import { ArrowRight, ChevronDown, Menu, Sparkles, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
+import { COMPANY, buildWhatsAppUrl } from "@/data/siteData";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "@/assets/JmMasala.png";
 
@@ -63,6 +65,9 @@ const PRIORITY_PRODUCTS = [
 ];
 
 const QUOTE_PATH = "/contact#inquiry-form";
+
+const WHATSAPP_BTN_CLASS =
+  "inline-flex items-center justify-center gap-2 min-h-[44px] rounded-md border-2 border-[var(--brand-forest)] bg-transparent py-2.5 font-bold uppercase text-[var(--brand-forest)] transition-colors hover:bg-[var(--brand-forest)] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-gold)] focus-visible:ring-offset-2";
 
 const Header = () => {
   const productsToggleRef = useRef<HTMLButtonElement | null>(null);
@@ -545,8 +550,18 @@ const Header = () => {
             to={QUOTE_PATH}
             className="jm-btn jm-btn--primary text-[11px] font-bold tracking-[0.12em] uppercase py-2.5 px-5 shadow-sm hover:shadow-md transition-all shrink-0"
           >
-            Request a Quote
+            <span className="xl:hidden">Request a Quote</span>
+            <span className="hidden xl:inline">Request a Bulk Quotation</span>
           </Link>
+          <a
+            href={buildWhatsAppUrl(COMPANY.whatsappMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${WHATSAPP_BTN_CLASS} hidden xl:inline-flex shrink-0 text-[11px] tracking-[0.12em] px-5`}
+          >
+            <FaWhatsapp aria-hidden="true" className="h-4 w-4" />
+            WhatsApp
+          </a>
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
@@ -835,6 +850,15 @@ const Header = () => {
               >
                 Request a Quote
               </Link>
+              <a
+                href={buildWhatsAppUrl(COMPANY.whatsappMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${WHATSAPP_BTN_CLASS} mt-3 w-full text-[12px] tracking-wider`}
+              >
+                <FaWhatsapp aria-hidden="true" className="h-4 w-4" />
+                WhatsApp
+              </a>
             </div>
           </nav>
         </div>

@@ -1,8 +1,14 @@
 .jmh-hero {
-  position: relative;
-  overflow: hidden;
   background: var(--jmh-forest);
   color: var(--jmh-ivory);
+}
+.jmh-hero-media {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: 380px;
+  background: var(--jmh-forest);
 }
 .jmh-hero-img {
   position: absolute;
@@ -10,61 +16,76 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: right center;
 }
 .jmh-hero-overlay {
   position: absolute;
   inset: 0;
-  /* light tint only: the spice photos must stay visible across the whole hero */
-  background: linear-gradient(180deg, rgba(22, 43, 32, 0.28) 0%, rgba(22, 43, 32, 0.1) 100%);
+  /* strong enough on the left for AA text contrast, almost clear on the right so the bowls stay vivid */
+  background: linear-gradient(
+    90deg,
+    rgba(22, 43, 32, 0.92) 0%,
+    rgba(22, 43, 32, 0.8) 35%,
+    rgba(22, 43, 32, 0.3) 62%,
+    rgba(22, 43, 32, 0.05) 100%
+  );
+}
+@media (max-width: 767px) {
+  .jmh-hero-overlay {
+    background: linear-gradient(90deg, rgba(22, 43, 32, 0.9) 0%, rgba(22, 43, 32, 0.75) 100%);
+  }
 }
 .jmh-hero .jmh-hero-inner {
   position: relative;
-  padding-top: 56px;
-  padding-bottom: 56px;
+  padding-top: 48px;
+  padding-bottom: 48px;
 }
 @media (min-width: 1024px) {
-  .jmh-hero .jmh-hero-inner { padding-top: 96px; padding-bottom: 96px; }
+  .jmh-hero .jmh-hero-inner { padding-top: 56px; padding-bottom: 56px; }
 }
-/* text sits on a translucent forest panel (AA contrast on any photo) so the spices show around it */
-.jmh-hero-panel {
-  max-width: 720px;
-  padding: 28px 22px;
-  border-radius: 14px;
-  background: rgba(22, 43, 32, 0.84);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+.jmh-hero-content { max-width: 620px; }
+.jmh-hero .jmh-hero-eyebrow { color: var(--jmh-gold); letter-spacing: 0.2em; }
+.jmh-hero .jmh-h1 {
+  color: var(--jmh-ivory);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  font-weight: 600;
 }
-@media (min-width: 640px) {
-  .jmh-hero-panel { padding: 44px 44px; }
-}
-.jmh-hero .jmh-h1 { color: var(--jmh-ivory); max-width: 20ch; }
-.jmh-hero-text { max-width: 58ch; color: var(--jmh-ivory); }
+.jmh-hero .jmh-hero-text { max-width: 54ch; margin-top: 16px; color: var(--jmh-ivory); }
 .jmh-hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  margin-top: 32px;
+  margin-top: 24px;
 }
-.jmh-hero-facts {
+
+.jmh-hero-strip { background: var(--jmh-forest); }
+.jmh-hero .jmh-hero-features {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 12px;
-  margin: 40px 0 0;
-  padding: 24px 0 0;
+  margin: 0 auto;
+  padding: 8px 20px;
   list-style: none;
-  border-top: 1px solid rgba(247, 243, 233, 0.25);
 }
-@media (min-width: 640px) {
-  .jmh-hero-facts { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 1024px) {
-  .jmh-hero-facts { grid-template-columns: repeat(4, 1fr); }
-}
-.jmh-hero-fact {
+.jmh-hero-feature {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
   font-size: 14px;
   line-height: 1.4;
+  color: var(--jmh-ivory);
 }
-.jmh-hero-fact svg { flex: none; color: var(--jmh-gold); margin-top: 2px; }
+.jmh-hero-feature + .jmh-hero-feature { border-top: 1px solid rgba(247, 243, 233, 0.18); }
+.jmh-hero-feature svg { flex: none; color: var(--jmh-gold); }
+@media (min-width: 640px) {
+  .jmh-hero .jmh-hero-features { grid-template-columns: repeat(2, 1fr); column-gap: 24px; }
+  .jmh-hero-feature + .jmh-hero-feature { border-top: 0; }
+  .jmh-hero-feature:nth-child(n + 3) { border-top: 1px solid rgba(247, 243, 233, 0.18); }
+}
+@media (min-width: 1024px) {
+  .jmh-hero .jmh-hero-features { grid-template-columns: repeat(4, 1fr); column-gap: 0; padding-top: 12px; padding-bottom: 12px; }
+  .jmh-hero-feature { padding: 12px 24px; }
+  .jmh-hero-feature:nth-child(n + 3) { border-top: 0; }
+  .jmh-hero-feature + .jmh-hero-feature { border-left: 1px solid rgba(247, 243, 233, 0.18); }
+}

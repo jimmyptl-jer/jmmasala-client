@@ -148,7 +148,7 @@ const ColdPressedOilsPage = () => {
     <>
       <Seo
         title="Cold Pressed Oils Manufacturer & Exporter India | JM Masala"
-        description="Manufacturer and bulk exporter of 100% pure cold-pressed oils from Unjha, Gujarat. Sesame, mustard, groundnut, black seed, cumin, and fennel oils in retail bottles and bulk FCL."
+        description="Cold-pressed sesame, mustard, groundnut and black seed oils from Unjha, Gujarat, in retail bottles and bulk. Request specifications and samples."
         path="/cold-pressed-oils"
         keywords={[
           "cold pressed oils manufacturer india",

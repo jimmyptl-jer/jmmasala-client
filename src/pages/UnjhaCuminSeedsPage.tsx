@@ -17,7 +17,7 @@ import {
   buildProductInquiryMessage,
   buildWhatsAppUrl,
 } from "@/data/siteData";
-import bannerImage from "@/assets/homepage.png";
+import bannerImage from "@/assets/homepage.jpg";
 
 const UNJHA_FAQS = [
   {
@@ -87,8 +87,8 @@ const UnjhaCuminSeedsPage = () => {
   return (
     <>
       <Seo
-        title="Unjha Cumin Seeds | APMC Mandi Sourcing & Export Supply | JM Masala"
-        description="Learn about Unjha cumin seeds sourcing, APMC market yard arrival dynamics, Sortex optical grading, harvest calendar, and export container logistics from Unjha, Gujarat."
+        title="Unjha Cumin Seeds | APMC Mandi Origin & Sortex Grading"
+        description="Guide to Unjha cumin sourcing: APMC market yard arrivals, harvest calendar and Sortex grading. Buying? See our cumin exporter page."
         path="/unjha-cumin-seeds"
         imageUrl={bannerImage}
         imageAlt="Unjha cumin seeds processing and export supply from Gujarat India"

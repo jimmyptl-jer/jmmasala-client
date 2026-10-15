@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 import { COMPANY, DOCUMENTATION_PACKAGE, SITE_URL } from "@/data/siteData";
 
@@ -60,25 +61,26 @@ const QualityCertificationsPage = () => {
   return (
     <>
       <Seo
-        title="Quality Certifications | JM Masala Export Quality System"
-        description="Every lot and every shipment is verified through certification, testing, and export documentation standards."
+        title="Quality Control & Export Documents | JM Masala"
+        description="How JM Masala checks spice lots for moisture, appearance and foreign matter, and the export documents buyers can request."
         path="/quality-certifications"
         keywords={[
-          "spice exporter certifications India",
-          "HACCP certified spice exporter",
-          "ISO 22000 spice exporter India",
-          "APEDA registered exporter India",
           "spice export documentation India",
-          "JM Masala quality certifications",
+          "spice quality documentation",
+          "Sortex cleaned spices India",
+          "spice sampling before shipment",
+          "JM Masala quality process",
         ]}
         schema={[
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            name: "JM Masala Quality Certifications",
+            name: "Quality, Sampling and Export Documents",
             url: `${SITE_URL}/quality-certifications`,
             description:
-              "Quality systems, export certifications, lot testing, and documentation process followed by JM Masala.",
+              "Cleaning, sampling and export documentation process followed by JM Masala Trading LLP.",
+            about: { "@id": `${SITE_URL}/#organization` },
+            publisher: { "@id": `${SITE_URL}/#organization` },
           },
           {
             "@context": "https://schema.org",
@@ -93,7 +95,7 @@ const QualityCertificationsPage = () => {
               {
                 "@type": "ListItem",
                 position: 2,
-                name: "Quality Certifications",
+                name: "Quality and Documentation",
                 item: `${SITE_URL}/quality-certifications`,
               },
             ],
@@ -137,8 +139,7 @@ const QualityCertificationsPage = () => {
               Certificate Scans
             </h2>
             <p className="mt-3 text-body text-[var(--brand-forest)]">
-              Upload scanned certificate images for HACCP, ISO 22000, APEDA, Spice
-              Board RCMC, FSSAI, IEC, and MSME in this section.
+              Certificates and test documents can be requested with a quotation.
             </p>
             <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {certifications.map((cert) => (
@@ -182,6 +183,29 @@ const QualityCertificationsPage = () => {
                 </li>
               ))}
             </ul>
+          </section>
+
+          <section className="jm-surface-card mt-8 p-6">
+            <h2 className="text-tagline not-italic text-[28px] text-[var(--brand-charcoal)]">
+              How We Handle Quality and Documents
+            </h2>
+            <p className="mt-3 text-body text-[var(--brand-forest)]">
+              Seed spices are cleaned and Sortex sorted before packing, and a
+              sample can be sent for buyer approval before shipment. Documents
+              are prepared per shipment, such as the commercial invoice, packing
+              list and bill of lading, and quality documentation is available on
+              request. See the specifics for{" "}
+              <Link to="/cumin-seeds-exporter-india" className="underline">cumin seeds (jeera)</Link>,{" "}
+              <Link to="/coriander-seeds-exporter-india" className="underline">coriander seeds (dhania)</Link>,{" "}
+              <Link to="/fennel-seeds-exporter-india" className="underline">fennel seeds (saunf)</Link>,{" "}
+              <Link to="/sesame-seeds-exporter-india" className="underline">sesame seeds (til)</Link>,{" "}
+              <Link to="/ajwain-seeds-exporter-india" className="underline">ajwain (carom) seeds</Link> and{" "}
+              <Link to="/mustard-seeds-exporter-india" className="underline">mustard seeds (rai)</Link>.
+              Related pages: <Link to="/spice-packaging" className="underline">spice packaging</Link>,{" "}
+              <Link to="/private-label-spices" className="underline">private label spices</Link>,{" "}
+              <Link to="/spice-processing-manufacturing" className="underline">spice processing</Link> and{" "}
+              <Link to="/cumin-seeds-specifications" className="underline">cumin seeds specifications</Link>.
+            </p>
           </section>
 
           <section className="jm-surface-card mt-8 p-6">

@@ -152,8 +152,8 @@ const SpiceProcessingPage = () => {
   return (
     <>
       <Seo
-        title="Indian Spice Processing & Manufacturing Plant | Machine Cleaning, Sortex & Grinding | JM Masala"
-        description="Explore JM Masala's industrial spice processing plant in Unjha, Gujarat. High-speed Sortex optical sorting (99.9% purity), density destoning, cryogenic low-temperature grinding, NABL lab testing, and bulk/retail export packing."
+        title="Spice Processing & Manufacturing India | Sortex Cleaning"
+        description="Spice processor in Gujarat: machine cleaning, Sortex cleaning, destoning, grading, grinding, private-label packing and export documents."
         path="/spice-processing-manufacturing"
         keywords={[
           "spice processing plant India",
@@ -162,7 +162,7 @@ const SpiceProcessingPage = () => {
           "spice cleaning and grading facility",
           "cryogenic spice grinding India",
           "machine cleaned spices exporter",
-          "NABL tested Indian spices",
+          "Indian spice processing Unjha",
           "bulk spice processing facility India"
         ]}
         schema={{
@@ -173,7 +173,7 @@ const SpiceProcessingPage = () => {
               name: "Spice Processing & Manufacturing Plant — JM Masala Trading LLP",
               url: `${SITE_URL}/spice-processing-manufacturing`,
               description:
-                "Industrial spice processing infrastructure in Unjha, Gujarat featuring mechanical pre-cleaning, Sortex optical sorting, cryogenic grinding, and certified export packing."
+                "Industrial spice processing infrastructure in Unjha, Gujarat featuring mechanical pre-cleaning, Sortex optical sorting, low-temperature grinding, and export packing."
             },
             {
               "@type": "BreadcrumbList",
@@ -220,7 +220,7 @@ const SpiceProcessingPage = () => {
               </div>
               <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
                 <div className="text-2xl sm:text-3xl font-bold text-[var(--brand-gold-light)]">100%</div>
-                <div className="text-xs text-white/70 uppercase tracking-wider font-medium mt-1">NABL Lab Tested</div>
+                <div className="text-xs text-white/70 uppercase tracking-wider font-medium mt-1">Quality Checks</div>
               </div>
               <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
                 <div className="text-2xl sm:text-3xl font-bold text-[var(--brand-gold-light)]">4 Hours</div>

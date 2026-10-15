@@ -19,7 +19,7 @@ import {
   buildProductInquiryMessage,
   buildWhatsAppUrl,
 } from "@/data/siteData";
-import fennelSeedsImage from "@/assets/FennelSeeds.png";
+import fennelSeedsImage from "@/assets/FennelSeeds.jpg";
 
 const FENNEL_SPEC_ROWS = [
   { label: "Product Name", value: "Fennel Seeds" },
@@ -254,10 +254,8 @@ const FennelSeedsPage = () => {
     "@id": `${canonicalUrl}#product`,
     name: "Fennel Seeds (Saunf)",
     description:
-      "Export-grade Indian fennel seeds (saunf) from Unjha, Gujarat: Bold, Small & Singapore grades. Min. 99% Sortex purity, max. 8% moisture, lab tested, FOB Mundra and CIF global export.",
+      "Export-grade Indian fennel seeds (saunf) from Unjha, Gujarat: Bold, Small & Singapore grades. Min. 99% Sortex purity, max. 8% moisture, FOB Mundra and CIF global export.",
     image: [productImageUrl],
-    sku: "JMM-FENNEL-SEEDS",
-    mpn: "JMM-FENNEL-SEEDS",
     brand: {
       "@type": "Brand",
       name: COMPANY.name,
@@ -277,23 +275,6 @@ const FennelSeedsPage = () => {
       name: spec.label,
       value: spec.value,
     })),
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/NewCondition",
-      url: canonicalUrl,
-      seller: {
-        "@id": `${SITE_URL}/#organization`,
-      },
-      shippingDetails: {
-        "@type": "OfferShippingDetails",
-        shippingDestination: {
-          "@type": "DefinedRegion",
-          addressCountry: ["US", "CA", "GB", "AE", "SA", "SG", "AU", "DE", "NL"],
-        },
-      },
-    },
   };
 
   const breadcrumbSchema = {
@@ -337,8 +318,8 @@ const FennelSeedsPage = () => {
   return (
     <>
       <Seo
-        title="Fennel Seeds Exporter from India | Saunf Supplier | JM Masala"
-        description="JM Masala supplies Indian fennel seeds (saunf) in Bold, Small and Singapore grades for bulk buyers and international importers. Request specifications, samples and export quotations."
+        title="Fennel Seeds (Saunf) Exporter India | Bulk Supplier from Unjha"
+        description="Bulk fennel (saunf) seeds for importers. Request specifications, samples and export quotations."
         path="/fennel-seeds-exporter-india"
         imageUrl={productImageUrl}
         imageAlt="Export-grade Indian fennel seeds (saunf) supplied by JM Masala from Gujarat"
@@ -391,7 +372,7 @@ const FennelSeedsPage = () => {
                 <MapPin className="h-3.5 w-3.5" /> Unjha, Gujarat Sourcing &amp; Export
               </p>
               <h1 className="mt-4 font-[var(--font-display)] text-3xl leading-tight text-white md:text-5xl">
-                Fennel Seeds Exporter from India
+                Fennel Seeds (Saunf) Exporter from India
               </h1>
               <p className="mt-3 text-lg font-medium text-[var(--brand-gold-light)] md:text-xl">
                 Indian Saunf | Bulk Export Supply | Gujarat, India
@@ -1215,6 +1196,29 @@ const FennelSeedsPage = () => {
       </section>
 
       {/* Call to Action Bar */}
+      {/* Related seed spices */}
+      <section className="jm-section jm-section--white">
+        <div className="jm-container">
+          <h2 className="jm-section-heading">Related Seed Spices and Services</h2>
+          <p className="mt-3 text-sm leading-7 text-[var(--brand-forest)]">
+            Also from JM Masala:{" "}
+              <Link to="/cumin-seeds-exporter-india" className="underline">cumin seeds (jeera) exporter</Link>,{" "}
+              <Link to="/coriander-seeds-exporter-india" className="underline">bulk coriander seeds exporter</Link>,{" "}
+              <Link to="/sesame-seeds-exporter-india" className="underline">sesame seeds (til) supplier</Link>,{" "}
+              <Link to="/ajwain-seeds-exporter-india" className="underline">ajwain (carom) seeds supplier</Link> and{" "}
+              <Link to="/mustard-seeds-exporter-india" className="underline">mustard seeds (rai) supplier</Link>.
+            For quality and documents see{" "}
+            <Link to="/quality-certifications" className="underline">quality and export documentation</Link>
+            ; for packing see{" "}
+            <Link to="/spice-packaging" className="underline">spice packaging for export</Link>
+            ; for branded packs see{" "}
+            <Link to="/private-label-spices" className="underline">private label spice manufacturing</Link>
+            ; and for cleaning and grinding see{" "}
+            <Link to="/spice-processing-manufacturing" className="underline">spice processing in Unjha</Link>.
+          </p>
+        </div>
+      </section>
+
       <section className="bg-[var(--brand-deep-green)] py-12 text-white">
         <div className="jm-container text-center">
           <h2 className="font-[var(--font-display)] text-2xl font-bold md:text-3xl">

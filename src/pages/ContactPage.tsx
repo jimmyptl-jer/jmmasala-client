@@ -31,8 +31,8 @@ const ContactPage = () => {
   return (
     <>
       <Seo
-        title="Contact JM Masala | Indian Spice Export Inquiries"
-        description="Send your spice sourcing inquiry to JM Masala. We respond quickly with specifications, pricing, and shipment support."
+        title="Contact JM Masala Trading LLP | Request a Spice Quote"
+        description="Contact JM Masala Trading LLP in Unjha, Gujarat for spice specifications, samples, packing and export documentation. Phone and email."
         path="/contact"
         keywords={[
           "contact spice exporter India",
@@ -46,30 +46,20 @@ const ContactPage = () => {
           {
             "@context": "https://schema.org",
             "@type": "ContactPage",
-            name: "Contact JM Masala",
+            "@id": `${SITE_URL}/contact#webpage`,
+            name: "Contact JM Masala Trading LLP",
             url: `${SITE_URL}/contact`,
             description:
-              "Direct WhatsApp and email contact page for export spice inquiries with JM Masala.",
-          },
-          {
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            name: "JM Masala Exports",
-            url: `${SITE_URL}/contact`,
-            email: COMPANY.email,
-            telephone: COMPANY.phones,
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "A/18, Main Line, APMC Market Yard",
-              addressLocality: "Unjha",
-              addressRegion: "Gujarat",
-              postalCode: "384170",
-              addressCountry: "IN",
-            },
+              "Contact page for spice export inquiries to JM Masala Trading LLP, Unjha, Gujarat.",
+            isPartOf: { "@id": `${SITE_URL}/#website` },
+            about: { "@id": `${SITE_URL}/#organization` },
+            mainEntity: { "@id": `${SITE_URL}/#organization` },
+            breadcrumb: { "@id": `${SITE_URL}/contact#breadcrumb` },
           },
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
+            "@id": `${SITE_URL}/contact#breadcrumb`,
             itemListElement: [
               {
                 "@type": "ListItem",

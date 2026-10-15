@@ -1,5 +1,6 @@
 import Seo from "@/components/Seo";
-import { COMPANY, SITE_URL, buildWhatsAppUrl } from "@/data/siteData";
+import { Link } from "react-router-dom";
+import { SITE_URL, SOURCING_REGIONS, buildWhatsAppUrl } from "@/data/siteData";
 
 // ─── Inline styles to avoid Tailwind purge issues with dynamic classes ──────
 const styles = `
@@ -629,36 +630,35 @@ const SourcingNetworkPage = () => {
   return (
     <>
       <Seo
-        title="Indian Spice Sourcing Network | Gujarat, North-East & South India | JM Masala"
-        description="JM Masala maintains a multi-region Indian sourcing network spanning Gujarat (Unjha APMC Mandi), North-East India (Lakadong turmeric & ginger), and South India with unified HACCP processing, NABL testing, and Mundra port export dispatch."
+        title="Indian Spice Sourcing Network | Gujarat to South India"
+        description="JM Masala sources spices from Gujarat (Unjha), North-East India and Andhra Pradesh, with processing and export via Mundra port."
         path="/sourcing-network"
         keywords={[
           "spice sourcing network India",
           "Unjha spice sourcing",
           "farm to port spice exporter",
           "custom spice packing India",
-          "NABL tested spice exporter",
+          "Indian spice sourcing network",
           "JM Masala sourcing network",
         ]}
         schema={[
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
+            "@id": `${SITE_URL}/sourcing-network#webpage`,
             name: "JM Masala Sourcing Network",
             url: `${SITE_URL}/sourcing-network`,
+            isPartOf: { "@id": `${SITE_URL}/#website` },
+            about: { "@id": `${SITE_URL}/#organization` },
+            publisher: { "@id": `${SITE_URL}/#organization` },
             description:
-              "Direct sourcing network, processing, lab testing, fumigation and export dispatch support from JM Masala.",
+              "Direct sourcing network, processing, fumigation and export dispatch support from JM Masala.",
           },
           {
             "@context": "https://schema.org",
             "@type": "Service",
             name: "Indian Spice Sourcing and Export Supply",
-            provider: {
-              "@type": "Organization",
-              name: COMPANY.legalName,
-              url: SITE_URL,
-            },
-            areaServed: "Worldwide",
+            provider: { "@id": `${SITE_URL}/#organization` },
             serviceType: "Spice sourcing, grading, packing, documentation and export dispatch",
           },
           {
@@ -959,6 +959,28 @@ const SourcingNetworkPage = () => {
               ))}
             </div>
           </div>
+        </div>
+
+        {/* ── RELATED PAGES ── */}
+        <div className="sn-section">
+          <div className="sn-section-label">Related Pages</div>
+          <p className="sn-section-sub">
+            Seed spices:{" "}
+            <Link to="/cumin-seeds-exporter-india">cumin seeds (jeera) exporter</Link>,{" "}
+            <Link to="/coriander-seeds-exporter-india">coriander seeds (dhania) exporter</Link>,{" "}
+            <Link to="/fennel-seeds-exporter-india">fennel seeds (saunf) supplier</Link>,{" "}
+            <Link to="/sesame-seeds-exporter-india">sesame seeds (til) supplier</Link>,{" "}
+            <Link to="/ajwain-seeds-exporter-india">ajwain (carom) seeds exporter</Link> and{" "}
+            <Link to="/mustard-seeds-exporter-india">mustard seeds (rai) supplier</Link>. Regions:{" "}
+            {SOURCING_REGIONS.map((region, index) => (
+              <span key={region.slug}>
+                <Link to={`/sourcing/${region.slug}`}>{region.title}</Link>
+                {index < SOURCING_REGIONS.length - 1 ? ", " : ". "}
+              </span>
+            ))}
+            See also <Link to="/spice-exporter-gujarat">spice exporter in Gujarat</Link> and{" "}
+            <Link to="/unjha-cumin-seeds">Unjha cumin seeds</Link>.
+          </p>
         </div>
 
         {/* ── CTA ── */}

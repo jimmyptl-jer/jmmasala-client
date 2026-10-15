@@ -1,5 +1,7 @@
 import { FormEvent, useState } from "react";
+import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
+import { SITE_URL } from "@/data/siteData";
 
 type Language = "en" | "hi";
 
@@ -16,7 +18,7 @@ const retailProducts = [
 ];
 
 const copyByLanguage: Record<Language, string> = {
-  en: "We supply certified premium spices across India for wholesale, distribution, retail chains, and white-label packs.",
+  en: "We supply premium spices across India for wholesale, distribution, retail chains, and white-label packs.",
   hi: "Hum poore Bharat mein thok, distributor, retail chain aur white-label brand ke liye premium masale supply karte hain.",
 };
 
@@ -32,9 +34,38 @@ const DomesticSupplyPage = () => {
   return (
     <>
       <Seo
-        title="Domestic Supply India | JM Masala for Wholesalers and Distributors"
-        description="Premium spices for Indian wholesalers, distributors, retailers, and white-label partners."
+        title="Domestic Spice Supply India | JM Masala"
+        description="Wholesale spice supply in India for distributors, processors, retailers and institutional buyers from Unjha, Gujarat. Request specifications and a quote."
         path="/domestic-supply-india"
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": `${SITE_URL}/domestic-supply-india#webpage`,
+            name: "Domestic Supply India",
+            url: `${SITE_URL}/domestic-supply-india`,
+            description:
+              "Spices for Indian wholesalers, distributors, retailers and white-label partners from JM Masala Trading LLP.",
+            isPartOf: { "@id": `${SITE_URL}/#website` },
+            about: { "@id": `${SITE_URL}/#organization` },
+            publisher: { "@id": `${SITE_URL}/#organization` },
+            breadcrumb: { "@id": `${SITE_URL}/domestic-supply-india#breadcrumb` },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "@id": `${SITE_URL}/domestic-supply-india#breadcrumb`,
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Domestic Supply India",
+                item: `${SITE_URL}/domestic-supply-india`,
+              },
+            ],
+          },
+        ]}
       />
 
       <section className="jm-section">
@@ -89,11 +120,30 @@ const DomesticSupplyPage = () => {
 
           <section className="jm-soft-panel mt-6 p-6">
             <h2 className="text-tagline not-italic text-[28px] text-[var(--brand-charcoal)]">
-              Domestic Certifications
+              Quality Documents
             </h2>
             <p className="mt-3 text-body text-[var(--brand-forest)]">
-              FSSAI licensed operations with quality-compliant handling. Additional
-              certification documents are shared as required for procurement onboarding.
+              Compliance and quality documents can be requested for procurement
+              onboarding. See our <Link to="/quality-certifications" className="underline">quality and documentation</Link> page.
+            </p>
+          </section>
+
+          <section className="jm-surface-card mt-6 p-6">
+            <h2 className="text-tagline not-italic text-[28px] text-[var(--brand-charcoal)]">
+              Seed Spices and Sourcing Pages
+            </h2>
+            <p className="mt-3 text-body text-[var(--brand-forest)]">
+              Explore{" "}
+              <Link to="/cumin-seeds-exporter-india" className="underline">cumin seeds (jeera)</Link>,{" "}
+              <Link to="/coriander-seeds-exporter-india" className="underline">coriander seeds (dhania)</Link>,{" "}
+              <Link to="/fennel-seeds-exporter-india" className="underline">fennel seeds (saunf)</Link>,{" "}
+              <Link to="/sesame-seeds-exporter-india" className="underline">sesame seeds (til)</Link>,{" "}
+              <Link to="/ajwain-seeds-exporter-india" className="underline">ajwain (carom) seeds</Link> and{" "}
+              <Link to="/mustard-seeds-exporter-india" className="underline">mustard seeds (rai)</Link>.
+              For origin and sourcing details see{" "}
+              <Link to="/sourcing-network" className="underline">our Indian spice sourcing network</Link>,{" "}
+              <Link to="/spice-exporter-gujarat" className="underline">spice exporter in Gujarat</Link> and{" "}
+              <Link to="/private-label-spices" className="underline">private label spices</Link>.
             </p>
           </section>
 

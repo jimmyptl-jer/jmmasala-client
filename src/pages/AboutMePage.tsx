@@ -1,6 +1,6 @@
 import Seo from "@/components/Seo";
-import { COMPANY, SITE_URL, buildWhatsAppUrl } from "@/data/siteData";
-import teamImage from "@/assets/team.png";
+import { SITE_URL, buildWhatsAppUrl } from "@/data/siteData";
+import teamImage from "@/assets/team.jpg";
 import jmMasalaLogo from "@/assets/JmMasala.png";
 
 const styles = `
@@ -356,8 +356,8 @@ const AboutPage = () => {
   return (
     <>
       <Seo
-        title="About JM Masala | Heritage, Unjha Location, and Global Spice Expansion"
-        description="Learn JM Masala's family heritage spanning generations in Unjha, Gujarat's spice trade. HACCP certified exporter of cumin, turmeric, pepper, cardamom and 12 more Indian spices."
+        title="About JM Masala | Spice Exporter from Unjha Gujarat"
+        description="About JM Masala Trading LLP, a three-generation spice business based in Unjha, Gujarat serving spice importers and food manufacturers."
         path="/about-jm-masala"
         keywords={[
           "about JM Masala",
@@ -371,30 +371,19 @@ const AboutPage = () => {
           {
             "@context": "https://schema.org",
             "@type": "AboutPage",
-            name: "About JM Masala",
+            "@id": `${SITE_URL}/about-jm-masala#webpage`,
+            name: "About JM Masala Trading LLP",
             url: `${SITE_URL}/about-jm-masala`,
             description:
-              "About JM Masala Exports, a spice exporter rooted in Unjha, Gujarat with global buyer support.",
-          },
-          {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: COMPANY.legalName,
-            url: SITE_URL,
-            email: COMPANY.email,
-            telephone: COMPANY.phones[0],
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "A/18, Main Line, APMC Market Yard",
-              addressLocality: "Unjha",
-              addressRegion: "Gujarat",
-              postalCode: "384170",
-              addressCountry: "IN",
-            },
+              "About JM Masala Trading LLP, a spice exporter rooted in Unjha, Gujarat with global buyer support.",
+            isPartOf: { "@id": `${SITE_URL}/#website` },
+            about: { "@id": `${SITE_URL}/#organization` },
+            breadcrumb: { "@id": `${SITE_URL}/about-jm-masala#breadcrumb` },
           },
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
+            "@id": `${SITE_URL}/about-jm-masala#breadcrumb`,
             itemListElement: [
               {
                 "@type": "ListItem",
@@ -424,7 +413,7 @@ const AboutPage = () => {
           <div className="ab-hero-inner">
             <div className="ab-hero-label">Our Story</div>
             <h1>
-              Rooted in Unjha.
+              Rooted in Unjha.{" "}
               <br />
               <em>Trusted Across the World.</em>
             </h1>

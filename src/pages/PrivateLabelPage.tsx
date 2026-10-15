@@ -1,3 +1,4 @@
+import { Suspense, lazy, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
 import Seo from "@/components/Seo";
@@ -12,7 +13,8 @@ import pouchGingerPowder from "@/assets/pouch-dry-ginger-powder.jpg";
 import pouchBayLeaf from "@/assets/pouch-bay-leaf.jpg";
 import pouchCardamom from "@/assets/pouch-black-cardamom.jpg";
 import pouchRedChilliTeja from "@/assets/pouch-red-chilli-teja.jpg";
-import Product3DViewer from "@/components/Product3DViewer";
+// three.js is heavy: load the viewer on the client only, after the page is shown, so no other page pays for it
+const Product3DViewer = lazy(() => import("@/components/Product3DViewer"));
 
 /* ─── DATA ─── */
 
@@ -374,6 +376,8 @@ const styles = `
 /* ─── COMPONENT ─── */
 
 const PrivateLabelPage = () => {
+  const [show3d, setShow3d] = useState(false);
+  useEffect(() => setShow3d(true), []);
   const waUrl = buildWhatsAppUrl(
     buildGeneralInquiryMessage("private label spice manufacturing"),
   );
@@ -381,8 +385,8 @@ const PrivateLabelPage = () => {
   return (
     <>
       <Seo
-        title="Private Label Spice Manufacturer India | Custom Spice Packaging & Branding | JM Masala"
-        description="JM Masala Trading LLP is an Indian private label spice manufacturer offering custom processing, packaging, branding and export of cumin, coriander, fennel, turmeric and other Indian spices for global B2B buyers."
+        title="Private Label Spice Manufacturer India | JM Masala"
+        description="Private label spice manufacturing from Unjha, Gujarat: custom processing, packaging and branding of cumin, coriander, fennel, turmeric and more."
         path="/private-label-spices"
         keywords={[
           "private label spices India",
@@ -413,7 +417,7 @@ const PrivateLabelPage = () => {
           <div className="pl-hero-inner">
             <div className="pl-hero-label">Private Label &amp; Retail Supply</div>
             <h1>
-              Private Label Spice Manufacturing — <em>from India</em>
+              Private Label Spice Manufacturing: <em>from India</em>
             </h1>
             <p className="pl-hero-sub">
               <strong>JM Masala Trading LLP</strong> is an Indian spice manufacturer,
@@ -547,7 +551,13 @@ const PrivateLabelPage = () => {
             <p className="pl-sub pl-sub--white">
               Rotate 360°, inspect front branding, examine back nutritional specifications, and zoom into our 500g food-grade stand-up zipper pouch across multiple spices.
             </p>
-            <Product3DViewer />
+            {show3d ? (
+              <Suspense fallback={<div style={{ minHeight: 420 }} aria-hidden="true" />}>
+                <Product3DViewer />
+              </Suspense>
+            ) : (
+              <div style={{ minHeight: 420 }} aria-hidden="true" />
+            )}
           </div>
         </section>
 
@@ -733,6 +743,20 @@ const PrivateLabelPage = () => {
               ))}
             </div>
           </div>
+        </section>
+
+        <section style={{ maxWidth: 1100, margin: "0 auto", padding: "40px 24px" }}>
+          <p>
+            Private label packs can be prepared for seed spices such as{" "}
+            <Link to="/cumin-seeds-exporter-india" className="underline">cumin seeds (jeera) exporter</Link>,{" "}
+            <Link to="/coriander-seeds-exporter-india" className="underline">bulk coriander seeds exporter</Link>,{" "}
+            <Link to="/fennel-seeds-exporter-india" className="underline">fennel seeds (saunf) exporter</Link>,{" "}
+            <Link to="/sesame-seeds-exporter-india" className="underline">sesame seeds (til) supplier</Link>,{" "}
+            <Link to="/ajwain-seeds-exporter-india" className="underline">ajwain (carom) seeds supplier</Link> and{" "}
+            <Link to="/mustard-seeds-exporter-india" className="underline">mustard seeds (rai) supplier</Link>. See also{" "}
+            <Link to="/spice-packaging" className="underline">spice packaging for export</Link> and{" "}
+            <Link to="/spice-processing-manufacturing" className="underline">spice processing in Unjha</Link>.
+          </p>
         </section>
 
         {/* ── CTA ── */}

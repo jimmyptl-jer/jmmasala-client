@@ -94,8 +94,6 @@ const TejaChilliPage = () => {
     description:
       "Export-grade Indian Teja Red Chilli (S17) from Guntur, Andhra Pradesh. High pungency 50,000–85,000 SHU, 50–70 ASTA color, whole and stemless, supplied in bulk FCL by JM Masala.",
     image: [productImageUrl],
-    sku: "JMM-TEJA-S17",
-    mpn: "JMM-teja-s17",
     brand: {
       "@type": "Brand",
       name: COMPANY.name,
@@ -143,8 +141,8 @@ const TejaChilliPage = () => {
   return (
     <>
       <Seo
-        title="Teja Chilli Exporter from India | S17 Red Chilli | JM Masala"
-        description="JM Masala supplies Indian Teja red chilli (S17) for bulk export. High heat 50,000–85,000 SHU, 50–70 ASTA color, whole & stemless. Request lab specs & quote."
+        title="Teja Chilli (S17) Exporter India | Bulk Supplier"
+        description="Bulk Teja (S17) red chilli from India for importers and food manufacturers. Request SHU and ASTA specifications, samples and a quotation."
         path="/teja-chilli-exporter-india"
         imageUrl={productImageUrl}
         imageAlt="Export-grade Indian Teja red chilli S17 supplied by JM Masala"

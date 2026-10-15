@@ -15,7 +15,7 @@ import {
   buildProductInquiryMessage,
   buildWhatsAppUrl,
 } from "@/data/siteData";
-import turmericImage from "@/assets/Turmeric.png";
+import turmericImage from "@/assets/Turmeric.jpg";
 
 const TURMERIC_SUMMARY_ROWS = [
   { label: "Product & Variety", value: "Turmeric / Haldi (Curcuma longa)" },
@@ -247,8 +247,6 @@ const TurmericPage = () => {
     description:
       "Export-grade Indian turmeric supplied by JM Masala. Polished whole turmeric fingers and cold-ground turmeric powder with 2.0% to 5.0%+ curcumin, max 10% moisture, zero lead chromate, and NABL laboratory certification.",
     image: [productImageUrl],
-    sku: "JMM-TURMERIC-WHOLE",
-    mpn: "JMM-turmeric-whole",
     brand: {
       "@type": "Brand",
       name: COMPANY.name,
@@ -272,45 +270,6 @@ const TurmericPage = () => {
       { "@type": "PropertyValue", name: "Lead Chromate", value: "NIL / Negative" },
       { "@type": "PropertyValue", name: "Forms", value: "Fingers (single/double polished), Bulbs (Gatha), Powder" },
     ],
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/NewCondition",
-      url: canonicalUrl,
-      seller: {
-        "@id": `${SITE_URL}/#organization`,
-      },
-      shippingDetails: {
-        "@type": "OfferShippingDetails",
-        shippingDestination: {
-          "@type": "DefinedRegion",
-          addressCountry: ["US", "CA", "GB", "AE", "SA", "SG", "AU", "DE", "NL", "MY"],
-        },
-        shippingRate: {
-          "@type": "MonetaryAmount",
-          value: "0",
-          currency: "USD",
-        },
-        deliveryTime: {
-          "@type": "ShippingDeliveryTime",
-          handlingTime: {
-            "@type": "QuantitativeValue",
-            minValue: 7,
-            maxValue: 15,
-            unitCode: "d",
-          },
-        },
-      },
-      hasMerchantReturnPolicy: {
-        "@type": "MerchantReturnPolicy",
-        applicableCountry: ["IN", "US", "AE", "GB", "CA", "SG", "SA", "AU", "DE", "NL", "MY"],
-        returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
-        merchantReturnDays: 14,
-        returnMethod: "https://schema.org/ReturnByMail",
-        returnFees: "https://schema.org/FreeReturn",
-      },
-    },
   };
 
   const breadcrumbSchema = {
@@ -354,8 +313,8 @@ const TurmericPage = () => {
   return (
     <>
       <Seo
-        title="Turmeric Exporter from India | Haldi, Fingers & Powder | JM Masala"
-        description="JM Masala supplies Indian turmeric and haldi for bulk buyers, importers and food manufacturers. Turmeric fingers and powder available with specifications, samples and export quotations."
+        title="Turmeric (Haldi) Exporter India | Fingers & Powder, Bulk"
+        description="Bulk turmeric (haldi) fingers and powder from India with moisture-controlled export lots. Request specifications, samples and a quotation."
         path="/turmeric-exporter-india"
         imageUrl={productImageUrl}
         imageAlt="Export-grade Indian turmeric fingers and powder supplied by JM Masala"

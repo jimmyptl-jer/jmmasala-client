@@ -5,8 +5,8 @@ const NotFoundPage = () => {
   return (
     <>
       <Seo
-        title="404 | Page Not Found | JM Masala"
-        description="The page you requested could not be found."
+        title="Page Not Found | JM Masala"
+        description="The page you requested could not be found. Browse JM Masala's Indian spice products or contact us."
         path="/404"
       />
       <section className="jm-section">

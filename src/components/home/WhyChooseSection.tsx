@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { MapPin, Sprout, PackageCheck, Warehouse, Truck, Tags, FlaskConical } from "lucide-react";
+import { Cog, FileText, Package, Sprout } from "lucide-react";
 import "@/styles/home-trust.css";
 
 type Reason = {
@@ -10,63 +10,64 @@ type Reason = {
 
 const REASONS: Reason[] = [
   {
-    title: "Based in Unjha",
-    text: "Sourcing and operations run from the APMC Market Yard, Unjha, Gujarat.",
-    Icon: MapPin,
-  },
-  {
-    title: "Cumin with defined export grades",
-    text: "Cumin is our flagship export, offered in four commercial grades.",
+    title: "Indian Spice Sourcing",
+    text: "We source high-quality spices and seeds from trusted farming regions across India.",
     Icon: Sprout,
   },
   {
-    title: "Trial order from 1 MT",
-    text: "Start with a trial order of a minimum of 1 MT before planning larger volumes.",
-    Icon: PackageCheck,
+    title: "Cleaning & Sorting Options",
+    text: "Machine-cleaned and Sortex-cleaned options available as per buyer requirements.",
+    Icon: Cog,
   },
   {
-    title: "Up to 200 MT per month",
-    text: "Monthly supply capacity of up to 200 MT for bulk and wholesale buyers.",
-    Icon: Warehouse,
+    title: "Export Packaging",
+    text: "Bulk packaging options including 25 kg, 50 kg bags and customized packaging as per requirements.",
+    Icon: Package,
   },
   {
-    title: "Dispatch in 1-5 days",
-    text: "Orders are dispatched 1-5 days after order confirmation.",
-    Icon: Truck,
+    title: "Documentation & Logistics",
+    text: "Assistance with export documentation and shipment coordination to global destinations.",
+    Icon: FileText,
   },
-  {
-    title: "Private label and retail packs",
-    text: "Private-label and retail packing are available on request.",
-    Icon: Tags,
-  },
-  {
-    title: "Samples can be arranged",
-    text: "Ask for a sample so you can evaluate the product before you order.",
-    Icon: FlaskConical,
-  },
+];
+
+const SUPPLY_TERMS = [
+  "Trial orders from 1 MT",
+  "Supply up to 200 MT per month",
+  "Dispatch 1-5 days after order confirmation",
+  "Private label available",
+  "Samples can be arranged",
 ];
 
 export default function WhyChooseSection(): JSX.Element {
   return (
-    <section className="jmh-section jmh-section--ivory" aria-labelledby="jmh-why-heading">
+    <section className="jmh-section jmh-section--white" aria-labelledby="jmh-why-heading">
       <div className="jmh-container">
+        <p className="jmh-eyebrow">Why Choose JM Masala</p>
         <h2 id="jmh-why-heading" className="jmh-h2">
-          Why Choose JM Masala
+          A Reliable Partner for Global Buyers
         </h2>
-        <p className="jmh-lead">
-          JM Masala Trading LLP supplies spices and seeds for export and bulk wholesale from Unjha, Gujarat.
-        </p>
         <ul className="jmh-why-grid">
           {REASONS.map(({ title, text, Icon }) => (
-            <li key={title} className="jmh-card jmh-why-card">
+            <li key={title} className="jmh-why-item">
               <span className="jmh-why-icon">
-                <Icon size={24} aria-hidden />
+                <Icon size={48} strokeWidth={1} aria-hidden />
               </span>
-              <h3 className="jmh-why-title">{title}</h3>
-              <p className="jmh-why-text">{text}</p>
+              <div>
+                <h3 className="jmh-why-title">{title}</h3>
+                <p className="jmh-why-text">{text}</p>
+              </div>
             </li>
           ))}
         </ul>
+        <div className="jmh-why-terms">
+          <h3 className="jmh-why-terms-title">Supply terms</h3>
+          <ul className="jmh-why-terms-list">
+            {SUPPLY_TERMS.map((t) => (
+              <li key={t}>{t}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

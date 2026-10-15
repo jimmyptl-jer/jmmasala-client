@@ -17,7 +17,7 @@ import {
   buildProductInquiryMessage,
   buildWhatsAppUrl,
 } from "@/data/siteData";
-import bannerImage from "@/assets/homepage.png";
+import bannerImage from "@/assets/homepage.jpg";
 
 const UNJHA_FENNEL_FAQS = [
   {
@@ -114,8 +114,8 @@ const UnjhaFennelSeedsPage = () => {
   return (
     <>
       <Seo
-        title="Unjha Fennel Seeds Exporter India | Indian Saunf | JM Masala"
-        description="Comprehensive guide to Unjha fennel seeds (Saunf / Variyali) export supply from Gujarat. Bold Green, Lakhnavi, Sortex 99.5%, EU MRL testing, FOB Mundra."
+        title="Unjha Fennel Seeds (Saunf) | Origin & Export Guide"
+        description="Guide to Unjha fennel (saunf) supply from Gujarat and how we grade and pack it. Buying? See our fennel exporter page."
         path="/unjha-fennel-seeds"
         imageUrl={bannerImage}
         imageAlt="Unjha fennel seeds processing and export supply from Gujarat India"
