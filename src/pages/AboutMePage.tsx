@@ -267,19 +267,6 @@ const styles = `
   .ab-cta-bg { background: #2C1A0E; padding: 72px 24px; text-align: center; }
   .ab-cta-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 4vw, 40px); color: #fff; margin-bottom: 14px; }
   .ab-cta-sub { color: rgba(255,255,255,0.65); font-size: 16px; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
-  .ab-cta-btn {
-    display: inline-block; padding: 15px 38px; background: #C8960C;
-    color: #2C1A0E; font-weight: 700; font-size: 14px; letter-spacing: 0.5px;
-    border-radius: 4px; text-decoration: none; transition: background 0.25s, transform 0.2s;
-    margin: 0 8px 10px;
-  }
-  .ab-cta-btn:hover { background: #D4A420; transform: translateY(-2px); }
-  .ab-cta-btn-outline {
-    display: inline-block; padding: 15px 38px; border: 2px solid rgba(255,255,255,0.4);
-    color: #fff; font-weight: 700; font-size: 14px; border-radius: 4px;
-    text-decoration: none; transition: border-color 0.25s; margin: 0 8px 10px;
-  }
-  .ab-cta-btn-outline:hover { border-color: #fff; }
 
   @media (max-width: 640px) {
     .ab-tl-item { margin-bottom: 40px; }
@@ -620,7 +607,7 @@ const AboutPage = () => {
             specifications and pricing within 24 hours.
           </p>
           <div>
-            <a href="/contact" className="ab-cta-btn">
+            <a href="/contact" className="jm-btn jm-btn--primary">
               Send Your Requirement
             </a>
             <a
@@ -629,7 +616,7 @@ const AboutPage = () => {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="ab-cta-btn-outline"
+              className="jm-btn jm-btn--ghost"
             >
               WhatsApp Us
             </a>

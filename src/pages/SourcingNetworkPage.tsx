@@ -173,22 +173,6 @@ const styles = `
   }
   .sn-cta-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px); color: #fff; margin-bottom: 16px; }
   .sn-cta-sub { color: rgba(255,255,255,0.72); font-size: 17px; margin-bottom: 36px; max-width: 520px; margin-left: auto; margin-right: auto; }
-  .sn-cta-btn {
-    display: inline-block; padding: 16px 40px; background: #C8960C;
-    color: #2C1A0E; font-family: 'Lato', sans-serif; font-weight: 700;
-    font-size: 15px; letter-spacing: 0.5px; border-radius: 4px;
-    text-decoration: none; transition: background 0.25s, transform 0.2s;
-    margin: 0 8px 12px;
-  }
-  .sn-cta-btn:hover { background: #D4A420; transform: translateY(-2px); }
-  .sn-cta-btn-outline {
-    display: inline-block; padding: 16px 40px;
-    border: 2px solid rgba(255,255,255,0.5); color: #fff;
-    font-family: 'Lato', sans-serif; font-weight: 700; font-size: 15px;
-    border-radius: 4px; text-decoration: none; transition: border-color 0.25s;
-    margin: 0 8px 12px;
-  }
-  .sn-cta-btn-outline:hover { border-color: #fff; }
 
   /* Responsive tweaks */
   @media (max-width: 640px) {
@@ -993,14 +977,14 @@ const SourcingNetworkPage = () => {
               hours.
             </p>
             <div>
-              <a href="/contact" className="sn-cta-btn">
+              <a href="/contact" className="jm-btn jm-btn--primary">
                 Send Your Requirement
               </a>
               <a
                 href={buildWhatsAppUrl(
                   "Hi JM Masala, I am interested in your sourcing capabilities. Can we discuss my requirement?",
                 )}
-                className="sn-cta-btn-outline"
+                className="jm-btn jm-btn--ghost"
                 target="_blank"
                 rel="noopener noreferrer"
               >

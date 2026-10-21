@@ -293,32 +293,15 @@ const styles = `
   .pl-divider { height: 1px; background: linear-gradient(to right, transparent, rgba(201,168,76,0.25), transparent); }
 
   /* Buttons */
-  .pl-btn-primary {
-    background: linear-gradient(135deg, var(--brand-gold), var(--brand-gold-light));
-    color: var(--brand-deep-green); padding: 14px 28px; border-radius: 8px;
-    font-weight: 600; font-size: 15px; text-decoration: none;
-    display: inline-flex; align-items: center; gap: 8px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 20px rgba(201,168,76,0.32);
-  }
-  .pl-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,76,0.42); }
-  .pl-btn-outline {
-    border: 2px solid rgba(255,255,255,0.5); color: #fff;
-    padding: 14px 28px; border-radius: 8px;
-    font-weight: 600; font-size: 15px; text-decoration: none;
-    display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s;
-  }
-  .pl-btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
   .pl-hero-alt { margin-top: 8px; font-size: 14px; color: rgba(255,255,255,0.72); }
   .pl-hero-alt a {
     display: inline-flex; align-items: center; min-height: 44px;
     color: var(--brand-gold-light); font-weight: 600;
     text-decoration: underline; text-underline-offset: 3px;
   }
-  .pl-btn-primary:focus-visible, .pl-btn-outline:focus-visible, .pl-hero-alt a:focus-visible {
+  .pl-hero-alt a:focus-visible {
     outline: 3px solid var(--brand-gold-light); outline-offset: 3px;
   }
-  .pl-pouch-cta .pl-btn-primary:focus-visible { outline-color: var(--brand-deep-green); }
 
   /* Supply Models Grid */
   .pl-models { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -438,7 +421,7 @@ const styles = `
   .pl-pouch-cta__text { font-size: 14px; color: var(--brand-forest); line-height: 1.6; }
   @media (max-width: 640px) {
     .pl-pouch-cta { padding: 20px; }
-    .pl-pouch-cta .pl-btn-primary { width: 100%; justify-content: center; }
+    .pl-pouch-cta .jm-btn { width: 100%; justify-content: center; }
   }
 
   /* Buyers */
@@ -551,12 +534,12 @@ const PrivateLabelPage = () => {
             <div className="pl-hero-actions">
               <Link
                 to="/contact?intent=private-label#inquiry-form"
-                className="pl-btn-primary"
+                className="jm-btn jm-btn--primary"
               >
                 Request a Private Label Quote <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
               {/* plain <a>: React Router does not scroll to a hash on <Link> navigation */}
-              <a href="#packaging-options" className="pl-btn-outline">
+              <a href="#packaging-options" className="jm-btn jm-btn--ghost">
                 Explore Packaging Options <ArrowDown className="h-4 w-4" aria-hidden="true" />
               </a>
             </div>
@@ -738,7 +721,7 @@ const PrivateLabelPage = () => {
               </div>
               <Link
                 to="/contact?intent=private-label#inquiry-form"
-                className="pl-btn-primary"
+                className="jm-btn jm-btn--primary"
               >
                 Request Private Label Quote <ArrowRight className="h-4 w-4" />
               </Link>
@@ -910,11 +893,11 @@ const PrivateLabelPage = () => {
             <div className="pl-cta-actions">
               <Link
                 to="/contact?intent=private-label#inquiry-form"
-                className="pl-btn-primary"
+                className="jm-btn jm-btn--primary"
               >
                 Request Private Label Quote <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link to="/products" className="pl-btn-outline">
+              <Link to="/products" className="jm-btn jm-btn--ghost">
                 View Product Portfolio
               </Link>
             </div>

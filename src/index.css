@@ -540,6 +540,13 @@ h4,
   background-color: rgba(250, 246, 238, 0.15);
 }
 
+/* Two-tone focus ring: visible on both light and dark sections */
+.jm-btn:focus-visible {
+  outline: 3px solid var(--brand-deep-green);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px #fff;
+}
+
 /* Product cards */
 .jm-product-card {
   background-color: var(--brand-warm-white);

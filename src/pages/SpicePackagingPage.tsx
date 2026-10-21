@@ -179,22 +179,6 @@ const styles = `
   .sp-divider { height: 1px; background: linear-gradient(to right, transparent, rgba(201,168,76,0.25), transparent); }
 
   /* Buttons */
-  .sp-btn-primary {
-    background: linear-gradient(135deg, var(--brand-gold), var(--brand-gold-light));
-    color: var(--brand-deep-green); padding: 14px 28px; border-radius: 8px;
-    font-weight: 600; font-size: 15px; text-decoration: none;
-    display: inline-flex; align-items: center; gap: 8px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 20px rgba(201,168,76,0.32);
-  }
-  .sp-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,76,0.42); }
-  .sp-btn-outline {
-    border: 2px solid rgba(255,255,255,0.5); color: #fff;
-    padding: 14px 28px; border-radius: 8px;
-    font-weight: 600; font-size: 15px; text-decoration: none;
-    display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s;
-  }
-  .sp-btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
 
   /* Package Category cards */
   .sp-cats { display: grid; gap: 24px; }
@@ -325,11 +309,11 @@ const SpicePackagingPage = () => {
             <div className="sp-hero-actions">
               <Link
                 to="/contact?intent=packaging#inquiry-form"
-                className="sp-btn-primary"
+                className="jm-btn jm-btn--primary"
               >
                 Discuss Packaging Requirements <ArrowRight className="h-4 w-4" />
               </Link>
-              <a href={waUrl} target="_blank" rel="noopener noreferrer" className="sp-btn-outline">
+              <a href={waUrl} target="_blank" rel="noopener noreferrer" className="jm-btn jm-btn--ghost">
                 WhatsApp Inquiry
               </a>
             </div>
@@ -476,11 +460,11 @@ const SpicePackagingPage = () => {
             <div className="sp-cta-actions">
               <Link
                 to="/contact?intent=packaging#inquiry-form"
-                className="sp-btn-primary"
+                className="jm-btn jm-btn--primary"
               >
                 Request Packaging Quote <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link to="/private-label-spices" className="sp-btn-outline">
+              <Link to="/private-label-spices" className="jm-btn jm-btn--ghost">
                 Private Label Solutions
               </Link>
             </div>
