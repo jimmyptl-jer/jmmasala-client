@@ -73,14 +73,14 @@ export const PAGE_SEO: Record<string, SeoStrings> = {
       "About JM Masala Trading LLP, a three-generation spice business based in Unjha, Gujarat serving spice importers and food manufacturers.",
   },
   "/best-spice-exporter-india": {
-    title: "Best Spice Exporter India | Bulk Indian Spices | JM Masala",
+    title: "Indian Spice Exporter for Bulk Buyers | JM Masala",
     description:
       "JM Masala supplies cumin, coriander, fennel, fenugreek, sesame, psyllium, turmeric, chilli, pepper and cardamom with packing and export documents.",
   },
   "/best-cumin-exporter-india": {
-    title: "Best Cumin Exporter in India | Unjha Cumin Seeds | JM Masala",
+    title: "Choosing a Cumin Exporter in India | JM Masala",
     description:
-      "JM Masala exports cumin seeds from Unjha, Gujarat with 98%, 99% and 99.5% purity options, Sortex cleaning, packing and export documentation.",
+      "What importers check when choosing an Indian cumin exporter: origin, grades, cleaning, packing and documents. Full details on our cumin seeds page.",
   },
   "/unjha-cumin-seeds": {
     title: "Unjha Cumin Seeds | APMC Mandi Origin & Sortex Grading",
@@ -93,7 +93,7 @@ export const PAGE_SEO: Record<string, SeoStrings> = {
       "Guide to Unjha fennel (saunf) supply from Gujarat and how we grade and pack it. Buying? See our fennel exporter page.",
   },
   "/cumin-seeds-specifications": {
-    title: "Cumin Seeds Specifications | Export Grades | JM Masala",
+    title: "Cumin Seeds Specifications & Datasheet | JM Masala",
     description:
       "Technical datasheet for Indian cumin seeds (jeera): purity levels, moisture limits, volatile oil and export grades. Request a specification sheet.",
   },
@@ -181,19 +181,19 @@ export const PAGE_SEO: Record<string, SeoStrings> = {
 
 export const PRODUCT_SEO: Record<string, SeoStrings> = {
   "cumin-seeds-exporter-india": {
-    title: "Cumin Seeds (Jeera) Exporter India | Bulk Supply, FOB Mundra",
+    title: "Cumin Seeds (Jeera) Exporter India | Bulk from Unjha",
     description:
-      "Bulk cumin (jeera) seeds from Unjha, Gujarat. Sortex cleaned, export packed. Request specs, samples and a FOB Mundra quote.",
+      "Bulk cumin (jeera) seeds from Unjha, Gujarat, machine and Sortex cleaned for export. Request specifications, samples and a quotation from JM Masala.",
   },
   "coriander-seeds-exporter-india": {
-    title: "Coriander Seeds (Dhania) Exporter India | Bulk, Sortex Cleaned",
+    title: "Coriander Seeds (Dhania) Exporter India | Bulk Supplier",
     description:
-      "Bulk coriander (dhania) seeds from Gujarat: Eagle, Scooter and Parrot grades, Sortex cleaned, FOB Mundra. Request samples and a quote.",
+      "Bulk coriander (dhania) seeds from Gujarat for importers, spice grinders and food manufacturers. Request specifications, samples and a quotation.",
   },
   "fennel-seeds-exporter-india": {
-    title: "Fennel Seeds (Saunf) Exporter India | Bulk Supplier from Unjha",
+    title: "Fennel Seeds (Saunf) Exporter India | Bulk from Unjha",
     description:
-      "Bulk fennel (saunf) seeds for importers. Request specifications, samples and export quotations.",
+      "Bulk fennel (saunf) seeds from Unjha, Gujarat, for importers and food manufacturers. Request specifications, samples and an export quotation.",
   },
   "sesame-seeds-exporter-india": {
     title: "Sesame Seeds (Til) Exporter India | Natural & Hulled, Bulk",
@@ -201,9 +201,9 @@ export const PRODUCT_SEO: Record<string, SeoStrings> = {
       "Bulk natural and hulled sesame seeds (til) from India for importers, distributors and food manufacturers. Request specs, samples and a quote.",
   },
   "ajwain-seeds-exporter-india": {
-    title: "Ajwain (Carom) Seeds Exporter India | Bulk, Sortex Cleaned",
+    title: "Ajwain (Carom) Seeds Exporter India | Bulk from Gujarat",
     description:
-      "Bulk ajwain (carom, ajmo) seeds from Gujarat, Sortex cleaned, FOB Mundra. Request specifications, samples and a quotation.",
+      "Bulk ajwain (carom, ajmo) seeds from Gujarat for spice blenders and food manufacturers. Request specifications, samples and a quotation.",
   },
   "mustard-seeds-exporter-india": {
     title: "Mustard Seeds (Rai) Exporter India | Bulk Supplier, Sarson",
@@ -218,7 +218,7 @@ export const PRODUCT_SEO: Record<string, SeoStrings> = {
   "turmeric-exporter-india": {
     title: "Turmeric (Haldi) Exporter India | Fingers & Powder, Bulk",
     description:
-      "Bulk turmeric (haldi) fingers and powder from India with moisture-controlled export lots. Request specifications, samples and a quotation.",
+      "Bulk turmeric (haldi) fingers, bulbs and powder from India for importers and food manufacturers. Request specifications, samples and a quotation.",
   },
   "red-chilli-exporter-india": {
     title: "Red Chilli Exporter India | Teja, Bird's Eye & King, Bulk",
@@ -228,37 +228,37 @@ export const PRODUCT_SEO: Record<string, SeoStrings> = {
   "black-pepper-exporter-india": {
     title: "Black Pepper Exporter India | Bulk MG1, FAQ Grade",
     description:
-      "Bulk Indian black pepper in MG1 and FAQ grades, export cleaned with moisture and density controls. Request specifications and a quotation.",
+      "Bulk Indian black pepper in MG1 and FAQ grades for importers and food manufacturers. Request specifications and a quotation from JM Masala.",
   },
   "cardamom-exporter-india": {
     title: "Green Cardamom (Elaichi) Exporter India | Bulk Supplier",
     description:
-      "Bulk green cardamom (elaichi) from India, size-graded for color and aroma. Request specifications, samples and an export quotation.",
+      "Bulk green cardamom (elaichi) from India, size-graded for importers and food manufacturers. Request specifications and an export quotation.",
   },
   "dry-ginger-exporter-india": {
     title: "Dry Ginger (Sonth) Exporter India | Bulk Supplier",
     description:
-      "Bulk dry ginger (sonth) nuggets and splits from India for importers and food manufacturers. Request specifications, samples and a quotation.",
+      "Bulk dry ginger (sonth) nuggets and splits from India for importers and food manufacturers. Request specifications and a quotation.",
   },
   "psyllium-husk-exporter-india": {
-    title: "Psyllium Husk (Isabgol) Exporter India | Bulk, Unjha",
+    title: "Psyllium Husk (Isabgol) Exporter India | Bulk, Gujarat",
     description:
-      "Bulk psyllium husk (isabgol) from Gujarat for food and nutraceutical buyers. Request swell volume specifications, samples and a quotation.",
+      "Bulk psyllium husk (isabgol) from Gujarat for food and nutraceutical buyers. Request swell volume specifications and a quotation.",
   },
   "psyllium-seeds-exporter-india": {
     title: "Psyllium Seeds (Isabgol) Exporter India | Bulk Supplier",
     description:
-      "Bulk psyllium seeds (isabgol) from Gujarat, sorted and packed for export. Request specifications, samples and a quotation.",
+      "Bulk psyllium seeds (isabgol) from Gujarat, packed for export. Request specifications and a quotation from JM Masala.",
   },
   "nigella-seeds-exporter-india": {
     title: "Nigella Seeds (Kalonji) Exporter India | Bulk Supplier",
     description:
-      "Bulk nigella seeds (kalonji) from India, Sortex cleaned and export packed. Request specifications, samples and a quotation.",
+      "Bulk nigella seeds (kalonji) from India for importers, bakeries and food manufacturers. Request specifications and a quotation from JM Masala.",
   },
   "agro-commodities-exporter-india": {
     title: "Agro Commodities Exporter India | Peanuts, Grains, Bulk",
     description:
-      "Container-load Indian agro commodities including peanuts, Kabuli chickpeas, oilseeds and grains, FOB Mundra. Request specifications and a quotation.",
+      "Bulk Indian agro commodities including peanuts, Kabuli chickpeas, oilseeds and grains for importers. Request specifications and a quotation.",
   },
   "cumin-powder-exporter-india": {
     title: "Cumin Powder (Jeera) Exporter India | Bulk & Private Label",
@@ -273,22 +273,22 @@ export const PRODUCT_SEO: Record<string, SeoStrings> = {
   "fenugreek-powder-exporter-india": {
     title: "Fenugreek Powder (Methi) Exporter India | Bulk",
     description:
-      "Bulk fenugreek (methi) powder milled from machine-cleaned seeds for food manufacturers. Request specifications, samples and a quotation.",
+      "Bulk fenugreek (methi) powder from Gujarat for food manufacturers and nutraceutical buyers. Request specifications and a quotation from JM Masala.",
   },
   "ginger-powder-exporter-india": {
     title: "Ginger Powder (Sonth) Exporter India | Bulk Supplier",
     description:
-      "Bulk ginger (sonth) powder, micro-milled from dry ginger for bakery, beverage and spice blend buyers. Request specifications and a quotation.",
+      "Bulk ginger (sonth) powder from dry ginger for bakery, beverage and spice blend buyers. Request specifications and a quotation.",
   },
   "red-chilli-powder-exporter-india": {
     title: "Red Chilli Powder Exporter India | Bulk Supplier",
     description:
-      "Bulk red chilli powder from Guntur belts in Reshampatti, Sanam, Teja and Kashmiri grades. Request ASTA and SHU specifications and a quote.",
+      "Bulk red chilli powder from India for importers, spice blenders and food manufacturers. Request ASTA colour and SHU specifications and a quote.",
   },
   "turmeric-powder-exporter-india": {
     title: "Turmeric Powder (Haldi) Exporter India | Bulk Supplier",
     description:
-      "Bulk turmeric (haldi) powder ground from polished fingers, 60-100 mesh. Request curcumin specifications, samples and a quotation.",
+      "Bulk turmeric (haldi) powder from India for spice blenders and food manufacturers. Request curcumin specifications and a quotation.",
   },
 };
 

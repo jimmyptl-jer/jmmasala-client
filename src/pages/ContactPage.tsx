@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import Seo from "@/components/Seo";
 import QuotationForm from "@/components/quote/QuotationForm";
@@ -9,9 +9,39 @@ import {
   buildWhatsAppUrl,
 } from "@/data/siteData";
 
+type EnquiryIntent = {
+  heading: string;
+  /** Must match a packaging option in QuotationForm exactly. */
+  packaging?: string;
+  intro: string;
+};
+
+// Where a CTA sets ?intent=..., the form is labelled for it. "quote" is the default form, so it has no entry.
+const INTENTS: Record<string, EnquiryIntent> = {
+  "private-label": {
+    heading: "Request a Private Label Quotation",
+    packaging: "Retail packs or private label (on request)",
+    intro: "Hello JM Masala, I would like a private label quotation.",
+  },
+  sample: {
+    heading: "Request a Sample and Quotation",
+    intro: "Hello JM Masala, I would like to request a sample and a quotation.",
+  },
+  packaging: {
+    heading: "Request Packaging Options and a Quotation",
+    intro: "Hello JM Masala, I would like to discuss packaging options and a quotation.",
+  },
+};
+
 const ContactPage = () => {
   const [params] = useSearchParams();
-  const prefilledProduct = params.get("product") ?? "";
+  // The prerendered /contact page has no query string, so the product and intent are read after
+  // hydration to keep the first client render identical to the server HTML.
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => setHydrated(true), []);
+  const prefilledProduct = hydrated ? (params.get("product") ?? "") : "";
+  const intentKey = params.get("intent") ?? "";
+  const intent = hydrated && Object.prototype.hasOwnProperty.call(INTENTS, intentKey) ? INTENTS[intentKey] : undefined;
 
   const whatsappLink = useMemo(
     () => buildWhatsAppUrl(COMPANY.whatsappMessage),
@@ -102,7 +132,10 @@ const ContactPage = () => {
               <QuotationForm
                 id="inquiry-form"
                 defaultProduct={prefilledProduct}
-                sourcePage="contact"
+                defaultPackaging={intent?.packaging}
+                heading={intent?.heading}
+                messageIntro={intent?.intro}
+                sourcePage={intent ? `contact?intent=${intentKey}` : "contact"}
                 showPaymentTerms
               />
             </section>

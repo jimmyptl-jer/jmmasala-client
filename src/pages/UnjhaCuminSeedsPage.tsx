@@ -597,15 +597,15 @@ const UnjhaCuminSeedsPage = () => {
               </Link>
 
               <Link
-                to="/best-cumin-exporter-india"
+                to="/cumin-seeds-exporter-india"
                 className="group rounded-2xl border border-[rgba(201,168,76,0.2)] bg-[var(--brand-cream-light)] p-5 hover:border-[var(--brand-gold)] transition-all space-y-2"
               >
                 <div className="font-bold text-sm text-[var(--brand-charcoal)] group-hover:text-[var(--brand-forest)] flex items-center justify-between">
-                  <span>Best Cumin Exporter</span>
+                  <span>Bulk Cumin Seeds Exporter</span>
                   <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                 </div>
                 <p className="text-xs text-gray-600">
-                  Overview of JM Masala&apos;s export profile, certifications, and buyer credentials.
+                  Bulk cumin supply, grades, packing and export enquiries from JM Masala.
                 </p>
               </Link>
 
@@ -622,6 +622,12 @@ const UnjhaCuminSeedsPage = () => {
                 </p>
               </Link>
             </div>
+            <p className="text-center text-xs md:text-sm text-gray-600">
+              See also our <Link to="/quality-certifications" className="underline">quality and certifications</Link>,{" "}
+              <Link to="/spice-packaging" className="underline">spice packaging</Link>,{" "}
+              <Link to="/private-label-spices" className="underline">private label spices</Link>, and{" "}
+              <Link to="/contact" className="underline">contact us</Link> for a quotation.
+            </p>
           </div>
         </section>
       </div>

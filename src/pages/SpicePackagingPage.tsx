@@ -306,7 +306,7 @@ const SpicePackagingPage = () => {
           },
         ]}
       />
-      <style>{styles}</style>
+      <style dangerouslySetInnerHTML={{ __html: styles }} />
 
       <div className="sp-root">
         {/* ── HERO ── */}

@@ -462,6 +462,21 @@ const TejaChilliPage = () => {
         </div>
       </section>
 
+      <section className="jm-section jm-section--cream">
+        <div className="jm-container">
+          <h2 className="jm-section-heading">Related Products and Services</h2>
+          <p className="mt-3 text-sm leading-7 text-[var(--brand-forest)]">
+            Also available: <Link to="/bird-eye-chilli-exporter-india" className="underline">bird's eye chilli</Link>,{" "}
+            <Link to="/king-chilli-exporter-india" className="underline">king chilli</Link> and{" "}
+            <Link to="/red-chilli-powder-exporter-india" className="underline">red chilli powder</Link>.
+            See{" "}
+            <Link to="/spice-packaging" className="underline">spice packaging</Link>,{" "}
+            <Link to="/quality-certifications" className="underline">quality and certifications</Link> and{" "}
+            <Link to="/domestic-supply-india" className="underline">domestic supply</Link> for Indian wholesale buyers.
+          </p>
+        </div>
+      </section>
+
       {/* Link back to Master Red Chilli page & CTA */}
       <section className="bg-[var(--brand-deep-green)] py-12 text-white text-center">
         <div className="jm-container">

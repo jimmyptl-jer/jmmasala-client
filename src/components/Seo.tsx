@@ -98,6 +98,12 @@ const upsertSchema = (schema?: Record<string, unknown> | Array<Record<string, un
   script.textContent = JSON.stringify(schema);
 };
 
+// The prerender step writes a sanitised #page-schema (unverified claims are
+// filtered in entry-server.tsx). On first hydration that script is the single
+// source of truth for the page, so the runtime schema must not replace it.
+let schemaChecked = false;
+let prerenderedSchemaPath: string | null = null;
+
 const Seo = ({
   title,
   description,
@@ -174,7 +180,18 @@ const Seo = ({
       });
     upsertAlternate("en", canonicalUrl);
     upsertAlternate("x-default", canonicalUrl);
-    upsertSchema(schema);
+    if (!schemaChecked) {
+      schemaChecked = true;
+      if (document.getElementById("page-schema")) {
+        prerenderedSchemaPath = path;
+      }
+    }
+    if (prerenderedSchemaPath !== null && prerenderedSchemaPath !== path) {
+      prerenderedSchemaPath = null;
+    }
+    if (prerenderedSchemaPath !== path) {
+      upsertSchema(schema);
+    }
 
     const gscToken = import.meta.env.VITE_GSC_VERIFICATION_TOKEN;
     if (gscToken) {
@@ -182,6 +199,9 @@ const Seo = ({
     }
 
     return () => {
+      if (prerenderedSchemaPath === path) {
+        return;
+      }
       const activeSchema = document.getElementById("page-schema");
       if (activeSchema) {
         activeSchema.remove();

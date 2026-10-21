@@ -417,7 +417,7 @@ const MustardSeedsPage = () => {
                   View Specification Table
                 </a>
                 <Link
-                  to="/contact?intent=sample"
+                  to="/contact?intent=sample&product=Mustard%20Seeds"
                   className="jm-btn jm-btn--outline border-[var(--brand-gold-light)] text-[var(--brand-gold-light)] hover:bg-[var(--brand-gold-light)] hover:text-[var(--brand-deep-green)]"
                 >
                   Request Buyer Sample
@@ -1259,6 +1259,8 @@ const MustardSeedsPage = () => {
             <Link to="/private-label-spices" className="underline">private label spice manufacturing</Link>
             ; and for cleaning and grinding see{" "}
             <Link to="/spice-processing-manufacturing" className="underline">spice processing in Unjha</Link>.
+            Buying in India? See our{" "}
+            <Link to="/domestic-supply-india" className="underline">domestic supply for Indian wholesale buyers</Link>.
           </p>
         </div>
       </section>
@@ -1282,7 +1284,7 @@ const MustardSeedsPage = () => {
               Chat on WhatsApp <ArrowRight className="h-4 w-4" />
             </a>
             <Link
-              to="/contact?intent=quote"
+              to="/contact?intent=quote&product=Mustard%20Seeds"
               className="jm-btn jm-btn--outline border-white text-white hover:bg-white hover:text-[var(--brand-deep-green)]"
             >
               Submit Trade Inquiry

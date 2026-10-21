@@ -254,8 +254,8 @@ const CuminSeedsPage = () => {
   return (
     <>
       <Seo
-        title="Cumin Seeds (Jeera) Exporter India | Bulk Supply, FOB Mundra"
-        description="Bulk cumin (jeera) seeds from Unjha, Gujarat. Sortex cleaned, export packed. Request specs, samples and a FOB Mundra quote."
+        title="Cumin Seeds (Jeera) Exporter India | Bulk from Unjha"
+        description="Bulk cumin (jeera) seeds from Unjha, Gujarat, machine and Sortex cleaned for export. Request specifications, samples and a quotation from JM Masala."
         path="/cumin-seeds-exporter-india"
         imageUrl={productImageUrl}
         imageAlt="Export-grade cumin seeds supplied by JM Masala from Unjha Gujarat India"
@@ -348,7 +348,7 @@ const CuminSeedsPage = () => {
                   View Technical Specifications
                 </a>
                 <Link
-                  to="/contact?intent=sample"
+                  to="/contact?intent=sample&product=Cumin%20Seeds"
                   className="jm-btn jm-btn--outline border-[var(--brand-gold-light)] text-[var(--brand-gold-light)] hover:bg-[var(--brand-gold-light)] hover:text-[var(--brand-deep-green)]"
                 >
                   Request Buyer Sample
@@ -472,6 +472,11 @@ const CuminSeedsPage = () => {
                   ))}
                 </tbody>
               </table>
+            </div>
+            <div className="border-t border-[var(--brand-gold-pale)] px-6 py-3 text-xs">
+              <Link to="/cumin-seeds-specifications" className="font-semibold underline">
+                Full cumin specification sheet
+              </Link>
             </div>
             <div className="border-t border-[var(--brand-gold-pale)] bg-[var(--brand-cream)]/60 px-6 py-4 text-xs leading-relaxed text-[var(--brand-forest)]">
               <strong className="text-[var(--brand-charcoal)]">Buyer-Specific Specification: </strong>
@@ -852,7 +857,7 @@ const CuminSeedsPage = () => {
                 <Link to="/quality-certifications" className="jm-btn jm-btn--secondary">
                   View Certifications &amp; Lab Standards
                 </Link>
-                <Link to="/contact?intent=sample" className="jm-btn jm-btn--outline">
+                <Link to="/contact?intent=sample&product=Cumin%20Seeds" className="jm-btn jm-btn--outline">
                   Request Physical Sample
                 </Link>
               </div>
@@ -984,6 +989,12 @@ const CuminSeedsPage = () => {
             <Link to="/private-label-spices" className="underline">private label spice manufacturing</Link>
             ; and for cleaning and grinding see{" "}
             <Link to="/spice-processing-manufacturing" className="underline">spice processing in Unjha</Link>.
+            Buyer guides:{" "}
+            <Link to="/blog/cumin-seeds-quality-grades-europe-usa-gulf-singapore" className="underline">cumin seeds quality grades by market</Link>
+            {" "}and{" "}
+            <Link to="/blog/why-unjha-gujarat-is-worlds-cumin-capital" className="underline">why Unjha is a leading cumin origin</Link>.
+            Buying in India? See our{" "}
+            <Link to="/domestic-supply-india" className="underline">domestic supply for Indian wholesale buyers</Link>.
           </p>
         </div>
       </section>

@@ -198,7 +198,19 @@ const buildSimplePageSchema = (seo: StaticSeo) => {
 const UNVERIFIED_CLAIM =
   /haccp|iso[\s-]?22000|apeda|spices?\s+board|rcmc|fssai|\biec\b|nabl|certified|accredited|lab[\s-]?tested|\b\d+(\.\d+)?\s?MT\b|\b(20|40)\s?ft\b|\bFCL\b/i;
 
-const sanitizeKeywords = (keywords?: string[]) =>
+const DEDICATED_FAQ_PAGE_SLUGS = new Set([
+  "cumin-seeds-exporter-india",
+  "coriander-seeds-exporter-india",
+  "fennel-seeds-exporter-india",
+  "fenugreek-seeds-exporter-india",
+  "ajwain-seeds-exporter-india",
+  "mustard-seeds-exporter-india",
+  "sesame-seeds-exporter-india",
+  "turmeric-exporter-india",
+  "red-chilli-exporter-india",
+]);
+
+const sanitizeKeywords =(keywords?: string[]) =>
   keywords?.filter((keyword) => !UNVERIFIED_CLAIM.test(keyword));
 
 const pageSeo: Record<string, StaticSeo> = {
@@ -362,6 +374,7 @@ const pageSeo: Record<string, StaticSeo> = {
   "/best-cumin-exporter-india": {
     ...PAGE_SEO["/best-cumin-exporter-india"],
     path: "/best-cumin-exporter-india",
+    canonicalPath: "/cumin-seeds-exporter-india",
     type: "product",
     imageUrl:
       PRODUCTS.find((product) => product.slug === "cumin-seeds-exporter-india")
@@ -379,30 +392,6 @@ const pageSeo: Record<string, StaticSeo> = {
     schema: [
       baseOrganizationSchema,
       baseWebSiteSchema,
-      {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        name: "Cumin Seeds",
-        description:
-          PRODUCTS.find((product) => product.slug === "cumin-seeds-exporter-india")
-            ?.description ?? "Export-grade cumin seeds from India.",
-        image: toAbsoluteUrl(
-          PRODUCTS.find((product) => product.slug === "cumin-seeds-exporter-india")
-            ?.imageUrl ?? "/JMMasala.png",
-        ),
-        brand: { "@type": "Brand", name: COMPANY.name },
-        category: "Spices",
-        countryOfOrigin: "India",
-        manufacturer: { "@id": `${SITE_URL}/#organization` },
-        url: `${SITE_URL}/best-cumin-exporter-india`,
-        additionalProperty:
-          PRODUCTS.find((product) => product.slug === "cumin-seeds-exporter-india")
-            ?.specs.map((spec) => ({
-              "@type": "PropertyValue",
-              name: spec.label,
-              value: spec.value,
-            })) ?? [],
-      },
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
         { name: "Best Cumin Exporter India", path: "/best-cumin-exporter-india" },
@@ -957,9 +946,14 @@ const buildProductSeo = (path: string): StaticSeo | null => {
 
   // FAQ entries that assert unconfirmed certifications, accreditations,
   // container tonnages or shipping terms are kept out of the JSON-LD.
-  const faqItems = (masterSeo?.content.faqs ?? []).filter(
-    (item) => !UNVERIFIED_CLAIM.test(`${item.question} ${item.answer}`),
-  );
+  // Dedicated pages render their own FAQ list, which does not match the master
+  // SEO FAQs, so no FAQPage is emitted for them (JSON-LD must mirror visible
+  // content).
+  const faqItems = DEDICATED_FAQ_PAGE_SLUGS.has(product.slug)
+    ? []
+    : (masterSeo?.content.faqs ?? []).filter(
+        (item) => !UNVERIFIED_CLAIM.test(`${item.question} ${item.answer}`),
+      );
 
   return {
     title,

@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
+import { ArrowDown, ArrowRight, CheckCircle2, ChevronRight, Package, ShoppingBag } from "lucide-react";
 import Seo from "@/components/Seo";
 import {
   PRODUCTS,
@@ -8,10 +8,8 @@ import {
   buildGeneralInquiryMessage,
 } from "@/data/siteData";
 import pouchTurmeric from "@/assets/pouch-turmeric-powder.jpg";
-import pouchGingerSlices from "@/assets/pouch-dry-ginger-slices.jpg";
-import pouchGingerPowder from "@/assets/pouch-dry-ginger-powder.jpg";
-import pouchBayLeaf from "@/assets/pouch-bay-leaf.jpg";
-import pouchCardamom from "@/assets/pouch-black-cardamom.jpg";
+import pouchCumin from "@/assets/pouch-cumin-seeds.jpg";
+import pouchCorianderPowder from "@/assets/pouch-coriander-powder.jpg";
 import pouchRedChilliTeja from "@/assets/pouch-red-chilli-teja.jpg";
 // three.js is heavy: load the viewer on the client only, after the page is shown, so no other page pays for it
 const Product3DViewer = lazy(() => import("@/components/Product3DViewer"));
@@ -59,7 +57,7 @@ const PL_STEPS = [
   {
     num: "03",
     title: "Packaging Format",
-    desc: "Choose pack sizes (100g to 50kg), materials (PP, foil, paper, jute, vacuum), and retail or bulk configuration.",
+    desc: "Choose retail pack sizes (50g to 1kg) or bulk export packs (25kg and 50kg), and materials (PP, foil, paper, jute, vacuum).",
   },
   {
     num: "04",
@@ -104,24 +102,81 @@ const PL_PRODUCTS = PRODUCTS.filter((p) =>
 
 const PACKAGING_FORMATS = [
   {
+    group: "retail",
     title: "Retail Pouches",
     sizes: "50g · 100g · 200g · 500g · 1kg",
     desc: "Pillow pouches and stand-up zipper pouches with custom printing for supermarket and grocery retail.",
   },
   {
+    group: "other",
     title: "Institutional Packs",
     sizes: "1kg · 2kg · 5kg",
     desc: "Larger consumer or food-service packs for restaurants, caterers, and institutional kitchens.",
   },
   {
+    group: "bulk",
     title: "Bulk Export Bags",
     sizes: "25kg · 50kg",
     desc: "Standard PP woven bags, jute bags, or multi-wall paper bags with food-grade inner liners.",
   },
   {
+    group: "other",
     title: "Vacuum & Specialty",
     sizes: "Custom weights",
     desc: "Vacuum-sealed foil bags or specialty packaging for extended shelf life and volatile oil preservation.",
+  },
+];
+
+const PACKAGING_GROUPS = [
+  {
+    key: "retail",
+    title: "Retail / Private Label",
+    Icon: ShoppingBag,
+    note: "Subject to product and requirements.",
+    buyers: "Spice brands, supermarket chains, e-commerce brands",
+    cta: { label: "Request a Private Label Quote", to: "/contact?intent=private-label#inquiry-form" },
+  },
+  {
+    key: "bulk",
+    title: "Bulk / B2B Supply",
+    Icon: Package,
+    note: "Subject to availability.",
+    buyers: "Commodity importers, trading companies, food processors",
+    cta: { label: "Request a Bulk Quote", to: "/contact#inquiry-form" },
+  },
+];
+
+const shortDescriptionOf = (slug: string) =>
+  PRODUCTS.find((p) => p.slug === slug)?.shortDescription;
+
+// Retail pouch showcase: products with a true front-and-back pouch render (all 800x533).
+// Descriptions come from the shared product data where an entry exists. Teja has a page
+// but no product entry, and turmeric uses a neutral line until its curcumin / chromate
+// claims are verified. The dry ginger images are catalogue pages, so they are not shown.
+const RETAIL_POUCHES = [
+  {
+    name: "Cumin Seeds",
+    slug: "cumin-seeds-exporter-india",
+    img: pouchCumin,
+    desc: shortDescriptionOf("cumin-seeds-exporter-india"),
+  },
+  {
+    name: "Coriander Powder",
+    slug: "coriander-powder-exporter-india",
+    img: pouchCorianderPowder,
+    desc: shortDescriptionOf("coriander-powder-exporter-india"),
+  },
+  {
+    name: "Turmeric Powder",
+    slug: "turmeric-powder-exporter-india",
+    img: pouchTurmeric,
+    desc: "Golden turmeric powder (Curcuma longa) ground from turmeric fingers.",
+  },
+  {
+    name: "Red Chilli Teja",
+    slug: "teja-chilli-exporter-india",
+    img: pouchRedChilliTeja,
+    desc: "Teja (S17) red chilli in a retail stand-up pouch.",
   },
 ];
 
@@ -151,7 +206,7 @@ const PL_FAQS = [
   },
   {
     q: "Can JM Masala supply retail-ready spice products?",
-    a: "Yes. Retail-ready formats including consumer pouches, stand-up bags, and master cartons can be discussed based on product, pack size, destination, and customer requirements.",
+    a: "Yes. Retail packs are typically available in 50g, 100g, 200g, 500g, and 1kg sizes in pillow pouches or stand-up zipper pouches, and master cartons can be discussed. Availability depends on the product, pack size, destination, and customer requirements. Bulk export packing (25kg and 50kg) is separate.",
   },
   {
     q: "Can you print our custom brand artwork and barcode on packaging?",
@@ -195,7 +250,7 @@ const styles = `
     content: ''; flex: 1; max-width: 48px; height: 1px; background: var(--brand-gold); opacity: 0.6;
   }
   .pl-hero h1 {
-    font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px);
+    font-family: var(--font-display); font-size: clamp(30px, 5vw, 56px);
     font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 20px; max-width: 780px;
   }
   .pl-hero h1 em { font-style: italic; color: var(--brand-gold); }
@@ -205,9 +260,13 @@ const styles = `
   }
   .pl-hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
   @media (max-width: 640px) {
-    .pl-hero { padding: 80px 16px 56px; }
-    .pl-hero-actions { flex-direction: column; }
+    .pl-hero { padding: 40px 16px 40px; }
+    .pl-hero-label { margin-bottom: 12px; }
+    .pl-hero h1 { margin-bottom: 12px; }
+    .pl-hero-sub { font-size: 16px; line-height: 1.6; margin-bottom: 24px; }
+    .pl-hero-actions { flex-direction: column; gap: 10px; }
     .pl-hero-actions a { width: 100%; justify-content: center; }
+    .pl-hero-alt { margin-top: 2px; text-align: center; }
   }
 
   /* Shared */
@@ -250,6 +309,16 @@ const styles = `
     display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s;
   }
   .pl-btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+  .pl-hero-alt { margin-top: 8px; font-size: 14px; color: rgba(255,255,255,0.72); }
+  .pl-hero-alt a {
+    display: inline-flex; align-items: center; min-height: 44px;
+    color: var(--brand-gold-light); font-weight: 600;
+    text-decoration: underline; text-underline-offset: 3px;
+  }
+  .pl-btn-primary:focus-visible, .pl-btn-outline:focus-visible, .pl-hero-alt a:focus-visible {
+    outline: 3px solid var(--brand-gold-light); outline-offset: 3px;
+  }
+  .pl-pouch-cta .pl-btn-primary:focus-visible { outline-color: var(--brand-deep-green); }
 
   /* Supply Models Grid */
   .pl-models { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -266,7 +335,7 @@ const styles = `
     color: var(--brand-charcoal); margin-bottom: 8px;
   }
   .pl-model-desc { font-size: 14px; color: var(--brand-forest); line-height: 1.7; margin-bottom: 12px; }
-  .pl-model-buyers { font-size: 12px; color: var(--brand-gold); font-weight: 600; }
+  .pl-model-buyers { font-size: 12px; color: var(--wood-mid); font-weight: 600; }
 
   /* Steps */
   .pl-steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
@@ -306,16 +375,71 @@ const styles = `
   }
 
   /* Packaging formats */
-  .pl-pkg-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  @media (max-width: 900px) { .pl-pkg-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 540px) { .pl-pkg-grid { grid-template-columns: 1fr; } }
-  .pl-pkg-card {
-    background: var(--brand-gold-pale); border-radius: 12px; padding: 24px;
-    border: 1px solid rgba(201,168,76,0.18);
+  #packaging-options { scroll-margin-top: 64px; }
+  .pl-pkg-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 768px) { .pl-pkg-compare { grid-template-columns: 1fr; } }
+  .pl-pkg-col { display: flex; flex-direction: column; border-radius: 16px; padding: 28px; }
+  .pl-pkg-col--retail { background: var(--brand-gold-pale); border: 1px solid rgba(201,168,76,0.45); border-top: 4px solid var(--brand-gold); }
+  .pl-pkg-col--bulk { background: #fff; border: 1px solid rgba(45,74,45,0.25); border-top: 4px solid var(--brand-forest); }
+  .pl-pkg-col__title { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--brand-charcoal); margin-bottom: 16px; }
+  .pl-pkg-col__title svg { width: 22px; height: 22px; flex-shrink: 0; color: var(--brand-deep-green); }
+  .pl-pkg-title { font-size: 15px; font-weight: 700; color: var(--brand-charcoal); margin-bottom: 2px; }
+  .pl-pkg-sizes { font-size: 18px; font-weight: 700; color: var(--brand-deep-green); margin-bottom: 8px; }
+  .pl-pkg-desc { font-size: 14px; color: var(--brand-forest); line-height: 1.65; }
+  .pl-pkg-col__note { font-size: 13px; font-style: italic; color: var(--brand-forest); margin-top: 6px; }
+  .pl-pkg-col__buyers { font-size: 12px; font-weight: 600; color: var(--wood-mid); margin-top: 16px; padding-top: 12px; border-top: 1px solid rgba(201,168,76,0.35); }
+  .pl-pkg-col__cta { margin-top: auto; padding-top: 12px; align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-weight: 700; color: var(--brand-deep-green); text-decoration: underline; text-underline-offset: 3px; }
+  .pl-pkg-col__cta:focus-visible { outline: 3px solid var(--brand-deep-green); outline-offset: 2px; }
+  .pl-pkg-other { margin-top: 20px; padding: 20px 24px; border-radius: 12px; border: 1px dashed rgba(122,82,48,0.4); background: var(--brand-cream); }
+  .pl-pkg-other__title { font-family: var(--font-display); font-size: 16px; font-weight: 600; color: var(--brand-charcoal); margin-bottom: 8px; }
+  .pl-pkg-other ul { display: grid; gap: 6px; font-size: 13px; color: var(--brand-forest); line-height: 1.6; }
+
+  /* Retail pouch gallery */
+  .pl-pouches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 24px; }
+  @media (max-width: 900px) { .pl-pouches { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px) { .pl-pouches { grid-template-columns: 1fr; } }
+  .pl-pouch {
+    position: relative; display: flex; flex-direction: column; overflow: hidden;
+    background: #fff; border: 1px solid rgba(201,168,76,0.35); border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(44,26,14,0.06);
+    transition: transform 0.25s, box-shadow 0.25s;
   }
-  .pl-pkg-title { font-family: var(--font-display); font-size: 16px; font-weight: 600; color: var(--brand-charcoal); margin-bottom: 4px; }
-  .pl-pkg-sizes { font-size: 13px; color: var(--brand-gold); font-weight: 600; margin-bottom: 8px; }
-  .pl-pkg-desc { font-size: 13px; color: var(--brand-forest); line-height: 1.65; }
+  .pl-pouch:hover, .pl-pouch:focus-within { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(44,26,14,0.1); }
+  .pl-pouch__media { aspect-ratio: 3 / 2; background: #faf6ee; }
+  .pl-pouch__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pl-pouch__body { flex: 1; display: flex; flex-direction: column; padding: 16px; }
+  .pl-pouch__title {
+    font-family: var(--font-display); font-size: 15px; font-weight: 700;
+    color: var(--brand-charcoal); margin-bottom: 4px;
+  }
+  .pl-pouch__link { color: inherit; text-decoration: none; }
+  /* the title link covers the whole card, so the card is one click target */
+  .pl-pouch__link::after { content: ''; position: absolute; inset: 0; border-radius: 16px; }
+  .pl-pouch__link:focus-visible { outline: none; }
+  .pl-pouch__link:focus-visible::after { outline: 2px solid var(--brand-deep-green); outline-offset: -3px; }
+  .pl-pouch__desc { flex: 1; font-size: 12px; color: var(--brand-forest); line-height: 1.6; }
+  .pl-pouch__sizes {
+    margin-top: 12px; padding-top: 8px; border-top: 1px solid var(--brand-gold-pale);
+    font-size: 11px; color: var(--brand-forest); font-weight: 700;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pl-pouch { transition: none; }
+    .pl-pouch:hover, .pl-pouch:focus-within { transform: none; }
+  }
+  .pl-pouch-cta {
+    margin-top: 32px; padding: 24px 28px; border-radius: 16px;
+    background: #fff; border: 1px solid rgba(201,168,76,0.35);
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px;
+  }
+  .pl-pouch-cta__title {
+    font-family: var(--font-display); font-size: 20px; font-weight: 600;
+    color: var(--brand-charcoal); margin-bottom: 4px;
+  }
+  .pl-pouch-cta__text { font-size: 14px; color: var(--brand-forest); line-height: 1.6; }
+  @media (max-width: 640px) {
+    .pl-pouch-cta { padding: 20px; }
+    .pl-pouch-cta .pl-btn-primary { width: 100%; justify-content: center; }
+  }
 
   /* Buyers */
   .pl-buyers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
@@ -409,7 +533,7 @@ const PrivateLabelPage = () => {
           },
         ]}
       />
-      <style>{styles}</style>
+      <style dangerouslySetInnerHTML={{ __html: styles }} />
 
       <div className="pl-root">
         {/* ── HERO ── */}
@@ -417,26 +541,31 @@ const PrivateLabelPage = () => {
           <div className="pl-hero-inner">
             <div className="pl-hero-label">Private Label &amp; Retail Supply</div>
             <h1>
-              Private Label Spice Manufacturing: <em>from India</em>
+              Private Label Spice Manufacturing &amp; Packaging <em>from India</em>
             </h1>
             <p className="pl-hero-sub">
-              <strong>JM Masala Trading LLP</strong> is an Indian spice manufacturer,
-              processor and exporter offering private label, custom-branded, and
-              retail-ready spice supply for international B2B buyers. From product
-              selection and Sortex processing to custom packaging and export shipment
-              — one supply partner for your Indian spice requirements.
+              <strong>JM Masala Trading LLP</strong> offers custom processing, packaging
+              and branding of Indian spices from Unjha, Gujarat. Retail pouches from 50g
+              to 1kg, subject to product and requirements.
             </p>
             <div className="pl-hero-actions">
               <Link
                 to="/contact?intent=private-label#inquiry-form"
                 className="pl-btn-primary"
               >
-                Discuss Private Label Requirements <ArrowRight className="h-4 w-4" />
+                Request a Private Label Quote <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
-              <a href={waUrl} target="_blank" rel="noopener noreferrer" className="pl-btn-outline">
-                WhatsApp Inquiry
+              {/* plain <a>: React Router does not scroll to a hash on <Link> navigation */}
+              <a href="#packaging-options" className="pl-btn-outline">
+                Explore Packaging Options <ArrowDown className="h-4 w-4" aria-hidden="true" />
               </a>
             </div>
+            <p className="pl-hero-alt">
+              Prefer WhatsApp?{" "}
+              <a href={waUrl} target="_blank" rel="noopener noreferrer">
+                Send a WhatsApp inquiry
+              </a>
+            </p>
           </div>
         </section>
 
@@ -566,94 +695,99 @@ const PrivateLabelPage = () => {
           <div className="pl-section">
             <div className="pl-label">Our Retail Packaging &amp; Pouching</div>
             <h2 className="pl-heading">
-              Official Food-Grade Stand-Up Zipper Pouches
+              Retail-Ready Private Label Spice Packaging
             </h2>
             <p className="pl-sub">
-              Available in 100g, 200g, 500g, 1kg, 5kg, 10kg, and 25kg formats. Multi-layer barrier stand-up pouches with transparent display window, airtight reclosable zipper, bottom gusset, and full private-label custom branding.
+              Stand-up zipper pouches for retail packs from 50g to 1kg, with
+              custom private-label branding. Pack size availability depends on the
+              product and your requirements. Bulk export bags (25kg and 50kg) are
+              supplied separately.
             </p>
 
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
-              gap: "20px",
-              marginTop: "24px"
-            }}>
-              {[
-                { name: "Turmeric Powder (Rajapuri)", page: "Page 15", img: pouchTurmeric, desc: "Deep golden yellow ground spice in window zipper pouch." },
-                { name: "Red Chilli Teja (Whole)", page: "Catalogue", img: pouchRedChilliTeja, desc: "Export-grade bright red whole pods with natural stem in window zipper stand-up pouch." },
-                { name: "Dry Ginger Slices", page: "Page 18", img: pouchGingerSlices, desc: "Sun-dried ginger slices, moisture ≤12%, window pouch." },
-                { name: "Dry Ginger Powder", page: "Page 17", img: pouchGingerPowder, desc: "Fine 80-100 mesh ginger root powder with rich aroma." },
-                { name: "Bay Leaf (Tej Patta)", page: "Page 21", img: pouchBayLeaf, desc: "Whole selected Himalayan leaves in 500g zipper pack." },
-                { name: "Black Cardamom", page: "Page 22", img: pouchCardamom, desc: "Bold aromatic dark brown capsules with smoky flavor." },
-              ].map((item) => (
-                <div key={item.name} style={{
-                  background: "#fff",
-                  borderRadius: "16px",
-                  overflow: "hidden",
-                  border: "1px solid rgba(201,168,76,0.35)",
-                  boxShadow: "0 4px 16px rgba(44,26,14,0.06)",
-                  display: "flex",
-                  flexDirection: "column"
-                }}>
-                  <div style={{ position: "relative", overflow: "hidden", background: "#faf6ee" }}>
+            <div className="pl-pouches">
+              {RETAIL_POUCHES.map((item) => (
+                <article key={item.slug} className="pl-pouch">
+                  <div className="pl-pouch__media">
                     <img
                       src={item.img}
-                      alt={`${item.name} Private Label Pouch`}
-                      style={{ width: "100%", height: "auto", display: "block" }}
+                      alt={`JM Masala ${item.name} retail stand-up pouch, front and back`}
+                      width={800}
+                      height={533}
                       loading="lazy"
                     />
-                    <div style={{
-                      position: "absolute",
-                      bottom: "8px",
-                      left: "8px",
-                      background: "rgba(26,46,26,0.85)",
-                      color: "var(--brand-gold-light)",
-                      fontSize: "11px",
-                      padding: "2px 8px",
-                      borderRadius: "6px",
-                      fontWeight: 600
-                    }}>
-                      {item.page}
-                    </div>
                   </div>
-                  <div style={{ padding: "16px", flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-                    <div>
-                      <h3 style={{ fontFamily: "var(--font-display)", fontSize: "15px", fontWeight: 700, color: "var(--brand-charcoal)", marginBottom: "4px" }}>
+                  <div className="pl-pouch__body">
+                    <h3 className="pl-pouch__title">
+                      <Link to={`/${item.slug}`} className="pl-pouch__link">
                         {item.name}
-                      </h3>
-                      <p style={{ fontSize: "12px", color: "var(--brand-forest)", lineHeight: 1.6 }}>
-                        {item.desc}
-                      </p>
-                    </div>
-                    <div style={{ marginTop: "12px", paddingTop: "8px", borderTop: "1px solid var(--brand-gold-pale)", fontSize: "11px", color: "var(--brand-gold)", fontWeight: 700 }}>
-                      100g to 25kg Available
-                    </div>
+                      </Link>
+                    </h3>
+                    <p className="pl-pouch__desc">{item.desc}</p>
+                    <div className="pl-pouch__sizes">Retail packs 50g–1kg, on request</div>
                   </div>
-                </div>
+                </article>
               ))}
+            </div>
+
+            <div className="pl-pouch-cta">
+              <div>
+                <p className="pl-pouch-cta__title">Planning your own spice brand?</p>
+                <p className="pl-pouch-cta__text">
+                  Tell us which spices, pack sizes and destination market you are targeting.
+                </p>
+              </div>
+              <Link
+                to="/contact?intent=private-label#inquiry-form"
+                className="pl-btn-primary"
+              >
+                Request Private Label Quote <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </section>
 
         {/* ── PACKAGING FORMATS ── */}
-        <section className="pl-bg-white">
+        <section className="pl-bg-white" id="packaging-options">
           <div className="pl-section">
             <div className="pl-label">Packaging Options</div>
             <h2 className="pl-heading">
               Customized Spice Packaging for Every Channel
             </h2>
             <p className="pl-sub">
-              Packaging formats can be discussed based on product, quantity,
-              destination, handling requirements, and retail or bulk application.
+              Retail packs and bulk export bags are separate options. Packaging formats
+              can be discussed based on product, quantity, destination, handling
+              requirements, and retail or bulk application.
             </p>
-            <div className="pl-pkg-grid">
-              {PACKAGING_FORMATS.map((pkg) => (
-                <div key={pkg.title} className="pl-pkg-card">
-                  <h3 className="pl-pkg-title">{pkg.title}</h3>
-                  <div className="pl-pkg-sizes">{pkg.sizes}</div>
-                  <p className="pl-pkg-desc">{pkg.desc}</p>
-                </div>
+            <div className="pl-pkg-compare">
+              {PACKAGING_GROUPS.map(({ key, title, Icon, note, buyers, cta }) => (
+                <article key={key} className={`pl-pkg-col pl-pkg-col--${key}`} aria-labelledby={`pkg-${key}`}>
+                  <h3 id={`pkg-${key}`} className="pl-pkg-col__title">
+                    <Icon aria-hidden="true" /> {title}
+                  </h3>
+                  {PACKAGING_FORMATS.filter((f) => f.group === key).map((f) => (
+                    <div key={f.title}>
+                      <h4 className="pl-pkg-title">{f.title}</h4>
+                      <div className="pl-pkg-sizes">{f.sizes}</div>
+                      <p className="pl-pkg-desc">{f.desc}</p>
+                    </div>
+                  ))}
+                  <p className="pl-pkg-col__note">{note}</p>
+                  <p className="pl-pkg-col__buyers">Typical buyers: {buyers}</p>
+                  <Link to={cta.to} className="pl-pkg-col__cta">
+                    {cta.label} <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </Link>
+                </article>
               ))}
+            </div>
+            <div className="pl-pkg-other">
+              <h3 className="pl-pkg-other__title">Other formats, to be discussed</h3>
+              <ul>
+                {PACKAGING_FORMATS.filter((f) => f.group === "other").map((f) => (
+                  <li key={f.title}>
+                    <strong>{f.title} ({f.sizes}):</strong> {f.desc}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>

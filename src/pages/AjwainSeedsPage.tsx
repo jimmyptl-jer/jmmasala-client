@@ -256,8 +256,8 @@ const AjwainSeedsPage = () => {
   return (
     <>
       <Seo
-        title="Ajwain (Carom) Seeds Exporter India | Bulk, Sortex Cleaned"
-        description="Bulk ajwain (carom, ajmo) seeds from Gujarat, Sortex cleaned, FOB Mundra. Request specifications, samples and a quotation."
+        title="Ajwain (Carom) Seeds Exporter India | Bulk from Gujarat"
+        description="Bulk ajwain (carom, ajmo) seeds from Gujarat for spice blenders and food manufacturers. Request specifications, samples and a quotation."
         path="/ajwain-seeds-exporter-india"
         imageUrl={productImageUrl}
         imageAlt="Export-grade Ajwain carom seeds supplied by JM Masala from India"
@@ -348,7 +348,7 @@ const AjwainSeedsPage = () => {
                   View Specification Table
                 </a>
                 <Link
-                  to="/contact?intent=sample"
+                  to="/contact?intent=sample&product=Ajwain%20%2F%20Carom%20Seeds"
                   className="jm-btn jm-btn--outline border-[var(--brand-gold-light)] text-[var(--brand-gold-light)] hover:bg-[var(--brand-gold-light)] hover:text-[var(--brand-deep-green)]"
                 >
                   Request Buyer Sample
@@ -844,7 +844,7 @@ const AjwainSeedsPage = () => {
                 <Link to="/quality-certifications" className="jm-btn jm-btn--secondary">
                   View Certifications &amp; Lab Standards
                 </Link>
-                <Link to="/contact?intent=sample" className="jm-btn jm-btn--outline">
+                <Link to="/contact?intent=sample&product=Ajwain%20%2F%20Carom%20Seeds" className="jm-btn jm-btn--outline">
                   Request Physical Sample
                 </Link>
               </div>
@@ -975,6 +975,8 @@ const AjwainSeedsPage = () => {
             <Link to="/private-label-spices" className="underline">private label spice manufacturing</Link>
             ; and for cleaning and grinding see{" "}
             <Link to="/spice-processing-manufacturing" className="underline">spice processing in Unjha</Link>.
+            Buying in India? See our{" "}
+            <Link to="/domestic-supply-india" className="underline">domestic supply for Indian wholesale buyers</Link>.
           </p>
         </div>
       </section>

@@ -436,7 +436,7 @@ const RedChilliPage = () => {
                   View Laboratory Specifications
                 </a>
                 <Link
-                  to="/contact?intent=sample"
+                  to="/contact?intent=sample&product=Red%20Chilli"
                   className="jm-btn jm-btn--outline border-[var(--brand-gold-light)] text-[var(--brand-gold-light)] hover:bg-[var(--brand-gold-light)] hover:text-[var(--brand-deep-green)]"
                 >
                   Request Buyer Sample
@@ -919,7 +919,7 @@ const RedChilliPage = () => {
                 >
                   WhatsApp Export Desk
                 </a>
-                <Link to="/contact?intent=quote" className="jm-btn jm-btn--outline flex-1 text-center">
+                <Link to="/contact?intent=quote&product=Red%20Chilli" className="jm-btn jm-btn--outline flex-1 text-center">
                   Submit Official RFP
                 </Link>
               </div>
@@ -950,6 +950,21 @@ const RedChilliPage = () => {
         </div>
       </section>
 
+      <section className="jm-section jm-section--cream">
+        <div className="jm-container">
+          <h2 className="jm-section-heading">Related Products and Services</h2>
+          <p className="mt-3 text-sm leading-7 text-[var(--brand-forest)]">
+            Also available: <Link to="/red-chilli-powder-exporter-india" className="underline">red chilli powder</Link>.
+            See{" "}
+            <Link to="/private-label-spices" className="underline">private label spices</Link>,{" "}
+            <Link to="/spice-packaging" className="underline">spice packaging</Link> and{" "}
+            <Link to="/quality-certifications" className="underline">quality and certifications</Link>.
+            Buying in India? See{" "}
+            <Link to="/domestic-supply-india" className="underline">domestic supply</Link>.
+          </p>
+        </div>
+      </section>
+
       {/* Final Conversion Callout */}
       <section className="bg-[var(--brand-deep-green)] py-14 text-white">
         <div className="jm-container text-center">
@@ -965,7 +980,7 @@ const RedChilliPage = () => {
               Contact Export Desk (+91 91067 66041)
             </a>
             <Link
-              to="/contact?intent=quote"
+              to="/contact?intent=quote&product=Red%20Chilli"
               className="jm-btn jm-btn--outline border-white text-white hover:bg-white hover:text-[var(--brand-deep-green)]"
             >
               Request Custom Proforma Invoice

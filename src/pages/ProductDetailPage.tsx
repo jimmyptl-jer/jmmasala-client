@@ -466,6 +466,8 @@ const ProductDetailPage = () => {
   };
 
   const specSheetUrl = "/JMMasalaProducts.pdf";
+  const indianName = /^indian\b/i.test(product.name) ? product.name : `Indian ${product.name}`;
+  const originLabel = /\bindia\b/i.test(product.origin) ? product.origin : `${product.origin}, India`;
   const quoteUrl = buildWhatsAppUrl(buildProductInquiryMessage(product.name));
 
   return (
@@ -616,7 +618,7 @@ const ProductDetailPage = () => {
                   href={specSheetUrl}
                   className="jm-btn jm-btn--outline text-[13px] font-semibold"
                 >
-                  Download Spec Sheet
+                  Product catalogue (PDF)
                 </a>
               </div>
             </div>
@@ -626,9 +628,11 @@ const ProductDetailPage = () => {
               <div className="relative rounded-2xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6 flex items-center justify-center shadow-xs">
                 <img
                   src={product.imageUrl}
-                  alt={product.name}
+                  alt={`${product.name} supplied for export by JM Masala`}
                   className="max-h-72 w-full object-contain"
-                  loading="lazy"
+                  loading="eager"
+                  width={500}
+                  height={350}
                   decoding="async"
                 />
                 <span className="absolute top-4 right-4 rounded-full bg-[var(--brand-deep-green)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--brand-gold-light)] shadow-xs">
@@ -643,7 +647,7 @@ const ProductDetailPage = () => {
                     Origin Mandi
                   </span>
                   <span className="font-bold text-[var(--brand-charcoal)]">
-                    {product.origin}, India
+                    {originLabel}
                   </span>
                 </div>
                 <div className="flex items-center justify-between border-b border-[var(--brand-gold-pale)]/50 pb-2.5">
@@ -916,7 +920,7 @@ const ProductDetailPage = () => {
                   Quality Assurance Flow
                 </span>
                 <h2 className="text-tagline not-italic text-[26px] lg:text-[30px] text-[var(--brand-charcoal)]">
-                  From Raw Indian {product.name} to Export-Ready Standard
+                  From Raw {indianName} to Export-Ready Standard
                 </h2>
               </div>
               <Link
@@ -979,6 +983,22 @@ const ProductDetailPage = () => {
               </div>
             </div>
           </div>
+
+          <p className="text-sm text-[var(--brand-forest)] leading-relaxed">
+            Read how we handle{" "}
+            <Link to="/quality-certifications" className="font-semibold text-[var(--brand-gold)] hover:underline">
+              quality and certifications
+            </Link>
+            , supply Indian wholesale buyers through our{" "}
+            <Link to="/domestic-supply-india" className="font-semibold text-[var(--brand-gold)] hover:underline">
+              domestic supply service
+            </Link>
+            , or{" "}
+            <Link to="/contact" className="font-semibold text-[var(--brand-gold)] hover:underline">
+              contact our export team
+            </Link>
+            .
+          </p>
 
           {/* Section: Buyer Guidance & Technical FAQs (Full Width 2-Column Grid) */}
           <div className="pt-8 border-t border-[var(--brand-gold-pale)]/60">
@@ -1065,7 +1085,7 @@ const ProductDetailPage = () => {
           <div className="rounded-2xl bg-[var(--brand-deep-green)] p-8 lg:p-10 text-white shadow-md">
             <div className="max-w-3xl">
               <h2 className="text-[24px] sm:text-[28px] font-bold text-[var(--brand-gold-light)]">
-                Looking for a Reliable Indian {product.name} Exporter?
+                Looking for a Reliable {indianName} Exporter?
               </h2>
               <p className="mt-2 text-sm sm:text-base text-gray-200 leading-relaxed">
                 Share your required volume, specification, packing preferences, and destination port with JM Masala Trading LLP. Our export team will provide a formal commercial offer, specification sheet, and logistics schedule.
@@ -1083,7 +1103,7 @@ const ProductDetailPage = () => {
                   href={specSheetUrl}
                   className="jm-btn jm-btn--outline text-[14px] text-white border-white hover:bg-white/15 py-3 px-6"
                 >
-                  Download Product Catalogue
+                  Product catalogue (PDF)
                 </a>
               </div>
             </div>

@@ -211,8 +211,8 @@ const CorianderSeedsPage = () => {
   return (
     <>
       <Seo
-        title="Coriander Seeds (Dhania) Exporter India | Bulk, Sortex Cleaned"
-        description="Bulk coriander (dhania) seeds from Gujarat: Eagle, Scooter and Parrot grades, Sortex cleaned, FOB Mundra. Request samples and a quote."
+        title="Coriander Seeds (Dhania) Exporter India | Bulk Supplier"
+        description="Bulk coriander (dhania) seeds from Gujarat for importers, spice grinders and food manufacturers. Request specifications, samples and a quotation."
         path="/coriander-seeds-exporter-india"
         imageUrl={productImageUrl}
         imageAlt="Export-grade coriander seeds from Gujarat India supplied by JM Masala"
@@ -309,7 +309,7 @@ const CorianderSeedsPage = () => {
                   View Specification Table
                 </a>
                 <Link
-                  to="/contact?intent=sample"
+                  to="/contact?intent=sample&product=Coriander%20Seeds"
                   className="jm-btn jm-btn--outline border-[var(--brand-gold-light)] text-[var(--brand-gold-light)] hover:bg-[var(--brand-gold-light)] hover:text-[var(--brand-deep-green)]"
                 >
                   Request Buyer Sample
@@ -921,7 +921,7 @@ const CorianderSeedsPage = () => {
                 <Link to="/quality-certifications" className="jm-btn jm-btn--secondary">
                   View Quality Certifications
                 </Link>
-                <Link to="/contact?intent=sample" className="jm-btn jm-btn--outline">
+                <Link to="/contact?intent=sample&product=Coriander%20Seeds" className="jm-btn jm-btn--outline">
                   Request Coriander Sample
                 </Link>
               </div>
@@ -1052,6 +1052,8 @@ const CorianderSeedsPage = () => {
             <Link to="/private-label-spices" className="underline">private label spice manufacturing</Link>
             ; and for cleaning and grinding see{" "}
             <Link to="/spice-processing-manufacturing" className="underline">spice processing in Unjha</Link>.
+            Buying in India? See our{" "}
+            <Link to="/domestic-supply-india" className="underline">domestic supply for Indian wholesale buyers</Link>.
           </p>
         </div>
       </section>

@@ -179,7 +179,7 @@ export const SpiceExporterIndiaPage = () => {
   return (
     <>
       <Seo
-        title="Best Spice Exporter India | Bulk Indian Spices | JM Masala"
+        title="Indian Spice Exporter for Bulk Buyers | JM Masala"
         description="JM Masala supplies cumin, coriander, fennel, fenugreek, sesame, psyllium, turmeric, chilli, pepper and cardamom with packing and export documents."
         path="/best-spice-exporter-india"
         imageUrl={bannerImage}
@@ -292,9 +292,10 @@ export const BestCuminExporterIndiaPage = () => {
   return (
     <>
       <Seo
-        title="Best Cumin Exporter in India | Unjha Cumin Seeds | JM Masala"
-        description="JM Masala exports cumin seeds from Unjha, Gujarat with 98%, 99% and 99.5% purity options, Sortex cleaning, packing and export documentation."
+        title="Choosing a Cumin Exporter in India | JM Masala"
+        description="What importers check when choosing an Indian cumin exporter: origin, grades, cleaning, packing and documents. Full details on our cumin seeds page."
         path="/best-cumin-exporter-india"
+        canonicalPath="/cumin-seeds-exporter-india"
         imageUrl={cumin.imageUrl}
         imageAlt="Best cumin exporter in India from Unjha Gujarat"
         type="product"
@@ -308,22 +309,6 @@ export const BestCuminExporterIndiaPage = () => {
           "Sortex cumin seeds exporter",
         ]}
         schema={[
-          {
-            "@context": "https://schema.org",
-            "@type": "Product",
-            name: "Cumin Seeds",
-            description: cumin.description,
-            image: toAbsoluteUrl(cumin.imageUrl),
-            brand: { "@type": "Brand", name: COMPANY.name },
-            category: "Spices",
-            countryOfOrigin: "India",
-            url: `${SITE_URL}/best-cumin-exporter-india`,
-            additionalProperty: cumin.specs.map((spec) => ({
-              "@type": "PropertyValue",
-              name: spec.label,
-              value: spec.value,
-            })),
-          },
           {
             "@context": "https://schema.org",
             "@type": "FAQPage",

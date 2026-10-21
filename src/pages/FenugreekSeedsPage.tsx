@@ -379,7 +379,7 @@ const FenugreekSeedsPage = () => {
                   View Specification Table
                 </a>
                 <Link
-                  to="/contact?intent=sample"
+                  to="/contact?intent=sample&product=Fenugreek%20Seeds"
                   className="jm-btn jm-btn--outline border-[var(--brand-gold-light)] text-[var(--brand-gold-light)] hover:bg-[var(--brand-gold-light)] hover:text-[var(--brand-deep-green)]"
                 >
                   Request Buyer Sample
@@ -1146,6 +1146,24 @@ const FenugreekSeedsPage = () => {
         </div>
       </section>
 
+      <section className="jm-section jm-section--cream">
+        <div className="jm-container">
+          <h2 className="jm-section-heading">Related Products and Services</h2>
+          <p className="mt-3 text-sm leading-7 text-[var(--brand-forest)]">
+            Also available: <Link to="/fenugreek-powder-exporter-india" className="underline">fenugreek (methi) powder</Link>,{" "}
+            <Link to="/cumin-seeds-exporter-india" className="underline">cumin seeds</Link>,{" "}
+            <Link to="/fennel-seeds-exporter-india" className="underline">fennel seeds</Link> and{" "}
+            <Link to="/coriander-seeds-exporter-india" className="underline">coriander seeds</Link>.
+            See{" "}
+            <Link to="/private-label-spices" className="underline">private label spices</Link>,{" "}
+            <Link to="/spice-packaging" className="underline">spice packaging</Link> and{" "}
+            <Link to="/quality-certifications" className="underline">quality and certifications</Link>.
+            Buying in India? See{" "}
+            <Link to="/domestic-supply-india" className="underline">domestic supply</Link>.
+          </p>
+        </div>
+      </section>
+
       {/* Call to Action Bar */}
       <section className="bg-[var(--brand-deep-green)] py-12 text-white">
         <div className="jm-container text-center">
@@ -1166,7 +1184,7 @@ const FenugreekSeedsPage = () => {
               Chat on WhatsApp <ArrowRight className="h-4 w-4" />
             </a>
             <Link
-              to="/contact?intent=quote"
+              to="/contact?intent=quote&product=Fenugreek%20Seeds"
               className="jm-btn jm-btn--outline border-white text-white hover:bg-white hover:text-[var(--brand-deep-green)]"
             >
               Submit Trade Inquiry

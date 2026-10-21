@@ -162,7 +162,14 @@ export const submitRfq = async (payload: RfqPayload): Promise<RfqSubmitResult> =
 };
 
 /** One field per line, every field listed ("Not provided" when empty). */
-export const buildRfqMessage = (fields: RfqFields, sourcePage: string, includePayment: boolean): string => {
+export const DEFAULT_RFQ_INTRO = "Hello JM Masala, I would like a bulk quotation.";
+
+export const buildRfqMessage = (
+  fields: RfqFields,
+  sourcePage: string,
+  includePayment: boolean,
+  intro: string = DEFAULT_RFQ_INTRO,
+): string => {
   const order: RfqFieldName[] = [
     "product",
     "grade",
@@ -177,7 +184,7 @@ export const buildRfqMessage = (fields: RfqFields, sourcePage: string, includePa
     "message",
   ];
   const lines = order.map((f) => `${FIELD_LABELS[f]}: ${fields[f].trim() || "Not provided"}`);
-  return ["Hello JM Masala, I would like a bulk quotation.", ...lines, `Sent from page: ${sourcePage || "website"}`].join("\n");
+  return [intro, ...lines, `Sent from page: ${sourcePage || "website"}`].join("\n");
 };
 
 export const buildMailtoUrl = (to: string, subject: string, body: string): string =>

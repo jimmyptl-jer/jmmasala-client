@@ -3,6 +3,7 @@ import AnalyticsTracker from "@/components/AnalyticsTracker";
 import BackToTopButton from "@/components/BackToTopButton";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import RouteScroll from "@/components/RouteScroll";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import AboutPage from "@/pages/AboutMePage";
@@ -47,6 +48,7 @@ const SiteLayout = () => {
   return (
     <div className="jm-page-shell min-h-screen text-[var(--brand-charcoal)]">
       <AnalyticsTracker />
+      <RouteScroll />
       <Header />
       <main>
         <Outlet />
@@ -135,7 +137,7 @@ const AppRoutes = () => {
         <Route path="/turmeric" element={<Navigate to="/turmeric-exporter-india" replace />} />
         <Route path="/haldi" element={<Navigate to="/turmeric-exporter-india" replace />} />
         <Route path="/turmeric-fingers" element={<Navigate to="/turmeric-exporter-india" replace />} />
-        <Route path="/turmeric-powder" element={<Navigate to="/turmeric-exporter-india" replace />} />
+        <Route path="/turmeric-powder" element={<Navigate to="/turmeric-powder-exporter-india" replace />} />
         <Route path="/dry-ginger" element={<Navigate to="/dry-ginger-exporter-india" replace />} />
         <Route path="/red-chilli" element={<Navigate to="/red-chilli-exporter-india" replace />} />
         <Route path="/chilli" element={<Navigate to="/red-chilli-exporter-india" replace />} />

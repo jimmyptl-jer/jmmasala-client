@@ -24,6 +24,10 @@ export type QuotationFormProps = {
   defaultProduct?: string;
   /** Grade options for the selected product page, shown in the Grade select. "Other / to be discussed" is always added. */
   gradeOptions?: string[];
+  /** Packaging option preselected in the form. Must match one of the packaging options exactly; other values are ignored. */
+  defaultPackaging?: string;
+  /** First line of the WhatsApp / email text. Default: "Hello JM Masala, I would like a bulk quotation." */
+  messageIntro?: string;
   /** Page the form sits on (slug or path), sent with the enquiry for tracking. */
   sourcePage?: string;
   /** DOM id of the form section; anchors like #quotation-form or #inquiry-form link to it. Default "quotation-form". */
@@ -67,6 +71,8 @@ const matchProduct = (wanted: string | undefined, names: string[]): string => {
   return loose.length === 1 ? loose[0] : "";
 };
 
+const matchPackaging = (wanted: string | undefined): string => (wanted && PACKAGING.includes(wanted) ? wanted : "");
+
 const SUMMARY_ORDER: RfqFieldName[] = [
   "product",
   "grade",
@@ -84,6 +90,8 @@ const SUMMARY_ORDER: RfqFieldName[] = [
 const QuotationForm = ({
   defaultProduct,
   gradeOptions,
+  defaultPackaging,
+  messageIntro,
   sourcePage,
   id = "quotation-form",
   heading = "Request a Bulk Quotation",
@@ -95,7 +103,11 @@ const QuotationForm = ({
     [gradeOptions],
   );
 
-  const initial = (): RfqFields => ({ ...EMPTY_FIELDS, product: matchProduct(defaultProduct, productNames) });
+  const initial = (): RfqFields => ({
+    ...EMPTY_FIELDS,
+    product: matchProduct(defaultProduct, productNames),
+    packaging: matchPackaging(defaultPackaging),
+  });
 
   const [fields, setFields] = useState<RfqFields>(initial);
   const [honeypot, setHoneypot] = useState("");
@@ -105,12 +117,24 @@ const QuotationForm = ({
   const [focusTick, setFocusTick] = useState(0);
   const summaryRef = useRef<HTMLDivElement>(null);
   const inFlight = useRef(false);
+  const autoPackaging = useRef(matchPackaging(defaultPackaging));
 
   // Apply a late-arriving defaultProduct only while the user has not chosen anything.
   useEffect(() => {
     const match = matchProduct(defaultProduct, productNames);
     if (match) setFields((f) => (f.product ? f : { ...f, product: match }));
   }, [defaultProduct, productNames]);
+
+  // Same for defaultPackaging, which can arrive after hydration (an enquiry intent) and can go away again
+  // when the visitor moves to another /contact URL. Only a value this effect applied is replaced or removed.
+  useEffect(() => {
+    const next = matchPackaging(defaultPackaging);
+    setFields((f) => {
+      if (f.packaging !== "" && f.packaging !== autoPackaging.current) return f;
+      return f.packaging === next ? f : { ...f, packaging: next };
+    });
+    autoPackaging.current = next;
+  }, [defaultPackaging]);
 
   useEffect(() => {
     if (focusTick > 0) summaryRef.current?.focus();
@@ -181,7 +205,7 @@ const QuotationForm = ({
     void send();
   };
 
-  const message = buildRfqMessage(fields, page(), showPaymentTerms);
+  const message = buildRfqMessage(fields, page(), showPaymentTerms, messageIntro);
   const whatsappUrl = buildWhatsAppUrl(message);
   const mailUrl = buildMailtoUrl(COMPANY.email, `Quotation request: ${fields.product || "spices"} - ${fields.company}`, message);
 

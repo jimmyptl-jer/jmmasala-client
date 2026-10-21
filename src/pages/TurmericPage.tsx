@@ -399,7 +399,7 @@ const TurmericPage = () => {
                   View Laboratory Specifications
                 </a>
                 <Link
-                  to="/contact?intent=sample"
+                  to="/contact?intent=sample&product=Turmeric"
                   className="jm-btn jm-btn--outline border-[var(--brand-gold-light)] text-[var(--brand-gold-light)] hover:bg-[var(--brand-gold-light)] hover:text-[var(--brand-deep-green)]"
                 >
                   Request Buyer Sample
@@ -793,7 +793,7 @@ const TurmericPage = () => {
                 >
                   WhatsApp Export Desk
                 </a>
-                <Link to="/contact?intent=quote" className="jm-btn jm-btn--outline flex-1 text-center">
+                <Link to="/contact?intent=quote&product=Turmeric" className="jm-btn jm-btn--outline flex-1 text-center">
                   Submit Official RFP
                 </Link>
               </div>
@@ -824,6 +824,23 @@ const TurmericPage = () => {
         </div>
       </section>
 
+      <section className="jm-section jm-section--white">
+        <div className="jm-container">
+          <h2 className="jm-section-heading">Related Products and Services</h2>
+          <p className="mt-3 text-sm leading-7 text-[var(--brand-forest)]">
+            Also available: <Link to="/turmeric-powder-exporter-india" className="underline">turmeric powder</Link>,{" "}
+            <Link to="/red-chilli-exporter-india" className="underline">red chilli</Link> and{" "}
+            <Link to="/dry-ginger-exporter-india" className="underline">dry ginger</Link>.
+            See{" "}
+            <Link to="/private-label-spices" className="underline">private label spices</Link>,{" "}
+            <Link to="/spice-packaging" className="underline">spice packaging</Link> and{" "}
+            <Link to="/quality-certifications" className="underline">quality and certifications</Link>.
+            Buying in India? See{" "}
+            <Link to="/domestic-supply-india" className="underline">domestic supply</Link>.
+          </p>
+        </div>
+      </section>
+
       {/* Final Conversion Callout */}
       <section className="bg-[var(--brand-deep-green)] py-14 text-white text-center">
         <div className="jm-container">
@@ -839,7 +856,7 @@ const TurmericPage = () => {
               Contact Export Desk (+91 91067 66041)
             </a>
             <Link
-              to="/contact?intent=quote"
+              to="/contact?intent=quote&product=Turmeric"
               className="jm-btn jm-btn--outline border-white text-white hover:bg-white hover:text-[var(--brand-deep-green)]"
             >
               Request Custom Proforma Invoice

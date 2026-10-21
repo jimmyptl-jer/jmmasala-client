@@ -678,6 +678,17 @@ const UnjhaFennelSeedsPage = () => {
           </div>
         </section>
 
+        <section className="jm-section bg-white">
+          <div className="jm-container">
+            <p className="text-sm leading-7 text-[var(--brand-forest)]">
+              Related: <Link to="/unjha-cumin-seeds" className="underline">Unjha cumin seeds</Link>,{" "}
+              <Link to="/spice-packaging" className="underline">spice packaging</Link> and{" "}
+              <Link to="/quality-certifications" className="underline">quality and certifications</Link>.
+              Ready to order? <Link to="/contact" className="underline">Contact JM Masala</Link>.
+            </p>
+          </div>
+        </section>
+
         {/* BOTTOM CTA BANNER */}
         <section className="bg-[var(--brand-deep-green)] text-white py-16">
           <div className="jm-container text-center max-w-3xl space-y-6">

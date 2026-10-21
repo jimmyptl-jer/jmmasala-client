@@ -682,7 +682,7 @@ const SourcingNetworkPage = () => {
         ]}
       />
 
-      <style>{styles}</style>
+      <style dangerouslySetInnerHTML={{ __html: styles }} />
 
       <div className="sn-root">
         {/* ── HERO ── */}

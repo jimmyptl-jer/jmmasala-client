@@ -491,7 +491,7 @@ const ColdPressedOilsPage = () => {
               </ul>
               <div className="mt-6">
                 <Link
-                  to="/contact?product=Cold Pressed Oils#inquiry-form"
+                  to="/contact?product=Cold%20Pressed%20Oils#inquiry-form"
                   className="jm-btn jm-btn--secondary"
                 >
                   Start an Inquiry
@@ -549,6 +549,20 @@ const ColdPressedOilsPage = () => {
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="jm-section" style={{ background: "var(--brand-cream)" }}>
+          <div className="jm-container">
+            <p className="text-sm leading-7 text-[var(--brand-forest)]">
+              Related: <Link to="/sesame-seeds-exporter-india" className="underline">sesame seeds</Link>,{" "}
+              <Link to="/mustard-seeds-exporter-india" className="underline">mustard seeds</Link> and{" "}
+              <Link to="/nigella-seeds-exporter-india" className="underline">nigella seeds</Link>. For your own brand, see{" "}
+              <Link to="/private-label-spices" className="underline">private label</Link>,{" "}
+              <Link to="/spice-packaging" className="underline">packaging</Link>,{" "}
+              <Link to="/quality-certifications" className="underline">quality and certifications</Link> and{" "}
+              <Link to="/domestic-supply-india" className="underline">domestic supply</Link>.
+            </p>
           </div>
         </section>
 
