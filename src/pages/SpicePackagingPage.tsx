@@ -1,5 +1,13 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  ChevronRight,
+  Package,
+  ShoppingCart,
+  Tag,
+  UtensilsCrossed,
+} from "lucide-react";
 import Seo from "@/components/Seo";
 import {
   buildWhatsAppUrl,
@@ -10,7 +18,7 @@ import {
 
 const PKG_CATEGORIES = [
   {
-    icon: "📦",
+    Icon: Package,
     title: "Bulk Export Packaging",
     desc: "Standard export-grade packaging for container-load shipments of whole spices, powders, and agro products.",
     formats: [
@@ -21,10 +29,10 @@ const PKG_CATEGORIES = [
       "Fumigation-ready export palletization",
     ],
     application: "Commodity importers, trading companies, food processors",
-    color: "#1a5e1a",
+    color: "var(--brand-deep-green)",
   },
   {
-    icon: "🛒",
+    Icon: ShoppingCart,
     title: "Consumer Retail Packaging",
     desc: "Shelf-ready retail packs formatted for supermarket, grocery, and specialty-store distribution channels.",
     formats: [
@@ -35,10 +43,10 @@ const PKG_CATEGORIES = [
       "Master cartons for retail distribution",
     ],
     application: "Spice brands, supermarkets, e-commerce sellers, grocery stores",
-    color: "#c9a84c",
+    color: "var(--brand-gold)",
   },
   {
-    icon: "🏷️",
+    Icon: Tag,
     title: "Private Label Packaging",
     desc: "Custom-branded packaging with buyer's logo, artwork, nutritional tables, barcodes, and multilingual regulatory text.",
     formats: [
@@ -49,10 +57,10 @@ const PKG_CATEGORIES = [
       "Multi-language text for export markets",
     ],
     application: "Private-label brands, distributors, supermarket own-brand programs",
-    color: "#8b5e3c",
+    color: "var(--wood-mid)",
   },
   {
-    icon: "🍽️",
+    Icon: UtensilsCrossed,
     title: "Institutional & Food-Service",
     desc: "Larger pack sizes for professional kitchens, catering businesses, and food-service distribution.",
     formats: [
@@ -63,7 +71,7 @@ const PKG_CATEGORIES = [
       "Bulk carton packaging for food-service",
     ],
     application: "Restaurant chains, caterers, food-service distributors, hotel suppliers",
-    color: "#2d5016",
+    color: "var(--brand-forest)",
   },
 ];
 
@@ -128,25 +136,25 @@ const styles = `
 
   /* Hero */
   .sp-hero {
-    background: linear-gradient(135deg, var(--wood-dark) 0%, var(--brand-deep-green) 55%, #10170f 100%);
-    position: relative; overflow: hidden; padding: 96px 24px 80px;
+    background: linear-gradient(135deg, var(--brand-deep-green), var(--brand-forest));
+    position: relative; overflow: hidden; padding: 80px 60px;
   }
   .sp-hero::before {
     content: ''; position: absolute; inset: 0;
     background-image: radial-gradient(circle at 75% 30%, rgba(200,150,12,0.12) 0%, transparent 55%),
                       radial-gradient(circle at 25% 70%, rgba(200,150,12,0.06) 0%, transparent 50%);
   }
-  .sp-hero-inner { position: relative; max-width: 1200px; margin: 0 auto; }
+  .sp-hero-inner { position: relative; max-width: 1280px; margin: 0 auto; }
   .sp-hero-label {
-    font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase;
+    font-size: 12px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--brand-gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
   }
   .sp-hero-label::before, .sp-hero-label::after {
     content: ''; flex: 1; max-width: 48px; height: 1px; background: var(--brand-gold); opacity: 0.6;
   }
   .sp-hero h1 {
-    font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px);
-    font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 20px; max-width: 780px;
+    font-family: var(--font-display); font-size: 48px;
+    font-weight: 600; color: #fff; line-height: 1.3; margin-bottom: 20px; max-width: 780px;
   }
   .sp-hero h1 em { font-style: italic; color: var(--brand-gold); }
   .sp-hero-sub {
@@ -155,26 +163,32 @@ const styles = `
   }
   .sp-hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
   @media (max-width: 640px) {
-    .sp-hero { padding: 80px 16px 56px; }
+    .sp-hero { padding: 40px 16px; }
+    .sp-hero h1 { font-size: 32px; }
+    .sp-hero-label { font-size: 11px; }
     .sp-hero-actions { flex-direction: column; }
     .sp-hero-actions a { width: 100%; justify-content: center; }
   }
 
   /* Shared */
-  .sp-section { max-width: 1200px; margin: 0 auto; padding: 80px 24px; }
-  @media (max-width: 640px) { .sp-section { padding: 48px 16px; } }
+  .sp-section { max-width: 1280px; margin: 0 auto; padding: 80px 60px; }
+  @media (max-width: 1024px) { .sp-section { padding: 48px 24px; } }
+  @media (max-width: 640px) { .sp-section { padding: 40px 16px; } }
   .sp-bg-cream { background: var(--brand-cream); }
   .sp-bg-white { background: var(--brand-warm-white); }
   .sp-bg-beige { background: var(--brand-gold-pale); }
   .sp-label {
-    font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase;
-    color: var(--brand-gold); margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
+    font-size: 12px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--brand-gold-text, #8a6a2b); margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
   }
-  .sp-label::before { content: ''; width: 32px; height: 1px; background: var(--brand-gold); }
+  .sp-label::before { content: ''; width: 32px; height: 1px; background: currentColor; }
+  .sp-cta .sp-label { color: var(--brand-gold); }
+  @media (max-width: 640px) { .sp-label { font-size: 11px; } }
   .sp-heading {
-    font-family: var(--font-display); font-size: clamp(28px, 4vw, 42px);
-    font-weight: 700; color: var(--brand-charcoal); line-height: 1.2; margin-bottom: 16px;
+    font-family: var(--font-display); font-size: 32px;
+    font-weight: 600; color: var(--brand-charcoal); line-height: 1.3; margin-bottom: 16px;
   }
+  @media (max-width: 640px) { .sp-heading, .sp-cta-heading { font-size: 28px; } }
   .sp-sub { font-size: 16px; color: var(--brand-forest); line-height: 1.75; max-width: 640px; margin-bottom: 40px; }
   .sp-divider { height: 1px; background: linear-gradient(to right, transparent, rgba(201,168,76,0.25), transparent); }
 
@@ -183,16 +197,17 @@ const styles = `
   /* Package Category cards */
   .sp-cats { display: grid; gap: 24px; }
   .sp-cat {
-    background: #fff; border: 1px solid var(--brand-gold-pale); border-radius: 16px;
+    background: var(--brand-warm-white); border: 1px solid #f5e9c8; border-radius: 12px;
     overflow: hidden; display: grid; grid-template-columns: 6px 1fr;
-    box-shadow: 0 2px 12px rgba(44,26,14,0.05);
+    box-shadow: var(--shadow-sm);
   }
-  .sp-cat__bar { border-radius: 16px 0 0 16px; }
-  .sp-cat__body { padding: 28px 28px 28px 24px; }
+  .sp-cat__bar { border-radius: 12px 0 0 12px; }
+  .sp-cat__body { padding: 24px; }
   .sp-cat__header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-  .sp-cat__icon { font-size: 24px; }
+  .sp-cat__icon { display: inline-flex; color: var(--brand-deep-green); }
+  .sp-cat__icon svg { width: 24px; height: 24px; }
   .sp-cat__title {
-    font-family: var(--font-display); font-size: 20px; font-weight: 600;
+    font-family: var(--font-display); font-size: 20px; font-weight: 700;
     color: var(--brand-charcoal);
   }
   .sp-cat__desc { font-size: 14px; color: var(--brand-forest); line-height: 1.7; margin-bottom: 16px; }
@@ -201,9 +216,9 @@ const styles = `
     display: flex; align-items: center; gap: 8px;
     font-size: 14px; color: var(--brand-charcoal);
   }
-  .sp-cat__format svg { flex-shrink: 0; color: var(--brand-gold); }
+  .sp-cat__format svg { flex-shrink: 0; color: var(--brand-gold-text, #8a6a2b); }
   .sp-cat__application {
-    font-size: 12px; color: var(--brand-gold); font-weight: 600;
+    font-size: 12px; color: var(--brand-gold-text, #8a6a2b); font-weight: 600;
     letter-spacing: 0.5px; text-transform: uppercase;
     padding-top: 12px; border-top: 1px solid var(--brand-gold-pale);
   }
@@ -213,31 +228,31 @@ const styles = `
   @media (max-width: 900px) { .sp-features { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 540px) { .sp-features { grid-template-columns: 1fr; } }
   .sp-feature {
-    background: #fff; border: 1px solid var(--brand-gold-pale); border-radius: 12px;
-    padding: 24px; box-shadow: 0 2px 8px rgba(44,26,14,0.04);
+    background: var(--brand-warm-white); border: 1px solid #f5e9c8; border-radius: 12px;
+    padding: 24px; box-shadow: var(--shadow-sm);
   }
   .sp-feature__title {
-    font-family: var(--font-display); font-size: 16px; font-weight: 600;
+    font-family: var(--font-display); font-size: 16px; font-weight: 700;
     color: var(--brand-charcoal); margin-bottom: 8px;
   }
-  .sp-feature__desc { font-size: 13px; color: var(--brand-forest); line-height: 1.7; }
+  .sp-feature__desc { font-size: 14px; color: var(--brand-forest); line-height: 1.7; }
 
   /* FAQs */
   .sp-faqs { display: grid; gap: 12px; }
   .sp-faq {
-    background: #fff; border: 1px solid var(--brand-gold-pale); border-radius: 12px;
-    padding: 20px 24px; box-shadow: 0 2px 8px rgba(44,26,14,0.04);
+    background: var(--brand-warm-white); border: 1px solid #f5e9c8; border-radius: 12px;
+    padding: 20px 24px; box-shadow: var(--shadow-sm);
   }
   .sp-faq__q {
-    font-family: var(--font-display); font-size: 16px; font-weight: 600;
+    font-family: var(--font-display); font-size: 16px; font-weight: 700;
     color: var(--brand-charcoal); margin-bottom: 8px;
   }
   .sp-faq__a { font-size: 14px; color: var(--brand-forest); line-height: 1.75; }
 
   /* CTA */
   .sp-cta {
-    background: linear-gradient(135deg, #10170f 0%, var(--brand-deep-green) 55%, var(--wood-dark) 100%);
-    padding: 80px 24px; text-align: center; position: relative; overflow: hidden;
+    background: linear-gradient(135deg, var(--brand-deep-green), var(--brand-forest));
+    padding: 80px 60px; text-align: center; position: relative; overflow: hidden;
   }
   .sp-cta::before {
     content: ''; position: absolute; inset: 0;
@@ -245,13 +260,13 @@ const styles = `
   }
   .sp-cta-inner { position: relative; max-width: 600px; margin: 0 auto; }
   .sp-cta-heading {
-    font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 40px);
+    font-family: var(--font-display); font-size: 32px; font-weight: 600;
     color: #fff; margin-bottom: 16px; line-height: 1.3;
   }
   .sp-cta-sub { color: rgba(255,255,255,0.72); font-size: 16px; margin-bottom: 32px; line-height: 1.7; }
   .sp-cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
   @media (max-width: 640px) {
-    .sp-cta { padding: 56px 16px; }
+    .sp-cta { padding: 40px 16px; }
     .sp-cta-actions { flex-direction: column; align-items: stretch; }
   }
 `;
@@ -338,7 +353,7 @@ const SpicePackagingPage = () => {
                   <div className="sp-cat__bar" style={{ background: cat.color }} />
                   <div className="sp-cat__body">
                     <div className="sp-cat__header">
-                      <span className="sp-cat__icon">{cat.icon}</span>
+                      <span className="sp-cat__icon"><cat.Icon aria-hidden="true" /></span>
                       <h3 className="sp-cat__title">{cat.title}</h3>
                     </div>
                     <p className="sp-cat__desc">{cat.desc}</p>
@@ -408,9 +423,9 @@ const SpicePackagingPage = () => {
 
         {/* ── INTERNAL LINKS ── */}
         <section className="sp-bg-beige">
-          <div className="sp-section" style={{ paddingTop: 48, paddingBottom: 48 }}>
+          <div className="sp-section" style={{ paddingTop: 40, paddingBottom: 40 }}>
             <h3 style={{
-              fontFamily: "var(--font-display)", fontSize: "18px", fontWeight: 600,
+              fontFamily: "var(--font-display)", fontSize: "16px", fontWeight: 700,
               color: "var(--brand-charcoal)", marginBottom: 16,
             }}>
               Related JM Masala Pages

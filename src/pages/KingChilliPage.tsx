@@ -155,19 +155,19 @@ const KingChilliPage = () => {
         <div className="jm-container">
           <ol className="flex flex-wrap items-center gap-2 text-xs text-[var(--brand-forest)]">
             <li>
-              <Link to="/" className="hover:text-[var(--brand-deep-green)]">
+              <Link to="/" className="hover:text-[var(--brand-deep-green)] inline-block py-3.5 -my-3.5">
                 Home
               </Link>
             </li>
             <li>/</li>
             <li>
-              <Link to="/products" className="hover:text-[var(--brand-deep-green)]">
+              <Link to="/products" className="hover:text-[var(--brand-deep-green)] inline-block py-3.5 -my-3.5">
                 Products
               </Link>
             </li>
             <li>/</li>
             <li>
-              <Link to="/red-chilli-exporter-india" className="hover:text-[var(--brand-deep-green)]">
+              <Link to="/red-chilli-exporter-india" className="hover:text-[var(--brand-deep-green)] inline-block py-3.5 -my-3.5">
                 Red Chilli Exporter from India
               </Link>
             </li>
@@ -188,7 +188,7 @@ const KingChilliPage = () => {
               <p className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.08)] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--brand-gold-light)]">
                 <MapPin className="h-3.5 w-3.5" /> Assam &amp; Nagaland GI Sourcing
               </p>
-              <h1 className="mt-4 font-[var(--font-display)] text-3xl leading-tight text-white md:text-5xl">
+              <h1 className="mt-4 text-white">
                 King Chilli Exporter from India
               </h1>
               <p className="mt-3 text-lg font-medium text-[var(--brand-gold-light)] md:text-xl">
@@ -215,13 +215,13 @@ const KingChilliPage = () => {
                 </a>
                 <Link
                   to="/red-chilli-exporter-india"
-                  className="jm-btn jm-btn--outline border-white text-white hover:bg-white hover:text-[var(--brand-deep-green)] inline-flex items-center gap-1.5"
+                  className="jm-btn jm-btn--ghost inline-flex items-center gap-1.5"
                 >
                   <ArrowLeft className="h-4 w-4" /> Master Red Chilli Page
                 </Link>
                 <Link
-                  to="/contact?intent=sample"
-                  className="jm-btn jm-btn--outline border-[var(--brand-gold-light)] text-[var(--brand-gold-light)] hover:bg-[var(--brand-gold-light)] hover:text-[var(--brand-deep-green)]"
+                  to="/contact?intent=sample&product=Red%20Chilli#inquiry-form"
+                  className="jm-btn jm-btn--ghost"
                 >
                   Request Sample
                 </Link>
@@ -265,13 +265,13 @@ const KingChilliPage = () => {
       {/* King Chilli at a Glance (AI Answer Box) */}
       <section className="border-b border-[var(--brand-gold-pale)] bg-white py-10">
         <div className="jm-container">
-          <div className="rounded-2xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6 md:p-8">
+          <div className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6 md:p-8">
             <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-[var(--brand-gold)]">
+                <p className="jm-section-label">
                   Verified Technical Data
                 </p>
-                <h2 className="text-xl font-bold text-[var(--brand-charcoal)] md:text-2xl">
+                <h2 className="jm-section-heading">
                   King Chilli at a Glance
                 </h2>
               </div>
@@ -282,8 +282,8 @@ const KingChilliPage = () => {
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {KING_CHILLI_SUMMARY_ROWS.map((row) => (
-                <div key={row.label} className="rounded-lg border border-stone-200 bg-white p-4">
-                  <span className="text-xs font-medium text-stone-500">{row.label}</span>
+                <div key={row.label} className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                  <span className="text-xs font-medium text-[var(--brand-forest)]">{row.label}</span>
                   <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">{row.value}</p>
                 </div>
               ))}
@@ -326,7 +326,7 @@ const KingChilliPage = () => {
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
                 <thead>
-                  <tr className="border-b border-[var(--brand-gold-pale)] bg-stone-50 text-xs font-semibold uppercase tracking-wider text-[var(--brand-charcoal)]">
+                  <tr className="border-b border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] text-xs font-semibold uppercase tracking-wider text-[var(--brand-charcoal)]">
                     <th className="px-6 py-3.5">Parameter</th>
                     <th className="px-6 py-3.5">Export Standard</th>
                     <th className="px-6 py-3.5">Analytical Standard</th>
@@ -334,10 +334,10 @@ const KingChilliPage = () => {
                 </thead>
                 <tbody className="divide-y divide-[var(--brand-gold-pale)]">
                   {KING_CHILLI_SPECS.map((s) => (
-                    <tr key={s.label} className="hover:bg-[var(--brand-cream)]/40">
+                    <tr key={s.label} className="hover:bg-[var(--brand-cream)]">
                       <td className="px-6 py-3.5 font-semibold text-[var(--brand-charcoal)]">{s.label}</td>
                       <td className="px-6 py-3.5 text-[var(--brand-forest)]">{s.value}</td>
-                      <td className="px-6 py-3.5 text-xs text-stone-500">{s.standard}</td>
+                      <td className="px-6 py-3.5 text-xs text-[var(--brand-forest)]">{s.standard}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -355,7 +355,7 @@ const KingChilliPage = () => {
             <h2 className="jm-section-heading">King Chilli FAQs</h2>
           </div>
 
-          <div className="mt-8 divide-y divide-[var(--brand-gold-pale)] rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)]/40 p-6">
+          <div className="mt-8 divide-y divide-[var(--brand-gold-pale)] rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6">
             {KING_CHILLI_FAQS.map((faq) => (
               <article key={faq.question} className="py-4 first:pt-0 last:pb-0">
                 <h3 className="text-base font-bold text-[var(--brand-charcoal)]">{faq.question}</h3>
@@ -382,9 +382,9 @@ const KingChilliPage = () => {
       </section>
 
       {/* Link back & CTA */}
-      <section className="bg-[var(--brand-deep-green)] py-12 text-white text-center">
+      <section className="jm-section jm-section--primary">
         <div className="jm-container">
-          <h2 className="font-[var(--font-display)] text-2xl md:text-3xl">
+          <h2 className="jm-section-heading jm-section-heading--on-dark">
             Procure Genuine King Chilli (Bhut Jolokia)
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-xs md:text-sm text-[rgba(255,255,255,0.85)]">
@@ -394,7 +394,7 @@ const KingChilliPage = () => {
             <a href={quoteUrl} target="_blank" rel="noreferrer" className="jm-btn jm-btn--primary">
               WhatsApp Export Desk (+91 91067 66041)
             </a>
-            <Link to="/red-chilli-exporter-india" className="jm-btn jm-btn--outline border-white text-white">
+            <Link to="/red-chilli-exporter-india" className="jm-btn jm-btn--ghost">
               Back to Master Red Chilli Overview
             </Link>
           </div>

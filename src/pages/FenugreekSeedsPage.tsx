@@ -321,11 +321,11 @@ const FenugreekSeedsPage = () => {
         <div className="jm-container">
           <ol className="flex flex-wrap items-center gap-2 text-xs text-[var(--brand-forest)]">
             <li>
-              <Link to="/" className="hover:text-[var(--brand-deep-green)]">Home</Link>
+              <Link to="/" className="hover:text-[var(--brand-deep-green)] inline-block py-3.5 -my-3.5">Home</Link>
             </li>
             <li>/</li>
             <li>
-              <Link to="/products" className="hover:text-[var(--brand-deep-green)]">Products</Link>
+              <Link to="/products" className="hover:text-[var(--brand-deep-green)] inline-block py-3.5 -my-3.5">Products</Link>
             </li>
             <li>/</li>
             <li className="font-semibold text-[var(--brand-charcoal)]" aria-current="page">
@@ -337,14 +337,14 @@ const FenugreekSeedsPage = () => {
 
       {/* Hero Section */}
       <header className="relative overflow-hidden bg-[var(--brand-deep-green)] text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#2a3821] via-[#0d2214] to-[#08150c] opacity-95" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[var(--brand-forest)] to-[var(--brand-deep-green)] opacity-95" />
         <div className="jm-container relative py-16 lg:py-20">
           <div className="grid gap-12 lg:grid-cols-[1.15fr,0.85fr] lg:items-center">
             <div>
               <p className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.08)] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--brand-gold-light)]">
                 <MapPin className="h-3.5 w-3.5" /> Gujarat &amp; Rajasthan Sourcing Hub
               </p>
-              <h1 className="mt-4 font-[var(--font-display)] text-3xl leading-tight text-white md:text-5xl">
+              <h1 className="mt-4 text-white">
                 Fenugreek Seeds Exporter from India
               </h1>
               <p className="mt-3 text-lg font-medium text-[var(--brand-gold-light)] md:text-xl">
@@ -374,13 +374,13 @@ const FenugreekSeedsPage = () => {
                 </a>
                 <a
                   href="#specifications"
-                  className="jm-btn jm-btn--outline border-white text-white hover:bg-white hover:text-[var(--brand-deep-green)]"
+                  className="jm-btn jm-btn--ghost"
                 >
                   View Specification Table
                 </a>
                 <Link
-                  to="/contact?intent=sample&product=Fenugreek%20Seeds"
-                  className="jm-btn jm-btn--outline border-[var(--brand-gold-light)] text-[var(--brand-gold-light)] hover:bg-[var(--brand-gold-light)] hover:text-[var(--brand-deep-green)]"
+                  to="/contact?intent=sample&product=Fenugreek%20Seeds#inquiry-form"
+                  className="jm-btn jm-btn--ghost"
                 >
                   Request Buyer Sample
                 </Link>
@@ -430,13 +430,13 @@ const FenugreekSeedsPage = () => {
       {/* AI Grounding Box: Fenugreek Seeds at a Glance */}
       <section className="border-b border-[var(--brand-gold-pale)] bg-white py-10">
         <div className="jm-container">
-          <div className="rounded-2xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6 md:p-8">
+          <div className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6 md:p-8">
             <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-[var(--brand-gold)]">
+                <p className="jm-section-label">
                   Quick Commercial Summary
                 </p>
-                <h2 className="text-xl font-bold text-[var(--brand-charcoal)] md:text-2xl">
+                <h2 className="jm-section-heading">
                   Fenugreek Seeds at a Glance
                 </h2>
               </div>
@@ -446,56 +446,56 @@ const FenugreekSeedsPage = () => {
             </div>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              <div className="rounded-lg border border-stone-200 bg-white p-4">
-                <span className="text-xs font-medium text-stone-500">Product &amp; Indian Name</span>
+              <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                <span className="text-xs font-medium text-[var(--brand-forest)]">Product &amp; Indian Name</span>
                 <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">
                   Fenugreek Seeds · Methi Seeds (મેથી / मेथी)
                 </p>
               </div>
-              <div className="rounded-lg border border-stone-200 bg-white p-4">
-                <span className="text-xs font-medium text-stone-500">Botanical Classification</span>
+              <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                <span className="text-xs font-medium text-[var(--brand-forest)]">Botanical Classification</span>
                 <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">
                   Trigonella foenum-graecum L.
                 </p>
               </div>
-              <div className="rounded-lg border border-stone-200 bg-white p-4">
-                <span className="text-xs font-medium text-stone-500">Origin &amp; Sourcing</span>
+              <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                <span className="text-xs font-medium text-[var(--brand-forest)]">Origin &amp; Sourcing</span>
                 <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">
                   Gujarat (Mehsana, Patan, Unjha) &amp; Rajasthan
                 </p>
               </div>
-              <div className="rounded-lg border border-stone-200 bg-white p-4">
-                <span className="text-xs font-medium text-stone-500">Export Commercial Grades</span>
+              <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                <span className="text-xs font-medium text-[var(--brand-forest)]">Export Commercial Grades</span>
                 <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">
                   Bold Grade · Semi-Bold Grade · Machine Cleaned
                 </p>
               </div>
-              <div className="rounded-lg border border-stone-200 bg-white p-4">
-                <span className="text-xs font-medium text-stone-500">Purity Standard</span>
+              <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                <span className="text-xs font-medium text-[var(--brand-forest)]">Purity Standard</span>
                 <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">
                   98.0% / 99.0% / 99.5% Sortex Optical Cleaned
                 </p>
               </div>
-              <div className="rounded-lg border border-stone-200 bg-white p-4">
-                <span className="text-xs font-medium text-stone-500">Moisture Limit</span>
+              <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                <span className="text-xs font-medium text-[var(--brand-forest)]">Moisture Limit</span>
                 <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">
                   Max 10.0% (Standard target 8.0%–9.5%)
                 </p>
               </div>
-              <div className="rounded-lg border border-stone-200 bg-white p-4">
-                <span className="text-xs font-medium text-stone-500">Color &amp; Shape</span>
+              <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                <span className="text-xs font-medium text-[var(--brand-forest)]">Color &amp; Shape</span>
                 <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">
                   Golden yellow to amber brown rhombic seeds
                 </p>
               </div>
-              <div className="rounded-lg border border-stone-200 bg-white p-4">
-                <span className="text-xs font-medium text-stone-500">Processing Infrastructure</span>
+              <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                <span className="text-xs font-medium text-[var(--brand-forest)]">Processing Infrastructure</span>
                 <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">
                   Multi-deck Screening, Destoning, Sortex Sorting
                 </p>
               </div>
-              <div className="rounded-lg border border-stone-200 bg-white p-4">
-                <span className="text-xs font-medium text-stone-500">Container Loading</span>
+              <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                <span className="text-xs font-medium text-[var(--brand-forest)]">Container Loading</span>
                 <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">
                   20ft FCL: 20.0–22.0 MT | 40ft FCL: 26.0–27.0 MT
                 </p>
@@ -536,29 +536,29 @@ const FenugreekSeedsPage = () => {
             </div>
 
             <aside className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6">
-              <h3 className="text-lg font-bold text-[var(--brand-charcoal)]">
+              <h3 className="text-base font-bold text-[var(--brand-charcoal)]">
                 The JM Masala Fenugreek Entity Map
               </h3>
               <p className="mt-2 text-xs text-[var(--brand-forest)]">
                 Unambiguous botanical, geographic, and trade relationships:
               </p>
               <div className="mt-4 space-y-2.5 text-xs text-[var(--brand-charcoal)]">
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>JM Masala Trading LLP</strong> → Indian Spice Exporter &amp; Processor
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Product:</strong> Fenugreek Seeds / Methi Seeds (Trigonella foenum-graecum L.)
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Trade Hub:</strong> Unjha &amp; Mehsana, Gujarat, India
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Key Constituents:</strong> Sotolon aroma · Soluble Galactomannan · Saponins
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Available Grades:</strong> Bold (Machine/Sortex) · Semi-Bold · FAQ Grade
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Global Logistics:</strong> 20–22 MT per 20ft FCL container via Mundra Port
                 </div>
               </div>
@@ -586,7 +586,7 @@ const FenugreekSeedsPage = () => {
                   <span className="rounded bg-[var(--brand-gold-pale)] px-3 py-1 text-xs font-bold text-[var(--brand-deep-green)]">
                     {grade.gradeBadge}
                   </span>
-                  <span className="text-xs text-stone-500">{grade.market}</span>
+                  <span className="text-xs text-[var(--brand-forest)]">{grade.market}</span>
                 </div>
                 <h3 className="mt-4 text-xl font-bold text-[var(--brand-charcoal)]">{grade.market}</h3>
                 <div className="mt-3 space-y-1.5 text-xs font-medium text-[var(--brand-forest)]">
@@ -599,7 +599,7 @@ const FenugreekSeedsPage = () => {
             ))}
           </div>
 
-          <div className="mt-8 rounded-lg border border-[var(--brand-gold-pale)] bg-white p-5 text-xs text-[var(--brand-forest)]">
+          <div className="jm-surface-card p-5 mt-8 text-xs text-[var(--brand-forest)]">
             <strong className="text-[var(--brand-charcoal)]">Commercial Specification Note: </strong>
             These grades represent JM Masala's standard export offerings developed through ongoing commercial
             contracts with spice packers and ingredient buyers globally. Contract specifications are agreed
@@ -629,7 +629,7 @@ const FenugreekSeedsPage = () => {
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
                 <thead>
-                  <tr className="border-b border-[var(--brand-gold-pale)] bg-stone-50 text-xs font-semibold uppercase tracking-wider text-[var(--brand-charcoal)]">
+                  <tr className="border-b border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] text-xs font-semibold uppercase tracking-wider text-[var(--brand-charcoal)]">
                     <th className="px-6 py-3.5">Parameter</th>
                     <th className="px-6 py-3.5">JM Masala Commercial Specification</th>
                     <th className="px-6 py-3.5">Testing Method / Standard</th>
@@ -637,12 +637,12 @@ const FenugreekSeedsPage = () => {
                 </thead>
                 <tbody className="divide-y divide-[var(--brand-gold-pale)]">
                   {FENUGREEK_SPEC_ROWS.map((row) => (
-                    <tr key={row.label} className="hover:bg-[var(--brand-cream)]/40">
+                    <tr key={row.label} className="hover:bg-[var(--brand-cream)]">
                       <td className="whitespace-nowrap px-6 py-3.5 font-semibold text-[var(--brand-charcoal)]">
                         {row.label}
                       </td>
                       <td className="px-6 py-3.5 text-[var(--brand-forest)]">{row.value}</td>
-                      <td className="px-6 py-3.5 text-xs text-stone-500">
+                      <td className="px-6 py-3.5 text-xs text-[var(--brand-forest)]">
                         {row.label.includes("Moisture")
                           ? "ASTA 2.0 / ISO 939"
                           : row.label.includes("Purity")
@@ -662,7 +662,7 @@ const FenugreekSeedsPage = () => {
                 </tbody>
               </table>
             </div>
-            <div className="border-t border-[var(--brand-gold-pale)] bg-[var(--brand-cream)]/60 px-6 py-4 text-xs leading-relaxed text-[var(--brand-forest)]">
+            <div className="border-t border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] px-6 py-4 text-xs leading-relaxed text-[var(--brand-forest)]">
               <strong className="text-[var(--brand-charcoal)]">Buyer-Specific Specification Note: </strong>
               Specifications can be calibrated according to agreed buyer requirements, destination-market
               regulations (EU, US FDA, GCC, East Asia), and individual contract parameters. Verified
@@ -710,7 +710,7 @@ const FenugreekSeedsPage = () => {
               </div>
             </div>
 
-            <aside className="rounded-xl border border-[var(--brand-gold-pale)] bg-white p-6 shadow-sm">
+            <aside className="jm-surface-card p-6">
               <h3 className="text-xl font-bold text-[var(--brand-charcoal)]">
                 The Verified JM Masala Fenugreek Supply Chain
               </h3>
@@ -788,7 +788,7 @@ const FenugreekSeedsPage = () => {
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {FENUGREEK_SUPPLY_CHAIN_STEPS.map((step) => (
               <article key={step.step} className="jm-surface-card flex flex-col p-5">
-                <span className="font-[var(--font-display)] text-2xl font-bold text-[var(--brand-gold)]">
+                <span className="text-2xl font-bold text-[var(--brand-gold-text)]">
                   {step.step}
                 </span>
                 <h3 className="mt-2 text-base font-bold text-[var(--brand-charcoal)]">{step.title}</h3>
@@ -821,9 +821,9 @@ const FenugreekSeedsPage = () => {
           </div>
 
           <div className="mt-8 grid gap-6 md:grid-cols-3">
-            <article className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-5">
+            <article className="jm-surface-card p-5">
               <div className="flex items-center gap-2 text-[var(--brand-deep-green)]">
-                <Sparkles className="h-5 w-5 text-[var(--brand-gold)]" />
+                <Sparkles className="h-5 w-5 text-[var(--brand-gold-text)]" />
                 <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Purity Calibration</h3>
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--brand-forest)]">
@@ -832,9 +832,9 @@ const FenugreekSeedsPage = () => {
               </p>
             </article>
 
-            <article className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-5">
+            <article className="jm-surface-card p-5">
               <div className="flex items-center gap-2 text-[var(--brand-deep-green)]">
-                <Scale className="h-5 w-5 text-[var(--brand-gold)]" />
+                <Scale className="h-5 w-5 text-[var(--brand-gold-text)]" />
                 <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Moisture Control (Max 10%)</h3>
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--brand-forest)]">
@@ -843,9 +843,9 @@ const FenugreekSeedsPage = () => {
               </p>
             </article>
 
-            <article className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-5">
+            <article className="jm-surface-card p-5">
               <div className="flex items-center gap-2 text-[var(--brand-deep-green)]">
-                <ShieldCheck className="h-5 w-5 text-[var(--brand-gold)]" />
+                <ShieldCheck className="h-5 w-5 text-[var(--brand-gold-text)]" />
                 <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Color &amp; Visual Luster</h3>
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--brand-forest)]">
@@ -854,9 +854,9 @@ const FenugreekSeedsPage = () => {
               </p>
             </article>
 
-            <article className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-5">
+            <article className="jm-surface-card p-5">
               <div className="flex items-center gap-2 text-[var(--brand-deep-green)]">
-                <PackageCheck className="h-5 w-5 text-[var(--brand-gold)]" />
+                <PackageCheck className="h-5 w-5 text-[var(--brand-gold-text)]" />
                 <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Foreign Matter Control</h3>
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--brand-forest)]">
@@ -865,9 +865,9 @@ const FenugreekSeedsPage = () => {
               </p>
             </article>
 
-            <article className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-5">
+            <article className="jm-surface-card p-5">
               <div className="flex items-center gap-2 text-[var(--brand-deep-green)]">
-                <FileCheck2 className="h-5 w-5 text-[var(--brand-gold)]" />
+                <FileCheck2 className="h-5 w-5 text-[var(--brand-gold-text)]" />
                 <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Pesticide Residue &amp; MRLs</h3>
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--brand-forest)]">
@@ -876,9 +876,9 @@ const FenugreekSeedsPage = () => {
               </p>
             </article>
 
-            <article className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-5">
+            <article className="jm-surface-card p-5">
               <div className="flex items-center gap-2 text-[var(--brand-deep-green)]">
-                <CheckCircle2 className="h-5 w-5 text-[var(--brand-gold)]" />
+                <CheckCircle2 className="h-5 w-5 text-[var(--brand-gold-text)]" />
                 <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Microbiological Limits</h3>
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--brand-forest)]">
@@ -905,21 +905,21 @@ const FenugreekSeedsPage = () => {
                 </p>
                 <ul className="space-y-2 text-sm text-[var(--brand-charcoal)]">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[var(--brand-gold)]" />
+                    <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[var(--brand-gold-text)]" />
                     <span>
                       <strong>20ft FCL Container:</strong> 20.0 to 22.0 Metric Tons loose stuffed (approx.
                       800 to 880 bags of 25kg) or ~18.0–19.0 MT palletized.
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[var(--brand-gold)]" />
+                    <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[var(--brand-gold-text)]" />
                     <span>
                       <strong>40ft FCL Container:</strong> 26.0 to 27.0 Metric Tons loose stuffed (approx.
                       1,040 to 1,080 bags of 25kg) or ~23.0–24.0 MT palletized.
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[var(--brand-gold)]" />
+                    <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[var(--brand-gold-text)]" />
                     <span>
                       <strong>Consolidated Shipments:</strong> Fenugreek can be shipped alongside Cumin,
                       Coriander, Fennel, and Sesame under a single consolidated Bill of Lading.
@@ -930,11 +930,11 @@ const FenugreekSeedsPage = () => {
             </div>
 
             <div className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6 shadow-sm">
-              <h3 className="text-lg font-bold text-[var(--brand-charcoal)]">
+              <h3 className="text-base font-bold text-[var(--brand-charcoal)]">
                 Available Export Packaging Options
               </h3>
               <div className="mt-4 space-y-3 text-xs text-[var(--brand-forest)]">
-                <div className="rounded border border-stone-200 bg-white p-3">
+                <div className="rounded border border-[var(--brand-gold-pale)] bg-white p-3">
                   <p className="font-bold text-[var(--brand-charcoal)]">
                     1. Food-Grade Woven PP Bags (25 kg / 50 kg)
                   </p>
@@ -943,7 +943,7 @@ const FenugreekSeedsPage = () => {
                     industry benchmark for moisture protection and mechanical durability.
                   </p>
                 </div>
-                <div className="rounded border border-stone-200 bg-white p-3">
+                <div className="rounded border border-[var(--brand-gold-pale)] bg-white p-3">
                   <p className="font-bold text-[var(--brand-charcoal)]">
                     2. Multi-Wall Kraft Paper Sacks (25 kg / 50 kg)
                   </p>
@@ -952,7 +952,7 @@ const FenugreekSeedsPage = () => {
                     factories and spice blenders in Europe and North America.
                   </p>
                 </div>
-                <div className="rounded border border-stone-200 bg-white p-3">
+                <div className="rounded border border-[var(--brand-gold-pale)] bg-white p-3">
                   <p className="font-bold text-[var(--brand-charcoal)]">
                     3. 1,000 kg (1 MT) FIBC Bulk Jumbo Bags
                   </p>
@@ -961,7 +961,7 @@ const FenugreekSeedsPage = () => {
                     engineered for automated spice mills and industrial nutraceutical extraction plants.
                   </p>
                 </div>
-                <div className="rounded border border-stone-200 bg-white p-3">
+                <div className="rounded border border-[var(--brand-gold-pale)] bg-white p-3">
                   <p className="font-bold text-[var(--brand-charcoal)]">
                     4. Custom Branded Private Label Pouches (100g to 1kg)
                   </p>
@@ -988,7 +988,7 @@ const FenugreekSeedsPage = () => {
           </div>
 
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <article className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-5">
+            <article className="jm-surface-card p-5">
               <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Curry Powders &amp; Masalas</h3>
               <p className="mt-2 text-xs leading-relaxed text-[var(--brand-forest)]">
                 An indispensable base component in commercial curry powders, garam masala, sambar masala, and
@@ -996,7 +996,7 @@ const FenugreekSeedsPage = () => {
               </p>
             </article>
 
-            <article className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-5">
+            <article className="jm-surface-card p-5">
               <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Pickling &amp; Preserves</h3>
               <p className="mt-2 text-xs leading-relaxed text-[var(--brand-forest)]">
                 Whole and crushed fenugreek seeds act as a natural preservative and essential flavoring agent
@@ -1004,7 +1004,7 @@ const FenugreekSeedsPage = () => {
               </p>
             </article>
 
-            <article className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-5">
+            <article className="jm-surface-card p-5">
               <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Nutraceutical Supplements</h3>
               <p className="mt-2 text-xs leading-relaxed text-[var(--brand-forest)]">
                 Rich in 4-hydroxyisoleucine, steroidal saponins, and water-soluble galactomannan fiber, widely
@@ -1012,7 +1012,7 @@ const FenugreekSeedsPage = () => {
               </p>
             </article>
 
-            <article className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-5">
+            <article className="jm-surface-card p-5">
               <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Industrial Spice Milling</h3>
               <p className="mt-2 text-xs leading-relaxed text-[var(--brand-forest)]">
                 Cleaned semi-bold and machine-cleaned seeds are cold-milled into pure 50-70 mesh fenugreek
@@ -1037,11 +1037,11 @@ const FenugreekSeedsPage = () => {
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {DOCUMENTATION_PACKAGE.map((doc) => (
-              <div key={doc} className="flex items-start gap-3 rounded-lg border border-stone-200 bg-[var(--brand-cream)]/40 p-4">
-                <FileCheck2 className="h-5 w-5 shrink-0 text-[var(--brand-gold)]" />
+              <div key={doc} className="flex items-start gap-3 rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-4">
+                <FileCheck2 className="h-5 w-5 shrink-0 text-[var(--brand-gold-text)]" />
                 <div>
                   <p className="text-sm font-semibold text-[var(--brand-charcoal)]">{doc}</p>
-                  <p className="mt-0.5 text-xs text-stone-500">Official verified documentation</p>
+                  <p className="mt-0.5 text-xs text-[var(--brand-forest)]">Official verified documentation</p>
                 </div>
               </div>
             ))}
@@ -1061,41 +1061,41 @@ const FenugreekSeedsPage = () => {
           </div>
 
           <div className="mt-8 grid gap-6 md:grid-cols-4">
-            <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-5">
+            <div className="jm-surface-card p-5">
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--brand-deep-green)] text-xs font-bold text-white">
                 1
               </span>
-              <h3 className="mt-3 text-sm font-bold text-[var(--brand-charcoal)]">Inquiry &amp; Specs</h3>
+              <h3 className="mt-3 text-base font-bold text-[var(--brand-charcoal)]">Inquiry &amp; Specs</h3>
               <p className="mt-1 text-xs text-[var(--brand-forest)]">
                 Submit your required grade (Bold, Semi-Bold, Sortex 99%), packaging format, and destination port.
               </p>
             </div>
 
-            <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-5">
+            <div className="jm-surface-card p-5">
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--brand-deep-green)] text-xs font-bold text-white">
                 2
               </span>
-              <h3 className="mt-3 text-sm font-bold text-[var(--brand-charcoal)]">Sample &amp; Quote</h3>
+              <h3 className="mt-3 text-base font-bold text-[var(--brand-charcoal)]">Sample &amp; Quote</h3>
               <p className="mt-1 text-xs text-[var(--brand-forest)]">
                 We provide a formal proforma quotation (FOB Mundra or CIF) and dispatch representative 250g–500g physical samples.
               </p>
             </div>
 
-            <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-5">
+            <div className="jm-surface-card p-5">
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--brand-deep-green)] text-xs font-bold text-white">
                 3
               </span>
-              <h3 className="mt-3 text-sm font-bold text-[var(--brand-charcoal)]">Processing &amp; Sortex</h3>
+              <h3 className="mt-3 text-base font-bold text-[var(--brand-charcoal)]">Processing &amp; Sortex</h3>
               <p className="mt-1 text-xs text-[var(--brand-forest)]">
                 Upon order confirmation, seeds undergo mechanical cleaning, destoning, Sortex optical grading, and NABL COA testing.
               </p>
             </div>
 
-            <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-5">
+            <div className="jm-surface-card p-5">
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--brand-deep-green)] text-xs font-bold text-white">
                 4
               </span>
-              <h3 className="mt-3 text-sm font-bold text-[var(--brand-charcoal)]">Stuffing &amp; Dispatch</h3>
+              <h3 className="mt-3 text-base font-bold text-[var(--brand-charcoal)]">Stuffing &amp; Dispatch</h3>
               <p className="mt-1 text-xs text-[var(--brand-forest)]">
                 Containers are inspected, stuffed, sealed, and dispatched to Mundra Port with full export clearance documents.
               </p>
@@ -1119,9 +1119,9 @@ const FenugreekSeedsPage = () => {
           <div className="mt-8 divide-y divide-[var(--brand-gold-pale)] rounded-xl border border-[var(--brand-gold-pale)] bg-white">
             {FENUGREEK_FAQS.map((faq) => (
               <details key={faq.question} className="group p-6">
-                <summary className="flex cursor-pointer items-center justify-between text-base font-bold text-[var(--brand-charcoal)]">
+                <summary className="flex cursor-pointer items-center justify-between text-base font-bold text-[var(--brand-charcoal)] min-h-[44px]">
                   {faq.question}
-                  <span className="ml-4 text-[var(--brand-gold)] transition-transform group-open:rotate-180">
+                  <span className="ml-4 text-[var(--brand-gold-text)] transition-transform group-open:rotate-180">
                     ▼
                   </span>
                 </summary>
@@ -1133,12 +1133,12 @@ const FenugreekSeedsPage = () => {
       </section>
 
       {/* Trust Badges Section */}
-      <section className="border-t border-[var(--brand-gold-pale)] bg-white py-12">
+      <section className="border-t border-[var(--brand-gold-pale)] bg-white py-10">
         <div className="jm-container">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
             {TRUST_BADGES.map((badge) => (
-              <div key={badge} className="flex items-center gap-2 rounded-lg border border-stone-200 bg-[var(--brand-cream)]/50 p-3">
-                <CheckCircle2 className="h-4 w-4 shrink-0 text-[var(--brand-gold)]" />
+              <div key={badge} className="flex items-center gap-2 rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-3">
+                <CheckCircle2 className="h-4 w-4 shrink-0 text-[var(--brand-gold-text)]" />
                 <p className="text-xs font-bold text-[var(--brand-charcoal)]">{badge}</p>
               </div>
             ))}
@@ -1165,9 +1165,9 @@ const FenugreekSeedsPage = () => {
       </section>
 
       {/* Call to Action Bar */}
-      <section className="bg-[var(--brand-deep-green)] py-12 text-white">
+      <section className="jm-section jm-section--primary">
         <div className="jm-container text-center">
-          <h2 className="font-[var(--font-display)] text-2xl font-bold md:text-3xl">
+          <h2 className="jm-section-heading jm-section-heading--on-dark">
             Request Fenugreek Seed Export Specifications &amp; Quotation
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm text-[rgba(255,255,255,0.85)]">
@@ -1184,8 +1184,8 @@ const FenugreekSeedsPage = () => {
               Chat on WhatsApp <ArrowRight className="h-4 w-4" />
             </a>
             <Link
-              to="/contact?intent=quote&product=Fenugreek%20Seeds"
-              className="jm-btn jm-btn--outline border-white text-white hover:bg-white hover:text-[var(--brand-deep-green)]"
+              to="/contact?intent=quote&product=Fenugreek%20Seeds#inquiry-form"
+              className="jm-btn jm-btn--ghost"
             >
               Submit Trade Inquiry
             </Link>

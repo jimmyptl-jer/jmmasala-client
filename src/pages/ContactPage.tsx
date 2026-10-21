@@ -1,62 +1,42 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import Seo from "@/components/Seo";
 import QuotationForm from "@/components/quote/QuotationForm";
-import {
-  COMPANY,
-  SITE_URL,
-  buildGeneralInquiryMessage,
-  buildWhatsAppUrl,
-} from "@/data/siteData";
-
-type EnquiryIntent = {
-  heading: string;
-  /** Must match a packaging option in QuotationForm exactly. */
-  packaging?: string;
-  intro: string;
-};
-
-// Where a CTA sets ?intent=..., the form is labelled for it. "quote" is the default form, so it has no entry.
-const INTENTS: Record<string, EnquiryIntent> = {
-  "private-label": {
-    heading: "Request a Private Label Quotation",
-    packaging: "Retail packs or private label (on request)",
-    intro: "Hello JM Masala, I would like a private label quotation.",
-  },
-  sample: {
-    heading: "Request a Sample and Quotation",
-    intro: "Hello JM Masala, I would like to request a sample and a quotation.",
-  },
-  packaging: {
-    heading: "Request Packaging Options and a Quotation",
-    intro: "Hello JM Masala, I would like to discuss packaging options and a quotation.",
-  },
-};
+import { INTENTS, getIntent } from "@/lib/enquiryIntent";
+import { getOriginPath } from "@/lib/originPath";
+import { useHydrated } from "@/lib/useHydrated";
+import { COMPANY, SITE_URL, buildWhatsAppUrl } from "@/data/siteData";
 
 const ContactPage = () => {
   const [params] = useSearchParams();
-  // The prerendered /contact page has no query string, so the product and intent are read after
-  // hydration to keep the first client render identical to the server HTML.
-  const [hydrated, setHydrated] = useState(false);
-  useEffect(() => setHydrated(true), []);
+  // The prerendered /contact page has no query string. useHydrated is false on the server and during hydration,
+  // so the first client render matches the server HTML, and later navigations get the intent immediately.
+  const hydrated = useHydrated();
   const prefilledProduct = hydrated ? (params.get("product") ?? "") : "";
-  const intentKey = params.get("intent") ?? "";
-  const intent = hydrated && Object.prototype.hasOwnProperty.call(INTENTS, intentKey) ? INTENTS[intentKey] : undefined;
+  const intentKey = hydrated ? (params.get("intent") ?? "") : "";
+  const intent = getIntent(intentKey);
+  // Where the visitor came from, for lead attribution. Read once, when this page mounts.
+  const [fromPage] = useState(() => {
+    const origin = getOriginPath();
+    if (origin) return origin;
+    try {
+      const ref = document.referrer ? new URL(document.referrer) : null;
+      return ref && ref.origin === window.location.origin ? ref.pathname : "";
+    } catch {
+      return "";
+    }
+  });
 
   const whatsappLink = useMemo(
     () => buildWhatsAppUrl(COMPANY.whatsappMessage),
     [],
   );
 
-  const productWhatsappLink = useMemo(() => {
-    if (!prefilledProduct) {
-      return buildWhatsAppUrl(buildGeneralInquiryMessage());
-    }
-
-    return buildWhatsAppUrl(
-      `Hi JM Masala, I am interested in ${prefilledProduct}. Please share specifications, MOQ, packing options, and pricing.`,
-    );
-  }, [prefilledProduct]);
+  const quickMessage = (intent ?? INTENTS.quote).quickMessage(prefilledProduct || undefined);
+  const quickWhatsappLink = useMemo(() => buildWhatsAppUrl(quickMessage), [quickMessage]);
+  const quickMailLink = `mailto:${COMPANY.email}?subject=${encodeURIComponent(
+    `${(intent ?? INTENTS.quote).emailSubjectPrefix}: ${prefilledProduct || "spices"}`,
+  )}&body=${encodeURIComponent(quickMessage)}`;
 
   return (
     <>
@@ -111,45 +91,54 @@ const ContactPage = () => {
       <section className="jm-section">
         <div className="jm-container">
           <p className="jm-section-label">Contact</p>
-          <h1 className="jm-section-heading">Contact JM Masala</h1>
+          <h1 className="jm-heading-1">Contact JM Masala</h1>
           <p className="jm-section-subtext ml-0 max-w-2xl">
             Contact us directly on WhatsApp for the fastest response, or send us an email.
           </p>
 
           <div className="mt-8 grid gap-8 lg:grid-cols-[1.1fr,0.9fr]">
             <section className="jm-surface-card p-6 lg:p-8">
-              {prefilledProduct && (
-                <div className="mb-5 flex flex-wrap gap-3">
-                  <a href={productWhatsappLink} target="_blank" rel="noreferrer" className="jm-btn jm-btn--primary">
-                    WhatsApp About {prefilledProduct}
-                  </a>
-                  <a href={`mailto:${COMPANY.email}`} className="jm-btn jm-btn--outline">
-                    Email Us Directly
-                  </a>
-                </div>
-              )}
-
               <QuotationForm
                 id="inquiry-form"
                 defaultProduct={prefilledProduct}
                 defaultPackaging={intent?.packaging}
+                requirePackaging={intent?.requirePackaging}
                 heading={intent?.heading}
+                introText={intent?.introText}
                 messageIntro={intent?.intro}
-                sourcePage={intent ? `contact?intent=${intentKey}` : "contact"}
-                showPaymentTerms
+                submitLabel={intent?.submitLabel}
+                emailSubjectPrefix={intent?.emailSubjectPrefix}
+                showPaymentTerms={!intent?.hidePaymentTerms}
+                sourcePage={intent ? "contact?intent=" + intentKey : "contact"}
+                fromPage={fromPage}
               />
+              {(prefilledProduct || (intent && intentKey !== "quote")) && (
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <a href={quickWhatsappLink} target="_blank" rel="noopener noreferrer" className="jm-btn jm-btn--primary">
+                    {prefilledProduct ? `WhatsApp About ${prefilledProduct}` : "WhatsApp Us About This"}
+                  </a>
+                  <a href={quickMailLink} className="jm-btn jm-btn--outline">
+                    Email Us Directly
+                  </a>
+                </div>
+              )}
             </section>
 
             <aside className="space-y-6">
               <section className="jm-surface-card p-6 text-sm text-[var(--brand-forest)]">
-                <h2 className="text-[24px] text-[var(--brand-charcoal)] text-tagline not-italic">Direct Contact Details</h2>
+                <h2 className="text-xl font-bold text-[var(--brand-charcoal)]">Direct Contact Details</h2>
                 <div className="jm-info-list mt-4">
                   <div className="jm-info-item">
-                    <p>{COMPANY.phones[0]}</p>
-                    <p>{COMPANY.phones[1]}</p>
+                    {COMPANY.phones.map((phone) => (
+                      <p key={phone}>
+                        <a href={`tel:${phone.replace(/[^+d]/g, "")}`} className="inline-flex min-h-[44px] items-center">
+                          {phone}
+                        </a>
+                      </p>
+                    ))}
                   </div>
                   <div className="jm-info-item">
-                    <a href={`mailto:${COMPANY.email}`} className="text-[var(--brand-gold)] hover:text-[var(--brand-deep-green)]">
+                    <a href={`mailto:${COMPANY.email}`} className="inline-flex min-h-[44px] items-center text-[var(--brand-forest)] underline underline-offset-2 hover:text-[var(--brand-deep-green)]">
                       {COMPANY.email}
                     </a>
                   </div>

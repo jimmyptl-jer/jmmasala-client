@@ -193,27 +193,27 @@ const UnjhaFennelSeedsPage = () => {
         ]}
       />
 
-      <div className="bg-[var(--brand-cream-light)] text-[var(--brand-charcoal)]">
+      <div className="bg-[var(--brand-cream)] text-[var(--brand-charcoal)]">
         {/* HERO SECTION */}
-        <section className="relative overflow-hidden bg-[var(--brand-deep-green)] text-white">
+        <section className="relative overflow-hidden bg-[var(--brand-deep-green)] text-white jm-section">
           <div
             className="absolute inset-0 bg-cover bg-center opacity-25"
             style={{ backgroundImage: `url(${bannerImage})` }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[rgba(13,34,20,0.95)] via-[rgba(13,34,20,0.85)] to-[rgba(13,34,20,0.7)]" />
 
-          <div className="jm-container relative py-20 lg:py-24">
+          <div className="jm-container relative">
             <div className="max-w-3xl space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(201,168,76,0.35)] bg-[rgba(201,168,76,0.12)] px-4 py-1.5 text-xs font-semibold tracking-wider text-[var(--brand-gold-light)] uppercase">
                 <MapPin className="h-3.5 w-3.5 text-[var(--brand-gold)]" />
                 Origin Authority · Unjha, Gujarat
               </div>
 
-              <h1 className="font-[var(--font-display)] text-3xl font-extrabold leading-tight text-white sm:text-4xl md:text-5xl">
+              <h1 className="text-white">
                 Unjha Fennel Seeds: Origin Sourcing &amp; Export Supply
               </h1>
 
-              <p className="text-base text-gray-200 leading-relaxed md:text-lg">
+              <p className="text-base text-[var(--brand-cream)] leading-relaxed md:text-lg">
                 Unjha, Gujarat is the epicenter of India&apos;s seed spice commerce. Sourced directly
                 from APMC Unjha mandi auctions and farmer networks in northern Gujarat, JM Masala
                 supplies machine-cleaned and Sortex optical-graded Indian Fennel Seeds (Saunf / Variyali)
@@ -225,7 +225,7 @@ const UnjhaFennelSeedsPage = () => {
                   href={quoteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand-gold)] px-6 py-3.5 text-sm font-bold text-[var(--brand-deep-green)] shadow-lg transition-transform hover:scale-[1.02] hover:bg-[var(--brand-gold-light)]"
+                  className="jm-btn jm-btn--primary inline-flex items-center gap-2"
                 >
                   <span>Request Unjha Fennel Quote</span>
                   <ArrowRight className="h-4 w-4" />
@@ -233,7 +233,7 @@ const UnjhaFennelSeedsPage = () => {
 
                 <Link
                   to="/fennel-seeds-exporter-india"
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+                  className="jm-btn jm-btn--ghost inline-flex items-center gap-2"
                 >
                   <FileText className="h-4 w-4 text-[var(--brand-gold-light)]" />
                   <span>View Product Catalog Specs</span>
@@ -244,19 +244,19 @@ const UnjhaFennelSeedsPage = () => {
               <div className="grid grid-cols-2 gap-4 border-t border-white/15 pt-6 sm:grid-cols-4">
                 <div>
                   <div className="text-2xl font-extrabold text-[var(--brand-gold-light)]">99.5%</div>
-                  <div className="text-xs text-gray-300">Sortex Optical Purity</div>
+                  <div className="text-xs text-[var(--brand-cream)]">Sortex Optical Purity</div>
                 </div>
                 <div>
                   <div className="text-2xl font-extrabold text-[var(--brand-gold-light)]">1.5–3.0%</div>
-                  <div className="text-xs text-gray-300">Volatile Essential Oil</div>
+                  <div className="text-xs text-[var(--brand-cream)]">Volatile Essential Oil</div>
                 </div>
                 <div>
                   <div className="text-2xl font-extrabold text-[var(--brand-gold-light)]">&lt; 8.0%</div>
-                  <div className="text-xs text-gray-300">Moisture Control</div>
+                  <div className="text-xs text-[var(--brand-cream)]">Moisture Control</div>
                 </div>
                 <div>
                   <div className="text-2xl font-extrabold text-[var(--brand-gold-light)]">Mundra Port</div>
-                  <div className="text-xs text-gray-300">320 km Direct Highway</div>
+                  <div className="text-xs text-[var(--brand-cream)]">320 km Direct Highway</div>
                 </div>
               </div>
             </div>
@@ -264,14 +264,14 @@ const UnjhaFennelSeedsPage = () => {
         </section>
 
         {/* SECTION 1: WHY UNJHA IS THE COMMERCIAL EPICENTER */}
-        <section className="jm-section jm-section--white border-b border-[var(--brand-gold-pale)]/50">
+        <section className="jm-section jm-section--white border-b border-[var(--brand-gold-pale)]">
           <div className="jm-container">
             <div className="grid gap-12 lg:grid-cols-12 items-center">
               <div className="lg:col-span-7 space-y-6">
-                <span className="text-xs uppercase font-bold tracking-widest text-[var(--brand-gold)]">
+                <span className="jm-section-label inline-block">
                   Geographic Sourcing Advantage
                 </span>
-                <h2 className="text-tagline not-italic text-2xl sm:text-3xl lg:text-4xl text-[var(--brand-charcoal)]">
+                <h2 className="jm-section-heading">
                   Why Global Buyers Source Fennel Seeds from Unjha, Gujarat
                 </h2>
                 <p className="text-base text-[var(--brand-forest)] leading-relaxed">
@@ -287,8 +287,8 @@ const UnjhaFennelSeedsPage = () => {
                 </p>
 
                 <div className="space-y-3 pt-2">
-                  <div className="flex items-start gap-3 rounded-lg border border-[var(--brand-gold-pale)]/40 bg-[var(--brand-cream-light)] p-3.5">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[var(--brand-gold)] mt-0.5" />
+                  <div className="flex items-start gap-3 rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-3.5">
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[var(--brand-gold-text)] mt-0.5" />
                     <div className="text-sm text-[var(--brand-forest)]">
                       <strong className="text-[var(--brand-charcoal)]">Direct Auction Lot Selection:</strong> We inspect fresh
                       daily arrivals on the auction floor, cherry-picking lots with the highest trans-anethole volatile oil and
@@ -296,8 +296,8 @@ const UnjhaFennelSeedsPage = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3 rounded-lg border border-[var(--brand-gold-pale)]/40 bg-[var(--brand-cream-light)] p-3.5">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[var(--brand-gold)] mt-0.5" />
+                  <div className="flex items-start gap-3 rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-3.5">
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[var(--brand-gold-text)] mt-0.5" />
                     <div className="text-sm text-[var(--brand-forest)]">
                       <strong className="text-[var(--brand-charcoal)]">Immediate Processing &amp; Optical Sorting:</strong> Fresh
                       lots transition straight from the mandi into calibrated vibro-cleaning and high-resolution Sortex optical
@@ -305,8 +305,8 @@ const UnjhaFennelSeedsPage = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3 rounded-lg border border-[var(--brand-gold-pale)]/40 bg-[var(--brand-cream-light)] p-3.5">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[var(--brand-gold)] mt-0.5" />
+                  <div className="flex items-start gap-3 rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-3.5">
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[var(--brand-gold-text)] mt-0.5" />
                     <div className="text-sm text-[var(--brand-forest)]">
                       <strong className="text-[var(--brand-charcoal)]">Direct Mundra Port Logistics:</strong> Located just 320 km
                       from Mundra Port, stuffed and sealed containers move rapidly over dedicated national freight corridors,
@@ -318,49 +318,49 @@ const UnjhaFennelSeedsPage = () => {
 
               {/* Right: Quick Trade Fact Card */}
               <div className="lg:col-span-5">
-                <div className="rounded-2xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream-light)] p-6 sm:p-8 shadow-sm space-y-6">
+                <div className="jm-surface-card p-6 sm:p-8 space-y-6">
                   <div className="flex items-center gap-3 border-b border-[var(--brand-gold-pale)] pb-4">
                     <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--brand-gold)] text-[var(--brand-deep-green)]">
                       <Layers className="h-5 w-5" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-lg text-[var(--brand-charcoal)]">Unjha Fennel Trade Snapshot</h3>
-                      <p className="text-xs text-gray-500">Key Commercial &amp; Physical Benchmarks</p>
+                      <h3 className="font-bold text-base text-[var(--brand-charcoal)]">Unjha Fennel Trade Snapshot</h3>
+                      <p className="text-xs text-[var(--brand-forest)]">Key Commercial &amp; Physical Benchmarks</p>
                     </div>
                   </div>
 
                   <div className="space-y-4 text-sm">
-                    <div className="flex justify-between border-b border-[var(--brand-gold-pale)]/50 pb-2.5">
-                      <span className="text-gray-500">Primary Mandi</span>
+                    <div className="flex justify-between border-b border-[var(--brand-gold-pale)] pb-2.5">
+                      <span className="text-[var(--brand-forest)]">Primary Mandi</span>
                       <span className="font-bold text-[var(--brand-charcoal)]">APMC Unjha (Mehsana, Gujarat)</span>
                     </div>
-                    <div className="flex justify-between border-b border-[var(--brand-gold-pale)]/50 pb-2.5">
-                      <span className="text-gray-500">HS Code (Whole)</span>
+                    <div className="flex justify-between border-b border-[var(--brand-gold-pale)] pb-2.5">
+                      <span className="text-[var(--brand-forest)]">HS Code (Whole)</span>
                       <span className="font-bold text-[var(--brand-charcoal)]">0909 61 29 / 0909 61 39</span>
                     </div>
-                    <div className="flex justify-between border-b border-[var(--brand-gold-pale)]/50 pb-2.5">
-                      <span className="text-gray-500">Peak Harvest Season</span>
+                    <div className="flex justify-between border-b border-[var(--brand-gold-pale)] pb-2.5">
+                      <span className="text-[var(--brand-forest)]">Peak Harvest Season</span>
                       <span className="font-bold text-[var(--brand-charcoal)]">February to April</span>
                     </div>
-                    <div className="flex justify-between border-b border-[var(--brand-gold-pale)]/50 pb-2.5">
-                      <span className="text-gray-500">Key Quality Grades</span>
+                    <div className="flex justify-between border-b border-[var(--brand-gold-pale)] pb-2.5">
+                      <span className="text-[var(--brand-forest)]">Key Quality Grades</span>
                       <span className="font-bold text-[var(--brand-charcoal)]">Bold Green, Lakhnavi, FAQ</span>
                     </div>
-                    <div className="flex justify-between border-b border-[var(--brand-gold-pale)]/50 pb-2.5">
-                      <span className="text-gray-500">Sortex Optical Purity</span>
+                    <div className="flex justify-between border-b border-[var(--brand-gold-pale)] pb-2.5">
+                      <span className="text-[var(--brand-forest)]">Sortex Optical Purity</span>
                       <span className="font-bold text-[var(--brand-charcoal)]">99.0% / 99.5%</span>
                     </div>
-                    <div className="flex justify-between border-b border-[var(--brand-gold-pale)]/50 pb-2.5">
-                      <span className="text-gray-500">20ft FCL Capacity</span>
+                    <div className="flex justify-between border-b border-[var(--brand-gold-pale)] pb-2.5">
+                      <span className="text-[var(--brand-forest)]">20ft FCL Capacity</span>
                       <span className="font-bold text-[var(--brand-charcoal)]">12.0 to 13.5 Metric Tons</span>
                     </div>
-                    <div className="flex justify-between border-b border-[var(--brand-gold-pale)]/50 pb-2.5">
-                      <span className="text-gray-500">40ft FCL Capacity</span>
+                    <div className="flex justify-between border-b border-[var(--brand-gold-pale)] pb-2.5">
+                      <span className="text-[var(--brand-forest)]">40ft FCL Capacity</span>
                       <span className="font-bold text-[var(--brand-charcoal)]">24.0 to 26.0 Metric Tons</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-500">Nearest Export Port</span>
-                      <span className="font-bold text-[var(--brand-gold)]">Mundra Port (INMUN1)</span>
+                      <span className="text-[var(--brand-forest)]">Nearest Export Port</span>
+                      <span className="font-bold text-[var(--brand-gold-text)]">Mundra Port (INMUN1)</span>
                     </div>
                   </div>
 
@@ -368,7 +368,7 @@ const UnjhaFennelSeedsPage = () => {
                     href={quoteUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full rounded-xl bg-[var(--brand-deep-green)] py-3 text-center text-sm font-bold text-white transition-colors hover:bg-[var(--brand-charcoal)]"
+                    className="jm-btn jm-btn--secondary block w-full text-center"
                   >
                     Request Contract Pricing
                   </a>
@@ -379,13 +379,13 @@ const UnjhaFennelSeedsPage = () => {
         </section>
 
         {/* SECTION 2: VARIETIES OF INDIAN FENNEL */}
-        <section className="jm-section bg-[var(--brand-cream)] border-b border-[var(--brand-gold-pale)]/50">
+        <section className="jm-section border-b border-[var(--brand-gold-pale)] jm-section--cream">
           <div className="jm-container space-y-8">
             <div className="max-w-2xl">
-              <span className="text-xs uppercase font-bold tracking-widest text-[var(--brand-gold)]">
+              <span className="jm-section-label inline-block">
                 Product Taxonomy
               </span>
-              <h2 className="text-tagline not-italic text-2xl sm:text-3xl lg:text-4xl text-[var(--brand-charcoal)] mt-1">
+              <h2 className="jm-section-heading mt-1">
                 Indian Fennel Seed Varieties &amp; Commercial Grades
               </h2>
               <p className="text-sm text-[var(--brand-forest)] mt-2">
@@ -398,27 +398,27 @@ const UnjhaFennelSeedsPage = () => {
               {FENNEL_VARIETIES.map((variety) => (
                 <div
                   key={variety.name}
-                  className="rounded-2xl border border-[var(--brand-gold-pale)] bg-white p-6 shadow-xs flex flex-col justify-between space-y-4"
+                  className="jm-surface-card p-6 flex flex-col justify-between space-y-4"
                 >
                   <div className="space-y-3">
-                    <div className="inline-flex items-center gap-1.5 rounded-md bg-[var(--brand-cream-light)] px-2.5 py-1 text-xs font-semibold text-[var(--brand-charcoal)]">
-                      <Sparkles className="h-3 w-3 text-[var(--brand-gold)]" />
+                    <div className="inline-flex items-center gap-1.5 rounded-md bg-[var(--brand-cream)] px-2.5 py-1 text-xs font-semibold text-[var(--brand-charcoal)]">
+                      <Sparkles className="h-3 w-3 text-[var(--brand-gold-text)]" />
                       {variety.purity}
                     </div>
 
-                    <h3 className="font-bold text-lg text-[var(--brand-charcoal)] leading-snug">{variety.name}</h3>
-                    <p className="text-xs italic text-gray-500">{variety.botanical}</p>
+                    <h3 className="font-bold text-base text-[var(--brand-charcoal)] leading-snug">{variety.name}</h3>
+                    <p className="text-xs italic text-[var(--brand-forest)]">{variety.botanical}</p>
 
                     <p className="text-xs text-[var(--brand-forest)] leading-relaxed">{variety.characteristics}</p>
 
-                    <div className="rounded-lg bg-[var(--brand-cream-light)]/60 p-3 text-xs space-y-1">
-                      <span className="font-semibold text-gray-700">Essential Oil:</span>
+                    <div className="rounded-lg bg-[var(--brand-cream)] p-3 text-xs space-y-1">
+                      <span className="font-semibold text-[var(--brand-forest)]">Essential Oil:</span>
                       <p className="text-[var(--brand-charcoal)] font-bold">{variety.oilContent}</p>
                     </div>
                   </div>
 
-                  <div className="border-t border-[var(--brand-gold-pale)]/40 pt-3 text-xs">
-                    <span className="font-semibold text-gray-500 uppercase tracking-wider block mb-1">Recommended Uses:</span>
+                  <div className="border-t border-[var(--brand-gold-pale)] pt-3 text-xs">
+                    <span className="font-semibold text-[var(--brand-forest)] uppercase tracking-wider block mb-1">Recommended Uses:</span>
                     <p className="text-[var(--brand-charcoal)]">{variety.bestFor}</p>
                   </div>
                 </div>
@@ -428,13 +428,13 @@ const UnjhaFennelSeedsPage = () => {
         </section>
 
         {/* SECTION 3: HARVEST CALENDAR & CROP DYNAMICS */}
-        <section className="jm-section jm-section--white border-b border-[var(--brand-gold-pale)]/50">
+        <section className="jm-section jm-section--white border-b border-[var(--brand-gold-pale)]">
           <div className="jm-container space-y-8">
             <div className="max-w-2xl">
-              <span className="text-xs uppercase font-bold tracking-widest text-[var(--brand-gold)]">
+              <span className="jm-section-label inline-block">
                 Procurement Seasonality
               </span>
-              <h2 className="text-tagline not-italic text-2xl sm:text-3xl lg:text-4xl text-[var(--brand-charcoal)] mt-1">
+              <h2 className="jm-section-heading mt-1">
                 Fennel Harvest Calendar &amp; Seasonal Buying Strategy
               </h2>
               <p className="text-sm text-[var(--brand-forest)] mt-2">
@@ -447,7 +447,7 @@ const UnjhaFennelSeedsPage = () => {
               {FENNEL_HARVEST_TIMELINE.map((stage) => (
                 <div
                   key={stage.season}
-                  className="rounded-2xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream-light)] p-6 shadow-xs flex flex-col justify-between space-y-4"
+                  className="jm-surface-card p-6 flex flex-col justify-between space-y-4"
                 >
                   <div className="space-y-3">
                     <div className="inline-flex items-center gap-1.5 rounded-full bg-[var(--brand-deep-green)] px-3 py-1 text-xs font-bold text-[var(--brand-gold-light)]">
@@ -455,13 +455,13 @@ const UnjhaFennelSeedsPage = () => {
                       {stage.season}
                     </div>
 
-                    <h3 className="font-bold text-lg text-[var(--brand-charcoal)]">{stage.status}</h3>
+                    <h3 className="font-bold text-base text-[var(--brand-charcoal)]">{stage.status}</h3>
                     <p className="text-xs text-[var(--brand-forest)] leading-relaxed">{stage.description}</p>
                   </div>
 
-                  <div className="border-t border-[var(--brand-gold-pale)]/50 pt-3 text-xs bg-white/70 rounded-xl p-3">
+                  <div className="border-t border-[var(--brand-gold-pale)] pt-3 text-xs bg-white/70 rounded-xl p-3">
                     <span className="font-bold text-[var(--brand-deep-green)] block mb-1">Buyer Advantage:</span>
-                    <p className="text-gray-600">{stage.buyerAdvantage}</p>
+                    <p className="text-[var(--brand-forest)]">{stage.buyerAdvantage}</p>
                   </div>
                 </div>
               ))}
@@ -470,13 +470,13 @@ const UnjhaFennelSeedsPage = () => {
         </section>
 
         {/* SECTION 4: INTERNATIONAL MARKET QUALITY STANDARDS */}
-        <section className="jm-section bg-[var(--brand-cream)] border-b border-[var(--brand-gold-pale)]/50">
+        <section className="jm-section border-b border-[var(--brand-gold-pale)] jm-section--cream">
           <div className="jm-container space-y-8">
             <div className="max-w-2xl">
-              <span className="text-xs uppercase font-bold tracking-widest text-[var(--brand-gold)]">
+              <span className="jm-section-label inline-block">
                 Regulatory &amp; Destination Standards
               </span>
-              <h2 className="text-tagline not-italic text-2xl sm:text-3xl lg:text-4xl text-[var(--brand-charcoal)] mt-1">
+              <h2 className="jm-section-heading mt-1">
                 Market-Specific Export Quality Bands
               </h2>
               <p className="text-sm text-[var(--brand-forest)] mt-2">
@@ -487,12 +487,12 @@ const UnjhaFennelSeedsPage = () => {
 
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {/* Europe */}
-              <div className="rounded-2xl border border-[rgba(201,168,76,0.4)] bg-white p-5 space-y-3 shadow-xs">
-                <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+              <div className="rounded-xl border border-[rgba(201,168,76,0.4)] bg-white p-5 space-y-3">
+                <div className="flex items-center justify-between border-b border-[var(--brand-gold-pale)] pb-2">
                   <span className="font-bold text-[var(--brand-deep-green)]">Europe Grade</span>
                   <span className="text-[10px] font-semibold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">EU 396/2005</span>
                 </div>
-                <ul className="space-y-1.5 text-xs text-gray-600">
+                <ul className="space-y-1.5 text-xs text-[var(--brand-forest)]">
                   <li><strong>Purity:</strong> 99.5% Sortex Optical</li>
                   <li><strong>Moisture:</strong> Max 8.0%</li>
                   <li><strong>Admixture:</strong> Max 0.8%</li>
@@ -502,12 +502,12 @@ const UnjhaFennelSeedsPage = () => {
               </div>
 
               {/* USA */}
-              <div className="rounded-2xl border border-[rgba(201,168,76,0.4)] bg-white p-5 space-y-3 shadow-xs">
-                <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+              <div className="rounded-xl border border-[rgba(201,168,76,0.4)] bg-white p-5 space-y-3">
+                <div className="flex items-center justify-between border-b border-[var(--brand-gold-pale)] pb-2">
                   <span className="font-bold text-[var(--brand-deep-green)]">USA / ASTA</span>
                   <span className="text-[10px] font-semibold bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">US FDA ASTA</span>
                 </div>
-                <ul className="space-y-1.5 text-xs text-gray-600">
+                <ul className="space-y-1.5 text-xs text-[var(--brand-forest)]">
                   <li><strong>Purity:</strong> 99.0% ASTA Standard</li>
                   <li><strong>Moisture:</strong> Max 8.5%</li>
                   <li><strong>Admixture:</strong> Max 1.0%</li>
@@ -517,12 +517,12 @@ const UnjhaFennelSeedsPage = () => {
               </div>
 
               {/* Gulf / Middle East */}
-              <div className="rounded-2xl border border-[rgba(201,168,76,0.4)] bg-white p-5 space-y-3 shadow-xs">
-                <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+              <div className="rounded-xl border border-[rgba(201,168,76,0.4)] bg-white p-5 space-y-3">
+                <div className="flex items-center justify-between border-b border-[var(--brand-gold-pale)] pb-2">
                   <span className="font-bold text-[var(--brand-deep-green)]">Gulf / Middle East</span>
                   <span className="text-[10px] font-semibold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">GSO 1016</span>
                 </div>
-                <ul className="space-y-1.5 text-xs text-gray-600">
+                <ul className="space-y-1.5 text-xs text-[var(--brand-forest)]">
                   <li><strong>Purity:</strong> 99.0% Machine / Sortex</li>
                   <li><strong>Moisture:</strong> Max 9.0%</li>
                   <li><strong>Color:</strong> Selected Bold Green Variyali</li>
@@ -532,12 +532,12 @@ const UnjhaFennelSeedsPage = () => {
               </div>
 
               {/* Singapore & SE Asia */}
-              <div className="rounded-2xl border border-[rgba(201,168,76,0.4)] bg-white p-5 space-y-3 shadow-xs">
-                <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+              <div className="rounded-xl border border-[rgba(201,168,76,0.4)] bg-white p-5 space-y-3">
+                <div className="flex items-center justify-between border-b border-[var(--brand-gold-pale)] pb-2">
                   <span className="font-bold text-[var(--brand-deep-green)]">Singapore Quality</span>
                   <span className="text-[10px] font-semibold bg-purple-100 text-purple-800 px-2 py-0.5 rounded-full">Asian Standard</span>
                 </div>
-                <ul className="space-y-1.5 text-xs text-gray-600">
+                <ul className="space-y-1.5 text-xs text-[var(--brand-forest)]">
                   <li><strong>Purity:</strong> 99.0% Machine Cleaned</li>
                   <li><strong>Moisture:</strong> Max 9.0%</li>
                   <li><strong>Admixture:</strong> Max 1.0%</li>
@@ -550,14 +550,14 @@ const UnjhaFennelSeedsPage = () => {
         </section>
 
         {/* SECTION 5: CONTAINER LOGISTICS & PACKAGING */}
-        <section className="jm-section jm-section--white border-b border-[var(--brand-gold-pale)]/50">
+        <section className="jm-section jm-section--white border-b border-[var(--brand-gold-pale)]">
           <div className="jm-container">
             <div className="grid gap-12 lg:grid-cols-12 items-center">
               <div className="lg:col-span-6 space-y-6">
-                <span className="text-xs uppercase font-bold tracking-widest text-[var(--brand-gold)]">
+                <span className="jm-section-label inline-block">
                   Logistics &amp; Packaging
                 </span>
-                <h2 className="text-tagline not-italic text-2xl sm:text-3xl lg:text-4xl text-[var(--brand-charcoal)]">
+                <h2 className="jm-section-heading">
                   FCL Container Stuffing &amp; Export Packaging Specs
                 </h2>
                 <p className="text-base text-[var(--brand-forest)] leading-relaxed">
@@ -567,28 +567,28 @@ const UnjhaFennelSeedsPage = () => {
                 </p>
 
                 <div className="grid gap-4 sm:grid-cols-2 pt-2">
-                  <div className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream-light)] p-4 space-y-2">
-                    <div className="flex items-center gap-2 text-[var(--brand-gold)] font-bold text-sm">
+                  <div className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-4 space-y-2">
+                    <div className="flex items-center gap-2 text-[var(--brand-gold-text)] font-bold text-sm">
                       <Ship className="h-4 w-4" />
                       20ft FCL Container
                     </div>
                     <div className="text-2xl font-extrabold text-[var(--brand-charcoal)]">12.0 – 13.5 MT</div>
-                    <p className="text-xs text-gray-600">Loose stuffed in 25/50kg bags (~10.5–11.0 MT palletized)</p>
+                    <p className="text-xs text-[var(--brand-forest)]">Loose stuffed in 25/50kg bags (~10.5–11.0 MT palletized)</p>
                   </div>
 
-                  <div className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream-light)] p-4 space-y-2">
-                    <div className="flex items-center gap-2 text-[var(--brand-gold)] font-bold text-sm">
+                  <div className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-4 space-y-2">
+                    <div className="flex items-center gap-2 text-[var(--brand-gold-text)] font-bold text-sm">
                       <Ship className="h-4 w-4" />
                       40ft FCL Container
                     </div>
                     <div className="text-2xl font-extrabold text-[var(--brand-charcoal)]">24.0 – 26.0 MT</div>
-                    <p className="text-xs text-gray-600">Loose stuffed in 25/50kg bags (~21.0–22.0 MT palletized)</p>
+                    <p className="text-xs text-[var(--brand-forest)]">Loose stuffed in 25/50kg bags (~21.0–22.0 MT palletized)</p>
                   </div>
                 </div>
 
                 <div className="space-y-2 text-sm text-[var(--brand-forest)]">
                   <p className="font-semibold text-[var(--brand-charcoal)]">Packaging Options:</p>
-                  <ul className="list-disc list-inside space-y-1 text-xs text-gray-600">
+                  <ul className="list-disc list-inside space-y-1 text-xs text-[var(--brand-forest)]">
                     <li>25 kg &amp; 50 kg food-grade woven polypropylene (PP) bags with LDPE inner liner</li>
                     <li>3-ply multi-wall kraft paper bags for European &amp; North American industrial processors</li>
                     <li>Vacuum-sealed aluminium barrier bags for premium bold green varieties to prevent light fading</li>
@@ -599,36 +599,36 @@ const UnjhaFennelSeedsPage = () => {
 
               {/* Right: Export Documentation & Inspection */}
               <div className="lg:col-span-6">
-                <div className="rounded-2xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream-light)] p-6 sm:p-8 space-y-5">
+                <div className="jm-surface-card p-6 sm:p-8 space-y-5">
                   <div className="flex items-center gap-3 border-b border-[var(--brand-gold-pale)] pb-4">
                     <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--brand-gold)] text-[var(--brand-deep-green)]">
                       <FileCheck2 className="h-5 w-5" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-lg text-[var(--brand-charcoal)]">Export Documentation Package</h3>
-                      <p className="text-xs text-gray-500">Every Consignment Fully Compliant</p>
+                      <h3 className="font-bold text-base text-[var(--brand-charcoal)]">Export Documentation Package</h3>
+                      <p className="text-xs text-[var(--brand-forest)]">Every Consignment Fully Compliant</p>
                     </div>
                   </div>
 
-                  <div className="space-y-3 text-xs text-gray-700">
+                  <div className="space-y-3 text-xs text-[var(--brand-forest)]">
                     <div className="flex items-start gap-2">
-                      <span className="text-[var(--brand-gold)] font-bold">&bull;</span>
+                      <span className="text-[var(--brand-gold-text)] font-bold">&bull;</span>
                       <span><strong>Certificate of Analysis (COA):</strong> Issued by NABL-accredited labs for purity, moisture, volatile oil, and micro limits.</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <span className="text-[var(--brand-gold)] font-bold">&bull;</span>
+                      <span className="text-[var(--brand-gold-text)] font-bold">&bull;</span>
                       <span><strong>Phytosanitary Certificate:</strong> Issued by the Ministry of Agriculture, Government of India.</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <span className="text-[var(--brand-gold)] font-bold">&bull;</span>
+                      <span className="text-[var(--brand-gold-text)] font-bold">&bull;</span>
                       <span><strong>Fumigation Certificate:</strong> Aluminum Phosphide / Methyl Bromide fumigation prior to container sealing.</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <span className="text-[var(--brand-gold)] font-bold">&bull;</span>
+                      <span className="text-[var(--brand-gold-text)] font-bold">&bull;</span>
                       <span><strong>Certificate of Origin:</strong> Issued by the Spices Board of India or authorized Chamber of Commerce.</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <span className="text-[var(--brand-gold)] font-bold">&bull;</span>
+                      <span className="text-[var(--brand-gold-text)] font-bold">&bull;</span>
                       <span><strong>Third-Party Inspection:</strong> SGS, Intertek, or Bureau Veritas inspection coordinated at loading port upon request.</span>
                     </div>
                   </div>
@@ -638,7 +638,7 @@ const UnjhaFennelSeedsPage = () => {
                       href={quoteUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block w-full rounded-xl bg-[var(--brand-gold)] py-3 text-center text-sm font-bold text-[var(--brand-deep-green)] transition-transform hover:scale-[1.01]"
+                      className="jm-btn jm-btn--primary block w-full text-center"
                     >
                       Inquire for Next Vessel Sailing
                     </a>
@@ -650,13 +650,13 @@ const UnjhaFennelSeedsPage = () => {
         </section>
 
         {/* SECTION 6: FREQUENTLY ASKED QUESTIONS */}
-        <section className="jm-section bg-[var(--brand-cream)]">
+        <section className="jm-section jm-section--cream">
           <div className="jm-container space-y-8">
             <div className="max-w-2xl">
-              <span className="text-xs uppercase font-bold tracking-widest text-[var(--brand-gold)]">
+              <span className="jm-section-label inline-block">
                 Technical Knowledge
               </span>
-              <h2 className="text-tagline not-italic text-2xl sm:text-3xl lg:text-4xl text-[var(--brand-charcoal)] mt-1">
+              <h2 className="jm-section-heading mt-1">
                 Frequently Asked Questions: Unjha Fennel Seeds
               </h2>
               <p className="text-sm text-[var(--brand-forest)] mt-2">
@@ -668,7 +668,7 @@ const UnjhaFennelSeedsPage = () => {
               {UNJHA_FENNEL_FAQS.map((faq) => (
                 <div
                   key={faq.question}
-                  className="rounded-xl border border-[var(--brand-gold-pale)] bg-white p-5 shadow-xs space-y-2"
+                  className="rounded-xl border border-[var(--brand-gold-pale)] bg-white p-5 space-y-2"
                 >
                   <h3 className="font-bold text-base text-[var(--brand-charcoal)]">{faq.question}</h3>
                   <p className="text-xs text-[var(--brand-forest)] leading-relaxed">{faq.answer}</p>
@@ -678,7 +678,7 @@ const UnjhaFennelSeedsPage = () => {
           </div>
         </section>
 
-        <section className="jm-section bg-white">
+        <section className="jm-section jm-section--white">
           <div className="jm-container">
             <p className="text-sm leading-7 text-[var(--brand-forest)]">
               Related: <Link to="/unjha-cumin-seeds" className="underline">Unjha cumin seeds</Link>,{" "}
@@ -690,15 +690,16 @@ const UnjhaFennelSeedsPage = () => {
         </section>
 
         {/* BOTTOM CTA BANNER */}
-        <section className="bg-[var(--brand-deep-green)] text-white py-16">
-          <div className="jm-container text-center max-w-3xl space-y-6">
-            <span className="text-xs font-bold tracking-widest uppercase text-[var(--brand-gold-light)]">
+        <section className="jm-section jm-section--primary">
+          <div className="jm-container">
+          <div className="mx-auto max-w-3xl text-center space-y-6">
+            <span className="jm-section-label jm-section-label--on-dark inline-block">
               Direct Mandi Procurement
             </span>
-            <h2 className="font-[var(--font-display)] text-2xl sm:text-3xl md:text-4xl font-extrabold text-white">
+            <h2 className="jm-section-heading jm-section-heading--on-dark">
               Source Export-Grade Indian Fennel Seeds Directly from Unjha
             </h2>
-            <p className="text-sm text-gray-200 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-sm text-[var(--brand-cream)] leading-relaxed max-w-2xl mx-auto">
               Connect with JM Masala to request live Unjha mandi price indications, laboratory specifications, and FCL container shipping schedules to your destination port.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
@@ -706,7 +707,7 @@ const UnjhaFennelSeedsPage = () => {
                 href={quoteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand-gold)] px-8 py-3.5 text-sm font-bold text-[var(--brand-deep-green)] shadow-lg transition-transform hover:scale-[1.02]"
+                className="jm-btn jm-btn--primary inline-flex items-center gap-2"
               >
                 <span>Request FCL Quotation</span>
                 <ArrowRight className="h-4 w-4" />
@@ -714,11 +715,12 @@ const UnjhaFennelSeedsPage = () => {
 
               <Link
                 to="/fennel-seeds-exporter-india"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+                className="jm-btn jm-btn--ghost inline-flex items-center gap-2"
               >
                 <span>View Full Product Datasheet</span>
               </Link>
             </div>
+          </div>
           </div>
         </section>
       </div>

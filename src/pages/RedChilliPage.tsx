@@ -377,13 +377,13 @@ const RedChilliPage = () => {
         <div className="jm-container">
           <ol className="flex flex-wrap items-center gap-2 text-xs text-[var(--brand-forest)]">
             <li>
-              <Link to="/" className="hover:text-[var(--brand-deep-green)]">
+              <Link to="/" className="hover:text-[var(--brand-deep-green)] inline-block py-3.5 -my-3.5">
                 Home
               </Link>
             </li>
             <li>/</li>
             <li>
-              <Link to="/products" className="hover:text-[var(--brand-deep-green)]">
+              <Link to="/products" className="hover:text-[var(--brand-deep-green)] inline-block py-3.5 -my-3.5">
                 Products
               </Link>
             </li>
@@ -404,7 +404,7 @@ const RedChilliPage = () => {
               <p className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.08)] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--brand-gold-light)]">
                 <MapPin className="h-3.5 w-3.5" /> Guntur, Warangal &amp; Northeast India Hubs
               </p>
-              <h1 className="mt-4 font-[var(--font-display)] text-3xl leading-tight text-white md:text-5xl">
+              <h1 className="mt-4 text-white">
                 Red Chilli Exporter from India
               </h1>
               <p className="mt-3 text-lg font-medium text-[var(--brand-gold-light)] md:text-xl">
@@ -431,13 +431,13 @@ const RedChilliPage = () => {
                 </a>
                 <a
                   href="#specifications"
-                  className="jm-btn jm-btn--outline border-white text-white hover:bg-white hover:text-[var(--brand-deep-green)]"
+                  className="jm-btn jm-btn--ghost"
                 >
                   View Laboratory Specifications
                 </a>
                 <Link
-                  to="/contact?intent=sample&product=Red%20Chilli"
-                  className="jm-btn jm-btn--outline border-[var(--brand-gold-light)] text-[var(--brand-gold-light)] hover:bg-[var(--brand-gold-light)] hover:text-[var(--brand-deep-green)]"
+                  to="/contact?intent=sample&product=Red%20Chilli#inquiry-form"
+                  className="jm-btn jm-btn--ghost"
                 >
                   Request Buyer Sample
                 </Link>
@@ -484,13 +484,13 @@ const RedChilliPage = () => {
       {/* Red Chilli Products at a Glance (AI Answer Box) */}
       <section className="border-b border-[var(--brand-gold-pale)] bg-white py-10">
         <div className="jm-container">
-          <div className="rounded-2xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6 md:p-8">
+          <div className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6 md:p-8">
             <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-[var(--brand-gold)]">
+                <p className="jm-section-label">
                   Quick Commercial Summary
                 </p>
-                <h2 className="text-xl font-bold text-[var(--brand-charcoal)] md:text-2xl">
+                <h2 className="jm-section-heading">
                   Red Chilli Products at a Glance
                 </h2>
               </div>
@@ -501,8 +501,8 @@ const RedChilliPage = () => {
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {RED_CHILLI_SUMMARY_ROWS.map((item) => (
-                <div key={item.label} className="rounded-lg border border-stone-200 bg-white p-4">
-                  <span className="text-xs font-medium text-stone-500">{item.label}</span>
+                <div key={item.label} className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                  <span className="text-xs font-medium text-[var(--brand-forest)]">{item.label}</span>
                   <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">{item.value}</p>
                 </div>
               ))}
@@ -540,31 +540,31 @@ const RedChilliPage = () => {
             </div>
 
             <aside className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6">
-              <h3 className="text-lg font-bold text-[var(--brand-charcoal)]">The JM Masala Chilli Entity Structure</h3>
+              <h3 className="text-base font-bold text-[var(--brand-charcoal)]">The JM Masala Chilli Entity Structure</h3>
               <p className="mt-2 text-xs text-[var(--brand-forest)]">
                 How commercial, botanical, and regional relationships connect:
               </p>
 
               <div className="mt-4 space-y-2.5 text-xs text-[var(--brand-charcoal)]">
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>JM Masala Trading LLP</strong> → Indian Spice Exporter &amp; Processor
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Core Category:</strong> Dried Red Chilli (Capsicum genus)
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Three Dedicated Entities:</strong> Teja (S17) · Bird's Eye (Kanthari) · King Chilli (Bhut Jolokia)
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Procurement Hubs:</strong> Guntur (AP), Warangal (Telangana), Assam &amp; Kerala
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Heat Spectrum:</strong> 50,000 to 1,041,000+ SHU (HPLC Standardized)
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Formats:</strong> Whole Stemmed · 100% Stemless · Crushed Flakes · Fine Powder
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Global Supply:</strong> Bulk 20ft / 40ft FCL to USA, EU, Gulf, UK &amp; East Asia
                 </div>
               </div>
@@ -597,7 +597,7 @@ const RedChilliPage = () => {
                   <h3 className="mt-4 text-xl font-bold text-[var(--brand-charcoal)]">{variety.name}</h3>
                   <p className="mt-1 text-xs font-medium italic text-[var(--brand-forest)]">{variety.botanical}</p>
 
-                  <div className="mt-4 space-y-2 rounded-lg bg-stone-50 p-3 text-xs text-[var(--brand-charcoal)]">
+                  <div className="mt-4 space-y-2 rounded-lg bg-[var(--brand-cream)] p-3 text-xs text-[var(--brand-charcoal)]">
                     <p>
                       <strong>Heat (SHU):</strong> {variety.heat}
                     </p>
@@ -618,10 +618,10 @@ const RedChilliPage = () => {
                   <p className="mt-4 text-xs leading-relaxed text-[var(--brand-forest)]">{variety.description}</p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-stone-200">
+                <div className="mt-6 pt-4 border-t border-[var(--brand-gold-pale)]">
                   <Link
                     to={variety.slug}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[var(--brand-deep-green)] hover:text-[var(--brand-gold)]"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[var(--brand-deep-green)] hover:text-[var(--brand-gold-text)]"
                   >
                     View Dedicated {variety.name} Page <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
@@ -649,7 +649,7 @@ const RedChilliPage = () => {
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
                 <thead>
-                  <tr className="border-b border-[var(--brand-gold-pale)] bg-stone-50 text-xs font-semibold uppercase tracking-wider text-[var(--brand-charcoal)]">
+                  <tr className="border-b border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] text-xs font-semibold uppercase tracking-wider text-[var(--brand-charcoal)]">
                     <th className="px-6 py-4">Chilli Variety</th>
                     <th className="px-6 py-4">Botanical Species</th>
                     <th className="px-6 py-4">Scoville Heat Units (SHU)</th>
@@ -659,11 +659,11 @@ const RedChilliPage = () => {
                 </thead>
                 <tbody className="divide-y divide-[var(--brand-gold-pale)]">
                   {CHILLI_HEAT_COMPARISON.map((row) => (
-                    <tr key={row.variety} className="hover:bg-[var(--brand-cream)]/40">
+                    <tr key={row.variety} className="hover:bg-[var(--brand-cream)]">
                       <td className="whitespace-nowrap px-6 py-4 font-bold text-[var(--brand-charcoal)]">
                         {row.variety}
                       </td>
-                      <td className="px-6 py-4 text-xs italic text-stone-600">{row.species}</td>
+                      <td className="px-6 py-4 text-xs italic text-[var(--brand-forest)]">{row.species}</td>
                       <td className="whitespace-nowrap px-6 py-4 font-semibold text-[var(--brand-deep-green)]">
                         <span className="inline-flex items-center gap-1">
                           <Flame className="h-3.5 w-3.5 text-red-600" /> {row.scovilleRange}
@@ -678,7 +678,7 @@ const RedChilliPage = () => {
                 </tbody>
               </table>
             </div>
-            <div className="border-t border-[var(--brand-gold-pale)] bg-[var(--brand-cream)]/60 px-6 py-3 text-xs text-[var(--brand-forest)]">
+            <div className="border-t border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] px-6 py-3 text-xs text-[var(--brand-forest)]">
               <strong>Technical Quality Note: </strong>SHU values represent natural botanical ranges verified on lot
               COAs. Batch-specific HPLC test certificates from NABL accredited laboratories are provided prior to shipment.
             </div>
@@ -707,7 +707,7 @@ const RedChilliPage = () => {
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
                 <thead>
-                  <tr className="border-b border-[var(--brand-gold-pale)] bg-stone-50 text-xs font-semibold uppercase tracking-wider text-[var(--brand-charcoal)]">
+                  <tr className="border-b border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] text-xs font-semibold uppercase tracking-wider text-[var(--brand-charcoal)]">
                     <th className="px-6 py-3.5">Parameter</th>
                     <th className="px-6 py-3.5">JM Masala Export Specification</th>
                     <th className="px-6 py-3.5">Testing Method / Standard</th>
@@ -715,18 +715,18 @@ const RedChilliPage = () => {
                 </thead>
                 <tbody className="divide-y divide-[var(--brand-gold-pale)]">
                   {CHILLI_SPEC_ROWS.map((row) => (
-                    <tr key={row.label} className="hover:bg-[var(--brand-cream)]/40">
+                    <tr key={row.label} className="hover:bg-[var(--brand-cream)]">
                       <td className="whitespace-nowrap px-6 py-3.5 font-semibold text-[var(--brand-charcoal)]">
                         {row.label}
                       </td>
                       <td className="px-6 py-3.5 text-[var(--brand-forest)]">{row.value}</td>
-                      <td className="px-6 py-3.5 text-xs text-stone-500">{row.testMethod}</td>
+                      <td className="px-6 py-3.5 text-xs text-[var(--brand-forest)]">{row.testMethod}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-            <div className="border-t border-[var(--brand-gold-pale)] bg-[var(--brand-cream)]/60 px-6 py-4 text-xs leading-relaxed text-[var(--brand-forest)]">
+            <div className="border-t border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] px-6 py-4 text-xs leading-relaxed text-[var(--brand-forest)]">
               <strong className="text-[var(--brand-charcoal)]">Destination Compliance Assurance: </strong>Consignments
               destined for the European Union, United States (FDA), United Kingdom, and the Gulf are tested for
               multi-residue pesticides, heavy metals (Lead, Cadmium), Aflatoxin, and Ochratoxin A prior to ocean dispatch.
@@ -749,13 +749,13 @@ const RedChilliPage = () => {
 
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {CHILLI_FORMATS.map((format) => (
-              <div key={format.title} className="rounded-xl border border-stone-200 bg-[var(--brand-cream)] p-5">
+              <div key={format.title} className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-5">
                 <Layers className="h-6 w-6 text-[var(--brand-deep-green)]" />
                 <h3 className="mt-3 text-base font-bold text-[var(--brand-charcoal)]">{format.title}</h3>
                 <p className="mt-2 text-xs leading-relaxed text-[var(--brand-forest)]">{format.description}</p>
-                <div className="mt-4 border-t border-stone-300/60 pt-3 text-xs font-semibold text-[var(--brand-charcoal)]">
+                <div className="mt-4 border-t border-[var(--brand-gold-pale)] pt-3 text-xs font-semibold text-[var(--brand-charcoal)]">
                   <span>Packing: </span>
-                  <span className="font-normal text-stone-600">{format.packing}</span>
+                  <span className="font-normal text-[var(--brand-forest)]">{format.packing}</span>
                 </div>
               </div>
             ))}
@@ -805,18 +805,18 @@ const RedChilliPage = () => {
               </div>
             </div>
 
-            <div className="rounded-xl border border-[var(--brand-gold-pale)] bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-bold text-[var(--brand-charcoal)]">Export Compliance Documentation Package</h3>
+            <div className="jm-surface-card p-6">
+              <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Export Compliance Documentation Package</h3>
               <p className="mt-1 text-xs text-[var(--brand-forest)]">
                 Every consignment leaves Indian ports with complete statutory and commercial certification:
               </p>
 
               <div className="mt-5 grid grid-cols-2 gap-3 text-xs">
                 {DOCUMENTATION_PACKAGE.map((doc) => (
-                  <div key={doc} className="rounded-lg border border-stone-200 bg-[var(--brand-cream)] p-3">
-                    <FileCheck2 className="h-4 w-4 text-[var(--brand-gold)]" />
+                  <div key={doc} className="rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-3">
+                    <FileCheck2 className="h-4 w-4 text-[var(--brand-gold-text)]" />
                     <p className="mt-2 font-bold text-[var(--brand-charcoal)]">{doc}</p>
-                    <p className="mt-1 text-[11px] text-stone-600">Standard statutory export clearance</p>
+                    <p className="mt-1 text-[11px] text-[var(--brand-forest)]">Standard statutory export clearance</p>
                   </div>
                 ))}
               </div>
@@ -838,9 +838,9 @@ const RedChilliPage = () => {
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {CHILLI_SUPPLY_CHAIN_STEPS.map((s) => (
-              <div key={s.step} className="rounded-xl border border-stone-200 bg-[var(--brand-cream)] p-5">
-                <span className="text-xs font-extrabold text-[var(--brand-gold)]">{s.step}</span>
-                <h3 className="mt-2 text-sm font-bold text-[var(--brand-charcoal)]">{s.title}</h3>
+              <div key={s.step} className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-5">
+                <span className="text-xs font-extrabold text-[var(--brand-gold-text)]">{s.step}</span>
+                <h3 className="mt-2 text-base font-bold text-[var(--brand-charcoal)]">{s.title}</h3>
                 <p className="mt-2 text-xs leading-relaxed text-[var(--brand-forest)]">{s.description}</p>
               </div>
             ))}
@@ -861,27 +861,27 @@ const RedChilliPage = () => {
                   packaging and loading format is essential for maximizing freight efficiency:
                 </p>
                 <div className="space-y-3 text-xs text-[var(--brand-charcoal)]">
-                  <div className="rounded-lg border border-stone-200 bg-white p-4">
+                  <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
                     <p className="font-bold text-[var(--brand-deep-green)]">Standard Export Bag Packing (PP / Jute):</p>
-                    <p className="mt-1 text-stone-600">
+                    <p className="mt-1 text-[var(--brand-forest)]">
                       10 kg, 20 kg, or 25 kg new bags loose-stuffed in ocean containers.
                     </p>
                     <p className="mt-1 font-semibold">
                       • 20ft FCL: ~6.5 to 7.5 Metric Tons | • 40ft HC: ~14.0 to 16.0 Metric Tons
                     </p>
                   </div>
-                  <div className="rounded-lg border border-stone-200 bg-white p-4">
+                  <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
                     <p className="font-bold text-[var(--brand-deep-green)]">Hydraulic Pressed Bulk Bales:</p>
-                    <p className="mt-1 text-stone-600">
+                    <p className="mt-1 text-[var(--brand-forest)]">
                       High-density compressed bales wrapped in clean woven fabric. Almost doubles container tonnage!
                     </p>
                     <p className="mt-1 font-semibold">
                       • 20ft FCL: ~11.0 Metric Tons | • 40ft HC: ~22.0 to 24.0 Metric Tons
                     </p>
                   </div>
-                  <div className="rounded-lg border border-stone-200 bg-white p-4">
+                  <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
                     <p className="font-bold text-[var(--brand-deep-green)]">Corrugated Export Cartons (Stemless / King Chilli):</p>
-                    <p className="mt-1 text-stone-600">
+                    <p className="mt-1 text-[var(--brand-forest)]">
                       10 kg or 20 kg heavy-duty 5-ply cartons protecting delicate pods against crushing during handling.
                     </p>
                   </div>
@@ -889,22 +889,22 @@ const RedChilliPage = () => {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-[var(--brand-gold-pale)] bg-white p-6 shadow-sm">
+            <div className="rounded-xl border border-[var(--brand-gold-pale)] bg-white p-6 shadow-sm">
               <h3 className="text-xl font-bold text-[var(--brand-charcoal)]">Request an Export Proforma Invoice</h3>
               <p className="mt-2 text-xs text-[var(--brand-forest)]">
                 Our export desk provides competitive CIF and FOB quotations based on current Indian mandi auctions:
               </p>
 
               <div className="mt-6 space-y-3 text-xs">
-                <div className="flex items-center gap-2 rounded bg-stone-50 p-2.5">
+                <div className="flex items-center gap-2 rounded bg-[var(--brand-cream)] p-2.5">
                   <PackageCheck className="h-4 w-4 text-[var(--brand-deep-green)]" />
                   <span><strong>Loading Ports: </strong>Chennai Port, Nhava Sheva (JNPT), Mundra Port</span>
                 </div>
-                <div className="flex items-center gap-2 rounded bg-stone-50 p-2.5">
+                <div className="flex items-center gap-2 rounded bg-[var(--brand-cream)] p-2.5">
                   <Scale className="h-4 w-4 text-[var(--brand-deep-green)]" />
                   <span><strong>Minimum Order Quantity: </strong>1x 20ft FCL (~6.5 to 7.5 MT)</span>
                 </div>
-                <div className="flex items-center gap-2 rounded bg-stone-50 p-2.5">
+                <div className="flex items-center gap-2 rounded bg-[var(--brand-cream)] p-2.5">
                   <ShieldCheck className="h-4 w-4 text-[var(--brand-deep-green)]" />
                   <span><strong>Payment Terms: </strong>Letter of Credit (L/C) at sight / T/T advance</span>
                 </div>
@@ -919,7 +919,7 @@ const RedChilliPage = () => {
                 >
                   WhatsApp Export Desk
                 </a>
-                <Link to="/contact?intent=quote&product=Red%20Chilli" className="jm-btn jm-btn--outline flex-1 text-center">
+                <Link to="/contact?intent=quote&product=Red%20Chilli#inquiry-form" className="jm-btn jm-btn--outline flex-1 text-center">
                   Submit Official RFP
                 </Link>
               </div>
@@ -939,7 +939,7 @@ const RedChilliPage = () => {
             </p>
           </div>
 
-          <div className="mt-8 divide-y divide-[var(--brand-gold-pale)] rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)]/40 p-6">
+          <div className="mt-8 divide-y divide-[var(--brand-gold-pale)] rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6">
             {CHILLI_FAQS.map((faq) => (
               <article key={faq.question} className="py-5 first:pt-0 last:pb-0">
                 <h3 className="text-base font-bold text-[var(--brand-charcoal)]">{faq.question}</h3>
@@ -966,9 +966,9 @@ const RedChilliPage = () => {
       </section>
 
       {/* Final Conversion Callout */}
-      <section className="bg-[var(--brand-deep-green)] py-14 text-white">
+      <section className="jm-section jm-section--primary">
         <div className="jm-container text-center">
-          <h2 className="font-[var(--font-display)] text-2xl md:text-4xl">
+          <h2 className="jm-section-heading jm-section-heading--on-dark">
             Source Verified Indian Red Chillies from JM Masala
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm text-[rgba(255,255,255,0.85)] md:text-base">
@@ -980,8 +980,8 @@ const RedChilliPage = () => {
               Contact Export Desk (+91 91067 66041)
             </a>
             <Link
-              to="/contact?intent=quote&product=Red%20Chilli"
-              className="jm-btn jm-btn--outline border-white text-white hover:bg-white hover:text-[var(--brand-deep-green)]"
+              to="/contact?intent=quote&product=Red%20Chilli#inquiry-form"
+              className="jm-btn jm-btn--ghost"
             >
               Request Custom Proforma Invoice
             </Link>

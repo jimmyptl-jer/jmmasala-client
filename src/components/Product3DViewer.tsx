@@ -497,7 +497,7 @@ export const Product3DViewer: React.FC = () => {
   };
 
   return (
-    <div className="rounded-2xl border border-[rgba(201,168,76,0.32)] bg-[#121c12] p-4 text-[var(--brand-cream)] shadow-2xl md:p-8">
+    <div className="rounded-2xl border border-[rgba(201,168,76,0.32)] bg-[var(--brand-deep-green)] p-4 text-[var(--brand-cream)] shadow-2xl md:p-8">
       {/* ── HEADER & PRODUCT SELECTOR TABS ── */}
       <div className="flex flex-col gap-4 border-b border-[rgba(201,168,76,0.22)] pb-6 md:flex-row md:items-center md:justify-between">
         <div>
@@ -505,15 +505,15 @@ export const Product3DViewer: React.FC = () => {
             <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--brand-gold)] bg-[rgba(201,168,76,0.12)] px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-[var(--brand-gold-light)]">
               <Sparkles className="h-3 w-3" /> Interactive 3D Pouch Viewer
             </span>
-            <span className="rounded bg-white/10 px-2 py-0.5 text-[11px] text-gray-300">
+            <span className="rounded bg-white/10 px-2 py-0.5 text-[11px] text-[var(--brand-cream)]">
               500g Retail Pack
             </span>
           </div>
           <h2 className="mt-2 font-[var(--font-display)] text-2xl font-bold text-white md:text-3xl">
             {selectedProduct.name} <span className="font-normal italic text-[var(--brand-gold-light)]">({selectedProduct.subName})</span>
           </h2>
-          <p className="mt-1 text-xs text-gray-400">
-            Botanical: <span className="italic text-gray-300">{selectedProduct.botanical}</span> · Origin: {selectedProduct.origin}
+          <p className="mt-1 text-xs text-[var(--brand-cream)]">
+            Botanical: <span className="italic text-[var(--brand-cream)]">{selectedProduct.botanical}</span> · Origin: {selectedProduct.origin}
           </p>
         </div>
 
@@ -521,24 +521,24 @@ export const Product3DViewer: React.FC = () => {
         <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={rotateToFront}
-            className="rounded-lg border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-white/15"
+            className="max-md:min-h-[44px] rounded-lg border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-white/15"
             title="Snap to front packaging view"
           >
             Front View
           </button>
           <button
             onClick={rotateToBack}
-            className="rounded-lg border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-white/15"
+            className="max-md:min-h-[44px] rounded-lg border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-white/15"
             title="Snap to back nutrition and specifications view"
           >
             Back Specs
           </button>
           <button
             onClick={() => setAutoRotate(!autoRotate)}
-            className={`inline-flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-semibold transition ${
+            className={`inline-flex max-md:min-h-[44px] items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-semibold transition ${
               autoRotate
                 ? "border-[var(--brand-gold)] bg-[var(--brand-gold)]/20 text-[var(--brand-gold-light)]"
-                : "border-white/20 bg-white/5 text-gray-300 hover:bg-white/15"
+                : "border-white/20 bg-white/5 text-[var(--brand-cream)] hover:bg-white/15"
             }`}
             title="Toggle continuous auto-rotation"
           >
@@ -547,7 +547,7 @@ export const Product3DViewer: React.FC = () => {
           </button>
           <button
             onClick={resetView}
-            className="rounded-lg border border-white/20 bg-white/5 p-1.5 text-gray-300 transition hover:bg-white/15 hover:text-white"
+            className="inline-flex max-md:min-h-[44px] max-md:min-w-[44px] items-center justify-center rounded-lg border border-white/20 bg-white/5 p-1.5 text-[var(--brand-cream)] transition hover:bg-white/15 hover:text-white"
             title="Reset view orientation"
           >
             <Maximize2 className="h-4 w-4" />
@@ -577,9 +577,9 @@ export const Product3DViewer: React.FC = () => {
       </div>
 
       {/* ── 3D CANVAS STAGE ── */}
-      <div className="relative mt-6 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-[#182618] to-[#0c140c] shadow-inner">
+      <div className="relative mt-6 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-[var(--brand-forest)] to-[var(--brand-deep-green)] shadow-inner">
         {/* Interaction hints */}
-        <div className="pointer-events-none absolute left-4 top-4 z-10 rounded-full border border-white/10 bg-black/40 px-3 py-1 text-[11px] text-gray-300 backdrop-blur-sm">
+        <div className="pointer-events-none absolute left-4 top-4 z-10 rounded-full border border-white/10 bg-black/40 px-3 py-1 text-[11px] text-[var(--brand-cream)] backdrop-blur-sm">
           ↔ Drag to rotate 360° · Scroll or pinch to zoom
         </div>
 
@@ -587,14 +587,14 @@ export const Product3DViewer: React.FC = () => {
         <div className="absolute bottom-4 right-4 z-10 flex flex-col gap-1.5">
           <button
             onClick={() => setZoomLevel((z) => Math.max(2.8, z - 0.3))}
-            className="rounded-lg border border-white/15 bg-black/60 p-2 text-white shadow-lg backdrop-blur hover:bg-black/80"
+            className="inline-flex max-md:min-h-[44px] max-md:min-w-[44px] items-center justify-center rounded-lg border border-white/15 bg-black/60 p-2 text-white shadow-lg backdrop-blur hover:bg-black/80"
             title="Zoom In"
           >
             <ZoomIn className="h-4 w-4" />
           </button>
           <button
             onClick={() => setZoomLevel((z) => Math.min(5.2, z + 0.3))}
-            className="rounded-lg border border-white/15 bg-black/60 p-2 text-white shadow-lg backdrop-blur hover:bg-black/80"
+            className="inline-flex max-md:min-h-[44px] max-md:min-w-[44px] items-center justify-center rounded-lg border border-white/15 bg-black/60 p-2 text-white shadow-lg backdrop-blur hover:bg-black/80"
             title="Zoom Out"
           >
             <ZoomOut className="h-4 w-4" />
@@ -618,32 +618,32 @@ export const Product3DViewer: React.FC = () => {
         <div>
           <span className="text-[11px] uppercase tracking-wider text-[var(--brand-gold-light)]">Packaging Model</span>
           <p className="mt-1 font-semibold text-white">180 × 250 × 60 mm Zipper Pouch</p>
-          <p className="text-xs text-gray-400">Net Weight: {selectedProduct.weight} · Stand-Up Gusset</p>
+          <p className="text-xs text-[var(--brand-cream)]">Net Weight: {selectedProduct.weight} · Stand-Up Gusset</p>
         </div>
         <div>
           <span className="text-[11px] uppercase tracking-wider text-[var(--brand-gold-light)]">Processing & Grade</span>
           <p className="mt-1 font-semibold text-white">{selectedProduct.specs.grade}</p>
-          <p className="text-xs text-gray-400">{selectedProduct.specs.form}</p>
+          <p className="text-xs text-[var(--brand-cream)]">{selectedProduct.specs.form}</p>
         </div>
         <div>
           <span className="text-[11px] uppercase tracking-wider text-[var(--brand-gold-light)]">Compliance & License</span>
           <p className="mt-1 font-semibold text-white">FSSAI Lic. 10723999000000</p>
-          <p className="text-xs text-gray-400">APEDA · Spices Board · ISO 22000</p>
+          <p className="text-xs text-[var(--brand-cream)]">APEDA · Spices Board · ISO 22000</p>
         </div>
         <div>
           <span className="text-[11px] uppercase tracking-wider text-[var(--brand-gold-light)]">Private Label OEM</span>
           <p className="mt-1 font-semibold text-white">Custom Branding Available</p>
-          <p className="text-xs text-gray-400">Nitrogen flushed · Barcode & QR ready</p>
+          <p className="text-xs text-[var(--brand-cream)]">Nitrogen flushed · Barcode & QR ready</p>
         </div>
       </div>
 
       {/* Badges strip */}
-      <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-4 text-xs text-gray-400">
+      <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-4 text-xs text-[var(--brand-cream)]">
         <div className="flex flex-wrap gap-2">
           {selectedProduct.specs.features.map((feat) => (
             <span
               key={feat}
-              className="inline-flex items-center gap-1 rounded bg-white/5 px-2.5 py-1 text-gray-300"
+              className="inline-flex items-center gap-1 rounded bg-white/5 px-2.5 py-1 text-[var(--brand-cream)]"
             >
               <CheckCircle2 className="h-3 w-3 text-[var(--brand-gold)]" />
               {feat}

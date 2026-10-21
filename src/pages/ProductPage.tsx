@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { Sprout } from "lucide-react";
 import Seo from "@/components/Seo";
 import { PRODUCTS } from "@/data/siteData";
 
@@ -139,7 +140,7 @@ const ProductsPage = () => {
       <section className="jm-section jm-section--white">
         <div className="jm-container">
           <p className="jm-section-label">Definitive Product Database</p>
-          <h1 className="jm-section-heading">
+          <h1 className="jm-heading-1">
             JM Masala: Complete Product Catalogue
           </h1>
           <p className="mt-2 max-w-3xl text-[var(--brand-forest)]">
@@ -147,17 +148,17 @@ const ProductsPage = () => {
           </p>
 
           {/* Quick link banner for Cold Pressed Oils */}
-          <div className="mt-5 p-4 rounded-xl bg-[var(--brand-cream)] border border-[rgba(201,168,76,0.3)] flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="mt-5 p-4 rounded-xl bg-[var(--brand-cream)] border border-[var(--brand-gold-pale)] flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-3">
-              <span className="text-2xl">🌱</span>
+              <Sprout className="h-7 w-7 shrink-0 text-[var(--brand-forest)]" aria-hidden="true" />
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[var(--brand-gold)] block">Single-Origin Extraction</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-[var(--brand-gold-text)] block">Single-Origin Extraction</span>
                 <span className="text-sm font-bold text-[var(--brand-charcoal)]">Looking for Cold Pressed Oils? (Groundnut, Sesame, Mustard, Black Seed)</span>
               </div>
             </div>
             <Link
               to="/cold-pressed-oils"
-              className="px-4 py-2 rounded-lg bg-[var(--brand-forest)] text-white text-xs font-bold hover:bg-[var(--brand-deep-green)] transition-all shrink-0"
+              className="jm-btn jm-btn--secondary shrink-0"
             >
               Explore Oils Catalogue →
             </Link>
@@ -169,10 +170,10 @@ const ProductsPage = () => {
               <button
                 key={tab.id}
                 onClick={() => setSelectedCategory(tab.id)}
-                className={`rounded-full px-5 py-2 text-xs font-medium transition-all ${
+                className={`rounded-full min-h-[44px] px-5 py-2 text-xs font-medium transition-all ${
                   selectedCategory === tab.id
                     ? "bg-[var(--brand-deep-green)] text-white shadow-sm"
-                    : "bg-[var(--brand-gold-pale)]/50 text-[var(--brand-charcoal)] hover:bg-[var(--brand-gold-pale)]"
+                    : "bg-[var(--brand-gold-pale)] text-[var(--brand-charcoal)] hover:bg-[var(--brand-gold-pale)]"
                 }`}
               >
                 {tab.label}
@@ -240,7 +241,7 @@ const ProductsPage = () => {
                   </span>
                   <Link
                     to={`/${product.slug}`}
-                    className="mt-4 inline-flex w-full justify-center jm-btn jm-btn--outline text-[13px]"
+                    className="mt-4 inline-flex w-full justify-center jm-btn jm-btn--outline"
                   >
                     View Specifications & Quotes
                   </Link>
@@ -250,7 +251,7 @@ const ProductsPage = () => {
           </div>
 
           <section className="jm-surface-card mt-12 p-6 lg:p-8">
-            <h2 className="text-[28px] text-[var(--brand-charcoal)] text-tagline not-italic">
+            <h2 className="jm-section-heading">
               JM Masala Trading LLP — Indian Spice Manufacturer, Processor & Exporter
             </h2>
             <div className="mt-4 grid gap-6 lg:grid-cols-2">

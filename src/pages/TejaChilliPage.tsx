@@ -165,19 +165,19 @@ const TejaChilliPage = () => {
         <div className="jm-container">
           <ol className="flex flex-wrap items-center gap-2 text-xs text-[var(--brand-forest)]">
             <li>
-              <Link to="/" className="hover:text-[var(--brand-deep-green)]">
+              <Link to="/" className="hover:text-[var(--brand-deep-green)] inline-block py-3.5 -my-3.5">
                 Home
               </Link>
             </li>
             <li>/</li>
             <li>
-              <Link to="/products" className="hover:text-[var(--brand-deep-green)]">
+              <Link to="/products" className="hover:text-[var(--brand-deep-green)] inline-block py-3.5 -my-3.5">
                 Products
               </Link>
             </li>
             <li>/</li>
             <li>
-              <Link to="/red-chilli-exporter-india" className="hover:text-[var(--brand-deep-green)]">
+              <Link to="/red-chilli-exporter-india" className="hover:text-[var(--brand-deep-green)] inline-block py-3.5 -my-3.5">
                 Red Chilli Exporter from India
               </Link>
             </li>
@@ -198,7 +198,7 @@ const TejaChilliPage = () => {
               <p className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.08)] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--brand-gold-light)]">
                 <MapPin className="h-3.5 w-3.5" /> Guntur &amp; Khammam Mandi Sourcing
               </p>
-              <h1 className="mt-4 font-[var(--font-display)] text-3xl leading-tight text-white md:text-5xl">
+              <h1 className="mt-4 text-white">
                 Teja Chilli Exporter from India
               </h1>
               <p className="mt-3 text-lg font-medium text-[var(--brand-gold-light)] md:text-xl">
@@ -225,13 +225,13 @@ const TejaChilliPage = () => {
                 </a>
                 <Link
                   to="/red-chilli-exporter-india"
-                  className="jm-btn jm-btn--outline border-white text-white hover:bg-white hover:text-[var(--brand-deep-green)] inline-flex items-center gap-1.5"
+                  className="jm-btn jm-btn--ghost inline-flex items-center gap-1.5"
                 >
                   <ArrowLeft className="h-4 w-4" /> Master Red Chilli Page
                 </Link>
                 <Link
-                  to="/contact?intent=sample"
-                  className="jm-btn jm-btn--outline border-[var(--brand-gold-light)] text-[var(--brand-gold-light)] hover:bg-[var(--brand-gold-light)] hover:text-[var(--brand-deep-green)]"
+                  to="/contact?intent=sample&product=Red%20Chilli#inquiry-form"
+                  className="jm-btn jm-btn--ghost"
                 >
                   Request Sample
                 </Link>
@@ -278,13 +278,13 @@ const TejaChilliPage = () => {
       {/* Teja Chilli at a Glance (AI Answer Box) */}
       <section className="border-b border-[var(--brand-gold-pale)] bg-white py-10">
         <div className="jm-container">
-          <div className="rounded-2xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6 md:p-8">
+          <div className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6 md:p-8">
             <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-[var(--brand-gold)]">
+                <p className="jm-section-label">
                   Verified Technical Data
                 </p>
-                <h2 className="text-xl font-bold text-[var(--brand-charcoal)] md:text-2xl">
+                <h2 className="jm-section-heading">
                   Teja Chilli at a Glance
                 </h2>
               </div>
@@ -295,8 +295,8 @@ const TejaChilliPage = () => {
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {TEJA_SUMMARY_ROWS.map((row) => (
-                <div key={row.label} className="rounded-lg border border-stone-200 bg-white p-4">
-                  <span className="text-xs font-medium text-stone-500">{row.label}</span>
+                <div key={row.label} className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                  <span className="text-xs font-medium text-[var(--brand-forest)]">{row.label}</span>
                   <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">{row.value}</p>
                 </div>
               ))}
@@ -318,7 +318,7 @@ const TejaChilliPage = () => {
           </div>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2">
-            <div className="rounded-xl border border-stone-200 bg-[var(--brand-cream)] p-6">
+            <div className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6">
               <span className="rounded bg-[var(--brand-gold-pale)] px-3 py-1 text-xs font-bold text-[var(--brand-deep-green)]">
                 Standard Bulk Format
               </span>
@@ -358,7 +358,7 @@ const TejaChilliPage = () => {
         <div className="jm-container">
           <div className="grid items-center gap-10 lg:grid-cols-12">
             <div className="lg:col-span-6">
-              <div className="overflow-hidden rounded-2xl border border-[rgba(201,168,76,0.35)] bg-[#faf6ee] p-4 shadow-lg transition-transform hover:scale-[1.01]">
+              <div className="overflow-hidden rounded-xl border border-[rgba(201,168,76,0.35)] bg-[#faf6ee] p-4 shadow-lg transition-transform hover:scale-[1.01]">
                 <img
                   src={pouchRedChilliTeja}
                   alt="JM Masala Red Chilli Teja Whole 500g Stand-up Pouch Packaging (Front and Back)"
@@ -379,15 +379,15 @@ const TejaChilliPage = () => {
               </p>
               <ul className="mt-6 space-y-3 text-sm text-[var(--brand-charcoal)]">
                 <li className="flex items-start gap-2.5">
-                  <span className="font-bold text-[var(--brand-gold)]">✓</span>
+                  <span className="font-bold text-[var(--brand-gold-text)]">✓</span>
                   <span><strong>500g &amp; 1kg Stand-Up Zipper Pouches:</strong> Multi-layer moisture barrier with transparent window displaying authentic pod grade.</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="font-bold text-[var(--brand-gold)]">✓</span>
+                  <span className="font-bold text-[var(--brand-gold-text)]">✓</span>
                   <span><strong>Full Regulatory Compliance:</strong> Customized printing with your brand logo, nutritional facts, FSSAI / FDA export barcodes, and language translations.</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="font-bold text-[var(--brand-gold)]">✓</span>
+                  <span className="font-bold text-[var(--brand-gold-text)]">✓</span>
                   <span><strong>Nitrogen Flushing Option:</strong> Locks in fiery red carotenoid color retention and prevents transit pest infestation.</span>
                 </li>
               </ul>
@@ -399,10 +399,10 @@ const TejaChilliPage = () => {
                   Explore Private Label Services <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
-                  to="/contact?intent=private-label"
+                  to="/contact?intent=private-label&product=Red%20Chilli#inquiry-form"
                   className="jm-btn jm-btn--outline inline-flex items-center gap-2"
                 >
-                  Request Packaging Sample
+                  Request Private Label Quote
                 </Link>
               </div>
             </div>
@@ -422,7 +422,7 @@ const TejaChilliPage = () => {
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
                 <thead>
-                  <tr className="border-b border-[var(--brand-gold-pale)] bg-stone-50 text-xs font-semibold uppercase tracking-wider text-[var(--brand-charcoal)]">
+                  <tr className="border-b border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] text-xs font-semibold uppercase tracking-wider text-[var(--brand-charcoal)]">
                     <th className="px-6 py-3.5">Parameter</th>
                     <th className="px-6 py-3.5">Export Standard</th>
                     <th className="px-6 py-3.5">Analytical Standard</th>
@@ -430,10 +430,10 @@ const TejaChilliPage = () => {
                 </thead>
                 <tbody className="divide-y divide-[var(--brand-gold-pale)]">
                   {TEJA_SPECS.map((s) => (
-                    <tr key={s.label} className="hover:bg-[var(--brand-cream)]/40">
+                    <tr key={s.label} className="hover:bg-[var(--brand-cream)]">
                       <td className="px-6 py-3.5 font-semibold text-[var(--brand-charcoal)]">{s.label}</td>
                       <td className="px-6 py-3.5 text-[var(--brand-forest)]">{s.value}</td>
-                      <td className="px-6 py-3.5 text-xs text-stone-500">{s.standard}</td>
+                      <td className="px-6 py-3.5 text-xs text-[var(--brand-forest)]">{s.standard}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -451,7 +451,7 @@ const TejaChilliPage = () => {
             <h2 className="jm-section-heading">Teja Chilli FAQs</h2>
           </div>
 
-          <div className="mt-8 divide-y divide-[var(--brand-gold-pale)] rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)]/40 p-6">
+          <div className="mt-8 divide-y divide-[var(--brand-gold-pale)] rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6">
             {TEJA_FAQS.map((faq) => (
               <article key={faq.question} className="py-4 first:pt-0 last:pb-0">
                 <h3 className="text-base font-bold text-[var(--brand-charcoal)]">{faq.question}</h3>
@@ -478,9 +478,9 @@ const TejaChilliPage = () => {
       </section>
 
       {/* Link back to Master Red Chilli page & CTA */}
-      <section className="bg-[var(--brand-deep-green)] py-12 text-white text-center">
+      <section className="jm-section jm-section--primary">
         <div className="jm-container">
-          <h2 className="font-[var(--font-display)] text-2xl md:text-3xl">
+          <h2 className="jm-section-heading jm-section-heading--on-dark">
             Procure Export-Grade Teja Chilli S17 in Bulk
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-xs md:text-sm text-[rgba(255,255,255,0.85)]">
@@ -490,7 +490,7 @@ const TejaChilliPage = () => {
             <a href={quoteUrl} target="_blank" rel="noreferrer" className="jm-btn jm-btn--primary">
               WhatsApp Export Desk (+91 91067 66041)
             </a>
-            <Link to="/red-chilli-exporter-india" className="jm-btn jm-btn--outline border-white text-white">
+            <Link to="/red-chilli-exporter-india" className="jm-btn jm-btn--ghost">
               Back to Master Red Chilli Overview
             </Link>
           </div>

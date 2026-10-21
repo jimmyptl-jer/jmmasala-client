@@ -29,8 +29,18 @@ export type RfqFields = {
 
 export type RfqFieldName = keyof RfqFields;
 
+/** Packaging options offered by QuotationForm. Callers should reference these instead of retyping the strings. */
+export const PACKAGING = [
+  "25 kg PP bags with inner liner",
+  "50 kg PP bags with inner liner",
+  "Retail packs or private label (on request)",
+  "Other / to be discussed",
+] as const;
+
 export type RfqPayload = RfqFields & {
   sourcePage: string;
+  /** Page the visitor came from, when known. */
+  fromPage?: string;
   /** ISO 8601 timestamp */
   timestamp: string;
 };
@@ -94,11 +104,19 @@ const REQUIRED: RfqFieldName[] = ["product", "quantity", "country", "name", "com
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const PHONE_CHARS_RE = /^\+?[\d\s\-()]+$/;
 
-export const validateField = (field: RfqFieldName, rawValue: string): string | undefined => {
+/** Wording of a field inside "Enter ...". */
+const ERROR_NOUN: Partial<Record<RfqFieldName, string>> = {
+  phone: "WhatsApp / contact number",
+  packaging: "packaging preference",
+};
+
+export const validateField = (field: RfqFieldName, rawValue: string, extraRequired = false): string | undefined => {
   const value = rawValue.trim();
   const label = FIELD_LABELS[field];
   if (!value) {
-    return REQUIRED.includes(field) ? `Enter ${label.toLowerCase()}.` : undefined;
+    if (!REQUIRED.includes(field) && !extraRequired) return undefined;
+    if (field === "packaging") return "Select a packaging preference.";
+    return `Enter ${ERROR_NOUN[field] ?? label.toLowerCase()}.`;
   }
   if (value.length > MAX_LENGTHS[field]) {
     return `${label} must be ${MAX_LENGTHS[field]} characters or fewer.`;
@@ -115,10 +133,10 @@ export const validateField = (field: RfqFieldName, rawValue: string): string | u
   return undefined;
 };
 
-export const validateRfq = (fields: RfqFields): RfqValidation => {
+export const validateRfq = (fields: RfqFields, options: { requirePackaging?: boolean } = {}): RfqValidation => {
   const errors: RfqErrors = {};
   (Object.keys(FIELD_LABELS) as RfqFieldName[]).forEach((field) => {
-    const message = validateField(field, fields[field]);
+    const message = validateField(field, fields[field], field === "packaging" && !!options.requirePackaging);
     if (message) errors[field] = message;
   });
   if (Object.keys(errors).length === 0) return { valid: true, errors: {} };
@@ -169,6 +187,7 @@ export const buildRfqMessage = (
   sourcePage: string,
   includePayment: boolean,
   intro: string = DEFAULT_RFQ_INTRO,
+  fromPage?: string,
 ): string => {
   const order: RfqFieldName[] = [
     "product",
@@ -184,7 +203,8 @@ export const buildRfqMessage = (
     "message",
   ];
   const lines = order.map((f) => `${FIELD_LABELS[f]}: ${fields[f].trim() || "Not provided"}`);
-  return [intro, ...lines, `Sent from page: ${sourcePage || "website"}`].join("\n");
+  const sent = `Sent from page: ${sourcePage || "website"}${fromPage ? ` (via ${fromPage})` : ""}`;
+  return [intro, ...lines, sent].join("\n");
 };
 
 export const buildMailtoUrl = (to: string, subject: string, body: string): string =>

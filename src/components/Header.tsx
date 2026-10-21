@@ -67,7 +67,7 @@ const PRIORITY_PRODUCTS = [
 const QUOTE_PATH = "/contact#inquiry-form";
 
 const WHATSAPP_BTN_CLASS =
-  "inline-flex items-center justify-center gap-2 min-h-[44px] rounded-md border-2 border-[var(--brand-forest)] bg-transparent py-2.5 font-bold uppercase text-[var(--brand-forest)] transition-colors hover:bg-[var(--brand-forest)] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-gold)] focus-visible:ring-offset-2";
+  "jm-btn jm-btn--outline gap-2";
 
 const Header = () => {
   const productsToggleRef = useRef<HTMLButtonElement | null>(null);
@@ -128,7 +128,7 @@ const Header = () => {
         </Link>
 
         {/* Desktop Navigation - Product in Main Focus */}
-        <div className="hidden lg:flex items-center justify-end gap-3 xl:gap-8 flex-1">
+        <div className="hidden xl:flex items-center justify-end gap-3 2xl:gap-8 flex-1 min-w-0">
           <nav aria-label="Main navigation">
             <ul className="flex items-center gap-1 xl:gap-2 text-sm font-medium whitespace-nowrap">
               
@@ -152,13 +152,13 @@ const Header = () => {
                 <div
                   className={`inline-flex items-center rounded-md transition-all ${
                     location.pathname.startsWith("/products") || activeDropdown === "products"
-                      ? "bg-[var(--brand-cream)]/70 shadow-sm"
+                      ? "bg-[var(--brand-cream)] shadow-sm"
                       : ""
                   }`}
                 >
                   <Link
                     to="/products"
-                    className={`inline-flex items-center pl-2 xl:pl-3 pr-1 py-2 text-[11px] font-bold tracking-[0.08em] xl:tracking-[0.16em] uppercase rounded-l-md transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--brand-gold)] ${
+                    className={`inline-flex items-center pl-2 2xl:pl-3 pr-1 py-2 text-[11px] font-bold tracking-[0.08em] 2xl:tracking-[0.16em] uppercase rounded-l-md transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--brand-gold)] ${
                       location.pathname.startsWith("/products") || activeDropdown === "products"
                         ? "text-[var(--brand-gold)]"
                         : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]"
@@ -180,7 +180,7 @@ const Header = () => {
                     <ChevronDown
                       aria-hidden="true"
                       className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                        activeDropdown === "products" ? "rotate-180 text-[var(--brand-gold)]" : "text-gray-400"
+                        activeDropdown === "products" ? "rotate-180 text-[var(--brand-gold)]" : "text-[var(--brand-forest)]"
                       }`}
                     />
                   </button>
@@ -234,7 +234,7 @@ const Header = () => {
                                   {item.name}
                                 </span>
                                 {item.tag && (
-                                  <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--brand-gold)]/15 text-[var(--brand-charcoal)] font-bold uppercase tracking-wider">
+                                  <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--brand-gold-pale)] text-[var(--brand-charcoal)] font-bold uppercase tracking-wider">
                                     {item.tag}
                                   </span>
                                 )}
@@ -263,7 +263,7 @@ const Header = () => {
                                   {item.name}
                                 </span>
                                 {item.tag && (
-                                  <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--brand-gold)]/15 text-[var(--brand-charcoal)] font-bold uppercase tracking-wider">
+                                  <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--brand-gold-pale)] text-[var(--brand-charcoal)] font-bold uppercase tracking-wider">
                                     {item.tag}
                                   </span>
                                 )}
@@ -306,7 +306,7 @@ const Header = () => {
                                   {item.name}
                                 </span>
                                 {item.tag && (
-                                  <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--brand-sage)]/15 text-[var(--brand-forest)] font-bold uppercase tracking-wider">
+                                  <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--brand-cream)] text-[var(--brand-forest)] font-bold uppercase tracking-wider">
                                     {item.tag}
                                   </span>
                                 )}
@@ -348,12 +348,12 @@ const Header = () => {
                                     {item.name}
                                   </span>
                                   {item.tag && (
-                                    <span className="text-[9px] px-1.5 py-0.2 rounded bg-[var(--brand-gold)]/15 text-[var(--brand-charcoal)] font-bold uppercase tracking-wider">
+                                    <span className="text-[9px] px-1.5 py-0.2 rounded bg-[var(--brand-gold-pale)] text-[var(--brand-charcoal)] font-bold uppercase tracking-wider">
                                       {item.tag}
                                     </span>
                                   )}
                                 </div>
-                                <div className="text-[10px] text-[var(--brand-forest)]/70 mt-0.5 leading-snug">
+                                <div className="text-[10px] text-[var(--brand-forest)] mt-0.5 leading-snug">
                                   {item.desc}
                                 </div>
                               </Link>
@@ -370,9 +370,9 @@ const Header = () => {
                         <span className="inline-flex items-center gap-1 font-semibold text-[var(--brand-deep-green)]">
                           <Sparkles className="h-3.5 w-3.5 text-[var(--brand-gold)]" /> APMC Unjha Mandi Sourced
                         </span>
-                        <span className="text-gray-300">|</span>
+                        <span className="text-[var(--brand-forest)]">|</span>
                         <span>Sortex 99.5%</span>
-                        <span className="text-gray-300">|</span>
+                        <span className="text-[var(--brand-forest)]">|</span>
                         <span>Mundra Port Global Dispatch</span>
                       </div>
                       <div className="flex items-center gap-3">
@@ -383,7 +383,7 @@ const Header = () => {
                           View All {PRODUCTS.length} Products Catalog <ArrowRight className="h-3.5 w-3.5" />
                         </Link>
                         <Link
-                          to="/contact?intent=quote"
+                          to="/contact?intent=quote#inquiry-form"
                           className="font-bold text-[var(--brand-deep-green)] hover:text-[var(--brand-gold)]"
                         >
                           Request Export Quote →
@@ -405,12 +405,12 @@ const Header = () => {
                   onClick={() =>
                     setActiveDropdown((curr) => (curr === "processing" ? null : "processing"))
                   }
-                  className="inline-flex items-center gap-1 px-2 xl:px-3 py-2 text-[11px] font-bold tracking-[0.08em] xl:tracking-[0.16em] uppercase transition-colors text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]"
+                  className="inline-flex items-center gap-1 px-2 2xl:px-3 py-2 text-[11px] font-bold tracking-[0.08em] 2xl:tracking-[0.16em] uppercase transition-colors text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]"
                 >
                   <span>Processing</span>
                   <ChevronDown
                     className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                      activeDropdown === "processing" ? "rotate-180 text-[var(--brand-gold)]" : "text-gray-400"
+                      activeDropdown === "processing" ? "rotate-180 text-[var(--brand-gold)]" : "text-[var(--brand-forest)]"
                     }`}
                   />
                 </button>
@@ -429,7 +429,7 @@ const Header = () => {
                             <div className="text-[13px] font-semibold text-[var(--brand-charcoal)] group-hover:text-[var(--brand-gold)]">
                               {sub.label}
                             </div>
-                            <div className="text-[11px] text-[var(--brand-forest)]/70 mt-0.5 leading-snug">
+                            <div className="text-[11px] text-[var(--brand-forest)] mt-0.5 leading-snug">
                               {sub.desc}
                             </div>
                           </Link>
@@ -446,7 +446,7 @@ const Header = () => {
                   to="/sourcing-network"
                   className={({ isActive }) =>
                     [
-                      "inline-flex items-center px-2 xl:px-3 py-2 text-[11px] font-bold tracking-[0.08em] xl:tracking-[0.16em] uppercase transition-colors",
+                      "inline-flex items-center px-2 2xl:px-3 py-2 text-[11px] font-bold tracking-[0.08em] 2xl:tracking-[0.16em] uppercase transition-colors",
                       isActive
                         ? "text-[var(--brand-gold)] font-bold"
                         : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]",
@@ -463,7 +463,7 @@ const Header = () => {
                   to="/private-label-spices"
                   className={({ isActive }) =>
                     [
-                      "inline-flex items-center px-2 xl:px-3 py-2 text-[11px] font-bold tracking-[0.08em] xl:tracking-[0.16em] uppercase transition-colors",
+                      "inline-flex items-center px-2 2xl:px-3 py-2 text-[11px] font-bold tracking-[0.08em] 2xl:tracking-[0.16em] uppercase transition-colors",
                       isActive
                         ? "text-[var(--brand-gold)] font-bold"
                         : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]",
@@ -480,7 +480,7 @@ const Header = () => {
                   to="/spice-packaging"
                   className={({ isActive }) =>
                     [
-                      "inline-flex items-center px-2 xl:px-3 py-2 text-[11px] font-bold tracking-[0.08em] xl:tracking-[0.16em] uppercase transition-colors",
+                      "inline-flex items-center px-2 2xl:px-3 py-2 text-[11px] font-bold tracking-[0.08em] 2xl:tracking-[0.16em] uppercase transition-colors",
                       isActive
                         ? "text-[var(--brand-gold)] font-bold"
                         : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]",
@@ -497,7 +497,7 @@ const Header = () => {
                   to="/export-destinations"
                   className={({ isActive }) =>
                     [
-                      "inline-flex items-center px-2 xl:px-3 py-2 text-[11px] font-bold tracking-[0.08em] xl:tracking-[0.16em] uppercase transition-colors",
+                      "inline-flex items-center px-2 2xl:px-3 py-2 text-[11px] font-bold tracking-[0.08em] 2xl:tracking-[0.16em] uppercase transition-colors",
                       isActive
                         ? "text-[var(--brand-gold)] font-bold"
                         : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]",
@@ -514,7 +514,7 @@ const Header = () => {
                   to="/about-jm-masala"
                   className={({ isActive }) =>
                     [
-                      "inline-flex items-center px-2 xl:px-3 py-2 text-[11px] font-bold tracking-[0.08em] xl:tracking-[0.16em] uppercase transition-colors",
+                      "inline-flex items-center px-2 2xl:px-3 py-2 text-[11px] font-bold tracking-[0.08em] 2xl:tracking-[0.16em] uppercase transition-colors",
                       isActive
                         ? "text-[var(--brand-gold)] font-bold"
                         : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]",
@@ -531,7 +531,7 @@ const Header = () => {
                   to="/contact"
                   className={({ isActive }) =>
                     [
-                      "inline-flex items-center px-2 xl:px-3 py-2 text-[11px] font-bold tracking-[0.08em] xl:tracking-[0.16em] uppercase transition-colors",
+                      "inline-flex items-center px-2 2xl:px-3 py-2 text-[11px] font-bold tracking-[0.08em] 2xl:tracking-[0.16em] uppercase transition-colors",
                       isActive
                         ? "text-[var(--brand-gold)] font-bold"
                         : "text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)]",
@@ -548,7 +548,7 @@ const Header = () => {
           {/* High-Converting CTA Button */}
           <Link
             to={QUOTE_PATH}
-            className="jm-btn jm-btn--primary text-[11px] font-bold tracking-[0.12em] uppercase py-2.5 px-4 xl:px-5 shadow-sm hover:shadow-md transition-all shrink-0"
+            className="jm-btn jm-btn--primary xl:px-5 shrink-0"
           >
             Request a Quote
           </Link>
@@ -557,24 +557,24 @@ const Header = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat on WhatsApp"
-            className={`${WHATSAPP_BTN_CLASS} hidden xl:inline-flex shrink-0 text-[11px] tracking-[0.12em] px-3`}
+            className={`${WHATSAPP_BTN_CLASS} hidden xl:inline-flex shrink-0`}
           >
             <FaWhatsapp aria-hidden="true" className="h-5 w-5" />
             <span className="sr-only">WhatsApp</span>
           </a>
         </div>
 
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-2 xl:hidden">
           <Link
             to={QUOTE_PATH}
-            className="jm-btn jm-btn--primary text-[11px] font-bold tracking-[0.08em] uppercase py-2 px-3 shrink-0 whitespace-nowrap"
+            className="jm-btn jm-btn--primary shrink-0 whitespace-nowrap"
           >
             Get a Quote
           </Link>
           {/* Mobile Menu Button */}
           <button
             type="button"
-            className="rounded-lg border border-[var(--brand-gold-pale)] p-2 text-[var(--brand-deep-green)]"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-[var(--brand-gold-pale)] text-[var(--brand-deep-green)]"
             onClick={() => setMenuOpen((open) => !open)}
             aria-expanded={menuOpen}
             aria-controls="mobile-navigation"
@@ -587,7 +587,7 @@ const Header = () => {
 
       {/* Mobile Drawer (Product-First) */}
       {menuOpen && (
-        <div id="mobile-navigation" className="absolute inset-x-0 top-full max-h-[calc(100vh-4.5rem)] overflow-y-auto border-t border-[var(--brand-gold-pale)] bg-[var(--brand-warm-white)] px-5 py-6 pb-10 shadow-2xl lg:hidden">
+        <div id="mobile-navigation" className="absolute inset-x-0 top-full max-h-[calc(100vh-4.5rem)] overflow-y-auto border-t border-[var(--brand-gold-pale)] bg-[var(--brand-warm-white)] px-5 py-6 pb-10 shadow-2xl xl:hidden">
           <nav aria-label="Mobile navigation">
             
             {/* Mobile Product Accordion */}
@@ -604,13 +604,13 @@ const Header = () => {
                 <span>Products Portfolio ({PRODUCTS.length} Products)</span>
                 <ChevronDown
                   className={`h-4 w-4 transition-transform duration-200 ${
-                    mobileSection === "products" ? "rotate-180 text-[var(--brand-gold)]" : "text-gray-400"
+                    mobileSection === "products" ? "rotate-180 text-[var(--brand-gold)]" : "text-[var(--brand-forest)]"
                   }`}
                 />
               </button>
 
               {mobileSection === "products" && (
-                <div id="mobile-products-group" className="mt-2 pl-3 space-y-4 border-l-2 border-[var(--brand-gold)]/30">
+                <div id="mobile-products-group" className="mt-2 pl-3 space-y-4 border-l-2 border-[var(--brand-gold-pale)]">
                   {/* Priority export spices */}
                   <div>
                     <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--brand-gold)]">
@@ -655,7 +655,7 @@ const Header = () => {
                           >
                             <span>{s.name}</span>
                             {s.tag && (
-                              <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--brand-gold)]/15 text-[var(--brand-charcoal)] font-semibold">
+                              <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--brand-gold-pale)] text-[var(--brand-charcoal)] font-semibold">
                                 {s.tag}
                               </span>
                             )}
@@ -680,7 +680,7 @@ const Header = () => {
                           >
                             <span>{s.name}</span>
                             {s.tag && (
-                              <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--brand-gold)]/15 text-[var(--brand-charcoal)] font-semibold">
+                              <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--brand-gold-pale)] text-[var(--brand-charcoal)] font-semibold">
                                 {s.tag}
                               </span>
                             )}
@@ -720,7 +720,7 @@ const Header = () => {
                           >
                             <span>{p.name}</span>
                             {p.tag && (
-                              <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--brand-sage)]/15 text-[var(--brand-forest)] font-semibold">
+                              <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--brand-cream)] text-[var(--brand-forest)] font-semibold">
                                 {p.tag}
                               </span>
                             )}
@@ -745,7 +745,7 @@ const Header = () => {
                           >
                             <span>{item.name}</span>
                             {item.tag && (
-                              <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--brand-gold)]/15 text-[var(--brand-charcoal)] font-semibold">
+                              <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--brand-gold-pale)] text-[var(--brand-charcoal)] font-semibold">
                                 {item.tag}
                               </span>
                             )}
@@ -846,7 +846,7 @@ const Header = () => {
               <Link
                 to={QUOTE_PATH}
                 onClick={() => setMenuOpen(false)}
-                className="jm-btn jm-btn--primary w-full text-center text-[12px] font-bold uppercase tracking-wider py-3 block"
+                className="jm-btn jm-btn--primary w-full text-center"
               >
                 Request a Quote
               </Link>
@@ -854,7 +854,7 @@ const Header = () => {
                 href={buildWhatsAppUrl(COMPANY.whatsappMessage)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${WHATSAPP_BTN_CLASS} mt-3 w-full text-[12px] tracking-wider`}
+                className={`${WHATSAPP_BTN_CLASS} mt-3 w-full`}
               >
                 <FaWhatsapp aria-hidden="true" className="h-4 w-4" />
                 WhatsApp

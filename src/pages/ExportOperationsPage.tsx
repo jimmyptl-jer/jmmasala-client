@@ -12,13 +12,13 @@ import {
   FileText,
   MapPin,
   ArrowRight,
-  Send,
   HelpCircle,
   Truck,
   Check
 } from "lucide-react";
 import Seo from "@/components/Seo";
-import { COMPANY, SITE_URL, buildWhatsAppUrl } from "@/data/siteData";
+import QuotationForm from "@/components/quote/QuotationForm";
+import { COMPANY, SITE_URL } from "@/data/siteData";
 
 /* ─────────────────────────── CONSTANTS & DATA ─────────────────────────── */
 
@@ -296,23 +296,8 @@ const EXPORT_FAQS = [
 /* ─────────────────────────── COMPONENT ─────────────────────────── */
 
 const ExportOperationsPage = () => {
-  // RFQ Form State
-  const [selectedSpice, setSelectedSpice] = useState("Cumin Seeds (Jeera)");
-  const [selectedVolume, setSelectedVolume] = useState("1x 20ft FCL (~14 MT)");
-  const [selectedIncoterm, setSelectedIncoterm] = useState("CIF Destination Port");
-  const [destPort, setDestPort] = useState("");
-  const [companyName, setCompanyName] = useState("");
-  const [buyerEmail, setBuyerEmail] = useState("");
-  const [additionalNotes, setAdditionalNotes] = useState("");
-
   const [activePortTab, setActivePortTab] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  const handleExportRfqSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const text = `Hi JM Masala Export Desk, I would like to request an Export Commercial Quotation:\n\n- Product: ${selectedSpice}\n- Volume / Container: ${selectedVolume}\n- Incoterm: ${selectedIncoterm}\n- Destination Port: ${destPort || "To Be Advised"}\n- Company: ${companyName || "N/A"}\n- Email: ${buyerEmail || "N/A"}\n- Notes: ${additionalNotes || "Please share latest CIF pricing, container specifications, and crop calendar."}`;
-    window.open(buildWhatsAppUrl(text), "_blank");
-  };
 
   const schema = [
     {
@@ -371,22 +356,22 @@ const ExportOperationsPage = () => {
         {/* ══════════════════════════════════════════════════════════════════
             1. HERO SECTION
         ══════════════════════════════════════════════════════════════════ */}
-        <section className="relative overflow-hidden bg-gradient-to-b from-[#142314] via-[var(--brand-forest)] to-[var(--brand-deep-green)] text-white pt-16 pb-20 md:pt-24 md:pb-28">
+        <section className="relative overflow-hidden bg-gradient-to-b from-[var(--brand-deep-green)] to-[var(--brand-forest)] text-white jm-section">
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#c9a84c_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
 
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative jm-container">
             <div className="max-w-4xl mx-auto text-center space-y-5">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-semibold uppercase tracking-wider text-[var(--brand-gold-light)] backdrop-blur-sm">
                 <Ship className="h-4 w-4" />
                 <span>Global B2B Supply Chain &amp; Logistics</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white jm-display leading-tight">
+              <h1 className="text-white">
                 Indian Spices. Processed at Origin. <br className="hidden sm:inline" />
                 <span className="text-[var(--brand-gold-light)]">Exported Worldwide via Mundra Port.</span>
               </h1>
 
-              <p className="text-base sm:text-lg text-gray-200 leading-relaxed max-w-3xl mx-auto font-normal">
+              <p className="text-base sm:text-lg text-[var(--brand-cream)] leading-relaxed max-w-3xl mx-auto font-normal">
                 <strong className="text-white font-semibold">{COMPANY.legalName}</strong> supplies international spice importers, industrial blenders, food manufacturers, and private-label distributors across 20+ countries. Sourced at APMC Unjha, Sortex cleaned, container-packed, and cleared through Gujarat&apos;s deepwater maritime gateways.
               </p>
 
@@ -395,22 +380,22 @@ const ExportOperationsPage = () => {
                 <div className="p-4 rounded-xl bg-white/10 border border-white/10 backdrop-blur-sm">
                   <div className="text-xs text-[var(--brand-gold-light)] uppercase tracking-wider font-semibold">Primary Gateway</div>
                   <div className="text-lg font-bold text-white mt-1">Mundra Port</div>
-                  <div className="text-[11px] text-gray-300 mt-0.5">320 km direct transit from plant</div>
+                  <div className="text-[11px] text-[var(--brand-cream)] mt-0.5">320 km direct transit from plant</div>
                 </div>
                 <div className="p-4 rounded-xl bg-white/10 border border-white/10 backdrop-blur-sm">
                   <div className="text-xs text-[var(--brand-gold-light)] uppercase tracking-wider font-semibold">Fast Sea Transit</div>
                   <div className="text-lg font-bold text-white mt-1">3 – 5 Days</div>
-                  <div className="text-[11px] text-gray-300 mt-0.5">Direct feeder sailings to GCC</div>
+                  <div className="text-[11px] text-[var(--brand-cream)] mt-0.5">Direct feeder sailings to GCC</div>
                 </div>
                 <div className="p-4 rounded-xl bg-white/10 border border-white/10 backdrop-blur-sm">
                   <div className="text-xs text-[var(--brand-gold-light)] uppercase tracking-wider font-semibold">Documentation</div>
                   <div className="text-lg font-bold text-white mt-1">100% Compliant</div>
-                  <div className="text-[11px] text-gray-300 mt-0.5">Phyto, NABL COA, COO, Spices Board</div>
+                  <div className="text-[11px] text-[var(--brand-cream)] mt-0.5">Phyto, NABL COA, COO, Spices Board</div>
                 </div>
                 <div className="p-4 rounded-xl bg-white/10 border border-white/10 backdrop-blur-sm">
                   <div className="text-xs text-[var(--brand-gold-light)] uppercase tracking-wider font-semibold">Incoterms</div>
                   <div className="text-lg font-bold text-white mt-1">FOB / CIF / CFR</div>
-                  <div className="text-[11px] text-gray-300 mt-0.5">L/C at Sight &amp; CAD Supported</div>
+                  <div className="text-[11px] text-[var(--brand-cream)] mt-0.5">L/C at Sight &amp; CAD Supported</div>
                 </div>
               </div>
 
@@ -418,14 +403,14 @@ const ExportOperationsPage = () => {
               <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
                 <a
                   href="#export-rfq"
-                  className="px-7 py-3 rounded-xl bg-[var(--brand-gold)] hover:bg-[var(--brand-gold-light)] text-[var(--brand-charcoal)] font-bold text-sm shadow-md transition-all flex items-center gap-2"
+                  className="jm-btn jm-btn--primary flex items-center gap-2"
                 >
                   <span>Request CIF Export Quotation</span>
                   <ArrowRight className="h-4 w-4" />
                 </a>
                 <a
                   href="#container-specs"
-                  className="px-7 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 transition-all"
+                  className="jm-btn jm-btn--ghost"
                 >
                   View Container Capacities
                 </a>
@@ -437,14 +422,14 @@ const ExportOperationsPage = () => {
         {/* ══════════════════════════════════════════════════════════════════
             2. PRIMARY SEAPORTS & LOGISTICS CORRIDOR
         ══════════════════════════════════════════════════════════════════ */}
-        <section className="py-16 md:py-20 bg-white border-b border-[rgba(201,168,76,0.25)]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="border-b border-[rgba(201,168,76,0.25)] jm-section jm-section--white">
+          <div className="jm-container">
             <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
+              <div className="jm-section-label inline-flex items-center gap-2">
                 <Anchor className="h-4 w-4" />
                 <span>Maritime Port Infrastructure</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display">
+              <h2 className="jm-section-heading">
                 Strategic Gateway to Global Trade
               </h2>
               <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
@@ -458,9 +443,9 @@ const ExportOperationsPage = () => {
                 <button
                   key={port.name}
                   onClick={() => setActivePortTab(idx)}
-                  className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                  className={`min-h-[44px] px-4 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                     activePortTab === idx
-                      ? "bg-[var(--brand-forest)] text-white shadow-sm"
+                      ? "bg-[var(--brand-forest)] text-white"
                       : "bg-[var(--brand-cream)] text-[var(--brand-charcoal)] hover:bg-[var(--brand-gold-pale)]"
                   }`}
                 >
@@ -473,19 +458,19 @@ const ExportOperationsPage = () => {
             {(() => {
               const p = EXPORT_PORTS[activePortTab];
               return (
-                <div className="bg-[var(--brand-cream)]/50 rounded-2xl border border-[rgba(201,168,76,0.3)] p-6 sm:p-8 lg:p-10 shadow-sm">
+                <div className="jm-surface-card p-6 sm:p-8 lg:p-10">
                   <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-[rgba(201,168,76,0.25)]">
                     <div>
-                      <div className="inline-flex items-center gap-2 text-xs font-bold text-[var(--brand-gold)] uppercase tracking-wider mb-1">
+                      <div className="jm-section-label inline-flex items-center gap-2">
                         <MapPin className="h-4 w-4" />
                         <span>{p.state} • {p.role}</span>
                       </div>
-                      <h3 className="text-2xl sm:text-3xl font-bold text-[var(--brand-charcoal)] jm-display">{p.name}</h3>
-                      <p className="text-xs sm:text-sm text-gray-600 mt-1">{p.distance} • {p.highlight}</p>
+                      <h3 className="text-xl font-bold text-[var(--brand-charcoal)]">{p.name}</h3>
+                      <p className="text-xs sm:text-sm text-[var(--brand-forest)] mt-1">{p.distance} • {p.highlight}</p>
                     </div>
                     <div className="shrink-0">
-                      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-[rgba(201,168,76,0.3)] text-xs font-bold text-[var(--brand-forest)] shadow-xs">
-                        <Ship className="h-4 w-4 text-[var(--brand-gold)]" />
+                      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-[rgba(201,168,76,0.3)] text-xs font-bold text-[var(--brand-forest)]">
+                        <Ship className="h-4 w-4 text-[var(--brand-gold-text)]" />
                         <span>Weekly Scheduled Container Sailings</span>
                       </span>
                     </div>
@@ -497,9 +482,9 @@ const ExportOperationsPage = () => {
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                       {p.transitTimes.map((t) => (
-                        <div key={t.destination} className="p-3.5 rounded-xl bg-white border border-gray-100 shadow-xs flex items-center justify-between">
+                        <div key={t.destination} className="p-3.5 rounded-xl bg-white border border-[var(--brand-gold-pale)] flex items-center justify-between">
                           <div className="text-xs font-semibold text-[var(--brand-charcoal)] pr-2">{t.destination}</div>
-                          <span className="text-xs font-bold text-[var(--brand-gold)] font-mono shrink-0">{t.days}</span>
+                          <span className="text-xs font-bold text-[var(--brand-gold-text)] font-mono shrink-0">{t.days}</span>
                         </div>
                       ))}
                     </div>
@@ -513,14 +498,14 @@ const ExportOperationsPage = () => {
         {/* ══════════════════════════════════════════════════════════════════
             3. CONTAINER SPECIFICATIONS & LOADING CAPACITY MATRIX
         ══════════════════════════════════════════════════════════════════ */}
-        <section id="container-specs" className="py-16 md:py-20 bg-[var(--brand-cream)] border-b border-[rgba(201,168,76,0.25)]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="container-specs" className="border-b border-[rgba(201,168,76,0.25)] jm-section jm-section--cream">
+          <div className="jm-container">
             <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
+              <div className="jm-section-label inline-flex items-center gap-2">
                 <Scale className="h-4 w-4" />
                 <span>Payload &amp; Stowage Calculation</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display">
+              <h2 className="jm-section-heading">
                 Container Loading &amp; FCL Capacities
               </h2>
               <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
@@ -528,7 +513,7 @@ const ExportOperationsPage = () => {
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl border border-[rgba(201,168,76,0.3)] shadow-sm overflow-hidden">
+            <div className="jm-surface-card overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse text-xs sm:text-sm">
                   <thead>
@@ -541,25 +526,25 @@ const ExportOperationsPage = () => {
                       <th className="py-4 px-5 font-bold">Export Grades Available</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-100">
+                  <tbody className="divide-y divide-[var(--brand-gold-pale)]">
                     {CONTAINER_SPECS.map((item, idx) => (
-                      <tr key={idx} className="hover:bg-[var(--brand-cream)]/40 transition-colors">
+                      <tr key={idx} className="hover:bg-[var(--brand-cream)] transition-colors">
                         <td className="py-3.5 px-5 font-bold text-[var(--brand-charcoal)]">
                           {item.spice}
                         </td>
-                        <td className="py-3.5 px-5 text-gray-600">
+                        <td className="py-3.5 px-5 text-[var(--brand-forest)]">
                           {item.bagType}
                         </td>
                         <td className="py-3.5 px-5 font-mono font-bold text-[var(--brand-forest)]">
                           {item.fcl20}
                         </td>
-                        <td className="py-3.5 px-5 font-mono font-medium text-gray-700">
+                        <td className="py-3.5 px-5 font-mono font-medium text-[var(--brand-forest)]">
                           {item.fcl40}
                         </td>
-                        <td className="py-3.5 px-5 font-mono text-[var(--brand-gold)] font-semibold">
+                        <td className="py-3.5 px-5 font-mono text-[var(--brand-gold-text)] font-semibold">
                           {item.moistureTarget}
                         </td>
-                        <td className="py-3.5 px-5 text-xs text-gray-600">
+                        <td className="py-3.5 px-5 text-xs text-[var(--brand-forest)]">
                           {item.purityGrades}
                         </td>
                       </tr>
@@ -567,7 +552,7 @@ const ExportOperationsPage = () => {
                   </tbody>
                 </table>
               </div>
-              <div className="p-4 bg-[var(--brand-warm-white)] border-t border-gray-100 text-[11px] text-gray-500 flex flex-col sm:flex-row items-center justify-between gap-2">
+              <div className="p-4 bg-[var(--brand-warm-white)] border-t border-[var(--brand-gold-pale)] text-[11px] text-[var(--brand-forest)] flex flex-col sm:flex-row items-center justify-between gap-2">
                 <span>* Capacities represent loose floor-loaded cargo. Palletized loading (ISPM-15 heat treated wooden pallets) reduces net cargo payload by ~15-20% due to pallet tare and vertical headspace constraints.</span>
                 <span className="font-semibold text-[var(--brand-forest)]">Mixed containers available upon request.</span>
               </div>
@@ -578,14 +563,14 @@ const ExportOperationsPage = () => {
         {/* ══════════════════════════════════════════════════════════════════
             4. TARGET EXPORT MARKETS & REGIONAL COMPLIANCE
         ══════════════════════════════════════════════════════════════════ */}
-        <section className="py-16 md:py-20 bg-white border-b border-[rgba(201,168,76,0.25)]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="border-b border-[rgba(201,168,76,0.25)] jm-section jm-section--white">
+          <div className="jm-container">
             <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
+              <div className="jm-section-label inline-flex items-center gap-2">
                 <Globe2 className="h-4 w-4" />
                 <span>International Regulatory Standards</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display">
+              <h2 className="jm-section-heading">
                 Supplying Key Global Spice Markets
               </h2>
               <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
@@ -597,20 +582,20 @@ const ExportOperationsPage = () => {
               {TARGET_MARKETS.map((m) => (
                 <div
                   key={m.region}
-                  className="p-6 sm:p-8 rounded-2xl bg-[var(--brand-cream)]/40 border border-[rgba(201,168,76,0.25)] hover:border-[var(--brand-gold)] transition-all shadow-xs"
+                  className="jm-surface-card p-6 sm:p-8 hover:border-[var(--brand-gold)] transition-all"
                 >
                   <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-[rgba(201,168,76,0.2)]">
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-[var(--brand-charcoal)] jm-display">
+                      <h3 className="text-xl font-bold text-[var(--brand-charcoal)]">
                         {m.region}
                       </h3>
-                      <p className="text-xs text-[var(--brand-gold)] font-medium mt-0.5">
+                      <p className="text-xs text-[var(--brand-gold-text)] font-medium mt-0.5">
                         {m.countries}
                       </p>
                     </div>
                     <div className="flex items-center gap-2 shrink-0">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-gray-200 text-xs font-semibold text-[var(--brand-forest)] shadow-2xs">
-                        <Clock className="h-3.5 w-3.5 text-[var(--brand-gold)]" />
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[var(--brand-gold-pale)] text-xs font-semibold text-[var(--brand-forest)]">
+                        <Clock className="h-3.5 w-3.5 text-[var(--brand-gold-text)]" />
                         <span>{m.leadTime}</span>
                       </span>
                     </div>
@@ -619,26 +604,26 @@ const ExportOperationsPage = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 text-xs sm:text-sm">
                     <div>
                       <div className="font-bold text-[var(--brand-charcoal)] mb-1">Compliance &amp; Quality Mandates:</div>
-                      <p className="text-gray-600 leading-relaxed">{m.standards}</p>
+                      <p className="text-[var(--brand-forest)] leading-relaxed">{m.standards}</p>
 
                       <div className="font-bold text-[var(--brand-charcoal)] mt-3 mb-1">Operational Advantage:</div>
-                      <p className="text-gray-600 leading-relaxed">{m.notes}</p>
+                      <p className="text-[var(--brand-forest)] leading-relaxed">{m.notes}</p>
                     </div>
 
-                    <div className="bg-white p-4 rounded-xl border border-gray-100 flex flex-col justify-between">
+                    <div className="bg-white p-4 rounded-xl border border-[var(--brand-gold-pale)] flex flex-col justify-between">
                       <div>
-                        <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--brand-gold)] mb-1">
+                        <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--brand-gold-text)] mb-1">
                           Core Export Products for this Region
                         </div>
                         <p className="font-medium text-[var(--brand-forest)] leading-relaxed">
                           {m.popularProducts}
                         </p>
                       </div>
-                      <div className="pt-3 mt-3 border-t border-gray-100 flex items-center justify-between">
-                        <span className="text-[11px] text-gray-500">Destination Quotation</span>
+                      <div className="pt-3 mt-3 border-t border-[var(--brand-gold-pale)] flex items-center justify-between">
+                        <span className="text-[11px] text-[var(--brand-forest)]">Destination Quotation</span>
                         <a
                           href="#export-rfq"
-                          className="text-xs font-bold text-[var(--brand-forest)] hover:text-[var(--brand-gold)] inline-flex items-center gap-1"
+                          className="text-xs font-bold text-[var(--brand-forest)] hover:text-[var(--brand-gold-text)] inline-flex items-center gap-1"
                         >
                           <span>Get CIF Rate</span>
                           <ArrowRight className="h-3.5 w-3.5" />
@@ -655,14 +640,14 @@ const ExportOperationsPage = () => {
         {/* ══════════════════════════════════════════════════════════════════
             5. THE COMPLETE EXPORT DOCUMENTATION PACKAGE
         ══════════════════════════════════════════════════════════════════ */}
-        <section className="py-16 md:py-20 bg-gradient-to-b from-[var(--brand-cream)] to-[var(--brand-warm-white)] border-b border-[rgba(201,168,76,0.25)]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="bg-gradient-to-b from-[var(--brand-cream)] to-[var(--brand-warm-white)] border-b border-[rgba(201,168,76,0.25)] jm-section">
+          <div className="jm-container">
             <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
+              <div className="jm-section-label inline-flex items-center gap-2">
                 <FileCheck className="h-4 w-4" />
                 <span>Statutory &amp; Trade Clearance</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display">
+              <h2 className="jm-section-heading">
                 The Complete Export Documentation Package
               </h2>
               <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
@@ -674,24 +659,24 @@ const ExportOperationsPage = () => {
               {EXPORT_DOCUMENTS.map((doc) => (
                 <div
                   key={doc.id}
-                  className="bg-white p-5 rounded-2xl border border-[rgba(201,168,76,0.25)] shadow-xs hover:border-[var(--brand-gold)] transition-colors flex flex-col justify-between"
+                  className="jm-surface-card p-5 hover:border-[var(--brand-gold)] transition-colors flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-9 h-9 rounded-xl bg-[var(--brand-cream)] text-[var(--brand-gold)] flex items-center justify-center mb-3">
+                    <div className="w-9 h-9 rounded-xl bg-[var(--brand-cream)] text-[var(--brand-gold-text)] flex items-center justify-center mb-3">
                       <FileText className="h-5 w-5" />
                     </div>
-                    <h3 className="text-base font-bold text-[var(--brand-charcoal)] jm-display">
+                    <h3 className="text-base font-bold text-[var(--brand-charcoal)]">
                       {doc.name}
                     </h3>
                     <div className="text-[10px] text-[var(--brand-forest)] font-semibold mt-1">
                       Issued by: {doc.issuer}
                     </div>
-                    <p className="text-xs text-gray-600 mt-2 leading-relaxed">
+                    <p className="text-xs text-[var(--brand-forest)] mt-2 leading-relaxed">
                       {doc.purpose}
                     </p>
                   </div>
-                  <div className="mt-4 pt-3 border-t border-gray-100 flex items-center gap-1 text-[11px] font-bold text-[var(--brand-forest)]">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-[var(--brand-gold)]" />
+                  <div className="mt-4 pt-3 border-t border-[var(--brand-gold-pale)] flex items-center gap-1 text-[11px] font-bold text-[var(--brand-forest)]">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-[var(--brand-gold-text)]" />
                     <span>Included in Shipping Set</span>
                   </div>
                 </div>
@@ -703,15 +688,15 @@ const ExportOperationsPage = () => {
         {/* ══════════════════════════════════════════════════════════════════
             6. PACKAGING & TRANSIT PRESERVATION PROTOCOLS
         ══════════════════════════════════════════════════════════════════ */}
-        <section className="py-16 md:py-20 bg-white border-b border-[rgba(201,168,76,0.25)]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="border-b border-[rgba(201,168,76,0.25)] jm-section jm-section--white">
+          <div className="jm-container">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
               <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
+                <div className="jm-section-label inline-flex items-center gap-2">
                   <Package className="h-4 w-4" />
                   <span>Sea Freight Protection</span>
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display">
+                <h2 className="jm-section-heading">
                   Moisture, Mold &amp; Infestation Barrier
                 </h2>
                 <p className="text-sm text-[var(--brand-forest)] leading-relaxed">
@@ -720,42 +705,42 @@ const ExportOperationsPage = () => {
 
                 <div className="space-y-3 pt-2">
                   <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-[var(--brand-cream)] text-[var(--brand-gold)] flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-5 h-5 rounded-full bg-[var(--brand-cream)] text-[var(--brand-gold-text)] flex items-center justify-center shrink-0 mt-0.5">
                       <Check className="h-3 w-3" />
                     </div>
                     <div>
                       <strong className="text-xs font-bold text-[var(--brand-charcoal)]">Polyethylene Inner Barrier Liners:</strong>
-                      <span className="text-xs text-gray-600 block">Food-grade virgin PE film inserted into woven polypropylene or multi-wall paper bags acts as a sealed moisture vapor barrier.</span>
+                      <span className="text-xs text-[var(--brand-forest)] block">Food-grade virgin PE film inserted into woven polypropylene or multi-wall paper bags acts as a sealed moisture vapor barrier.</span>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-[var(--brand-cream)] text-[var(--brand-gold)] flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-5 h-5 rounded-full bg-[var(--brand-cream)] text-[var(--brand-gold-text)] flex items-center justify-center shrink-0 mt-0.5">
                       <Check className="h-3 w-3" />
                     </div>
                     <div>
                       <strong className="text-xs font-bold text-[var(--brand-charcoal)]">5-Sided Heavy Kraft Container Lining:</strong>
-                      <span className="text-xs text-gray-600 block">The interior floor, walls, and ceiling of the ocean container are lined with absorbent kraft paper to shield goods from steel rust and thermal radiating heat.</span>
+                      <span className="text-xs text-[var(--brand-forest)] block">The interior floor, walls, and ceiling of the ocean container are lined with absorbent kraft paper to shield goods from steel rust and thermal radiating heat.</span>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-[var(--brand-cream)] text-[var(--brand-gold)] flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-5 h-5 rounded-full bg-[var(--brand-cream)] text-[var(--brand-gold-text)] flex items-center justify-center shrink-0 mt-0.5">
                       <Check className="h-3 w-3" />
                     </div>
                     <div>
                       <strong className="text-xs font-bold text-[var(--brand-charcoal)]">High-Absorption Desiccant Poles:</strong>
-                      <span className="text-xs text-gray-600 block">Calcium chloride dry-gel desiccant bags (holding up to 300% of their dry weight in water) are hung in container wall corrugations to eliminate atmospheric dew point risk.</span>
+                      <span className="text-xs text-[var(--brand-forest)] block">Calcium chloride dry-gel desiccant bags (holding up to 300% of their dry weight in water) are hung in container wall corrugations to eliminate atmospheric dew point risk.</span>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-[var(--brand-cream)] text-[var(--brand-gold)] flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-5 h-5 rounded-full bg-[var(--brand-cream)] text-[var(--brand-gold-text)] flex items-center justify-center shrink-0 mt-0.5">
                       <Check className="h-3 w-3" />
                     </div>
                     <div>
                       <strong className="text-xs font-bold text-[var(--brand-charcoal)]">Custom Buyer Labeling &amp; Barcoding:</strong>
-                      <span className="text-xs text-gray-600 block">Export bag markings include bilingual English/Arabic/Spanish product names, crop year, batch number, production/expiry dates, net weight, and custom GS1 barcodes.</span>
+                      <span className="text-xs text-[var(--brand-forest)] block">Export bag markings include bilingual English/Arabic/Spanish product names, crop year, batch number, production/expiry dates, net weight, and custom GS1 barcodes.</span>
                     </div>
                   </div>
                 </div>
@@ -763,38 +748,38 @@ const ExportOperationsPage = () => {
 
               {/* Incoterms & Payment Matrix */}
               <div className="space-y-6">
-                <div className="bg-[var(--brand-cream)]/60 rounded-2xl border border-[rgba(201,168,76,0.3)] p-6 shadow-xs">
-                  <h3 className="text-lg font-bold text-[var(--brand-charcoal)] jm-display mb-3">
+                <div className="jm-surface-card p-6">
+                  <h3 className="text-base font-bold text-[var(--brand-charcoal)] mb-3">
                     Commercial Incoterms Framework
                   </h3>
                   <div className="space-y-3">
                     {INCOTERMS_LIST.map((inc) => (
-                      <div key={inc.code} className="p-3 bg-white rounded-xl border border-gray-100">
+                      <div key={inc.code} className="p-3 bg-white rounded-xl border border-[var(--brand-gold-pale)]">
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-bold text-[var(--brand-forest)] font-mono">{inc.code}</span>
-                          <span className="text-[10px] text-gray-500 italic">{inc.bestFor}</span>
+                          <span className="text-[10px] text-[var(--brand-forest)] italic">{inc.bestFor}</span>
                         </div>
                         <div className="text-xs font-semibold text-[var(--brand-charcoal)] mt-0.5">{inc.title}</div>
-                        <p className="text-[11px] text-gray-600 mt-1 leading-snug">{inc.desc}</p>
+                        <p className="text-[11px] text-[var(--brand-forest)] mt-1 leading-snug">{inc.desc}</p>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="bg-white rounded-2xl border border-[rgba(201,168,76,0.3)] p-6 shadow-xs">
-                  <h3 className="text-lg font-bold text-[var(--brand-charcoal)] jm-display mb-3">
+                <div className="jm-surface-card p-6">
+                  <h3 className="text-base font-bold text-[var(--brand-charcoal)] mb-3">
                     Accepted International Payment Terms
                   </h3>
                   <div className="space-y-2.5">
                     {PAYMENT_TERMS_LIST.map((pay) => (
-                      <div key={pay.method} className="p-3 rounded-xl bg-[var(--brand-cream)]/30 border border-gray-100">
+                      <div key={pay.method} className="p-3 rounded-xl bg-[var(--brand-cream)] border border-[var(--brand-gold-pale)]">
                         <div className="flex items-center justify-between">
                           <div className="text-xs font-bold text-[var(--brand-charcoal)]">{pay.method}</div>
-                          <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--brand-gold)]/15 text-[var(--brand-charcoal)] font-bold uppercase">
+                          <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--brand-gold-pale)] text-[var(--brand-charcoal)] font-bold uppercase">
                             {pay.security.split(" ")[0]}
                           </span>
                         </div>
-                        <p className="text-[11px] text-gray-600 mt-1">{pay.desc}</p>
+                        <p className="text-[11px] text-[var(--brand-forest)] mt-1">{pay.desc}</p>
                       </div>
                     ))}
                   </div>
@@ -807,165 +792,39 @@ const ExportOperationsPage = () => {
         {/* ══════════════════════════════════════════════════════════════════
             7. INTERACTIVE EXPORT RFQ & CIF QUOTATION FORM
         ══════════════════════════════════════════════════════════════════ */}
-        <section id="export-rfq" className="py-16 md:py-24 bg-[var(--brand-forest)] text-white relative">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative jm-section jm-section--primary">
+          <div className="jm-container"><div className="mx-auto max-w-5xl">
             <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold-light)]">
+              <div className="jm-section-label jm-section-label--on-dark inline-flex items-center gap-2">
                 <Truck className="h-4 w-4" />
                 <span>Commercial Desk Direct Inquiry</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white jm-display">
-                Request an Export CIF / FOB Quotation
-              </h2>
-              <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
-                Connect with our international trade desk. Receive current APMC Unjha mandi market price levels, freight rates to your destination port, and crop availability.
-              </p>
             </div>
-
-            <div className="bg-white text-[var(--brand-charcoal)] rounded-3xl p-6 sm:p-10 shadow-2xl border border-[rgba(201,168,76,0.3)]">
-              <form onSubmit={handleExportRfqSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[var(--brand-charcoal)] mb-1.5">
-                      Select Spice Product *
-                    </label>
-                    <select
-                      value={selectedSpice}
-                      onChange={(e) => setSelectedSpice(e.target.value)}
-                      className="w-full rounded-xl border border-gray-300 bg-[var(--brand-warm-white)] px-3.5 py-2.5 text-xs sm:text-sm font-medium focus:border-[var(--brand-gold)] focus:outline-none"
-                    >
-                      <option value="Cumin Seeds (Jeera) - Sortex 99.5%">Cumin Seeds (Jeera) - Sortex 99.5%</option>
-                      <option value="Coriander Seeds (Dhania) - Eagle / Scooter">Coriander Seeds (Dhania) - Eagle / Scooter</option>
-                      <option value="Fennel Seeds (Saunf) - Bold Green">Fennel Seeds (Saunf) - Bold Green</option>
-                      <option value="Fenugreek Seeds (Methi) - Machine Cleaned 99%">Fenugreek Seeds (Methi) - Machine Cleaned 99%</option>
-                      <option value="Ajwain Seeds (Carom) - Super Green Sortex">Ajwain Seeds (Carom) - Super Green Sortex</option>
-                      <option value="Turmeric Whole / Fingers (Salem/Lakadong)">Turmeric Whole / Fingers (Salem/Lakadong)</option>
-                      <option value="Red Chilli Whole / Flakes (Sanam / Teja)">Red Chilli Whole / Flakes (Sanam / Teja)</option>
-                      <option value="Psyllium Husk 98% / 99% Purity">Psyllium Husk 98% / 99% Purity</option>
-                      <option value="Ground Spice Powders (Cold Milled)">Ground Spice Powders (Cold Milled)</option>
-                      <option value="Cold Pressed Virgin Edible Oils">Cold Pressed Virgin Edible Oils</option>
-                      <option value="Mixed Spice Container Load">Mixed Spice Container Load</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[var(--brand-charcoal)] mb-1.5">
-                      Container Volume *
-                    </label>
-                    <select
-                      value={selectedVolume}
-                      onChange={(e) => setSelectedVolume(e.target.value)}
-                      className="w-full rounded-xl border border-gray-300 bg-[var(--brand-warm-white)] px-3.5 py-2.5 text-xs sm:text-sm font-medium focus:border-[var(--brand-gold)] focus:outline-none"
-                    >
-                      <option value="1x 20ft FCL (~13 - 15 MT)">1x 20ft FCL (~13 - 15 MT)</option>
-                      <option value="2x 20ft FCL (~28 MT)">2x 20ft FCL (~28 MT)</option>
-                      <option value="1x 40ft High Cube (~24 - 26 MT)">1x 40ft High Cube (~24 - 26 MT)</option>
-                      <option value="Multi-Container Annual Supply Contract">Multi-Container Annual Supply Contract</option>
-                      <option value="Pre-Order Lab Sample Dispatch (250g - 1kg)">Pre-Order Lab Sample Dispatch (250g - 1kg)</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[var(--brand-charcoal)] mb-1.5">
-                      Desired Incoterm *
-                    </label>
-                    <select
-                      value={selectedIncoterm}
-                      onChange={(e) => setSelectedIncoterm(e.target.value)}
-                      className="w-full rounded-xl border border-gray-300 bg-[var(--brand-warm-white)] px-3.5 py-2.5 text-xs sm:text-sm font-medium focus:border-[var(--brand-gold)] focus:outline-none"
-                    >
-                      <option value="CIF Destination Port (Freight & Insurance Included)">CIF Destination Port (Turnkey)</option>
-                      <option value="CFR Destination Port (Cost & Freight)">CFR Destination Port</option>
-                      <option value="FOB Mundra Port (Free On Board)">FOB Mundra Port</option>
-                      <option value="FOB Kandla Port">FOB Kandla Port</option>
-                      <option value="CIP Airport (Air Cargo Express)">CIP Airport (Air Cargo Express)</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[var(--brand-charcoal)] mb-1.5">
-                      Destination Seaport &amp; Country *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Jebel Ali (UAE) or Rotterdam (NL)"
-                      value={destPort}
-                      onChange={(e) => setDestPort(e.target.value)}
-                      className="w-full rounded-xl border border-gray-300 bg-[var(--brand-warm-white)] px-3.5 py-2.5 text-xs sm:text-sm focus:border-[var(--brand-gold)] focus:outline-none"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[var(--brand-charcoal)] mb-1.5">
-                      Company / Organization *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Al Madina Food Distribution Ltd"
-                      value={companyName}
-                      onChange={(e) => setCompanyName(e.target.value)}
-                      className="w-full rounded-xl border border-gray-300 bg-[var(--brand-warm-white)] px-3.5 py-2.5 text-xs sm:text-sm focus:border-[var(--brand-gold)] focus:outline-none"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[var(--brand-charcoal)] mb-1.5">
-                      Corporate Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="buyer@company.com"
-                      value={buyerEmail}
-                      onChange={(e) => setBuyerEmail(e.target.value)}
-                      className="w-full rounded-xl border border-gray-300 bg-[var(--brand-warm-white)] px-3.5 py-2.5 text-xs sm:text-sm focus:border-[var(--brand-gold)] focus:outline-none"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[var(--brand-charcoal)] mb-1.5">
-                    Specific Quality Parameters &amp; Packing Requirements
-                  </label>
-                  <textarea
-                    rows={3}
-                    placeholder="Specify purity grade (e.g. Europe 99.5% Sortex, Singapore 99%), bag format (25kg PP, Jute, Retail Pouch), target shipment month, or lab COA requirements..."
-                    value={additionalNotes}
-                    onChange={(e) => setAdditionalNotes(e.target.value)}
-                    className="w-full rounded-xl border border-gray-300 bg-[var(--brand-warm-white)] px-3.5 py-2.5 text-xs sm:text-sm focus:border-[var(--brand-gold)] focus:outline-none"
-                  />
-                </div>
-
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2 border-t border-gray-100">
-                  <div className="text-xs text-gray-500">
-                    Direct WhatsApp &amp; Email connection with our Export Director in Unjha, Gujarat.
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[var(--brand-gold)] hover:bg-[var(--brand-gold-light)] text-[var(--brand-charcoal)] font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 shrink-0 cursor-pointer"
-                  >
-                    <Send className="h-4 w-4" />
-                    <span>Send Export Inquiry via WhatsApp</span>
-                  </button>
-                </div>
-              </form>
+            <div className="jm-surface-card text-[var(--brand-charcoal)] p-6 sm:p-10">
+              <QuotationForm
+                id="export-rfq"
+                sourcePage="export-destinations"
+                heading="Request an Export CIF / FOB Quotation"
+                introText="Connect with our international trade desk. Please mention your preferred Incoterm (for example CIF, CFR or FOB), destination port and country, container volume and any quality or packing requirements in the message."
+                messageIntro="Hello JM Masala Export Desk, I would like to request an export quotation."
+                submitLabel="Request export quotation"
+                emailSubjectPrefix="Export quotation request"
+              />
             </div>
-          </div>
+          </div></div>
         </section>
 
         {/* ══════════════════════════════════════════════════════════════════
             8. EXPORT FREQUENTLY ASKED QUESTIONS
         ══════════════════════════════════════════════════════════════════ */}
-        <section className="py-16 md:py-20 bg-white border-b border-[rgba(201,168,76,0.25)]">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="border-b border-[rgba(201,168,76,0.25)] jm-section jm-section--white">
+          <div className="jm-container"><div className="mx-auto max-w-4xl">
             <div className="text-center mb-12 space-y-3">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
+              <div className="jm-section-label inline-flex items-center gap-2">
                 <HelpCircle className="h-4 w-4" />
                 <span>Buyer Knowledge Base</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display">
+              <h2 className="jm-section-heading">
                 Frequently Asked Questions on Export Operations
               </h2>
             </div>
@@ -976,20 +835,20 @@ const ExportOperationsPage = () => {
                 return (
                   <div
                     key={idx}
-                    className="border border-[rgba(201,168,76,0.25)] rounded-2xl overflow-hidden bg-[var(--brand-warm-white)] transition-colors"
+                    className="border border-[rgba(201,168,76,0.25)] rounded-xl overflow-hidden bg-[var(--brand-warm-white)] transition-colors"
                   >
                     <button
                       type="button"
                       onClick={() => setOpenFaq(isOpen ? null : idx)}
-                      className="w-full text-left px-6 py-4 flex items-center justify-between gap-4 font-bold text-[var(--brand-charcoal)] hover:text-[var(--brand-gold)] transition-colors"
+                      className="w-full min-h-[44px] text-left px-6 py-3 flex items-center justify-between gap-4 font-bold text-[var(--brand-charcoal)] hover:text-[var(--brand-gold-text)] transition-colors"
                     >
                       <span className="text-sm sm:text-base">{faq.q}</span>
-                      <span className="text-lg font-mono text-[var(--brand-gold)] shrink-0">
+                      <span className="text-lg font-mono text-[var(--brand-gold-text)] shrink-0">
                         {isOpen ? "−" : "+"}
                       </span>
                     </button>
                     {isOpen && (
-                      <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100">
+                      <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-[var(--brand-forest)] leading-relaxed border-t border-[var(--brand-gold-pale)]">
                         {faq.a}
                       </div>
                     )}
@@ -998,7 +857,7 @@ const ExportOperationsPage = () => {
               })}
             </div>
 
-            <p className="mt-10 text-sm text-gray-600 leading-relaxed text-center">
+            <p className="mt-10 text-sm text-[var(--brand-forest)] leading-relaxed text-center">
               Seed spices for export:{" "}
               <Link to="/cumin-seeds-exporter-india" className="underline">cumin seeds (jeera) exporter</Link>,{" "}
               <Link to="/coriander-seeds-exporter-india" className="underline">coriander seeds (dhania) exporter</Link>,{" "}
@@ -1015,13 +874,13 @@ const ExportOperationsPage = () => {
             <div className="text-center mt-12">
               <Link
                 to="/products"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--brand-forest)] text-white hover:bg-[var(--brand-deep-green)] font-bold text-xs sm:text-sm shadow-sm transition-all"
+                className="jm-btn jm-btn--secondary inline-flex items-center gap-2"
               >
                 <span>Browse Full Product Portfolio</span>
                 <ArrowRight className="h-4 w-4 text-[var(--brand-gold-light)]" />
               </Link>
             </div>
-          </div>
+          </div></div>
         </section>
 
       </div>

@@ -2,8 +2,8 @@
   scroll-margin-top: 96px;
   background: var(--brand-warm-white, #fdfbf7);
   color: var(--brand-charcoal, #2a2a2a);
-  border: 1px solid rgba(45, 74, 45, 0.18);
-  border-radius: 10px;
+  border: 1px solid #f5e9c8;
+  border-radius: 12px;
   padding: 20px 16px;
 }
 @media (min-width: 640px) {
@@ -34,7 +34,7 @@
   color: var(--brand-charcoal, #2a2a2a);
   background: #fff;
   border: 1px solid var(--brand-sage, #4a6741);
-  border-radius: 6px;
+  border-radius: 8px;
 }
 textarea.jmq-control { min-height: 120px; resize: vertical; }
 .jmq-control[aria-invalid="true"] { border-color: #9b1c1c; border-width: 2px; }
@@ -71,20 +71,23 @@ textarea.jmq-control { min-height: 120px; resize: vertical; }
   align-items: center;
   justify-content: center;
   min-height: 48px;
-  padding: 10px 22px;
+  padding: 14px 32px;
   font: inherit;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   text-decoration: none;
-  border-radius: 6px;
-  border: 2px solid var(--brand-forest, #2d4a2d);
+  border-radius: 4px;
+  border: 2px solid var(--brand-deep-green, #1a2e1a);
   cursor: pointer;
-  background: var(--brand-forest, #2d4a2d);
+  background: var(--brand-deep-green, #1a2e1a);
   color: #fff;
 }
-.jmq-btn:hover { background: var(--brand-deep-green, #1a2e1a); }
+.jmq-btn:hover { background: var(--brand-forest, #2d4a2d); border-color: var(--brand-forest, #2d4a2d); }
 .jmq-btn--gold { background: var(--brand-gold, #c9a84c); border-color: var(--brand-gold, #c9a84c); color: var(--brand-deep-green, #1a2e1a); }
 .jmq-btn--gold:hover { background: var(--brand-gold-light, #e2c97e); }
-.jmq-btn--outline { background: transparent; color: var(--brand-forest, #2d4a2d); }
+.jmq-btn--outline { background: transparent; border-color: var(--brand-forest, #2d4a2d); color: var(--brand-forest, #2d4a2d); }
 .jmq-btn--outline:hover { background: var(--brand-gold-pale, #f5e9c8); }
 .jmq-btn[disabled] { opacity: 0.65; cursor: not-allowed; }
 .jmq-link { color: var(--brand-forest, #2d4a2d); font-weight: 600; text-decoration: underline; }

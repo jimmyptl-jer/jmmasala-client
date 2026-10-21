@@ -138,7 +138,7 @@ const Hero = ({
         <p className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.24)] bg-[rgba(255,255,255,0.1)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-gold-light)]">
           {eyebrow}
         </p>
-        <h1 className="mt-5 max-w-4xl font-[var(--font-display)] text-[40px] leading-tight md:text-[58px]">
+        <h1 className="mt-5 max-w-4xl text-white">
           {title}
         </h1>
         <p className="mt-5 max-w-2xl text-base leading-8 text-[rgba(255,255,255,0.82)]">
@@ -148,7 +148,7 @@ const Hero = ({
           <a href={quoteUrl} target="_blank" rel="noreferrer" className="jm-btn jm-btn--primary">
             Request Export Quote <ArrowRight className="h-4 w-4" />
           </a>
-          <Link to={secondaryPath} className="jm-btn jm-btn--outline border-white text-white hover:bg-white hover:text-[var(--brand-deep-green)]">
+          <Link to={secondaryPath} className="jm-btn jm-btn--ghost">
             {secondaryLabel}
           </Link>
         </div>
@@ -252,7 +252,7 @@ export const SpiceExporterIndiaPage = () => {
                 <div className="inline-flex rounded-md bg-[var(--brand-gold-pale)] p-3 text-[var(--brand-deep-green)]">
                   {item.icon}
                 </div>
-                <h3 className="mt-4 text-xl font-semibold text-[var(--brand-charcoal)]">{item.title}</h3>
+                <h3 className="mt-4 text-xl font-bold text-[var(--brand-charcoal)]">{item.title}</h3>
                 <p className="mt-2 text-sm leading-7 text-[var(--brand-forest)]">{item.text}</p>
               </article>
             ))}
@@ -270,7 +270,7 @@ export const SpiceExporterIndiaPage = () => {
                 <div className="jm-product-card__body">
                   <h3 className="jm-product-card__name">{product.name}</h3>
                   <p className="jm-product-card__description">{product.keySpec}</p>
-                  <Link to={`/${product.slug}`} className="mt-4 inline-flex jm-btn jm-btn--outline text-[13px]">
+                  <Link to={`/${product.slug}`} className="mt-4 inline-flex jm-btn jm-btn--outline">
                     View Specifications
                   </Link>
                 </div>
@@ -369,7 +369,7 @@ export const BestCuminExporterIndiaPage = () => {
           </div>
 
           <aside className="jm-surface-card p-6">
-            <h2 className="text-tagline not-italic text-[28px] text-[var(--brand-charcoal)]">
+            <h2 className="jm-section-heading">
               Cumin Specification Signals
             </h2>
             <div className="mt-4 grid gap-3">
@@ -495,7 +495,7 @@ export const BestCorianderExporterIndiaPage = () => {
           </div>
 
           <aside className="jm-surface-card p-6">
-            <h2 className="text-tagline not-italic text-[28px] text-[var(--brand-charcoal)]">
+            <h2 className="jm-section-heading">
               Coriander Specification Signals
             </h2>
             <div className="mt-4 grid gap-3">
@@ -517,28 +517,28 @@ export const BestCorianderExporterIndiaPage = () => {
           <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             <article className="jm-surface-card p-5">
               <span className="inline-block rounded bg-[var(--brand-gold-pale)] px-2.5 py-1 text-xs font-bold text-[var(--brand-deep-green)]">Top Volume</span>
-              <h3 className="mt-3 text-lg font-bold text-[var(--brand-charcoal)]">Eagle Grade</h3>
+              <h3 className="mt-3 text-base font-bold text-[var(--brand-charcoal)]">Eagle Grade</h3>
               <p className="mt-2 text-sm leading-6 text-[var(--brand-forest)]">
                 Light brownish-yellow whole seeds with high volatile oil retention. The industry benchmark for spice grinders, oleoresin extractors, and curry blends.
               </p>
             </article>
             <article className="jm-surface-card p-5">
               <span className="inline-block rounded bg-[var(--brand-gold-pale)] px-2.5 py-1 text-xs font-bold text-[var(--brand-deep-green)]">Wholesale Choice</span>
-              <h3 className="mt-3 text-lg font-bold text-[var(--brand-charcoal)]">Scooter Grade</h3>
+              <h3 className="mt-3 text-base font-bold text-[var(--brand-charcoal)]">Scooter Grade</h3>
               <p className="mt-2 text-sm leading-6 text-[var(--brand-forest)]">
                 Uniform golden-green bold seeds with calibrated low split ratio (&lt;5%). Ideal for wholesale distribution and consumer packing.
               </p>
             </article>
             <article className="jm-surface-card p-5">
               <span className="inline-block rounded bg-[var(--brand-gold-pale)] px-2.5 py-1 text-xs font-bold text-[var(--brand-deep-green)]">Premium Selection</span>
-              <h3 className="mt-3 text-lg font-bold text-[var(--brand-charcoal)]">Parrot Grade</h3>
+              <h3 className="mt-3 text-base font-bold text-[var(--brand-charcoal)]">Parrot Grade</h3>
               <p className="mt-2 text-sm leading-6 text-[var(--brand-forest)]">
                 Bright green, whole round hand-selected and Sortex-passed coriander seeds for premium supermarket shelves and gourmet retail brands.
               </p>
             </article>
             <article className="jm-surface-card p-5">
               <span className="inline-block rounded bg-[var(--brand-gold-pale)] px-2.5 py-1 text-xs font-bold text-[var(--brand-deep-green)]">Value Grade</span>
-              <h3 className="mt-3 text-lg font-bold text-[var(--brand-charcoal)]">Badami Grade</h3>
+              <h3 className="mt-3 text-base font-bold text-[var(--brand-charcoal)]">Badami Grade</h3>
               <p className="mt-2 text-sm leading-6 text-[var(--brand-forest)]">
                 Naturally sun-cured brownish seeds with distinct citrus notes, widely preferred for industrial food manufacturing and bulk catering supply.
               </p>
@@ -580,7 +580,7 @@ const FaqSection = ({
       <div className="mt-6 grid gap-4 md:grid-cols-3">
         {faqs.map((faq) => (
           <article key={faq.question} className="jm-surface-card p-5">
-            <h3 className="text-lg font-semibold text-[var(--brand-charcoal)]">
+            <h3 className="text-base font-bold text-[var(--brand-charcoal)]">
               {faq.question}
             </h3>
             <p className="mt-2 text-sm leading-7 text-[var(--brand-forest)]">

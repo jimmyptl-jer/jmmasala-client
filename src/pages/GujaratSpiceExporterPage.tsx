@@ -153,7 +153,7 @@ const GujaratSpiceExporterPage = () => {
             <p className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.24)] bg-[rgba(255,255,255,0.1)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-gold-light)]">
               <MapPin className="h-4 w-4" /> Unjha, Gujarat
             </p>
-            <h1 className="mt-5 max-w-4xl font-[var(--font-display)] text-[42px] leading-tight md:text-[58px] text-white">
+            <h1 className="mt-5 max-w-4xl text-white">
               Best Spice Exporter in Gujarat for Origin-Led Bulk Supply
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-8 text-[rgba(255,255,255,0.82)]">
@@ -166,7 +166,7 @@ const GujaratSpiceExporterPage = () => {
               <a href={quoteUrl} target="_blank" rel="noreferrer" className="jm-btn jm-btn--primary">
                 Request Gujarat Spice Quote <ArrowRight className="h-4 w-4" />
               </a>
-              <Link to="/products" className="jm-btn jm-btn--outline border-white text-white hover:bg-white hover:text-[var(--brand-deep-green)]">
+              <Link to="/products" className="jm-btn jm-btn--ghost">
                 View Export Products
               </Link>
             </div>
@@ -211,7 +211,7 @@ const GujaratSpiceExporterPage = () => {
                 <div className="inline-flex rounded-md bg-[var(--brand-gold-pale)] p-3 text-[var(--brand-deep-green)]">
                   {item.icon}
                 </div>
-                <h3 className="mt-4 text-xl font-semibold text-[var(--brand-charcoal)]">
+                <h3 className="mt-4 text-xl font-bold text-[var(--brand-charcoal)]">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-sm leading-7 text-[var(--brand-forest)]">
@@ -237,7 +237,7 @@ const GujaratSpiceExporterPage = () => {
                   <h3 className="jm-product-card__name">{product.name}</h3>
                   <p className="text-xs italic text-[var(--brand-gold)]">{product.botanicalName}</p>
                   <p className="jm-product-card__description">{product.shortDescription}</p>
-                  <Link to={`/${product.slug}`} className="mt-4 inline-flex jm-btn jm-btn--outline text-[13px]">
+                  <Link to={`/${product.slug}`} className="mt-4 inline-flex jm-btn jm-btn--outline">
                     View {product.name} Specifications
                   </Link>
                 </div>
@@ -250,7 +250,7 @@ const GujaratSpiceExporterPage = () => {
       <section className="jm-section jm-section--white">
         <div className="jm-container grid gap-8 lg:grid-cols-[0.9fr,1.1fr]">
           <aside className="jm-surface-card p-6">
-            <h2 className="text-tagline not-italic text-[28px] text-[var(--brand-charcoal)]">
+            <h2 className="jm-section-heading">
               Certifications and Documents
             </h2>
             <div className="mt-4 flex flex-wrap gap-2">
@@ -276,7 +276,7 @@ const GujaratSpiceExporterPage = () => {
             <div className="mt-6 space-y-4">
               {GUJARAT_FAQS.map((faq) => (
                 <article key={faq.question} className="jm-surface-card p-5">
-                  <h3 className="text-lg font-semibold text-[var(--brand-charcoal)]">
+                  <h3 className="text-base font-bold text-[var(--brand-charcoal)]">
                     {faq.question}
                   </h3>
                   <p className="mt-2 text-sm leading-7 text-[var(--brand-forest)]">
@@ -309,7 +309,7 @@ const GujaratSpiceExporterPage = () => {
 
       <section className="jm-section jm-section--primary text-center">
         <div className="jm-container">
-          <p className="jm-section-label text-[var(--brand-gold-light)]">Source from Gujarat</p>
+          <p className="jm-section-label jm-section-label--on-dark">Source from Gujarat</p>
           <h2 className="jm-section-heading jm-section-heading--on-dark">
             Send Your Spice Requirement to JM Masala
           </h2>
@@ -321,7 +321,7 @@ const GujaratSpiceExporterPage = () => {
             <a href={quoteUrl} target="_blank" rel="noreferrer" className="jm-btn jm-btn--primary">
               WhatsApp Export Requirement
             </a>
-            <Link to="/contact" className="jm-btn jm-btn--outline border-white text-white hover:bg-white hover:text-[var(--brand-deep-green)]">
+            <Link to="/contact" className="jm-btn jm-btn--ghost">
               Contact Page
             </Link>
           </div>

@@ -15,7 +15,7 @@ const NotFoundPage = () => {
           <p className="text-label rounded-full bg-[var(--brand-gold-pale)] px-4 py-2 text-[var(--brand-deep-green)]">
             404 Error
           </p>
-          <h1 className="jm-section-heading mt-4">Page not found</h1>
+          <h1 className="jm-heading-1 mt-4">Page not found</h1>
           <p className="mt-3 max-w-2xl text-body text-[var(--brand-forest)]">
             The page you are looking for is unavailable. Use the link below to return
             to the JM Masala homepage.

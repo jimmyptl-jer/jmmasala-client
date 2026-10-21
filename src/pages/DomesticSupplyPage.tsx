@@ -1,6 +1,7 @@
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
+import QuotationForm from "@/components/quote/QuotationForm";
 import { SITE_URL } from "@/data/siteData";
 
 type Language = "en" | "hi";
@@ -24,12 +25,6 @@ const copyByLanguage: Record<Language, string> = {
 
 const DomesticSupplyPage = () => {
   const [language, setLanguage] = useState<Language>("en");
-  const [submitted, setSubmitted] = useState(false);
-
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setSubmitted(true);
-  };
 
   return (
     <>
@@ -71,14 +66,14 @@ const DomesticSupplyPage = () => {
       <section className="jm-section">
         <div className="jm-container">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <h1 className="jm-section-heading max-w-4xl">
+            <h1 className="jm-heading-1 max-w-4xl">
               JM Masala for Indian Wholesalers, Distributors, and Retailers
             </h1>
             <div className="flex rounded-full border border-[var(--brand-gold-pale)] bg-[var(--brand-warm-white)] p-1 text-sm">
               <button
                 type="button"
                 onClick={() => setLanguage("en")}
-                className={`rounded-full px-3 py-1 ${
+                className={`min-h-[44px] rounded-full px-4 py-1 ${
                   language === "en"
                     ? "bg-[var(--brand-gold)] text-[var(--brand-deep-green)]"
                     : "text-[var(--brand-forest)]"
@@ -89,7 +84,7 @@ const DomesticSupplyPage = () => {
               <button
                 type="button"
                 onClick={() => setLanguage("hi")}
-                className={`rounded-full px-3 py-1 ${
+                className={`min-h-[44px] rounded-full px-4 py-1 ${
                   language === "hi"
                     ? "bg-[var(--brand-gold)] text-[var(--brand-deep-green)]"
                     : "text-[var(--brand-forest)]"
@@ -103,7 +98,7 @@ const DomesticSupplyPage = () => {
           <p className="mt-4 text-body text-[var(--brand-forest)]">{copyByLanguage[language]}</p>
 
           <section className="jm-surface-card mt-8 p-6">
-            <h2 className="text-tagline not-italic text-[28px] text-[var(--brand-charcoal)]">
+            <h2 className="jm-section-heading">
               Products for Domestic Market
             </h2>
             <ul className="mt-4 grid gap-2 sm:grid-cols-2">
@@ -119,7 +114,7 @@ const DomesticSupplyPage = () => {
           </section>
 
           <section className="jm-soft-panel mt-6 p-6">
-            <h2 className="text-tagline not-italic text-[28px] text-[var(--brand-charcoal)]">
+            <h2 className="jm-section-heading">
               Quality Documents
             </h2>
             <p className="mt-3 text-body text-[var(--brand-forest)]">
@@ -129,7 +124,7 @@ const DomesticSupplyPage = () => {
           </section>
 
           <section className="jm-surface-card mt-6 p-6">
-            <h2 className="text-tagline not-italic text-[28px] text-[var(--brand-charcoal)]">
+            <h2 className="jm-section-heading">
               Seed Spices and Sourcing Pages
             </h2>
             <p className="mt-3 text-body text-[var(--brand-forest)]">
@@ -148,7 +143,7 @@ const DomesticSupplyPage = () => {
           </section>
 
           <section className="jm-surface-card mt-6 p-6">
-            <h2 className="text-tagline not-italic text-[28px] text-[var(--brand-charcoal)]">
+            <h2 className="jm-section-heading">
               White Label Manufacturing
             </h2>
             <p className="mt-3 text-body text-[var(--brand-forest)]">
@@ -156,43 +151,19 @@ const DomesticSupplyPage = () => {
             </p>
           </section>
 
-          <section className="jm-surface-card mt-6 p-6">
-            <h2 className="text-tagline not-italic text-[28px] text-[var(--brand-charcoal)]">
-              Become a JM Masala Distributor in Your District
-            </h2>
-
-            {submitted ? (
-              <p className="mt-4 rounded-md bg-[rgba(74,103,65,0.12)] p-3 text-sm text-[var(--brand-forest)]">
-                Domestic inquiry submitted. Our team will contact you shortly.
-              </p>
-            ) : (
-              <form onSubmit={onSubmit} className="mt-4 grid gap-4 md:grid-cols-2">
-                <input type="text" name="name" placeholder="Name" required className="jm-input" />
-                <input type="text" name="company" placeholder="Company" required className="jm-input" />
-                <input type="text" name="city" placeholder="City" required className="jm-input" />
-                <input type="text" name="state" placeholder="State" required className="jm-input" />
-                <select name="businessType" required className="jm-input">
-                  <option value="">Type of Business</option>
-                  <option value="Wholesaler">Wholesaler</option>
-                  <option value="Distributor">Distributor</option>
-                  <option value="Retailer">Retailer</option>
-                  <option value="White Label">White Label</option>
-                </select>
-                <input type="text" name="productsRequired" placeholder="Products Required" required className="jm-input" />
-                <input
-                  type="text"
-                  name="monthlyQuantity"
-                  placeholder="Monthly Quantity"
-                  required
-                  className="jm-input md:col-span-2"
-                />
-                <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
-                <button type="submit" className="jm-btn jm-btn--primary md:col-span-2">
-                  Submit Domestic Inquiry
-                </button>
-              </form>
-            )}
-          </section>
+          <div className="mt-6">
+            <QuotationForm
+              id="domestic-inquiry"
+              sourcePage="domestic-supply-india"
+              defaultCountry="India"
+              heading="Become a JM Masala Distributor in Your District"
+              introText="Tell us your city, type of business (wholesaler, distributor, retailer or white label) and approximate monthly quantity in the message."
+              messageIntro="Hello JM Masala, I would like to make a domestic supply enquiry in India."
+              submitLabel="Submit domestic enquiry"
+              emailSubjectPrefix="Domestic supply enquiry"
+              showPaymentTerms={false}
+            />
+          </div>
         </div>
       </section>
     </>

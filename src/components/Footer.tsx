@@ -56,12 +56,12 @@ const CERTIFICATION_BADGES = [
 
 const Footer = () => {
   return (
-    <footer className="bg-[#121e12] text-[var(--brand-cream)] border-t-2 border-[var(--brand-gold)] relative">
+    <footer className="bg-[var(--brand-deep-green)] text-[var(--brand-cream)] border-t-2 border-[var(--brand-gold)] relative">
       
       {/* ── 1. UPPER CAPABILITY STRIP ── */}
-      <div className="bg-[#0b140b] py-3.5 border-b border-[rgba(201,168,76,0.18)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-center text-xs font-semibold text-gray-300">
+      <div className="bg-black/20 py-3.5 border-b border-[rgba(201,168,76,0.18)]">
+        <div className="jm-container">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-center text-xs font-semibold text-[var(--brand-cream)]">
             <div className="flex items-center justify-center gap-1.5 py-1">
               <span className="text-base">🇮🇳</span>
               <span>APMC Unjha Origin</span>
@@ -91,7 +91,7 @@ const Footer = () => {
       </div>
 
       {/* ── 2. MAIN 5-COLUMN FOOTER NAVIGATION ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
+      <div className="jm-container py-14 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
           
           {/* Column 1: Company Profile (4 Cols) */}
@@ -105,20 +105,20 @@ const Footer = () => {
                 loading="lazy"
               />
               <div>
-                <h3 className="text-base font-black tracking-wider text-[var(--brand-gold-light)] jm-display uppercase">
+                <h3 className="text-base font-black tracking-wider text-[var(--brand-gold-light)] uppercase">
                   JM Masala
                 </h3>
-                <p className="text-[10px] uppercase tracking-[0.16em] text-gray-300 font-semibold">
+                <p className="text-[10px] uppercase tracking-[0.16em] text-[var(--brand-cream)] font-semibold">
                   Trading LLP • India
                 </p>
               </div>
             </Link>
 
-            <p className="text-xs text-gray-300 leading-relaxed max-w-sm">
+            <p className="text-xs text-[var(--brand-cream)] leading-relaxed max-w-sm">
               <strong className="text-white font-semibold">JM Masala Trading LLP</strong> is an integrated Indian spice manufacturer, processor, and exporter based in Unjha, Gujarat. Three generations of seed spice trading insight combined with modern Sortex optical cleaning, cold grinding, and private-label contract packaging.
             </p>
 
-            <div className="space-y-2 pt-2 text-xs text-gray-300">
+            <div className="space-y-2 pt-2 text-xs text-[var(--brand-cream)]">
               <div className="flex items-start gap-2.5">
                 <MapPin className="h-4 w-4 text-[var(--brand-gold)] shrink-0 mt-0.5" />
                 <span>{COMPANY.addressLine}</span>
@@ -147,7 +147,7 @@ const Footer = () => {
             <div className="pt-2">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--brand-gold)] text-[var(--brand-charcoal)] font-bold text-xs hover:bg-[var(--brand-gold-light)] transition-all shadow-xs"
+                className="jm-btn jm-btn--primary gap-2"
               >
                 <span>Request B2B Export Quote</span>
                 <ArrowRight className="h-3.5 w-3.5" />
@@ -159,14 +159,14 @@ const Footer = () => {
           <div className="lg:col-span-4 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--brand-gold-light)] border-b border-white/10 pb-2 flex items-center justify-between">
               <span>Export Spices</span>
-              <span className="text-[10px] text-gray-400 font-mono">{PRODUCTS.length} Products</span>
+              <span className="text-[10px] text-[var(--brand-cream)] font-mono">{PRODUCTS.length} Products</span>
             </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 text-xs text-gray-300">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 text-xs text-[var(--brand-cream)]">
               {TOP_PRODUCTS.map((p) => (
                 <div key={p.name}>
                   <Link
                     to={p.path ?? `/${p.slug}`}
-                    className="hover:text-[var(--brand-gold-light)] transition-colors flex items-center justify-between group py-0.5"
+                    className="hover:text-[var(--brand-gold-light)] transition-colors flex items-center justify-between group py-0.5 max-sm:min-h-[44px]"
                   >
                     <span className="group-hover:translate-x-0.5 transition-transform">{p.name}</span>
                     {p.tag && (
@@ -193,12 +193,12 @@ const Footer = () => {
             <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--brand-gold-light)] border-b border-white/10 pb-2">
               Capabilities &amp; Quick Links
             </h4>
-            <ul className="space-y-1.5 text-xs text-gray-300">
+            <ul className="space-y-1.5 text-xs text-[var(--brand-cream)]">
               {CAPABILITIES.map((c) => (
                 <li key={c.label}>
                   <Link
                     to={c.path}
-                    className="hover:text-[var(--brand-gold-light)] transition-colors block py-0.5 hover:translate-x-0.5 transition-transform"
+                    className="hover:text-[var(--brand-gold-light)] transition-colors block py-0.5 max-sm:min-h-[44px] max-sm:flex max-sm:items-center hover:translate-x-0.5 transition-transform"
                   >
                     {c.label}
                   </Link>
@@ -216,7 +216,7 @@ const Footer = () => {
               <FileCheck className="h-3.5 w-3.5 text-[var(--brand-gold)]" />
               <span>Statutory Registrations &amp; Food Safety Standards</span>
             </span>
-            <Link to="/quality-certifications" className="text-xs text-gray-400 hover:text-[var(--brand-gold)]">
+            <Link to="/quality-certifications" className="text-xs text-[var(--brand-cream)] hover:text-[var(--brand-gold)]">
               View Certificates &rarr;
             </Link>
           </div>
@@ -228,7 +228,7 @@ const Footer = () => {
                 className="p-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-[var(--brand-gold)]/40 transition-colors text-center"
               >
                 <div className="text-xs font-bold text-white">{b.name}</div>
-                <div className="text-[10px] text-gray-400 mt-0.5 line-clamp-1">{b.sub}</div>
+                <div className="text-[10px] text-[var(--brand-cream)] mt-0.5 line-clamp-1">{b.sub}</div>
               </div>
             ))}
           </div>
@@ -237,18 +237,18 @@ const Footer = () => {
       </div>
 
       {/* ── 4. COPYRIGHT & LEGAL BOTTOM BAR ── */}
-      <div className="bg-[#0a120a] border-t border-[rgba(201,168,76,0.12)] py-5 text-xs text-gray-400">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
+      <div className="bg-black/30 border-t border-[rgba(201,168,76,0.12)] py-5 text-xs text-[var(--brand-cream)]">
+        <div className="jm-container flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
           <div className="space-y-0.5">
             <div>
-              &copy; {new Date().getFullYear()} <strong className="text-gray-300">{COMPANY.legalName}</strong>. All Rights Reserved.
+              &copy; {new Date().getFullYear()} <strong className="text-[var(--brand-cream)]">{COMPANY.legalName}</strong>. All Rights Reserved.
             </div>
-            <div className="text-[11px] text-gray-500">
+            <div className="text-[11px] text-[var(--brand-cream)]">
               Indian Spice Manufacturer • Processor • Exporter • Private Label Partner • APMC Unjha, Gujarat, India.
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-gray-400">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-[var(--brand-cream)]">
             <Link to="/quality-certifications" className="hover:text-white transition-colors">Quality Standards</Link>
             <span>•</span>
             <Link to="/export-destinations" className="hover:text-white transition-colors">Export &amp; Incoterms</Link>

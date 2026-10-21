@@ -498,11 +498,11 @@ const ProductDetailPage = () => {
                 aria-label="Breadcrumb"
                 className="text-sm text-[var(--brand-forest)]"
               >
-                <Link to="/" className="hover:text-[var(--brand-gold)]">
+                <Link to="/" className="inline-block py-3.5 -my-3.5 hover:text-[var(--brand-gold)]">
                   Home
                 </Link>
                 {" / "}
-                <Link to="/products" className="hover:text-[var(--brand-gold)]">
+                <Link to="/products" className="inline-block py-3.5 -my-3.5 hover:text-[var(--brand-gold)]">
                   Products
                 </Link>
                 {" / "}
@@ -511,7 +511,7 @@ const ProductDetailPage = () => {
                 </span>
               </nav>
 
-              <h1 className="jm-heading-1 text-[32px] sm:text-[36px] lg:text-[40px] leading-tight">
+              <h1 className="jm-heading-1">
                 {h1Title}
               </h1>
 
@@ -545,7 +545,7 @@ const ProductDetailPage = () => {
               {masterSeo?.cluster.supportingPages &&
                 masterSeo.cluster.supportingPages.length > 0 && (
                   <div className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-4 text-sm leading-7 text-[var(--brand-forest)] shadow-2xs">
-                    <div className="font-bold text-[var(--brand-charcoal)] mb-1 text-xs uppercase tracking-wider text-[var(--brand-gold)]">
+                    <div className="font-bold text-[var(--brand-charcoal)] mb-1 text-xs uppercase tracking-wider text-[var(--brand-gold-text)]">
                       Authority Guides &amp; Cluster Pages:
                     </div>
                     <div className="flex flex-wrap gap-2 mt-1.5">
@@ -553,10 +553,10 @@ const ProductDetailPage = () => {
                         <Link
                           key={page.path}
                           to={page.path}
-                          className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--brand-gold)]/40 bg-white px-3 py-1 text-xs font-semibold text-[var(--brand-deep-green)] hover:bg-[var(--brand-gold)] hover:text-white transition-colors shadow-2xs"
+                          className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--brand-gold-pale)] bg-white px-3 py-1 text-xs font-semibold text-[var(--brand-deep-green)] hover:bg-[var(--brand-gold)] hover:text-white transition-colors shadow-2xs"
                         >
                           <span>{page.title}</span>
-                          <span className="text-[10px] text-gray-500 font-normal">
+                          <span className="text-[10px] text-[var(--brand-forest)] font-normal">
                             ({page.intent})
                           </span>
                         </Link>
@@ -567,7 +567,7 @@ const ProductDetailPage = () => {
 
               {/* Sibling Pair Callout */}
               {productPair && (
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-xl border border-[var(--brand-gold)]/40 bg-[var(--brand-cream)] p-4 text-sm text-[var(--brand-forest)] shadow-2xs">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-4 text-sm text-[var(--brand-forest)] shadow-2xs">
                   <div>
                     <span className="font-bold text-[var(--brand-charcoal)] block text-base">
                       {productPair.title}
@@ -578,7 +578,7 @@ const ProductDetailPage = () => {
                   </div>
                   <Link
                     to={`/${productPair.slug}`}
-                    className="jm-btn jm-btn--outline shrink-0 text-xs font-bold hover:bg-[var(--brand-gold)] hover:text-white"
+                    className="jm-btn jm-btn--outline shrink-0"
                   >
                     {productPair.buttonText} &rarr;
                   </Link>
@@ -587,7 +587,7 @@ const ProductDetailPage = () => {
 
               {/* Key Specs Highlight Pills */}
               <div className="pt-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-gray-500 block mb-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-[var(--brand-forest)] block mb-2">
                   Key Commercial Checkpoints:
                 </span>
                 <div className="flex flex-wrap gap-2">
@@ -611,13 +611,13 @@ const ProductDetailPage = () => {
                   href={quoteUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="jm-btn jm-btn--primary text-[13px] font-bold shadow-xs hover:shadow-md transition-all"
+                  className="jm-btn jm-btn--primary"
                 >
                   Request B2B Quote
                 </a>
                 <a
                   href={specSheetUrl}
-                  className="jm-btn jm-btn--outline text-[13px] font-semibold"
+                  className="jm-btn jm-btn--outline"
                 >
                   Product catalogue (PDF)
                 </a>
@@ -626,7 +626,7 @@ const ProductDetailPage = () => {
 
             {/* Right Column: Product Image & Quick Trade Specs (5 cols) */}
             <div className="lg:col-span-5 space-y-4">
-              <div className="relative rounded-2xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6 flex items-center justify-center shadow-xs">
+              <div className="relative rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6 flex items-center justify-center">
                 <img
                   src={product.imageUrl}
                   alt={`${product.name} supplied for export by JM Masala`}
@@ -636,31 +636,31 @@ const ProductDetailPage = () => {
                   height={350}
                   decoding="async"
                 />
-                <span className="absolute top-4 right-4 rounded-full bg-[var(--brand-deep-green)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--brand-gold-light)] shadow-xs">
+                <span className="absolute top-4 right-4 rounded-full bg-[var(--brand-deep-green)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--brand-gold-light)]">
                   Export Grade
                 </span>
               </div>
 
               {/* Quick Trade Snapshot Card */}
-              <div className="rounded-xl border border-[var(--brand-gold-pale)] bg-white p-5 shadow-xs space-y-3 text-xs">
-                <div className="flex items-center justify-between border-b border-[var(--brand-gold-pale)]/50 pb-2.5">
-                  <span className="font-semibold text-gray-500 uppercase tracking-wider">
+              <div className="rounded-xl border border-[var(--brand-gold-pale)] bg-white p-5 space-y-3 text-xs">
+                <div className="flex items-center justify-between border-b border-[var(--brand-gold-pale)] pb-2.5">
+                  <span className="font-semibold text-[var(--brand-forest)] uppercase tracking-wider">
                     Origin Mandi
                   </span>
                   <span className="font-bold text-[var(--brand-charcoal)]">
                     {originLabel}
                   </span>
                 </div>
-                <div className="flex items-center justify-between border-b border-[var(--brand-gold-pale)]/50 pb-2.5">
-                  <span className="font-semibold text-gray-500 uppercase tracking-wider">
+                <div className="flex items-center justify-between border-b border-[var(--brand-gold-pale)] pb-2.5">
+                  <span className="font-semibold text-[var(--brand-forest)] uppercase tracking-wider">
                     Loading Seaport
                   </span>
                   <span className="font-bold text-[var(--brand-charcoal)]">
                     Mundra Port (INMUN1) / JNPT
                   </span>
                 </div>
-                <div className="flex items-center justify-between border-b border-[var(--brand-gold-pale)]/50 pb-2.5">
-                  <span className="font-semibold text-gray-500 uppercase tracking-wider">
+                <div className="flex items-center justify-between border-b border-[var(--brand-gold-pale)] pb-2.5">
+                  <span className="font-semibold text-[var(--brand-forest)] uppercase tracking-wider">
                     Purity Standard
                   </span>
                   <span className="font-bold text-[var(--brand-deep-green)]">
@@ -668,8 +668,8 @@ const ProductDetailPage = () => {
                   </span>
                 </div>
                 {masterSeo?.content.containerLoading && (
-                  <div className="flex items-center justify-between border-b border-[var(--brand-gold-pale)]/50 pb-2.5">
-                    <span className="font-semibold text-gray-500 uppercase tracking-wider">
+                  <div className="flex items-center justify-between border-b border-[var(--brand-gold-pale)] pb-2.5">
+                    <span className="font-semibold text-[var(--brand-forest)] uppercase tracking-wider">
                       20ft FCL Capacity
                     </span>
                     <span className="font-bold text-[var(--brand-charcoal)]">
@@ -678,10 +678,10 @@ const ProductDetailPage = () => {
                   </div>
                 )}
                 <div className="flex items-center justify-between pt-1 text-[11px]">
-                  <span className="font-semibold text-gray-500 uppercase tracking-wider">
+                  <span className="font-semibold text-[var(--brand-forest)] uppercase tracking-wider">
                     Certifications
                   </span>
-                  <span className="font-bold text-[var(--brand-gold)]">
+                  <span className="font-bold text-[var(--brand-gold-text)]">
                     FSSAI &bull; APEDA &bull; ISO 22000 &bull; NABL
                   </span>
                 </div>
@@ -690,12 +690,12 @@ const ProductDetailPage = () => {
           </div>
 
           {/* Section: Technical Specifications Grid (Full Width) */}
-          <div className="pt-8 border-t border-[var(--brand-gold-pale)]/60">
+          <div className="pt-8 border-t border-[var(--brand-gold-pale)]">
             <div className="mb-6">
-              <span className="text-xs uppercase font-bold tracking-widest text-[var(--brand-gold)]">
+              <p className="jm-section-label">
                 Technical Data Sheets
-              </span>
-              <h2 className="text-tagline not-italic text-[26px] lg:text-[30px] text-[var(--brand-charcoal)]">
+              </p>
+              <h2 className="jm-section-heading">
                 Export Specifications &amp; Quality Parameters
               </h2>
               <p className="mt-1 text-sm text-[var(--brand-forest)]">
@@ -742,18 +742,18 @@ const ProductDetailPage = () => {
 
               {technicalDetails?.contaminants && (
                 <section className="jm-surface-card p-5 h-full flex flex-col justify-start">
-                  <h2 className="text-tagline not-italic text-[22px] text-[var(--brand-charcoal)]">
+                  <h2 className="jm-section-heading">
                     Contaminants &amp; Safety Compliance
                   </h2>
                   <ul className="mt-3 space-y-2 text-sm text-[var(--brand-forest)]">
                     {technicalDetails.contaminants.map((item) => (
                       <li key={item} className="flex items-start gap-2">
-                        <span className="text-[var(--brand-gold)] font-bold">&bull;</span>
+                        <span className="text-[var(--brand-gold-text)] font-bold">&bull;</span>
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-4 pt-4 border-t border-[var(--brand-gold-pale)]/50 text-xs text-gray-500">
+                  <div className="mt-4 pt-4 border-t border-[var(--brand-gold-pale)] text-xs text-[var(--brand-forest)]">
                     Pre-shipment analysis reports issued by NABL-accredited laboratories against buyer-specified contract tolerances.
                   </div>
                 </section>
@@ -765,7 +765,7 @@ const ProductDetailPage = () => {
               <div className="mt-6 overflow-x-auto jm-grade-table">
                 <div className="border-b border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] px-4 py-3 text-sm font-semibold text-[var(--brand-charcoal)] flex items-center justify-between">
                   <span>Market-Specific Export Quality Bands</span>
-                  <span className="text-xs font-normal text-gray-500">Destination-tailored purity, moisture, and admixture</span>
+                  <span className="text-xs font-normal text-[var(--brand-forest)]">Destination-tailored purity, moisture, and admixture</span>
                 </div>
                 <table>
                   <thead>
@@ -809,12 +809,12 @@ const ProductDetailPage = () => {
           </div>
 
           {/* Section: Export Logistics & Container Stuffing (Full Width) */}
-          <div className="pt-8 border-t border-[var(--brand-gold-pale)]/60">
+          <div className="pt-8 border-t border-[var(--brand-gold-pale)]">
             <div className="mb-6">
-              <span className="text-xs uppercase font-bold tracking-widest text-[var(--brand-gold)]">
+              <p className="jm-section-label">
                 Logistics &amp; Shipping
-              </span>
-              <h2 className="text-tagline not-italic text-[26px] lg:text-[30px] text-[var(--brand-charcoal)]">
+              </p>
+              <h2 className="jm-section-heading">
                 Export Packaging &amp; Container Stuffing (FCL)
               </h2>
             </div>
@@ -823,10 +823,10 @@ const ProductDetailPage = () => {
               {/* Left: Container Stuffing Cards (7 cols) */}
               <div className="lg:col-span-7 space-y-6">
                 {masterSeo?.content.containerLoading && (
-                  <div className="rounded-xl border border-[rgba(201,168,76,0.3)] bg-[var(--brand-cream-light)] p-5 shadow-xs space-y-4">
+                  <div className="rounded-xl border border-[rgba(201,168,76,0.3)] bg-[var(--brand-cream)] p-5 space-y-4">
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
-                        <div className="text-xs font-bold uppercase tracking-wider text-[var(--brand-gold)]">
+                        <div className="text-xs font-bold uppercase tracking-wider text-[var(--brand-gold-text)]">
                           20ft FCL Capacity
                         </div>
                         <p className="mt-1 text-sm font-semibold text-[var(--brand-charcoal)]">
@@ -834,7 +834,7 @@ const ProductDetailPage = () => {
                         </p>
                       </div>
                       <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
-                        <div className="text-xs font-bold uppercase tracking-wider text-[var(--brand-gold)]">
+                        <div className="text-xs font-bold uppercase tracking-wider text-[var(--brand-gold-text)]">
                           40ft FCL Capacity
                         </div>
                         <p className="mt-1 text-sm font-semibold text-[var(--brand-charcoal)]">
@@ -848,7 +848,7 @@ const ProductDetailPage = () => {
                         <span className="text-xs font-bold uppercase tracking-wider text-[var(--brand-forest)] block mb-1.5">
                           Standard Packaging Configurations:
                         </span>
-                        <ul className="text-xs text-gray-700 space-y-1.5 pl-4 list-disc">
+                        <ul className="text-xs text-[var(--brand-forest)] space-y-1.5 pl-4 list-disc">
                           {masterSeo.content.packagingOptions.map((opt) => (
                             <li key={opt}>{opt}</li>
                           ))}
@@ -861,13 +861,13 @@ const ProductDetailPage = () => {
                 {/* Additional Packaging Formats from Technical Details */}
                 {technicalDetails?.packaging && (
                   <div className="jm-surface-card p-5">
-                    <h3 className="text-sm font-bold uppercase tracking-wider text-[var(--brand-charcoal)] mb-3">
+                    <h3 className="text-base font-bold uppercase tracking-wider text-[var(--brand-charcoal)] mb-3">
                       Flexible Packaging for Global Buyers
                     </h3>
                     <ul className="space-y-2 text-xs text-[var(--brand-forest)]">
                       {technicalDetails.packaging.map((item) => (
                         <li key={item} className="flex items-start gap-2">
-                          <span className="text-[var(--brand-gold)] font-bold">&bull;</span>
+                          <span className="text-[var(--brand-gold-text)] font-bold">&bull;</span>
                           <span>{item}</span>
                         </li>
                       ))}
@@ -914,19 +914,19 @@ const ProductDetailPage = () => {
           </div>
 
           {/* Section: End-to-End Processing Flow (Full Width) */}
-          <div className="pt-8 border-t border-[var(--brand-gold-pale)]/60">
+          <div className="pt-8 border-t border-[var(--brand-gold-pale)]">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-6">
               <div>
-                <span className="text-xs uppercase font-bold tracking-widest text-[var(--brand-gold)]">
+                <p className="jm-section-label">
                   Quality Assurance Flow
-                </span>
-                <h2 className="text-tagline not-italic text-[26px] lg:text-[30px] text-[var(--brand-charcoal)]">
+                </p>
+                <h2 className="jm-section-heading">
                   From Raw {indianName} to Export-Ready Standard
                 </h2>
               </div>
               <Link
                 to="/spice-processing-manufacturing"
-                className="text-xs font-semibold text-[var(--brand-gold)] hover:underline shrink-0"
+                className="text-xs font-semibold text-[var(--brand-gold-text)] hover:underline shrink-0"
               >
                 View Processing Infrastructure &rarr;
               </Link>
@@ -936,13 +936,13 @@ const ProductDetailPage = () => {
               {SPICE_SUPPLY_CHAIN_STEPS.map((s) => (
                 <div
                   key={s.step}
-                  className="rounded-xl border border-[var(--brand-gold-pale)] bg-white p-5 flex flex-col justify-between shadow-2xs hover:shadow-xs transition-shadow"
+                  className="rounded-xl border border-[var(--brand-gold-pale)] bg-white p-5 flex flex-col justify-between shadow-2xs transition-shadow"
                 >
                   <div>
-                    <div className="text-xs font-mono font-bold text-[var(--brand-gold)] mb-1">
+                    <div className="text-xs font-mono font-bold text-[var(--brand-gold-text)] mb-1">
                       STAGE {s.step}
                     </div>
-                    <h3 className="text-sm font-bold text-[var(--brand-charcoal)]">
+                    <h3 className="text-base font-bold text-[var(--brand-charcoal)]">
                       {s.title}
                     </h3>
                     <p className="mt-2 text-xs text-[var(--brand-forest)] leading-relaxed">
@@ -955,13 +955,13 @@ const ProductDetailPage = () => {
           </div>
 
           {/* Section: Private Label Banner (Full Width) */}
-          <div className="rounded-2xl border border-[var(--brand-gold)]/40 bg-[var(--brand-cream)] p-6 lg:p-8 shadow-xs">
+          <div className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6 lg:p-8">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
               <div className="max-w-3xl">
-                <span className="inline-block rounded-full bg-[var(--brand-gold)]/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[var(--brand-charcoal)]">
+                <span className="inline-block rounded-full bg-[var(--brand-gold-pale)] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[var(--brand-charcoal)]">
                   Private Label &amp; Retail Supply
                 </span>
-                <h2 className="mt-2 text-[22px] sm:text-[24px] font-bold text-[var(--brand-charcoal)]">
+                <h2 className="mt-2 jm-section-heading">
                   Need Custom Branded or Retail-Ready {product.name}?
                 </h2>
                 <p className="mt-2 text-sm text-[var(--brand-forest)] leading-relaxed">
@@ -971,13 +971,13 @@ const ProductDetailPage = () => {
               <div className="flex flex-col sm:flex-row gap-3 shrink-0">
                 <Link
                   to="/private-label-spices"
-                  className="jm-btn jm-btn--primary text-[13px] font-bold text-center"
+                  className="jm-btn jm-btn--primary text-center"
                 >
                   Private Label Solutions
                 </Link>
                 <Link
                   to="/spice-packaging"
-                  className="jm-btn jm-btn--outline text-[13px] font-bold text-center"
+                  className="jm-btn jm-btn--outline text-center"
                 >
                   Packaging Formats
                 </Link>
@@ -987,27 +987,27 @@ const ProductDetailPage = () => {
 
           <p className="text-sm text-[var(--brand-forest)] leading-relaxed">
             Read how we handle{" "}
-            <Link to="/quality-certifications" className="font-semibold text-[var(--brand-gold)] hover:underline">
+            <Link to="/quality-certifications" className="font-semibold text-[var(--brand-gold-text)] hover:underline">
               quality and certifications
             </Link>
             , supply Indian wholesale buyers through our{" "}
-            <Link to="/domestic-supply-india" className="font-semibold text-[var(--brand-gold)] hover:underline">
+            <Link to="/domestic-supply-india" className="font-semibold text-[var(--brand-gold-text)] hover:underline">
               domestic supply service
             </Link>
             , or{" "}
-            <Link to="/contact" className="font-semibold text-[var(--brand-gold)] hover:underline">
+            <Link to="/contact" className="font-semibold text-[var(--brand-gold-text)] hover:underline">
               contact our export team
             </Link>
             .
           </p>
 
           {/* Section: Buyer Guidance & Technical FAQs (Full Width 2-Column Grid) */}
-          <div className="pt-8 border-t border-[var(--brand-gold-pale)]/60">
+          <div className="pt-8 border-t border-[var(--brand-gold-pale)]">
             <div className="grid gap-8 lg:grid-cols-12 items-start">
               {/* Left Column: Why Choose & Buyer Confirmations (5 cols) */}
               <div className="lg:col-span-5 space-y-6">
                 <div className="jm-surface-card p-6">
-                  <h2 className="text-tagline not-italic text-[22px] text-[var(--brand-charcoal)]">
+                  <h2 className="jm-section-heading">
                     Why Buyers Choose JM Masala
                   </h2>
                   <div className="mt-3 space-y-3 text-sm leading-relaxed text-[var(--brand-forest)]">
@@ -1028,24 +1028,24 @@ const ProductDetailPage = () => {
                 </div>
 
                 <div className="jm-surface-card p-6">
-                  <h2 className="text-tagline not-italic text-[22px] text-[var(--brand-charcoal)]">
+                  <h2 className="jm-section-heading">
                     Buyer Pre-Shipment Checklist
                   </h2>
                   <ul className="mt-3 space-y-2 text-sm text-[var(--brand-forest)]">
                     <li className="flex items-start gap-2">
-                      <span className="text-[var(--brand-gold)] font-bold">&bull;</span>
+                      <span className="text-[var(--brand-gold-text)] font-bold">&bull;</span>
                       <span>Final purity, moisture, and grade commitment in contract</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-[var(--brand-gold)] font-bold">&bull;</span>
+                      <span className="text-[var(--brand-gold-text)] font-bold">&bull;</span>
                       <span>Lot-wise test COA support, packing format, and shipping marks</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-[var(--brand-gold)] font-bold">&bull;</span>
+                      <span className="text-[var(--brand-gold-text)] font-bold">&bull;</span>
                       <span>Destination customs documents (Phyto, COO, Fumigation)</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-[var(--brand-gold)] font-bold">&bull;</span>
+                      <span className="text-[var(--brand-gold-text)] font-bold">&bull;</span>
                       <span>Agreed vessel dispatch window and port terminal logistics</span>
                     </li>
                   </ul>
@@ -1055,10 +1055,10 @@ const ProductDetailPage = () => {
               {/* Right Column: Frequently Asked Questions (7 cols) */}
               <div className="lg:col-span-7 space-y-4">
                 <div className="mb-2">
-                  <span className="text-xs uppercase font-bold tracking-widest text-[var(--brand-gold)]">
+                  <p className="jm-section-label">
                     Commercial FAQ
-                  </span>
-                  <h2 className="text-tagline not-italic text-[26px] lg:text-[28px] text-[var(--brand-charcoal)]">
+                  </p>
+                  <h2 className="jm-section-heading">
                     Frequently Asked Questions
                   </h2>
                 </div>
@@ -1083,12 +1083,12 @@ const ProductDetailPage = () => {
           </div>
 
           {/* Section: B2B Call to Action Banner (Full Width) */}
-          <div className="rounded-2xl bg-[var(--brand-deep-green)] p-8 lg:p-10 text-white shadow-md">
+          <div className="rounded-xl bg-[var(--brand-deep-green)] p-8 lg:p-10 text-white shadow-md">
             <div className="max-w-3xl">
-              <h2 className="text-[24px] sm:text-[28px] font-bold text-[var(--brand-gold-light)]">
+              <h2 className="jm-section-heading jm-section-heading--on-dark">
                 Looking for a Reliable {indianName} Exporter?
               </h2>
-              <p className="mt-2 text-sm sm:text-base text-gray-200 leading-relaxed">
+              <p className="mt-2 text-sm sm:text-base text-[var(--brand-cream)] leading-relaxed">
                 Share your required volume, specification, packing preferences, and destination port with JM Masala Trading LLP. Our export team will provide a formal commercial offer, specification sheet, and logistics schedule.
               </p>
               <div className="mt-6 flex flex-wrap gap-4">
@@ -1096,13 +1096,13 @@ const ProductDetailPage = () => {
                   href={quoteUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="jm-btn jm-btn--primary text-[14px] font-bold py-3 px-6 shadow-sm"
+                  className="jm-btn jm-btn--primary"
                 >
                   Request B2B Quotation
                 </a>
                 <a
                   href={specSheetUrl}
-                  className="jm-btn jm-btn--outline text-[14px] text-white border-white hover:bg-white/15 py-3 px-6"
+                  className="jm-btn jm-btn--ghost"
                 >
                   Product catalogue (PDF)
                 </a>
@@ -1112,12 +1112,12 @@ const ProductDetailPage = () => {
 
           {/* Section: Related Insights (Full Width) */}
           {relatedInsights.length > 0 && (
-            <div className="pt-8 border-t border-[var(--brand-gold-pale)]/60">
+            <div className="pt-8 border-t border-[var(--brand-gold-pale)]">
               <div className="mb-6">
-                <span className="text-xs uppercase font-bold tracking-widest text-[var(--brand-gold)]">
+                <p className="jm-section-label">
                   Market Knowledge
-                </span>
-                <h2 className="text-tagline not-italic text-[26px] lg:text-[28px] text-[var(--brand-charcoal)]">
+                </p>
+                <h2 className="jm-section-heading">
                   Related Insights &amp; Buyer Guides
                 </h2>
               </div>
@@ -1125,7 +1125,7 @@ const ProductDetailPage = () => {
                 {relatedInsights.map((post) => (
                   <div
                     key={post.slug}
-                    className="rounded-xl border border-[var(--brand-gold-pale)] bg-white p-5 flex flex-col justify-between shadow-2xs hover:shadow-xs transition-shadow"
+                    className="rounded-xl border border-[var(--brand-gold-pale)] bg-white p-5 flex flex-col justify-between shadow-2xs transition-shadow"
                   >
                     <div>
                       <h3 className="text-base font-bold text-[var(--brand-charcoal)]">
@@ -1137,7 +1137,7 @@ const ProductDetailPage = () => {
                     </div>
                     <Link
                       to={`/blog/${post.slug}`}
-                      className="mt-4 inline-flex jm-btn jm-btn--outline text-[12px] font-semibold self-start"
+                      className="mt-4 inline-flex jm-btn jm-btn--outline self-start"
                     >
                       Read Buyer Guide &rarr;
                     </Link>
@@ -1148,12 +1148,12 @@ const ProductDetailPage = () => {
           )}
 
           {/* Section: Related Products (Full Width) */}
-          <div className="pt-8 border-t border-[var(--brand-gold-pale)]/60">
+          <div className="pt-8 border-t border-[var(--brand-gold-pale)]">
             <div className="mb-6">
-              <span className="text-xs uppercase font-bold tracking-widest text-[var(--brand-gold)]">
+              <p className="jm-section-label">
                 Catalog Synergy
-              </span>
-              <h2 className="jm-heading-2 text-[26px] lg:text-[28px] text-[var(--brand-charcoal)]">
+              </p>
+              <h2 className="jm-section-heading">
                 Related Spices &amp; Agro Commodities
               </h2>
             </div>
@@ -1174,7 +1174,7 @@ const ProductDetailPage = () => {
                   <div className="p-4 pt-0">
                     <Link
                       to={`/${related.slug}`}
-                      className="w-full inline-flex justify-center jm-btn jm-btn--outline text-[12px] font-semibold"
+                      className="w-full inline-flex justify-center jm-btn jm-btn--outline"
                     >
                       View Specifications
                     </Link>

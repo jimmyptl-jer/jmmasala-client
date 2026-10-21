@@ -1,20 +1,26 @@
-import { useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation, useNavigationType } from "react-router-dom";
+import { setCurrentPath } from "@/lib/originPath";
+
+const MAX_FRAMES = 30;
+
 
 /**
- * Scrolls after client-side navigation: to the element named by the URL hash (for example
- * #inquiry-form), otherwise to the top of the page. The first render is left to the browser,
- * which already handles hashes and scroll restoration on a full page load.
+ * Scrolls after client-side navigation (PUSH or REPLACE): to the element named by the URL hash
+ * (for example #inquiry-form) and moves focus to it when it is focusable, otherwise to the top.
+ * POP (first render, Back, Forward) is left to the browser, which handles hashes and scroll
+ * restoration itself.
  */
 const RouteScroll = () => {
-  const { key, hash } = useLocation();
-  const first = useRef(true);
+  const { key, hash, pathname } = useLocation();
+  const navigationType = useNavigationType();
 
   useEffect(() => {
-    if (first.current) {
-      first.current = false;
-      return;
-    }
+    setCurrentPath(pathname);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (navigationType === "POP") return;
     if (!hash) {
       window.scrollTo(0, 0);
       return;
@@ -25,14 +31,26 @@ const RouteScroll = () => {
     } catch {
       // keep the raw value
     }
-    // The target is part of the page that has just been rendered; one frame later covers lazy sections.
-    const frame = window.requestAnimationFrame(() => {
+    // The target is part of the page that has just been rendered, but lazy sections can arrive a few frames later.
+    let frame = 0;
+    let attempts = 0;
+    const find = () => {
       const el = document.getElementById(id);
-      if (el) el.scrollIntoView();
-      else window.scrollTo(0, 0);
-    });
+      if (el) {
+        el.scrollIntoView();
+        if (el.tabIndex >= 0 || el.hasAttribute("tabindex")) el.focus({ preventScroll: true });
+        return;
+      }
+      attempts += 1;
+      if (attempts >= MAX_FRAMES) {
+        window.scrollTo(0, 0);
+        return;
+      }
+      frame = window.requestAnimationFrame(find);
+    };
+    frame = window.requestAnimationFrame(find);
     return () => window.cancelAnimationFrame(frame);
-  }, [key, hash]);
+  }, [key, hash, navigationType]);
 
   return null;
 };

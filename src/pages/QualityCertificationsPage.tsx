@@ -106,7 +106,7 @@ const QualityCertificationsPage = () => {
       <section className="jm-section">
         <div className="jm-container">
           <p className="jm-section-label">Quality System</p>
-          <h1 className="jm-section-heading">Every Lot. Every Shipment. Verified Quality.</h1>
+          <h1 className="jm-heading-1">Every Lot. Every Shipment. Verified Quality.</h1>
 
           <section className="jm-surface-card mt-8 overflow-hidden">
             <div className="jm-spec-table__header">Certifications and Registrations</div>
@@ -135,7 +135,7 @@ const QualityCertificationsPage = () => {
           </section>
 
           <section className="jm-surface-card mt-8 p-6">
-            <h2 className="text-tagline not-italic text-[28px] text-[var(--brand-charcoal)]">
+            <h2 className="jm-section-heading">
               Certificate Scans
             </h2>
             <p className="mt-3 text-body text-[var(--brand-forest)]">
@@ -154,7 +154,7 @@ const QualityCertificationsPage = () => {
           </section>
 
           <section className="jm-surface-card mt-8 p-6">
-            <h2 className="text-tagline not-italic text-[28px] text-[var(--brand-charcoal)]">
+            <h2 className="jm-section-heading">
               Quality Process
             </h2>
             <ol className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -170,7 +170,7 @@ const QualityCertificationsPage = () => {
           </section>
 
           <section className="jm-surface-card mt-8 p-6">
-            <h2 className="text-tagline not-italic text-[28px] text-[var(--brand-charcoal)]">
+            <h2 className="jm-section-heading">
               Documentation Package
             </h2>
             <ul className="mt-4 grid gap-2 sm:grid-cols-2">
@@ -186,7 +186,7 @@ const QualityCertificationsPage = () => {
           </section>
 
           <section className="jm-surface-card mt-8 p-6">
-            <h2 className="text-tagline not-italic text-[28px] text-[var(--brand-charcoal)]">
+            <h2 className="jm-section-heading">
               How We Handle Quality and Documents
             </h2>
             <p className="mt-3 text-body text-[var(--brand-forest)]">
@@ -209,7 +209,7 @@ const QualityCertificationsPage = () => {
           </section>
 
           <section className="jm-surface-card mt-8 p-6">
-            <h2 className="text-tagline not-italic text-[28px] text-[var(--brand-charcoal)]">
+            <h2 className="jm-section-heading">
               Buyer Assurance
             </h2>
             <div className="mt-4 grid gap-3 md:grid-cols-3">

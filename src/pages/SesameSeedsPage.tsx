@@ -321,11 +321,11 @@ const SesameSeedsPage = () => {
         <div className="jm-container">
           <ol className="flex flex-wrap items-center gap-2 text-xs text-[var(--brand-forest)]">
             <li>
-              <Link to="/" className="hover:text-[var(--brand-deep-green)]">Home</Link>
+              <Link to="/" className="hover:text-[var(--brand-deep-green)] inline-block py-3.5 -my-3.5">Home</Link>
             </li>
             <li>/</li>
             <li>
-              <Link to="/products" className="hover:text-[var(--brand-deep-green)]">Products</Link>
+              <Link to="/products" className="hover:text-[var(--brand-deep-green)] inline-block py-3.5 -my-3.5">Products</Link>
             </li>
             <li>/</li>
             <li className="font-semibold text-[var(--brand-charcoal)]" aria-current="page">
@@ -337,14 +337,14 @@ const SesameSeedsPage = () => {
 
       {/* Hero Section */}
       <header className="relative overflow-hidden bg-[var(--brand-deep-green)] text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#2a3821] via-[#0d2214] to-[#08150c] opacity-95" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[var(--brand-forest)] to-[var(--brand-deep-green)] opacity-95" />
         <div className="jm-container relative py-16 lg:py-20">
           <div className="grid gap-12 lg:grid-cols-[1.15fr,0.85fr] lg:items-center">
             <div>
               <p className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.08)] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--brand-gold-light)]">
                 <MapPin className="h-3.5 w-3.5" /> Gujarat, India Sourcing &amp; Export
               </p>
-              <h1 className="mt-4 font-[var(--font-display)] text-3xl leading-tight text-white md:text-5xl">
+              <h1 className="mt-4 text-white">
                 Sesame Seeds (Til) Exporter from India
               </h1>
               <p className="mt-3 text-lg font-medium text-[var(--brand-gold-light)] md:text-xl">
@@ -380,13 +380,13 @@ const SesameSeedsPage = () => {
                 </a>
                 <a
                   href="#specifications"
-                  className="jm-btn jm-btn--outline border-white text-white hover:bg-white hover:text-[var(--brand-deep-green)]"
+                  className="jm-btn jm-btn--ghost"
                 >
                   View Specification Table
                 </a>
                 <Link
-                  to="/contact?intent=sample&product=Sesame%20Seeds"
-                  className="jm-btn jm-btn--outline border-[var(--brand-gold-light)] text-[var(--brand-gold-light)] hover:bg-[var(--brand-gold-light)] hover:text-[var(--brand-deep-green)]"
+                  to="/contact?intent=sample&product=Sesame%20Seeds#inquiry-form"
+                  className="jm-btn jm-btn--ghost"
                 >
                   Request Buyer Sample
                 </Link>
@@ -436,13 +436,13 @@ const SesameSeedsPage = () => {
       {/* AI Grounding Box: Sesame Seeds at a Glance */}
       <section className="border-b border-[var(--brand-gold-pale)] bg-white py-10">
         <div className="jm-container">
-          <div className="rounded-2xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6 md:p-8">
+          <div className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6 md:p-8">
             <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-[var(--brand-gold)]">
+                <p className="jm-section-label">
                   Quick Commercial Summary
                 </p>
-                <h2 className="text-xl font-bold text-[var(--brand-charcoal)] md:text-2xl">
+                <h2 className="jm-section-heading">
                   Sesame Seeds at a Glance
                 </h2>
               </div>
@@ -452,56 +452,56 @@ const SesameSeedsPage = () => {
             </div>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              <div className="rounded-lg border border-stone-200 bg-white p-4">
-                <span className="text-xs font-medium text-stone-500">Product &amp; Indian Name</span>
+              <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                <span className="text-xs font-medium text-[var(--brand-forest)]">Product &amp; Indian Name</span>
                 <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">
                   Sesame Seeds · Til (તલ / तिल)
                 </p>
               </div>
-              <div className="rounded-lg border border-stone-200 bg-white p-4">
-                <span className="text-xs font-medium text-stone-500">Botanical Classification</span>
+              <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                <span className="text-xs font-medium text-[var(--brand-forest)]">Botanical Classification</span>
                 <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">
                   Sesamum indicum L.
                 </p>
               </div>
-              <div className="rounded-lg border border-stone-200 bg-white p-4">
-                <span className="text-xs font-medium text-stone-500">Origin &amp; Sourcing</span>
+              <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                <span className="text-xs font-medium text-[var(--brand-forest)]">Origin &amp; Sourcing</span>
                 <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">
                   Gujarat, India (Saurashtra belt &amp; Unjha)
                 </p>
               </div>
-              <div className="rounded-lg border border-stone-200 bg-white p-4">
-                <span className="text-xs font-medium text-stone-500">Export Types Available</span>
+              <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                <span className="text-xs font-medium text-[var(--brand-forest)]">Export Types Available</span>
                 <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">
                   Natural White, Hulled White, Black, Brown
                 </p>
               </div>
-              <div className="rounded-lg border border-stone-200 bg-white p-4">
-                <span className="text-xs font-medium text-stone-500">Export Purity Levels</span>
+              <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                <span className="text-xs font-medium text-[var(--brand-forest)]">Export Purity Levels</span>
                 <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">
                   98% to 99.5% (Natural) | Up to 99.98% (Hulled)
                 </p>
               </div>
-              <div className="rounded-lg border border-stone-200 bg-white p-4">
-                <span className="text-xs font-medium text-stone-500">Moisture Standard</span>
+              <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                <span className="text-xs font-medium text-[var(--brand-forest)]">Moisture Standard</span>
                 <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">
                   Max 6.0% to 8.0% (5%-6% on premium Hulled)
                 </p>
               </div>
-              <div className="rounded-lg border border-stone-200 bg-white p-4">
-                <span className="text-xs font-medium text-stone-500">Oil Content &amp; FFA</span>
+              <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                <span className="text-xs font-medium text-[var(--brand-forest)]">Oil Content &amp; FFA</span>
                 <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">
                   Oil: 48%–52% | Free Fatty Acids: &lt;1.5%–2%
                 </p>
               </div>
-              <div className="rounded-lg border border-stone-200 bg-white p-4">
-                <span className="text-xs font-medium text-stone-500">Processing Methods</span>
+              <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                <span className="text-xs font-medium text-[var(--brand-forest)]">Processing Methods</span>
                 <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">
                   Machine Cleaned, Destoned, Hulled, Sortex
                 </p>
               </div>
-              <div className="rounded-lg border border-stone-200 bg-white p-4">
-                <span className="text-xs font-medium text-stone-500">Export Order Supply</span>
+              <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                <span className="text-xs font-medium text-[var(--brand-forest)]">Export Order Supply</span>
                 <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">
                   Bulk 20ft / 40ft FCL &amp; Consolidated Containers
                 </p>
@@ -543,29 +543,29 @@ const SesameSeedsPage = () => {
             </div>
 
             <aside className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6">
-              <h3 className="text-lg font-bold text-[var(--brand-charcoal)]">
+              <h3 className="text-base font-bold text-[var(--brand-charcoal)]">
                 The JM Masala Sesame Entity Map
               </h3>
               <p className="mt-2 text-xs text-[var(--brand-forest)]">
                 How commercial, botanical, and regional relationships connect:
               </p>
               <div className="mt-4 space-y-2.5 text-xs text-[var(--brand-charcoal)]">
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>JM Masala Trading LLP</strong> → Indian Spice &amp; Oilseed Exporter
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Product:</strong> Sesame Seeds (Sesamum indicum L.) / Til (તલ)
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Origin Tract:</strong> Saurashtra &amp; Northern Gujarat, India
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Core Offerings:</strong> Natural White Sesame · Hulled Sesame · Sortex Black Sesame
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Quality Spectrum:</strong> 98% Machine Cleaned to 99.98% Auto Sortex
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Global Logistics:</strong> FOB Mundra / CIF worldwide bulk container loading
                 </div>
               </div>
@@ -594,12 +594,12 @@ const SesameSeedsPage = () => {
                   <span className="rounded bg-[var(--brand-gold-pale)] px-3 py-1 text-xs font-bold text-[var(--brand-deep-green)]">
                     Whole Seed with Hull
                   </span>
-                  <span className="text-xs font-semibold text-stone-500">98% – 99.5% Purity</span>
+                  <span className="text-xs font-semibold text-[var(--brand-forest)]">98% – 99.5% Purity</span>
                 </div>
                 <h3 className="mt-4 text-xl font-bold text-[var(--brand-charcoal)]">
                   Natural Sesame Seeds
                 </h3>
-                <p className="mt-2 text-xs font-medium text-[var(--brand-gold)]">
+                <p className="mt-2 text-xs font-medium text-[var(--brand-gold-text)]">
                   Raw / Unhulled White &amp; Beige Sesame Seeds
                 </p>
                 <div className="mt-4 space-y-3 text-xs leading-relaxed text-[var(--brand-forest)]">
@@ -628,7 +628,7 @@ const SesameSeedsPage = () => {
                 </div>
               </div>
 
-              <div className="mt-6 rounded border border-stone-200 bg-stone-50 p-3 text-xs text-stone-600">
+              <div className="mt-6 rounded border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-3 text-xs text-[var(--brand-forest)]">
                 <strong>Standard Grades:</strong> 98% FAQ Machine Cleaned · 99% Sortex · 99.5% Sortex
               </div>
             </article>
@@ -640,12 +640,12 @@ const SesameSeedsPage = () => {
                   <span className="rounded bg-[var(--brand-gold-pale)] px-3 py-1 text-xs font-bold text-[var(--brand-deep-green)]">
                     Mechanically Peeled
                   </span>
-                  <span className="text-xs font-semibold text-stone-500">Up to 99.98% Sortex</span>
+                  <span className="text-xs font-semibold text-[var(--brand-forest)]">Up to 99.98% Sortex</span>
                 </div>
                 <h3 className="mt-4 text-xl font-bold text-[var(--brand-charcoal)]">
                   Hulled Sesame Seeds
                 </h3>
-                <p className="mt-2 text-xs font-medium text-[var(--brand-gold)]">
+                <p className="mt-2 text-xs font-medium text-[var(--brand-gold-text)]">
                   Pearly White Dehulled Sesame Seeds
                 </p>
                 <div className="mt-4 space-y-3 text-xs leading-relaxed text-[var(--brand-forest)]">
@@ -675,14 +675,14 @@ const SesameSeedsPage = () => {
                 </div>
               </div>
 
-              <div className="mt-6 rounded border border-stone-200 bg-stone-50 p-3 text-xs text-stone-600">
+              <div className="mt-6 rounded border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-3 text-xs text-[var(--brand-forest)]">
                 <strong>Standard Grades:</strong> 99.90% Sortex · 99.95% Sortex · 99.98% Auto Sortex
               </div>
             </article>
           </div>
 
           {/* Specialty Variants: Black & Brown Sesame Note */}
-          <div className="mt-8 rounded-xl border border-[var(--brand-gold-pale)] bg-white p-6">
+          <div className="jm-surface-card p-6 mt-8">
             <h3 className="text-base font-bold text-[var(--brand-charcoal)]">
               Specialty Sesame Offerings: Black &amp; Brown Sesame Seeds
             </h3>
@@ -726,7 +726,7 @@ const SesameSeedsPage = () => {
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
                 <thead>
-                  <tr className="border-b border-[var(--brand-gold-pale)] bg-stone-50 text-xs font-semibold uppercase tracking-wider text-[var(--brand-charcoal)]">
+                  <tr className="border-b border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] text-xs font-semibold uppercase tracking-wider text-[var(--brand-charcoal)]">
                     <th className="px-6 py-3.5">Parameter</th>
                     <th className="px-6 py-3.5">JM Masala Commercial Specification</th>
                     <th className="px-6 py-3.5">Testing Method / Standard</th>
@@ -734,12 +734,12 @@ const SesameSeedsPage = () => {
                 </thead>
                 <tbody className="divide-y divide-[var(--brand-gold-pale)]">
                   {SESAME_SPEC_ROWS.map((row) => (
-                    <tr key={row.label} className="hover:bg-[var(--brand-cream)]/40">
+                    <tr key={row.label} className="hover:bg-[var(--brand-cream)]">
                       <td className="whitespace-nowrap px-6 py-3.5 font-semibold text-[var(--brand-charcoal)]">
                         {row.label}
                       </td>
                       <td className="px-6 py-3.5 text-[var(--brand-forest)]">{row.value}</td>
-                      <td className="px-6 py-3.5 text-xs text-stone-500">
+                      <td className="px-6 py-3.5 text-xs text-[var(--brand-forest)]">
                         {row.label.includes("Oil")
                           ? "ISO 659 / Solvent Extraction"
                           : row.label.includes("Moisture")
@@ -759,7 +759,7 @@ const SesameSeedsPage = () => {
                 </tbody>
               </table>
             </div>
-            <div className="border-t border-[var(--brand-gold-pale)] bg-[var(--brand-cream)]/60 px-6 py-4 text-xs leading-relaxed text-[var(--brand-forest)]">
+            <div className="border-t border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] px-6 py-4 text-xs leading-relaxed text-[var(--brand-forest)]">
               <strong className="text-[var(--brand-charcoal)]">Buyer-Specific Specification Note: </strong>
               Commercial specifications are calibrated according to agreed buyer requirements, destination
               market regulations (EU, US FDA, GCC, East Asia), and individual contract parameters. Verified
@@ -788,7 +788,7 @@ const SesameSeedsPage = () => {
                   <span className="rounded bg-[var(--brand-gold-pale)] px-3 py-1 text-xs font-bold text-[var(--brand-deep-green)]">
                     {grade.gradeBadge}
                   </span>
-                  <span className="text-xs text-stone-500">{grade.market}</span>
+                  <span className="text-xs text-[var(--brand-forest)]">{grade.market}</span>
                 </div>
                 <h3 className="mt-4 text-xl font-bold text-[var(--brand-charcoal)]">{grade.market}</h3>
                 <div className="mt-3 space-y-1.5 text-xs font-medium text-[var(--brand-forest)]">
@@ -801,7 +801,7 @@ const SesameSeedsPage = () => {
             ))}
           </div>
 
-          <div className="mt-8 rounded-lg border border-[var(--brand-gold-pale)] bg-white p-5 text-xs text-[var(--brand-forest)]">
+          <div className="jm-surface-card p-5 mt-8 text-xs text-[var(--brand-forest)]">
             <strong className="text-[var(--brand-charcoal)]">Commercial Note: </strong>
             These grades reflect JM Masala's active commercial supply standards developed through recurring
             trade contracts with international distributors and food industrial buyers.
@@ -923,7 +923,7 @@ const SesameSeedsPage = () => {
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {SESAME_SUPPLY_CHAIN_STEPS.map((step) => (
               <article key={step.step} className="jm-surface-card flex flex-col p-5">
-                <span className="font-[var(--font-display)] text-2xl font-bold text-[var(--brand-gold)]">
+                <span className="text-2xl font-bold text-[var(--brand-gold-text)]">
                   {step.step}
                 </span>
                 <h3 className="mt-2 text-base font-bold text-[var(--brand-charcoal)]">{step.title}</h3>
@@ -956,9 +956,9 @@ const SesameSeedsPage = () => {
           </div>
 
           <div className="mt-8 grid gap-6 md:grid-cols-3">
-            <article className="rounded-lg border border-[var(--brand-gold-pale)] p-5">
+            <article className="jm-surface-card p-5">
               <div className="flex items-center gap-2 text-[var(--brand-deep-green)]">
-                <Sparkles className="h-5 w-5 text-[var(--brand-gold)]" />
+                <Sparkles className="h-5 w-5 text-[var(--brand-gold-text)]" />
                 <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Purity Calibration</h3>
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--brand-forest)]">
@@ -967,9 +967,9 @@ const SesameSeedsPage = () => {
               </p>
             </article>
 
-            <article className="rounded-lg border border-[var(--brand-gold-pale)] p-5">
+            <article className="jm-surface-card p-5">
               <div className="flex items-center gap-2 text-[var(--brand-deep-green)]">
-                <Scale className="h-5 w-5 text-[var(--brand-gold)]" />
+                <Scale className="h-5 w-5 text-[var(--brand-gold-text)]" />
                 <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Moisture Control</h3>
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--brand-forest)]">
@@ -978,9 +978,9 @@ const SesameSeedsPage = () => {
               </p>
             </article>
 
-            <article className="rounded-lg border border-[var(--brand-gold-pale)] p-5">
+            <article className="jm-surface-card p-5">
               <div className="flex items-center gap-2 text-[var(--brand-deep-green)]">
-                <ShieldCheck className="h-5 w-5 text-[var(--brand-gold)]" />
+                <ShieldCheck className="h-5 w-5 text-[var(--brand-gold-text)]" />
                 <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Free Fatty Acids (FFA)</h3>
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--brand-forest)]">
@@ -989,9 +989,9 @@ const SesameSeedsPage = () => {
               </p>
             </article>
 
-            <article className="rounded-lg border border-[var(--brand-gold-pale)] p-5">
+            <article className="jm-surface-card p-5">
               <div className="flex items-center gap-2 text-[var(--brand-deep-green)]">
-                <PackageCheck className="h-5 w-5 text-[var(--brand-gold)]" />
+                <PackageCheck className="h-5 w-5 text-[var(--brand-gold-text)]" />
                 <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Oil Percentage (48%-52%)</h3>
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--brand-forest)]">
@@ -1000,9 +1000,9 @@ const SesameSeedsPage = () => {
               </p>
             </article>
 
-            <article className="rounded-lg border border-[var(--brand-gold-pale)] p-5">
+            <article className="jm-surface-card p-5">
               <div className="flex items-center gap-2 text-[var(--brand-deep-green)]">
-                <FileCheck2 className="h-5 w-5 text-[var(--brand-gold)]" />
+                <FileCheck2 className="h-5 w-5 text-[var(--brand-gold-text)]" />
                 <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Zero ETO &amp; Pesticide MRLs</h3>
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--brand-forest)]">
@@ -1011,9 +1011,9 @@ const SesameSeedsPage = () => {
               </p>
             </article>
 
-            <article className="rounded-lg border border-[var(--brand-gold-pale)] p-5">
+            <article className="jm-surface-card p-5">
               <div className="flex items-center gap-2 text-[var(--brand-deep-green)]">
-                <CheckCircle2 className="h-5 w-5 text-[var(--brand-gold)]" />
+                <CheckCircle2 className="h-5 w-5 text-[var(--brand-gold-text)]" />
                 <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Microbiological Safety</h3>
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--brand-forest)]">
@@ -1040,21 +1040,21 @@ const SesameSeedsPage = () => {
                 </p>
                 <ul className="space-y-2 text-sm text-[var(--brand-charcoal)]">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[var(--brand-gold)]" />
+                    <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[var(--brand-gold-text)]" />
                     <span>
                       <strong>20ft FCL Container:</strong> 18.0 to 19.0 Metric Tons loose stuffed (approx.
                       720 to 760 bags of 25kg) or ~15.0–16.0 MT palletized.
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[var(--brand-gold)]" />
+                    <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[var(--brand-gold-text)]" />
                     <span>
                       <strong>40ft FCL Container:</strong> 26.0 to 27.0 Metric Tons loose stuffed (approx.
                       1,040 to 1,080 bags of 25kg) or ~22.0–24.0 MT palletized.
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[var(--brand-gold)]" />
+                    <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[var(--brand-gold-text)]" />
                     <span>
                       <strong>Consolidated Shipments:</strong> Sesame can be stuffed alongside Cumin,
                       Coriander, Fennel, and Fenugreek under a single Bill of Lading.
@@ -1064,12 +1064,12 @@ const SesameSeedsPage = () => {
               </div>
             </div>
 
-            <div className="rounded-xl border border-[var(--brand-gold-pale)] bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-bold text-[var(--brand-charcoal)]">
+            <div className="jm-surface-card p-6">
+              <h3 className="text-base font-bold text-[var(--brand-charcoal)]">
                 Available Export Packaging Options
               </h3>
               <div className="mt-4 space-y-3 text-xs text-[var(--brand-forest)]">
-                <div className="rounded border border-stone-200 p-3">
+                <div className="rounded border border-[var(--brand-gold-pale)] p-3">
                   <p className="font-bold text-[var(--brand-charcoal)]">
                     1. Multi-Wall Kraft Paper Sacks (25 kg / 50 kg)
                   </p>
@@ -1078,7 +1078,7 @@ const SesameSeedsPage = () => {
                     the preferred packaging format for automated European and American industrial bakeries.
                   </p>
                 </div>
-                <div className="rounded border border-stone-200 p-3">
+                <div className="rounded border border-[var(--brand-gold-pale)] p-3">
                   <p className="font-bold text-[var(--brand-charcoal)]">
                     2. Woven Polypropylene (PP) Bags (25 kg / 50 kg)
                   </p>
@@ -1087,7 +1087,7 @@ const SesameSeedsPage = () => {
                     and puncture resistance for long-haul maritime transport.
                   </p>
                 </div>
-                <div className="rounded border border-stone-200 p-3">
+                <div className="rounded border border-[var(--brand-gold-pale)] p-3">
                   <p className="font-bold text-[var(--brand-charcoal)]">
                     3. 1,000 kg (1 MT) FIBC Bulk Jumbo Bags
                   </p>
@@ -1096,7 +1096,7 @@ const SesameSeedsPage = () => {
                     high-volume commercial tahini factories and edible oil crushing plants.
                   </p>
                 </div>
-                <div className="rounded border border-stone-200 p-3">
+                <div className="rounded border border-[var(--brand-gold-pale)] p-3">
                   <p className="font-bold text-[var(--brand-charcoal)]">
                     4. Custom Branded Private Label Pouches (100g to 1kg)
                   </p>
@@ -1123,7 +1123,7 @@ const SesameSeedsPage = () => {
           </div>
 
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <article className="rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)]/40 p-5">
+            <article className="rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-5">
               <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Bakery &amp; Burger Buns</h3>
               <p className="mt-2 text-xs leading-relaxed text-[var(--brand-forest)]">
                 Hulled sesame seeds (99.95% to 99.98% Sortex) are the global standard for topping hamburger
@@ -1132,7 +1132,7 @@ const SesameSeedsPage = () => {
               </p>
             </article>
 
-            <article className="rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)]/40 p-5">
+            <article className="rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-5">
               <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Tahini &amp; Halva Processing</h3>
               <p className="mt-2 text-xs leading-relaxed text-[var(--brand-forest)]">
                 High natural oil content (50%+) and low free fatty acids in Gujarat natural white sesame deliver
@@ -1140,7 +1140,7 @@ const SesameSeedsPage = () => {
               </p>
             </article>
 
-            <article className="rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)]/40 p-5">
+            <article className="rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-5">
               <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Confectionery &amp; Snacks</h3>
               <p className="mt-2 text-xs leading-relaxed text-[var(--brand-forest)]">
                 Natural white and brown seeds are used in sesame candy bars, honey-sesame biscuits, brittle,
@@ -1148,7 +1148,7 @@ const SesameSeedsPage = () => {
               </p>
             </article>
 
-            <article className="rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)]/40 p-5">
+            <article className="rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-5">
               <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Cold-Pressed Edible Oil</h3>
               <p className="mt-2 text-xs leading-relaxed text-[var(--brand-forest)]">
                 Natural sesame seeds are cold pressed into golden, fragrant edible sesame oil (Gingelly oil)
@@ -1173,11 +1173,11 @@ const SesameSeedsPage = () => {
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {DOCUMENTATION_PACKAGE.map((doc) => (
-              <div key={doc} className="flex items-start gap-3 rounded-lg border border-stone-200 bg-white p-4">
-                <FileCheck2 className="h-5 w-5 shrink-0 text-[var(--brand-gold)]" />
+              <div key={doc} className="flex items-start gap-3 rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                <FileCheck2 className="h-5 w-5 shrink-0 text-[var(--brand-gold-text)]" />
                 <div>
                   <p className="text-sm font-semibold text-[var(--brand-charcoal)]">{doc}</p>
-                  <p className="mt-0.5 text-xs text-stone-500">Official verified documentation</p>
+                  <p className="mt-0.5 text-xs text-[var(--brand-forest)]">Official verified documentation</p>
                 </div>
               </div>
             ))}
@@ -1198,41 +1198,41 @@ const SesameSeedsPage = () => {
           </div>
 
           <div className="mt-8 grid gap-6 md:grid-cols-4">
-            <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)]/40 p-5">
+            <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-5">
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--brand-deep-green)] text-xs font-bold text-white">
                 1
               </span>
-              <h3 className="mt-3 text-sm font-bold text-[var(--brand-charcoal)]">Inquiry &amp; Specs</h3>
+              <h3 className="mt-3 text-base font-bold text-[var(--brand-charcoal)]">Inquiry &amp; Specs</h3>
               <p className="mt-1 text-xs text-[var(--brand-forest)]">
                 Submit your required seed type (Natural or Hulled), target purity, packaging format, and port of destination.
               </p>
             </div>
 
-            <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)]/40 p-5">
+            <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-5">
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--brand-deep-green)] text-xs font-bold text-white">
                 2
               </span>
-              <h3 className="mt-3 text-sm font-bold text-[var(--brand-charcoal)]">Sample &amp; Quote</h3>
+              <h3 className="mt-3 text-base font-bold text-[var(--brand-charcoal)]">Sample &amp; Quote</h3>
               <p className="mt-1 text-xs text-[var(--brand-forest)]">
                 We provide a formal proforma quotation (FOB Mundra or CIF) and dispatch representative 250g–500g physical samples.
               </p>
             </div>
 
-            <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)]/40 p-5">
+            <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-5">
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--brand-deep-green)] text-xs font-bold text-white">
                 3
               </span>
-              <h3 className="mt-3 text-sm font-bold text-[var(--brand-charcoal)]">Order &amp; Processing</h3>
+              <h3 className="mt-3 text-base font-bold text-[var(--brand-charcoal)]">Order &amp; Processing</h3>
               <p className="mt-1 text-xs text-[var(--brand-forest)]">
                 Upon contract agreement, seeds undergo mechanical cleaning, hulling, Sortex optical grading, and lab testing.
               </p>
             </div>
 
-            <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)]/40 p-5">
+            <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-5">
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--brand-deep-green)] text-xs font-bold text-white">
                 4
               </span>
-              <h3 className="mt-3 text-sm font-bold text-[var(--brand-charcoal)]">Stuffing &amp; Dispatch</h3>
+              <h3 className="mt-3 text-base font-bold text-[var(--brand-charcoal)]">Stuffing &amp; Dispatch</h3>
               <p className="mt-1 text-xs text-[var(--brand-forest)]">
                 Containers are inspected, stuffed, sealed, and dispatched to Mundra Port with complete documentation.
               </p>
@@ -1275,9 +1275,9 @@ const SesameSeedsPage = () => {
           <div className="mt-8 divide-y divide-[var(--brand-gold-pale)] rounded-xl border border-[var(--brand-gold-pale)] bg-white">
             {SESAME_FAQS.map((faq) => (
               <details key={faq.question} className="group p-6">
-                <summary className="flex cursor-pointer items-center justify-between text-base font-bold text-[var(--brand-charcoal)]">
+                <summary className="flex cursor-pointer items-center justify-between text-base font-bold text-[var(--brand-charcoal)] min-h-[44px]">
                   {faq.question}
-                  <span className="ml-4 text-[var(--brand-gold)] transition-transform group-open:rotate-180">
+                  <span className="ml-4 text-[var(--brand-gold-text)] transition-transform group-open:rotate-180">
                     ▼
                   </span>
                 </summary>
@@ -1289,12 +1289,12 @@ const SesameSeedsPage = () => {
       </section>
 
       {/* Trust Badges Section */}
-      <section className="border-t border-[var(--brand-gold-pale)] bg-white py-12">
+      <section className="border-t border-[var(--brand-gold-pale)] bg-white py-10">
         <div className="jm-container">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
             {TRUST_BADGES.map((badge) => (
-              <div key={badge} className="flex items-center gap-2 rounded-lg border border-stone-200 bg-[var(--brand-cream)]/50 p-3">
-                <CheckCircle2 className="h-4 w-4 shrink-0 text-[var(--brand-gold)]" />
+              <div key={badge} className="flex items-center gap-2 rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-3">
+                <CheckCircle2 className="h-4 w-4 shrink-0 text-[var(--brand-gold-text)]" />
                 <p className="text-xs font-bold text-[var(--brand-charcoal)]">{badge}</p>
               </div>
             ))}
@@ -1328,9 +1328,9 @@ const SesameSeedsPage = () => {
         </div>
       </section>
 
-      <section className="bg-[var(--brand-deep-green)] py-12 text-white">
+      <section className="jm-section jm-section--primary">
         <div className="jm-container text-center">
-          <h2 className="font-[var(--font-display)] text-2xl font-bold md:text-3xl">
+          <h2 className="jm-section-heading jm-section-heading--on-dark">
             Request Sesame Seed Export Specifications &amp; Quotation
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm text-[rgba(255,255,255,0.85)]">
@@ -1347,8 +1347,8 @@ const SesameSeedsPage = () => {
               Chat on WhatsApp <ArrowRight className="h-4 w-4" />
             </a>
             <Link
-              to="/contact?intent=quote&product=Sesame%20Seeds"
-              className="jm-btn jm-btn--outline border-white text-white hover:bg-white hover:text-[var(--brand-deep-green)]"
+              to="/contact?intent=quote&product=Sesame%20Seeds#inquiry-form"
+              className="jm-btn jm-btn--ghost"
             >
               Submit Trade Inquiry
             </Link>

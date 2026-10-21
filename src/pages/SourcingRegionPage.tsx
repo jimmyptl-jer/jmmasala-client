@@ -121,7 +121,7 @@ const SourcingRegionPage = () => {
               <MapPin className="h-4 w-4" />
               Regional Sourcing
             </p>
-            <h1 className="mt-5 text-4xl font-bold leading-tight jm-display sm:text-5xl">
+            <h1 className="mt-5 text-white">
               {region.title}
             </h1>
             <p className="mt-5 max-w-3xl text-base leading-8 text-white/78">
@@ -131,7 +131,7 @@ const SourcingRegionPage = () => {
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="jm-btn jm-btn--primary">
                 Request Sourcing Assistance <ArrowRight className="h-4 w-4" />
               </a>
-              <Link to="/sourcing-network" className="jm-btn jm-btn--outline border-white text-white hover:bg-white/10">
+              <Link to="/sourcing-network" className="jm-btn jm-btn--ghost">
                 View Full Sourcing Network
               </Link>
             </div>
@@ -168,7 +168,7 @@ const SourcingRegionPage = () => {
           <div className="mt-8 grid gap-4 md:grid-cols-5">
             {sourcingModel.map((step, index) => (
               <article key={step} className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-5">
-                <div className="text-3xl font-bold text-[var(--brand-gold-pale)] jm-display">
+                <div className="text-3xl font-bold text-[var(--brand-gold-pale)]">
                   {String(index + 1).padStart(2, "0")}
                 </div>
                 <p className="mt-3 text-sm leading-6 text-[var(--brand-forest)]">{step}</p>
@@ -204,7 +204,7 @@ const SourcingRegionPage = () => {
                   to={`/${product.slug}`}
                   className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-5 transition-colors hover:border-[var(--brand-gold)]"
                 >
-                  <h3 className="text-lg font-bold text-[var(--brand-charcoal)]">{product.name}</h3>
+                  <h3 className="text-base font-bold text-[var(--brand-charcoal)]">{product.name}</h3>
                   <p className="mt-2 text-sm leading-6 text-[var(--brand-forest)]">
                     {product.shortDescription}
                   </p>

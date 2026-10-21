@@ -21,7 +21,7 @@ const BackToTopButton = () => {
     <button
       type="button"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className="fixed bottom-24 right-6 z-40 rounded-full bg-amber-600 p-3 text-white shadow-xl transition hover:bg-amber-700"
+      className="fixed bottom-[154px] right-[23px] z-40 inline-flex h-11 w-11 items-center justify-center rounded-full bg-[var(--brand-gold)] text-[var(--brand-deep-green)] shadow-xl transition hover:bg-[var(--brand-gold-light)] sm:bottom-24 sm:right-[38px]"
       aria-label="Back to top"
     >
       <ArrowUp className="h-5 w-5" />

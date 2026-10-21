@@ -5,6 +5,7 @@ import {
   EMPTY_FIELDS,
   FIELD_LABELS,
   MAX_LENGTHS,
+  PACKAGING,
   buildMailtoUrl,
   buildRfqMessage,
   submitRfq,
@@ -36,18 +37,24 @@ export type QuotationFormProps = {
   heading?: string;
   /** Show the optional preferred payment terms select (used on /contact). Default false. */
   showPaymentTerms?: boolean;
+  /** Destination country preset in the form (for example "India" on domestic pages). */
+  defaultCountry?: string;
+  /** Submit button label. Default "Request quotation". */
+  submitLabel?: string;
+  /** Email subject is "{prefix}: {product or 'spices'} - {company}". Default "Quotation request". */
+  emailSubjectPrefix?: string;
+  /** Page the visitor came from, added to the message as "(via ...)" and sent with the enquiry. */
+  fromPage?: string;
+  /** Make the packaging select required. */
+  requirePackaging?: boolean;
+  /** Optional paragraph shown under the heading. */
+  introText?: string;
 };
 
 type Phase = "idle" | "submitting" | "success" | "error" | "handoff";
 
 const OTHER_PRODUCT = "Other product";
 const OTHER_GRADE = "Other / to be discussed";
-const PACKAGING = [
-  "25 kg PP bags with inner liner",
-  "50 kg PP bags with inner liner",
-  "Retail packs or private label (on request)",
-  "Other / to be discussed",
-];
 const PAYMENT_TERMS = ["LC at Sight", "LC 30 Days", "TT Advance", "Other"];
 
 const normalise = (value: string): string =>
@@ -71,7 +78,8 @@ const matchProduct = (wanted: string | undefined, names: string[]): string => {
   return loose.length === 1 ? loose[0] : "";
 };
 
-const matchPackaging = (wanted: string | undefined): string => (wanted && PACKAGING.includes(wanted) ? wanted : "");
+const matchPackaging = (wanted: string | undefined): string =>
+  wanted && (PACKAGING as readonly string[]).includes(wanted) ? wanted : "";
 
 const SUMMARY_ORDER: RfqFieldName[] = [
   "product",
@@ -96,6 +104,12 @@ const QuotationForm = ({
   id = "quotation-form",
   heading = "Request a Bulk Quotation",
   showPaymentTerms = false,
+  defaultCountry,
+  submitLabel = "Request quotation",
+  emailSubjectPrefix = "Quotation request",
+  fromPage,
+  requirePackaging = false,
+  introText,
 }: QuotationFormProps): JSX.Element => {
   const productNames = useMemo(() => [...PRODUCTS.map((p) => p.name), OTHER_PRODUCT], []);
   const grades = useMemo(
@@ -107,6 +121,7 @@ const QuotationForm = ({
     ...EMPTY_FIELDS,
     product: matchProduct(defaultProduct, productNames),
     packaging: matchPackaging(defaultPackaging),
+    country: defaultCountry ?? "",
   });
 
   const [fields, setFields] = useState<RfqFields>(initial);
@@ -117,28 +132,38 @@ const QuotationForm = ({
   const [focusTick, setFocusTick] = useState(0);
   const summaryRef = useRef<HTMLDivElement>(null);
   const inFlight = useRef(false);
+  const handoffHeadingRef = useRef<HTMLHeadingElement>(null);
+  const [copied, setCopied] = useState<"" | "yes" | "no">("");
   const autoPackaging = useRef(matchPackaging(defaultPackaging));
+  const autoProduct = useRef(matchProduct(defaultProduct, productNames));
 
-  // Apply a late-arriving defaultProduct only while the user has not chosen anything.
+  // Apply a late-arriving defaultProduct (or drop one that has gone away). Only a value the form set itself
+  // is replaced or removed; anything the visitor chose is kept. Capture the old value before assigning the
+  // ref, because the updater below may run after the assignment.
   useEffect(() => {
-    const match = matchProduct(defaultProduct, productNames);
-    if (match) setFields((f) => (f.product ? f : { ...f, product: match }));
+    const next = matchProduct(defaultProduct, productNames);
+    const prev = autoProduct.current;
+    autoProduct.current = next;
+    setFields((f) => (f.product === "" || f.product === prev ? (f.product === next ? f : { ...f, product: next }) : f));
   }, [defaultProduct, productNames]);
 
   // Same for defaultPackaging, which can arrive after hydration (an enquiry intent) and can go away again
-  // when the visitor moves to another /contact URL. Only a value this effect applied is replaced or removed.
+  // when the visitor moves to another /contact URL.
   useEffect(() => {
     const next = matchPackaging(defaultPackaging);
-    setFields((f) => {
-      if (f.packaging !== "" && f.packaging !== autoPackaging.current) return f;
-      return f.packaging === next ? f : { ...f, packaging: next };
-    });
+    const prev = autoPackaging.current;
     autoPackaging.current = next;
+    setFields((f) => (f.packaging === "" || f.packaging === prev ? (f.packaging === next ? f : { ...f, packaging: next }) : f));
   }, [defaultPackaging]);
 
   useEffect(() => {
     if (focusTick > 0) summaryRef.current?.focus();
   }, [focusTick]);
+
+  useEffect(() => {
+    if (phase === "handoff") handoffHeadingRef.current?.focus();
+    else setCopied("");
+  }, [phase]);
 
   const titleId = `${id}-title`;
   const fid = (f: RfqFieldName) => `${id}-${f}`;
@@ -147,7 +172,7 @@ const QuotationForm = ({
   const setValue = (field: RfqFieldName, value: string) => {
     setFields((prev) => ({ ...prev, [field]: value }));
     if (attempted && errors[field]) {
-      const msg = validateField(field, value);
+      const msg = validateField(field, value, field === "packaging" && requirePackaging);
       setErrors((prev) => {
         const next = { ...prev };
         if (msg) next[field] = msg;
@@ -159,7 +184,7 @@ const QuotationForm = ({
 
   const onBlur = (field: RfqFieldName) => {
     if (!attempted) return;
-    const msg = validateField(field, fields[field]);
+    const msg = validateField(field, fields[field], field === "packaging" && requirePackaging);
     setErrors((prev) => {
       const next = { ...prev };
       if (msg) next[field] = msg;
@@ -175,7 +200,12 @@ const QuotationForm = ({
     inFlight.current = true;
     setPhase("submitting");
     try {
-      const result = await submitRfq({ ...fields, sourcePage: page(), timestamp: new Date().toISOString() });
+      const result = await submitRfq({
+        ...fields,
+        sourcePage: page(),
+        ...(fromPage ? { fromPage } : {}),
+        timestamp: new Date().toISOString(),
+      });
       if (result.status === "success") {
         setPhase("success");
         setFields(initial());
@@ -195,7 +225,7 @@ const QuotationForm = ({
     event.preventDefault();
     if (honeypot.trim() || phase === "submitting") return;
     setAttempted(true);
-    const result = validateRfq(fields);
+    const result = validateRfq(fields, { requirePackaging });
     if (!result.valid) {
       setErrors(result.errors);
       setFocusTick((t) => t + 1);
@@ -205,9 +235,37 @@ const QuotationForm = ({
     void send();
   };
 
-  const message = buildRfqMessage(fields, page(), showPaymentTerms, messageIntro);
+  const message = buildRfqMessage(fields, page(), showPaymentTerms, messageIntro, fromPage);
   const whatsappUrl = buildWhatsAppUrl(message);
-  const mailUrl = buildMailtoUrl(COMPANY.email, `Quotation request: ${fields.product || "spices"} - ${fields.company}`, message);
+  const mailUrl = buildMailtoUrl(COMPANY.email, `${emailSubjectPrefix}: ${fields.product || "spices"} - ${fields.company}`, message);
+
+  const copyEnquiry = async () => {
+    let ok = false;
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(message);
+        ok = true;
+      }
+    } catch {
+      ok = false;
+    }
+    if (!ok) {
+      try {
+        const area = document.createElement("textarea");
+        area.value = message;
+        area.setAttribute("readonly", "");
+        area.style.position = "fixed";
+        area.style.opacity = "0";
+        document.body.appendChild(area);
+        area.select();
+        ok = document.execCommand("copy");
+        document.body.removeChild(area);
+      } catch {
+        ok = false;
+      }
+    }
+    setCopied(ok ? "yes" : "no");
+  };
 
   const errorList = (Object.keys(errors) as RfqFieldName[]).filter((f) => errors[f]);
 
@@ -243,7 +301,7 @@ const QuotationForm = ({
     </div>
   );
 
-  const select = (field: RfqFieldName, options: string[], opts: { placeholder?: string; required?: boolean }) => (
+  const select = (field: RfqFieldName, options: readonly string[], opts: { placeholder?: string; required?: boolean }) => (
     <div className="jmq-field">
       <label className="jmq-label" htmlFor={fid(field)}>
         {FIELD_LABELS[field]}
@@ -287,10 +345,11 @@ const QuotationForm = ({
   );
 
   return (
-    <section id={id} className="jmq" aria-labelledby={titleId}>
+    <section id={id} className="jmq" aria-labelledby={titleId} tabIndex={-1}>
       <h2 className="jmq-heading" id={titleId}>
         {heading}
       </h2>
+      {introText && phase !== "handoff" && <p className="jmq-intro">{introText}</p>}
 
       {phase === "success" && (
         <div className="jmq-status" role="status">
@@ -304,8 +363,10 @@ const QuotationForm = ({
       )}
 
       {phase === "handoff" && (
-        <div className="jmq-status">
-          <h3 style={{ margin: "0 0 4px", fontSize: "1.15rem" }}>Review and send</h3>
+        <div className="jmq-status" role="status">
+          <h3 ref={handoffHeadingRef} tabIndex={-1} style={{ margin: "0 0 4px", fontSize: "1.15rem" }}>
+            Review and send
+          </h3>
           <dl className="jmq-summary">
             {SUMMARY_ORDER.filter((f) => (f !== "paymentTerms" || showPaymentTerms) && fields[f].trim()).map((f) => (
               <div key={f} style={{ display: "contents" }}>
@@ -324,10 +385,19 @@ const QuotationForm = ({
             <a className="jmq-btn" href={mailUrl}>
               Open email draft
             </a>
+            <button type="button" className="jmq-btn jmq-btn--outline" onClick={() => void copyEnquiry()}>
+              Copy enquiry
+            </button>
             <button type="button" className="jmq-btn jmq-btn--outline" onClick={() => setPhase("idle")}>
               Edit details
             </button>
           </div>
+          <p style={{ margin: "10px 0 0" }}>
+            Or email us at <strong>{COMPANY.email}</strong>.
+          </p>
+          <p aria-live="polite" style={{ margin: "6px 0 0" }}>
+            {copied === "yes" ? "Copied" : copied === "no" ? "Could not copy. Please select the text and copy it manually." : ""}
+          </p>
         </div>
       )}
 
@@ -373,10 +443,10 @@ const QuotationForm = ({
           <form onSubmit={onSubmit} noValidate aria-busy={phase === "submitting"}>
             <div className="jmq-grid">
               {select("product", productNames, { placeholder: "Select a product", required: true })}
-              {select("grade", grades, { placeholder: "Select a grade" })}
+              {grades.length > 1 && select("grade", grades, { placeholder: "Select a grade" })}
               {text("quantity", { required: true })}
               {text("country", { autoComplete: "country-name", required: true })}
-              {select("packaging", PACKAGING, { placeholder: "Select packaging" })}
+              {select("packaging", PACKAGING, { placeholder: "Select packaging", required: requirePackaging })}
               {text("name", { autoComplete: "name", required: true })}
               {text("company", { autoComplete: "organization", required: true })}
               {text("email", { type: "email", inputMode: "email", autoComplete: "email", required: true })}
@@ -421,7 +491,7 @@ const QuotationForm = ({
 
             <div className="jmq-actions">
               <button type="submit" className="jmq-btn jmq-btn--gold" disabled={phase === "submitting"} aria-busy={phase === "submitting"}>
-                {phase === "submitting" ? "Sending..." : "Request quotation"}
+                {phase === "submitting" ? "Sending..." : submitLabel}
               </button>
             </div>
           </form>

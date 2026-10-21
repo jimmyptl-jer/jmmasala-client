@@ -132,27 +132,27 @@ const UnjhaCuminSeedsPage = () => {
         ]}
       />
 
-      <div className="bg-[var(--brand-cream-light)] text-[var(--brand-charcoal)]">
+      <div className="bg-[var(--brand-cream)] text-[var(--brand-charcoal)]">
         {/* HERO SECTION */}
-        <section className="relative overflow-hidden bg-[var(--brand-deep-green)] text-white">
+        <section className="relative overflow-hidden bg-[var(--brand-deep-green)] text-white jm-section">
           <div
             className="absolute inset-0 bg-cover bg-center opacity-25"
             style={{ backgroundImage: `url(${bannerImage})` }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[rgba(13,34,20,0.95)] via-[rgba(13,34,20,0.85)] to-[rgba(13,34,20,0.7)]" />
 
-          <div className="jm-container relative py-20 lg:py-24">
+          <div className="jm-container relative">
             <div className="max-w-3xl space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(201,168,76,0.35)] bg-[rgba(201,168,76,0.12)] px-4 py-1.5 text-xs font-semibold tracking-wider text-[var(--brand-gold-light)] uppercase">
                 <MapPin className="h-3.5 w-3.5 text-[var(--brand-gold)]" />
                 Origin Authority · Unjha, Gujarat
               </div>
 
-              <h1 className="font-[var(--font-display)] text-3xl font-extrabold leading-tight text-white sm:text-4xl md:text-5xl">
+              <h1 className="text-white">
                 Unjha Cumin Seeds: Origin Sourcing &amp; Export Supply
               </h1>
 
-              <p className="text-base text-gray-200 leading-relaxed md:text-lg">
+              <p className="text-base text-[var(--brand-cream)] leading-relaxed md:text-lg">
                 Unjha is one of India&apos;s primary commercial centers for seed spices. Positioned
                 directly within this trading ecosystem, JM Masala sources fresh harvest arrivals
                 through established APMC mandi networks, delivering calibrated Sortex-cleaned
@@ -164,7 +164,7 @@ const UnjhaCuminSeedsPage = () => {
                   href={quoteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand-gold)] px-6 py-3.5 text-sm font-bold text-[var(--brand-deep-green)] shadow-lg transition-transform hover:scale-[1.02] hover:bg-[var(--brand-gold-light)]"
+                  className="jm-btn jm-btn--primary inline-flex items-center gap-2"
                 >
                   <span>Request Unjha Cumin Quote</span>
                   <ArrowRight className="h-4 w-4" />
@@ -172,7 +172,7 @@ const UnjhaCuminSeedsPage = () => {
 
                 <Link
                   to="/cumin-seeds-specifications"
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+                  className="jm-btn jm-btn--ghost inline-flex items-center gap-2"
                 >
                   <FileText className="h-4 w-4 text-[var(--brand-gold-light)]" />
                   <span>View Technical Specs</span>
@@ -182,19 +182,19 @@ const UnjhaCuminSeedsPage = () => {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-white/15 text-xs">
                 <div>
                   <div className="font-bold text-[var(--brand-gold-light)]">Origin Hub</div>
-                  <div className="text-gray-300">APMC Unjha, Gujarat</div>
+                  <div className="text-[var(--brand-cream)]">APMC Unjha, Gujarat</div>
                 </div>
                 <div>
                   <div className="font-bold text-[var(--brand-gold-light)]">Purity Range</div>
-                  <div className="text-gray-300">98% to 99.9% Sortex</div>
+                  <div className="text-[var(--brand-cream)]">98% to 99.9% Sortex</div>
                 </div>
                 <div>
                   <div className="font-bold text-[var(--brand-gold-light)]">Gateway Port</div>
-                  <div className="text-gray-300">Mundra Port (INMUN1)</div>
+                  <div className="text-[var(--brand-cream)]">Mundra Port (INMUN1)</div>
                 </div>
                 <div>
                   <div className="font-bold text-[var(--brand-gold-light)]">Container FCL</div>
-                  <div className="text-gray-300">~13.0 to 14.0 MT / 20ft</div>
+                  <div className="text-[var(--brand-cream)]">~13.0 to 14.0 MT / 20ft</div>
                 </div>
               </div>
             </div>
@@ -202,16 +202,16 @@ const UnjhaCuminSeedsPage = () => {
         </section>
 
         {/* ORIGIN CONTEXT SECTION */}
-        <section className="py-16 md:py-20 bg-white border-b border-[rgba(201,168,76,0.15)]">
+        <section className="border-b border-[rgba(201,168,76,0.15)] jm-section jm-section--white">
           <div className="jm-container space-y-12">
             <div className="max-w-3xl space-y-4">
               <span className="text-xs font-bold uppercase tracking-wider text-[var(--brand-forest)]">
                 Market Geography &amp; Trade Infrastructure
               </span>
-              <h2 className="font-[var(--font-display)] text-2xl md:text-3xl font-bold text-[var(--brand-charcoal)]">
+              <h2 className="jm-section-heading">
                 Why Unjha Origin Matters in International Cumin Procurement
               </h2>
-              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+              <p className="text-sm md:text-base text-[var(--brand-forest)] leading-relaxed">
                 In commodity agricultural trade, physical proximity to the primary arrival market
                 provides measurable operational advantages. For cumin seeds (
                 <em>Cuminum cyminum</em>), the Unjha market yard acts as the central clearinghouse
@@ -220,14 +220,14 @@ const UnjhaCuminSeedsPage = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="rounded-2xl border border-[rgba(201,168,76,0.2)] bg-[var(--brand-cream-light)] p-7 space-y-4">
+              <div className="jm-surface-card p-6 space-y-4">
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--brand-deep-green)] text-[var(--brand-gold)]">
                   <MapPin className="h-6 w-6" />
                 </div>
-                <h3 className="font-[var(--font-display)] text-lg font-bold text-[var(--brand-charcoal)]">
+                <h3 className="text-base font-bold text-[var(--brand-charcoal)]">
                   Daily Physical Spot Liquidity
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-sm text-[var(--brand-forest)] leading-relaxed">
                   During peak crop arrivals, tens of thousands of agricultural bags pass through the
                   Unjha APMC daily. This volume enables precise physical lot selection based on seed
                   size, natural color, aroma, and essential oil levels rather than relying on mixed
@@ -235,28 +235,28 @@ const UnjhaCuminSeedsPage = () => {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-[rgba(201,168,76,0.2)] bg-[var(--brand-cream-light)] p-7 space-y-4">
+              <div className="jm-surface-card p-6 space-y-4">
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--brand-deep-green)] text-[var(--brand-gold)]">
                   <Layers className="h-6 w-6" />
                 </div>
-                <h3 className="font-[var(--font-display)] text-lg font-bold text-[var(--brand-charcoal)]">
+                <h3 className="text-base font-bold text-[var(--brand-charcoal)]">
                   Immediate Inward Quality Control
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-sm text-[var(--brand-forest)] leading-relaxed">
                   Sourcing at the point of origin allows immediate moisture testing and screen analysis
                   before lot consolidation. Raw lots exhibiting excessive moisture (&gt;9%) or inert
                   foreign matter are identified and screened before inward processing.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-[rgba(201,168,76,0.2)] bg-[var(--brand-cream-light)] p-7 space-y-4">
+              <div className="jm-surface-card p-6 space-y-4">
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--brand-deep-green)] text-[var(--brand-gold)]">
                   <Ship className="h-6 w-6" />
                 </div>
-                <h3 className="font-[var(--font-display)] text-lg font-bold text-[var(--brand-charcoal)]">
+                <h3 className="text-base font-bold text-[var(--brand-charcoal)]">
                   Direct Corridor to Mundra Port
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-sm text-[var(--brand-forest)] leading-relaxed">
                   Unjha is situated along key multi-lane commercial corridors in northern Gujarat,
                   approximately 320 km from Mundra Port (INMUN1). Export containers are stuffed,
                   fumigated, and sealed close to origin and transported directly to port berths.
@@ -267,16 +267,16 @@ const UnjhaCuminSeedsPage = () => {
         </section>
 
         {/* HARVEST CALENDAR & QUALITY CYCLES */}
-        <section className="py-16 md:py-20 bg-[var(--brand-cream)] border-b border-[rgba(201,168,76,0.15)]">
+        <section className="border-b border-[rgba(201,168,76,0.15)] jm-section jm-section--cream">
           <div className="jm-container space-y-10">
             <div className="max-w-3xl space-y-3">
               <span className="text-xs font-bold uppercase tracking-wider text-[var(--brand-forest)]">
                 Procurement Planning
               </span>
-              <h2 className="font-[var(--font-display)] text-2xl md:text-3xl font-bold text-[var(--brand-charcoal)]">
+              <h2 className="jm-section-heading">
                 The Unjha Cumin Crop &amp; Harvest Cycle
               </h2>
-              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+              <p className="text-sm md:text-base text-[var(--brand-forest)] leading-relaxed">
                 Understanding seasonal procurement timing helps international buyers align annual
                 purchasing programs, container schedules, and specification requirements.
               </p>
@@ -286,26 +286,26 @@ const UnjhaCuminSeedsPage = () => {
               {HARVEST_TIMELINE.map((item) => (
                 <div
                   key={item.season}
-                  className="rounded-2xl bg-white p-7 shadow-sm border border-[rgba(201,168,76,0.25)] flex flex-col justify-between space-y-5"
+                  className="jm-surface-card p-6 flex flex-col justify-between space-y-5"
                 >
                   <div className="space-y-3">
-                    <div className="inline-flex items-center gap-2 rounded-md bg-[var(--brand-cream-light)] px-3 py-1 text-xs font-bold text-[var(--brand-deep-green)]">
-                      <Calendar className="h-3.5 w-3.5 text-[var(--brand-gold)]" />
+                    <div className="inline-flex items-center gap-2 rounded-md bg-[var(--brand-cream)] px-3 py-1 text-xs font-bold text-[var(--brand-deep-green)]">
+                      <Calendar className="h-3.5 w-3.5 text-[var(--brand-gold-text)]" />
                       {item.season}
                     </div>
                     <h3 className="font-bold text-base text-[var(--brand-charcoal)]">
                       {item.status}
                     </h3>
-                    <p className="text-xs text-gray-600 leading-relaxed">
+                    <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
                       {item.description}
                     </p>
                   </div>
 
-                  <div className="rounded-xl bg-[var(--brand-cream-light)] p-3.5 border-l-2 border-[var(--brand-gold)]">
+                  <div className="rounded-xl bg-[var(--brand-cream)] p-3.5 border-l-2 border-[var(--brand-gold)]">
                     <span className="block text-[11px] font-bold text-[var(--brand-forest)] uppercase">
                       Buyer Strategy
                     </span>
-                    <span className="text-xs text-gray-700">
+                    <span className="text-xs text-[var(--brand-forest)]">
                       {item.buyerAdvantage}
                     </span>
                   </div>
@@ -316,16 +316,16 @@ const UnjhaCuminSeedsPage = () => {
         </section>
 
         {/* PROCESSING & SORTEX STAGES */}
-        <section className="py-16 md:py-20 bg-white border-b border-[rgba(201,168,76,0.15)]">
+        <section className="border-b border-[rgba(201,168,76,0.15)] jm-section jm-section--white">
           <div className="jm-container space-y-12">
             <div className="max-w-3xl space-y-3">
               <span className="text-xs font-bold uppercase tracking-wider text-[var(--brand-forest)]">
                 Factory &amp; Sorting Infrastructure
               </span>
-              <h2 className="font-[var(--font-display)] text-2xl md:text-3xl font-bold text-[var(--brand-charcoal)]">
+              <h2 className="jm-section-heading">
                 From Mandi Arrival to Calibrated Export Lot
               </h2>
-              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+              <p className="text-sm md:text-base text-[var(--brand-forest)] leading-relaxed">
                 Raw cumin harvested from agricultural fields carries crop stems, dirt, loose stones,
                 and discolored grains. Converting raw arrivals into export-grade material requires
                 a continuous physical grading process:
@@ -333,63 +333,63 @@ const UnjhaCuminSeedsPage = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="p-6 rounded-2xl bg-[var(--brand-cream-light)] border border-[rgba(201,168,76,0.2)] space-y-3">
-                <span className="text-xs font-black text-[var(--brand-gold)]">STEP 01</span>
+              <div className="jm-surface-card p-6 space-y-3">
+                <span className="text-xs font-black text-[var(--brand-gold-text)]">STEP 01</span>
                 <h3 className="font-bold text-base text-[var(--brand-charcoal)]">
                   Vibro Destoning &amp; Aspiration
                 </h3>
-                <p className="text-xs text-gray-600 leading-relaxed">
+                <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
                   High-capacity vibratory screens remove field stones, gravel, loose dust, and large
                   crop chaff through balanced air suction.
                 </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-[var(--brand-cream-light)] border border-[rgba(201,168,76,0.2)] space-y-3">
-                <span className="text-xs font-black text-[var(--brand-gold)]">STEP 02</span>
+              <div className="jm-surface-card p-6 space-y-3">
+                <span className="text-xs font-black text-[var(--brand-gold-text)]">STEP 02</span>
                 <h3 className="font-bold text-base text-[var(--brand-charcoal)]">
                   Gravity Separation
                 </h3>
-                <p className="text-xs text-gray-600 leading-relaxed">
+                <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
                   Fluidized-bed gravity tables separate immature, hollow, or light-weight seeds from
                   heavy, oil-rich cumin grains.
                 </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-[var(--brand-cream-light)] border border-[rgba(201,168,76,0.2)] space-y-3">
-                <span className="text-xs font-black text-[var(--brand-gold)]">STEP 03</span>
+              <div className="jm-surface-card p-6 space-y-3">
+                <span className="text-xs font-black text-[var(--brand-gold-text)]">STEP 03</span>
                 <h3 className="font-bold text-base text-[var(--brand-charcoal)]">
                   Optical Sortex Grading
                 </h3>
-                <p className="text-xs text-gray-600 leading-relaxed">
+                <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
                   Full-color optical sorters scan every seed in free-fall, ejecting dark, discolored,
                   and damaged seeds to achieve 99% to 99.9% purity.
                 </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-[var(--brand-cream-light)] border border-[rgba(201,168,76,0.2)] space-y-3">
-                <span className="text-xs font-black text-[var(--brand-gold)]">STEP 04</span>
+              <div className="jm-surface-card p-6 space-y-3">
+                <span className="text-xs font-black text-[var(--brand-gold-text)]">STEP 04</span>
                 <h3 className="font-bold text-base text-[var(--brand-charcoal)]">
                   Export Packaging &amp; Lining
                 </h3>
-                <p className="text-xs text-gray-600 leading-relaxed">
+                <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
                   Packed in clean, food-grade woven polypropylene bags with inner moisture liners or
                   multi-wall paper sacks labeled per buyer specifications.
                 </p>
               </div>
             </div>
 
-            <div className="rounded-2xl bg-[var(--brand-deep-green)] p-6 md:p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="rounded-xl bg-[var(--brand-deep-green)] p-6 md:p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="space-y-2">
-                <h3 className="font-[var(--font-display)] text-xl font-bold text-white">
+                <h3 className="text-xl font-bold text-white">
                   Looking for detailed laboratory parameters and grade standards?
                 </h3>
-                <p className="text-sm text-gray-200">
+                <p className="text-sm text-[var(--brand-cream)]">
                   Review moisture limits, volatile essential oil data, microbiological tolerances, and container stuffing weights.
                 </p>
               </div>
               <Link
                 to="/cumin-seeds-specifications"
-                className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-[var(--brand-gold)] px-6 py-3 text-sm font-bold text-[var(--brand-deep-green)] hover:bg-[var(--brand-gold-light)] transition-colors"
+                className="jm-btn jm-btn--primary inline-flex shrink-0 items-center gap-2"
               >
                 <span>Technical Specifications Sheet</span>
                 <ArrowRight className="h-4 w-4" />
@@ -399,21 +399,21 @@ const UnjhaCuminSeedsPage = () => {
         </section>
 
         {/* COMPARISON TABLE: RAW MANDI VS SORTEX */}
-        <section className="py-16 md:py-20 bg-[var(--brand-cream)] border-b border-[rgba(201,168,76,0.15)]">
+        <section className="border-b border-[rgba(201,168,76,0.15)] jm-section jm-section--cream">
           <div className="jm-container space-y-8">
             <div className="max-w-3xl space-y-3">
               <span className="text-xs font-bold uppercase tracking-wider text-[var(--brand-forest)]">
                 Grade Differentiation
               </span>
-              <h2 className="font-[var(--font-display)] text-2xl md:text-3xl font-bold text-[var(--brand-charcoal)]">
+              <h2 className="jm-section-heading">
                 Unjha Cumin Grades: Raw Mandi vs Export-Ready Sortex
               </h2>
-              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+              <p className="text-sm md:text-base text-[var(--brand-forest)] leading-relaxed">
                 Clear distinction between raw arrival stock and value-added export grades:
               </p>
             </div>
 
-            <div className="overflow-x-auto rounded-2xl border border-[rgba(201,168,76,0.3)] bg-white shadow-sm">
+            <div className="overflow-x-auto rounded-xl border border-[rgba(201,168,76,0.3)] bg-white shadow-sm">
               <table className="w-full text-left text-xs md:text-sm">
                 <thead className="bg-[var(--brand-deep-green)] text-white">
                   <tr>
@@ -426,38 +426,38 @@ const UnjhaCuminSeedsPage = () => {
                 <tbody className="divide-y divide-[rgba(201,168,76,0.2)]">
                   <tr>
                     <td className="py-3.5 px-5 font-bold text-[var(--brand-charcoal)]">Physical Purity</td>
-                    <td className="py-3.5 px-5 text-gray-600">92% to 95%</td>
-                    <td className="py-3.5 px-5 text-gray-600">98.0% to 99.0%</td>
+                    <td className="py-3.5 px-5 text-[var(--brand-forest)]">92% to 95%</td>
+                    <td className="py-3.5 px-5 text-[var(--brand-forest)]">98.0% to 99.0%</td>
                     <td className="py-3.5 px-5 font-bold text-[var(--brand-forest)]">99.5% to 99.9%</td>
                   </tr>
                   <tr>
                     <td className="py-3.5 px-5 font-bold text-[var(--brand-charcoal)]">Stones &amp; Foreign Matter</td>
-                    <td className="py-3.5 px-5 text-gray-600">Present (field stones, mud)</td>
-                    <td className="py-3.5 px-5 text-gray-600">&lt;1.0% (destoned)</td>
+                    <td className="py-3.5 px-5 text-[var(--brand-forest)]">Present (field stones, mud)</td>
+                    <td className="py-3.5 px-5 text-[var(--brand-forest)]">&lt;1.0% (destoned)</td>
                     <td className="py-3.5 px-5 font-bold text-[var(--brand-forest)]">Nil / Trace (&lt;0.1%)</td>
                   </tr>
                   <tr>
                     <td className="py-3.5 px-5 font-bold text-[var(--brand-charcoal)]">Discolored / Damaged Grains</td>
-                    <td className="py-3.5 px-5 text-gray-600">3% to 6% variable</td>
-                    <td className="py-3.5 px-5 text-gray-600">1% to 2%</td>
+                    <td className="py-3.5 px-5 text-[var(--brand-forest)]">3% to 6% variable</td>
+                    <td className="py-3.5 px-5 text-[var(--brand-forest)]">1% to 2%</td>
                     <td className="py-3.5 px-5 font-bold text-[var(--brand-forest)]">&lt;0.5% (optically rejected)</td>
                   </tr>
                   <tr>
                     <td className="py-3.5 px-5 font-bold text-[var(--brand-charcoal)]">Moisture Content</td>
-                    <td className="py-3.5 px-5 text-gray-600">9% to 12% (fresh arrival)</td>
-                    <td className="py-3.5 px-5 text-gray-600">8.5% to 9.0% max</td>
+                    <td className="py-3.5 px-5 text-[var(--brand-forest)]">9% to 12% (fresh arrival)</td>
+                    <td className="py-3.5 px-5 text-[var(--brand-forest)]">8.5% to 9.0% max</td>
                     <td className="py-3.5 px-5 font-bold text-[var(--brand-forest)]">Max 8.0% to 8.5%</td>
                   </tr>
                   <tr>
                     <td className="py-3.5 px-5 font-bold text-[var(--brand-charcoal)]">Volatile Essential Oil</td>
-                    <td className="py-3.5 px-5 text-gray-600">Variable by farm lot</td>
-                    <td className="py-3.5 px-5 text-gray-600">2.5% to 3.5%</td>
+                    <td className="py-3.5 px-5 text-[var(--brand-forest)]">Variable by farm lot</td>
+                    <td className="py-3.5 px-5 text-[var(--brand-forest)]">2.5% to 3.5%</td>
                     <td className="py-3.5 px-5 font-bold text-[var(--brand-forest)]">2.8% to 4.5%</td>
                   </tr>
                   <tr>
                     <td className="py-3.5 px-5 font-bold text-[var(--brand-charcoal)]">Typical Buyer Suitability</td>
-                    <td className="py-3.5 px-5 text-gray-600">Local processors with cleaning plants</td>
-                    <td className="py-3.5 px-5 text-gray-600">Wholesale repackers, grinding mills</td>
+                    <td className="py-3.5 px-5 text-[var(--brand-forest)]">Local processors with cleaning plants</td>
+                    <td className="py-3.5 px-5 text-[var(--brand-forest)]">Wholesale repackers, grinding mills</td>
                     <td className="py-3.5 px-5 font-bold text-[var(--brand-forest)]">Export importers, EU/USA/Gulf packers</td>
                   </tr>
                 </tbody>
@@ -467,16 +467,16 @@ const UnjhaCuminSeedsPage = () => {
         </section>
 
         {/* LOGISTICS & DOCUMENTATION SECTION */}
-        <section className="py-16 md:py-20 bg-white border-b border-[rgba(201,168,76,0.15)]">
+        <section className="border-b border-[rgba(201,168,76,0.15)] jm-section jm-section--white">
           <div className="jm-container space-y-12">
             <div className="max-w-3xl space-y-3">
               <span className="text-xs font-bold uppercase tracking-wider text-[var(--brand-forest)]">
                 Container Logistics &amp; Documentation
               </span>
-              <h2 className="font-[var(--font-display)] text-2xl md:text-3xl font-bold text-[var(--brand-charcoal)]">
+              <h2 className="jm-section-heading">
                 Shipment Execution from Unjha to Mundra Port
               </h2>
-              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+              <p className="text-sm md:text-base text-[var(--brand-forest)] leading-relaxed">
                 Exporting cumin requires strict sea-freight preservation protocols and verified
                 trade documentation. Every export container organized by JM Masala follows
                 standard operational guidelines:
@@ -484,41 +484,41 @@ const UnjhaCuminSeedsPage = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="rounded-2xl border border-[rgba(201,168,76,0.2)] bg-[var(--brand-cream-light)] p-6 space-y-3">
+              <div className="jm-surface-card p-6 space-y-3">
                 <div className="flex items-center gap-3">
                   <div className="rounded-lg bg-[var(--brand-deep-green)] p-2 text-[var(--brand-gold)]">
                     <Package className="h-5 w-5" />
                   </div>
-                  <h3 className="font-bold text-sm text-[var(--brand-charcoal)]">Container Preservation</h3>
+                  <h3 className="font-bold text-base text-[var(--brand-charcoal)]">Container Preservation</h3>
                 </div>
-                <p className="text-xs text-gray-600 leading-relaxed">
+                <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
                   Containers are lined with 5-side heavy kraft paper and equipped with high-absorption
                   dry-gel desiccant poles suspended in corrugations to protect against maritime
                   container sweat.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-[rgba(201,168,76,0.2)] bg-[var(--brand-cream-light)] p-6 space-y-3">
+              <div className="jm-surface-card p-6 space-y-3">
                 <div className="flex items-center gap-3">
                   <div className="rounded-lg bg-[var(--brand-deep-green)] p-2 text-[var(--brand-gold)]">
                     <FileCheck2 className="h-5 w-5" />
                   </div>
-                  <h3 className="font-bold text-sm text-[var(--brand-charcoal)]">Standard Export Dossier</h3>
+                  <h3 className="font-bold text-base text-[var(--brand-charcoal)]">Standard Export Dossier</h3>
                 </div>
-                <p className="text-xs text-gray-600 leading-relaxed">
+                <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
                   Shipments include Commercial Invoice, Packing List, Certificate of Origin (COO),
                   Government Phytosanitary Certificate, Bill of Lading, and NABL-accredited Lab COA.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-[rgba(201,168,76,0.2)] bg-[var(--brand-cream-light)] p-6 space-y-3">
+              <div className="jm-surface-card p-6 space-y-3">
                 <div className="flex items-center gap-3">
                   <div className="rounded-lg bg-[var(--brand-deep-green)] p-2 text-[var(--brand-gold)]">
                     <ShieldCheck className="h-5 w-5" />
                   </div>
-                  <h3 className="font-bold text-sm text-[var(--brand-charcoal)]">Independent Surveyors</h3>
+                  <h3 className="font-bold text-base text-[var(--brand-charcoal)]">Independent Surveyors</h3>
                 </div>
-                <p className="text-xs text-gray-600 leading-relaxed">
+                <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
                   We coordinate with buyer-nominated inspection agencies such as SGS, Intertek, or
                   Bureau Veritas at Mundra Port to supervise container loading and draw composite samples.
                 </p>
@@ -528,13 +528,14 @@ const UnjhaCuminSeedsPage = () => {
         </section>
 
         {/* FAQS */}
-        <section className="py-16 md:py-20 bg-[var(--brand-cream)] border-b border-[rgba(201,168,76,0.15)]">
-          <div className="jm-container space-y-8 max-w-4xl">
+        <section className="border-b border-[rgba(201,168,76,0.15)] jm-section jm-section--cream">
+          <div className="jm-container">
+          <div className="mx-auto max-w-4xl space-y-8">
             <div className="space-y-3 text-center">
               <span className="text-xs font-bold uppercase tracking-wider text-[var(--brand-forest)]">
                 Buyer Questions
               </span>
-              <h2 className="font-[var(--font-display)] text-2xl md:text-3xl font-bold text-[var(--brand-charcoal)]">
+              <h2 className="jm-section-heading">
                 Frequently Asked Questions About Unjha Cumin
               </h2>
             </div>
@@ -543,28 +544,29 @@ const UnjhaCuminSeedsPage = () => {
               {UNJHA_FAQS.map((faq) => (
                 <div
                   key={faq.question}
-                  className="rounded-2xl bg-white p-6 shadow-sm border border-[rgba(201,168,76,0.25)] space-y-2"
+                  className="jm-surface-card p-6 space-y-2"
                 >
-                  <h3 className="font-bold text-sm md:text-base text-[var(--brand-charcoal)]">
+                  <h3 className="font-bold text-base text-[var(--brand-charcoal)]">
                     {faq.question}
                   </h3>
-                  <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
+                  <p className="text-xs md:text-sm text-[var(--brand-forest)] leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>
               ))}
             </div>
           </div>
+          </div>
         </section>
 
         {/* RELATED TOPICS / PILLAR NAVIGATION */}
-        <section className="py-16 bg-white">
+        <section className="jm-section jm-section--white">
           <div className="jm-container space-y-8">
             <div className="space-y-2 text-center max-w-2xl mx-auto">
-              <h2 className="font-[var(--font-display)] text-xl md:text-2xl font-bold text-[var(--brand-charcoal)]">
+              <h2 className="jm-section-heading">
                 Explore More in the Cumin Export Cluster
               </h2>
-              <p className="text-xs md:text-sm text-gray-600">
+              <p className="text-xs md:text-sm text-[var(--brand-forest)]">
                 Cross-reference technical specifications, processing capabilities, and export operations.
               </p>
             </div>
@@ -572,57 +574,57 @@ const UnjhaCuminSeedsPage = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               <Link
                 to="/cumin-seeds-specifications"
-                className="group rounded-2xl border border-[rgba(201,168,76,0.2)] bg-[var(--brand-cream-light)] p-5 hover:border-[var(--brand-gold)] transition-all space-y-2"
+                className="group rounded-xl border border-[rgba(201,168,76,0.2)] bg-[var(--brand-cream)] p-5 hover:border-[var(--brand-gold)] transition-all space-y-2"
               >
                 <div className="font-bold text-sm text-[var(--brand-charcoal)] group-hover:text-[var(--brand-forest)] flex items-center justify-between">
                   <span>Cumin Specifications</span>
                   <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-xs text-gray-600">
+                <p className="text-xs text-[var(--brand-forest)]">
                   Full chemical, physical, and microbiological data sheets with grade comparisons.
                 </p>
               </Link>
 
               <Link
                 to="/cumin-seeds-exporter-india"
-                className="group rounded-2xl border border-[rgba(201,168,76,0.2)] bg-[var(--brand-cream-light)] p-5 hover:border-[var(--brand-gold)] transition-all space-y-2"
+                className="group rounded-xl border border-[rgba(201,168,76,0.2)] bg-[var(--brand-cream)] p-5 hover:border-[var(--brand-gold)] transition-all space-y-2"
               >
                 <div className="font-bold text-sm text-[var(--brand-charcoal)] group-hover:text-[var(--brand-forest)] flex items-center justify-between">
                   <span>Cumin Product Page</span>
                   <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-xs text-gray-600">
+                <p className="text-xs text-[var(--brand-forest)]">
                   Commercial catalog page with packing options, HS codes, and container capacities.
                 </p>
               </Link>
 
               <Link
                 to="/cumin-seeds-exporter-india"
-                className="group rounded-2xl border border-[rgba(201,168,76,0.2)] bg-[var(--brand-cream-light)] p-5 hover:border-[var(--brand-gold)] transition-all space-y-2"
+                className="group rounded-xl border border-[rgba(201,168,76,0.2)] bg-[var(--brand-cream)] p-5 hover:border-[var(--brand-gold)] transition-all space-y-2"
               >
                 <div className="font-bold text-sm text-[var(--brand-charcoal)] group-hover:text-[var(--brand-forest)] flex items-center justify-between">
                   <span>Bulk Cumin Seeds Exporter</span>
                   <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-xs text-gray-600">
+                <p className="text-xs text-[var(--brand-forest)]">
                   Bulk cumin supply, grades, packing and export enquiries from JM Masala.
                 </p>
               </Link>
 
               <Link
                 to="/spice-processing-manufacturing"
-                className="group rounded-2xl border border-[rgba(201,168,76,0.2)] bg-[var(--brand-cream-light)] p-5 hover:border-[var(--brand-gold)] transition-all space-y-2"
+                className="group rounded-xl border border-[rgba(201,168,76,0.2)] bg-[var(--brand-cream)] p-5 hover:border-[var(--brand-gold)] transition-all space-y-2"
               >
                 <div className="font-bold text-sm text-[var(--brand-charcoal)] group-hover:text-[var(--brand-forest)] flex items-center justify-between">
                   <span>Processing Infrastructure</span>
                   <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="text-xs text-gray-600">
+                <p className="text-xs text-[var(--brand-forest)]">
                   Detailed look at destoners, gravity separators, and Sortex optical lines.
                 </p>
               </Link>
             </div>
-            <p className="text-center text-xs md:text-sm text-gray-600">
+            <p className="text-center text-xs md:text-sm text-[var(--brand-forest)]">
               See also our <Link to="/quality-certifications" className="underline">quality and certifications</Link>,{" "}
               <Link to="/spice-packaging" className="underline">spice packaging</Link>,{" "}
               <Link to="/private-label-spices" className="underline">private label spices</Link>, and{" "}

@@ -188,23 +188,23 @@ const SpiceProcessingPage = () => {
 
       <div className="bg-[var(--brand-warm-white)] text-[var(--brand-charcoal)]">
         {/* HERO SECTION */}
-        <section className="relative bg-gradient-to-b from-[#10170f] via-[var(--brand-deep-green)] to-[#182618] text-white py-20 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <section className="relative bg-gradient-to-b from-[var(--brand-deep-green)] to-[var(--brand-forest)] text-white overflow-hidden jm-section">
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#c9a84c_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
           
-          <div className="max-w-6xl mx-auto relative z-10 text-center space-y-6">
+          <div className="jm-container relative z-10 text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[rgba(201,168,76,0.18)] border border-[rgba(201,168,76,0.4)] text-[var(--brand-gold-light)] text-xs sm:text-sm font-semibold uppercase tracking-wider">
               <Factory className="h-4 w-4 text-[var(--brand-gold)]" />
               <span>Unjha Manufacturing &amp; Processing Facility · Gujarat, India</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white jm-display leading-tight max-w-4xl mx-auto">
+            <h1 className="max-w-4xl mx-auto text-white">
               From Raw Mandi Arrivals to{" "}
               <span className="text-[var(--brand-gold-light)] italic block sm:inline">
                 Export-Ready Precision
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-emerald-100/90 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-[var(--brand-cream)] max-w-3xl mx-auto leading-relaxed">
               <strong>JM Masala Trading LLP</strong> operates dedicated mechanical cleaning, Sortex optical color sorting, and temperature-controlled grinding lines in Unjha, Gujarat. We bridge direct farm procurement with world-class technical specifications for food manufacturers, spice brands, and international importers.
             </p>
 
@@ -231,7 +231,7 @@ const SpiceProcessingPage = () => {
             <div className="flex flex-wrap justify-center gap-4 pt-4">
               <Link
                 to="/contact?intent=quote#inquiry-form"
-                className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[var(--brand-gold)] to-[var(--brand-gold-light)] text-[var(--brand-deep-green)] font-bold text-sm sm:text-base hover:shadow-xl hover:shadow-[rgba(201,168,76,0.3)] transition-all"
+                className="jm-btn jm-btn--primary"
               >
                 Request Processing Quotation
               </Link>
@@ -239,7 +239,7 @@ const SpiceProcessingPage = () => {
                 href={buildWhatsAppUrl("Hi JM Masala, I would like to inquire about your spice processing capabilities and custom grading.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3.5 rounded-xl border border-white/30 hover:bg-white/10 text-white font-semibold text-sm transition-all"
+                className="jm-btn jm-btn--ghost"
               >
                 WhatsApp Export Desk
               </a>
@@ -248,13 +248,14 @@ const SpiceProcessingPage = () => {
         </section>
 
         {/* 7-STAGE PROCESSING PIPELINE */}
-        <section className="py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <section className="jm-section jm-section--white">
+          <div className="jm-container">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
+            <div className="jm-section-label inline-flex items-center gap-2">
               <Cpu className="h-4 w-4" />
               <span>Engineered Quality Control</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display">
+            <h2 className="jm-section-heading">
               The 7-Stage Industrial Processing Pipeline
             </h2>
             <p className="text-sm sm:text-base text-[var(--brand-forest)]">
@@ -268,14 +269,14 @@ const SpiceProcessingPage = () => {
               return (
                 <div
                   key={step.num}
-                  className="bg-white rounded-2xl p-6 sm:p-8 border border-[rgba(201,168,76,0.25)] shadow-sm hover:shadow-md transition-shadow grid grid-cols-1 lg:grid-cols-12 gap-6 items-center"
+                  className="jm-surface-card p-6 sm:p-8 hover:shadow-md transition-shadow grid grid-cols-1 lg:grid-cols-12 gap-6 items-center"
                 >
                   <div className="lg:col-span-1 flex items-center lg:flex-col justify-between">
-                    <span className="text-3xl sm:text-4xl font-black font-mono text-[var(--brand-gold)]">
+                    <span className="text-3xl sm:text-4xl font-black font-mono text-[var(--brand-gold-text)]">
                       {step.num}
                     </span>
                     <div className="w-12 h-12 rounded-xl bg-[var(--brand-cream)] border border-[rgba(201,168,76,0.3)] flex items-center justify-center text-[var(--brand-forest)]">
-                      <IconComp className="h-6 w-6 text-[var(--brand-gold)]" />
+                      <IconComp className="h-6 w-6 text-[var(--brand-gold-text)]" />
                     </div>
                   </div>
 
@@ -283,7 +284,7 @@ const SpiceProcessingPage = () => {
                     <div className="inline-block text-[11px] font-bold uppercase tracking-wider text-[var(--brand-sage)] px-2.5 py-0.5 rounded bg-[var(--brand-cream)]">
                       {step.tag}
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-[var(--brand-charcoal)] jm-display">
+                    <h3 className="text-xl font-bold text-[var(--brand-charcoal)]">
                       {step.headline}
                     </h3>
                     <p className="text-xs sm:text-sm text-[var(--brand-forest)] leading-relaxed">
@@ -291,10 +292,10 @@ const SpiceProcessingPage = () => {
                     </p>
                   </div>
 
-                  <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-2.5 border-t lg:border-t-0 lg:border-l border-gray-100 pt-4 lg:pt-0 lg:pl-6">
+                  <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-2.5 border-t lg:border-t-0 lg:border-l border-[var(--brand-gold-pale)] pt-4 lg:pt-0 lg:pl-6">
                     {step.metrics.map((m, idx) => (
-                      <div key={idx} className="bg-[var(--brand-cream)]/50 p-2.5 rounded-lg border border-[rgba(201,168,76,0.15)]">
-                        <div className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold">{m.label}</div>
+                      <div key={idx} className="bg-[var(--brand-cream)] p-2.5 rounded-lg border border-[rgba(201,168,76,0.15)]">
+                        <div className="text-[10px] text-[var(--brand-forest)] uppercase tracking-wider font-semibold">{m.label}</div>
                         <div className="text-xs sm:text-sm font-bold text-[var(--brand-deep-green)]">{m.val}</div>
                       </div>
                     ))}
@@ -303,13 +304,14 @@ const SpiceProcessingPage = () => {
               );
             })}
           </div>
+          </div>
         </section>
 
         {/* PROCESSING CAPABILITIES GRID */}
-        <section className="py-16 bg-[var(--brand-cream)] border-y border-[rgba(201,168,76,0.25)] px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
+        <section className="border-y border-[rgba(201,168,76,0.25)] jm-section jm-section--cream">
+          <div className="jm-container">
             <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="text-2xl sm:text-3xl font-bold text-[var(--brand-charcoal)] jm-display mb-2">
+              <h2 className="jm-section-heading mb-2">
                 Custom Processing Capabilities for Global Buyers
               </h2>
               <p className="text-xs sm:text-sm text-[var(--brand-forest)]">
@@ -319,14 +321,14 @@ const SpiceProcessingPage = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {CAPABILITIES.map((c, idx) => (
-                <div key={idx} className="bg-white p-6 rounded-2xl border border-[rgba(201,168,76,0.3)] shadow-sm hover:-translate-y-1 transition-transform">
+                <div key={idx} className="jm-surface-card p-6 hover:-translate-y-1 transition-transform">
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[var(--brand-forest)] text-white">
                       {c.badge}
                     </span>
-                    <CheckCircle2 className="h-4 w-4 text-[var(--brand-gold)]" />
+                    <CheckCircle2 className="h-4 w-4 text-[var(--brand-gold-text)]" />
                   </div>
-                  <h3 className="text-lg font-bold text-[var(--brand-charcoal)] jm-display mb-2">
+                  <h3 className="text-base font-bold text-[var(--brand-charcoal)] mb-2">
                     {c.title}
                   </h3>
                   <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
@@ -339,12 +341,13 @@ const SpiceProcessingPage = () => {
         </section>
 
         {/* BOTTOM CTA */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--brand-gold)]">
+        <section className="jm-section jm-section--white">
+          <div className="jm-container"><div className="mx-auto max-w-5xl text-center space-y-6">
+          <div className="jm-section-label inline-flex items-center gap-2">
             <Sparkles className="h-4 w-4" />
             <span>Direct Mandi Origin Partner</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[var(--brand-charcoal)] jm-display">
+          <h2 className="jm-section-heading">
             Have Specific Quality Parameters or Custom Mesh Requirements?
           </h2>
           <p className="text-sm sm:text-base text-[var(--brand-forest)] max-w-2xl mx-auto">
@@ -353,17 +356,18 @@ const SpiceProcessingPage = () => {
           <div className="flex flex-wrap justify-center gap-4 pt-2">
             <Link
               to="/contact?intent=quote#inquiry-form"
-              className="px-8 py-3.5 rounded-xl bg-[var(--brand-forest)] text-white hover:bg-[var(--brand-deep-green)] font-bold text-sm shadow-md transition-all"
+              className="jm-btn jm-btn--secondary"
             >
               Submit Specification RFQ
             </Link>
             <Link
               to="/products"
-              className="px-7 py-3.5 rounded-xl bg-white border border-[rgba(201,168,76,0.4)] text-[var(--brand-forest)] hover:bg-[var(--brand-gold-pale)] font-bold text-sm transition-all"
+              className="jm-btn jm-btn--outline"
             >
               Explore Master Products
             </Link>
           </div>
+          </div></div>
         </section>
       </div>
     </>

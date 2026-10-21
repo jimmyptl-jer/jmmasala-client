@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Ban, Droplets, Microscope, Search, Snowflake, Sprout, Wheat } from "lucide-react";
 import Seo from "@/components/Seo";
 import {
   COMPANY,
@@ -237,7 +238,7 @@ const ColdPressedOilsPage = () => {
           style={{ background: "var(--oil-dark)" }}
         >
           <div className="jm-container">
-            <p className="jm-section-label">Cold Pressed Oils</p>
+            <p className="jm-section-label jm-section-label--on-dark">Cold Pressed Oils</p>
             <h1 className="jm-section-heading jm-section-heading--on-dark">
               Pure, Unrefined Oils from Unjha&apos;s Spice &amp; Oilseed Hub
             </h1>
@@ -292,7 +293,7 @@ const ColdPressedOilsPage = () => {
                 <h2 className="jm-section-heading">Cold Pressed, Not Heated</h2>
                 <div className="mt-6 space-y-4">
                   <div className="flex gap-4">
-                    <div className="text-2xl">🌱</div>
+                    <div className="text-[var(--brand-forest)]"><Sprout className="h-7 w-7" aria-hidden="true" /></div>
                     <div>
                       <h4 className="font-semibold text-[var(--brand-charcoal)]">
                         Fresh Seeds
@@ -303,7 +304,7 @@ const ColdPressedOilsPage = () => {
                     </div>
                   </div>
                   <div className="flex gap-4">
-                    <div className="text-2xl">❄️</div>
+                    <div className="text-[var(--brand-forest)]"><Snowflake className="h-7 w-7" aria-hidden="true" /></div>
                     <div>
                       <h4 className="font-semibold text-[var(--brand-charcoal)]">
                         Cold Press
@@ -314,7 +315,7 @@ const ColdPressedOilsPage = () => {
                     </div>
                   </div>
                   <div className="flex gap-4">
-                    <div className="text-2xl">🔍</div>
+                    <div className="text-[var(--brand-forest)]"><Search className="h-7 w-7" aria-hidden="true" /></div>
                     <div>
                       <h4 className="font-semibold text-[var(--brand-charcoal)]">
                         Filtered
@@ -325,7 +326,7 @@ const ColdPressedOilsPage = () => {
                     </div>
                   </div>
                   <div className="flex gap-4">
-                    <div className="text-2xl">🫒</div>
+                    <div className="text-[var(--brand-forest)]"><Droplets className="h-7 w-7" aria-hidden="true" /></div>
                     <div>
                       <h4 className="font-semibold text-[var(--brand-charcoal)]">
                         Bottled
@@ -457,7 +458,7 @@ const ColdPressedOilsPage = () => {
         >
           <div className="jm-container grid gap-6 lg:grid-cols-[1fr,0.95fr]">
             <div>
-              <p className="jm-section-label">For Every Buyer</p>
+              <p className="jm-section-label jm-section-label--on-dark">For Every Buyer</p>
               <h2 className="jm-section-heading jm-section-heading--on-dark">
                 Premium oils for health-conscious India and global wellness
                 markets
@@ -476,7 +477,7 @@ const ColdPressedOilsPage = () => {
               className="jm-surface-card p-6"
               style={{ background: "var(--oil-label)" }}
             >
-              <h3 className="text-tagline not-italic text-[26px] text-[var(--brand-charcoal)]">
+              <h3 className="text-xl font-bold text-[var(--brand-charcoal)]">
                 We Supply
               </h3>
               <ul className="mt-4 space-y-3 text-body text-[var(--brand-forest)]">
@@ -513,7 +514,7 @@ const ColdPressedOilsPage = () => {
             </h2>
             <div className="mt-12 grid gap-6 md:grid-cols-4">
               <div className="jm-surface-card p-6 text-center">
-                <div className="text-4xl mb-3">🔬</div>
+                <div className="mb-3 flex justify-center text-[var(--brand-forest)]"><Microscope className="h-9 w-9" aria-hidden="true" /></div>
                 <h4 className="font-semibold text-[var(--brand-charcoal)]">
                   FSSAI Licensed
                 </h4>
@@ -522,7 +523,7 @@ const ColdPressedOilsPage = () => {
                 </p>
               </div>
               <div className="jm-surface-card p-6 text-center">
-                <div className="text-4xl mb-3">🌾</div>
+                <div className="mb-3 flex justify-center text-[var(--brand-forest)]"><Wheat className="h-9 w-9" aria-hidden="true" /></div>
                 <h4 className="font-semibold text-[var(--brand-charcoal)]">
                   Single Origin
                 </h4>
@@ -531,7 +532,7 @@ const ColdPressedOilsPage = () => {
                 </p>
               </div>
               <div className="jm-surface-card p-6 text-center">
-                <div className="text-4xl mb-3">❄️</div>
+                <div className="mb-3 flex justify-center text-[var(--brand-forest)]"><Snowflake className="h-9 w-9" aria-hidden="true" /></div>
                 <h4 className="font-semibold text-[var(--brand-charcoal)]">
                   Cold Pressed
                 </h4>
@@ -540,7 +541,7 @@ const ColdPressedOilsPage = () => {
                 </p>
               </div>
               <div className="jm-surface-card p-6 text-center">
-                <div className="text-4xl mb-3">🚫</div>
+                <div className="mb-3 flex justify-center text-[var(--brand-forest)]"><Ban className="h-9 w-9" aria-hidden="true" /></div>
                 <h4 className="font-semibold text-[var(--brand-charcoal)]">
                   Zero Additives
                 </h4>

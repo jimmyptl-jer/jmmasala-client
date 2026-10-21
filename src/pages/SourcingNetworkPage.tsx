@@ -1,3 +1,26 @@
+import {
+  BarChart3,
+  Bug,
+  ClipboardList,
+  Cog,
+  Dna,
+  Droplets,
+  FlaskConical,
+  Globe,
+  Handshake,
+  MessageCircle,
+  Microscope,
+  Package,
+  Ruler,
+  Search,
+  Settings,
+  Ship,
+  Sprout,
+  Tag,
+  Thermometer,
+  Timer,
+  Zap,
+} from "lucide-react";
 import Seo from "@/components/Seo";
 import { Link } from "react-router-dom";
 import { SITE_URL, SOURCING_REGIONS, buildWhatsAppUrl } from "@/data/siteData";
@@ -8,29 +31,29 @@ const styles = `
 
   /* Hero */
   .sn-hero {
-    background: linear-gradient(135deg, #10170f 0%, var(--brand-deep-green) 52%, var(--wood-dark) 100%);
-    position: relative; overflow: hidden; padding: 96px 24px 80px;
+    background: linear-gradient(135deg, var(--brand-deep-green), var(--brand-forest));
+    position: relative; overflow: hidden; padding: 80px 60px;
   }
   .sn-hero::before {
     content: ''; position: absolute; inset: 0;
-    background-image: radial-gradient(circle at 20% 50%, rgba(200,150,12,0.12) 0%, transparent 60%),
-                      radial-gradient(circle at 80% 20%, rgba(200,150,12,0.08) 0%, transparent 50%);
+    background-image: radial-gradient(circle at 20% 50%, rgba(201,168,76,0.12) 0%, transparent 60%),
+                      radial-gradient(circle at 80% 20%, rgba(201,168,76,0.08) 0%, transparent 50%);
   }
   .sn-hero-grain {
     position: absolute; inset: 0; opacity: 0.04;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   }
   .sn-hero-label {
-    font-family: var(--font-body); font-size: 11px; font-weight: 700;
-    letter-spacing: 4px; text-transform: uppercase; color: var(--brand-gold);
+    font-family: var(--font-body); font-size: 12px; font-weight: 400;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--brand-gold);
     margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
   }
   .sn-hero-label::before, .sn-hero-label::after {
     content: ''; flex: 1; max-width: 48px; height: 1px; background: var(--brand-gold); opacity: 0.6;
   }
   .sn-hero h1 {
-    font-family: var(--font-display); font-size: clamp(36px, 5vw, 60px);
-    font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 20px; max-width: 780px;
+    font-family: var(--font-display); font-size: 48px;
+    font-weight: 600; color: #fff; line-height: 1.3; margin-bottom: 20px; max-width: 780px;
   }
   .sn-hero h1 em { font-style: italic; color: var(--brand-gold); }
   .sn-hero p {
@@ -45,26 +68,39 @@ const styles = `
   .sn-stat-label { font-size: 12px; color: rgba(255,255,255,0.6); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
 
   /* Section wrapper */
-  .sn-section { max-width: 1200px; margin: 0 auto; padding: 80px 24px; }
-  .sn-section-sm { max-width: 1200px; margin: 0 auto; padding: 48px 24px; }
-  .sn-section-label {
-    font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase;
-    color: var(--brand-gold); margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
+  .sn-section { max-width: 1280px; margin: 0 auto; padding: 80px 60px; }
+  .sn-section-sm { max-width: 1280px; margin: 0 auto; padding: 40px 60px; }
+  @media (max-width: 1024px) {
+    .sn-hero, .sn-map-section, .sn-custom-bg, .sn-cta-bg { padding-left: 24px; padding-right: 24px; }
+    .sn-section, .sn-section-sm { padding-left: 24px; padding-right: 24px; }
+    .sn-section { padding-top: 48px; padding-bottom: 48px; }
   }
-  .sn-section-label::before { content: ''; width: 32px; height: 1px; background: var(--brand-gold); }
+  @media (max-width: 640px) {
+    .sn-hero, .sn-map-section, .sn-custom-bg, .sn-cta-bg { padding: 40px 16px; }
+    .sn-section, .sn-section-sm { padding: 40px 16px; }
+    .sn-hero h1 { font-size: 32px; }
+    .sn-section-heading, .sn-map-title, .sn-cta-title { font-size: 28px; }
+    .sn-hero-label, .sn-section-label { font-size: 11px; }
+  }
+  .sn-section-label {
+    font-size: 12px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--brand-gold-text, #8a6a2b); margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
+  }
+  .sn-section-label::before { content: ''; width: 32px; height: 1px; background: currentColor; }
+  .sn-map-section .sn-section-label, .sn-custom-bg .sn-section-label { color: var(--brand-gold); }
   .sn-section-heading {
-    font-family: var(--font-display); font-size: clamp(28px, 4vw, 42px);
-    font-weight: 700; color: var(--brand-charcoal); line-height: 1.2; margin-bottom: 16px;
+    font-family: var(--font-display); font-size: 32px;
+    font-weight: 600; color: var(--brand-charcoal); line-height: 1.3; margin-bottom: 16px;
   }
   .sn-section-sub { font-size: 16px; color: var(--brand-forest); line-height: 1.75; max-width: 640px; }
   .sn-divider { height: 1px; background: linear-gradient(to right, transparent, rgba(201,168,76,0.25), transparent); margin: 0; }
 
   /* India Map SVG section */
-  .sn-map-section { background: var(--brand-deep-green); padding: 64px 24px; }
-  .sn-map-inner { max-width: 1200px; margin: 0 auto; }
+  .sn-map-section { background: var(--brand-deep-green); padding: 80px 60px; }
+  .sn-map-inner { max-width: 1280px; margin: 0 auto; }
   .sn-map-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
   @media (max-width: 768px) { .sn-map-grid { grid-template-columns: 1fr; } }
-  .sn-map-title { font-family: var(--font-display); font-size: 36px; color: #fff; margin-bottom: 12px; }
+  .sn-map-title { font-family: var(--font-display); font-size: 32px; font-weight: 600; line-height: 1.3; color: #fff; margin-bottom: 12px; }
   .sn-map-sub { color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 32px; }
   .sn-zone { display: flex; gap: 16px; margin-bottom: 24px; align-items: flex-start; }
   .sn-zone-dot { width: 14px; height: 14px; border-radius: 50%; margin-top: 4px; flex-shrink: 0; }
@@ -98,19 +134,20 @@ const styles = `
   .sn-journey-bg { background: var(--brand-warm-white); }
   .sn-journey-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2px; margin-top: 48px; }
   .sn-step {
-    background: var(--brand-cream); padding: 40px 32px; position: relative;
+    background: var(--brand-cream); padding: 24px; position: relative;
     transition: background 0.3s; cursor: default;
   }
   .sn-step:hover { background: var(--brand-gold-pale); }
   .sn-step-num {
-    font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 700;
-    color: rgba(200,150,12,0.15); line-height: 1; margin-bottom: 8px;
+    font-family: var(--font-display); font-size: 64px; font-weight: 700;
+    color: rgba(201,168,76,0.15); line-height: 1; margin-bottom: 8px;
     position: absolute; top: 24px; right: 24px;
   }
-  .sn-step-icon { font-size: 32px; margin-bottom: 16px; }
+  .sn-step-icon { margin-bottom: 16px; color: var(--brand-deep-green); }
+  .sn-step-icon svg { width: 32px; height: 32px; }
   .sn-step-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--brand-charcoal); margin-bottom: 12px; }
   .sn-step-desc { font-size: 14px; color: var(--brand-forest); line-height: 1.7; }
-  .sn-step-detail { font-size: 12px; color: var(--wood-mid); margin-top: 12px; font-style: italic; }
+  .sn-step-detail { font-size: 13px; color: var(--wood-mid); margin-top: 12px; font-style: italic; }
 
   /* Processing */
   .sn-processing-bg { background: var(--brand-cream); }
@@ -124,9 +161,10 @@ const styles = `
   .sn-process-icon-wrap {
     width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
     background: var(--brand-deep-green); display: flex; align-items: center; justify-content: center;
-    font-size: 22px; position: relative; z-index: 1;
+    color: var(--brand-gold-light); position: relative; z-index: 1;
     box-shadow: 0 0 0 4px var(--brand-cream), 0 0 0 6px rgba(201,168,76,0.3);
   }
+  .sn-process-icon-wrap svg { width: 24px; height: 24px; }
   .sn-process-body { flex: 1; padding-top: 8px; }
   .sn-process-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--brand-charcoal); margin-bottom: 8px; }
   .sn-process-desc { font-size: 15px; color: var(--brand-forest); line-height: 1.75; }
@@ -138,46 +176,50 @@ const styles = `
   }
 
   /* Customisation */
-  .sn-custom-bg { background: var(--brand-deep-green); padding: 80px 24px; }
-  .sn-custom-inner { max-width: 1200px; margin: 0 auto; }
+  .sn-custom-bg { background: var(--brand-deep-green); padding: 80px 60px; }
+  .sn-custom-inner { max-width: 1280px; margin: 0 auto; }
   .sn-custom-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
   .sn-custom-card {
-    border: 1px solid rgba(200,150,12,0.2); border-radius: 16px;
-    padding: 32px; background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.2); border-radius: 12px;
+    padding: 24px; background: rgba(255,255,255,0.04);
     transition: border-color 0.3s, background 0.3s;
   }
-  .sn-custom-card:hover { border-color: rgba(200,150,12,0.5); background: rgba(200,150,12,0.06); }
-  .sn-custom-card-icon { font-size: 36px; margin-bottom: 16px; }
-  .sn-custom-card-title { font-family: var(--font-display); font-size: 20px; color: #fff; margin-bottom: 10px; }
+  .sn-custom-card:hover { border-color: rgba(201,168,76,0.5); background: rgba(201,168,76,0.06); }
+  .sn-custom-card-icon { margin-bottom: 16px; color: var(--brand-gold-light); }
+  .sn-custom-card-icon svg { width: 32px; height: 32px; }
+  .sn-custom-card-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 10px; }
   .sn-custom-card-desc { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; }
   .sn-custom-card-list { margin-top: 16px; list-style: none; padding: 0; }
   .sn-custom-card-list li { font-size: 13px; color: rgba(255,255,255,0.55); padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; gap: 8px; }
   .sn-custom-card-list li::before { content: '→'; color: var(--brand-gold); flex-shrink: 0; }
 
   /* Quality promise */
-  .sn-promise-bg { background: #fff; }
+  .sn-promise-bg { background: var(--brand-warm-white); }
   .sn-promise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-top: 48px; }
   .sn-promise-card {
-    padding: 32px 24px; border-radius: 12px; text-align: center;
-    border: 1.5px solid #EDE0C4; transition: border-color 0.3s, box-shadow 0.3s;
+    padding: 24px; border-radius: 12px; text-align: center;
+    background: var(--brand-warm-white); box-shadow: var(--shadow-sm);
+    border: 1px solid #f5e9c8; transition: border-color 0.3s;
   }
-  .sn-promise-card:hover { border-color: #C8960C; box-shadow: 0 8px 32px rgba(200,150,12,0.12); }
-  .sn-promise-emoji { font-size: 40px; margin-bottom: 16px; }
-  .sn-promise-title { font-family: 'Playfair Display', serif; font-size: 18px; color: #2C1A0E; margin-bottom: 8px; }
-  .sn-promise-desc { font-size: 13px; color: #5C3D1E; line-height: 1.65; }
+  .sn-promise-card:hover { border-color: var(--brand-gold); }
+  .sn-promise-emoji { display: flex; justify-content: center; margin-bottom: 16px; color: var(--brand-deep-green); }
+  .sn-promise-emoji svg { width: 32px; height: 32px; }
+  .sn-promise-title { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--brand-charcoal); margin-bottom: 8px; }
+  .sn-promise-desc { font-size: 14px; color: var(--brand-forest); line-height: 1.65; }
 
   /* CTA */
   .sn-cta-bg {
-    background: linear-gradient(135deg, #5C2E0E, #8B3A0F);
-    padding: 80px 24px; text-align: center;
+    background: linear-gradient(135deg, var(--brand-deep-green), var(--brand-forest));
+    padding: 80px 60px; text-align: center;
   }
-  .sn-cta-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px); color: #fff; margin-bottom: 16px; }
+  .sn-cta-title { font-family: var(--font-display); font-size: 32px; font-weight: 600; color: #fff; margin-bottom: 16px; }
   .sn-cta-sub { color: rgba(255,255,255,0.72); font-size: 17px; margin-bottom: 36px; max-width: 520px; margin-left: auto; margin-right: auto; }
 
   /* Responsive tweaks */
   @media (max-width: 640px) {
     .sn-process-item { flex-direction: column; gap: 12px; }
-    .sn-process-icon-wrap { width: 44px; height: 44px; font-size: 18px; }
+    .sn-process-icon-wrap { width: 44px; height: 44px; }
+    .sn-process-icon-wrap svg { width: 20px; height: 20px; }
     .sn-hero-stats { gap: 20px; }
   }
 `;
@@ -200,8 +242,8 @@ const IndiaMap = () => (
          L140 295 L132 285 L122 275 L112 265 L102 255 L92 244 L84 232
          L78 218 L74 203 L72 188 L70 172 L68 155 L70 138 L75 122 L82 108
          L92 96 L104 85 L118 76 L132 66 L146 55 L158 42 L165 30 Z"
-      fill="#3D2010"
-      stroke="#C8960C"
+      fill="var(--brand-forest)"
+      stroke="var(--brand-gold)"
       strokeWidth="1.5"
       strokeOpacity="0.4"
     />
@@ -211,7 +253,7 @@ const IndiaMap = () => (
       y1="160"
       x2="280"
       y2="160"
-      stroke="rgba(200,150,12,0.12)"
+      stroke="rgba(201,168,76,0.12)"
       strokeWidth="1"
     />
     <line
@@ -219,48 +261,48 @@ const IndiaMap = () => (
       y1="230"
       x2="270"
       y2="230"
-      stroke="rgba(200,150,12,0.12)"
+      stroke="rgba(201,168,76,0.12)"
       strokeWidth="1"
     />
 
     {/* Gujarat region highlight */}
-    <ellipse cx="108" cy="148" rx="32" ry="22" fill="rgba(200,150,12,0.12)" />
+    <ellipse cx="108" cy="148" rx="32" ry="22" fill="rgba(201,168,76,0.12)" />
 
     {/* South India region highlight */}
-    <ellipse cx="190" cy="330" rx="35" ry="28" fill="rgba(76,175,80,0.1)" />
+    <ellipse cx="190" cy="330" rx="35" ry="28" fill="rgba(74,103,65,0.1)" />
 
     {/* North-East India region highlight */}
-    <ellipse cx="265" cy="155" rx="28" ry="20" fill="rgba(230,126,34,0.12)" />
+    <ellipse cx="265" cy="155" rx="28" ry="20" fill="rgba(226,201,126,0.12)" />
 
     {/* ── Unjha, Gujarat pin ── */}
-    <circle cx="108" cy="148" r="20" fill="rgba(200,150,12,0.15)" />
+    <circle cx="108" cy="148" r="20" fill="rgba(201,168,76,0.15)" />
     <circle
       className="pulse-north"
       cx="108"
       cy="148"
       r="8"
-      fill="rgba(200,150,12,0.3)"
+      fill="rgba(201,168,76,0.3)"
     />
-    <circle cx="108" cy="148" r="7" fill="#C8960C" />
+    <circle cx="108" cy="148" r="7" fill="var(--brand-gold)" />
     <circle cx="108" cy="148" r="3" fill="#fff" />
 
     {/* Gujarat label */}
     <text
       x="126"
       y="140"
-      fill="#C8960C"
+      fill="var(--brand-gold)"
       fontSize="9"
       fontWeight="700"
-      fontFamily="Lato, sans-serif"
+      fontFamily="var(--font-body)"
     >
       UNJHA
     </text>
     <text
       x="126"
       y="152"
-      fill="rgba(200,150,12,0.7)"
+      fill="rgba(201,168,76,0.7)"
       fontSize="8"
-      fontFamily="Lato, sans-serif"
+      fontFamily="var(--font-body)"
     >
       Gujarat &amp; Raj
     </text>
@@ -269,39 +311,39 @@ const IndiaMap = () => (
       y1="148"
       x2="124"
       y2="148"
-      stroke="#C8960C"
+      stroke="var(--brand-gold)"
       strokeWidth="1"
       strokeOpacity="0.6"
     />
 
     {/* ── North-East India pin (Meghalaya/Assam) ── */}
-    <circle cx="265" cy="155" r="20" fill="rgba(230,126,34,0.15)" />
+    <circle cx="265" cy="155" r="20" fill="rgba(226,201,126,0.15)" />
     <circle
       cx="265"
       cy="155"
       r="8"
-      fill="rgba(230,126,34,0.3)"
+      fill="rgba(226,201,126,0.3)"
     />
-    <circle cx="265" cy="155" r="7" fill="#E67E22" />
+    <circle cx="265" cy="155" r="7" fill="var(--brand-gold-light)" />
     <circle cx="265" cy="155" r="3" fill="#fff" />
 
     {/* North-East label */}
     <text
       x="205"
       y="150"
-      fill="#E67E22"
+      fill="var(--brand-gold-light)"
       fontSize="9"
       fontWeight="700"
-      fontFamily="Lato, sans-serif"
+      fontFamily="var(--font-body)"
     >
       NORTH-EAST
     </text>
     <text
       x="205"
       y="162"
-      fill="rgba(230,126,34,0.8)"
+      fill="rgba(226,201,126,0.8)"
       fontSize="8"
-      fontFamily="Lato, sans-serif"
+      fontFamily="var(--font-body)"
     >
       Meghalaya / Assam
     </text>
@@ -310,40 +352,40 @@ const IndiaMap = () => (
       y1="155"
       x2="248"
       y2="155"
-      stroke="#E67E22"
+      stroke="var(--brand-gold-light)"
       strokeWidth="1"
       strokeOpacity="0.6"
     />
 
     {/* ── South India pin (Andhra/Kerala/Tamil Nadu) ── */}
-    <circle cx="190" cy="320" r="20" fill="rgba(76,175,80,0.12)" />
+    <circle cx="190" cy="320" r="20" fill="rgba(74,103,65,0.12)" />
     <circle
       className="pulse-south"
       cx="190"
       cy="320"
       r="8"
-      fill="rgba(76,175,80,0.3)"
+      fill="rgba(74,103,65,0.3)"
     />
-    <circle cx="190" cy="320" r="7" fill="#4CAF50" />
+    <circle cx="190" cy="320" r="7" fill="var(--brand-sage)" />
     <circle cx="190" cy="320" r="3" fill="#fff" />
 
     {/* South label */}
     <text
       x="140"
       y="314"
-      fill="#66BB6A"
+      fill="var(--brand-cream)"
       fontSize="9"
       fontWeight="700"
-      fontFamily="Lato, sans-serif"
+      fontFamily="var(--font-body)"
     >
       SOUTH INDIA
     </text>
     <text
       x="140"
       y="326"
-      fill="rgba(76,175,80,0.7)"
+      fill="rgba(74,103,65,0.7)"
       fontSize="8"
-      fontFamily="Lato, sans-serif"
+      fontFamily="var(--font-body)"
     >
       AP / Kerala / TN
     </text>
@@ -352,39 +394,39 @@ const IndiaMap = () => (
       y1="320"
       x2="170"
       y2="320"
-      stroke="#4CAF50"
+      stroke="var(--brand-sage)"
       strokeWidth="1"
       strokeOpacity="0.6"
     />
 
     {/* Legend */}
-    <circle cx="20" cy="408" r="4" fill="#C8960C" />
+    <circle cx="20" cy="408" r="4" fill="var(--brand-gold)" />
     <text
       x="28"
       y="412"
       fill="rgba(255,255,255,0.7)"
       fontSize="8"
-      fontFamily="Lato, sans-serif"
+      fontFamily="var(--font-body)"
     >
       Gujarat &amp; North
     </text>
-    <circle cx="120" cy="408" r="4" fill="#E67E22" />
+    <circle cx="120" cy="408" r="4" fill="var(--brand-gold-light)" />
     <text
       x="128"
       y="412"
       fill="rgba(255,255,255,0.7)"
       fontSize="8"
-      fontFamily="Lato, sans-serif"
+      fontFamily="var(--font-body)"
     >
       North-East India
     </text>
-    <circle cx="220" cy="408" r="4" fill="#4CAF50" />
+    <circle cx="220" cy="408" r="4" fill="var(--brand-sage)" />
     <text
       x="228"
       y="412"
       fill="rgba(255,255,255,0.7)"
       fontSize="8"
-      fontFamily="Lato, sans-serif"
+      fontFamily="var(--font-body)"
     >
       South India
     </text>
@@ -396,7 +438,7 @@ const IndiaMap = () => (
 const sourcingSteps = [
   {
     num: "01",
-    icon: "🌾",
+    Icon: Sprout,
     title: "Direct Farmer & Mandi Relationships",
     desc: "Our team physically travels to Unjha APMC Market Yard — Asia's largest spice mandi — multiple times per season. We walk the market, inspect lots visually, negotiate directly with farmers and commission agents, and select only what meets our quality threshold.",
     detail:
@@ -404,7 +446,7 @@ const sourcingSteps = [
   },
   {
     num: "02",
-    icon: "🔍",
+    Icon: Search,
     title: "Inward Lot Inspection",
     desc: "When raw material arrives at our Unjha facility, it goes through a mandatory inward inspection — moisture probing, visual purity check, color and aroma verification, and foreign matter estimation before any lot is accepted into our processing line.",
     detail:
@@ -412,14 +454,14 @@ const sourcingSteps = [
   },
   {
     num: "03",
-    icon: "⚙️",
+    Icon: Settings,
     title: "Sortex & Machine Cleaning",
     desc: "Every accepted lot runs through our Sortex color sorter — a precision optical machine that removes discolored, shrivelled, damaged or foreign-material grains at 1–2 tons per hour. Multiple passes are done for premium export grades.",
     detail: "Rejection rate <4%. What passes is truly export-grade.",
   },
   {
     num: "04",
-    icon: "🧪",
+    Icon: FlaskConical,
     title: "NABL Lab Testing",
     desc: "Processed lots are sampled and dispatched to NABL-accredited labs for comprehensive testing — moisture, purity, foreign matter, oil content, aflatoxin, pesticide residue, and microbiological parameters including Salmonella.",
     detail:
@@ -427,14 +469,14 @@ const sourcingSteps = [
   },
   {
     num: "05",
-    icon: "📦",
+    Icon: Package,
     title: "Packing to Buyer Specification",
     desc: "Once quality is confirmed, we pack to your exact specification — 25kg or 50kg PP bags with inner liner for bulk export, vacuum-sealed options for premium products like cardamom, and custom retail packs for domestic buyers.",
     detail: "Printed bags available. Your label, our quality inside.",
   },
   {
     num: "06",
-    icon: "🚢",
+    Icon: Ship,
     title: "Fumigation & Export Documentation",
     desc: "Before shipment, lots are fumigated by licensed CITES-approved agencies. We coordinate phytosanitary certificates, certificates of origin, APEDA certificates, and complete documentation through our Customs House Agent at Mundra and Kandla ports.",
     detail: "4 hours from Mundra. Complete documentation package. Zero delays.",
@@ -443,13 +485,13 @@ const sourcingSteps = [
 
 const processingSteps = [
   {
-    icon: "🌡️",
+    Icon: Thermometer,
     title: "Moisture Probing",
     desc: "Every inward lot is moisture-probed at multiple points using calibrated grain moisture meters. Cumin must come in below 12% to be accepted. Psyllium husk is accepted only below 13%. Lots above threshold are rejected or dried before processing.",
     tags: ["Moisture Meter", "Multi-Point Sampling", "Lot-Wise Records"],
   },
   {
-    icon: "🔬",
+    Icon: Microscope,
     title: "Visual & Aroma Inspection",
     desc: "An experienced supervisor inspects every lot visually for uniformity, color consistency, pest damage, and aroma strength. For South Indian spices like turmeric, curcumin-rich lots are identified by deep orange-yellow cross-section color. Red chilli lots are assessed for ASTA color potential visually before lab confirmation.",
     tags: [
@@ -460,7 +502,7 @@ const processingSteps = [
     ],
   },
   {
-    icon: "⚡",
+    Icon: Zap,
     title: "Sortex Color Sorting",
     desc: "Our Sortex optical color sorter uses high-resolution cameras and compressed air jets to reject any grain that deviates from set color parameters. Black seeds in cumin, grey seeds in coriander, lightweight shrivelled grains in fennel — all ejected automatically. We run multiple passes for premium-grade lots.",
     tags: [
@@ -471,13 +513,13 @@ const processingSteps = [
     ],
   },
   {
-    icon: "🔩",
+    Icon: Cog,
     title: "Gravity Separator & Sieving",
     desc: "After color sorting, lots pass through gravity separators that remove lightweight or hollow grains by density difference. Sieving removes oversized or undersized grains to achieve the uniform grain size required by European and Singapore market buyers.",
     tags: ["Density Grading", "Mesh Sieving", "Size Uniformity"],
   },
   {
-    icon: "🧬",
+    Icon: Dna,
     title: "NABL-Certified Lab Testing",
     desc: "Representative samples from each processed lot are sent to our partnered NABL-accredited lab. Full panel includes: moisture, purity, foreign matter, oil content, aflatoxin B1 and total, heavy metals (lead, cadmium, arsenic), pesticide residue multi-screen, and microbiological (Salmonella, E.coli, TPC). Turnaround is 24–48 hours.",
     tags: [
@@ -489,7 +531,7 @@ const processingSteps = [
     ],
   },
   {
-    icon: "🪲",
+    Icon: Bug,
     title: "Fumigation",
     desc: "All export lots are fumigated by our licensed CITES-approved fumigation partner using Phosphine (Aluminium Phosphide). Exposure period is maintained as per ISPM-15 and destination country requirements. Fumigation certificates are issued and included in every export documentation package.",
     tags: [
@@ -503,7 +545,7 @@ const processingSteps = [
 
 const customizations = [
   {
-    icon: "📐",
+    Icon: Ruler,
     title: "Purity Grade Selection",
     desc: "Choose the exact purity level that matches your market's import standards and your buyer's end-use requirements.",
     items: [
@@ -514,7 +556,7 @@ const customizations = [
     ],
   },
   {
-    icon: "💧",
+    Icon: Droplets,
     title: "Moisture Tolerance",
     desc: "We process and hold lots to different moisture levels depending on your destination's import regulations and your storage conditions.",
     items: [
@@ -525,7 +567,7 @@ const customizations = [
     ],
   },
   {
-    icon: "📦",
+    Icon: Package,
     title: "Packaging Options",
     desc: "From bulk export bags to retail-ready packs — we configure packaging to your exact channel requirements.",
     items: [
@@ -537,7 +579,7 @@ const customizations = [
     ],
   },
   {
-    icon: "🏷️",
+    Icon: Tag,
     title: "Labelling and Branding",
     desc: "We pack under your brand with full compliance labelling including country of origin, net weight, FSSAI number, lot number and best-before date.",
     items: [
@@ -549,7 +591,7 @@ const customizations = [
     ],
   },
   {
-    icon: "🧪",
+    Icon: FlaskConical,
     title: "Special Treatment Options",
     desc: "Beyond standard fumigation, we can arrange additional treatments to meet European and US compliance requirements.",
     items: [
@@ -561,7 +603,7 @@ const customizations = [
     ],
   },
   {
-    icon: "📋",
+    Icon: ClipboardList,
     title: "Documentation Package",
     desc: "Every export shipment leaves with a complete documentation set pre-cleared through our CHA at Mundra/Kandla port.",
     items: [
@@ -577,32 +619,32 @@ const customizations = [
 
 const promises = [
   {
-    emoji: "🤝",
+    Icon: Handshake,
     title: "Direct Relationships",
     desc: "We know our farmers and mandi agents by name. No anonymous procurement.",
   },
   {
-    emoji: "🔎",
+    Icon: Search,
     title: "Lot Traceability",
     desc: "Every shipment traceable back to the source lot, inward date, and inspection record.",
   },
   {
-    emoji: "⏱️",
+    Icon: Timer,
     title: "Fast Turnaround",
     desc: "7–10 days from LC receipt to shipment from Mundra or Kandla port.",
   },
   {
-    emoji: "📊",
+    Icon: BarChart3,
     title: "Consistent Quality",
     desc: "Same HACCP protocol, same lab, same QC team — every lot, every season.",
   },
   {
-    emoji: "🌐",
+    Icon: Globe,
     title: "Market-Specific Grades",
     desc: "Europe, USA, Gulf, Singapore, Bangladesh — we know what each market needs.",
   },
   {
-    emoji: "💬",
+    Icon: MessageCircle,
     title: "Responsive Communication",
     desc: "Direct WhatsApp with our export team. No call centers, no delays.",
   },
@@ -674,7 +716,7 @@ const SourcingNetworkPage = () => {
           <div className="sn-hero-grain" aria-hidden="true" />
           <div
             style={{
-              maxWidth: 1200,
+              maxWidth: 1280,
               margin: "0 auto",
               position: "relative",
               zIndex: 1,
@@ -717,7 +759,7 @@ const SourcingNetworkPage = () => {
           <div className="sn-map-inner">
             <div className="sn-map-grid">
               <div>
-                <div className="sn-section-label" style={{ color: "#C8960C" }}>
+                <div className="sn-section-label" style={{ color: "var(--brand-gold)" }}>
                   Multi-Region Sourcing Network
                 </div>
                 <h2 className="sn-map-title">
@@ -764,9 +806,9 @@ const SourcingNetworkPage = () => {
 
                 {/* Hub 2: North-East India */}
                 <div className="sn-zone">
-                  <div className="sn-zone-dot" style={{ background: "#E67E22" }} />
+                  <div className="sn-zone-dot" style={{ background: "var(--brand-gold-light)" }} />
                   <div>
-                    <div className="sn-zone-name" style={{ color: "#F39C12" }}>
+                    <div className="sn-zone-name" style={{ color: "var(--brand-gold-light)" }}>
                       North-East India — High-Potency Specialty Hub
                     </div>
                     <div className="sn-zone-desc">
@@ -781,7 +823,7 @@ const SourcingNetworkPage = () => {
                         "Bird's Eye Chilli",
                         "Wild Black Pepper",
                       ].map((p) => (
-                        <span key={p} className="sn-zone-tag" style={{ background: "rgba(230,126,34,0.15)", color: "#F39C12", border: "1px solid rgba(230,126,34,0.3)" }}>
+                        <span key={p} className="sn-zone-tag" style={{ background: "rgba(226,201,126,0.15)", color: "var(--brand-gold-light)", border: "1px solid rgba(226,201,126,0.3)" }}>
                           {p}
                         </span>
                       ))}
@@ -838,7 +880,7 @@ const SourcingNetworkPage = () => {
               {sourcingSteps.map((s) => (
                 <div key={s.num} className="sn-step">
                   <div className="sn-step-num">{s.num}</div>
-                  <div className="sn-step-icon">{s.icon}</div>
+                  <div className="sn-step-icon"><s.Icon aria-hidden="true" /></div>
                   <div className="sn-step-title">{s.title}</div>
                   <div className="sn-step-desc">{s.desc}</div>
                   <div className="sn-step-detail">"{s.detail}"</div>
@@ -866,7 +908,7 @@ const SourcingNetworkPage = () => {
               {processingSteps.map((step, i) => (
                 <div key={i} className="sn-process-item">
                   <div className="sn-process-icon-wrap" aria-hidden="true">
-                    {step.icon}
+                    <step.Icon />
                   </div>
                   <div className="sn-process-body">
                     <div className="sn-process-title">{step.title}</div>
@@ -888,12 +930,12 @@ const SourcingNetworkPage = () => {
         {/* ── CUSTOMISATION ── */}
         <div className="sn-custom-bg">
           <div className="sn-custom-inner">
-            <div className="sn-section-label" style={{ color: "#C8960C" }}>
+            <div className="sn-section-label" style={{ color: "var(--brand-gold)" }}>
               Buyer-Specific Supply
             </div>
             <h2 className="sn-map-title">
               We Supply to{" "}
-              <em style={{ color: "#C8960C", fontStyle: "italic" }}>
+              <em style={{ color: "var(--brand-gold)", fontStyle: "italic" }}>
                 Your Exact Specification
               </em>
             </h2>
@@ -907,7 +949,7 @@ const SourcingNetworkPage = () => {
             <div className="sn-custom-grid">
               {customizations.map((c) => (
                 <div key={c.title} className="sn-custom-card">
-                  <div className="sn-custom-card-icon">{c.icon}</div>
+                  <div className="sn-custom-card-icon"><c.Icon aria-hidden="true" /></div>
                   <div className="sn-custom-card-title">{c.title}</div>
                   <div className="sn-custom-card-desc">{c.desc}</div>
                   <ul className="sn-custom-card-list">
@@ -936,7 +978,7 @@ const SourcingNetworkPage = () => {
             <div className="sn-promise-grid">
               {promises.map((p) => (
                 <div key={p.title} className="sn-promise-card">
-                  <div className="sn-promise-emoji">{p.emoji}</div>
+                  <div className="sn-promise-emoji"><p.Icon aria-hidden="true" /></div>
                   <div className="sn-promise-title">{p.title}</div>
                   <div className="sn-promise-desc">{p.desc}</div>
                 </div>
@@ -977,9 +1019,9 @@ const SourcingNetworkPage = () => {
               hours.
             </p>
             <div>
-              <a href="/contact" className="jm-btn jm-btn--primary">
-                Send Your Requirement
-              </a>
+              <Link to="/contact#inquiry-form" className="jm-btn jm-btn--primary">
+              Send Your Requirement
+            </Link>
               <a
                 href={buildWhatsAppUrl(
                   "Hi JM Masala, I am interested in your sourcing capabilities. Can we discuss my requirement?",

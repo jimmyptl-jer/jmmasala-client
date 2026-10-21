@@ -340,13 +340,13 @@ const TurmericPage = () => {
         <div className="jm-container">
           <ol className="flex flex-wrap items-center gap-2 text-xs text-[var(--brand-forest)]">
             <li>
-              <Link to="/" className="hover:text-[var(--brand-deep-green)]">
+              <Link to="/" className="hover:text-[var(--brand-deep-green)] inline-block py-3.5 -my-3.5">
                 Home
               </Link>
             </li>
             <li>/</li>
             <li>
-              <Link to="/products" className="hover:text-[var(--brand-deep-green)]">
+              <Link to="/products" className="hover:text-[var(--brand-deep-green)] inline-block py-3.5 -my-3.5">
                 Products
               </Link>
             </li>
@@ -367,7 +367,7 @@ const TurmericPage = () => {
               <p className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.08)] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--brand-gold-light)]">
                 <MapPin className="h-3.5 w-3.5" /> Telangana &amp; South India Sourcing Hubs
               </p>
-              <h1 className="mt-4 font-[var(--font-display)] text-3xl leading-tight text-white md:text-5xl">
+              <h1 className="mt-4 text-white">
                 Turmeric Exporter from India
               </h1>
               <p className="mt-3 text-lg font-medium text-[var(--brand-gold-light)] md:text-xl">
@@ -394,13 +394,13 @@ const TurmericPage = () => {
                 </a>
                 <a
                   href="#specifications"
-                  className="jm-btn jm-btn--outline border-white text-white hover:bg-white hover:text-[var(--brand-deep-green)]"
+                  className="jm-btn jm-btn--ghost"
                 >
                   View Laboratory Specifications
                 </a>
                 <Link
-                  to="/contact?intent=sample&product=Turmeric"
-                  className="jm-btn jm-btn--outline border-[var(--brand-gold-light)] text-[var(--brand-gold-light)] hover:bg-[var(--brand-gold-light)] hover:text-[var(--brand-deep-green)]"
+                  to="/contact?intent=sample&product=Turmeric#inquiry-form"
+                  className="jm-btn jm-btn--ghost"
                 >
                   Request Buyer Sample
                 </Link>
@@ -447,13 +447,13 @@ const TurmericPage = () => {
       {/* Turmeric at a Glance (AI Answer Box) */}
       <section className="border-b border-[var(--brand-gold-pale)] bg-white py-10">
         <div className="jm-container">
-          <div className="rounded-2xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6 md:p-8">
+          <div className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6 md:p-8">
             <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-[var(--brand-gold)]">
+                <p className="jm-section-label">
                   Quick Commercial Summary
                 </p>
-                <h2 className="text-xl font-bold text-[var(--brand-charcoal)] md:text-2xl">
+                <h2 className="jm-section-heading">
                   Turmeric at a Glance
                 </h2>
               </div>
@@ -464,8 +464,8 @@ const TurmericPage = () => {
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {TURMERIC_SUMMARY_ROWS.map((item) => (
-                <div key={item.label} className="rounded-lg border border-stone-200 bg-white p-4">
-                  <span className="text-xs font-medium text-stone-500">{item.label}</span>
+                <div key={item.label} className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-4">
+                  <span className="text-xs font-medium text-[var(--brand-forest)]">{item.label}</span>
                   <p className="mt-1 text-sm font-bold text-[var(--brand-charcoal)]">{item.value}</p>
                 </div>
               ))}
@@ -502,31 +502,31 @@ const TurmericPage = () => {
             </div>
 
             <aside className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6">
-              <h3 className="text-lg font-bold text-[var(--brand-charcoal)]">The JM Masala Turmeric Entity Structure</h3>
+              <h3 className="text-base font-bold text-[var(--brand-charcoal)]">The JM Masala Turmeric Entity Structure</h3>
               <p className="mt-2 text-xs text-[var(--brand-forest)]">
                 How commercial, botanical, and regional relationships connect:
               </p>
 
               <div className="mt-4 space-y-2.5 text-xs text-[var(--brand-charcoal)]">
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>JM Masala Trading LLP</strong> → Indian Spice Exporter &amp; Processor
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Botanical Identity:</strong> Curcuma longa (Haldi)
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Key Growing Tracts:</strong> Telangana (Nizamabad), Andhra Pradesh &amp; South India
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Curcumin Concentration:</strong> 2.0% to 5.0%+ (HPLC Certified)
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Commercial Forms:</strong> Polished Fingers · Bulbs (Gatha) · Pure Powder
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Purity Standard:</strong> Zero Lead Chromate · Zero Sudan Dyes · Low Moisture (&lt;10%)
                 </div>
-                <div className="rounded bg-white p-2.5 border border-stone-200">
+                <div className="rounded bg-white p-2.5 border border-[var(--brand-gold-pale)]">
                   <strong>Global Supply:</strong> Bulk 20ft &amp; 40ft FCL to USA, Europe, Gulf, UK &amp; East Asia
                 </div>
               </div>
@@ -562,9 +562,9 @@ const TurmericPage = () => {
                   <span className="rounded bg-[var(--brand-gold-pale)] px-3 py-1 text-xs font-bold text-[var(--brand-deep-green)]">
                     {item.badge}
                   </span>
-                  <h3 className="mt-4 text-lg font-bold text-[var(--brand-charcoal)]">{item.grade}</h3>
+                  <h3 className="mt-4 text-base font-bold text-[var(--brand-charcoal)]">{item.grade}</h3>
                   <p className="mt-2 text-sm font-extrabold text-[var(--brand-deep-green)]">{item.curcumin}</p>
-                  <p className="mt-1 text-xs text-stone-500">Origin: {item.origin}</p>
+                  <p className="mt-1 text-xs text-[var(--brand-forest)]">Origin: {item.origin}</p>
                   <p className="mt-3 text-xs leading-relaxed text-[var(--brand-forest)]">{item.description}</p>
                 </div>
               </article>
@@ -587,11 +587,11 @@ const TurmericPage = () => {
 
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {TURMERIC_PRODUCTS.map((prod) => (
-              <div key={prod.title} className="rounded-xl border border-stone-200 bg-[var(--brand-cream)] p-6">
+              <div key={prod.title} className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6">
                 <Layers className="h-6 w-6 text-[var(--brand-deep-green)]" />
-                <h3 className="mt-4 text-lg font-bold text-[var(--brand-charcoal)]">{prod.title}</h3>
+                <h3 className="mt-4 text-base font-bold text-[var(--brand-charcoal)]">{prod.title}</h3>
                 <p className="mt-2 text-xs leading-relaxed text-[var(--brand-forest)]">{prod.description}</p>
-                <div className="mt-4 rounded bg-white p-3 text-xs text-[var(--brand-charcoal)] border border-stone-200">
+                <div className="mt-4 rounded bg-white p-3 text-xs text-[var(--brand-charcoal)] border border-[var(--brand-gold-pale)]">
                   <p><strong>Primary Applications:</strong> {prod.applications}</p>
                   <p className="mt-1"><strong>Export Packing:</strong> {prod.packing}</p>
                 </div>
@@ -626,28 +626,28 @@ const TurmericPage = () => {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-[var(--brand-gold-pale)] bg-white p-6 shadow-sm">
+            <div className="rounded-xl border border-[var(--brand-gold-pale)] bg-white p-6 shadow-sm">
               <h3 className="text-xl font-bold text-[var(--brand-charcoal)]">The JM Masala Quality Commitment</h3>
               <p className="mt-2 text-xs text-[var(--brand-forest)]">
                 Commercial and technical guarantees for every export shipment:
               </p>
 
               <div className="mt-5 space-y-3 text-xs">
-                <div className="flex items-start gap-3 rounded bg-stone-50 p-3">
+                <div className="flex items-start gap-3 rounded bg-[var(--brand-cream)] p-3">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-deep-green)]" />
                   <div>
                     <strong>100% Zero Lead Chromate: </strong>Strict analytical screening ensures zero synthetic
                     pigment or chemical polishing adulteration.
                   </div>
                 </div>
-                <div className="flex items-start gap-3 rounded bg-stone-50 p-3">
+                <div className="flex items-start gap-3 rounded bg-[var(--brand-cream)] p-3">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-deep-green)]" />
                   <div>
                     <strong>Moisture Controlled &lt;10%: </strong>Prevents Aspergillus flavus mould proliferation and
                     aflatoxin formation during high-seas container transit.
                   </div>
                 </div>
-                <div className="flex items-start gap-3 rounded bg-stone-50 p-3">
+                <div className="flex items-start gap-3 rounded bg-[var(--brand-cream)] p-3">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-deep-green)]" />
                   <div>
                     <strong>Certified HPLC Curcumin: </strong>Accredited third-party COA verifies exact curcumin
@@ -681,7 +681,7 @@ const TurmericPage = () => {
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
                 <thead>
-                  <tr className="border-b border-[var(--brand-gold-pale)] bg-stone-50 text-xs font-semibold uppercase tracking-wider text-[var(--brand-charcoal)]">
+                  <tr className="border-b border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] text-xs font-semibold uppercase tracking-wider text-[var(--brand-charcoal)]">
                     <th className="px-6 py-3.5">Parameter</th>
                     <th className="px-6 py-3.5">JM Masala Commercial Specification</th>
                     <th className="px-6 py-3.5">Testing Method / Standard</th>
@@ -689,18 +689,18 @@ const TurmericPage = () => {
                 </thead>
                 <tbody className="divide-y divide-[var(--brand-gold-pale)]">
                   {TURMERIC_SPECS.map((row) => (
-                    <tr key={row.label} className="hover:bg-[var(--brand-cream)]/40">
+                    <tr key={row.label} className="hover:bg-[var(--brand-cream)]">
                       <td className="whitespace-nowrap px-6 py-3.5 font-semibold text-[var(--brand-charcoal)]">
                         {row.label}
                       </td>
                       <td className="px-6 py-3.5 text-[var(--brand-forest)]">{row.value}</td>
-                      <td className="px-6 py-3.5 text-xs text-stone-500">{row.testMethod}</td>
+                      <td className="px-6 py-3.5 text-xs text-[var(--brand-forest)]">{row.testMethod}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-            <div className="border-t border-[var(--brand-gold-pale)] bg-[var(--brand-cream)]/60 px-6 py-4 text-xs leading-relaxed text-[var(--brand-forest)]">
+            <div className="border-t border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] px-6 py-4 text-xs leading-relaxed text-[var(--brand-forest)]">
               <strong className="text-[var(--brand-charcoal)]">International Regulatory Compliance: </strong>Every
               export lot destined for the European Union (EU), United States (US FDA), United Kingdom, Japan, and the Gulf
               (ESMA/SFDA) is tested by NABL accredited third-party laboratories for pesticide MRLs, heavy metals (Lead,
@@ -724,9 +724,9 @@ const TurmericPage = () => {
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {TURMERIC_SUPPLY_CHAIN_STEPS.map((s) => (
-              <div key={s.step} className="rounded-xl border border-stone-200 bg-white p-5 shadow-sm">
-                <span className="text-xs font-extrabold text-[var(--brand-gold)]">{s.step}</span>
-                <h3 className="mt-2 text-sm font-bold text-[var(--brand-charcoal)]">{s.title}</h3>
+              <div key={s.step} className="rounded-xl border border-[var(--brand-gold-pale)] bg-white p-5 shadow-sm">
+                <span className="text-xs font-extrabold text-[var(--brand-gold-text)]">{s.step}</span>
+                <h3 className="mt-2 text-base font-bold text-[var(--brand-charcoal)]">{s.title}</h3>
                 <p className="mt-2 text-xs leading-relaxed text-[var(--brand-forest)]">{s.description}</p>
               </div>
             ))}
@@ -746,18 +746,18 @@ const TurmericPage = () => {
                   Whole turmeric fingers possess high bulk density, providing excellent container payload efficiency:
                 </p>
                 <div className="space-y-3 text-xs text-[var(--brand-charcoal)]">
-                  <div className="rounded-lg border border-stone-200 bg-[var(--brand-cream)] p-4">
+                  <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-4">
                     <p className="font-bold text-[var(--brand-deep-green)]">Whole Turmeric Fingers &amp; Bulbs:</p>
-                    <p className="mt-1 text-stone-600">
+                    <p className="mt-1 text-[var(--brand-forest)]">
                       25 kg or 50 kg new PP bags with PE liner, or new heavy-duty jute bags.
                     </p>
                     <p className="mt-1 font-semibold">
                       • 20ft FCL: 16.0 to 18.0 Metric Tons | • 40ft FCL: 26.0 to 27.0 Metric Tons
                     </p>
                   </div>
-                  <div className="rounded-lg border border-stone-200 bg-[var(--brand-cream)] p-4">
+                  <div className="rounded-lg border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-4">
                     <p className="font-bold text-[var(--brand-deep-green)]">Cold-Ground Turmeric Powder:</p>
-                    <p className="mt-1 text-stone-600">
+                    <p className="mt-1 text-[var(--brand-forest)]">
                       25 kg multi-wall Kraft paper sacks with heat-sealed poly liner, or custom retail stand-up pouches.
                     </p>
                     <p className="mt-1 font-semibold">
@@ -768,7 +768,7 @@ const TurmericPage = () => {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6">
+            <div className="rounded-xl border border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] p-6">
               <h3 className="text-xl font-bold text-[var(--brand-charcoal)]">Export Clearance Documentation Package</h3>
               <p className="mt-1 text-xs text-[var(--brand-forest)]">
                 Consignments are cleared through Indian ports with full statutory and commercial documentation:
@@ -776,10 +776,10 @@ const TurmericPage = () => {
 
               <div className="mt-5 grid grid-cols-2 gap-3 text-xs">
                 {DOCUMENTATION_PACKAGE.map((doc) => (
-                  <div key={doc} className="rounded-lg border border-stone-200 bg-white p-3">
-                    <FileCheck2 className="h-4 w-4 text-[var(--brand-gold)]" />
+                  <div key={doc} className="rounded-lg border border-[var(--brand-gold-pale)] bg-white p-3">
+                    <FileCheck2 className="h-4 w-4 text-[var(--brand-gold-text)]" />
                     <p className="mt-2 font-bold text-[var(--brand-charcoal)]">{doc}</p>
-                    <p className="mt-1 text-[11px] text-stone-600">Verified official clearance document</p>
+                    <p className="mt-1 text-[11px] text-[var(--brand-forest)]">Verified official clearance document</p>
                   </div>
                 ))}
               </div>
@@ -793,7 +793,7 @@ const TurmericPage = () => {
                 >
                   WhatsApp Export Desk
                 </a>
-                <Link to="/contact?intent=quote&product=Turmeric" className="jm-btn jm-btn--outline flex-1 text-center">
+                <Link to="/contact?intent=quote&product=Turmeric#inquiry-form" className="jm-btn jm-btn--outline flex-1 text-center">
                   Submit Official RFP
                 </Link>
               </div>
@@ -842,9 +842,9 @@ const TurmericPage = () => {
       </section>
 
       {/* Final Conversion Callout */}
-      <section className="bg-[var(--brand-deep-green)] py-14 text-white text-center">
+      <section className="jm-section jm-section--primary">
         <div className="jm-container">
-          <h2 className="font-[var(--font-display)] text-2xl md:text-4xl">
+          <h2 className="jm-section-heading jm-section-heading--on-dark">
             Source Certified Indian Turmeric from JM Masala
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm text-[rgba(255,255,255,0.85)] md:text-base">
@@ -856,8 +856,8 @@ const TurmericPage = () => {
               Contact Export Desk (+91 91067 66041)
             </a>
             <Link
-              to="/contact?intent=quote&product=Turmeric"
-              className="jm-btn jm-btn--outline border-white text-white hover:bg-white hover:text-[var(--brand-deep-green)]"
+              to="/contact?intent=quote&product=Turmeric#inquiry-form"
+              className="jm-btn jm-btn--ghost"
             >
               Request Custom Proforma Invoice
             </Link>

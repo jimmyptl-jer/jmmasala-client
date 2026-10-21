@@ -119,7 +119,7 @@ const BlogPostPage = () => {
             <span>{post.title}</span>
           </nav>
           <p className="jm-section-label">Article</p>
-          <h1 className="jm-section-heading">{post.title}</h1>
+          <h1 className="jm-heading-1">{post.title}</h1>
           <p className="mt-3 text-body text-[var(--brand-forest)]">
             Published{" "}
             {new Date(post.date).toLocaleDateString("en-IN", {
@@ -133,7 +133,7 @@ const BlogPostPage = () => {
 
             {post.sections.map((section) => (
               <section key={section.heading} className="mt-8">
-                <h2 className="text-[28px] text-tagline not-italic text-[var(--brand-charcoal)]">
+                <h2 className="jm-section-heading">
                   {section.heading}
                 </h2>
                 <div className="mt-3 space-y-4">
@@ -157,13 +157,13 @@ const BlogPostPage = () => {
 
             {post.faqs && post.faqs.length > 0 && (
               <section className="mt-8">
-                <h2 className="text-[28px] text-tagline not-italic text-[var(--brand-charcoal)]">
+                <h2 className="jm-section-heading">
                   Frequently Asked Questions
                 </h2>
                 <div className="mt-4 space-y-5">
                   {post.faqs.map((faq) => (
                     <div key={faq.question}>
-                      <h3 className="text-lg font-semibold text-[var(--brand-charcoal)]">
+                      <h3 className="text-base font-bold text-[var(--brand-charcoal)]">
                         {faq.question}
                       </h3>
                       <p className="mt-2 leading-8">{faq.answer}</p>
@@ -185,10 +185,10 @@ const BlogPostPage = () => {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/products" className="jm-btn jm-btn--outline text-[13px]">
+              <Link to="/products" className="jm-btn jm-btn--outline">
                 View Product Portfolio
               </Link>
-              <Link to="/contact" className="jm-btn jm-btn--secondary text-[13px]">
+              <Link to="/contact" className="jm-btn jm-btn--secondary">
                 Contact JM Masala
               </Link>
             </div>
@@ -196,7 +196,7 @@ const BlogPostPage = () => {
 
           {relatedProducts.length > 0 && (
             <section className="mt-10">
-              <h2 className="text-[28px] text-tagline not-italic text-[var(--brand-charcoal)]">
+              <h2 className="jm-section-heading">
                 Related Products
               </h2>
               <div className="mt-4 grid gap-4 md:grid-cols-3">
@@ -209,7 +209,7 @@ const BlogPostPage = () => {
                       </p>
                       <Link
                         to={`/${product.slug}`}
-                        className="mt-3 inline-flex jm-btn jm-btn--outline text-[13px]"
+                        className="mt-3 inline-flex jm-btn jm-btn--outline"
                       >
                         View Specifications
                       </Link>
