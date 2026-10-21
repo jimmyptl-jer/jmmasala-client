@@ -1,5 +1,6 @@
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Seo from "@/components/Seo";
+import NotFoundPage from "@/pages/NotFoundPage";
 import {
   BLOG_POSTS,
   COMPANY,
@@ -306,7 +307,7 @@ const ProductDetailPage = () => {
   const technicalDetails = PRODUCT_TECHNICAL_DETAILS[slug];
 
   if (!product) {
-    return <Navigate to="/404" replace />;
+    return <NotFoundPage />;
   }
 
   const masterSeo = PRODUCT_MASTER_SEO[product.slug];

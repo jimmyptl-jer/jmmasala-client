@@ -39,6 +39,7 @@ const CAPABILITIES = [
   { label: "Export Operations & Logistics", path: "/export-destinations" },
   { label: "Quality & Lab Certifications", path: "/quality-certifications" },
   { label: "Domestic B2B Supply India", path: "/domestic-supply-india" },
+  { label: "Buyer Guides & Blog", path: "/blog" },
   { label: "About JM Masala Heritage", path: "/about-jm-masala" },
   { label: "Contact & Commercial Quotes", path: "/contact" }
 ];
