@@ -75,7 +75,7 @@ h1,h2,h3{font-family:Georgia,serif;margin:0}
 .lead{font-size:12.5pt;color:#3a2214;margin:0 0 3mm}
 table{width:100%;border-collapse:collapse;font-size:10pt;margin-top:2mm}th,td{padding:2mm 3mm;text-align:left;border-bottom:1px solid #eadfb8}th{background:#3a2214;color:#fff}
 .contact{margin-top:6mm;display:flex;gap:6mm;align-items:center;background:#f6e9c8;border:1px solid #e6d291;border-radius:10px;padding:4mm 6mm}.contact div{font-size:9.5pt}
-.thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:4mm}.th{border-radius:8px;overflow:hidden;background:#fff;border:1px solid #f0e4c0}.th i{display:block;height:24mm;background-size:cover;background-position:center}.th span{display:block;padding:1.5mm 2mm;font-size:8.5pt;text-align:center;color:#3a2214;font-weight:600}
+.thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:4mm}.th{border-radius:8px;overflow:hidden;background:#fff;border:1px solid #f0e4c0}.th i{display:block;height:24mm;background-size:cover;background-position:center}.th em{display:block;font-style:normal;font-weight:400;font-size:7.5pt;color:#7a5a35}.th span{display:block;padding:1.5mm 2mm;font-size:8.5pt;text-align:center;color:#3a2214;font-weight:600}
 `;
 
 const stats = `<div class="tiles"><div class="tile g"><h3>Supply terms</h3><ul><li>Trial orders from 1 MT</li><li>Supply up to 200 MT per month</li><li>Dispatch 1-5 days after order confirmation</li><li>Samples can be arranged</li><li>Private label available</li></ul></div>
@@ -105,8 +105,13 @@ ${slug === 'cumin-seeds-exporter-india' ? grades : ''}${stats.replace('margin', 
 <div class="foot"><span>JM Masala Trading LLP | ${name}</span><span>October 2026</span></div></div>`;
 
 let curryImg = "";
-const rangePage = () => `<div class="p"><div class="band"><div class="lab">Our range</div><h2>Also available</h2></div><div class="body"><div class="thumbs">${P.slice(6).map((x) => `<div class="th"><i style="background-image:url(${img[x[0]]})"></i><span>${x[1]}</span></div>`).join('')}<div class="th"><i style="background-image:url(${curryImg})"></i><span>Curry leaf</span></div></div>
-<p style="margin-top:6mm">Specifications for these products are shared on request with a sample.</p><div class="h3">Contact us for a quotation</div>${contactBox('')}<p style="margin-top:4mm">Enquiry form: jmmasalaexports.com/contact</p></div>
+// Portfolio overview (page 2): every product with its page number in this catalogue.
+const FIRST_PRODUCT_PAGE = 4;
+const portfolioPage = () => `<div class="p"><div class="band"><div class="lab">Product portfolio</div><h2>What we supply</h2></div><div class="body"><p class="lead" style="margin-bottom:5mm">Whole spices and seeds from Unjha, Gujarat. Every product has its own page in this catalogue.</p><div class="thumbs">${P.map((x, i) => `<div class="th"><i style="background-image:url(${img[x[0]]})"></i><span>${x[1]}<em>Page ${FIRST_PRODUCT_PAGE + i}</em></span></div>`).join('')}<div class="th"><i style="background-image:url(${curryImg})"></i><span>Curry leaf<em>On request</em></span></div></div>
+<p style="margin-top:6mm">Specifications for these products are shared on request with a sample.</p></div>
+<div class="foot"><span>JM Masala Trading LLP</span><span>Product Catalogue | October 2026</span></div></div>`;
+
+const contactPage = () => `<div class="p"><div class="band"><div class="lab">Contact</div><h2>Request a quotation</h2></div><div class="body"><p class="lead">Tell us the product, quantity, destination port and packing you need. We reply with the specification and a quotation, and a sample can be arranged for your approval.</p>${contactBox('')}<p style="margin-top:4mm">Enquiry form: jmmasalaexports.com/contact</p></div>
 <div class="foot"><span>JM Masala Trading LLP</span><span>Product Catalogue | October 2026</span></div></div>`;
 
 const doc = (body) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>JM Masala Product Catalogue</title><style>${css}</style></head><body>${body}</body></html>`;
@@ -120,9 +125,9 @@ for (const item of P) {
   await p.setContent(doc(productPage(item)));
   await p.pdf({ path: `${ROOT}/public/catalogue/${item[0]}.pdf`, format: 'A4', printBackground: true, preferCSSPageSize: true });
 }
-await p.setContent(doc([cover, about, ...P.map(productPage), rangePage()].join('\n')));
+await p.setContent(doc([cover, portfolioPage(), about, ...P.map(productPage), contactPage()].join('\n')));
 await p.pdf({ path: `${ROOT}/public/JMMasalaProducts.pdf`, format: 'A4', printBackground: true, preferCSSPageSize: true });
 await p.setViewportSize({ width: 794, height: 1123 });
-for (const n of [1, 2, 3, 8, 11, 27]) await p.locator('.p').nth(n - 1).screenshot({ path: (process.argv[2] || '.') + `/b${n}.png` });
+for (const n of [1, 2, 3, 4, 8, 28]) await p.locator('.p').nth(n - 1).screenshot({ path: (process.argv[2] || '.') + `/b${n}.png` });
 await br.close();
 console.log('done');
