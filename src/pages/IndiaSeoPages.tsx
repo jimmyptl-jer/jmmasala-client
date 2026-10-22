@@ -34,7 +34,7 @@ const indiaFaqs = [
   {
     question: "Which spices does JM Masala export from India?",
     answer:
-      "JM Masala exports cumin seeds, coriander seeds, fennel, fenugreek, sesame, psyllium husk, psyllium seeds, turmeric, red chilli, black pepper, cardamom, and dry ginger.",
+      "JM Masala exports cumin seeds, coriander seeds, fennel, fenugreek, sesame, psyllium husk, psyllium seeds, turmeric, red chilli, cardamom, and dry ginger.",
   },
   {
     question: "Can international buyers request custom packing?",
@@ -180,7 +180,7 @@ export const SpiceExporterIndiaPage = () => {
     <>
       <Seo
         title="Indian Spice Exporter for Bulk Buyers | JM Masala"
-        description="JM Masala supplies cumin, coriander, fennel, fenugreek, sesame, psyllium, turmeric, chilli, pepper and cardamom with packing and export documents."
+        description="JM Masala supplies cumin, coriander, fennel, fenugreek, sesame, psyllium, turmeric, chilli and cardamom with packing and export documents."
         path="/best-spice-exporter-india"
         imageUrl={bannerImage}
         imageAlt="JM Masala best spice exporter in India"

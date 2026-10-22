@@ -13,7 +13,6 @@ const retailProducts = [
   "Fenugreek Seeds - 100g / 500g / 1kg",
   "Turmeric Powder - 100g / 500g / 1kg",
   "Red Chilli Powder - 100g / 500g / 1kg",
-  "Black Pepper - 100g / 250g / 1kg",
   "Cardamom - 50g / 100g / 250g",
   "Psyllium Husk - 100g / 250g / 500g",
 ];

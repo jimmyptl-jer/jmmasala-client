@@ -160,7 +160,7 @@ const GujaratSpiceExporterPage = () => {
               JM Masala Trading LLP is based in Unjha, Gujarat, helping importers,
               wholesalers, food brands, and private-label buyers source export-grade
               cumin, coriander, fennel, fenugreek, sesame, psyllium, turmeric,
-              chilli, pepper, cardamom, and more.
+              chilli, cardamom, and more.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href={quoteUrl} target="_blank" rel="noreferrer" className="jm-btn jm-btn--primary">

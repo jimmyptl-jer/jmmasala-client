@@ -1,4 +1,3 @@
-import blackPepperImage from "../assets/BlackPepper.jpg";
 import cardamomImage from "../assets/Cardamom.jpg";
 import corianderSeedsImage from "../assets/CorianderSeeds.jpg";
 import cuminImage from "../assets/cumin.jpg";
@@ -60,7 +59,7 @@ export const PAGE_SEO: Record<string, SeoStrings> = {
   "/products": {
     title: "Indian Spice Products for Export | JM Masala",
     description:
-      "Browse Indian spices from JM Masala including cumin, coriander, fennel, turmeric, chilli, sesame, psyllium, black pepper and cardamom.",
+      "Browse Indian spices from JM Masala including cumin, coriander, fennel, turmeric, chilli, sesame, psyllium and cardamom.",
   },
   "/cold-pressed-oils": {
     title: "Cold Pressed Oils Manufacturer & Exporter India | JM Masala",
@@ -75,7 +74,7 @@ export const PAGE_SEO: Record<string, SeoStrings> = {
   "/best-spice-exporter-india": {
     title: "Indian Spice Exporter for Bulk Buyers | JM Masala",
     description:
-      "JM Masala supplies cumin, coriander, fennel, fenugreek, sesame, psyllium, turmeric, chilli, pepper and cardamom with packing and export documents.",
+      "JM Masala supplies cumin, coriander, fennel, fenugreek, sesame, psyllium, turmeric, chilli and cardamom with packing and export documents.",
   },
   "/best-cumin-exporter-india": {
     title: "Choosing a Cumin Exporter in India | JM Masala",
@@ -224,11 +223,6 @@ export const PRODUCT_SEO: Record<string, SeoStrings> = {
     title: "Red Chilli Exporter India | Teja, Bird's Eye & King, Bulk",
     description:
       "Bulk Indian red chilli graded by pungency, color value and cleanliness. Request ASTA and SHU specifications, samples and a quotation.",
-  },
-  "black-pepper-exporter-india": {
-    title: "Black Pepper Exporter India | Bulk MG1, FAQ Grade",
-    description:
-      "Bulk Indian black pepper in MG1 and FAQ grades for importers and food manufacturers. Request specifications and a quotation from JM Masala.",
   },
   "cardamom-exporter-india": {
     title: "Green Cardamom (Elaichi) Exporter India | Bulk Supplier",
@@ -443,7 +437,6 @@ export const SOURCING_REGIONS: SourcingRegion[] = [
       "Ginger",
       "Turmeric",
       "Chilli",
-      "Black Pepper",
       "Regional Spices",
       "Herbs",
       "Specialty Agro Products",
@@ -454,7 +447,6 @@ export const SOURCING_REGIONS: SourcingRegion[] = [
       "turmeric-exporter-india",
       "turmeric-powder-exporter-india",
       "red-chilli-exporter-india",
-      "black-pepper-exporter-india",
     ],
     sourcingUseCases: [
       "Regional Indian products for international food markets",
@@ -1001,7 +993,6 @@ export const PRODUCTS: ProductData[] = [
     ],
     relatedSlugs: [
       "turmeric-exporter-india",
-      "black-pepper-exporter-india",
       "cardamom-exporter-india",
     ],
   },
@@ -1063,71 +1054,7 @@ export const PRODUCTS: ProductData[] = [
     ],
     relatedSlugs: [
       "red-chilli-exporter-india",
-      "black-pepper-exporter-india",
       "ginger-powder-exporter-india",
-    ],
-  },
-  {
-    slug: "black-pepper-exporter-india",
-    name: "Black Pepper",
-    botanicalName: "Piper nigrum",
-    origin: "Kerala",
-    category: "south",
-    shortDescription:
-      "MG1 FAQ and other export grades with high piperine potential.",
-    description:
-      "Black pepper is sourced from South India and processed to export-ready standards. We support MG1 FAQ and market-specific grades with moisture and density controls for commercial and premium buyers.",
-    keySpec: "MG1 FAQ grade available | Export cleaned lots",
-    imageUrl: blackPepperImage,
-    colors: {
-      primary: "#1e1e1e",
-      accent: "#888888",
-      pale: "#ebebeb",
-      swatches: ["#1e1e1e", "#383838", "#888888", "#c9a84c", "#ebebeb"],
-      tagline: "Obsidian black with a gold crown",
-    },
-    specs: [
-      { label: "Grade", value: "MG1 FAQ / TGSEB / as required" },
-      { label: "Moisture", value: "Max 12%" },
-      { label: "Bulk Density", value: "As per grade spec" },
-      { label: "Piperine", value: "As per buyer requirement" },
-      { label: "Cleanliness", value: "Machine + hand sorted" },
-      { label: "Packing", value: "25kg and 50kg bags" },
-    ],
-    qualityGrades: [
-      {
-        market: "Europe",
-        purity: "Malabar Garbled (550 GL / 570 GL)",
-        moisture: "Max 11.5%",
-        admixture: "Max 0.5%",
-        notes: "Strict mold & foreign matter control, high piperine content (5.0%+)",
-      },
-      {
-        market: "USA",
-        purity: "ASTA Quality (570 GL)",
-        moisture: "Max 12%",
-        admixture: "Max 0.8%",
-        notes: "Tellicherry Extra Bold & Garbled lots for premium spice grinders",
-      },
-      {
-        market: "Gulf",
-        purity: "MG1 FAQ (500 GL / 550 GL)",
-        moisture: "Max 12.5%",
-        admixture: "Max 1.5%",
-        notes: "Commercial grade for whole retail packaging and seasoning mills",
-      },
-      {
-        market: "Singapore",
-        purity: "550 GL Cleaned",
-        moisture: "Max 12%",
-        admixture: "Max 1.0%",
-        notes: "Deep uniform black color, heavy berry weight, high essential pungency",
-      },
-    ],
-    relatedSlugs: [
-      "cardamom-exporter-india",
-      "red-chilli-exporter-india",
-      "turmeric-exporter-india",
     ],
   },
   {
@@ -1158,7 +1085,6 @@ export const PRODUCTS: ProductData[] = [
       { label: "Packing", value: "Vacuum and bulk options" },
     ],
     relatedSlugs: [
-      "black-pepper-exporter-india",
       "turmeric-exporter-india",
       "red-chilli-exporter-india",
     ],
@@ -1319,7 +1245,6 @@ export const PRODUCTS: ProductData[] = [
     relatedSlugs: [
       "ginger-powder-exporter-india",
       "turmeric-exporter-india",
-      "black-pepper-exporter-india",
     ],
   },
   {
@@ -2000,43 +1925,6 @@ export const PRODUCT_TECHNICAL_DETAILS: Record<string, ProductTechnicalDetails> 
     exportDetails: [
       { label: "MOQ", value: "1 MT onward" },
       { label: "Loading Port", value: "Chennai / Mundra / Nhava Sheva" },
-      { label: "Delivery Terms", value: "FOB / CIF / CNF" },
-      { label: "Lead Time", value: "7 to 15 days" },
-    ],
-    optionalBuyerRequirements: COMMON_OPTIONAL_REQUIREMENTS,
-  },
-  "black-pepper-exporter-india": {
-    general: [
-      { label: "Botanical Name", value: "Piper nigrum" },
-      { label: "Origin", value: "Kerala, India" },
-      { label: "Harvest Season", value: "December to March" },
-      { label: "Shelf Life", value: "12 to 18 months" },
-    ],
-    physical: [
-      { label: "Density", value: "550 to 600 g/l" },
-      { label: "Grade", value: "MG1 FAQ / TGSEB / buyer-specific grade" },
-      { label: "Moisture", value: "Max 12%" },
-    ],
-    chemical: [
-      { label: "Piperine", value: "3% to 6%" },
-    ],
-    microbiological: COMMON_MICROBIOLOGY,
-    contaminants: [
-      "Pesticide residue and contaminant compliance as per import market",
-    ],
-    processing: [
-      "Cleaning and grading",
-      "Density-based sorting",
-      "Metal detection",
-    ],
-    packaging: [
-      "25 kg and 50 kg export bags",
-      "Vacuum packs on request",
-    ],
-    certifications: COMMON_CERTIFICATIONS,
-    exportDetails: [
-      { label: "MOQ", value: "1 MT onward" },
-      { label: "Loading Port", value: "Cochin / Chennai / Nhava Sheva" },
       { label: "Delivery Terms", value: "FOB / CIF / CNF" },
       { label: "Lead Time", value: "7 to 15 days" },
     ],
@@ -2841,7 +2729,6 @@ export const BLOG_POSTS: BlogPostSummary[] = [
     ],
     relatedProductSlugs: [
       "cumin-seeds-exporter-india",
-      "black-pepper-exporter-india",
       "turmeric-exporter-india",
     ],
   },

@@ -22,7 +22,6 @@ const WHOLE_SPICE_SLUGS = [
   "ajwain-seeds-exporter-india",
   "mustard-seeds-exporter-india",
   "nigella-seeds-exporter-india",
-  "black-pepper-exporter-india",
   "cardamom-exporter-india",
   "red-chilli-exporter-india",
   "turmeric-exporter-india",
@@ -81,7 +80,7 @@ const ProductsPage = () => {
     <>
       <Seo
         title="Indian Spice Products for Export | JM Masala"
-        description="Browse Indian spices from JM Masala including cumin, coriander, fennel, turmeric, chilli, sesame, psyllium, black pepper and cardamom."
+        description="Browse Indian spices from JM Masala including cumin, coriander, fennel, turmeric, chilli, sesame, psyllium and cardamom."
         path="/products"
         imageUrl={PRODUCTS[0]?.imageUrl}
         keywords={[
@@ -90,7 +89,6 @@ const ProductsPage = () => {
           "cumin coriander turmeric exporter",
           "bulk spices supplier India",
           "psyllium husk exporter India",
-          "black pepper exporter India",
           "mustard ajwain kalonji exporter India",
         ]}
         schema={{

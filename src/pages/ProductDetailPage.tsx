@@ -171,19 +171,12 @@ const PRODUCT_PAIRS: Record<
     slug: "psyllium-seeds-exporter-india",
     buttonText: "View Psyllium Seeds Specs",
   },
-  "black-pepper-exporter-india": {
-    title: "Looking for Green Cardamom (Elaichi)?",
-    subtitle:
-      "Size-graded bold green cardamom pods (7mm, 8mm, 8mm+) vacuum packed from Idukki, Kerala.",
-    slug: "cardamom-exporter-india",
-    buttonText: "View Green Cardamom Specs",
-  },
   "cardamom-exporter-india": {
-    title: "Looking for Malabar Black Pepper?",
+    title: "Looking for Dry Ginger (Sonth)?",
     subtitle:
-      "Malabar Garbled 1 (MG1) and FAQ grade bold black peppercorns with high natural piperine.",
-    slug: "black-pepper-exporter-india",
-    buttonText: "View Black Pepper Specs",
+      "Dry ginger for importers, spice blenders and food manufacturers. Specifications are shared on request with a sample.",
+    slug: "dry-ginger-exporter-india",
+    buttonText: "View Dry Ginger Page",
   },
   "mustard-seeds-exporter-india": {
     title: "Looking for Ajwain Seeds (Carom)?",

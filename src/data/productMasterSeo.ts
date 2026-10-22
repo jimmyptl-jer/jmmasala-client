@@ -974,7 +974,6 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
         "turmeric-powder-exporter-india",
         "dry-ginger-exporter-india",
         "red-chilli-exporter-india",
-        "black-pepper-exporter-india",
       ],
     },
   },
@@ -1063,7 +1062,6 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
       topicalSiblings: [
         "ginger-powder-exporter-india",
         "turmeric-exporter-india",
-        "black-pepper-exporter-india",
         "cardamom-exporter-india",
       ],
     },
@@ -1170,7 +1168,6 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
         "bird-eye-chilli-exporter-india",
         "king-chilli-exporter-india",
         "turmeric-exporter-india",
-        "black-pepper-exporter-india",
       ],
     },
   },
@@ -1363,95 +1360,6 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
     },
   },
 
-  "black-pepper-exporter-india": {
-    slug: "black-pepper-exporter-india",
-    name: "Black Pepper",
-    botanicalName: "Piper nigrum",
-    hsCode: "0904 11 30",
-    origin: "Malabar Coast, India",
-    seo: {
-      title: "Black Pepper Exporter India | MG1 FAQ Grade | JM Masala",
-      description:
-        "Export-grade Indian black pepper from Malabar Coast. Malabar Garbled 1 (MG1), FAQ grades, high piperine (5%-7%), density 500-570 g/L, FOB Mundra/Cochin.",
-      primaryKeyword: "black pepper exporter india",
-      secondaryKeywords: [
-        "black pepper supplier india",
-        "malabar black pepper exporter",
-        "mg1 black pepper india",
-        "tellicherry black pepper supplier",
-        "black pepper bulk wholesale",
-        "indian black pepper manufacturer",
-        "black pepper corns exporter",
-        "high piperine black pepper",
-      ],
-      h1: "Black Pepper Exporter & Bulk Supplier from India",
-      searchIntent: "B2B Commercial & Bulk Export Procurement",
-    },
-    content: {
-      commercialIntro:
-        "JM Masala exports world-renowned Indian Black Pepper (Piper nigrum) from the Malabar Coast. Known for its intense aroma, bold berry size, and high natural piperine content, our lots cater to industrial seasonings, meat curing, and oleoresin extractors.",
-      sourcingAndOrigin:
-        "Sourced from the Western Ghats mountain forests of Kerala and Karnataka (Malabar / Coorg).",
-      processingStandards:
-        "Mechanical garbling, destoning, spiral separation of pinheads, air classification, and optical sorting.",
-      packagingOptions: [
-        "25 kg and 50 kg woven PP bags with inner poly-liners",
-        "Multi-wall kraft paper sacks",
-        "Custom private-label packaging for retail distribution",
-      ],
-      containerLoading: {
-        fcl20: "15.0 to 16.0 Metric Tons loose stuffed",
-        fcl40: "26.0 to 27.0 Metric Tons loose stuffed",
-      },
-      buyerApplications: [
-        "Whole spice retail packaging and tabletop peppercorn grinders",
-        "Meat curing, sausage seasoning, sauces, and culinary marinades",
-        "Piperine and black pepper oleoresin extraction for nutraceuticals",
-      ],
-      faqs: [
-        {
-          question: "What grades of Indian black pepper does JM Masala supply?",
-          answer:
-            "We supply Malabar Garbled 1 (MG1), Tellicherry Garbled Extra Bold (TGEB), Tellicherry Garbled Special Extra Bold (TGSEB), and FAQ 500-550 G/L grades.",
-        },
-        {
-          question: "What is the bulk density and piperine content of Malabar pepper?",
-          answer:
-            "Our export grades feature bulk densities from 500 g/L to 570 g/L with verified piperine concentrations ranging between 5.0% and 7.5%.",
-        },
-        {
-          question: "Can JM Masala supply steam-sterilized black pepper corns?",
-          answer:
-            "Yes. We offer steam-sterilized and pathogen-free lots with certified low microbiological counts (Salmonella negative, E. coli negative).",
-        },
-        {
-          question: "What are the standard packaging and container stuffing specs?",
-          answer:
-            "Packed in 25kg/50kg multi-wall paper or PP bags. A 20ft container accommodates 15 to 16 MT, and a 40ft container carries 26 to 27 MT.",
-        },
-      ],
-    },
-    cluster: {
-      supportingPages: [
-        {
-          title: "Quality Certifications",
-          path: "/quality-certifications",
-          intent: "Piperine Testing & Standards",
-        },
-        {
-          title: "Export Destinations",
-          path: "/export-destinations",
-          intent: "Global Shipping Routes",
-        },
-      ],
-      topicalSiblings: [
-        "cardamom-exporter-india",
-        "dry-ginger-exporter-india",
-        "red-chilli-exporter-india",
-        "turmeric-exporter-india",
-      ],
-    },
-  },
 
   "cardamom-exporter-india": {
     slug: "cardamom-exporter-india",
@@ -1535,7 +1443,6 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
         },
       ],
       topicalSiblings: [
-        "black-pepper-exporter-india",
         "dry-ginger-exporter-india",
         "fennel-seeds-exporter-india",
       ],

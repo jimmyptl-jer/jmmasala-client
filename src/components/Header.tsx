@@ -29,7 +29,6 @@ const WHOLE_HOT_AND_AROMATICS = [
     ],
   },
   { name: "Dry Ginger (Sonth)", slug: "dry-ginger-exporter-india" },
-  { name: "Black Pepper (MG1)", slug: "black-pepper-exporter-india" },
   { name: "Green Cardamom (Alleppey)", slug: "cardamom-exporter-india" },
 ];
 
@@ -244,11 +243,11 @@ const Header = () => {
                         </ul>
                       </div>
 
-                      {/* Col 2: Whole Peppers & Hot Spices (5 + Chilli Varieties) */}
+                      {/* Col 2: Chillies and hot spices */}
                       <div>
                         <div className="flex items-center justify-between border-b border-[var(--brand-gold-pale)] pb-2 mb-2.5">
                           <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--brand-charcoal)]">
-                            Peppers &amp; Chillies (5)
+                            Chillies (4)
                           </span>
                           <span className="text-[10px] text-[var(--brand-gold)] font-medium">Whole &amp; Cured</span>
                         </div>
@@ -665,10 +664,10 @@ const Header = () => {
                     </ul>
                   </div>
 
-                  {/* Category 2: Peppers & Chillies */}
+                  {/* Category 2: Chillies */}
                   <div>
                     <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--brand-gold)]">
-                      Peppers &amp; Chillies (5)
+                      Chillies (4)
                     </div>
                     <ul className="mt-1 space-y-1 text-[13px] text-[var(--brand-forest)]">
                       {WHOLE_HOT_AND_AROMATICS.map((s) => (

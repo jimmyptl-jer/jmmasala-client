@@ -573,7 +573,7 @@ const customizations = [
     items: [
       "25 kg PP bags with inner HDPE liner",
       "50 kg PP bags with inner HDPE liner",
-      "Vacuum-sealed pouches for cardamom and pepper",
+      "Vacuum-sealed pouches for cardamom",
       "Retail packs: 50g, 100g, 200g, 500g, 1kg",
       "Private label / white label packing available",
     ],
@@ -770,7 +770,7 @@ const SourcingNetworkPage = () => {
                 <p className="sn-map-sub">
                   Our seed spices originate directly from Unjha APMC Mandi, Gujarat — the seed spice capital of Asia.
                   Our North-East hub supplies high-curcumin Lakadong turmeric and organic sun-dried ginger from Meghalaya and Assam.
-                  Our South Indian channels procure Tellicherry pepper, Alleppey cardamom, and Guntur chillies.
+                  Our South Indian channels procure Alleppey cardamom and Guntur chillies.
                   All lots converge at our Unjha facility for unified Sortex cleaning, cryogenic grinding, and HACCP export packing.
                 </p>
 
@@ -821,7 +821,6 @@ const SourcingNetworkPage = () => {
                         "Sun-Dried Organic Ginger Slices",
                         "Pure Ginger Powder",
                         "Bird's Eye Chilli",
-                        "Wild Black Pepper",
                       ].map((p) => (
                         <span key={p} className="sn-zone-tag" style={{ background: "rgba(226,201,126,0.15)", color: "var(--brand-gold-light)", border: "1px solid rgba(226,201,126,0.3)" }}>
                           {p}
@@ -844,7 +843,6 @@ const SourcingNetworkPage = () => {
                     </div>
                     <div className="sn-zone-products">
                       {[
-                        "Tellicherry Black Pepper",
                         "Alleppey Green Cardamom",
                         "Guntur Red Chilli (Teja/S17)",
                         "Salem Turmeric Fingers",
@@ -900,8 +898,7 @@ const SourcingNetworkPage = () => {
               Inside Our HACCP‑Aligned Processing
             </h2>
             <p className="sn-section-sub">
-              Every lot — whether cumin from Unjha or black pepper from Kerala —
-              goes through the same six-step quality protocol at our Unjha
+              Every lot goes through the same six-step quality protocol at our Unjha
               facility before it is cleared for packing.
             </p>
             <div className="sn-process-timeline">

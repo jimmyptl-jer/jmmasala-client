@@ -140,6 +140,7 @@ const AppRoutes = () => {
         <Route path="/haldi" element={<Navigate to="/turmeric-exporter-india" replace />} />
         <Route path="/turmeric-fingers" element={<Navigate to="/turmeric-exporter-india" replace />} />
         <Route path="/turmeric-powder" element={<Navigate to="/turmeric-powder-exporter-india" replace />} />
+        <Route path="/black-pepper-exporter-india" element={<Navigate to="/products" replace />} />
         <Route path="/dry-ginger" element={<Navigate to="/dry-ginger-exporter-india" replace />} />
         <Route path="/red-chilli" element={<Navigate to="/red-chilli-exporter-india" replace />} />
         <Route path="/chilli" element={<Navigate to="/red-chilli-exporter-india" replace />} />
