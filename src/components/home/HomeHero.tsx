@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Award, Leaf, Package, Ship } from "lucide-react";
+import { ArrowRight, Award, Download, Leaf, Package, Ship } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
 import heroImageSmall from "@/assets/hero-bg-sm.jpg";
 import "@/styles/home-hero.css";
@@ -46,6 +46,14 @@ export default function HomeHero(): JSX.Element {
                 Explore Our Products
               </Link>
             </div>
+            <a
+              href="/JMMasalaProducts.pdf"
+              download="JM-Masala-Product-Catalogue.pdf"
+              className="jmh-hero-brochure"
+            >
+              <Download size={16} aria-hidden="true" />
+              Download Brochure (PDF)
+            </a>
           </div>
         </div>
       </div>

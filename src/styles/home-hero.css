@@ -89,3 +89,17 @@
   .jmh-hero-feature:nth-child(n + 3) { border-top: 0; }
   .jmh-hero-feature + .jmh-hero-feature { border-left: 1px solid rgba(247, 243, 233, 0.18); }
 }
+
+.jmh-hero-brochure {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: 8px;
+  color: var(--jmh-ivory, #faf6ee);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.jmh-hero-brochure:hover { color: var(--jmh-gold, #c39a4a); }
+.jmh-hero-brochure:focus-visible { outline: 3px solid var(--jmh-gold, #c39a4a); outline-offset: 3px; }
