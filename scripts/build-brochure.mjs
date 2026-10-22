@@ -37,97 +37,105 @@ const P = [
   ['agro-commodities-exporter-india', 'Agro Commodities', '', '', false, 'AgroCommodities.jpg', '#4f7a3a'],
 ];
 const img = Object.fromEntries(P.map((x) => [x[0], b64(x[5])]));
+const TOTAL = 28;
+const FIRST_PRODUCT_PAGE = 4;
+const pg = (n) => `${String(n).padStart(2, '0')} / ${TOTAL}`;
 
+// Editorial layout: alternating dark-brown and cream pages, light serif headlines, italic gold subtitles,
+// monospaced captions and a four-column strip, in the JM Masala export palette (dark brown, heritage gold, cream).
 const css = `
 @page{size:A4;margin:0}*{box-sizing:border-box}
-body{margin:0;font-family:"Segoe UI",Arial,sans-serif;color:#2a2a2a;font-size:10.5pt;line-height:1.5}
-.p{width:210mm;height:297mm;position:relative;page-break-after:always;overflow:hidden;background:#fdfbf7}
+body{margin:0;font-family:"Segoe UI",Arial,sans-serif;font-size:10.5pt;line-height:1.55}
+.p{width:210mm;height:297mm;position:relative;page-break-after:always;overflow:hidden}
 .p:last-child{page-break-after:auto}
-h1,h2,h3{font-family:Georgia,serif;margin:0}
-.lab{letter-spacing:.28em;font-size:8.5pt;text-transform:uppercase}
-.cover{background:#3a2214 center/cover;color:#faf6ee}
-.cover .ov{position:absolute;inset:0;background:linear-gradient(160deg,rgba(58,34,20,.93) 0%,rgba(58,34,20,.72) 55%,rgba(201,168,76,.35) 100%)}
-.cover .in{position:absolute;left:22mm;right:22mm;top:60mm}
-.cover img.lg{width:44mm;height:44mm;background:#fdfbf7;border-radius:12px;padding:3mm}
-.cover h1{color:#fff;font-size:42pt;line-height:1.1;margin:10mm 0 6mm}
-.cover .lab{color:#e2c97e;margin-top:10mm}
-.cover p{font-size:14pt;max-width:135mm;color:#f3ecd9}
-.cover .ct{position:absolute;left:22mm;right:22mm;bottom:22mm;border-top:2px solid #c9a84c;padding-top:5mm;font-size:10pt;color:#efe6cf}
-.cover .bar{position:absolute;left:0;right:0;bottom:0;height:8mm;background:#c9a84c}
-.band{background:#3a2214;color:#fff;padding:16mm 17mm 10mm}.band h2{color:#fff;font-size:26pt}.band .lab{color:#e2c97e;margin-bottom:2mm}
-.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:0;height:58mm}.photos div{background-size:cover;background-position:center}
-.body{padding:9mm 17mm 0}
-.tiles{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
-.tile{border-radius:10px;padding:5mm 6mm;color:#fff}
-.tile h3{font-size:13pt;color:#fff;margin:0 0 2mm}.tile ul{margin:0;padding-left:5mm}.tile li{margin:1mm 0}
-.g{background:linear-gradient(135deg,#5c3a1f,#3a2214)}.go{background:linear-gradient(135deg,#d9b650,#b8892f)}
-.steps{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:3mm}
-.step{display:flex;gap:3mm;background:#fff;border:1px solid #f0e4c0;border-radius:10px;padding:3.5mm 4mm}
-.step b{flex:none;width:8mm;height:8mm;border-radius:50%;background:#c9a84c;color:#3a2214;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif}
-.h3{font-family:Georgia,serif;font-size:14pt;color:#3a2214;margin:7mm 0 2mm}
-.foot{position:absolute;left:0;right:0;bottom:0;background:#3a2214;color:#e9dfc8;padding:5mm 17mm;font-size:8.5pt;display:flex;justify-content:space-between}
-.prod .hero{height:86mm;background-size:cover;background-position:center;position:relative}
-.prod .hero .ov{position:absolute;left:0;right:0;bottom:0;padding:22mm 17mm 7mm;background:linear-gradient(to top,rgba(30,16,8,.88),rgba(30,16,8,0))}
-.prod .hero h2{color:#fff;font-size:30pt;line-height:1.1}.prod .hero .names{color:#f3e7c4;font-style:italic;font-size:12pt}
-.prod .hero .tag{position:absolute;top:10mm;left:17mm;background:rgba(255,255,255,.92);border-radius:8px;padding:2mm 3mm;display:flex;gap:2mm;align-items:center;font-size:8pt;color:#3a2214;letter-spacing:.2em;text-transform:uppercase}
-.prod .hero .tag img{width:9mm;height:9mm}
-.stripe{height:4mm}.prod.tight .hero{height:58mm}.prod.tight .hero .ov{padding-top:12mm}.prod.tight .h3{margin:4mm 0 1.5mm}.prod.tight th,.prod.tight td{padding:1.2mm 3mm}.prod.tight .tile{padding:3.5mm 5mm}.prod.tight .tile li{margin:.4mm 0}.prod.tight .step{padding:2.5mm 3mm}.prod.tight .contact{margin-top:4mm;padding:3mm 5mm}.prod.tight .body{padding-top:6mm}.tiles{margin-top:5mm}
-.lead{font-size:12.5pt;color:#3a2214;margin:0 0 3mm}
-table{width:100%;border-collapse:collapse;font-size:10pt;margin-top:2mm}th,td{padding:2mm 3mm;text-align:left;border-bottom:1px solid #eadfb8}th{background:#3a2214;color:#fff}
-.contact{margin-top:6mm;display:flex;gap:6mm;align-items:center;background:#f6e9c8;border:1px solid #e6d291;border-radius:10px;padding:4mm 6mm}.contact div{font-size:9.5pt}
-.thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:4mm}.th{border-radius:8px;overflow:hidden;background:#fff;border:1px solid #f0e4c0}.th i{display:block;height:24mm;background-size:cover;background-position:center}.th em{display:block;font-style:normal;font-weight:400;font-size:7.5pt;color:#7a5a35}.th span{display:block;padding:1.5mm 2mm;font-size:8.5pt;text-align:center;color:#3a2214;font-weight:600}
+.dark{background:#3a2214;color:#f3ead8}.cream{background:#f6f0e3;color:#2a2018}
+.serif{font-family:"Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;font-weight:400}
+.mono{font-family:Consolas,"Courier New",monospace;text-transform:uppercase;letter-spacing:.14em}
+.pad{padding:0 18mm}
+.top{position:absolute;left:18mm;right:18mm;top:14mm;display:flex;justify-content:space-between;align-items:center;font-size:7.5pt}
+.dark .top{color:#d9bf7c}.cream .top{color:#8a6a35}
+.pill{border:1px solid currentColor;border-radius:99px;padding:1.4mm 4mm}
+h1,h2{margin:0;font-family:"Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;font-weight:400;line-height:1.1}
+.dark h1,.dark h2{color:#f8f1e1}.cream h1,.cream h2{color:#2a2018}
+.sub{font-family:"Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;font-style:italic;font-size:15pt;margin:4mm 0 5mm}
+.dark .sub{color:#d9bf7c}.cream .sub{color:#b0883f}
+.lead{max-width:132mm;font-size:11.5pt;font-weight:300}.dark .lead{color:#e6dcc6}.cream .lead{color:#5b4c3a}
+.rule{width:18mm;height:2px;background:#c9a84c;margin:6mm 0}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:6mm;border-top:1px solid;padding-top:4mm}
+.dark .strip{border-color:rgba(217,191,124,.35)}.cream .strip{border-color:#d9cdb2}
+.strip b{display:block;font-weight:500;font-size:10.5pt}.strip span{display:block;font-size:7pt;margin-top:1mm;line-height:1.5}
+.dark .strip span{color:#b9a98a}.cream .strip span{color:#8c7d66}
+.bottom{position:absolute;left:18mm;right:18mm;bottom:12mm}
+.foot{display:flex;justify-content:space-between;font-size:7pt;margin-top:4mm;padding-top:3mm;border-top:1px solid}
+.dark .foot{border-color:rgba(217,191,124,.35);color:#b9a98a}.cream .foot{border-color:#d9cdb2;color:#8c7d66}
+.ph{background-size:cover;background-position:center}
+table{width:100%;border-collapse:collapse;font-size:9.5pt;margin:0 0 5mm}th,td{padding:1.6mm 0;text-align:left;border-bottom:1px solid}
+.dark th,.dark td{border-color:rgba(217,191,124,.3)}.cream th,.cream td{border-color:#d9cdb2}
+th{font-weight:400;font-size:7pt}.dark th{color:#d9bf7c}.cream th{color:#8a6a35}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:4mm}
+.th i{display:block;height:22mm;background-size:cover;background-position:center}.th b{display:block;font-weight:500;font-size:8.5pt;margin-top:1.5mm;line-height:1.25}.th span{display:block;font-size:6.5pt;color:#8c7d66;margin-top:.5mm}
+.logo{width:16mm;height:16mm;border-radius:6px;background:#fdfbf7;padding:1.5mm}
+.cover .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(58,34,20,.94) 0%,rgba(58,34,20,.82) 55%,rgba(58,34,20,.96) 100%)}
 `;
 
-const stats = `<div class="tiles"><div class="tile g"><h3>Supply terms</h3><ul><li>Trial orders from 1 MT</li><li>Supply up to 200 MT per month</li><li>Dispatch 1-5 days after order confirmation</li><li>Samples can be arranged</li><li>Private label available</li></ul></div>
-<div class="tile go"><h3>Packing</h3><ul><li>25 kg or 50 kg PP bags with inner liner</li><li>Retail packs on request</li><li>Private-label packaging on request</li></ul></div></div>`;
-const steps = `<div class="h3">How to order</div><div class="steps">
-<div class="step"><b>1</b><div>Send your enquiry: product, quantity, destination country and packing preference.</div></div>
-<div class="step"><b>2</b><div>We reply with the specification and a quotation.</div></div>
-<div class="step"><b>3</b><div>A sample can be arranged for your approval.</div></div>
-<div class="step"><b>4</b><div>Confirm the order; dispatch follows within 1-5 days of confirmation.</div></div></div>`;
-const grades = `<div class="h3">Commercial grades</div><table><tr><th>Grade</th><th>Purity</th><th>Cleaning</th></tr><tr><td>Singapore</td><td>99%</td><td>Machine cleaned</td></tr><tr><td>Singapore</td><td>99%</td><td>Sortex cleaned</td></tr><tr><td>Europe</td><td>99.5%</td><td>Sortex cleaned</td></tr><tr><td>Europe Bold</td><td>99.99%</td><td>Sortex cleaned</td></tr></table>`;
-const contactBox = (slug) => `<div class="contact"><img src="${logo}" style="width:20mm;height:20mm"><div><b>JM Masala Trading LLP</b><br>A/18, Main Line, APMC Market Yard, Unjha, Mehsana District, Gujarat 384170, India<br>Phone / WhatsApp: +91 91067 66041 | +91 98245 10478<br>jmmasalaexports@gmail.com | jmmasalaexports.com${slug ? '/' + slug : ''}</div></div>`;
+const cover = `<div class="p dark cover" style="background-image:url(${b64('hero-bg.jpg')});background-size:cover;background-position:center"><div class="shade"></div>
+<div class="top mono"><span>JM Masala Trading LLP</span><span>Product catalogue</span></div>
+<div class="pad" style="position:absolute;top:84mm;left:0;right:0"><img class="logo" src="${logo}" style="width:22mm;height:22mm"><h1 style="font-size:50pt;margin:14mm 0 0">Premium Indian<br>Spices for<br>Global Markets.</h1><div class="rule"></div><p class="lead">Whole spices and seeds from Unjha, Gujarat, for importers, wholesalers, distributors and food manufacturers.</p></div>
+<div class="bottom"><div class="strip"><div><b class="serif" style="font-size:15pt">Unjha</b><span class="mono">Gujarat, India</span></div><div><b class="serif" style="font-size:15pt">1 MT</b><span class="mono">Trial orders from</span></div><div><b class="serif" style="font-size:15pt">200 MT</b><span class="mono">Supply per month</span></div><div><b class="serif" style="font-size:15pt">1-5 days</b><span class="mono">Dispatch after confirmation</span></div></div></div></div>`;
 
-const cover = `<div class="p cover" style="background-image:url(${b64('hero-bg.jpg')})"><div class="ov"></div><div class="in"><img class="lg" src="${logo}"><div class="lab">Product Catalogue</div><h1>Premium Indian Spices for Global Markets</h1><p>Whole spices and seeds from Unjha, Gujarat, for importers, wholesalers, distributors and food manufacturers.</p></div>
-<div class="ct"><b>JM Masala Trading LLP</b> &nbsp;|&nbsp; A/18, Main Line, APMC Market Yard, Unjha, Mehsana District, Gujarat 384170, India<br>+91 91067 66041 | +91 98245 10478 &nbsp;|&nbsp; jmmasalaexports@gmail.com | jmmasalaexports.com</div><div class="bar"></div></div>`;
+const footer = (left, n) => `<div class="foot mono"><span>${left}</span><span>${pg(n)}</span></div>`;
 
-const about = `<div class="p"><div class="band"><div class="lab">About us</div><h2>JM Masala Trading LLP</h2></div>
-<div class="photos"><div style="background-image:url(${b64('why-sourcing.jpg')})"></div><div style="background-image:url(${b64('why-sorting.jpg')})"></div><div style="background-image:url(${b64('why-packaging.jpg')})"></div></div>
-<div class="body"><p class="lead">JM Masala Trading LLP is a spice and seed supplier based at the APMC Market Yard in Unjha, Gujarat. We supply spices and seeds for export and bulk wholesale, with cumin as our flagship export.</p>${stats}
-<p style="margin:5mm 0 0">Specifications, grades and packing for each product are confirmed with your quotation. Tell us the product, quantity, destination port and packing you need.</p>${steps}</div>
-<div class="foot"><span>JM Masala Trading LLP</span><span>Product Catalogue | October 2026</span></div></div>`;
+const portfolio = () => `<div class="p cream"><div class="top mono"><span>01 — Product portfolio</span><span class="pill">What we supply</span></div>
+<div class="pad" style="position:absolute;top:30mm;left:0;right:0"><h1 style="font-size:36pt">Everything we supply,<br>one page each.</h1><div class="sub">Every product has its own page in this catalogue.</div>
+<div class="grid" style="margin-top:8mm">${P.map((x, i) => `<div class="th"><i style="background-image:url(${img[x[0]]})"></i><b>${x[1]}</b><span class="mono">Page ${FIRST_PRODUCT_PAGE + i}</span></div>`).join('')}<div class="th"><i style="background-image:url(${curryImg})"></i><b>Curry leaf</b><span class="mono">On request</span></div></div>
+<p style="font-size:9pt;color:#5b4c3a;margin-top:6mm">Specifications for these products are shared on request with a sample.</p></div>
+<div class="bottom">${footer('JM Masala Trading LLP', 2)}</div></div>`;
 
-const productPage = ([slug, name, names, desc, priority, , accent]) => `<div class="p prod${slug === 'cumin-seeds-exporter-india' ? ' tight' : ''}"><div class="hero" style="background-image:url(${img[slug]})"><div class="tag"><img src="${logo}">Product data sheet</div><div class="ov"><h2>${name}</h2>${names ? `<div class="names">${names}</div>` : ''}</div></div>
-<div class="stripe" style="background:linear-gradient(90deg,#c9a84c,#e2c97e,#c9a84c)"></div>
-<div class="body"><p class="lead">${desc || `${name} is part of the JM Masala range, supplied from Unjha, Gujarat for importers, wholesalers, distributors and food manufacturers.`}</p>
-<p style="margin:0 0 4mm;color:#7a5a35">${priority ? 'Specifications, grades and packing are confirmed with your quotation.' : 'Specifications for this product are shared on request with a sample.'}</p>
-${slug === 'cumin-seeds-exporter-india' ? grades : ''}${stats.replace('margin', 'margin')}${steps}${contactBox(slug)}</div>
-<div class="foot"><span>JM Masala Trading LLP | ${name}</span><span>October 2026</span></div></div>`;
+const about = `<div class="p dark"><div class="top mono"><span>02 — About us</span><span class="pill">JM Masala Trading LLP</span></div>
+<div class="pad" style="position:absolute;top:34mm;left:0;right:0"><h1 style="font-size:36pt">A spice and seed supplier<br>in the heart of Unjha.</h1><div class="sub">Cumin is our flagship export.</div>
+<p class="lead">JM Masala Trading LLP is based at the APMC Market Yard in Unjha, Gujarat. We supply spices and seeds for export and bulk wholesale. Specifications, grades and packing for each product are confirmed with your quotation.</p>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;height:92mm;margin:10mm -18mm 0"><div class="ph" style="background-image:url(${b64('why-sourcing.jpg')})"></div><div class="ph" style="background-image:url(${b64('why-sorting.jpg')})"></div><div class="ph" style="background-image:url(${b64('why-packaging.jpg')})"></div></div></div>
+<div class="bottom"><div class="strip" style="margin-bottom:6mm"><div><b>Trial orders</b><span class="mono">From 1 MT</span></div><div><b>Supply</b><span class="mono">Up to 200 MT per month</span></div><div><b>Dispatch</b><span class="mono">1-5 days after order confirmation</span></div><div><b>Samples</b><span class="mono">Can be arranged</span></div></div>
+<div class="strip"><div><b>25 kg or 50 kg</b><span class="mono">PP bags with inner liner</span></div><div><b>Retail packs</b><span class="mono">On request</span></div><div><b>Private label</b><span class="mono">Available; packaging on request</span></div><div><b>How to order</b><span class="mono">Enquiry, quotation, sample, order</span></div></div>
+${footer('About us', 3)}</div></div>`;
 
-let curryImg = "";
-// Portfolio overview (page 2): every product with its page number in this catalogue.
-const FIRST_PRODUCT_PAGE = 4;
-const portfolioPage = () => `<div class="p"><div class="band"><div class="lab">Product portfolio</div><h2>What we supply</h2></div><div class="body"><p class="lead" style="margin-bottom:5mm">Whole spices and seeds from Unjha, Gujarat. Every product has its own page in this catalogue.</p><div class="thumbs">${P.map((x, i) => `<div class="th"><i style="background-image:url(${img[x[0]]})"></i><span>${x[1]}<em>Page ${FIRST_PRODUCT_PAGE + i}</em></span></div>`).join('')}<div class="th"><i style="background-image:url(${curryImg})"></i><span>Curry leaf<em>On request</em></span></div></div>
-<p style="margin-top:6mm">Specifications for these products are shared on request with a sample.</p></div>
-<div class="foot"><span>JM Masala Trading LLP</span><span>Product Catalogue | October 2026</span></div></div>`;
+const grades = (cls) => `<table><tr class="mono"><th>Grade</th><th>Purity</th><th>Cleaning</th></tr><tr><td>Singapore</td><td>99%</td><td>Machine cleaned</td></tr><tr><td>Singapore</td><td>99%</td><td>Sortex cleaned</td></tr><tr><td>Europe</td><td>99.5%</td><td>Sortex cleaned</td></tr><tr><td>Europe Bold</td><td>99.99%</td><td>Sortex cleaned</td></tr></table>`;
 
-const contactPage = () => `<div class="p"><div class="band"><div class="lab">Contact</div><h2>Request a quotation</h2></div><div class="body"><p class="lead">Tell us the product, quantity, destination port and packing you need. We reply with the specification and a quotation, and a sample can be arranged for your approval.</p>${contactBox('')}<p style="margin-top:4mm">Enquiry form: jmmasalaexports.com/contact</p></div>
-<div class="foot"><span>JM Masala Trading LLP</span><span>Product Catalogue | October 2026</span></div></div>`;
+const productPage = ([slug, name, names, desc, priority], i) => {
+  const dark = i % 2 === 1;
+  const cumin = slug === 'cumin-seeds-exporter-india';
+  const n = FIRST_PRODUCT_PAGE + i;
+  return `<div class="p ${dark ? 'dark' : 'cream'}"><div class="ph" style="height:${cumin ? 108 : 140}mm;background-image:url(${img[slug]})"></div>
+<div class="top mono" style="color:#fff"><span style="background:rgba(58,34,20,.6);padding:1.4mm 3mm;border-radius:99px">${String(i + 1).padStart(2, "0")} — Product</span><span style="background:rgba(58,34,20,.6);padding:1.4mm 3mm;border-radius:99px">JM Masala</span></div>
+<div class="pad" style="margin-top:${cumin ? 7 : 9}mm"><h2 style="font-size:${cumin ? 34 : 38}pt">${name}</h2>${names ? `<div class="sub" style="margin-bottom:3mm">${names}</div>` : '<div class="sub" style="margin-bottom:3mm">Supplied from Unjha, Gujarat</div>'}
+<p class="lead">${desc || `${name} is part of the JM Masala range, for importers, wholesalers, distributors and food manufacturers.`} ${priority ? 'Specifications, grades and packing are confirmed with your quotation.' : 'Specifications for this product are shared on request with a sample.'}</p>
+${cumin ? `<div style="margin-top:5mm">${grades()}</div>` : ''}</div>
+<div class="bottom"><div class="strip" style="margin-bottom:${cumin ? 4 : 6}mm"><div><b>Trial orders</b><span class="mono">From 1 MT</span></div><div><b>Supply</b><span class="mono">Up to 200 MT per month</span></div><div><b>Dispatch</b><span class="mono">1-5 days after order confirmation</span></div><div><b>Samples</b><span class="mono">Can be arranged</span></div></div>
+<div class="strip"><div><b>25 kg or 50 kg</b><span class="mono">PP bags with inner liner</span></div><div><b>Retail packs</b><span class="mono">On request</span></div><div><b>Private label</b><span class="mono">Packaging on request</span></div><div><b>Enquire</b><span class="mono">+91 91067 66041<br>jmmasalaexports.com/${slug}</span></div></div>
+${footer(name, n)}</div></div>`;
+};
 
+const contactPage = () => `<div class="p dark"><div class="top mono"><span>03 — Contact</span><span class="pill">Request a quotation</span></div>
+<div class="pad" style="position:absolute;top:70mm;left:0;right:0"><img class="logo" src="${logo}" style="width:22mm;height:22mm"><h1 style="font-size:40pt;margin-top:12mm">Tell us what you need,<br>we will quote.</h1><div class="rule"></div>
+<p class="lead">Send your enquiry with the product, quantity, destination country and packing preference. We reply with the specification and a quotation, and a sample can be arranged for your approval. Dispatch follows within 1-5 days of order confirmation.</p></div>
+<div class="bottom"><div class="strip" style="margin-bottom:6mm"><div><b>Phone / WhatsApp</b><span class="mono">+91 91067 66041<br>+91 98245 10478</span></div><div><b>Email</b><span class="mono" style="text-transform:none;letter-spacing:.04em">jmmasalaexports@gmail.com</span></div><div><b>Website</b><span class="mono" style="text-transform:none;letter-spacing:.04em">jmmasalaexports.com/contact</span></div><div><b>Office</b><span class="mono" style="line-height:1.5">A/18, Main Line, APMC Market Yard, Unjha, Gujarat 384170</span></div></div>
+${footer('JM Masala Trading LLP', 28)}</div></div>`;
+
+let curryImg = '';
 const doc = (body) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>JM Masala Product Catalogue</title><style>${css}</style></head><body>${body}</body></html>`;
 
 fs.mkdirSync(`${ROOT}/public/catalogue`, { recursive: true });
 const br = await chromium.launch({ executablePath: process.env.CHROME_PATH || undefined });
 const p = await br.newPage();
-const shrink = (src) => p.evaluate(async (u) => { const i = new Image(); i.src = u; await i.decode(); const c = document.createElement("canvas"); c.width = 500; c.height = Math.round((500 * i.height) / i.width); c.getContext("2d").drawImage(i, 0, 0, c.width, c.height); return c.toDataURL("image/jpeg", 0.85); }, src);
-curryImg = await shrink(b64("CurryLeaf.png"));
-for (const item of P) {
-  await p.setContent(doc(productPage(item)));
+const shrink = (src) => p.evaluate(async (u) => { const i = new Image(); i.src = u; await i.decode(); const c = document.createElement('canvas'); c.width = 500; c.height = Math.round((500 * i.height) / i.width); c.getContext('2d').drawImage(i, 0, 0, c.width, c.height); return c.toDataURL('image/jpeg', 0.85); }, src);
+curryImg = await shrink(b64('CurryLeaf.png'));
+for (const [i, item] of P.entries()) {
+  await p.setContent(doc(productPage(item, i)));
   await p.pdf({ path: `${ROOT}/public/catalogue/${item[0]}.pdf`, format: 'A4', printBackground: true, preferCSSPageSize: true });
 }
-await p.setContent(doc([cover, portfolioPage(), about, ...P.map(productPage), contactPage()].join('\n')));
+await p.setContent(doc([cover, portfolio(), about, ...P.map(productPage), contactPage()].join('\n')));
 await p.pdf({ path: `${ROOT}/public/JMMasalaProducts.pdf`, format: 'A4', printBackground: true, preferCSSPageSize: true });
 await p.setViewportSize({ width: 794, height: 1123 });
-for (const n of [1, 2, 3, 4, 8, 28]) await p.locator('.p').nth(n - 1).screenshot({ path: (process.argv[2] || '.') + `/b${n}.png` });
+for (const n of [1, 2, 3, 4, 5, 8, 28]) await p.locator('.p').nth(n - 1).screenshot({ path: (process.argv[2] || '.') + `/b${n}.png` });
 await br.close();
 console.log('done');
