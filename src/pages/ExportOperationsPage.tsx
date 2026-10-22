@@ -155,8 +155,8 @@ const EXPORT_DOCUMENTS = [
   {
     id: "coa",
     name: "Certificate of Analysis (COA)",
-    issuer: "NABL Accredited Third-Party Analytical Laboratory",
-    purpose: "Batch-specific laboratory report detailing physical purity, moisture, volatile oil, total ash, microbiology, and pesticide residue MRLs."
+    issuer: "Third-Party Laboratory (Eureka Lab)",
+    purpose: "Laboratory report for the tested lot, where available, covering parameters such as purity, moisture, foreign matter, pesticide residues, and microbiological parameters, per buyer requirements."
   },
   {
     id: "fumi",
@@ -204,10 +204,10 @@ const TARGET_MARKETS = [
   {
     region: "European Union & United Kingdom",
     countries: "Germany, Netherlands, United Kingdom, France, Poland, Spain, Italy",
-    standards: "Pesticide residue screening, Aflatoxins (<10 ppb), and laboratory protocols aligned to buyer purchase orders",
+    standards: "Pesticide residue screening and laboratory protocols aligned to buyer purchase orders",
     leadTime: "Typical ocean transit ~18 to 24 days via Mundra to major European container ports",
     popularProducts: "Europe Quality Cumin 99.5%, Sortex Fennel, Coriander Split, Psyllium Husk 99%, High Curcumin Lakadong Turmeric",
-    notes: "Pre-shipment sampling and test reports from accredited laboratories coordinated before container stuffing."
+    notes: "Pre-shipment sampling and test reports from a third-party laboratory, where required, coordinated before container stuffing."
   },
   {
     region: "North America (USA & Canada)",
@@ -289,7 +289,7 @@ const EXPORT_FAQS = [
   },
   {
     q: "Can JM Masala supply spices aligned with European Union (EU) pesticide MRL requirements?",
-    a: "Yes. Spice lots for European buyers can be supplied against buyer-specified EU pesticide-residue (MRL) parameters, Aflatoxin thresholds, and laboratory testing criteria. Pre-shipment test reports from NABL-accredited laboratories are coordinated against contract specifications and buyer purchase order requirements."
+    a: "Yes. Spice lots for European buyers can be supplied against buyer-specified EU pesticide-residue (MRL) parameters and laboratory testing criteria. Test reports from a third-party laboratory are shared where available and applicable to the tested lot, against contract specifications and buyer purchase order requirements."
   }
 ];
 
@@ -390,7 +390,7 @@ const ExportOperationsPage = () => {
                 <div className="p-4 rounded-xl bg-white/10 border border-white/10 backdrop-blur-sm">
                   <div className="text-xs text-[var(--brand-gold-light)] uppercase tracking-wider font-semibold">Documentation</div>
                   <div className="text-lg font-bold text-white mt-1">100% Compliant</div>
-                  <div className="text-[11px] text-[var(--brand-cream)] mt-0.5">Phyto, NABL COA, COO, Spices Board</div>
+                  <div className="text-[11px] text-[var(--brand-cream)] mt-0.5">Phyto, COA where available, COO, Spices Board</div>
                 </div>
                 <div className="p-4 rounded-xl bg-white/10 border border-white/10 backdrop-blur-sm">
                   <div className="text-xs text-[var(--brand-gold-light)] uppercase tracking-wider font-semibold">Incoterms</div>
@@ -651,7 +651,7 @@ const ExportOperationsPage = () => {
                 The Complete Export Documentation Package
               </h2>
               <p className="text-sm sm:text-base text-[var(--brand-forest)] leading-relaxed">
-                Zero customs delays. Every consignment dispatched by JM Masala is backed by an airtight suite of trade, quarantine, and laboratory documentation verified before the vessel departs Mundra Port.
+                Every consignment dispatched by JM Masala is accompanied by trade and quarantine documentation, and laboratory documentation where available, prepared before the vessel departs Mundra Port.
               </p>
             </div>
 

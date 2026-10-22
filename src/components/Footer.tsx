@@ -37,7 +37,7 @@ const CAPABILITIES = [
   { label: "Private Label Spice OEM", path: "/private-label-spices" },
   { label: "Retail Packaging Solutions", path: "/spice-packaging" },
   { label: "Export Operations & Logistics", path: "/export-destinations" },
-  { label: "Quality & Lab Certifications", path: "/quality-certifications" },
+  { label: "Quality & Third-Party Testing", path: "/quality-certifications" },
   { label: "Domestic B2B Supply India", path: "/domestic-supply-india" },
   { label: "Buyer Guides & Blog", path: "/blog" },
   { label: "About JM Masala Heritage", path: "/about-jm-masala" },
@@ -51,7 +51,7 @@ const CERTIFICATION_BADGES = [
   { name: "Spices Board RCMC", sub: "Ministry of Commerce & Industry" },
   { name: "APEDA Registered", sub: "Agricultural & Processed Food Products" },
   { name: "IEC Registered", sub: "Directorate General of Foreign Trade" },
-  { name: "NABL Lab Tested", sub: "COA Issued per Container Lot" }
+  { name: "Third-Party Lab Testing", sub: "COA where available and applicable" }
 ];
 
 const Footer = () => {
@@ -72,7 +72,7 @@ const Footer = () => {
             </div>
             <div className="flex items-center justify-center gap-1.5 py-1">
               <ShieldCheck className="h-3.5 w-3.5 text-[var(--brand-gold)]" />
-              <span>NABL Lab COA Tested</span>
+              <span>Third-Party Lab Testing</span>
             </div>
             <div className="flex items-center justify-center gap-1.5 py-1">
               <Package className="h-3.5 w-3.5 text-[var(--brand-gold)]" />

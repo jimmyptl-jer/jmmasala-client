@@ -17,7 +17,7 @@ const ProcessCards = () => {
     {
       icon: <Shield className="w-8 h-8" aria-label="Quality Testing" />,
       title: "Quality Testing",
-      description: "Batch-wise testing in NABL-certified labs to meet international food safety standards.",
+      description: "Third-party laboratory testing as required by the product, buyer specification and destination market.",
       step: "03"
     },
     {

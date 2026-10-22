@@ -48,7 +48,7 @@ const UNJHA_FAQS = [
   {
     question: "Can buyers obtain pre-shipment laboratory test reports and third-party inspection?",
     answer:
-      "Yes. Pre-shipment laboratory certificates of analysis (COAs) from NABL-accredited facilities are coordinated against contract specifications. Importers can also appoint independent inspection agencies such as SGS, Intertek, or Bureau Veritas at the port terminal.",
+      "Yes. Laboratory certificates of analysis (COAs) from a third-party laboratory can be shared where available and applicable to the tested lot, against contract specifications. Importers can also appoint independent inspection agencies such as SGS, Intertek, or Bureau Veritas at the port terminal.",
   },
 ];
 
@@ -507,7 +507,7 @@ const UnjhaCuminSeedsPage = () => {
                 </div>
                 <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
                   Shipments include Commercial Invoice, Packing List, Certificate of Origin (COO),
-                  Government Phytosanitary Certificate, Bill of Lading, and NABL-accredited Lab COA.
+                  Government Phytosanitary Certificate, Bill of Lading, and third-party laboratory COA where available.
                 </p>
               </div>
 

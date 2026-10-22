@@ -371,7 +371,7 @@ export const PROCESSING_CAPABILITIES = [
   {
     name: "Quality Inspection",
     description:
-      "Inward and finished lots are checked for moisture, appearance, aroma, foreign matter, and lab-test requirements before dispatch.",
+      "Inward and finished lots are checked for moisture, appearance, aroma, foreign matter, and buyer-specified testing requirements before dispatch.",
   },
 ];
 
@@ -923,7 +923,7 @@ export const PRODUCTS: ProductData[] = [
       { label: "Color", value: "Light brown" },
       { label: "Foreign Matter", value: "As per contract grade" },
       { label: "Packaging", value: "Food-safe PP bags with liner" },
-      { label: "Testing", value: "NABL lab test available" },
+      { label: "Testing", value: "Third-party lab test where required" },
     ],
     relatedSlugs: [
       "psyllium-husk-exporter-india",
@@ -1020,7 +1020,7 @@ export const PRODUCTS: ProductData[] = [
       { label: "Moisture", value: "Max 10%" },
       { label: "Color", value: "Golden yellow to deep orange" },
       { label: "Processing", value: "Polished and cleaned" },
-      { label: "Lab Test", value: "NABL COA available" },
+      { label: "Lab Test", value: "Third-party lab COA where available" },
     ],
     qualityGrades: [
       {
@@ -1370,7 +1370,7 @@ export const PRODUCTS: ProductData[] = [
       { label: "Mesh Size", value: "60 to 100 mesh" },
       { label: "Moisture", value: "Max 8% to 9%" },
       { label: "Total Ash", value: "Max 7%" },
-      { label: "Lead Chromate", value: "NIL (Lab Certified)" },
+      { label: "Lead Chromate", value: "NIL (third-party lab testing where required)" },
       { label: "Processing", value: "Cleaned finger milling" },
     ],
     relatedSlugs: [
@@ -1403,7 +1403,7 @@ export const PRODUCTS: ProductData[] = [
       { label: "ASTA Color", value: "60 to 140 ASTA" },
       { label: "Moisture", value: "Max 10%" },
       { label: "Total Ash", value: "Max 8%" },
-      { label: "Aflatoxin", value: "EU/US compliant lab certified" },
+      { label: "Aflatoxin", value: "Third-party lab testing per buyer requirements" },
       { label: "Grades", value: "Reshampatti / Sanam / Teja / Kashmiri" },
     ],
     relatedSlugs: [
@@ -1755,7 +1755,7 @@ export const PRODUCT_TECHNICAL_DETAILS: Record<string, ProductTechnicalDetails> 
     ],
     processing: [
       "Cleaned and milled as per mesh requirement",
-      "Lot-wise lab verification",
+      "Third-party lab testing where required",
       "Metal detection and export-safe packing",
     ],
     packaging: [
@@ -1871,7 +1871,7 @@ export const PRODUCT_TECHNICAL_DETAILS: Record<string, ProductTechnicalDetails> 
     ],
     microbiological: COMMON_MICROBIOLOGY,
     contaminants: [
-      "Aflatoxin and Sudan dye free supply supported through lab-tested lots",
+      "Aflatoxin and Sudan dye testing available through a third-party laboratory",
       "Pesticide residue aligned to destination market requirement",
     ],
     processing: [
@@ -1915,7 +1915,7 @@ export const PRODUCT_TECHNICAL_DETAILS: Record<string, ProductTechnicalDetails> 
     processing: [
       "Polishing and cleaning",
       "Sorting by finger / bulb / powder requirement",
-      "Metal detection and lab testing",
+      "Metal detection and third-party lab testing where required",
     ],
     packaging: [
       "25 kg and 50 kg export bags",
@@ -2026,7 +2026,7 @@ export const PRODUCT_TECHNICAL_DETAILS: Record<string, ProductTechnicalDetails> 
     ],
     microbiological: COMMON_MICROBIOLOGY,
     contaminants: [
-      "Pesticide residue and heavy metals checked per lot COA",
+      "Pesticide residue and heavy metal COA from a third-party lab where available",
     ],
     processing: [
       "Machine cleaned",
@@ -2176,7 +2176,7 @@ export const PRODUCT_TECHNICAL_DETAILS: Record<string, ProductTechnicalDetails> 
     ],
     microbiological: COMMON_MICROBIOLOGY,
     contaminants: [
-      "Lab verified COA available per lot",
+      "Third-party lab COA where available and applicable to the tested lot",
     ],
     processing: [
       "Cold-milling process",
@@ -2288,7 +2288,7 @@ export const PRODUCT_TECHNICAL_DETAILS: Record<string, ProductTechnicalDetails> 
     ],
     microbiological: COMMON_MICROBIOLOGY,
     contaminants: [
-      "Pesticide residue testing available per lot",
+      "Pesticide residue testing available through a third-party laboratory",
     ],
     processing: [
       "Dry ginger root milling",
@@ -2777,7 +2777,7 @@ export const BLOG_POSTS: BlogPostSummary[] = [
         heading: "Essential Oil Profile & Chemical Benchmarks",
         paragraphs: [
           "Fennel's characteristic sweetness and therapeutic value stem from its volatile essential oil content, which ranges from 1.5% to 3.5% v/w in high-grade Unjha arrivals. The primary constituent is trans-anethole (>70%), responsible for licorice-like sweetness, balanced by fenchone (10%–15%), which imparts crisp herbal warmth.",
-          "NABL-accredited laboratory test reports should confirm moisture (max 8.0%), volatile oil (>1.5% v/w), total ash (max 8.0%), and acid-insoluble ash (max 1.25%).",
+          "Third-party laboratory test reports should confirm moisture (max 8.0%), volatile oil (>1.5% v/w), total ash (max 8.0%), and acid-insoluble ash (max 1.25%).",
         ],
       },
       {
@@ -2807,7 +2807,7 @@ export const BLOG_POSTS: BlogPostSummary[] = [
       {
         question: "Can JM Masala supply pesticide-tested fennel compliant with European MRLs?",
         answer:
-          "Yes. We supply fennel lots tested for over 500 pesticide residues at NABL-accredited laboratories, ensuring full compliance with European Commission Regulation (EC) 396/2005.",
+          "Yes. Pesticide residue testing for fennel can be arranged through a third-party laboratory against buyer-specified and destination-market requirements, such as European Commission Regulation (EC) 396/2005; reports are shared where available and applicable to the tested lot.",
       },
     ],
     relatedProductSlugs: [
@@ -2822,7 +2822,7 @@ export const BLOG_POSTS: BlogPostSummary[] = [
 export const DOCUMENTATION_PACKAGE = [
   "Phytosanitary certificate",
   "Fumigation certificate",
-  "NABL lab COA",
+  "Third-party lab COA",
   "Certificate of Origin",
   "APEDA certificate",
   "Commercial invoice",

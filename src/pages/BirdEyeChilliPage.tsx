@@ -199,8 +199,8 @@ const BirdEyeChilliPage = () => {
                   JM Masala supplies authentic Indian Bird's Eye Chilli (Kanthari) from Kerala and Southern hill tracts
                   for international bulk buyers, hot sauce producers, and oleoresin extractors. Known for its small
                   conical pods and sharp, rapid-onset thermal heat ranging between 100,000 and 225,000+ Scoville Heat
-                  Units (SHU), our Bird's Eye chillies are carefully sun-cured, graded, and supplied with full laboratory
-                  documentation and export clearance.
+                  Units (SHU), our Bird's Eye chillies are carefully sun-cured, graded, and supplied with third-party laboratory
+                  documentation where available and export clearance.
                 </p>
               </div>
 

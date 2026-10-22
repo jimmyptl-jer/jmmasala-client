@@ -47,7 +47,7 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
     seo: {
       title: "Cumin Seeds Exporter India | Unjha Gujarat | JM Masala",
       description:
-        "Export-grade Indian cumin seeds (jeera) from Unjha, Gujarat. 99.5% Sortex purity, high volatile oil (2.5%-4.5%), lab tested, FOB Mundra & CIF global supply.",
+        "Export-grade Indian cumin seeds (jeera) from Unjha, Gujarat. 99.5% Sortex purity, high volatile oil (2.5%-4.5%), third-party lab testing available, FOB Mundra & CIF global supply.",
       primaryKeyword: "cumin seeds exporter india",
       secondaryKeywords: [
         "cumin seeds supplier india",
@@ -95,12 +95,12 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
         {
           question: "How is volatile essential oil content verified in export lots?",
           answer:
-            "Volatile oil is quantified via standard ISO 6571 hydro-distillation at NABL-accredited laboratories. Fresh Unjha arrivals typically test between 2.5% and 4.5% v/w.",
+            "Volatile oil is quantified via standard ISO 6571 hydro-distillation by a third-party laboratory. Fresh Unjha arrivals typically test between 2.5% and 4.5% v/w.",
         },
         {
           question: "Can JM Masala meet European Union (EU) pesticide MRL requirements?",
           answer:
-            "Yes. Spice lots for European buyers can be supplied against buyer-specified EU pesticide-residue (MRL) parameters and Aflatoxin thresholds, verified through accredited pre-shipment laboratory test reports.",
+            "Yes. Spice lots for European buyers can be supplied against buyer-specified EU pesticide-residue (MRL) parameters and Aflatoxin thresholds, with third-party laboratory test reports shared where available and applicable to the tested lot.",
         },
         {
           question: "What shipping terms and container loading options are available?",
@@ -204,7 +204,7 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
         {
           question: "What lab parameters and certifications accompany shipments?",
           answer:
-            "Consignments are provided with NABL-accredited COA verifying volatile oil, moisture, split percentage, pesticide residue screening, and Phytosanitary certification.",
+            "A Certificate of Analysis (COA) from a third-party laboratory can be shared where available and applicable to the tested lot, covering parameters such as moisture and pesticide residues as required by the buyer; Phytosanitary certification is provided where required.",
         },
       ],
     },
@@ -303,7 +303,7 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
         {
           question: "Can JM Masala supply pesticide-tested fennel for Europe and the US?",
           answer:
-            "Yes. We supply fennel lots tested for EU MRL pesticide residues and US FDA ASTA parameters, supported by NABL accredited lab certificates.",
+            "Yes. We supply fennel lots tested for EU MRL pesticide residues and US FDA ASTA parameters, with third-party laboratory reports shared where available and applicable to the tested lot.",
         },
       ],
     },
@@ -404,7 +404,7 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
         {
           question: "What testing documents are provided with export shipments?",
           answer:
-            "Each shipment includes NABL lab COA (moisture max 10%, purity, total ash), Phytosanitary Certificate, and Certificate of Origin.",
+            "A COA from a third-party laboratory (moisture max 10%, purity) can be shared where available and applicable to the tested lot, along with Phytosanitary Certificate and Certificate of Origin where required.",
         },
       ],
     },
@@ -763,7 +763,7 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
         {
           question: "Can JM Masala provide pesticide residue testing for ajwain?",
           answer:
-            "Yes. Shipments can be accompanied by accredited NABL lab test reports verifying pesticide MRLs, heavy metals, and microbiological criteria.",
+            "Yes. Third-party laboratory test reports covering pesticide residues and microbiological parameters can be shared where available and applicable to the tested lot.",
         },
       ],
     },
@@ -919,7 +919,7 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
       sourcingAndOrigin:
         "Sourced through established farmer and mandi networks across Nizamabad, Salem, Sangli, and Erode.",
       processingStandards:
-        "Dry destoning, mechanical polishing (single or double polished), metallic separation, and laboratory screening for lead chromate absence.",
+        "Dry destoning, mechanical polishing (single or double polished), metallic separation, and third-party laboratory screening for lead chromate absence where required.",
       packagingOptions: [
         "25 kg and 50 kg jute bags or woven PP bags with moisture-protective liners",
         "Multi-wall paper bags for international processors",
@@ -938,7 +938,7 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
         {
           question: "How is curcumin percentage certified in export lots?",
           answer:
-            "Curcumin content is quantified via HPLC testing at accredited laboratories. We supply lots categorized into standard (2.0%-3.0%) and high curcumin (3.5%-5.0%+) bands.",
+            "Curcumin content is quantified via HPLC testing by a third-party laboratory. We supply lots categorized into standard (2.0%-3.0%) and high curcumin (3.5%-5.0%+) bands.",
         },
         {
           question: "Are your turmeric fingers free from artificial colorings?",
@@ -1131,7 +1131,7 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
         {
           question: "How does JM Masala ensure low aflatoxin and pesticide compliance?",
           answer:
-            "Every export consignment is tested at accredited laboratories for Aflatoxin B1/total aflatoxins and Ochratoxin A, fully complying with EU and destination market regulations.",
+            "Testing for Aflatoxin B1/total aflatoxins and Ochratoxin A can be arranged through a third-party laboratory as required by the buyer and destination market; reports are shared where available and applicable to the tested lot.",
         },
         {
           question: "Do you supply stemless red chillies?",
@@ -1181,7 +1181,7 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
     seo: {
       title: "Teja Chilli Exporter from India | S17 Red Chilli | JM Masala",
       description:
-        "JM Masala supplies Indian Teja red chilli (S17) for bulk export. High heat 50,000–85,000 SHU, 50–70 ASTA color, whole & stemless. Request lab specs & quote.",
+        "JM Masala supplies Indian Teja red chilli (S17) for bulk export. High heat 50,000–85,000 SHU, 50–70 ASTA color, whole & stemless. Request specs & quote.",
       primaryKeyword: "teja chilli exporter india",
       secondaryKeywords: [
         "teja chilli supplier",
@@ -1201,7 +1201,7 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
       sourcingAndOrigin:
         "Procured directly from agricultural produce market committees (APMC) in Guntur and Warangal.",
       processingStandards:
-        "Mechanical destemming, air aspiration, magnetic separation, and NABL laboratory testing.",
+        "Mechanical destemming, air aspiration, magnetic separation, and third-party laboratory testing where required.",
       packagingOptions: [
         "10 kg, 20 kg, and 25 kg new PP woven bags",
         "Corrugated export cartons for stemless chilli",
@@ -1425,7 +1425,7 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
         {
           question: "What documentation is provided with cardamom exports?",
           answer:
-            "Consignments include Phytosanitary Certificate, Certificate of Origin, NABL lab test report verifying size, moisture, and volatile oil, and Spices Board compliance.",
+            "Consignments include Phytosanitary Certificate, Certificate of Origin, third-party laboratory test report (where available and applicable to the tested lot), and Spices Board compliance.",
         },
       ],
     },
@@ -1458,7 +1458,7 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
     seo: {
       title: "Nigella Seeds Exporter India | Kalonji | JM Masala",
       description:
-        "Export-grade Indian nigella seeds (Kalonji / Black Cumin) exporter. Jet-black, 99.5% Sortex optical purity, high thymoquinone, lab tested, FOB Mundra.",
+        "Export-grade Indian nigella seeds (Kalonji / Black Cumin) exporter. Jet-black, 99.5% Sortex optical purity, high thymoquinone, third-party lab testing available, FOB Mundra.",
       primaryKeyword: "nigella seeds exporter india",
       secondaryKeywords: [
         "kalonji exporter india",
@@ -1513,7 +1513,7 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
         {
           question: "What certificates accompany kalonji export shipments?",
           answer:
-            "We provide Phytosanitary Certificate, Certificate of Origin, and NABL accredited laboratory test reports for purity, moisture, and micro parameters.",
+            "We provide Phytosanitary Certificate, Certificate of Origin, and third-party laboratory test reports for purity, moisture, and microbiological parameters where available and applicable to the tested lot.",
         },
       ],
     },
@@ -1678,7 +1678,7 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
         {
           question: "How does JM Masala prevent adulteration in coriander powder?",
           answer:
-            "Every lot is milled solely from inspected whole seeds with zero spent coriander or cereal starch, certified through microscopic analysis and low acid-insoluble ash.",
+            "Lots are milled solely from inspected whole seeds with zero spent coriander or cereal starch, verified through microscopic analysis and low acid-insoluble ash.",
         },
         {
           question: "What is the typical shelf life of coriander powder?",
@@ -1769,7 +1769,7 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
         {
           question: "How do you verify the absence of lead chromate in turmeric powder?",
           answer:
-            "Every export lot is tested via ICP-MS at NABL-accredited laboratories to verify heavy metal levels (Lead < 2.5 ppm or buyer limits) and certify zero added lead chromate.",
+            "Heavy metal testing (Lead < 2.5 ppm or buyer limits) and screening for added lead chromate can be arranged through a third-party laboratory as required by the buyer; reports are shared where available and applicable to the tested lot.",
         },
         {
           question: "What curcumin percentages are available in turmeric powder?",
@@ -1784,7 +1784,7 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
         {
           question: "What export documentation is provided for turmeric shipments?",
           answer:
-            "Each shipment includes Phytosanitary Certificate, Certificate of Origin, NABL COA for curcumin, heavy metals, moisture, and microbiological testing.",
+            "Phytosanitary Certificate and Certificate of Origin are provided where required; a third-party laboratory COA covering moisture and microbiological parameters can be shared where available and applicable to the tested lot.",
         },
       ],
     },
@@ -1864,7 +1864,7 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
         {
           question: "How is Sudan dye absence certified?",
           answer:
-            "All export batches undergo LC-MS/MS testing at accredited laboratories to certify the complete absence of synthetic Sudan dyes (Sudan I, II, III, IV and Para Red).",
+            "Testing for synthetic Sudan dyes (Sudan I, II, III, IV and Para Red) can be arranged through a third-party laboratory as required by the buyer; reports are shared where available and applicable to the tested lot.",
         },
         {
           question: "What aflatoxin standards does JM Masala comply with?",
@@ -1963,7 +1963,7 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
         {
           question: "What export documentation is provided with shipments?",
           answer:
-            "We provide Phytosanitary Certificate, Certificate of Origin, and NABL COA confirming moisture, ash, gingerol retention, and pathogen-free status.",
+            "We provide Phytosanitary Certificate, Certificate of Origin, and a third-party laboratory COA covering moisture and microbiological parameters can be shared where available and applicable to the tested lot.",
         },
       ],
     },
@@ -2051,7 +2051,7 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
         {
           question: "What testing reports are provided for export?",
           answer:
-            "Consignments are accompanied by NABL lab reports confirming moisture (max 10%), total ash, acid-insoluble ash, and absence of pathogenic microbes.",
+            "Consignments are accompanied by third-party laboratory reports (moisture max 10%, microbiological parameters) where available and applicable to the tested lot.",
         },
       ],
     },
@@ -2130,7 +2130,7 @@ export const PRODUCT_MASTER_SEO: Record<string, ProductSeoItem> = {
         {
           question: "How is aflatoxin controlled in peanut exports?",
           answer:
-            "Every export lot is tested at NABL-accredited labs for Aflatoxin B1 and Total Aflatoxins, ensuring strict compliance with EU and destination standards.",
+            "Aflatoxin B1 and Total Aflatoxins testing can be arranged through a third-party laboratory as required by the buyer and destination market; reports are shared where available and applicable to the tested lot.",
         },
         {
           question: "What counts of Kabuli Chickpeas does JM Masala supply?",

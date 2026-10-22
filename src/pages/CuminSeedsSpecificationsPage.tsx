@@ -34,7 +34,7 @@ const SPEC_FAQS = [
   {
     question: "How does JM Masala address pesticide MRL and microbiological limits?",
     answer:
-      "Cumin lots can be supplied against buyer-specific laboratory testing criteria, including destination-market Maximum Residue Limits (MRLs) for the European Union, United States, or Gulf regions. Laboratory analysis is conducted through independent NABL-accredited facilities, and pre-shipment COAs are issued per container batch.",
+      "Cumin lots can be supplied against buyer-specific laboratory testing criteria, including destination-market Maximum Residue Limits (MRLs) for the European Union, United States, or Gulf regions. Testing is done by a third-party laboratory as required, and COAs can be shared where available and applicable to the tested lot.",
   },
   {
     question: "Can cumin seeds be steam sterilized for low-microbial requirements?",
@@ -65,12 +65,12 @@ const PHYSICAL_CHEMICAL_SPECS = [
 ];
 
 const MICROBIOLOGICAL_LIMITS = [
-  { test: "Salmonella", requirement: "Absent in 25g / 375g", status: "Certified per lot" },
-  { test: "Escherichia coli (E. coli)", requirement: "<10 CFU/g or Absent", status: "Laboratory verified" },
+  { test: "Salmonella", requirement: "Absent in 25g / 375g", status: "Per buyer specification" },
+  { test: "Escherichia coli (E. coli)", requirement: "<10 CFU/g or Absent", status: "Per buyer specification" },
   { test: "Total Plate Count (TPC)", requirement: "<10^5 CFU/g (Raw) / <10^4 (Steam Sterilized)", status: "Process aligned" },
-  { test: "Yeast & Mold", requirement: "<10^3 CFU/g", status: "Laboratory verified" },
-  { test: "Aflatoxin B1", requirement: "<2 to <5 ppb (as per destination regulation)", status: "HPLC / LC-MS/MS tested" },
-  { test: "Total Aflatoxins (B1+B2+G1+G2)", requirement: "<4 to <10 ppb (aligned to buyer contract)", status: "HPLC / LC-MS/MS tested" },
+  { test: "Yeast & Mold", requirement: "<10^3 CFU/g", status: "Per buyer specification" },
+  { test: "Aflatoxin B1", requirement: "<2 to <5 ppb (as per destination regulation)", status: "Tested on request" },
+  { test: "Total Aflatoxins (B1+B2+G1+G2)", requirement: "<4 to <10 ppb (aligned to buyer contract)", status: "Tested on request" },
   { test: "Ochratoxin A", requirement: "<15 to <20 ppb (EU aligned limits)", status: "Tested on request" },
 ];
 
@@ -251,8 +251,8 @@ const CuminSeedsSpecificationsPage = () => {
               </h2>
               <p className="text-sm md:text-base text-[var(--brand-forest)] leading-relaxed">
                 The parameters below represent standard commercial export benchmarks. Final lot
-                parameters are tested by NABL-accredited partner laboratories and confirmed against
-                contract specifications prior to container stuffing:
+                parameters can be tested by a third-party laboratory and confirmed against
+                contract specifications, as required by the buyer:
               </p>
             </div>
 
@@ -288,8 +288,8 @@ const CuminSeedsSpecificationsPage = () => {
               <div>
                 <span className="font-bold text-[var(--brand-forest)]">Note on Lot Variability: </span>
                 Volatile oil, natural seed coloration, and moisture vary across agricultural seasons and
-                growing regions. JM Masala draws composite representative samples for each batch and
-                furnishes verified Certificate of Analysis (COA) records prior to dispatch.
+                growing regions. Certificate of Analysis (COA) records from a third-party laboratory
+                can be shared where available and applicable to the tested lot.
               </div>
             </div>
           </div>
@@ -371,8 +371,8 @@ const CuminSeedsSpecificationsPage = () => {
               </h2>
               <p className="text-sm md:text-base text-[var(--brand-forest)] leading-relaxed">
                 For commercial buyers supplying food processing plants, ready-to-eat brands, or
-                stringent retail chains, testing documentation must be verifiable. We coordinate
-                laboratory testing through accredited facilities to confirm compliance before container stuffing:
+                stringent retail chains, testing documentation matters. Testing is coordinated
+                with a third-party laboratory as required by the buyer specification:
               </p>
             </div>
 
@@ -411,9 +411,9 @@ const CuminSeedsSpecificationsPage = () => {
                     Laboratory Testing Policy
                   </div>
                   <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
-                    Testing is conducted on representative composite samples drawn per container lot.
-                    Reports are issued by NABL-accredited, FSSAI-approved analytical facilities using
-                    validated GC-MS/MS, LC-MS/MS, and microbiological culture methods.
+                    Testing is carried out by a third-party laboratory as required by the product,
+                    buyer specification and destination market. Reports can be shared where available
+                    and applicable to the tested lot.
                   </p>
                   <p className="text-xs text-[var(--brand-forest)] leading-relaxed">
                     Optional treatment protocols such as calibrated continuous steam sterilization

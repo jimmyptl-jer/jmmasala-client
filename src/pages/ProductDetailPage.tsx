@@ -243,9 +243,9 @@ const SPICE_SUPPLY_CHAIN_STEPS = [
   },
   {
     step: "04",
-    title: "Laboratory QA & Grading",
+    title: "Third-Party Testing & Grading",
     description:
-      "Batch-wise testing for moisture, volatile oil, total ash, microbiology, and destination-specific pesticide residue / aflatoxin limits.",
+      "Third-party laboratory testing as required by the product and buyer, which may cover purity, moisture, foreign matter, pesticide residues, and microbiological parameters.",
   },
   {
     step: "05",
@@ -399,8 +399,8 @@ const ProductDetailPage = () => {
             answer: `Yes. We support bulk export packing, buyer-specific labelling, and container-ready documentation for ${product.name} shipments from India.`,
           },
           {
-            question: `Do you share lab reports and export documents for ${product.name}?`,
-            answer: `Yes. We can share available test reports, specification sheets, and export documentation support for ${product.name} based on buyer requirements and destination market norms.`,
+            question: `Do you share laboratory reports and export documents for ${product.name}?`,
+            answer: `Yes. We can share third-party laboratory reports and COAs where available and applicable to the tested lot, specification sheets, and export documentation support for ${product.name} based on buyer requirements and destination market norms.`,
           },
         ];
 
@@ -675,7 +675,7 @@ const ProductDetailPage = () => {
                     Certifications
                   </span>
                   <span className="font-bold text-[var(--brand-gold-text)]">
-                    FSSAI &bull; APEDA &bull; ISO 22000 &bull; NABL
+                    FSSAI &bull; APEDA &bull; ISO 22000
                   </span>
                 </div>
               </div>
@@ -747,7 +747,7 @@ const ProductDetailPage = () => {
                     ))}
                   </ul>
                   <div className="mt-4 pt-4 border-t border-[var(--brand-gold-pale)] text-xs text-[var(--brand-forest)]">
-                    Pre-shipment analysis reports issued by NABL-accredited laboratories against buyer-specified contract tolerances.
+                    Third-party laboratory reports can be shared where available and applicable to the tested lot, against buyer-specified requirements.
                   </div>
                 </section>
               )}
@@ -1031,7 +1031,7 @@ const ProductDetailPage = () => {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-[var(--brand-gold-text)] font-bold">&bull;</span>
-                      <span>Lot-wise test COA support, packing format, and shipping marks</span>
+                      <span>Third-party lab COA where available, packing format, and shipping marks</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-[var(--brand-gold-text)] font-bold">&bull;</span>

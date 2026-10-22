@@ -189,9 +189,9 @@ const CHILLI_SUPPLY_CHAIN_STEPS = [
   },
   {
     step: "07",
-    title: "Accredited Lab Chemical Testing",
+    title: "Third-Party Laboratory Testing",
     description:
-      "Composite samples are dispatched to NABL accredited laboratories to verify SHU, ASTA color, Aflatoxin B1/Total, Ochratoxin A, and Sudan dye absence.",
+      "Composite samples can be sent to a third-party laboratory, as required by buyer specifications, for testing such as pesticide residues and buyer-specific requirements.",
   },
   {
     step: "08",
@@ -230,7 +230,7 @@ const CHILLI_FAQS = [
   {
     question: "Can JM Masala supply Aflatoxin and Sudan Dye test reports?",
     answer:
-      "Yes. Every export shipment can be accompanied by an accredited NABL third-party laboratory Certificate of Analysis (COA) confirming that Aflatoxin B1 and Total Aflatoxins meet EU limits (<5 ppb B1, <10 ppb Total) or US FDA limits (<20 ppb Total), and that Sudan Dyes (I, II, III, IV) are absent/negative.",
+      "Yes, where available. We work with Eureka Lab for third-party laboratory testing, as required by the product, buyer specifications, and destination-market requirements. Laboratory reports and Certificates of Analysis (COAs) can be shared with buyers where available and applicable to the tested product lot. Testing may cover relevant parameters such as purity, moisture, foreign matter, pesticide residues, and buyer-specific requirements, depending on the product and testing requirements.",
   },
   {
     question: "What are the standard packaging options for export?",
@@ -250,12 +250,12 @@ const CHILLI_FAQS = [
   {
     question: "Can international buyers request samples before placing a contract?",
     answer:
-      "Yes. We dispatch representative export samples (whole pods, stemless, or powder) via international air courier along with preliminary specification sheets and laboratory test reports for buyer evaluation.",
+      "Yes. We dispatch representative export samples (whole pods, stemless, or powder) via international air courier along with preliminary specification sheets and, where available, third-party laboratory reports for buyer evaluation.",
   },
   {
     question: "What export documentation is included with each consignment?",
     answer:
-      "Consignments include a Phytosanitary Certificate from the Plant Quarantine Organization of India, Certificate of Origin (COO), NABL Lab Certificate of Analysis (COA), Fumigation Certificate, Commercial Invoice, Packing List, and Bill of Lading (BL).",
+      "Consignments include a Phytosanitary Certificate from the Plant Quarantine Organization of India, Certificate of Origin (COO), Certificate of Analysis (COA) from a third-party laboratory where available, Fumigation Certificate, Commercial Invoice, Packing List, and Bill of Lading (BL).",
   },
   {
     question: "How can I request a quotation for bulk Indian red chilli?",
@@ -680,7 +680,7 @@ const RedChilliPage = () => {
             </div>
             <div className="border-t border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] px-6 py-3 text-xs text-[var(--brand-forest)]">
               <strong>Technical Quality Note: </strong>SHU values represent natural botanical ranges verified on lot
-              COAs. Batch-specific HPLC test certificates from NABL accredited laboratories are provided prior to shipment.
+              COAs. Third-party laboratory reports can be shared where available and applicable to the tested lot.
             </div>
           </div>
         </div>

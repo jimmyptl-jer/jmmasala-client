@@ -43,7 +43,7 @@ const UNJHA_FENNEL_FAQS = [
   {
     question: "How does JM Masala ensure compliance with European Union (EU) pesticide MRLs?",
     answer:
-      "We source from documented cultivation belts and subject raw lots to pre-cleaning, mechanical destoning, and optical Sortex grading. Pre-shipment batch samples are tested at NABL-accredited ISO/IEC 17025 laboratories via LC-MS/MS and GC-MS/MS for over 500 pesticide residues, guaranteeing compliance with European Commission Regulation (EC) No 396/2005 and US FDA ASTA cleanliness guidelines.",
+      "We source from documented cultivation belts and subject raw lots to pre-cleaning, mechanical destoning, and optical Sortex grading. Samples can be tested by a third-party laboratory for pesticide residues as required by the buyer specification and destination market, such as European Commission Regulation (EC) No 396/2005 and US FDA ASTA cleanliness guidelines.",
   },
   {
     question: "How are export shipments routed from Unjha to international destination ports?",
@@ -613,7 +613,7 @@ const UnjhaFennelSeedsPage = () => {
                   <div className="space-y-3 text-xs text-[var(--brand-forest)]">
                     <div className="flex items-start gap-2">
                       <span className="text-[var(--brand-gold-text)] font-bold">&bull;</span>
-                      <span><strong>Certificate of Analysis (COA):</strong> Issued by NABL-accredited labs for purity, moisture, volatile oil, and micro limits.</span>
+                      <span><strong>Certificate of Analysis (COA):</strong> From a third-party laboratory, shared where available and applicable to the tested lot.</span>
                     </div>
                     <div className="flex items-start gap-2">
                       <span className="text-[var(--brand-gold-text)] font-bold">&bull;</span>

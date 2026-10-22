@@ -1,4 +1,4 @@
-import { ArrowRight, ChevronDown, Menu, Sparkles, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Download, Menu, Sparkles, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { COMPANY, PRODUCTS, buildWhatsAppUrl } from "@/data/siteData";
@@ -50,7 +50,7 @@ const PSYLLIUM_AND_AGRO = [
 
 const PROCESSING_LINKS = [
   { label: "Spice Processing & Plant", path: "/spice-processing-manufacturing", desc: "Machine cleaning, Sortex, destoning, grinding & export packaging" },
-  { label: "Quality, Testing & Certifications", path: "/quality-certifications", desc: "FSSAI, ISO 22000, HACCP, APEDA & NABL lab COA" },
+  { label: "Quality, Testing & Certifications", path: "/quality-certifications", desc: "Third-party laboratory testing and documents on request" },
   { label: "Pan-India Domestic Supply", path: "/domestic-supply-india", desc: "Commercial B2B supply for food processors & brands" },
 ];
 
@@ -857,6 +857,15 @@ const Header = () => {
               >
                 <FaWhatsapp aria-hidden="true" className="h-4 w-4" />
                 WhatsApp
+              </a>
+              <a
+                href="/JMMasalaProducts.pdf"
+                download="JM-Masala-Product-Catalogue.pdf"
+                onClick={() => setMenuOpen(false)}
+                className="jm-btn jm-btn--outline mt-3 w-full gap-2 text-center"
+              >
+                <Download className="h-4 w-4" aria-hidden="true" />
+                Download Brochure (PDF)
               </a>
             </div>
           </nav>

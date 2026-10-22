@@ -109,9 +109,9 @@ const AJWAIN_SUPPLY_CHAIN_STEPS = [
   },
   {
     step: "06",
-    title: "NABL Laboratory Inspection",
+    title: "Third-Party Laboratory Testing",
     description:
-      "Finished lots are sampled and tested at NABL-accredited laboratories for volatile essential oil (2.5%–5.0% thymol), physical purity, moisture, and destination-specific pesticide residue limits.",
+      "Finished lots are sampled and tested by a third-party laboratory, as required by buyer specifications, for volatile essential oil (2.5%–5.0% thymol), physical purity, moisture, and destination-specific pesticide residue limits.",
   },
   {
     step: "07",
@@ -171,7 +171,7 @@ const AJWAIN_FAQS = [
   {
     question: "Can JM Masala provide a Certificate of Analysis (COA)?",
     answer:
-      "Yes. Every commercial export shipment includes an accredited NABL laboratory Certificate of Analysis (COA) verifying purity, moisture, volatile oil, microbiological limits, and destination-specific pesticide residues.",
+      "Yes, where available. We work with Eureka Lab for third-party laboratory testing, as required by the product, buyer specifications, and destination-market requirements. Laboratory reports and Certificates of Analysis (COAs) can be shared with buyers where available and applicable to the tested product lot. Testing may cover relevant parameters such as purity, moisture, microbiological parameters, and pesticide residues, depending on the product and testing requirements.",
   },
 ];
 
@@ -441,7 +441,7 @@ const AjwainSeedsPage = () => {
             <p className="jm-section-label">Technical Parameters</p>
             <h2 className="jm-section-heading">Ajwain Seeds / Carom Seeds Specifications</h2>
             <p className="mt-3 text-body leading-7 text-[var(--brand-forest)]">
-              JM Masala provides laboratory-verified commercial specifications for whole Indian Ajwain
+              JM Masala provides commercial specifications for whole Indian Ajwain
               seeds. All parameters are verified using standard ISO and ASTA testing procedures:
             </p>
           </div>
@@ -477,7 +477,7 @@ const AjwainSeedsPage = () => {
                           ? "Visual & Gravimetric Separation"
                           : row.label.includes("Ash")
                           ? "ISO 928 / ISO 930"
-                          : "Contract / NABL Standard"}
+                          : "Contract / Buyer Specification"}
                       </td>
                     </tr>
                   ))}
@@ -487,8 +487,7 @@ const AjwainSeedsPage = () => {
             <div className="border-t border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] px-6 py-4 text-xs leading-relaxed text-[var(--brand-forest)]">
               <strong className="text-[var(--brand-charcoal)]">Buyer-Specific Specification: </strong>
               Specifications can be adjusted according to agreed buyer requirements, destination-market
-              standards, and contract specifications. Parameters are verified via pre-shipment COA from
-              accredited laboratories.
+              standards, and contract specifications. Parameters can be tested by a third-party laboratory where required by the buyer, with COAs shared where available and applicable to the tested lot.
             </div>
           </div>
         </div>
@@ -580,7 +579,7 @@ const AjwainSeedsPage = () => {
                   "Mechanical Fine-Screening & Destoning",
                   "Air Aspiration (Immature Seed & Dust Removal)",
                   "Sortex Optical Color Sorting",
-                  "Batch NABL Laboratory Quality Inspection",
+                  "Batch Third-Party Laboratory Testing",
                   "Food-Grade Moisture-Barrier Export Packaging",
                   "Export Documentation & FOB/CIF Ocean Dispatch",
                 ].map((item, idx) => (
@@ -827,8 +826,8 @@ const AjwainSeedsPage = () => {
                 </p>
                 <div className="space-y-3 text-sm text-[var(--brand-forest)]">
                   <p>
-                    <strong className="text-[var(--brand-charcoal)]">1. NABL Certificate of Analysis (COA): </strong>
-                    Pre-shipment batch testing verifying purity, moisture, volatile oil content, total ash, and absence of Salmonella.
+                    <strong className="text-[var(--brand-charcoal)]">1. Certificate of Analysis (COA): </strong>
+                    Third-party laboratory COAs can be shared where available and applicable to the tested lot.
                   </p>
                   <p>
                     <strong className="text-[var(--brand-charcoal)]">2. Destination Compliance Screening: </strong>

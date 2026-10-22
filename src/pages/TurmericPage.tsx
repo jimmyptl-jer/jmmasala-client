@@ -28,7 +28,7 @@ const TURMERIC_SUMMARY_ROWS = [
   { label: "Visual Color", value: "Lustrous golden yellow to deep reddish-orange interior" },
   { label: "Processing Standard", value: "Machine cleaned, destoned, boiled, sun-cured & rotary polished" },
   { label: "Adulteration Safeguards", value: "Lead Chromate NIL · Synthetic Sudan Dyes Negative · Heavy metals tested" },
-  { label: "Testing Documentation", value: "NABL accredited third-party Laboratory Certificate of Analysis (COA)" },
+  { label: "Testing Documentation", value: "Third-party laboratory Certificate of Analysis (COA), where available and applicable to the tested lot" },
   { label: "Container Loading", value: "20ft FCL: 16.0–18.0 MT | 40ft FCL: 26.0–27.0 MT (in 25/50 kg export bags)" },
 ];
 
@@ -139,7 +139,7 @@ const TURMERIC_SUPPLY_CHAIN_STEPS = [
     step: "06",
     title: "Lead Chromate & Chemical Purity Testing",
     description:
-      "Composite samples are analyzed by NABL accredited testing laboratories to guarantee zero lead chromate, zero synthetic dyes, and full compliance with destination MRLs.",
+      "Composite samples can be tested by a third-party laboratory, as required by buyer specifications and destination-market requirements.",
   },
   {
     step: "07",
@@ -199,12 +199,12 @@ const TURMERIC_FAQS = [
   {
     question: "Are JM Masala turmeric products tested for lead chromate?",
     answer:
-      "Yes. We maintain a zero-tolerance policy against adulteration. All export shipments are certified lead-chromate-free and screened for synthetic azo dyes (Sudan I–IV, Metanil Yellow) by accredited NABL laboratories.",
+      "Yes. We maintain a zero-tolerance policy against adulteration. All export shipments are supplied against buyer specifications for lead-chromate-free and synthetic-dye-free product, and can be tested by a third-party laboratory for buyer-specific requirements.",
   },
   {
     question: "Does JM Masala provide a Certificate of Analysis (COA) with turmeric shipments?",
     answer:
-      "Yes. Every export consignment is accompanied by an official COA issued by an accredited NABL testing laboratory detailing curcumin percentage, moisture, total ash, acid-insoluble ash, heavy metals, and microbiological criteria.",
+      "Yes, where available. We work with Eureka Lab for third-party laboratory testing, as required by the product, buyer specifications, and destination-market requirements. Laboratory reports and Certificates of Analysis (COAs) can be shared with buyers where available and applicable to the tested product lot. Testing may cover relevant parameters such as purity, moisture, foreign matter, pesticide residues, microbiological parameters, and buyer-specific requirements, depending on the product and testing requirements.",
   },
   {
     question: "What packaging options are available for bulk turmeric export?",
@@ -219,7 +219,7 @@ const TURMERIC_FAQS = [
   {
     question: "Can international buyers request turmeric samples before ordering?",
     answer:
-      "Yes. We dispatch representative export samples of turmeric fingers, bulbs, or powder via international express courier accompanied by preliminary specification sheets and HPLC lab test reports for buyer evaluation.",
+      "Yes. We dispatch representative export samples of turmeric fingers, bulbs, or powder via international express courier accompanied by preliminary specification sheets and, where available, third-party laboratory reports for buyer evaluation.",
   },
   {
     question: "How can I buy bulk turmeric from India or request a quotation?",
@@ -245,7 +245,7 @@ const TurmericPage = () => {
     "@id": `${canonicalUrl}#product`,
     name: "Indian Turmeric Fingers & Powder (Haldi)",
     description:
-      "Export-grade Indian turmeric supplied by JM Masala. Polished whole turmeric fingers and cold-ground turmeric powder with 2.0% to 5.0%+ curcumin, max 10% moisture, zero lead chromate, and NABL laboratory certification.",
+      "Export-grade Indian turmeric supplied by JM Masala. Polished whole turmeric fingers and cold-ground turmeric powder with 2.0% to 5.0%+ curcumin, max 10% moisture, and zero lead chromate.",
     image: [productImageUrl],
     brand: {
       "@type": "Brand",
@@ -496,7 +496,7 @@ const TurmericPage = () => {
                 <p>
                   Every consignment is strictly audited for physical cleanliness, uniform finger size, calibrated
                   curcumin percentage, low moisture, and verified absence of lead chromate or synthetic dyes through
-                  accredited third-party laboratory analysis.
+                  third-party laboratory testing where required.
                 </p>
               </div>
             </div>
@@ -650,8 +650,8 @@ const TurmericPage = () => {
                 <div className="flex items-start gap-3 rounded bg-[var(--brand-cream)] p-3">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-deep-green)]" />
                   <div>
-                    <strong>Certified HPLC Curcumin: </strong>Accredited third-party COA verifies exact curcumin
-                    percentage prior to vessel dispatch.
+                    <strong>Certified HPLC Curcumin: </strong>Third-party laboratory COA can be shared where available
+                    and applicable to the tested lot.
                   </div>
                 </div>
               </div>
@@ -703,7 +703,7 @@ const TurmericPage = () => {
             <div className="border-t border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] px-6 py-4 text-xs leading-relaxed text-[var(--brand-forest)]">
               <strong className="text-[var(--brand-charcoal)]">International Regulatory Compliance: </strong>Every
               export lot destined for the European Union (EU), United States (US FDA), United Kingdom, Japan, and the Gulf
-              (ESMA/SFDA) is tested by NABL accredited third-party laboratories for pesticide MRLs, heavy metals (Lead,
+              (ESMA/SFDA) can be tested by a third-party laboratory for pesticide MRLs, heavy metals (Lead,
               Cadmium, Arsenic), and microbiological limits prior to loading.
             </div>
           </div>

@@ -69,9 +69,9 @@ const CORIANDER_SUPPLY_CHAIN_STEPS = [
   },
   {
     step: "06",
-    title: "Quality Inspection & NABL Lab Testing",
+    title: "Third-Party Laboratory Testing",
     description:
-      "Finished lots are sampled and tested at NABL-accredited laboratories for volatile essential oil, physical purity, moisture, Salmonella, E. coli, and destination-specific pesticide residue limits.",
+      "Finished lots are sampled and tested by a third-party laboratory, as required by buyer specifications, for volatile essential oil, physical purity, moisture, Salmonella, E. coli, and destination-specific pesticide residue limits.",
   },
   {
     step: "07",
@@ -362,7 +362,7 @@ const CorianderSeedsPage = () => {
             <p className="jm-section-label">Technical Data Sheet</p>
             <h2 className="jm-section-heading">Coriander Seeds Specifications</h2>
             <p className="mt-3 text-body leading-7 text-[var(--brand-forest)]">
-              JM Masala provides laboratory-verified commercial specifications for whole and split
+              JM Masala provides commercial specifications for whole and split
               Indian coriander seeds (Dhania). All parameters are verified using standard ISO and ASTA
               testing procedures prior to container stuffing.
             </p>
@@ -399,7 +399,7 @@ const CorianderSeedsPage = () => {
                           ? "Visual & Gravimetric Analysis"
                           : row.label.includes("Ash")
                           ? "ISO 928 / ISO 930"
-                          : "Contract / NABL Standard"}
+                          : "Contract / Buyer Specification"}
                       </td>
                     </tr>
                   ))}
@@ -409,8 +409,7 @@ const CorianderSeedsPage = () => {
             <div className="border-t border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] px-6 py-4 text-xs leading-relaxed text-[var(--brand-forest)]">
               <strong className="text-[var(--brand-charcoal)]">Buyer-Specific Specification: </strong>
               Specifications can be adjusted according to agreed buyer requirements, destination-market
-              standards and contract specifications. Parameters are verified via pre-shipment COA from
-              accredited laboratories.
+              standards and contract specifications. Parameters can be tested by a third-party laboratory where required by the buyer, with COAs shared where available and applicable to the tested lot.
             </div>
           </div>
         </div>
@@ -587,7 +586,7 @@ const CorianderSeedsPage = () => {
                   "Mechanical Vibro-Screening & Destoning",
                   "Air Aspiration (Hollow Chaff Removal)",
                   "Sortex Optical Color Sorting",
-                  "Batch NABL Laboratory Quality Inspection",
+                  "Batch Third-Party Laboratory Testing",
                   "Food-Grade Export Packaging with Desiccants",
                   "Export Documentation & FOB/CIF Shipment",
                 ].map((item, idx) => (
@@ -863,8 +862,8 @@ const CorianderSeedsPage = () => {
                 desc: "Representative physical samples dispatched for buyer evaluation and approval prior to order booking.",
               },
               {
-                title: "NABL Laboratory Documentation",
-                desc: "Lot-wise Certificates of Analysis (COAs) covering volatile oil, moisture, purity, and microbiology.",
+                title: "Third-Party Laboratory Documentation",
+                desc: "Certificates of Analysis (COAs) from the third-party laboratory, where available and applicable to the tested lot.",
               },
               {
                 title: "Complete Export Documentation",
@@ -907,8 +906,7 @@ const CorianderSeedsPage = () => {
                   </p>
                   <p>
                     <strong className="text-[var(--brand-charcoal)]">2. Certificate of Analysis (COA): </strong>
-                    Independent testing from NABL-accredited laboratories verifying purity, moisture, volatile oil
-                    content, total ash, acid-insoluble ash, and absence of Salmonella.
+                    Third-party laboratory COAs can be shared where available and applicable to the tested lot.
                   </p>
                   <p>
                     <strong className="text-[var(--brand-charcoal)]">3. Regulatory &amp; Pesticide Testing: </strong>

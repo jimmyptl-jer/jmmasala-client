@@ -80,7 +80,7 @@ const corianderFaqs = [
   {
     question: "Can JM Masala ship mixed containers of Cumin and Coriander seeds?",
     answer:
-      "Yes. We frequently execute consolidated mixed-spice containers (e.g., Cumin Seeds, Coriander Seeds, Fennel Seeds, and Fenugreek) under a single bill of lading with lot-wise lab test certificates and phytosanitary clearance.",
+      "Yes. We frequently execute consolidated mixed-spice containers (e.g., Cumin Seeds, Coriander Seeds, Fennel Seeds, and Fenugreek) under a single bill of lading with laboratory test reports (where available and applicable to the tested lot) and phytosanitary clearance.",
   },
 ];
 

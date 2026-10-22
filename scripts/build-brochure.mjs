@@ -87,7 +87,7 @@ const footer = (left, n) => `<div class="foot mono"><span>${left}</span><span>${
 
 const portfolio = () => `<div class="p cream"><div class="top mono"><span>01 â€” Product portfolio</span><span class="pill">What we supply</span></div>
 <div class="pad" style="position:absolute;top:30mm;left:0;right:0"><h1 style="font-size:36pt">Everything we supply,<br>one page each.</h1><div class="sub">Every product has its own page in this catalogue.</div>
-<div class="grid" style="margin-top:8mm">${P.map((x, i) => `<div class="th"><i style="background-image:url(${img[x[0]]})"></i><b>${x[1]}</b><span class="mono">Page ${FIRST_PRODUCT_PAGE + i}</span></div>`).join('')}<div class="th"><i style="background-image:url(${curryImg})"></i><b>Curry leaf</b><span class="mono">On request</span></div></div>
+<div class="grid" style="margin-top:8mm">${P.map((x, i) => `<div class="th"><i style="background-image:url(${img[x[0]]})"></i><b>${x[1]}</b><span class="mono">Page ${FIRST_PRODUCT_PAGE + i}</span></div>`).join('')}</div>
 <p style="font-size:9pt;color:#5b4c3a;margin-top:6mm">Specifications for these products are shared on request with a sample.</p></div>
 <div class="bottom">${footer('JM Masala Trading LLP', 2)}</div></div>`;
 
@@ -121,14 +121,11 @@ const contactPage = () => `<div class="p dark"><div class="top mono"><span>03 â€
 <div class="bottom"><div class="strip" style="margin-bottom:6mm"><div><b>Phone / WhatsApp</b><span class="mono">+91 91067 66041<br>+91 98245 10478</span></div><div><b>Email</b><span class="mono" style="text-transform:none;letter-spacing:.04em">jmmasalaexports@gmail.com</span></div><div><b>Website</b><span class="mono" style="text-transform:none;letter-spacing:.04em">jmmasalaexports.com/contact</span></div><div><b>Office</b><span class="mono" style="line-height:1.5">A/18, Main Line, APMC Market Yard, Unjha, Gujarat 384170</span></div></div>
 ${footer('JM Masala Trading LLP', 28)}</div></div>`;
 
-let curryImg = '';
 const doc = (body) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>JM Masala Product Catalogue</title><style>${css}</style></head><body>${body}</body></html>`;
 
 fs.mkdirSync(`${ROOT}/public/catalogue`, { recursive: true });
 const br = await chromium.launch({ executablePath: process.env.CHROME_PATH || undefined });
 const p = await br.newPage();
-const shrink = (src) => p.evaluate(async (u) => { const i = new Image(); i.src = u; await i.decode(); const c = document.createElement('canvas'); c.width = 500; c.height = Math.round((500 * i.height) / i.width); c.getContext('2d').drawImage(i, 0, 0, c.width, c.height); return c.toDataURL('image/jpeg', 0.85); }, src);
-curryImg = await shrink(b64('CurryLeaf.png'));
 for (const [i, item] of P.entries()) {
   await p.setContent(doc(productPage(item, i)));
   await p.pdf({ path: `${ROOT}/public/catalogue/${item[0]}.pdf`, format: 'A4', printBackground: true, preferCSSPageSize: true });

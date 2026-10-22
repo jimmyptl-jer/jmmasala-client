@@ -7,43 +7,43 @@ const certifications = [
     name: "HACCP",
     authority: "Accredited Certification Body",
     certificateNumber: "Available on request",
-    validity: "Active",
+    validity: "Documents available on request where applicable",
   },
   {
     name: "ISO 22000",
     authority: "Accredited Certification Body",
     certificateNumber: "Available on request",
-    validity: "Active",
+    validity: "Documents available on request where applicable",
   },
   {
     name: "APEDA",
     authority: "Agricultural and Processed Food Products Export Development Authority",
     certificateNumber: "Available on request",
-    validity: "Active",
+    validity: "Documents available on request where applicable",
   },
   {
     name: "Spice Board RCMC",
     authority: "Spices Board India",
     certificateNumber: "Available on request",
-    validity: "Active",
+    validity: "Documents available on request where applicable",
   },
   {
     name: "FSSAI",
     authority: "Food Safety and Standards Authority of India",
     certificateNumber: "Available on request",
-    validity: "Active",
+    validity: "Documents available on request where applicable",
   },
   {
     name: "IEC",
     authority: "DGFT",
     certificateNumber: "Available on request",
-    validity: "Active",
+    validity: "Documents available on request where applicable",
   },
   {
     name: "MSME",
     authority: "Government of India",
     certificateNumber: "Available on request",
-    validity: "Active",
+    validity: "Documents available on request where applicable",
   },
 ];
 
@@ -51,7 +51,7 @@ const qualitySteps = [
   "Raw material inspection",
   "Sortex cleaning",
   "Moisture testing",
-  "NABL lab test",
+  "Third-party laboratory testing",
   "Fumigation",
   "Documentation",
   "Dispatch",
@@ -147,7 +147,7 @@ const QualityCertificationsPage = () => {
                   key={cert.name}
                   className="rounded-lg border border-dashed border-[var(--brand-gold)] bg-[var(--brand-cream)] p-4 text-sm text-[var(--brand-forest)]"
                 >
-                  {cert.name} scan placeholder
+                  {cert.name}: documents available on request where applicable
                 </div>
               ))}
             </div>
@@ -167,6 +167,25 @@ const QualityCertificationsPage = () => {
                 </li>
               ))}
             </ol>
+          </section>
+
+          <section className="jm-surface-card mt-8 p-6">
+            <h2 className="jm-section-heading">
+              Third-Party Laboratory Testing
+            </h2>
+            <p className="mt-3 text-body text-[var(--brand-forest)]">
+              At JM Masala Trading LLP, we prioritize product quality and
+              transparency. We work with Eureka Lab for third-party laboratory
+              testing, as required by the product, buyer specifications, and
+              destination-market requirements. Testing may cover relevant
+              quality parameters such as purity, moisture, foreign matter,
+              pesticide residues, and microbiological parameters, depending on
+              the product and testing requirements. Laboratory reports and
+              Certificates of Analysis (COAs) can be shared with buyers where
+              available and applicable to the tested product lot. Our approach
+              supports informed purchasing decisions and helps buyers assess
+              product quality against mutually agreed specifications.
+            </p>
           </section>
 
           <section className="jm-surface-card mt-8 p-6">
@@ -217,16 +236,16 @@ const QualityCertificationsPage = () => {
                 Lot-wise documentation support for importer approvals and customs processes.
               </div>
               <div className="rounded-md border border-[var(--brand-gold-pale)] px-4 py-3 text-sm text-[var(--brand-forest)]">
-                Lab reports, moisture checks, and export packing aligned to buyer specifications.
+                Third-party laboratory reports (where available), moisture checks, and export packing aligned to buyer specifications.
               </div>
               <div className="rounded-md border border-[var(--brand-gold-pale)] px-4 py-3 text-sm text-[var(--brand-forest)]">
-                HACCP, ISO 22000, APEDA, Spice Board, FSSAI, IEC and MSME-backed exporter profile.
+                Documents available on request where applicable.
               </div>
             </div>
           </section>
 
           <p className="jm-soft-panel mt-8 p-4 text-sm font-semibold text-[var(--brand-charcoal)]">
-            All certifications are available for download on request. Contact us at
+            Documents are available on request where applicable. Contact us at
             {" "}
             {COMPANY.email}.
           </p>

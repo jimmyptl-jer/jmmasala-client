@@ -85,7 +85,7 @@ const KingChilliPage = () => {
     "@id": `${canonicalUrl}#product`,
     name: "Indian King Chilli (Bhut Jolokia / Ghost Pepper)",
     description:
-      "Export-grade Indian King Chilli (Capsicum chinense) supplied by JM Masala. Super-hot 800,000–1,041,000+ SHU, solar-dried whole pods and flakes with full laboratory test reports.",
+      "Export-grade Indian King Chilli (Capsicum chinense) supplied by JM Masala. Super-hot 800,000–1,041,000+ SHU, solar-dried whole pods and flakes with third-party laboratory reports where available.",
     image: [productImageUrl],
     brand: {
       "@type": "Brand",

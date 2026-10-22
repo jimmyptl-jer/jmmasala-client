@@ -107,9 +107,9 @@ const CUMIN_SUPPLY_CHAIN_STEPS = [
   },
   {
     step: "06",
-    title: "NABL Laboratory Quality Verification",
+    title: "Third-Party Laboratory Testing",
     description:
-      "Finished export batches are sampled and tested at NABL-accredited laboratories for volatile essential oil (ISO 6571), moisture (ASTA 2.0), total ash, microbiological limits, and contract-specified pesticide MRLs.",
+      "Finished export batches are sampled and tested by a third-party laboratory, as required by buyer specifications, for volatile essential oil (ISO 6571), moisture (ASTA 2.0), total ash, microbiological limits, and contract-specified pesticide MRLs.",
   },
   {
     step: "07",
@@ -164,7 +164,7 @@ const CUMIN_FAQS = [
   {
     question: "Can JM Masala provide Certificate of Analysis (COA) and pesticide testing?",
     answer:
-      "Yes. Every export shipment is accompanied by a Certificate of Analysis (COA) from accredited NABL laboratories verifying purity, moisture, volatile oil, microbiological parameters, and destination-specific pesticide residue limits (EU/US FDA).",
+      "Yes, where available. We work with Eureka Lab for third-party laboratory testing, as required by the product, buyer specifications, and destination-market requirements. Laboratory reports and Certificates of Analysis (COAs) can be shared with buyers where available and applicable to the tested product lot. Testing may cover relevant parameters such as purity, moisture, microbiological parameters, and pesticide residues, depending on the product and testing requirements.",
   },
   {
     question: "Which global export markets does JM Masala supply?",
@@ -466,7 +466,7 @@ const CuminSeedsPage = () => {
                           ? "Gravimetric / Visual Separation"
                           : row.label.includes("Ash")
                           ? "ISO 928 / ISO 930"
-                          : "Contract / NABL Laboratory Standard"}
+                          : "Contract / Buyer Specification"}
                       </td>
                     </tr>
                   ))}
@@ -481,8 +481,8 @@ const CuminSeedsPage = () => {
             <div className="border-t border-[var(--brand-gold-pale)] bg-[var(--brand-cream)] px-6 py-4 text-xs leading-relaxed text-[var(--brand-forest)]">
               <strong className="text-[var(--brand-charcoal)]">Buyer-Specific Specification: </strong>
               Specifications can be adjusted according to agreed buyer requirements, destination-market
-              standards, and contract specifications. Pre-shipment laboratory test reports (COAs) are
-              conducted by accredited NABL facilities.
+              standards, and contract specifications. Third-party laboratory reports (COAs) can be shared
+              where available and applicable to the tested lot.
             </div>
           </div>
         </div>
@@ -840,7 +840,7 @@ const CuminSeedsPage = () => {
                 </p>
                 <div className="space-y-3 text-sm text-[var(--brand-forest)]">
                   <p>
-                    <strong className="text-[var(--brand-charcoal)]">1. NABL Certificate of Analysis (COA): </strong>
+                    <strong className="text-[var(--brand-charcoal)]">1. Certificate of Analysis (COA): </strong>
                     Pre-shipment batch testing verifying purity, moisture, volatile oil, total ash, and absence of Salmonella.
                   </p>
                   <p>

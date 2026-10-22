@@ -309,8 +309,8 @@ const advantages = [
   },
   {
     Icon: Microscope,
-    title: "NABL Lab Within 30 Minutes",
-    desc: "Our partner NABL-accredited testing laboratory is within 30 minutes of our facility — enabling same-day sample dispatch and 24–48 hour COA turnaround for every export lot.",
+    title: "Third-Party Laboratory Testing",
+    desc: "Testing is arranged with a third-party laboratory as required by the product, buyer specification and destination market.",
   },
 ];
 
@@ -331,8 +331,8 @@ const processSteps = [
   {
     num: "03",
     Icon: FlaskConical,
-    title: "NABL Lab Testing",
-    desc: "Full panel COA — moisture, purity, aflatoxin, pesticide residue, microbiological tests.",
+    title: "Third-Party Lab Testing",
+    desc: "Purity, moisture, foreign matter, pesticide residue and microbiological parameters, depending on buyer requirements.",
   },
   {
     num: "04",
@@ -477,10 +477,17 @@ const AboutPage = () => {
                   Bangladesh, Gulf, Singapore and Europe.
                 </p>
                 <p>
-                  We added modern infrastructure — Sortex machines, NABL lab
-                  testing, ISO 22000 certification — but the foundation remains
-                  unchanged: know your product better than anyone, and never
-                  ship something you would not put your name on.
+                  We added modern infrastructure such as Sortex machines, but
+                  the foundation remains unchanged: know your product better
+                  than anyone, and never ship something you would not put your
+                  name on.
+                </p>
+                <p>
+                  We work with Eureka Lab for third-party laboratory testing, as
+                  required by the product, buyer specifications and
+                  destination-market requirements. Laboratory reports and COAs
+                  can be shared with buyers where available and applicable to
+                  the tested product lot.
                 </p>
               </div>
             </div>
@@ -535,7 +542,6 @@ const AboutPage = () => {
                     { num: "Asia's #1", label: "Spice Mandi — Unjha" },
                     { num: "4 hrs", label: "To Mundra & Kandla Port" },
                     { num: "12+", label: "Products Processed" },
-                    { num: "24–48hr", label: "Lab Test Turnaround" },
                   ].map((s) => (
                     <div key={s.label} className="ab-loc-stat">
                       <div className="ab-loc-stat-num">{s.num}</div>

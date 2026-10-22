@@ -115,9 +115,9 @@ const FENUGREEK_SUPPLY_CHAIN_STEPS = [
   },
   {
     step: "06",
-    title: "NABL Laboratory Inspection & COA",
+    title: "Third-Party Laboratory Testing & COA",
     description:
-      "Finished production batches are tested at accredited laboratories for purity, moisture, total ash, acid-insoluble ash, microbiological criteria, and pesticide residue MRLs.",
+      "Finished production batches are tested by a third-party laboratory, as required by buyer specifications, for purity, moisture, total ash, acid-insoluble ash, microbiological criteria, and pesticide residue MRLs.",
   },
   {
     step: "07",
@@ -202,7 +202,7 @@ const FENUGREEK_FAQS = [
   {
     question: "Can JM Masala provide laboratory documentation (COA)?",
     answer:
-      "Yes. Every commercial export consignment is accompanied by an accredited NABL laboratory Certificate of Analysis (COA) verifying purity, moisture, ash, microbiological criteria, and destination-specific pesticide residue MRLs.",
+      "Yes, where available. We work with Eureka Lab for third-party laboratory testing, as required by the product, buyer specifications, and destination-market requirements. Laboratory reports and Certificates of Analysis (COAs) can be shared with buyers where available and applicable to the tested product lot. Testing may cover relevant parameters such as purity, moisture, microbiological parameters, and pesticide residues, depending on the product and testing requirements.",
   },
   {
     question: "How can I request a quotation for fenugreek seeds?",
@@ -615,7 +615,7 @@ const FenugreekSeedsPage = () => {
             <p className="jm-section-label">Technical Parameters</p>
             <h2 className="jm-section-heading">Fenugreek Seeds Export Specifications</h2>
             <p className="mt-3 text-body leading-7 text-[var(--brand-forest)]">
-              JM Masala provides laboratory-verified commercial specifications for whole Indian Fenugreek
+              JM Masala provides commercial specifications for whole Indian Fenugreek
               seeds. All parameters are verified using standard ISO and ASTA testing procedures:
             </p>
           </div>
@@ -655,7 +655,7 @@ const FenugreekSeedsPage = () => {
                           ? "AOAC Enzymatic-Gravimetric"
                           : row.label.includes("Microbiological")
                           ? "ISO / FDA BAM Standard"
-                          : "Contract / NABL Laboratory Standard"}
+                          : "Contract / Buyer Specification"}
                       </td>
                     </tr>
                   ))}
@@ -666,7 +666,7 @@ const FenugreekSeedsPage = () => {
               <strong className="text-[var(--brand-charcoal)]">Buyer-Specific Specification Note: </strong>
               Specifications can be calibrated according to agreed buyer requirements, destination-market
               regulations (EU, US FDA, GCC, East Asia), and individual contract parameters. Verified
-              pre-shipment COA is issued by accredited NABL testing laboratories.
+              COAs from a third-party laboratory can be shared where available and applicable to the tested lot.
             </div>
           </div>
         </div>
@@ -752,7 +752,7 @@ const FenugreekSeedsPage = () => {
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--brand-deep-green)] text-xs font-bold text-white">
                     6
                   </span>
-                  <span>Batch NABL Laboratory Inspection &amp; Pre-Shipment COA</span>
+                  <span>Third-Party Laboratory Testing &amp; COA (Where Available)</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-[var(--brand-charcoal)]">
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--brand-deep-green)] text-xs font-bold text-white">
@@ -871,7 +871,7 @@ const FenugreekSeedsPage = () => {
                 <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Pesticide Residue &amp; MRLs</h3>
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--brand-forest)]">
-                Tested at accredited NABL labs via LC-MS/MS and GC-MS/MS to ensure compliance with destination
+                Pesticide residue testing by a third-party laboratory can be arranged against destination
                 MRLs (EU pesticide regulations, US FDA defect action levels, Codex standards).
               </p>
             </article>
@@ -1087,7 +1087,7 @@ const FenugreekSeedsPage = () => {
               </span>
               <h3 className="mt-3 text-base font-bold text-[var(--brand-charcoal)]">Processing &amp; Sortex</h3>
               <p className="mt-1 text-xs text-[var(--brand-forest)]">
-                Upon order confirmation, seeds undergo mechanical cleaning, destoning, Sortex optical grading, and NABL COA testing.
+                Upon order confirmation, seeds undergo mechanical cleaning, destoning, Sortex optical grading, and third-party laboratory testing where required.
               </p>
             </div>
 
@@ -1172,7 +1172,7 @@ const FenugreekSeedsPage = () => {
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm text-[rgba(255,255,255,0.85)]">
             Contact JM Masala's trade desk in Gujarat for representative samples, technical specification
-            sheets, laboratory test reports, and competitive FOB Mundra or CIF ocean freight quotations.
+            sheets, third-party laboratory reports where available, and competitive FOB Mundra or CIF ocean freight quotations.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <a

@@ -87,16 +87,16 @@ const PROCESSING_STEPS = [
   },
   {
     num: "06",
-    name: "NABL Lab Verification & Chemical Analysis",
+    name: "Third-Party Laboratory Testing",
     icon: FileCheck,
     tag: "Quality Assurance",
-    headline: "Complete COA Issued for Every Export Container",
+    headline: "COA Shared Where Available and Applicable to the Tested Lot",
     description:
-      "Representative samples are analyzed at NABL accredited partner testing laboratories for chemical purity (Moisture, Total Ash, Acid Insoluble Ash, Volatile Essential Oil), food safety contaminants (Aflatoxin B1/B2/G1/G2, Ochratoxin A, ETO residue), and microbial limits (Salmonella 0/25g, E. coli, Yeast & Mold).",
+      "Samples are tested by a third-party laboratory as required by the product, buyer specification and destination market. Testing may cover purity, moisture, foreign matter, pesticide residues and microbiological parameters, depending on buyer requirements.",
     metrics: [
-      { label: "Moisture Analysis", val: "Karl Fischer / Oven" },
-      { label: "Aflatoxin Screening", val: "HPLC-FLD Certified" },
-      { label: "Microbial Testing", val: "Zero Pathogens" }
+      { label: "Moisture Analysis", val: "As per buyer specification" },
+      { label: "Pesticide Residues", val: "As required by market" },
+      { label: "Microbiological", val: "As per buyer specification" }
     ]
   },
   {
@@ -143,7 +143,7 @@ const CAPABILITIES = [
   },
   {
     title: "Export Documentation Package",
-    desc: "Complete pre-cleared export documentation: Phytosanitary Certificate, licensed Fumigation, NABL COA, APEDA Certificate, and Certificate of Origin.",
+    desc: "Complete pre-cleared export documentation: Phytosanitary Certificate, licensed Fumigation, third-party laboratory COA where available, APEDA Certificate, and Certificate of Origin.",
     badge: "100% Compliant"
   }
 ];
@@ -351,7 +351,7 @@ const SpiceProcessingPage = () => {
             Have Specific Quality Parameters or Custom Mesh Requirements?
           </h2>
           <p className="text-sm sm:text-base text-[var(--brand-forest)] max-w-2xl mx-auto">
-            Share your technical specification sheet or target destination market requirements. Our technical processing team will configure trial batches and lab COAs.
+            Share your technical specification sheet or target destination market requirements. Our technical processing team will configure trial batches, with third-party laboratory COAs where available.
           </p>
           <div className="flex flex-wrap justify-center gap-4 pt-2">
             <Link

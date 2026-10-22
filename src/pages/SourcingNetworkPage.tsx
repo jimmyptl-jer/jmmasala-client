@@ -462,10 +462,10 @@ const sourcingSteps = [
   {
     num: "04",
     Icon: FlaskConical,
-    title: "NABL Lab Testing",
-    desc: "Processed lots are sampled and dispatched to NABL-accredited labs for comprehensive testing — moisture, purity, foreign matter, oil content, aflatoxin, pesticide residue, and microbiological parameters including Salmonella.",
+    title: "Third-Party Lab Testing",
+    desc: "Samples can be sent to a third-party laboratory for testing as required by the product and buyer specification — purity, moisture, foreign matter, pesticide residue, and microbiological parameters.",
     detail:
-      "COA (Certificate of Analysis) available for every export shipment.",
+      "COA (Certificate of Analysis) from the laboratory shared where available and applicable to the tested lot.",
   },
   {
     num: "05",
@@ -520,14 +520,13 @@ const processingSteps = [
   },
   {
     Icon: Dna,
-    title: "NABL-Certified Lab Testing",
-    desc: "Representative samples from each processed lot are sent to our partnered NABL-accredited lab. Full panel includes: moisture, purity, foreign matter, oil content, aflatoxin B1 and total, heavy metals (lead, cadmium, arsenic), pesticide residue multi-screen, and microbiological (Salmonella, E.coli, TPC). Turnaround is 24–48 hours.",
+    title: "Third-Party Lab Testing",
+    desc: "Samples are tested by a third-party laboratory as required by the product, buyer specification and destination market. Testing may cover purity, moisture, foreign matter, pesticide residues and microbiological parameters.",
     tags: [
-      "Aflatoxin",
+      "Purity",
+      "Moisture",
       "Pesticide Screen",
-      "Heavy Metals",
       "Microbiological",
-      "NABL Accredited",
     ],
   },
   {
@@ -563,7 +562,7 @@ const customizations = [
       "Max 8% — European and USA compliance grade",
       "Max 9–10% — Gulf and Bangladesh commercial grade",
       "Max 10–12% — South Indian spices standard export",
-      "Custom moisture band with lab-verified COA",
+      "Custom moisture band, tested by a third-party laboratory where required",
     ],
   },
   {
@@ -609,7 +608,7 @@ const customizations = [
     items: [
       "Phytosanitary certificate (Plant Quarantine)",
       "Fumigation certificate (licensed agency)",
-      "NABL lab COA for the specific lot",
+      "Third-party laboratory COA, where available and applicable to the tested lot",
       "APEDA certificate",
       "Certificate of Origin (Chamber of Commerce)",
       "Commercial invoice + packing list + Bill of Lading",
@@ -636,7 +635,7 @@ const promises = [
   {
     Icon: BarChart3,
     title: "Consistent Quality",
-    desc: "Same HACCP protocol, same lab, same QC team — every lot, every season.",
+    desc: "Same HACCP protocol, same QC team — every lot, every season.",
   },
   {
     Icon: Globe,

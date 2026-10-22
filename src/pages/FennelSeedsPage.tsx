@@ -122,9 +122,9 @@ const FENNEL_SUPPLY_CHAIN_STEPS = [
   },
   {
     step: "07",
-    title: "NABL Laboratory Quality Inspection & COA",
+    title: "Third-Party Laboratory Testing & COA",
     description:
-      "Every production lot is analyzed by accredited testing laboratories for physical purity, moisture, volatile oil content, microbiological safety, and destination-specific pesticide MRLs.",
+      "Lots can be tested by a third-party laboratory, as required by buyer specifications, for physical purity, moisture, volatile oil content, microbiological safety, and destination-specific pesticide MRLs.",
   },
   {
     step: "08",
@@ -228,7 +228,7 @@ const FENNEL_FAQS = [
   {
     question: "Can laboratory documentation (COA) be provided?",
     answer:
-      "Yes. Every export shipment includes an accredited NABL laboratory Certificate of Analysis (COA) confirming purity, moisture, broken seeds, volatile oil, microbiological parameters, and destination-specific pesticide residue MRLs.",
+      "Yes, where available. We work with Eureka Lab for third-party laboratory testing, as required by the product, buyer specifications, and destination-market requirements. Laboratory reports and Certificates of Analysis (COAs) can be shared with buyers where available and applicable to the tested product lot. Testing may cover relevant parameters such as purity, moisture, foreign matter, microbiological parameters, and pesticide residues, depending on the product and testing requirements.",
   },
   {
     question: "How can I request a quotation for fennel seeds?",
@@ -647,7 +647,7 @@ const FennelSeedsPage = () => {
             <p className="jm-section-label">Technical Parameters</p>
             <h2 className="jm-section-heading">Fennel Seeds Export Specifications</h2>
             <p className="mt-3 text-body leading-7 text-[var(--brand-forest)]">
-              JM Masala provides verifiable laboratory specifications for whole Indian fennel seeds. All
+              JM Masala provides commercial specifications for whole Indian fennel seeds. All
               parameters are verified using standard ISO and ASTA analytical procedures:
             </p>
           </div>
@@ -689,7 +689,7 @@ const FennelSeedsPage = () => {
                           ? "Electronic In-line Metal Detector"
                           : row.label.includes("Microbiological")
                           ? "ISO / FDA BAM Standard"
-                          : "Contract / NABL Laboratory Standard"}
+                          : "Contract / Buyer Specification"}
                       </td>
                     </tr>
                   ))}
@@ -700,7 +700,7 @@ const FennelSeedsPage = () => {
               <strong className="text-[var(--brand-charcoal)]">Buyer-Specific Specification Note: </strong>
               Commercial specifications can be calibrated according to agreed buyer requirements, destination
               market regulations (EU, US FDA, GCC, East Asia), and individual contract parameters. Verified
-              pre-shipment COA is issued by accredited NABL testing laboratories.
+              COAs from a third-party laboratory can be shared where available and applicable to the tested lot.
             </div>
           </div>
         </div>
@@ -791,7 +791,7 @@ const FennelSeedsPage = () => {
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--brand-deep-green)] text-xs font-bold text-white">
                     7
                   </span>
-                  <span>Batch NABL Laboratory Inspection &amp; Pre-Shipment COA</span>
+                  <span>Third-Party Laboratory Testing &amp; COA (Where Available)</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-[var(--brand-charcoal)]">
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--brand-deep-green)] text-xs font-bold text-white">
@@ -1119,7 +1119,7 @@ const FennelSeedsPage = () => {
               </span>
               <h3 className="mt-3 text-base font-bold text-[var(--brand-charcoal)]">Sortex &amp; Testing</h3>
               <p className="mt-1 text-xs text-[var(--brand-forest)]">
-                Upon order confirmation, seeds undergo mechanical cleaning, destoning, Sortex optical grading, metal checking, and NABL COA testing.
+                Upon order confirmation, seeds undergo mechanical cleaning, destoning, Sortex optical grading, metal checking, and third-party laboratory testing where required.
               </p>
             </div>
 
@@ -1228,7 +1228,7 @@ const FennelSeedsPage = () => {
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm text-[rgba(255,255,255,0.85)]">
             Contact JM Masala's trade desk in Unjha, Gujarat for representative samples, technical
-            specification sheets, laboratory test reports, and competitive FOB Mundra or CIF ocean freight
+            specification sheets, third-party laboratory reports where available, and competitive FOB Mundra or CIF ocean freight
             quotations.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">

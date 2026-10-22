@@ -120,9 +120,9 @@ const SESAME_SUPPLY_CHAIN_STEPS = [
   },
   {
     step: "07",
-    title: "NABL Laboratory Inspection & COA",
+    title: "Third-Party Laboratory Testing & COA",
     description:
-      "Every production lot is analyzed by accredited laboratories for purity, moisture, oil percentage, free fatty acids, microbiological limits, and destination-specific pesticide residues.",
+      "Lots can be tested by a third-party laboratory, as required by buyer specifications, for purity, moisture, oil percentage, free fatty acids, microbiological limits, and destination-specific pesticide residues.",
   },
   {
     step: "08",
@@ -201,7 +201,7 @@ const SESAME_FAQS = [
   {
     question: "Can JM Masala provide laboratory documentation (COA)?",
     answer:
-      "Yes. Every export shipment includes an accredited NABL laboratory Certificate of Analysis (COA) confirming purity, moisture, oil content, free fatty acids, microbiological limits, and destination-specific pesticide residue and ETO compliance.",
+      "Yes, where available. We work with Eureka Lab for third-party laboratory testing, as required by the product, buyer specifications, and destination-market requirements. Laboratory reports and Certificates of Analysis (COAs) can be shared with buyers where available and applicable to the tested product lot. Testing may cover relevant parameters such as purity, moisture, microbiological parameters, and pesticide residues, depending on the product and testing requirements.",
   },
   {
     question: "How can international buyers request a sesame seed quotation?",
@@ -711,7 +711,7 @@ const SesameSeedsPage = () => {
             <p className="jm-section-label">Technical Parameters</p>
             <h2 className="jm-section-heading">Sesame Seeds Export Specifications</h2>
             <p className="mt-3 text-body leading-7 text-[var(--brand-forest)]">
-              JM Masala provides verifiable laboratory specifications for both Natural and Hulled Indian
+              JM Masala provides commercial specifications for both Natural and Hulled Indian
               sesame seeds. All parameters are tested using internationally recognized ISO, ASTA, and AOCS
               methodologies:
             </p>
@@ -752,7 +752,7 @@ const SesameSeedsPage = () => {
                           ? "AOCS Ca 5a-40 (as oleic acid)"
                           : row.label.includes("Microbiological")
                           ? "ISO / FDA BAM Standard"
-                          : "Contract / NABL Laboratory Standard"}
+                          : "Contract / Buyer Specification"}
                       </td>
                     </tr>
                   ))}
@@ -763,7 +763,7 @@ const SesameSeedsPage = () => {
               <strong className="text-[var(--brand-charcoal)]">Buyer-Specific Specification Note: </strong>
               Commercial specifications are calibrated according to agreed buyer requirements, destination
               market regulations (EU, US FDA, GCC, East Asia), and individual contract parameters. Verified
-              pre-shipment COA is issued by accredited NABL testing laboratories.
+              COAs from a third-party laboratory can be shared where available and applicable to the tested lot.
             </div>
           </div>
         </div>
@@ -894,7 +894,7 @@ const SesameSeedsPage = () => {
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--brand-deep-green)] text-xs font-bold text-white">
                     7
                   </span>
-                  <span>NABL Laboratory Quality Inspection &amp; Pre-Shipment COA</span>
+                  <span>Third-Party Laboratory Testing &amp; COA (Where Available)</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-[var(--brand-charcoal)]">
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--brand-deep-green)] text-xs font-bold text-white">
@@ -1006,8 +1006,8 @@ const SesameSeedsPage = () => {
                 <h3 className="text-base font-bold text-[var(--brand-charcoal)]">Zero ETO &amp; Pesticide MRLs</h3>
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--brand-forest)]">
-                Lots undergo dedicated GC-MS/MS and LC-MS/MS screenings at NABL accredited labs to verify
-                strict compliance with destination market maximum residue limits (EU MRLs, US FDA, Codex).
+                Pesticide residue testing by a third-party laboratory can be arranged to check
+                against destination market maximum residue limits (EU MRLs, US FDA, Codex).
               </p>
             </article>
 
@@ -1224,7 +1224,7 @@ const SesameSeedsPage = () => {
               </span>
               <h3 className="mt-3 text-base font-bold text-[var(--brand-charcoal)]">Order &amp; Processing</h3>
               <p className="mt-1 text-xs text-[var(--brand-forest)]">
-                Upon contract agreement, seeds undergo mechanical cleaning, hulling, Sortex optical grading, and lab testing.
+                Upon contract agreement, seeds undergo mechanical cleaning, hulling, Sortex optical grading, and third-party laboratory testing where required.
               </p>
             </div>
 
@@ -1335,7 +1335,7 @@ const SesameSeedsPage = () => {
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm text-[rgba(255,255,255,0.85)]">
             Contact JM Masala's trade desk in Gujarat for representative samples, technical specification
-            sheets, laboratory test reports, and competitive FOB Mundra or CIF ocean freight quotations.
+            sheets, third-party laboratory reports where available, and competitive FOB Mundra or CIF ocean freight quotations.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <a

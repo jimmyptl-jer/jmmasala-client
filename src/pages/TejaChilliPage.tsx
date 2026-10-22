@@ -56,7 +56,7 @@ const TEJA_FAQS = [
   {
     question: "What is the Scoville Heat rating of JM Masala Teja chillies?",
     answer:
-      "Our export batches of Teja chillies consistently test between 50,000 and 85,000+ Scoville Heat Units (SHU) via HPLC analysis. Every consignment can be provided with an accredited laboratory Certificate of Analysis.",
+      "Our export batches of Teja chillies consistently test between 50,000 and 85,000+ Scoville Heat Units (SHU) via HPLC analysis. A Certificate of Analysis (COA) from a third-party laboratory can be shared where available and applicable to the tested lot.",
   },
   {
     question: "Does JM Masala supply stemless Teja chilli?",
