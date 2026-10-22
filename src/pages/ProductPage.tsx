@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { Sprout } from "lucide-react";
+import { Download, Sprout } from "lucide-react";
 import Seo from "@/components/Seo";
 import { PRODUCTS } from "@/data/siteData";
 
@@ -146,6 +146,14 @@ const ProductsPage = () => {
           <p className="mt-2 max-w-3xl text-[var(--brand-forest)]">
             JM Masala Trading LLP is an Indian spice manufacturer, processor, and exporter supplying high-purity Whole Spices, Pure Ground Powders, Dehydrated Products, Psyllium, and Agro Commodities with advanced Sortex optical cleaning and FOB Mundra / CIF global shipping terms.
           </p>
+
+          <a
+            href="/JMMasalaProducts.pdf"
+            download="JM-Masala-Product-Catalogue.pdf"
+            className="jm-btn jm-btn--secondary mt-5 gap-2"
+          >
+            <Download size={18} aria-hidden="true" /> Download Product Catalogue (PDF)
+          </a>
 
           {/* Quick link banner for Cold Pressed Oils */}
           <div className="mt-5 p-4 rounded-xl bg-[var(--brand-cream)] border border-[var(--brand-gold-pale)] flex flex-col sm:flex-row items-center justify-between gap-3">

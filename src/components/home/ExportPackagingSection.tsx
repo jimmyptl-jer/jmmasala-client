@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, FileText, Mail, MessageCircle } from "lucide-react";
+import { ArrowRight, Download, FileText, Mail, MessageCircle } from "lucide-react";
 import { COMPANY, buildGeneralInquiryMessage, buildWhatsAppUrl } from "@/data/siteData";
 import "@/styles/home-trust.css";
 
@@ -87,6 +87,13 @@ export default function ExportPackagingSection(): JSX.Element {
             </a>
             <a href={`mailto:${COMPANY.email}`} className="jmh-btn jmh-btn--outline">
               <Mail size={18} aria-hidden /> Email
+            </a>
+            <a
+              href="/JMMasalaProducts.pdf"
+              download="JM-Masala-Product-Catalogue.pdf"
+              className="jmh-btn jmh-btn--outline"
+            >
+              <Download size={18} aria-hidden /> Product catalogue (PDF)
             </a>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
 import BackToTopButton from "@/components/BackToTopButton";
+import DatasheetBar from "@/components/DatasheetBar";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import RouteScroll from "@/components/RouteScroll";
@@ -50,6 +51,7 @@ const SiteLayout = () => {
       <AnalyticsTracker />
       <RouteScroll />
       <Header />
+      <DatasheetBar />
       <main>
         <Outlet />
       </main>

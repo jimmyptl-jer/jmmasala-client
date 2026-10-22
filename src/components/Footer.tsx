@@ -204,6 +204,15 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href="/JMMasalaProducts.pdf"
+                  download="JM-Masala-Product-Catalogue.pdf"
+                  className="hover:text-[var(--brand-gold-light)] transition-colors block py-0.5 max-sm:min-h-[44px] max-sm:flex max-sm:items-center"
+                >
+                  Download Product Catalogue (PDF)
+                </a>
+              </li>
             </ul>
           </div>
 
