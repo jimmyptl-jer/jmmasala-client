@@ -18,7 +18,6 @@ const DATASHEETS: Record<string, string> = {
   "bird-eye-chilli-exporter-india": "Bird's Eye Chilli",
   "king-chilli-exporter-india": "King Chilli",
   "turmeric-exporter-india": "Turmeric",
-  "black-pepper-exporter-india": "Black Pepper",
   "cardamom-exporter-india": "Green and Black Cardamom",
   "dry-ginger-exporter-india": "Dry Ginger",
   "cumin-powder-exporter-india": "Cumin Powder",

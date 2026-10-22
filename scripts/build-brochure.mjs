@@ -26,7 +26,6 @@ const P = [
   ['bird-eye-chilli-exporter-india', "Bird's Eye Chilli", '', '', false, 'BirdEyeChilli.jpg', '#d35400'],
   ['king-chilli-exporter-india', 'King Chilli', '', '', false, 'KingChilli.jpg', '#922b21'],
   ['turmeric-exporter-india', 'Turmeric', 'Haldi', '', false, 'Turmeric.jpg', '#d68910'],
-  ['black-pepper-exporter-india', 'Black Pepper', '', '', false, 'BlackPepper.jpg', '#2c3e50'],
   ['cardamom-exporter-india', 'Green and Black Cardamom', '', '', false, 'Cardamom.jpg', '#4f7a3a'],
   ['dry-ginger-exporter-india', 'Dry Ginger', 'Sonth', '', false, 'DryGinger.jpg', '#b9873a'],
   ['cumin-powder-exporter-india', 'Cumin Powder', '', '', false, 'CuminPowder.jpg', '#8b5e3c'],
@@ -46,8 +45,8 @@ body{margin:0;font-family:"Segoe UI",Arial,sans-serif;color:#2a2a2a;font-size:10
 .p:last-child{page-break-after:auto}
 h1,h2,h3{font-family:Georgia,serif;margin:0}
 .lab{letter-spacing:.28em;font-size:8.5pt;text-transform:uppercase}
-.cover{background:#1a2e1a center/cover;color:#faf6ee}
-.cover .ov{position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,46,26,.93) 0%,rgba(26,46,26,.72) 55%,rgba(201,168,76,.35) 100%)}
+.cover{background:#3a2214 center/cover;color:#faf6ee}
+.cover .ov{position:absolute;inset:0;background:linear-gradient(160deg,rgba(58,34,20,.93) 0%,rgba(58,34,20,.72) 55%,rgba(201,168,76,.35) 100%)}
 .cover .in{position:absolute;left:22mm;right:22mm;top:60mm}
 .cover img.lg{width:44mm;height:44mm;background:#fdfbf7;border-radius:12px;padding:3mm}
 .cover h1{color:#fff;font-size:42pt;line-height:1.1;margin:10mm 0 6mm}
@@ -55,28 +54,28 @@ h1,h2,h3{font-family:Georgia,serif;margin:0}
 .cover p{font-size:14pt;max-width:135mm;color:#f3ecd9}
 .cover .ct{position:absolute;left:22mm;right:22mm;bottom:22mm;border-top:2px solid #c9a84c;padding-top:5mm;font-size:10pt;color:#efe6cf}
 .cover .bar{position:absolute;left:0;right:0;bottom:0;height:8mm;background:#c9a84c}
-.band{background:#1a2e1a;color:#fff;padding:16mm 17mm 10mm}.band h2{color:#fff;font-size:26pt}.band .lab{color:#e2c97e;margin-bottom:2mm}
+.band{background:#3a2214;color:#fff;padding:16mm 17mm 10mm}.band h2{color:#fff;font-size:26pt}.band .lab{color:#e2c97e;margin-bottom:2mm}
 .photos{display:grid;grid-template-columns:repeat(3,1fr);gap:0;height:58mm}.photos div{background-size:cover;background-position:center}
 .body{padding:9mm 17mm 0}
 .tiles{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
 .tile{border-radius:10px;padding:5mm 6mm;color:#fff}
 .tile h3{font-size:13pt;color:#fff;margin:0 0 2mm}.tile ul{margin:0;padding-left:5mm}.tile li{margin:1mm 0}
-.g{background:linear-gradient(135deg,#2d4a2d,#1a2e1a)}.go{background:linear-gradient(135deg,#d9b650,#b8892f)}
+.g{background:linear-gradient(135deg,#5c3a1f,#3a2214)}.go{background:linear-gradient(135deg,#d9b650,#b8892f)}
 .steps{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:3mm}
 .step{display:flex;gap:3mm;background:#fff;border:1px solid #f0e4c0;border-radius:10px;padding:3.5mm 4mm}
-.step b{flex:none;width:8mm;height:8mm;border-radius:50%;background:#c9a84c;color:#1a2e1a;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif}
-.h3{font-family:Georgia,serif;font-size:14pt;color:#1a2e1a;margin:7mm 0 2mm}
-.foot{position:absolute;left:0;right:0;bottom:0;background:#1a2e1a;color:#e9dfc8;padding:5mm 17mm;font-size:8.5pt;display:flex;justify-content:space-between}
+.step b{flex:none;width:8mm;height:8mm;border-radius:50%;background:#c9a84c;color:#3a2214;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif}
+.h3{font-family:Georgia,serif;font-size:14pt;color:#3a2214;margin:7mm 0 2mm}
+.foot{position:absolute;left:0;right:0;bottom:0;background:#3a2214;color:#e9dfc8;padding:5mm 17mm;font-size:8.5pt;display:flex;justify-content:space-between}
 .prod .hero{height:86mm;background-size:cover;background-position:center;position:relative}
-.prod .hero .ov{position:absolute;left:0;right:0;bottom:0;padding:22mm 17mm 7mm;background:linear-gradient(to top,rgba(10,20,10,.88),rgba(10,20,10,0))}
+.prod .hero .ov{position:absolute;left:0;right:0;bottom:0;padding:22mm 17mm 7mm;background:linear-gradient(to top,rgba(30,16,8,.88),rgba(30,16,8,0))}
 .prod .hero h2{color:#fff;font-size:30pt;line-height:1.1}.prod .hero .names{color:#f3e7c4;font-style:italic;font-size:12pt}
-.prod .hero .tag{position:absolute;top:10mm;left:17mm;background:rgba(255,255,255,.92);border-radius:8px;padding:2mm 3mm;display:flex;gap:2mm;align-items:center;font-size:8pt;color:#1a2e1a;letter-spacing:.2em;text-transform:uppercase}
+.prod .hero .tag{position:absolute;top:10mm;left:17mm;background:rgba(255,255,255,.92);border-radius:8px;padding:2mm 3mm;display:flex;gap:2mm;align-items:center;font-size:8pt;color:#3a2214;letter-spacing:.2em;text-transform:uppercase}
 .prod .hero .tag img{width:9mm;height:9mm}
 .stripe{height:4mm}.prod.tight .hero{height:58mm}.prod.tight .hero .ov{padding-top:12mm}.prod.tight .h3{margin:4mm 0 1.5mm}.prod.tight th,.prod.tight td{padding:1.2mm 3mm}.prod.tight .tile{padding:3.5mm 5mm}.prod.tight .tile li{margin:.4mm 0}.prod.tight .step{padding:2.5mm 3mm}.prod.tight .contact{margin-top:4mm;padding:3mm 5mm}.prod.tight .body{padding-top:6mm}.tiles{margin-top:5mm}
-.lead{font-size:12.5pt;color:#1a2e1a;margin:0 0 3mm}
-table{width:100%;border-collapse:collapse;font-size:10pt;margin-top:2mm}th,td{padding:2mm 3mm;text-align:left;border-bottom:1px solid #eadfb8}th{background:#1a2e1a;color:#fff}
-.contact{margin-top:6mm;display:flex;gap:6mm;align-items:center;background:#faf1d4;border:1px solid #e6d291;border-radius:10px;padding:4mm 6mm}.contact div{font-size:9.5pt}
-.thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:4mm}.th{border-radius:8px;overflow:hidden;background:#fff;border:1px solid #f0e4c0}.th i{display:block;height:24mm;background-size:cover;background-position:center}.th span{display:block;padding:1.5mm 2mm;font-size:8.5pt;text-align:center;color:#1a2e1a;font-weight:600}
+.lead{font-size:12.5pt;color:#3a2214;margin:0 0 3mm}
+table{width:100%;border-collapse:collapse;font-size:10pt;margin-top:2mm}th,td{padding:2mm 3mm;text-align:left;border-bottom:1px solid #eadfb8}th{background:#3a2214;color:#fff}
+.contact{margin-top:6mm;display:flex;gap:6mm;align-items:center;background:#f6e9c8;border:1px solid #e6d291;border-radius:10px;padding:4mm 6mm}.contact div{font-size:9.5pt}
+.thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:4mm}.th{border-radius:8px;overflow:hidden;background:#fff;border:1px solid #f0e4c0}.th i{display:block;height:24mm;background-size:cover;background-position:center}.th span{display:block;padding:1.5mm 2mm;font-size:8.5pt;text-align:center;color:#3a2214;font-weight:600}
 `;
 
 const stats = `<div class="tiles"><div class="tile g"><h3>Supply terms</h3><ul><li>Trial orders from 1 MT</li><li>Supply up to 200 MT per month</li><li>Dispatch 1-5 days after order confirmation</li><li>Samples can be arranged</li><li>Private label available</li></ul></div>
@@ -99,9 +98,9 @@ const about = `<div class="p"><div class="band"><div class="lab">About us</div><
 <div class="foot"><span>JM Masala Trading LLP</span><span>Product Catalogue | October 2026</span></div></div>`;
 
 const productPage = ([slug, name, names, desc, priority, , accent]) => `<div class="p prod${slug === 'cumin-seeds-exporter-india' ? ' tight' : ''}"><div class="hero" style="background-image:url(${img[slug]})"><div class="tag"><img src="${logo}">Product data sheet</div><div class="ov"><h2>${name}</h2>${names ? `<div class="names">${names}</div>` : ''}</div></div>
-<div class="stripe" style="background:${accent}"></div>
+<div class="stripe" style="background:linear-gradient(90deg,#c9a84c,#e2c97e,#c9a84c)"></div>
 <div class="body"><p class="lead">${desc || `${name} is part of the JM Masala range, supplied from Unjha, Gujarat for importers, wholesalers, distributors and food manufacturers.`}</p>
-<p style="margin:0 0 4mm;color:#6b5a2e">${priority ? 'Specifications, grades and packing are confirmed with your quotation.' : 'Specifications for this product are shared on request with a sample.'}</p>
+<p style="margin:0 0 4mm;color:#7a5a35">${priority ? 'Specifications, grades and packing are confirmed with your quotation.' : 'Specifications for this product are shared on request with a sample.'}</p>
 ${slug === 'cumin-seeds-exporter-india' ? grades : ''}${stats.replace('margin', 'margin')}${steps}${contactBox(slug)}</div>
 <div class="foot"><span>JM Masala Trading LLP | ${name}</span><span>October 2026</span></div></div>`;
 
@@ -124,6 +123,6 @@ for (const item of P) {
 await p.setContent(doc([cover, about, ...P.map(productPage), rangePage()].join('\n')));
 await p.pdf({ path: `${ROOT}/public/JMMasalaProducts.pdf`, format: 'A4', printBackground: true, preferCSSPageSize: true });
 await p.setViewportSize({ width: 794, height: 1123 });
-for (const n of [1, 2, 3, 8, 11, 28]) await p.locator('.p').nth(n - 1).screenshot({ path: (process.argv[2] || '.') + `/b${n}.png` });
+for (const n of [1, 2, 3, 8, 11, 27]) await p.locator('.p').nth(n - 1).screenshot({ path: (process.argv[2] || '.') + `/b${n}.png` });
 await br.close();
 console.log('done');
